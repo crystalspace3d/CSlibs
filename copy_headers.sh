@@ -31,3 +31,4 @@ if test ! -e headers/cal3d ; then
 fi
 cp source/libcal3d/src/cal3d/*.h headers/cal3d
 
+find headers -type d -name CVS -exec rm -rf {} \; -prune 

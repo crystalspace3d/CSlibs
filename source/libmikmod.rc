@@ -1,5 +1,5 @@
-#define VER_PRODUCT_NUMERIC	3,1,11,0
-#define	VER_PRODUCT_STR		"3.1.11"
+#define VER_PRODUCT_NUMERIC	3,1,11,1
+#define	VER_PRODUCT_STR		"3.1.11a"
 #define	VER_DESCRIPTION		"MikMod"
 #define VER_INTERNAL		"libmikmod"
 #define	VER_COPYRIGHT		"(c) 1998-2003 Miodrag Vallat and others."
