@@ -1,5 +1,6 @@
-0.99r0_010 (2005-??-??):
+0.99r0_010 (2005-04-04):
   - Added libcaca.
+  - Updated cal3d to latest CVS.
 
 0.99r0_009 (2005-03-22):
   - Updated cal3d to latest CVS.
