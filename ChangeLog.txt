@@ -25,4 +25,3 @@
   - mingw cal3d is now also compiled for gcc 3.4.2
   - Added latest version of dbghelp.dll
   - Debug info for freetype2 was missing
- 
