@@ -1,0 +1,57 @@
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+#include <windows.h>
+
+#include "../version.inc"
+#define VER_FILE_NUMERIC	CSLIBS_VERSION_NUM
+#define VER_FILE_STR		"cs-win32libs " CSLIBS_VERSION_STR "\0"
+
+#ifndef VER_TRADEMARKS
+  #define VER_TRADEMARKS
+#endif
+#ifndef VER_COMPANY
+  #define VER_COMPANY
+#endif
+#ifndef VER_COMMENTS
+  #define VER_COMMENTS
+#endif
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION VER_FILE_NUMERIC
+ PRODUCTVERSION VER_PRODUCT_NUMERIC
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x21L
+#else
+ FILEFLAGS 0x20L
+#endif
+ FILEOS 0x40004L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "Comments", VER_COMMENTS "\0"
+            VALUE "CompanyName", VER_COMPANY "\0"
+            VALUE "FileDescription", VER_DESCRIPTION "\0"
+            VALUE "FileVersion", VER_FILE_STR "\0"
+            VALUE "InternalName", VER_INTERNAL "\0"
+            VALUE "LegalCopyright", VER_COPYRIGHT "\0"
+            VALUE "LegalTrademarks", VER_TRADEMARKS "\0"
+            VALUE "OriginalFilename", VER_FILENAME "\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", VER_PRODUCTNAME "\0"
+            VALUE "ProductVersion", VER_PRODUCT_STR "\0"
+            VALUE "SpecialBuild", "Built for CrystalSpace; may cause problems if used for other software.\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+      VALUE "Translation", 0x0409, 0x04E4
+    END
+END
