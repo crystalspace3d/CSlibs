@@ -26,6 +26,8 @@ DisableDirPage=false
 UsePreviousAppDir=false
 DisableProgramGroupPage=true
 DisableReadyPage=yes
+WizardImageFile=compiler:WizModernImage-IS.bmp
+WizardSmallImageFile=compiler:WizModernSmallImage-IS.bmp
 [Files]
 ; Copy the DLLs to the CS dir.
 Source: {src}\dlls\*.dll; DestDir: {app}; Flags: external skipifsourcedoesntexist
@@ -66,19 +68,14 @@ begin
   SupportInitialize();
 end;
 
-function FScriptDlgPages(CurPage: Integer; BackClicked: Boolean): Boolean;
-begin
-  Result := FSupportScriptDlgPages(CurPage, BackClicked);
-end;
-
 function NextButtonClick(CurPage: Integer): Boolean;
 begin
-  Result := FScriptDlgPages(CurPage, False);
+  Result := FSupportPageNext (CurPage);
 end;
 
-function BackButtonClick(CurPage: Integer): Boolean;
+function ShouldSkipPage(PageID: Integer): Boolean;
 begin
-  Result := FScriptDlgPages(CurPage, True);
+  Result := FSupportPageSkip (PageID);
 end;
 
 

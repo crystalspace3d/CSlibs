@@ -7,8 +7,8 @@
 
 [Setup]
 SolidCompression=true
-Compression=lzma/ultra
-;Compression=none
+;Compression=lzma/ultra
+Compression=none
 ShowLanguageDialog=no
 AppName={#AppName}
 AppId={#AppId}
@@ -23,7 +23,9 @@ DefaultGroupName={#AppName}
 UninstallDisplayIcon={app}\setuptool.dll
 InfoBeforeFile=..\..\Readme.rtf
 UseSetupLdr=true
-WizardImageFile=WizModernImage.bmp
+;WizardImageFile=WizModernImage.bmp
+WizardImageFile=compiler:WizModernImage-IS.bmp
+WizardSmallImageFile=compiler:WizModernSmallImage-IS.bmp
 TimeStampsInUTC=true
 InternalCompressLevel=ultra
 AllowNoIcons=yes
@@ -162,23 +164,14 @@ var
   CSDirectory: string;
   WineSettings: string;
 
+  uninstallPage: TInputOptionWizardPage;
+  wineSettingsPage: TInputOptionWizardPage;
+  openALinstallPage: TInputOptionWizardPage;
+  CSdirPage: TInputDirWizardPage;
+  UninstPrevProgress: TOutputProgressWizardPage;
+  
 const
   UninstKey = 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{#AppId}_is1';
-
-procedure InitializeWizard();
-begin
-  UninstallPrevious := '1';
-  InstallOpenALRT := GetPreviousData('InstallOpenALRT', '1');
-  CSDirectory := GetPreviousData('CSDirectory', ExpandConstant ('{%CRYSTAL|{pf}\CS}'));
-  WineSettings := GetPreviousData('WineEnvironment', '0');
-end;
-
-procedure RegisterPreviousData(PreviousDataKey: Integer);
-begin
-  SetPreviousData(PreviousDataKey, 'InstallOpenALRT', InstallOpenALRT);
-  SetPreviousData(PreviousDataKey, 'CSDirectory', CSDirectory);
-  SetPreviousData(PreviousDataKey, 'WineEnvironment', WineSettings);
-end;
 
 function GetDefaultCSdir(): string;
 begin
@@ -187,6 +180,70 @@ begin
     {Result := }UnixToWine (CSDirectory)
   end else
     Result := CSDirectory;
+end;
+
+procedure InitializeWizard();
+var
+  insertPageAfter: integer;
+begin
+  UninstallPrevious := '1';
+  InstallOpenALRT := GetPreviousData('InstallOpenALRT', '1');
+  CSDirectory := GetPreviousData('CSDirectory', ExpandConstant ('{%CRYSTAL|{pf}\CS}'));
+  WineSettings := GetPreviousData('WineEnvironment', '0');
+  
+  uninstallPage := CreateInputOptionPage (wpWelcome,
+    'Uninstall already installed version',
+    'Would you like to uninstall the already installed version?',
+    'Another installed version of the Crystal Space Win32 libraries has been detected. ' +
+      'It is recommended to uninstall it before continuing. ' #13#10#13#10+
+      'Select whether this should be done automatically before the actual installation.',
+    false, false);
+  uninstallPage.Add ('&Uninstall already installed version (recommended)');
+  uninstallPage.Values[0] := UninstallPrevious <> '0';
+  insertPageAfter := uninstallPage.ID;
+
+  if IsWinePresent() then begin
+    wineSettingsPage := CreateInputOptionPage (insertPageAfter,
+      'Wine detected',
+      'Would you like Setup to preset options for a cross-compile environment?',
+      'It seems that you''re running this setup with Wine. ' +
+        'Setup can choose defaults for some preferences that ease setting up ' +
+        'the libs in a cross-compile environment. ' #13#10#13#10+
+  	  'Select whether this should be done. ',
+      false, false);
+    wineSettingsPage.Add ('&Use cross-compile presets');
+    wineSettingsPage.Values[0] := true;
+    insertPageAfter := wineSettingsPage.ID;
+  end;
+
+  openALinstallPage := CreateInputOptionPage (wpSelectComponents,
+    'Run OpenAL installer',
+    'Would you like to run the OpenAL.org installer?',
+    'You have chosen to copy the OpenAL.org installer. Optionally, you can also have ' +
+      'Setup run it to update or install the OpenAL runtime libraries on your system.',
+    false, false);
+  openALinstallPage.Add ('&Run OpenAL.org installer (recommended)');
+  openALinstallPage.Values[0] := InstallOpenALRT <> '0';
+
+  CSdirPage := CreateInputDirPage (wpSelectDir,
+    'Crystal Space directory',
+    'Where is your CrystalSpace directory located?',
+    'Please specify your CrystalSpace directory. This is needed for VC support, ' +
+      'but also the DLLs of the Win32 libraries are (optionally) copied there, so ' +
+      'they are found at runtime.',
+      false, '');
+  CSdirPage.Add ('');
+  CSdirPage.Values[0] := GetDefaultCSdir();
+  
+  UninstPrevProgress := CreateOutputProgressPage ('Uninstall already installed version',
+    'Uninstalling the already installed version.');
+end;
+
+procedure RegisterPreviousData(PreviousDataKey: Integer);
+begin
+  SetPreviousData(PreviousDataKey, 'InstallOpenALRT', InstallOpenALRT);
+  SetPreviousData(PreviousDataKey, 'CSDirectory', CSDirectory);
+  SetPreviousData(PreviousDataKey, 'WineEnvironment', WineSettings);
 end;
 
 function GetCSdir(Default: String): string;
@@ -242,121 +299,10 @@ begin
    end;
 end;
 
-function ComponentSelected(const component: string): boolean;
-var
-  s: string;
-  p: integer;
-begin
-  Result := false;
-  s := WizardSelectedComponents (false);
-  p := Pos (Lowercase (component), s);
-  if (p > 0) then begin
-    if ((p = 1) or (StrGet (s, p - 1) = ',')) and
-      ((p + length(component) >= length(s)) or (StrGet (s, p + length(component)) = ',')) then
-      Result := true;
-  end;
-end;
-
 function FPrevVerInstalled(): boolean;
 begin
   Result := RegValueExists (HKEY_LOCAL_MACHINE,
     UninstKey, 'UninstallString');
-end;
-
-function FDoPreDirSelectPages(BackClicked: Boolean): Boolean;
-var
-  CurSubPage: Integer;
-  Next: Boolean;
-begin
-  if not BackClicked then
-    CurSubPage := 0
-  else
-    CurSubPage := 1;
-  Next := not BackClicked;
-  ScriptDlgPageOpen();
-  while (CurSubPage >= 0) and (CurSubPage <= 1) and not Terminated do begin
-    case CurSubPage of
-      0:
-        begin
-          if FPrevVerInstalled then begin
-            ScriptDlgPageSetCaption('Uninstall already installed version');
-            ScriptDlgPageSetSubCaption1('Would you like to uninstall the already installed version?');
-            ScriptDlgPageSetSubCaption2(
-	            'Another installed version of the Crystal Space Win32 libraries has been detected. ' +
-              'It is recommended to uninstall it before continuing. ' #13#10#13#10+
-	            'Select whether this should be done automatically before the actual installation.'
-	          );
-	          Next := InputOption('&Uninstall already installed version (recommended)', UninstallPrevious);
-          end{ else
-            Next := not BackClicked};
-	      end;
-	    1:
-	      begin
-	        if IsWinePresent() then begin
-            ScriptDlgPageSetCaption('Wine detected');
-            ScriptDlgPageSetSubCaption1('Would you like Setup to preset options for a cross-compile environment?');
-            ScriptDlgPageSetSubCaption2(
-	           'It seems that you''re running this setup with Wine. ' +
-              'Setup can choose defaults for some preferences that ease setting up ' +
-	           'the libs in a cross-compile environment. ' #13#10#13#10+
-	           'Select whether this should be done. '
-	          );
-            WineSettings := '1';
-            Next := InputOption('&Use cross-compile presets', WineSettings);
-          end{ else
-            Next := not BackClicked};
-        end;
-    end;
-    if Next then
-      CurSubPage := CurSubPage + 1
-    else
-      CurSubPage := CurSubPage - 1;
-  end;
-  if not BackClicked then
-    Result := Next
-  else
-    Result := not Next;
-  ScriptDlgPageClose(not Result);
-end;
-
-function FDoInstallOpenALRTPage(BackClicked: Boolean): Boolean;
-var
-  Next: Boolean;
-begin
-  ScriptDlgPageOpen();
-  ScriptDlgPageSetCaption('Run OpenAL installer');
-  ScriptDlgPageSetSubCaption1('Would you like to run the OpenAL.org installer?');
-  ScriptDlgPageSetSubCaption2(
-	'You have chosen to copy the OpenAL.org installer. Optionally, you can also have ' +
-    'Setup run it to update or install the OpenAL runtime libraries on your system.'
-	);
-  Next := InputOption('&Run OpenAL.org installer (recommended)', InstallOpenALRT);
-  if not BackClicked then
-    Result := Next
-  else
-    Result := not Next;
-  ScriptDlgPageClose(not Result);
-end;
-
-function FDoSelectCSDir(BackClicked: Boolean): Boolean;
-var
-  Next: Boolean;
-begin
-  ScriptDlgPageOpen();
-  ScriptDlgPageSetCaption('Crystal Space directory');
-  ScriptDlgPageSetSubCaption1('Where is your CrystalSpace directory located?');
-  ScriptDlgPageSetSubCaption2(
-	'Please specify your CrystalSpace directory. This is needed for VC support, ' +
-    'but also the DLLs of the Win32 libraries are (optionally) copied there, so ' +
-	'they are found at runtime.'
-	);
-  CSDirectory := GetDefaultCSdir();
-  Next := InputDir (false, '', CSDirectory);
-  if not BackClicked then
-    Result := Next
-  else
-    Result := not Next;
-  ScriptDlgPageClose(not Result);
 end;
 
 function RunOpenALInstaller(): boolean;
@@ -370,32 +316,29 @@ var
   resCode: integer;
 begin
   Result := true;
-  ScriptDlgPageOpen();
-  ScriptDlgPageSetCaption('Uninstall already installed version');
-  ScriptDlgPageSetSubCaption1('Uninstalling the already installed version.');
-  ScriptDlgPageSetSubCaption2('');
+  UninstPrevProgress.Show ();
   if (RegQueryStringValue (HKEY_LOCAL_MACHINE,
     UninstKey, 'UninstallString', uninstCmd)) then
   begin
-    OutputMsg('Executing "' + uninstCmd + '" ...', false);
+    UninstPrevProgress.SetText ('Executing', uninstCmd);
   //if (not InstShellExec (uninstCmd, '/SILENT', '', {true, false,} SW_SHOWNORMAL, resCode)) then
-  if (not InstExec (uninstCmd, '/SILENT', '', true, false, SW_SHOWNORMAL, resCode)) then
-	begin
-	  Result := MsgBox ('Failed to execute uninstaller:' + #13#10 + SysErrorMessage (resCode)
+    if (not Exec (uninstCmd, '/SILENT', '', SW_SHOWNORMAL, ewWaitUntilTerminated, resCode)) then
+	  begin
+	    Result := MsgBox ('Failed to execute uninstaller:' + #13#10 + SysErrorMessage (resCode)
         + #13#10#13#10 + 'Continue with installation?',
         mbConfirmation, MB_YESNO) = IDYES;
-	end;
+  	end;
     Sleep (1000);
     while (FindWindowByWindowName ('{#AppName} Uninstall') <> 0) do
       Sleep (200);
   end;
-  ScriptDlgPageClose(False);
+  UninstPrevProgress.Hide ();
 end;
 
 function FScriptDlgPages(CurPage: Integer; BackClicked: Boolean): Boolean;
 begin
   Result := true;
-  if ((not BackClicked and (CurPage = wpWelcome)) or
+{  if ((not BackClicked and (CurPage = wpWelcome)) or
     (BackClicked and (CurPage = wpInfoBefore))) then begin
  	  Result := FDoPreDirSelectPages(BackClicked);
   end else if (not BackClicked and (CurPage = wpSelectDir)) or
@@ -406,22 +349,28 @@ begin
 	  if (Result) then Result := FDoSelectCSDir(BackClicked);
   end else if ((not BackClicked and (CurPage = wpSelectComponents)) or
     (BackClicked and (CurPage = wpSelectProgramGroup))) and
-    (ShouldProcessEntry ('Extra\OpenALInstaller', '') = srYes)
-
-{ComponentSelected('Extra\OpenALInstaller')} then
-    Result := FDoInstallOpenALRTPage(BackClicked)
-  else if (not BackClicked and (CurPage = wpReady) and (UninstallPrevious = '1')) then
-    Result := FDoUninstPrev();
+    (ShouldProcessEntry ('Extra\OpenALInstaller', '') = srYes)}
 end;
 
 function NextButtonClick(CurPage: Integer): Boolean;
 begin
-  Result := FScriptDlgPages(CurPage, False);
+  Result := true;
+  if (CurPage = wpSelectDir) then begin
+    if (not IsDestinationOk()) then
+     Result := SpaceInDestMsg();
+  end else if (CurPage = CSdirPage.ID) then begin
+    CSdirectory := CSdirPage.Values[0];
+  end else if (CurPage = wpReady) then begin
+    Result := FDoUninstPrev;
+  end;
 end;
 
-function BackButtonClick(CurPage: Integer): Boolean;
+function ShouldSkipPage(PageID: Integer): Boolean;
 begin
-  Result := FScriptDlgPages(CurPage, True);
+  Result := ((PageID = openALinstallPage.ID)
+    and (not IsComponentSelected ('Extra\OpenALInstaller')))
+    or ((PageID = uninstallPage.ID)
+    and (not FPrevVerInstalled));
 end;
 
 function VCRTSysInstallCheck(): Boolean;

@@ -1,11 +1,45 @@
 var
   UninstRegEntryNum: integer;
   UninstDescr: string;
+  
+  IDinputPage: TInputQueryWizardPage;
+
+function Sanitize(str: string): string;
+begin
+  Result := str;
+  StringChange (Result, ':\', '-');
+  StringChange (Result, '/', '-');
+  StringChange (Result, '\', '-');
+  StringChange (Result, '?', '-');
+  StringChange (Result, '*', '-');
+  StringChange (Result, '|', '-');
+  StringChange (Result, '<', '-');
+  StringChange (Result, '>', '-');
+  StringChange (Result, ':', '-');
+end;
+
+procedure IDinputActivate (Sender: TWizardPage);
+begin
+  if UninstDescr = '' then begin
+    UninstDescr := Sanitize (GetDescrPreset ());
+    IDinputPage.Values[0] := UninstDescr;
+  end;
+end;
 
 procedure SupportInitialize();
 begin
   UninstRegEntryNum := -1;
   UninstDescr := '';
+
+  IDinputPage := CreateInputQueryPage (wpSelectDir,
+    'Choose a description',
+    'Choose a description for the current setup.',
+    '{#SupportName} support has already been set up for another folder. In order to ' +
+      'distinguish the different installations, enter a short description ' +
+      'which will appear in the Uninstall link in the Start Menu. '#13#10 +
+      'Note that you cannot use / \ * ? : | < >.');
+  IDinputPage.Add ('Description: ', false);
+  IDinputPage.OnActivate := @IDinputActivate;
 end;
 
 function GetUninstvalName(Default: string): string;
@@ -48,20 +82,6 @@ begin
     RegKeyExists (HKEY_CURRENT_USER, '{#UninstKey}');
 end;
 
-function Sanitize(str: string): string;
-begin
-  Result := str;
-  StringChange (Result, ':\', '-');
-  StringChange (Result, '/', '-');
-  StringChange (Result, '\', '-');
-  StringChange (Result, '?', '-');
-  StringChange (Result, '*', '-');
-  StringChange (Result, '|', '-');
-  StringChange (Result, '<', '-');
-  StringChange (Result, '>', '-');
-  StringChange (Result, ':', '-');
-end;
-
 function StringOk (str: string): boolean;
 begin
   Result :=
@@ -75,41 +95,22 @@ begin
     (Pos (':', str) = 0);
 end;
 
-function FDoQueryIDPrev(BackClicked: Boolean): boolean;
+function FSupportPageNext (CurPage: Integer): Boolean;
 var
-  Next, fail: Boolean;
+  fail: boolean;
 begin
-  repeat
-    ScriptDlgPageSetCaption('Choose a description');
-    ScriptDlgPageSetSubCaption1('Choose a description for the current setup.');
-    ScriptDlgPageSetSubCaption2(
-      '{#SupportName} support has already been set up for another folder. In order to ' +
-      'distinguish the different installations, enter a short description ' +
-      'which will appear in the Uninstall link in the Start Menu. '#13#10 +
-      'Note that you cannot use / \ * ? : | < >.');
-
-    if UninstDescr = '' then
-      UninstDescr := Sanitize (GetDescrPreset ());
-    Next := InputQuery ('Description: ', UninstDescr);
-    fail := not BackClicked and Next and not (StringOk (UninstDescr));
+  Result := True;
+  if (CurPage = IDinputPage.ID) then begin
+    UninstDescr := IDinputPage.Values[0];
+    fail := not (StringOk (UninstDescr));
     if (fail) then
       MsgBox ('You cannot use / \ * ? : | < > in the description.', mbError, MB_OK);
-  until (not fail) or (BackClicked and not Next);
-  Result := Next;
+    Result := not fail;
+  end;
 end;
 
-function FSupportScriptDlgPages(CurPage: Integer; BackClicked: Boolean): Boolean;
+function FSupportPageSkip (CurPage: Integer): Boolean;
 begin
-  if AlreadyInstalled() and ((not BackClicked and (CurPage = wpSelectDir)) or
-    (BackClicked and (CurPage = wpSelectComponents))) then begin
-    ScriptDlgPageOpen();
-    Result := FDoQueryIDPrev (BackClicked);
-    if not BackClicked then
-      Result := Result
-    else
-      Result := not Result;
-    ScriptDlgPageClose(not Result);
-  end else
-    Result := True;
+  Result := (CurPage = IDinputPage.ID) and (not AlreadyInstalled());
 end;
-
+  
