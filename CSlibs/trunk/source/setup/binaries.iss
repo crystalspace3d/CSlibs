@@ -64,16 +64,7 @@ Source: ..\..\nosource\python\*.*; DestDir: {app}\lib; Components: Extra/Python
 Source: ..\..\nosource\Cg\lib\*.*; DestDir: {app}\lib; Flags: recursesubdirs; Components: Extra/Cg
 
 ; headers
-Source: ..\..\headers\*.*; DestDir: {app}\include; Components: Libs/Common
-Source: ..\..\headers\cal3d\*.*; DestDir: {app}\include\cal3d; Components: Libs/Common
-Source: ..\..\headers\freetype\*.*; DestDir: {app}\include\freetype; Components: Libs/Common
-Source: ..\..\headers\freetype\cache\*.*; DestDir: {app}\include\freetype\cache; Components: Libs/Common
-Source: ..\..\headers\freetype\config\*.*; DestDir: {app}\include\freetype\config; Components: Libs/Common
-Source: ..\..\headers\freetype\internal\*.*; DestDir: {app}\include\freetype\internal; Components: Libs/Common
-Source: ..\..\headers\lib3ds\*.*; DestDir: {app}\include\lib3ds; Components: Libs/Common
-Source: ..\..\headers\ode\*.*; DestDir: {app}\include\ode; Components: Libs/Common
-Source: ..\..\headers\ogg\*.*; DestDir: {app}\include\ogg; Components: Libs/Common
-Source: ..\..\headers\vorbis\*.*; DestDir: {app}\include\vorbis; Components: Libs/Common
+Source: ..\..\headers\*.*; DestDir: {app}\include; Flags: recursesubdirs; Components: Libs/Common
 Source: ..\..\nosource\OpenAL\include\*.*; DestDir: {app}\include\AL; Flags: recursesubdirs; Components: Libs/Common
 Source: ..\..\directx\include\*.*; DestDir: {app}\include; Flags: recursesubdirs; Components: Extra/DXHeaders
 Source: ..\..\nosource\Cg\include\*.*; DestDir: {app}\include; Flags: recursesubdirs; Components: Extra/Cg
