@@ -122,7 +122,8 @@ Name: DESupport/Cygwin; Description: Cygwin; Types: custom full typCygwin; Flags
 [Run]
 Filename: rundll32.exe; Parameters: {code:GetShortenedAppDir}\setuptool.dll,WriteCSLibsConfig {code:GetShortenedAppDir}\
 Filename: {app}\{#File_OpenALInstaller}; WorkingDir: {app}; Components: Extra/OpenALInstaller; Check: RunOpenALInstaller; StatusMsg: Running OpenAL.org runtime installer
-Filename: {app}\CopyDLLs.exe; Description: Copy DLLs to CS directory; Flags: postinstall; WorkingDir: {app}; Parameters: /SILENT
+Filename: {app}\CopyDLLs.exe; Description: Copy DLLs to CS directory; Flags: postinstall; WorkingDir: {app}; Parameters: /SILENT; Check: not CrossPresets
+Filename: {app}\CopyDLLs.exe; Description: Copy DLLs to CS directory; Flags: postinstall unchecked; WorkingDir: {app}; Parameters: /SILENT; Check: CrossPresets
 Filename: {app}\VCsupport.exe; Description: Set up VisualC support; Flags: postinstall; Components: DESupport/VC; WorkingDir: {app}
 Filename: {app}\MSYSsupport.exe; Description: Set up MSYS support; Flags: postinstall; Components: DESupport/MSYS; WorkingDir: {app}
 Filename: {app}\Cygwinsupport.exe; Description: Set up Cygwin support; Flags: postinstall; Components: DESupport/Cygwin; WorkingDir: {app}
@@ -207,6 +208,9 @@ begin
     wineSettingsPage.Add ('&Use cross-compile presets');
     wineSettingsPage.Values[0] := StrToBool (GetPreviousData('WineEnvironment', '0'));
     insertPageAfter := wineSettingsPage.ID;
+    
+    WizardForm.TypesCombo.ItemIndex := 6;
+    WizardForm.TypesCombo.OnChange (WizardForm.TypesCombo);
   end;
 
   openALinstallPage := CreateInputOptionPage (wpSelectComponents,
@@ -268,6 +272,11 @@ begin
 	  Result := 'C:\CrystalSpaceLibs'
   else
 	  Result := Default;
+end;
+
+function CrossPresets(): boolean;
+begin
+  Result := (wineSettingsPage <> nil) and wineSettingsPage.Values[0];
 end;
 
 function IsDestinationOk(): boolean;
