@@ -3,6 +3,8 @@
   - res made the copy_headers.sh script delete CVS directories.
   - res updated some .rc version numbers.
   - res removed sources.iss.
+  - res changed the source packager to also package the actual sources in 
+    source/.
 2005-01-23:
   - res changed ChangeLog.txt back to "release (date)" formatting. It is 
     intended for end-user relevabt information (new versions of included libs 
