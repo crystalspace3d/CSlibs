@@ -1,3 +1,8 @@
+2005-02-17:
+  - res bumped the version to 008.
+  - res made the "Cross-compiling" installation type defualt when CC presets
+    are enabled.
+  * Released 0.99r0_008
 2005-02-16:
   - res ported the setup scripts to IS 5.
   - res bumped the version to 007.
