@@ -17,10 +17,10 @@
 			ConfigurationType="2"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="FALSE"
-			CharacterSet="2">
+			CharacterSet="2"
+			WholeProgramOptimization="TRUE">
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalOptions="/GL"
 				Optimization="3"
 				GlobalOptimizations="TRUE"
 				InlineFunctionExpansion="2"
@@ -28,7 +28,7 @@
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
 				OptimizeForProcessor="2"
-				AdditionalIncludeDirectories="..\source/configs;..\source/libfreetype\include"
+				AdditionalIncludeDirectories="..\source/configs;..\source/libfreetype\include;../source/libz"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;LIBFREETYPE2_EXPORTS"
 				StringPooling="TRUE"
 				ExceptionHandling="FALSE"
@@ -47,7 +47,6 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalOptions=" /LTCG"
 				AdditionalDependencies="delayimp.lib"
 				OutputFile=".\..\libs\Release/libfreetype2-cs.dll"
 				LinkIncremental="1"

@@ -58,10 +58,10 @@
 			OutputDirectory=".\..\libs\Release"
 			IntermediateDirectory=".\..\temp\$(ProjectName)_Release/"
 			ConfigurationType="2"
-			CharacterSet="2">
+			CharacterSet="2"
+			WholeProgramOptimization="TRUE">
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalOptions="/GL"
 				Optimization="3"
 				GlobalOptimizations="TRUE"
 				InlineFunctionExpansion="2"
@@ -86,7 +86,6 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalOptions="/LTCG"
 				OutputFile="$(OutDir)/$(ProjectName)-cs.dll"
 				LinkIncremental="1"
 				SuppressStartupBanner="TRUE"
