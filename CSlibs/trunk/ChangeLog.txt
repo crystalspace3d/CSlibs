@@ -1,3 +1,8 @@
+0.99r0_009 (2005-03-22):
+  - Updated cal3d to latest CVS.
+  - Updated Cg to 1.3.
+  - Enabled BDF and PCF support for FreeType2.
+  
 0.99r0_008 (2005-02-17):
   - Updated cal3d to latest CVS.
   - Updated OpenAL Runtime Installer to most recent version.

@@ -169,9 +169,6 @@
 				RelativePath="..\source\libcal3d\src\cal3d\corebone.cpp">
 			</File>
 			<File
-				RelativePath="..\source\libcal3d\src\cal3d\corekeyframe.cpp">
-			</File>
-			<File
 				RelativePath="..\source\libcal3d\src\cal3d\corematerial.cpp">
 			</File>
 			<File
@@ -191,9 +188,6 @@
 			</File>
 			<File
 				RelativePath="..\source\libcal3d\src\cal3d\coresubmorphtarget.cpp">
-			</File>
-			<File
-				RelativePath="..\source\libcal3d\src\cal3d\coretrack.cpp">
 			</File>
 			<File
 				RelativePath="..\source\libcal3d\src\cal3d\error.cpp">

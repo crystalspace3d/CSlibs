@@ -1,3 +1,9 @@
+2005-03-22:
+  - res bumped the version to 009.
+  - res made the default group name include the cs-win32libs version.
+  - res enhanced the setup to write a file version.txt that contains the
+    cs-win32libs version.
+  * Released 0.99r0_009
 2005-02-17:
   - res bumped the version to 008.
   - res made the "Cross-compiling" installation type defualt when CC presets
