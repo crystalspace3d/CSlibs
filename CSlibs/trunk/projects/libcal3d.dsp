@@ -114,10 +114,6 @@ SOURCE=..\source\libcal3d\src\cal3d\buffersource.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=..\source\libcal3d\src\cal3d\buffersource.h
-# End Source File
-# Begin Source File
-
 SOURCE=..\source\libcal3d\src\cal3d\cal3d_wrapper.cpp
 # End Source File
 # Begin Source File
@@ -162,15 +158,7 @@ SOURCE=..\source\libcal3d\src\cal3d\coresubmorphtarget.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=..\source\libcal3d\src\cal3d\coresubmorphtarget.h
-# End Source File
-# Begin Source File
-
 SOURCE=..\source\libcal3d\src\cal3d\coretrack.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=..\source\libcal3d\src\cal3d\datasource.h
 # End Source File
 # Begin Source File
 
@@ -210,10 +198,6 @@ SOURCE=..\source\libcal3d\src\cal3d\morphtargetmixer.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=..\source\libcal3d\src\cal3d\morphtargetmixer.h
-# End Source File
-# Begin Source File
-
 SOURCE=..\source\libcal3d\src\cal3d\physique.cpp
 # End Source File
 # Begin Source File
@@ -246,27 +230,11 @@ SOURCE=..\source\libcal3d\src\cal3d\streamsource.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=..\source\libcal3d\src\cal3d\streamsource.h
-# End Source File
-# Begin Source File
-
 SOURCE=..\source\libcal3d\src\cal3d\submesh.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=..\source\libcal3d\src\cal3d\tinystr.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=..\source\libcal3d\src\cal3d\tinystr.h
-# End Source File
-# Begin Source File
-
 SOURCE=..\source\libcal3d\src\cal3d\tinyxml.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=..\source\libcal3d\src\cal3d\tinyxml.h
 # End Source File
 # Begin Source File
 
@@ -299,6 +267,10 @@ SOURCE=..\source\libcal3d\src\cal3d\animation_cycle.h
 # Begin Source File
 
 SOURCE=..\source\libcal3d\src\cal3d\bone.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\source\libcal3d\src\cal3d\buffersource.h
 # End Source File
 # Begin Source File
 
@@ -346,7 +318,15 @@ SOURCE=..\source\libcal3d\src\cal3d\coresubmesh.h
 # End Source File
 # Begin Source File
 
+SOURCE=..\source\libcal3d\src\cal3d\coresubmorphtarget.h
+# End Source File
+# Begin Source File
+
 SOURCE=..\source\libcal3d\src\cal3d\coretrack.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\source\libcal3d\src\cal3d\datasource.h
 # End Source File
 # Begin Source File
 
@@ -382,6 +362,10 @@ SOURCE=..\source\libcal3d\src\cal3d\model.h
 # End Source File
 # Begin Source File
 
+SOURCE=..\source\libcal3d\src\cal3d\morphtargetmixer.h
+# End Source File
+# Begin Source File
+
 SOURCE=..\source\libcal3d\src\cal3d\physique.h
 # End Source File
 # Begin Source File
@@ -414,7 +398,15 @@ SOURCE=..\source\libcal3d\src\cal3d\springsystem.h
 # End Source File
 # Begin Source File
 
+SOURCE=..\source\libcal3d\src\cal3d\streamsource.h
+# End Source File
+# Begin Source File
+
 SOURCE=..\source\libcal3d\src\cal3d\submesh.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\source\libcal3d\src\cal3d\tinyxml.h
 # End Source File
 # Begin Source File
 

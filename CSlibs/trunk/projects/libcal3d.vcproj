@@ -184,9 +184,6 @@
 				RelativePath="..\source\libcal3d\src\cal3d\coremorphanimation.cpp">
 			</File>
 			<File
-				RelativePath="..\source\libcal3d\src\cal3d\coremorphanimation.h">
-			</File>
-			<File
 				RelativePath="..\source\libcal3d\src\cal3d\coreskeleton.cpp">
 			</File>
 			<File
@@ -253,9 +250,6 @@
 				RelativePath="..\source\libcal3d\src\cal3d\submesh.cpp">
 			</File>
 			<File
-				RelativePath="..\source\libcal3d\src\cal3d\tinystr.cpp">
-			</File>
-			<File
 				RelativePath="..\source\libcal3d\src\cal3d\tinyxml.cpp">
 			</File>
 			<File
@@ -309,6 +303,9 @@
 			</File>
 			<File
 				RelativePath="..\source\libcal3d\src\cal3d\coremodel.h">
+			</File>
+			<File
+				RelativePath="..\source\libcal3d\src\cal3d\coremorphanimation.h">
 			</File>
 			<File
 				RelativePath="..\source\libcal3d\src\cal3d\coreskeleton.h">
@@ -378,9 +375,6 @@
 			</File>
 			<File
 				RelativePath="..\source\libcal3d\src\cal3d\submesh.h">
-			</File>
-			<File
-				RelativePath="..\source\libcal3d\src\cal3d\tinystr.h">
 			</File>
 			<File
 				RelativePath="..\source\libcal3d\src\cal3d\tinyxml.h">

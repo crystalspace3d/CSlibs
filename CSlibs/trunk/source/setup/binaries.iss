@@ -7,8 +7,8 @@
 
 [Setup]
 SolidCompression=true
-;Compression=lzma/ultra
-Compression=none
+Compression=lzma/ultra
+;Compression=none
 ShowLanguageDialog=no
 AppName={#AppName}
 AppId={#AppId}
@@ -81,11 +81,11 @@ Source: ..\..\CrystalSpace home page.url; DestDir: {group}
 Source: ..\..\nosource\nasm\copying; DestDir: {app}; Components: Extra/NASM; DestName: copying.nasm
 ; stuff that's been compressed already
 Source: ..\..\nosource\OpenAL\installer\{#File_OpenALInstaller}; DestDir: {app}; Components: Extra/OpenALInstaller
-Source: ..\..\out\VCsupport.exe; DestDir: {app}; Components: DESupport/VC
-Source: ..\..\out\MSYSsupport.exe; DestDir: {app}; Components: DESupport/MSYS
-Source: ..\..\out\Cygwinsupport.exe; DestDir: {app}; Components: DESupport/Cygwin
-Source: ..\..\out\CopyDLLs.exe; DestDir: {app};
-Source: ..\..\out\Crosssupport.exe; DestDir: {app}; Check: IsWinePresent
+Source: ..\..\out\support\VCsupport.exe; DestDir: {app}; Components: DESupport/VC
+Source: ..\..\out\support\MSYSsupport.exe; DestDir: {app}; Components: DESupport/MSYS
+Source: ..\..\out\support\Cygwinsupport.exe; DestDir: {app}; Components: DESupport/Cygwin
+Source: ..\..\out\support\CopyDLLs.exe; DestDir: {app};
+Source: ..\..\out\support\Crosssupport.exe; DestDir: {app}; Check: IsWinePresent
 [Dirs]
 Name: {app}\tools; Flags: uninsalwaysuninstall
 Name: {app}\support; Flags: uninsalwaysuninstall
@@ -159,11 +159,6 @@ NoIconsCheck=&Don't create any icons (not recommended)
 #include "wine.inc"
 
 var
-  UninstallPrevious: string;
-  InstallOpenALRT: string;
-  CSDirectory: string;
-  WineSettings: string;
-
   uninstallPage: TInputOptionWizardPage;
   wineSettingsPage: TInputOptionWizardPage;
   openALinstallPage: TInputOptionWizardPage;
@@ -174,23 +169,21 @@ const
   UninstKey = 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{#AppId}_is1';
 
 function GetDefaultCSdir(): string;
+var
+  CSdir: string;
 begin
-  if (WineSettings = '1') and ((Pos (':', CSDirectory) = 0) or
-    (StrGet (CSDirectory, 1) = '/')) then begin
-    {Result := }UnixToWine (CSDirectory)
+  CSdir := CSdirPage.Values[0];
+  if (wineSettingsPage<> nil) and (wineSettingsPage.Values[0])
+    and ((Pos (':', CSdir) = 0) or (StrGet (CSdir, 1) = '/')) then begin
+    Result := UnixToWine (CSdir)
   end else
-    Result := CSDirectory;
+    Result := CSdir;
 end;
 
 procedure InitializeWizard();
 var
   insertPageAfter: integer;
 begin
-  UninstallPrevious := '1';
-  InstallOpenALRT := GetPreviousData('InstallOpenALRT', '1');
-  CSDirectory := GetPreviousData('CSDirectory', ExpandConstant ('{%CRYSTAL|{pf}\CS}'));
-  WineSettings := GetPreviousData('WineEnvironment', '0');
-  
   uninstallPage := CreateInputOptionPage (wpWelcome,
     'Uninstall already installed version',
     'Would you like to uninstall the already installed version?',
@@ -199,7 +192,7 @@ begin
       'Select whether this should be done automatically before the actual installation.',
     false, false);
   uninstallPage.Add ('&Uninstall already installed version (recommended)');
-  uninstallPage.Values[0] := UninstallPrevious <> '0';
+  uninstallPage.Values[0] := true;
   insertPageAfter := uninstallPage.ID;
 
   if IsWinePresent() then begin
@@ -212,7 +205,7 @@ begin
   	  'Select whether this should be done. ',
       false, false);
     wineSettingsPage.Add ('&Use cross-compile presets');
-    wineSettingsPage.Values[0] := true;
+    wineSettingsPage.Values[0] := StrToBool (GetPreviousData('WineEnvironment', '0'));
     insertPageAfter := wineSettingsPage.ID;
   end;
 
@@ -223,7 +216,7 @@ begin
       'Setup run it to update or install the OpenAL runtime libraries on your system.',
     false, false);
   openALinstallPage.Add ('&Run OpenAL.org installer (recommended)');
-  openALinstallPage.Values[0] := InstallOpenALRT <> '0';
+  openALinstallPage.Values[0] := StrToBool (GetPreviousData('InstallOpenALRT', '1'));
 
   CSdirPage := CreateInputDirPage (wpSelectDir,
     'Crystal Space directory',
@@ -233,6 +226,7 @@ begin
       'they are found at runtime.',
       false, '');
   CSdirPage.Add ('');
+  CSdirPage.Values[0] := GetPreviousData('CSDirectory', ExpandConstant ('{%CRYSTAL|{pf}\CS}'));
   CSdirPage.Values[0] := GetDefaultCSdir();
   
   UninstPrevProgress := CreateOutputProgressPage ('Uninstall already installed version',
@@ -241,14 +235,15 @@ end;
 
 procedure RegisterPreviousData(PreviousDataKey: Integer);
 begin
-  SetPreviousData(PreviousDataKey, 'InstallOpenALRT', InstallOpenALRT);
-  SetPreviousData(PreviousDataKey, 'CSDirectory', CSDirectory);
-  SetPreviousData(PreviousDataKey, 'WineEnvironment', WineSettings);
+  SetPreviousData(PreviousDataKey, 'InstallOpenALRT', BoolToStr (openALinstallPage.Values[0]));
+  SetPreviousData(PreviousDataKey, 'CSDirectory', CSdirPage.Values[0]);
+  if (wineSettingsPage<> nil) then
+    SetPreviousData(PreviousDataKey, 'WineEnvironment', BoolToStr (wineSettingsPage.Values[0]));
 end;
 
 function GetCSdir(Default: String): string;
 begin
-  Result := CSDirectory;
+  Result := CSdirPage.Values[0];
 end;
 
 function GetShortenedAppDir(Default: String): string;
@@ -285,7 +280,7 @@ end;
 
 function SpaceInDestMsg(): boolean;
 begin
-  if (WineSettings <> '1') then begin
+  if (wineSettingsPage = nil) or (not wineSettingsPage.Values[0]) then begin
     Result := MsgBox (
       'Although spaces in the destination folder are supported, it is ' +
       'recommended to choose a name that does not contain spaces. '#13#10#13#10 +
@@ -307,7 +302,7 @@ end;
 
 function RunOpenALInstaller(): boolean;
 begin
-  Result := InstallOpenALRT = '1';
+  Result := openALinstallPage.Values[0];
 end;
 
 function FDoUninstPrev(): boolean;
@@ -335,32 +330,13 @@ begin
   UninstPrevProgress.Hide ();
 end;
 
-function FScriptDlgPages(CurPage: Integer; BackClicked: Boolean): Boolean;
-begin
-  Result := true;
-{  if ((not BackClicked and (CurPage = wpWelcome)) or
-    (BackClicked and (CurPage = wpInfoBefore))) then begin
- 	  Result := FDoPreDirSelectPages(BackClicked);
-  end else if (not BackClicked and (CurPage = wpSelectDir)) or
-    (BackClicked and (CurPage = wpSelectComponents)) then begin
-    if (not BackClicked and (CurPage = wpSelectDir)) and
-      (not IsDestinationOk()) then
-	    Result := SpaceInDestMsg();
-	  if (Result) then Result := FDoSelectCSDir(BackClicked);
-  end else if ((not BackClicked and (CurPage = wpSelectComponents)) or
-    (BackClicked and (CurPage = wpSelectProgramGroup))) and
-    (ShouldProcessEntry ('Extra\OpenALInstaller', '') = srYes)}
-end;
-
 function NextButtonClick(CurPage: Integer): Boolean;
 begin
   Result := true;
   if (CurPage = wpSelectDir) then begin
     if (not IsDestinationOk()) then
      Result := SpaceInDestMsg();
-  end else if (CurPage = CSdirPage.ID) then begin
-    CSdirectory := CSdirPage.Values[0];
-  end else if (CurPage = wpReady) then begin
+  end else if (CurPage = wpReady) and (uninstallPage.Values[0]) then begin
     Result := FDoUninstPrev;
   end;
 end;

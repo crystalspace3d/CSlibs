@@ -23,3 +23,16 @@ begin
   else
     Result := grp;
 end;
+
+function StrToBool (str: string): boolean;
+begin
+  Result := str <> '0';
+end;
+
+function BoolToStr (B: boolean): string;
+begin
+  if B then
+    Result := '1'
+  else
+    Result := '0';
+end;
