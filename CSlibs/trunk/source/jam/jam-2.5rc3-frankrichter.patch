@@ -13,7 +13,7 @@ Build from an MSYS or Cygwin shell prompt using the following command:
 
   make CC=gcc CFLAGS=-DMSYS
 
-The complete patch can be found in the file jam-2.5rc3-frankricther.patch.
+The complete patch can be found in the file jam-2.5rc3-frankrichter.patch.
 
 diff -u -r -d -N jam-2.5/execunix.c jam/execunix.c
 --- jam-2.5/execunix.c	2003-04-23 00:45:50.000000000 -0400

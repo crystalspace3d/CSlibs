@@ -41,7 +41,6 @@ Source: ..\..\ChangeLog.txt; DestDir: {app}
 
 ; DLLs, exes
 Source: ..\..\tools\Release\setuptool.dll; DestDir: {app}
-;Source: ..\..\source\tool\winetool\winetool.dll.so; DestDir: {app}; Check: IsWinePresent
 Source: ..\..\libs\Release\*.dll; DestDir: {app}\dlls; Components: Libs/Common
 Source: ..\..\libs\ReleaseVCOnly\*.dll; DestDir: {app}\dlls; Components: Libs/VC
 Source: ..\..\syslibs\*.dll; DestDir: {sys}; Flags: uninsneveruninstall restartreplace; Components: VC7RT
@@ -65,7 +64,16 @@ Source: ..\..\nosource\python\*.*; DestDir: {app}\lib; Components: Extra/Python
 Source: ..\..\nosource\Cg\lib\*.*; DestDir: {app}\lib; Flags: recursesubdirs; Components: Extra/Cg
 
 ; headers
-Source: ..\..\headers\*.*; DestDir: {app}\include; Flags: recursesubdirs; Components: Libs/Common
+Source: ..\..\headers\*.*; DestDir: {app}\include; Components: Libs/Common
+Source: ..\..\headers\cal3d\*.*; DestDir: {app}\include; Components: Libs/Common
+Source: ..\..\headers\freetype\*.*; DestDir: {app}\include; Components: Libs/Common
+Source: ..\..\headers\freetype\cache\*.*; DestDir: {app}\include; Components: Libs/Common
+Source: ..\..\headers\freetype\config\*.*; DestDir: {app}\include; Components: Libs/Common
+Source: ..\..\headers\freetype\internal\*.*; DestDir: {app}\include; Components: Libs/Common
+Source: ..\..\headers\lib3ds\*.*; DestDir: {app}\include; Components: Libs/Common
+Source: ..\..\headers\ode\*.*; DestDir: {app}\include; Components: Libs/Common
+Source: ..\..\headers\ogg\*.*; DestDir: {app}\include; Components: Libs/Common
+Source: ..\..\headers\vorbis\*.*; DestDir: {app}\include; Components: Libs/Common
 Source: ..\..\nosource\OpenAL\include\*.*; DestDir: {app}\include\AL; Flags: recursesubdirs; Components: Libs/Common
 Source: ..\..\directx\include\*.*; DestDir: {app}\include; Flags: recursesubdirs; Components: Extra/DXHeaders
 Source: ..\..\nosource\Cg\include\*.*; DestDir: {app}\include; Flags: recursesubdirs; Components: Extra/Cg
@@ -84,7 +92,7 @@ Source: ..\..\out\VCsupport.exe; DestDir: {app}; Components: DESupport/VC
 Source: ..\..\out\MSYSsupport.exe; DestDir: {app}; Components: DESupport/MSYS
 Source: ..\..\out\Cygwinsupport.exe; DestDir: {app}; Components: DESupport/Cygwin
 Source: ..\..\out\CopyDLLs.exe; DestDir: {app};
-;Source: ..\..\out\Crosssupport.exe; DestDir: {app}; Check: IsWinePresent
+Source: ..\..\out\Crosssupport.exe; DestDir: {app}; Check: IsWinePresent
 [Dirs]
 Name: {app}\tools; Flags: uninsalwaysuninstall
 Name: {app}\support; Flags: uninsalwaysuninstall
@@ -125,7 +133,7 @@ Filename: {app}\CopyDLLs.exe; Description: Copy DLLs to CS directory; Flags: pos
 Filename: {app}\VCsupport.exe; Description: Set up VisualC support; Flags: postinstall; Components: DESupport/VC; WorkingDir: {app}
 Filename: {app}\MSYSsupport.exe; Description: Set up MSYS support; Flags: postinstall; Components: DESupport/MSYS; WorkingDir: {app}
 Filename: {app}\Cygwinsupport.exe; Description: Set up Cygwin support; Flags: postinstall; Components: DESupport/Cygwin; WorkingDir: {app}
-;Filename: {app}\Crosssupport.exe; Description: Set up Cross compiling support; Flags: postinstall; WorkingDir: {app}; Check: IsWinePresent
+Filename: {app}\Crosssupport.exe; Description: Set up Cross compiling support; Flags: postinstall; WorkingDir: {app}; Check: IsWinePresent
 [UninstallRun]
 Filename: rundll32.exe; Parameters: {code:GetShortenedAppDir}\setuptool.dll,UninstDESupport
 ; Flags: skipifdoesntexist
@@ -185,7 +193,6 @@ function GetDefaultCSdir(): string;
 begin
   if (WineSettings = '1') and ((Pos (':', CSDirectory) = 0) or
     (StrGet (CSDirectory, 1) = '/')) then begin
-    MsgBox (CSDirectory, mbInformation, MB_OK);
     {Result := }UnixToWine (CSDirectory)
   end else
     Result := CSDirectory;
@@ -282,7 +289,7 @@ begin
         begin
           if FPrevVerInstalled then begin
             ScriptDlgPageSetCaption('Uninstall already installed version');
-            ScriptDlgPageSetSubCaption1('Would you like to unistall the already installed version?');
+            ScriptDlgPageSetSubCaption1('Would you like to uninstall the already installed version?');
             ScriptDlgPageSetSubCaption2(
 	            'Another installed version of the Crystal Space Win32 libraries has been detected. ' +
               'It is recommended to uninstall it before continuing. ' #13#10#13#10+
@@ -374,7 +381,7 @@ begin
   Result := true;
   ScriptDlgPageOpen();
   ScriptDlgPageSetCaption('Uninstall already installed version');
-  ScriptDlgPageSetSubCaption1('Unistalling the already installed version.');
+  ScriptDlgPageSetSubCaption1('Uninstalling the already installed version.');
   ScriptDlgPageSetSubCaption2('');
   if (RegQueryStringValue (HKEY_LOCAL_MACHINE,
     UninstKey, 'UninstallString', uninstCmd)) then
