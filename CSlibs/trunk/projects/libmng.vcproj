@@ -77,10 +77,10 @@
 			ConfigurationType="2"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="FALSE"
-			CharacterSet="2">
+			CharacterSet="2"
+			WholeProgramOptimization="TRUE">
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalOptions="/GL"
 				Optimization="3"
 				GlobalOptimizations="TRUE"
 				InlineFunctionExpansion="2"
@@ -88,7 +88,7 @@
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
 				OptimizeForProcessor="2"
-				AdditionalIncludeDirectories=".\libz,.\libjpeg"
+				AdditionalIncludeDirectories="../source/libz,../source/libjpeg"
 				PreprocessorDefinitions="NDEBUG;WIN32;_WINDOWS;_USRDLL;MNG_SUPPORT_FULL;MNG_NO_CMS;MNG_ACCESS_CHUNKS;MNG_STORE_CHUNKS;MNG_SUPPORT_WRITE;MNG_SUPPORT_READ;MNG_SUPPORT_DISPLAY;MNG_ERROR_TELLTALE;MNG_ACCESS_ZLIB;MNG_ACCESS_JPEG;MNG_SKIPCANVAS_RGBA8_PM;MNG_SKIPCANVAS_ABGR8;MNG_SKIPCANVAS_ABGR8_PM;MNG_SKIPCANVAS_ARGB8;MNG_SKIPCANVAS_ARGB8_PM;MNG_SKIPCANVAS_BGR8;MNG_SKIPCANVAS_BGRA8;MNG_SKIPCANVAS_BGRA8_PM;MNG_SKIPCANVAS_BGRX8;MNG_SKIPCANVAS_RGB565;MNG_SKIPCANVAS_RGBA565;MNG_SKIPCANVAS_BGR565;MNG_SKIPCANVAS_BGRA565;MNG_SKIPCHUNK_iCCP;MNG_SKIPCHUNK_tEXt;MNG_SKIPCHUNK_zTXt;MNG_SKIPCHUNK_iTXt;MNG_SKIPCHUNK_bKGD;MNG_SKIPCHUNK_pHYs;MNG_SKIPCHUNK_sBIT;MNG_SKIPCHUNK_sPLT;MNG_SKIPCHUNK_hIST;MNG_SKIPCHUNK_tIME;MNG_SKIPCHUNK_eXPI;MNG_SKIPCHUNK_fPRI;MNG_SKIPCHUNK_nEED;MNG_SKIPCHUNK_pHYg"
 				StringPooling="TRUE"
 				ExceptionHandling="FALSE"
@@ -108,7 +108,6 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalOptions="/LTCG"
 				AdditionalDependencies="delayimp.lib "
 				OutputFile=".\..\libs\Release/libmng-cs.dll"
 				LinkIncremental="1"

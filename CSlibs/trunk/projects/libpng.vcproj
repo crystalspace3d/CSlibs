@@ -70,10 +70,10 @@
 			IntermediateDirectory=".\..\temp\libpng_Release"
 			ConfigurationType="2"
 			UseOfMFC="0"
-			ATLMinimizesCRunTimeLibraryUsage="FALSE">
+			ATLMinimizesCRunTimeLibraryUsage="FALSE"
+			WholeProgramOptimization="TRUE">
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalOptions="/GL"
 				Optimization="3"
 				GlobalOptimizations="TRUE"
 				InlineFunctionExpansion="2"
@@ -81,7 +81,7 @@
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
 				OptimizeForProcessor="2"
-				AdditionalIncludeDirectories="..\source\libpng,.\libz"
+				AdditionalIncludeDirectories="..\source\libpng,../source/libz"
 				PreprocessorDefinitions="NDEBUG;WIN32;_WINDOWS;PNG_USE_PNGVCRD"
 				StringPooling="TRUE"
 				ExceptionHandling="FALSE"
@@ -100,7 +100,6 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalOptions="/LTCG"
 				AdditionalDependencies="odbc32.lib odbccp32.lib"
 				OutputFile=".\..\libs\Release/libpng-cs.dll"
 				LinkIncremental="1"
