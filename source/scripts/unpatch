@@ -1,0 +1,14 @@
+#!/bin/sh
+
+LIBNAME=$1
+PATCHDIR=patch-${LIBNAME}
+
+if [ ! -e ${PATCHDIR} ] ; then exit; fi
+
+PATCHES=`ls -1 ${PATCHDIR}/`
+
+cd ${LIBNAME}
+for p in ${PATCHES} ; do
+  patch -u -R -p0 -i ../${PATCHDIR}/$p
+done
+cd ..

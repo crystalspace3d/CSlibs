@@ -1,0 +1,19 @@
+if [ -z "$JAM_TOOLSET" ]; then
+  export JAM_TOOLSET=MINGW
+fi
+
+if test "$OSTYPE" = "cygwin" ; then
+  win32libs_libsdir=`cygpath -u "%CSLIBSPATH%"`
+  win32libs_PATHaugment=%PATHAUGMENT%
+  if [ -n "$win32libs_PATHaugment" ] ; then
+    win32libs_PATHaugment=`cygpath -u "%PATHAUGMENT%"`
+  fi
+else
+  win32libs_libsdir="%CSLIBSPATH_MSYS%"
+  win32libs_PATHaugment=%PATHAUGMENT_MSYS%
+fi
+export PATH="${win32libs_libsdir}/tools:$PATH"
+
+if [ -n "$win32libs_PATHaugment" ] ; then
+  export PATH="${win32libs_PATHaugment}:$PATH"
+fi

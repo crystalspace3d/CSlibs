@@ -1,0 +1,11 @@
+#define VER_PRODUCT_NUMERIC	1,2,1,0
+#define	VER_PRODUCT_STR		"1.2.1"
+#define	VER_DESCRIPTION		"zlib data compression library"
+#define VER_INTERNAL		"libz"
+#define	VER_COPYRIGHT		"Copyright (C) 1995-2003 Jean-loup Gailly and Mark Adler"
+#define VER_FILENAME		"libz-cs.dll"
+#define VER_PRODUCTNAME		"zlib"
+#define VER_COMPANY		"http://www.zlib.org"
+#define VER_COMMENTS		"DLL support by Alessandro Iacopetti & Gilles Vollant"
+
+#include "version.rcinc"

@@ -1,0 +1,71 @@
+#!/bin/sh
+
+if test "`uname -o 2> /dev/null`" = "Cygwin" ; then
+  libsdir=`cygpath -u "%CSLIBSPATH%"`
+  platform=cygwin
+else
+  if test "`uname -s | sed -e 's+\(.*\)_.*+\1+'`" = "MINGW32" ; then
+    libsdir="%CSLIBSPATH_MSYS%"
+    platform=mingw
+  else
+    libsdir="%CSLIBSPATH_WINE%"
+    platform=mingw
+  fi
+fi
+
+usage()
+{
+    cat <<EOF
+Usage: cslibs-config [OPTIONS]
+Options:
+	[--lflags]
+	[--cflags]
+	[--binpath]
+	[--compiler]
+EOF
+	exit $1
+}
+
+if test $# -eq 0; then
+	usage 1 1>&2
+fi
+
+while test $# -gt 0; do
+  case "$1" in
+  -*=*) optarg=`echo "$1" | sed 's/[-_a-zA-Z0-9]*=//'` ;;
+  *) optarg= ;;
+  esac
+
+  case $1 in
+    --cflags)
+      echo_cflags=yes
+      ;;
+    --lflags)
+      echo_lflags=yes
+      ;;
+    --binpath)
+      echo_binpath=yes
+      ;;
+    --compiler)
+      platform=${platform}-$2
+      shift
+      ;;
+    *)
+      usage 1 1>&2
+      ;;
+  esac
+  shift
+done
+
+if test "$echo_cflags" = "yes"; then
+      echo -I${libsdir}/include
+fi
+
+if test "$echo_lflags" = "yes"; then
+      echo -L${libsdir}/lib -L${libsdir}/lib/${platform}
+fi      
+
+if test "$echo_binpath" = "yes"; then
+      echo ${libsdir}/bin
+fi      
+

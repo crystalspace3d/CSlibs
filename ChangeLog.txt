@@ -1,0 +1,20 @@
+0.99r0_004 (2004-12-20):
+  - Updated cal3d to latest CVS.
+
+0.99r0_004 (2004-12-09):
+  - Changed freetype-config to not return /usr/... library and include paths.
+  - Removed lib3ds-config.
+  - Updated cal3d to latest CVS.
+  - The VC7 runtime DLLs are now always installed, and also placed alongside 
+    the other DLLs (instead a subdirectory).
+  - Added Python 2.4 MinGW link lib.
+
+0.99r0_003 (2004-11-01):
+  - Updated libpng to 1.2.7
+  - Updated cal3d to latest CVS
+  - OggVorbis libraries are now compiled from source (as opposed to using the
+    OggVorbis Win32 SDK)
+  - Updated OpenAL SDK and Runtime Installer to most recent version
+  - mingw cal3d is now also compiled for gcc 3.4.2
+  - Added latest version of dbghelp.dll
+  - Debug info for freetype2 was missing

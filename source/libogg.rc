@@ -1,0 +1,9 @@
+#define VER_PRODUCT_NUMERIC	1,1,2,0
+#define	VER_PRODUCT_STR		"1.1.2"
+#define	VER_DESCRIPTION		"libogg, a BSD-license inplementation of the public domain Ogg bitstream format"
+#define VER_INTERNAL		"libogg"
+#define	VER_COPYRIGHT		"(C) COPYRIGHT 1994-2002 by the Xiph.Org Foundation http://www.xiph.org/"
+#define VER_FILENAME		"libogg-cs.dll"
+#define VER_PRODUCTNAME		"OggVorbis"
+
+#include "version.rcinc"

@@ -1,0 +1,11 @@
+*.rev
+lib3ds
+libcal3d
+libfreetype
+libmikmod
+libmng
+libode
+libogg
+libpng
+libvorbis
+libz
