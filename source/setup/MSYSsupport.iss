@@ -20,7 +20,7 @@ ShowLanguageDialog=false
 EnableDirDoesntExistWarning=true
 AppendDefaultDirName=false
 DirExistsWarning=no
-OutputDir=..\..\out
+OutputDir=..\..\out\support
 OutputBaseFilename={#PlatformName}support
 DefaultGroupName={code:GetProgramGroupName}
 UseSetupLdr=true
@@ -51,13 +51,11 @@ FinishedLabel=Setup has finished installing [name] on your computer. You need to
 #define MSYSPathKey 	"{reg:HKCU\" + MSYSPathValue + ",Inno Setup: App Path|{reg:HKLM\" + MSYSPathValue + ",Inno Setup: App Path|{pf}\MSYS}}"
 
 var
-  profileFile: string;
-  
   profileFilePage: TInputFileWizardPage;
 
 function GetDescrPreset(): string;
 begin
-  Result := profileFile;
+  Result := profileFilePage.Values[0];
 end;
 
 #include "SupportCommon.inc"
@@ -88,9 +86,7 @@ end;
 procedure InitializeWizard();
 begin
   SupportInitialize();
-  profileFile := DetectProfileName()
-  profileFile := GetPreviousData('ProfileFile', profileFile);
-  
+
   profileFilePage := CreateInputFilePage (wpWelcome,
     'Select ''profile'' file',
     'A file needed for proper {#PlatformName} integration.',
@@ -98,26 +94,22 @@ begin
       'settings) needs to be updated. ' #13#10#13#10+
       'Please locate that file in your {#PlatformName} installation.');
   profileFilePage.Add ('''&profile'' file:', 'profile|profile', '');
-  profileFilePage.Values[0] := profileFile;
+  profileFilePage.Values[0] := GetPreviousData('ProfileFile', DetectProfileName());
 end;
 
 procedure RegisterPreviousData(PreviousDataKey: Integer);
 begin
-  SetPreviousData(PreviousDataKey, 'ProfileFile', profileFile);
+  SetPreviousData(PreviousDataKey, 'ProfileFile', profileFilePage.Values[0]);
 end;
 
 function GetProfileName(Default: String): string;
 begin
-  Result := profileFile;
+  Result := profileFilePage.Values[0];
 end;
 
 function NextButtonClick(CurPage: Integer): Boolean;
 begin
-  if (curPage = profileFilePage.ID) then begin
-    profileFile := profileFilePage.Values[0];
-    Result := true;
-  end else
-    Result := FSupportPageNext (CurPage);
+  Result := FSupportPageNext (CurPage);
 end;
 
 function ShouldSkipPage(PageID: Integer): Boolean;

@@ -2,6 +2,10 @@
   - res ported the setup scripts to IS 5.
   - res bumped the version to 007.
   - res changed jam to report the version as "2.5rc3-CS".
+  - res fixed makepatch.sh to properly invoke 'patch'.
+  - res added a patch to allow cal3d compilation on VC7.
+  - res fixed the installer to actually use values from custom pages.
+  * Released 0.99r0_007
 2005-01-24:
   - res cobbled a source packaging script together.
   - res made the copy_headers.sh script delete CVS directories.
