@@ -1,0 +1,9 @@
+#define VER_PRODUCT_NUMERIC	1,1,0,0
+#define	VER_PRODUCT_STR		"1.1.0"
+#define	VER_DESCRIPTION		"libvorbis, a BSD-style license software implementation of the Vorbis specification"
+#define VER_INTERNAL		"libvorbis"
+#define	VER_COPYRIGHT		"(C) COPYRIGHT 1994-2004 by the Xiph.Org Foundation http://www.xiph.org/"
+#define VER_FILENAME		"libvorbis-cs.dll"
+#define VER_PRODUCTNAME		"OggVorbis"
+
+#include "version.rcinc"

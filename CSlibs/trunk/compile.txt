@@ -1,0 +1,28 @@
+Compiling Stuff
+---------------
+
+Required tools:
+- MSVC 6,7
+- Recent MSYS/MinGW
+- InnoSetup >= 4.1.8
+- Python
+
+If you have VC6, build cal3d for VC6 (libcal3d.dsw) first.
+
+To compile all the libs that come with source, open the solution 
+projects\CSlibs.sln and build it.
+
+The MinGW-only libs can be built by running build_mingw.sh.
+
+The WineTool in source/tool/winetool currently has to be built from Linux.
+
+Finally, to copy the headers to the location where they are needed for setup
+generation, run copy_headers.sh.
+
+To create the setup file:
+- Build projects\setuptool.sln
+- Run pyimportlib.cmd <python-dir> NN
+  where NN is the Python version you have installed (e.g. 23)
+- Compile the .iss files in source\setup with InnoSetup in the following order:
+  VCsupport, Cygwinsupport, MSYSsupport, binaries
+

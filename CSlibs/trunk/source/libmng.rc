@@ -1,0 +1,9 @@
+#define VER_PRODUCT_NUMERIC	1,0,8,0
+#define	VER_PRODUCT_STR		"1.0.8"
+#define	VER_DESCRIPTION		"LibMNG"
+#define VER_INTERNAL		"libmng"
+#define	VER_COPYRIGHT		"Copyright (c) 2000-2004 Gerard Juyn (gerard@libmng.com)."
+#define VER_FILENAME		"libmng-cs.dll"
+#define VER_PRODUCTNAME		"LibMNG"
+
+#include "version.rcinc"
