@@ -1,0 +1,44 @@
+diff -r -u ../libcaca-0.9/src/event.c ./src/event.c
+--- ../libcaca-0.9/src/event.c	Mon Feb  2 03:00:19 2004
++++ ./src/event.c	Sat Mar 26 01:51:55 2005
+@@ -667,6 +667,40 @@
+ 
+                 if(rec.Event.KeyEvent.uChar.AsciiChar)
+                     return event | rec.Event.KeyEvent.uChar.AsciiChar;
++		else
++		{
++		  switch (rec.Event.KeyEvent.wVirtualKeyCode)
++		  {
++		    case VK_BACK:	  return event | CACA_KEY_BACKSPACE;
++		    case VK_TAB:	  return event | CACA_KEY_TAB;
++		    case VK_RETURN:	  return event | CACA_KEY_RETURN;
++		    case VK_PAUSE:	  return event | CACA_KEY_PAUSE;
++		    case VK_ESCAPE:	  return event | CACA_KEY_ESCAPE;
++		    case VK_DELETE:	  return event | CACA_KEY_DELETE;
++		    case VK_UP:	  return event | CACA_KEY_UP;
++		    case VK_DOWN:	  return event | CACA_KEY_DOWN;
++		    case VK_LEFT:	  return event | CACA_KEY_LEFT;
++		    case VK_RIGHT:	  return event | CACA_KEY_RIGHT;
++		    case VK_INSERT:	  return event | CACA_KEY_INSERT;
++		    case VK_HOME:	  return event | CACA_KEY_HOME;
++		    case VK_END:	  return event | CACA_KEY_END;
++		    case VK_PRIOR:	  return event | CACA_KEY_PAGEUP;
++		    case VK_NEXT:	  return event | CACA_KEY_PAGEDOWN;
++		    case VK_F1:	  return event | CACA_KEY_F1;
++		    case VK_F2:	  return event | CACA_KEY_F2;
++		    case VK_F3:	  return event | CACA_KEY_F3;
++		    case VK_F4:	  return event | CACA_KEY_F4;
++		    case VK_F5:	  return event | CACA_KEY_F5;
++		    case VK_F6:	  return event | CACA_KEY_F6;
++		    case VK_F7:	  return event | CACA_KEY_F7;
++		    case VK_F8:	  return event | CACA_KEY_F8;
++		    case VK_F9:	  return event | CACA_KEY_F9;
++		    case VK_F10:	  return event | CACA_KEY_F10;
++		    case VK_F11:	  return event | CACA_KEY_F11;
++		    case VK_F12:	  return event | CACA_KEY_F12;
++		    default: 		  break;
++		  }
++		}
+             }
+ 
+             if(rec.EventType == MOUSE_EVENT)

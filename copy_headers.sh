@@ -30,5 +30,7 @@ if test ! -e headers/cal3d ; then
 	mkdir headers/cal3d
 fi
 cp source/libcal3d/src/cal3d/*.h headers/cal3d
+cp source/libcaca/src/caca.h headers/
+
 
 find headers -type d -name CVS -exec rm -rf {} \; -prune 

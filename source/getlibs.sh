@@ -21,4 +21,5 @@ scripts/url-get libmikmod http://mikmod.raphnet.net/files/libmikmod-3.1.11.tar.g
   libmikmod-3.1.11 gz
 scripts/url-get libfreetype ftp://gd.tuwien.ac.at/publishing/freetype/freetype2/freetype-2.1.9.tar.bz2 \
   freetype-2.1.9 bz2
-  
+scripts/url-get libcaca http://sam.zoy.org/libcaca/libcaca-0.9.tar.bz2 \
+  libcaca-0.9 bz2
