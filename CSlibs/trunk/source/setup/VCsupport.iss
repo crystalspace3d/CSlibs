@@ -24,6 +24,8 @@ SolidCompression=true
 DisableDirPage=false
 UsePreviousAppDir=false
 DisableProgramGroupPage=true
+WizardImageFile=compiler:WizModernImage-IS.bmp
+WizardSmallImageFile=compiler:WizModernSmallImage-IS.bmp
 [Files]
 Source: {src}\include\*.*; DestDir: {app}\include\csutil\win32; Flags: external skipifsourcedoesntexist
 Source: {src}\include\AL\*.*; DestDir: {app}\include\csutil\win32\AL; Flags: external skipifsourcedoesntexist
@@ -78,23 +80,14 @@ begin
   SupportInitialize();
 end;
 
-function FScriptDlgPages(CurPage: Integer; BackClicked: Boolean): Boolean;
-begin
-  Result := FSupportScriptDlgPages(CurPage, BackClicked);
-end;
-
 function NextButtonClick(CurPage: Integer): Boolean;
 begin
-  Result := FScriptDlgPages(CurPage, False);
+  Result := FSupportPageNext (CurPage);
 end;
 
-function BackButtonClick(CurPage: Integer): Boolean;
+function ShouldSkipPage(PageID: Integer): Boolean;
 begin
-  Result := FScriptDlgPages(CurPage, True);
-end;
-
-function SkipCurPage(CurPage: Integer): Boolean;
-begin
-  Result := ((CurPage = wpSelectDir) and not AlreadyInstalled());
+  Result := ((PageID = wpSelectDir) and (not AlreadyInstalled()))
+    or FSupportPageSkip (PageID);
 end;
 

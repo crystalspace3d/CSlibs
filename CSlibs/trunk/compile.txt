@@ -4,7 +4,7 @@ Compiling Stuff
 Required tools:
 - MSVC 6,7
 - Recent MSYS/MinGW
-- InnoSetup >= 4.1.8
+- InnoSetup >= 5.0.7
 - Python
 
 If you have VC6, build cal3d for VC6 (libcal3d.dsw) first.
@@ -22,7 +22,6 @@ generation, run copy_headers.sh.
 To create the setup file:
 - Build projects\setuptool.sln
 - Run pyimportlib.cmd <python-dir> NN
-  where NN is the Python version you have installed (e.g. 23)
+  where NN is the Python version you have installed (e.g. 24)
 - Compile the .iss files in source\setup with InnoSetup in the following order:
-  VCsupport, Cygwinsupport, MSYSsupport, binaries
-
+  VCsupport, Cygwinsupport, MSYSsupport, CopyDLLs, Crosssupport, binaries

@@ -1,3 +1,7 @@
+2005-02-16:
+  - res ported the setup scripts to IS 5.
+  - res bumped the version to 007.
+  - res changed jam to report the version as "2.5rc3-CS".
 2005-01-24:
   - res cobbled a source packaging script together.
   - res made the copy_headers.sh script delete CVS directories.

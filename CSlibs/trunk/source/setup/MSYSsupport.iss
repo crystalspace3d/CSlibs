@@ -27,6 +27,8 @@ UseSetupLdr=true
 SolidCompression=true
 CreateAppDir=false
 DisableProgramGroupPage=true
+WizardImageFile=compiler:WizModernImage-IS.bmp
+WizardSmallImageFile=compiler:WizModernSmallImage-IS.bmp
 [Registry]
 Root: HKLM; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstvalName}; ValueData: {uninstallexe}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: CheckAdminStuff
 Root: HKCU; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstvalName}; ValueData: {uninstallexe}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: CheckNoAdminStuff
@@ -50,6 +52,8 @@ FinishedLabel=Setup has finished installing [name] on your computer. You need to
 
 var
   profileFile: string;
+  
+  profileFilePage: TInputFileWizardPage;
 
 function GetDescrPreset(): string;
 begin
@@ -86,6 +90,15 @@ begin
   SupportInitialize();
   profileFile := DetectProfileName()
   profileFile := GetPreviousData('ProfileFile', profileFile);
+  
+  profileFilePage := CreateInputFilePage (wpWelcome,
+    'Select ''profile'' file',
+    'A file needed for proper {#PlatformName} integration.',
+    'To properly integrate with {#PlatformName}, the ''profile'' file (used to initialize some shell ' +
+      'settings) needs to be updated. ' #13#10#13#10+
+      'Please locate that file in your {#PlatformName} installation.');
+  profileFilePage.Add ('''&profile'' file:', 'profile|profile', '');
+  profileFilePage.Values[0] := profileFile;
 end;
 
 procedure RegisterPreviousData(PreviousDataKey: Integer);
@@ -98,91 +111,28 @@ begin
   Result := profileFile;
 end;
 
-function FPreReadyPages(BackClicked: Boolean): Boolean;
-var
-  CurSubPage: Integer;
-  Next: Boolean;
-begin
-  if not BackClicked then
-    CurSubPage := 0
-  else
-    CurSubPage := 1;
-  ScriptDlgPageOpen();
-  while (CurSubPage >= 0) and (CurSubPage <= 1) and not Terminated do begin
-    case CurSubPage of
-      0:
-        begin
-          ScriptDlgPageSetCaption('Select ''profile'' file');
-          ScriptDlgPageSetSubCaption1('A file needed for proper {#PlatformName} integration.');
-          ScriptDlgPageSetSubCaption2(
-      	    'To properly integrate with {#PlatformName}, the ''profile'' file (used to initialize some shell ' +
-            'settings) needs to be updated. ' #13#10#13#10+
-           'Please locate that file in your {#PlatformName} installation.'
-          );
-          Next := InputFile('''&profile'' file:', 'profile|profile', '', profileFile);
-	      end;
-	    1:
-	      begin
-          if AlreadyInstalled() then
-	          Next := FDoQueryIDPrev(BackClicked)
-          else
-            Next := not BackClicked;
-	      end;
-    end;
-    if Next then
-      CurSubPage := CurSubPage + 1
-    else
-      CurSubPage := CurSubPage - 1;
-  end;
-  if not BackClicked then
-    Result := Next
-  else
-    Result := not Next;
-  ScriptDlgPageClose(not Result);
-end;
-
-function FScriptDlgPages(CurPage: Integer; BackClicked: Boolean): Boolean;
-begin
-  if ((not BackClicked and (CurPage = wpWelcome)) or
-    (BackClicked and (CurPage = wpReady))) then begin
-    Result := FPreReadyPages(BackClicked)
-  end else
-    Result := True;
-end;
-
 function NextButtonClick(CurPage: Integer): Boolean;
 begin
-  Result := FScriptDlgPages(CurPage, False);
+  if (curPage = profileFilePage.ID) then begin
+    profileFile := profileFilePage.Values[0];
+    Result := true;
+  end else
+    Result := FSupportPageNext (CurPage);
 end;
 
-function BackButtonClick(CurPage: Integer): Boolean;
+function ShouldSkipPage(PageID: Integer): Boolean;
 begin
-  Result := FScriptDlgPages(CurPage, True);
-end;
-
-function TaskSelected(const task: string): boolean;
-var
-  s: string;
-  p: integer;
-begin
-  Result := false;
-  s := WizardSelectedTasks (false);
-  p := Pos (Lowercase (task), s);
-  if (p > 0) then begin
-    if ((p = 1) or (StrGet (s, p - 1) = ',')) and
-      ((p + length(task) >= length(s)) or (StrGet (s, p + length(task)) = ',')) then
-      Result := true;
-  end;
+  Result := FSupportPageSkip (PageID);
 end;
 
 function CheckNoPathAugment(): Boolean;
 begin
-  Result := not TaskSelected ('pathaugment');
+  Result := not IsTaskSelected ('pathaugment');
 end;
 
 function CheckPathAugment(): Boolean;
 begin
-  Result := TaskSelected ('pathaugment');
+  Result := IsTaskSelected ('pathaugment');
 end;
 
 

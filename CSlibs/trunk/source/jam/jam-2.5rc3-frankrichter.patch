@@ -234,3 +234,12 @@ diff -u -r -d -N jam-2.5/Makefile jam/Makefile
  # MPEIX
  #CC = gcc
  #CFLAGS = -I/usr/include -D_POSIX_SOURCE
+--- patchlevel.h.org	Sun Sep 21 18:17:42 2003
++++ patchlevel.h	Sun Feb 13 23:25:18 2005
+@@ -1,5 +1,5 @@
+ /* Keep JAMVERSYM in sync with VERSION. */
+ /* It can be accessed as $(JAMVERSION) in the Jamfile. */
+ 
+-#define VERSION "2.5rc3"
++#define VERSION "2.5rc3-CS"
+ #define JAMVERSYM "JAMVERSION=2.5"
