@@ -28,8 +28,12 @@ Root: HKCU; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstv
 [Icons]
 Name: {group}\{code:GetIconTitle}; Filename: {uninstallexe}; WorkingDir: {app}; IconIndex: 0; Comment: {code:GetIconComment}
 [Run]
-Filename: rundll32.exe; WorkingDir: "{app}"; Parameters: "{code:GetShortenedSrcDir}\setuptool.dll,SymLink {code:GetCsLibsConfigPath} {code:GetDestPath}";
+;Filename: rundll32.exe; WorkingDir: "{app}"; Parameters: "{code:GetShortenedSrcDir}\setuptool.dll,SymLink {code:GetCsLibsConfigPath} {code:GetDestPath}";
+Filename: /bin/chmod; WorkingDir: "{app}"; Parameters: a+x {code:GetCsLibsPath}/tools/cslibs-config;
+Filename: /bin/chmod; WorkingDir: "{app}"; Parameters: a+x {code:GetCsLibsPath}/bin/freetype-config;
+Filename: /bin/sh; WorkingDir: "{app}"; Parameters: "-c ""ln -s {code:GetCsLibsPath}/tools/cslibs-config {code:GetDestPath}""";
 [UninstallRun]
+Filename: /bin/sh; WorkingDir: "{app}"; Parameters: "-c ""rm {code:GetDestPath}""";
 ; Unlink ...
 [Messages]
 FinishedLabel=Setup has finished installing [name] on your computer. You need to re-run 'configure' to make use of the new libraries. You can set up support for more {#SupportName} installations by re-running this setup.
@@ -75,14 +79,9 @@ begin
   Result := destPath;
 end;
 
-function GetCsLibsConfigPath(Default: String): string;
-var
-  cslibsCfgPath: string;
+function GetCsLibsPath(Default: String): string;
 begin
-  cslibsCfgPath := ExpandConstant ('{#CSLibsPathKey}') + '\tools\cslibs-config';
-  MsgBox (cslibsCfgPath, mbInformation, MB_OK);
-  Result := WineToUnix (cslibsCfgPath);
-  MsgBox (Result, mbInformation, MB_OK);
+  Result := WineToUnix (ExpandConstant ('{#CSLibsPathKey}'));
 end;
 
 function FPreReadyPages(BackClicked: Boolean): Boolean;

@@ -4,6 +4,5 @@ EXPORTS
   WriteCSLibsConfig
   AugmentBashProfile
   CleanBashProfile
-  SymLink
   UnixToWine
   WineToUnix

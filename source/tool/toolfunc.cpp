@@ -239,58 +239,6 @@ static TCHAR* WinifyPath (LPCTSTR path)
   return buf;
 }
 
-/*static TCHAR* WinifyPath (LPCTSTR path)
-{
-  TCHAR* retPath = 0;
-
-  const TCHAR regKey[] = _T("SOFTWARE\\Wine\\Wine\\Config\\Drive %c");
-  const DWORD regAccess = KEY_READ;
-
-  TCHAR actualRegKey[sizeof (regKey)];
-  _stprintf (actualRegKey, regKey, path[0]);
-
-  HKEY key;
-  if (RegOpenKeyEx (HKEY_LOCAL_MACHINE, actualRegKey, 0, regAccess, 
-    &key) == ERROR_SUCCESS)
-  {
-    TCHAR drivePath[MAX_PATH];
-    DWORD pathSize = sizeof (drivePath);
-    DWORD type = REG_SZ;
-    if ((RegQueryValueEx (key, _T("Path"), 0, &type,
-      (LPBYTE)drivePath, &pathSize) == ERROR_SUCCESS) &&
-      (type == REG_SZ))
-    {
-      retPath = new TCHAR[_tcslen (drivePath) + _tcslen (path)];
-      _tcscpy (retPath, drivePath);
-      if (retPath[(pathSize - 1) / sizeof (TCHAR)] != '/')
-	_tcscat (retPath, _T("/"));
-
-      const TCHAR* p = path + 3;
-      while ((p != 0) && (*p != 0))
-      {
-	const TCHAR* bslash = _tcschr (p, '\\');
-	if (bslash != 0)
-	{
-	  _tcsncat (retPath, p, bslash - p);
-	  _tcscat (retPath, _T("/"));
-	  p = bslash + 1;
-	}
-	else
-	{
-	  _tcscat (retPath, p);
-	  p = 0;
-	}
-      }
-    }
-
-    RegCloseKey (key);
-  }
-  else
-    retPath = NewWinifyPath (path);
-
-  return retPath;
-}*/
-
 #ifndef UNICODE
 
 class CharPtrHolder
@@ -316,11 +264,9 @@ public:
 
 extern "C" _declspec(dllexport) const char* _stdcall UnixToWine (const char* path)
 {
-  CharPtrHolder pathBuf;
+  static CharPtrHolder pathBuf;
 
-  MessageBox (0, path, 0, 0);
   pathBuf = WinifyPath (path);
-  MessageBox (0, pathBuf, path, 0);
   return pathBuf;
 }
 
@@ -328,7 +274,7 @@ typedef LPSTR (*wine_get_unix_file_nameFN) (LPCWSTR dosPath);
 
 extern "C" _declspec(dllexport) const char* _stdcall WineToUnix (const char* path)
 {
-  CharPtrHolder pathBuf;
+  static CharPtrHolder pathBuf;
   const char* buf = path;
 
   HMODULE hKernel32 = LoadLibrary (_T("kernel32.dll"));
@@ -356,93 +302,15 @@ extern "C" _declspec(dllexport) const char* _stdcall WineToUnix (const char* pat
     FreeLibrary (hKernel32);
   }
 
-  MessageBox (0, buf, path, 0);
-
   return buf;
 }
 #endif
-
-/*static bool AddToWinePathEnv (TCHAR* dir, TCHAR*& pathEnv)
-{
-  // check if dir is in the path.
-  bool gotpath = false;
-
-  size_t dlen = _tcslen(dir);
-  // csGetInstallDir() might return "" (current dir)
-  if (dlen != 0)
-  {
-    if (pathEnv)
-    {
-      TCHAR* mypath = new TCHAR[tcslen (pathEnv) + 1];
-      _tcscpy (mypath, pathEnv);
-
-      TCHAR* ppos = _tcsstr (mypath, dir);
-      while (!gotpath && ppos)
-      {
-	TCHAR* npos = _tcschr (ppos, ':');
-        if (npos) *npos = 0;
-
-        if ((_tcslen (ppos) == dlen) || (_tcslen (ppos) == dlen+1))
-        {
-	  if (ppos[dlen] == '/') ppos[dlen] = 0;
-	  if (!_tcscmp (ppos, dir))
-	  {
-	    // found it
-	    gotpath = true;
-	  }
-        }
-        ppos = npos ? _tcsstr (npos+1, dir) : 0;
-      }
-      delete[] mypath;
-    }
-
-    if (!gotpath)
-    {
-      // put path into environment.
-      TCHAR* newpath = 
-	new TCHAR[(pathEnv ? _tcslen (pathEnv) : 0) + _tcslen (dir) + 2];
-      _tcscpy (newpath, dir);
-      _tcscat (newpath, ";");
-      if (pathEnv) _tcscat (newpath, pathEnv);
-      delete[] pathEnv;
-      pathEnv = newpath;
-      return true;
-    }
-  }
-  return false;
-}*/
-
-static HMODULE LoadWineTool ()
-{
-  static const TCHAR dllName[] = _T("winetool.dll");
-  static const size_t nameSize = sizeof (dllName) / sizeof (TCHAR);
-
-  DWORD curSize;
-  TCHAR* buf = 0;
-  DWORD newSize = MAX_PATH;
-
-  {
-    delete[] buf;
-    curSize = newSize;
-    buf = new TCHAR[curSize + nameSize + 1];
-    newSize = GetCurrentDirectory (curSize, buf);
-  }
-  while (newSize > curSize);
-  
-  _tcscat (buf, _T("\\"));
-  _tcscat (buf, dllName);
-  HMODULE winetool = LoadLibrary (buf);
-
-  delete[] buf;
-
-  return winetool;
-}
 
 #ifndef UNICODE
 
 static void WriteReplacing (const char* tmpl, size_t tmplSize,
 			    FILE* file, 
-			    const csHash<char*, const char*, 
+			    const csHash<const char*, const char*, 
 			    csConstCharHashKeyHandler>& vars)
 {
   const char* p = tmpl;
@@ -509,9 +377,6 @@ uint32 csHashCompute (char const* s)
   return h;
 }
 
-typedef int (WINAPI* chmodFN) (const char* fn, int mode);
-typedef const char* (WINAPI* strerrorFN) (int err);
-
 TOOLENTRY(WriteCSLibsConfig)
 {
   static char* csconfigTemplate = 0;
@@ -549,9 +414,9 @@ TOOLENTRY(WriteCSLibsConfig)
     *p = 0;
 
   char* libsPathMinGW = MingWifyPath (libsPath);
-  char* libsPathWine = WinifyPath (libsPath);
+  const char* libsPathWine = WineToUnix (libsPath);
 
-  csHash<char*, const char*, csConstCharHashKeyHandler> vars;
+  csHash<const char*, const char*, csConstCharHashKeyHandler> vars;
   vars.Put ("CSLIBSPATH", libsPath);
   vars.Put ("CSLIBSPATH_MSYS", libsPathMinGW);
   vars.Put ("CSLIBSPATH_WINE", libsPathWine ? libsPathWine : libsPath);
@@ -570,34 +435,6 @@ TOOLENTRY(WriteCSLibsConfig)
     fclose (script);
   }
 
-  HMODULE hWineTool = LoadWineTool ();
-  if (hWineTool != 0)
-  {
-    MessageBox (0, "WineTool loaded", 0, 0);
-    chmodFN chmod = (chmodFN)GetProcAddress (hWineTool, "chmod");
-    strerrorFN strerror = (strerrorFN)GetProcAddress (hWineTool, "strerror");
-    if ((chmod != 0) && (strerror != 0))
-    {
-      MessageBox (0, "got FNs", 0, 0);
-      char* scriptPathWine = WinifyPath (scriptPath);
-      MessageBox (0, scriptPathWine, 0, 0);
-      int err = chmod (scriptPathWine, 0755);
-      if (err != 0)
-      {
-	char msg[1024];
-	_snprintf (msg, sizeof(msg) - 1, 
-	  "Couldn't chmod %s: %s", scriptPathWine,
-	  strerror (err));
-	msg[sizeof(msg) - 1] = 0;
-	MessageBox (0, msg, 0, MB_OK | MB_ICONHAND);
-      }
-      delete[] scriptPathWine;
-    }
-
-    FreeLibrary (hWineTool);
-  }
-
-  delete[] libsPathWine;
   delete[] libsPathMinGW;
 }
 
@@ -762,7 +599,7 @@ TOOLENTRY(AugmentBashProfile)
 
       char* libsPathMinGW = MingWifyPath (libsPath);
       char* pathAugmentMinGW = MingWifyPath (pathAugment);
-      csHash<char*, const char*, csConstCharHashKeyHandler> vars;
+      csHash<const char*, const char*, csConstCharHashKeyHandler> vars;
       vars.Put ("CSLIBSPATH", libsPath);
       vars.Put ("CSLIBSPATH_MSYS", libsPathMinGW);
       vars.Put ("PATHAUGMENT", pathAugment);
@@ -819,45 +656,6 @@ TOOLENTRY(CleanBashProfile)
       fclose (profile);
     }
     delete[] oldProfile;
-  }
-}
-
-typedef int (WINAPI* symlinkFN) (const char* oldname, 
-				 const char* newname);
-
-TOOLENTRY(SymLink)
-{
-  MessageBox (0, lpCmdLine, 0, 0);
-  char* target = (char*)alloca (strlen (lpCmdLine) + 1);
-  strcpy (target, lpCmdLine);
-  char* link = strchr (target, ' ');
-  *link = 0;
-  link++;
-
-  MessageBox (0, target, link, 0);
-
-  HMODULE hWineTool = LoadWineTool ();
-  if (hWineTool != 0)
-  {
-    MessageBox (0, "WineTool loaded", 0, 0);
-    symlinkFN symlink = (symlinkFN)GetProcAddress (hWineTool, "symlink");
-    strerrorFN strerror = (strerrorFN)GetProcAddress (hWineTool, "strerror");
-    if ((symlink != 0) && (strerror != 0))
-    {
-      MessageBox (0, "symlink", 0, 0);
-      int err = symlink (target, link);
-      if (err != 0)
-      {
-	char msg[1024];
-	_snprintf (msg, sizeof(msg) - 1, 
-	  "Couldn't symlink %s->%s: %s", link, target,
-	  strerror (err));
-	msg[sizeof(msg) - 1] = 0;
-	MessageBox (0, msg, 0, MB_OK | MB_ICONHAND);
-      }
-    }
-
-    FreeLibrary (hWineTool);
   }
 }
 

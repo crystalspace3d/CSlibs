@@ -1,11 +1,26 @@
-0.99r0_004 (2004-12-20):
+2005-01-23:
+  - res changed ChangeLog.txt back to "release (date)" formatting. It is 
+    intended for end-user relevabt information (new versions of included libs 
+    etc.), internal changes go to ChangeLog-internal.txt.
+  - res removed the Wine Symlink() etc functions from setuptool, turns out you
+    can call *nix command line utilities as well from Wine.
+  * Released 0.99r0_006
+2005-01-22:
+  - Import into CVS.
+  - Re-patched libmikmod to only include the "nosound" driver.
+  - Use "WholeProgramOptimization" project settings instead compiler/linker
+    command line switches.
+2004-12-20:
   - Rewrote UnixToWine() and WineToUnix() helper FNs. Are now in setuptool.dll
     and use Wine functionality.
   - Started to work on "cross-compile support" helper that chmods 
     cslibs-config and symlinks it to a user-specified place. Doesn't work yet,
     tho; don't know how to load winetool.dll.so from ".".
-
-0.99r0_003 (2004-11-01):
+  * Released 0.99r0_005
+2004-12-09:
+  * Released 0.99r0_004
+2004-11-01:
   - simplified .rc files by creating a "version resource template", values are
     passed via macros.
   - CS directory name now defaults to CS, not CrystalSpace.
+  * 0.99r0_003 released
