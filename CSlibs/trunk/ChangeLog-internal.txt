@@ -1,3 +1,5 @@
+2005-01-24:
+  - res cobbled a source packaging script together.
 2005-01-23:
   - res changed ChangeLog.txt back to "release (date)" formatting. It is 
     intended for end-user relevabt information (new versions of included libs 
