@@ -1,0 +1,17 @@
+diff -r -u ../libcaca.old/src/graphics.c ./src/graphics.c
+--- ../libcaca.old/src/graphics.c	Mon Feb  2 03:00:19 2004
++++ ./src/graphics.c	Sat Mar 26 15:32:11 2005
+@@ -870,11 +870,10 @@
+         SetConsoleScreenBufferSize(win32_front, size);
+         SetConsoleScreenBufferSize(win32_back, size);
+ 
+-        SetConsoleMode(win32_front, 0);
+-        SetConsoleMode(win32_back, 0);
++        SetConsoleMode(win32_front, ENABLE_MOUSE_INPUT);
++        SetConsoleMode(win32_back, ENABLE_MOUSE_INPUT);
+ 
+         GetConsoleCursorInfo(win32_front, &cci);
+-        cci.dwSize = 0;
+         cci.bVisible = FALSE;
+         SetConsoleCursorInfo(win32_front, &cci);
+         SetConsoleCursorInfo(win32_back, &cci);
