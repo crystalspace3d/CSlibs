@@ -2,6 +2,8 @@ if [ -z "$JAM_TOOLSET" ]; then
   export JAM_TOOLSET=MINGW
 fi
 
+local win32libs_libsdir=
+local win32libs_PATHaugment=
 if test "$OSTYPE" = "cygwin" ; then
   win32libs_libsdir=`cygpath -u "%CSLIBSPATH%"`
   win32libs_PATHaugment=%PATHAUGMENT%

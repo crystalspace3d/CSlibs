@@ -153,6 +153,9 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath="..\source\libfreetype\src\bdf\bdf.c">
+			</File>
+			<File
 				RelativePath="..\source\libfreetype\src\base\ftbase.c">
 				<FileConfiguration
 					Name="Release|Win32">
@@ -192,6 +195,9 @@
 				RelativePath="..\source\libfreetype\src\base\ftinit.c">
 			</File>
 			<File
+				RelativePath="..\source\libfreetype\src\lzw\ftlzw.c">
+			</File>
+			<File
 				RelativePath="..\source\libfreetype\src\base\ftsystem.c">
 				<FileConfiguration
 					Name="Release|Win32">
@@ -199,6 +205,9 @@
 						Name="VCCLCompilerTool"
 						AdditionalIncludeDirectories=""/>
 				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\source\libfreetype\src\pcf\pcf.c">
 			</File>
 			<File
 				RelativePath="..\source\libfreetype\src\psaux\psaux.c">

@@ -19,7 +19,7 @@ OutputDir=..\..\out
 OutputBaseFilename={#SetupName}
 AppPublisher=CrystalSpace
 AppPublisherURL=http://crystal.sf.net
-DefaultGroupName={#AppName}
+DefaultGroupName={#AppName} {#CSLibsVersion}
 UninstallDisplayIcon={app}\setuptool.dll
 InfoBeforeFile=..\..\Readme.rtf
 UseSetupLdr=true
@@ -29,6 +29,7 @@ WizardSmallImageFile=compiler:WizModernSmallImage-IS.bmp
 TimeStampsInUTC=true
 InternalCompressLevel=ultra
 AllowNoIcons=yes
+UsePreviousGroup=no
 [Types]
 Name: full; Description: Full installation
 Name: compact; Description: Compact installation
@@ -40,6 +41,7 @@ Name: xcompile; Description: Cross-compile Typical
 [Files]
 Source: ..\..\Readme.rtf; DestDir: {app}
 Source: ..\..\ChangeLog.txt; DestDir: {app}
+Source: ..\..\version.txt; DestDir: {app}; AfterInstall: WriteVersionTxt
 
 ; DLLs, exes
 Source: ..\..\tools\Release\setuptool.dll; DestDir: {app}
@@ -133,6 +135,7 @@ Filename: rundll32.exe; Parameters: {code:GetShortenedAppDir}\setuptool.dll,Unin
 ; Flags: skipifdoesntexist
 [UninstallDelete]
 Name: {app}\tools; Type: filesandordirs
+Name: {app}\version.txt; Type: files
 [Icons]
 Name: {group}\Read Me; Filename: {app}\Readme.rtf; WorkingDir: {app}; Comment: Important informations, known issues and solutions.
 Name: {group}\Copy DLLs to a CS directory; Filename: {app}\CopyDLLs.exe; WorkingDir: {app}; Comment: Copies the 3rd party DLLs to a CS source directory so compiled binaries can find them.; IconIndex: 0;
@@ -370,7 +373,17 @@ begin
   end;
 end;
 
+{
+function UpdateReadyMemo(Space, NewLine, MemoUserInfoInfo, MemoDirInfo, MemoTypeInfo, MemoComponentsInfo,
+                         MemoGroupInfo, MemoTasksInfo: String): String;
+begin
+  Result := MemoDirInfo + NewLine + NewLine + MemoTypeInfo + NewLine + NewLine + MemoComponentsInfo
+     + NewLine + NewLine + MemoGroupInfo + NewLine + NewLine + MemoTasksInfo + NewLine + NewLine;
+end;
+}
 
-
-
+procedure WriteVersionTxt();
+begin
+  SaveStringToFile (ExpandConstant (CurrentFileName), '{#CSLibsVersion}' + #13#10, false);
+end;
 

@@ -126,10 +126,6 @@ SOURCE=..\source\libcal3d\src\cal3d\corebone.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=..\source\libcal3d\src\cal3d\corekeyframe.cpp
-# End Source File
-# Begin Source File
-
 SOURCE=..\source\libcal3d\src\cal3d\corematerial.cpp
 # End Source File
 # Begin Source File
@@ -155,10 +151,6 @@ SOURCE=..\source\libcal3d\src\cal3d\coresubmesh.cpp
 # Begin Source File
 
 SOURCE=..\source\libcal3d\src\cal3d\coresubmorphtarget.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=..\source\libcal3d\src\cal3d\coretrack.cpp
 # End Source File
 # Begin Source File
 

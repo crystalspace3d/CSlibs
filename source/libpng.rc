@@ -1,6 +1,6 @@
 #define PNG_VERSION_INFO_ONLY
 
-#include <windows.h>
+#include <WinVer.h>
 #include "png.h"
 
 #define _QUOTE(x) # x
