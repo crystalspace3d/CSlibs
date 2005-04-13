@@ -1,3 +1,5 @@
+2005-04-13:
+  - res reduced the Jam line length limit on MSYS to 8192 chars.
 2005-04-04:
   - res bumped the version to 010.
   * Released 0.99r0_010
