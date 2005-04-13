@@ -1,0 +1,185 @@
+diff -r -u ../libcaca-0.9/src/caca.h ./src/caca.h
+--- ../libcaca-0.9/src/caca.h	Mon Feb  2 03:00:19 2004
++++ ./src/caca.h	Sat Mar 26 01:49:22 2005
+@@ -101,7 +101,14 @@
+ extern "C"
+ {
+ #endif
+-
++
++// Define LIBCACA_EXPORTS when caca is compiled into a DLL.
++#if defined(_WIN32) && defined(LIBCACA_EXPORTS)
++  #define CACA_EXPORT		__declspec(dllexport)
++#else
++  #define CACA_EXPORT
++#endif
++  
+ /** \brief Colour definitions.
+  *
+  *  Colours that can be used with caca_set_color().
+@@ -238,19 +245,19 @@
+  *  initialisation, system information retrieval and configuration.
+  *
+  *  @{ */
+-int caca_init(void);
+-void caca_set_delay(unsigned int);
+-enum caca_feature caca_get_feature(enum caca_feature);
+-void caca_set_feature(enum caca_feature);
+-char const *caca_get_feature_name(enum caca_feature);
+-unsigned int caca_get_rendertime(void);
+-unsigned int caca_get_width(void);
+-unsigned int caca_get_height(void);
+-int caca_set_window_title(char const *);
+-unsigned int caca_get_window_width(void);
+-unsigned int caca_get_window_height(void);
+-void caca_refresh(void);
+-void caca_end(void);
++int CACA_EXPORT caca_init(void);
++void CACA_EXPORT caca_set_delay(unsigned int);
++enum caca_feature CACA_EXPORT caca_get_feature(enum caca_feature);
++void CACA_EXPORT caca_set_feature(enum caca_feature);
++char const CACA_EXPORT *caca_get_feature_name(enum caca_feature);
++unsigned int CACA_EXPORT caca_get_rendertime(void);
++unsigned int CACA_EXPORT caca_get_width(void);
++unsigned int CACA_EXPORT caca_get_height(void);
++int CACA_EXPORT caca_set_window_title(char const *);
++unsigned int CACA_EXPORT caca_get_window_width(void);
++unsigned int CACA_EXPORT caca_get_window_height(void);
++void CACA_EXPORT caca_refresh(void);
++void CACA_EXPORT caca_end(void);
+ /*  @} */
+ 
+ /** \defgroup event Event handling
+@@ -259,10 +266,10 @@
+  *  clicks.
+  *
+  *  @{ */
+-unsigned int caca_get_event(unsigned int);
+-unsigned int caca_wait_event(unsigned int);
+-unsigned int caca_get_mouse_x(void);
+-unsigned int caca_get_mouse_y(void);
++unsigned int CACA_EXPORT caca_get_event(unsigned int);
++unsigned int CACA_EXPORT caca_wait_event(unsigned int);
++unsigned int CACA_EXPORT caca_get_mouse_x(void);
++unsigned int CACA_EXPORT caca_get_mouse_y(void);
+ /*  @} */
+ 
+ /** \defgroup char Character printing
+@@ -270,14 +277,14 @@
+  *  These functions provide low-level character printing routines.
+  *
+  *  @{ */
+-void caca_set_color(enum caca_color, enum caca_color);
+-enum caca_color caca_get_fg_color(void);
+-enum caca_color caca_get_bg_color(void);
+-char const *caca_get_color_name(enum caca_color);
+-void caca_putchar(int, int, char);
+-void caca_putstr(int, int, char const *);
+-void caca_printf(int, int, char const *, ...);
+-void caca_clear(void);
++void CACA_EXPORT caca_set_color(enum caca_color, enum caca_color);
++enum caca_color CACA_EXPORT caca_get_fg_color(void);
++enum caca_color CACA_EXPORT caca_get_bg_color(void);
++char const CACA_EXPORT * caca_get_color_name(enum caca_color);
++void CACA_EXPORT caca_putchar(int, int, char);
++void CACA_EXPORT caca_putstr(int, int, char const *);
++void CACA_EXPORT caca_printf(int, int, char const *, ...);
++void CACA_EXPORT caca_clear(void);
+ /*  @} */
+ 
+ /** \defgroup prim Primitives drawing
+@@ -286,23 +293,23 @@
+  *  boxes, triangles and ellipses.
+  *
+  *  @{ */
+-void caca_draw_line(int, int, int, int, char);
+-void caca_draw_polyline(int const x[], int const y[], int, char);
+-void caca_draw_thin_line(int, int, int, int);
+-void caca_draw_thin_polyline(int const x[], int const y[], int);
+-
+-void caca_draw_circle(int, int, int, char);
+-void caca_draw_ellipse(int, int, int, int, char);
+-void caca_draw_thin_ellipse(int, int, int, int);
+-void caca_fill_ellipse(int, int, int, int, char);
+-
+-void caca_draw_box(int, int, int, int, char);
+-void caca_draw_thin_box(int, int, int, int);
+-void caca_fill_box(int, int, int, int, char);
+-
+-void caca_draw_triangle(int, int, int, int, int, int, char);
+-void caca_draw_thin_triangle(int, int, int, int, int, int);
+-void caca_fill_triangle(int, int, int, int, int, int, char);
++void CACA_EXPORT caca_draw_line(int, int, int, int, char);
++void CACA_EXPORT caca_draw_polyline(int const x[], int const y[], int, char);
++void CACA_EXPORT caca_draw_thin_line(int, int, int, int);
++void CACA_EXPORT caca_draw_thin_polyline(int const x[], int const y[], int);
++
++void CACA_EXPORT caca_draw_circle(int, int, int, char);
++void CACA_EXPORT caca_draw_ellipse(int, int, int, int, char);
++void CACA_EXPORT caca_draw_thin_ellipse(int, int, int, int);
++void CACA_EXPORT caca_fill_ellipse(int, int, int, int, char);
++
++void CACA_EXPORT caca_draw_box(int, int, int, int, char);
++void CACA_EXPORT caca_draw_thin_box(int, int, int, int);
++void CACA_EXPORT caca_fill_box(int, int, int, int, char);
++
++void CACA_EXPORT caca_draw_triangle(int, int, int, int, int, int, char);
++void CACA_EXPORT caca_draw_thin_triangle(int, int, int, int, int, int);
++void CACA_EXPORT caca_fill_triangle(int, int, int, int, int, int, char);
+ /*  @} */
+ 
+ /** \defgroup math Mathematical functions
+@@ -310,8 +317,8 @@
+  *  These functions provide a few useful math-related routines.
+  *
+  *  @{ */
+-int caca_rand(int, int);
+-unsigned int caca_sqrt(unsigned int);
++int CACA_EXPORT caca_rand(int, int);
++unsigned int CACA_EXPORT caca_sqrt(unsigned int);
+ /*  @} */
+ 
+ /** \defgroup sprite Sprite handling
+@@ -321,14 +328,14 @@
+  *
+  *  @{ */
+ struct caca_sprite;
+-struct caca_sprite * caca_load_sprite(char const *);
+-int caca_get_sprite_frames(struct caca_sprite const *);
+-int caca_get_sprite_width(struct caca_sprite const *, int);
+-int caca_get_sprite_height(struct caca_sprite const *, int);
+-int caca_get_sprite_dx(struct caca_sprite const *, int);
+-int caca_get_sprite_dy(struct caca_sprite const *, int);
+-void caca_draw_sprite(int, int, struct caca_sprite const *, int);
+-void caca_free_sprite(struct caca_sprite *);
++struct caca_sprite CACA_EXPORT *caca_load_sprite(char const *);
++int CACA_EXPORT caca_get_sprite_frames(struct caca_sprite const *);
++int CACA_EXPORT caca_get_sprite_width(struct caca_sprite const *, int);
++int CACA_EXPORT caca_get_sprite_height(struct caca_sprite const *, int);
++int CACA_EXPORT caca_get_sprite_dx(struct caca_sprite const *, int);
++int CACA_EXPORT caca_get_sprite_dy(struct caca_sprite const *, int);
++void CACA_EXPORT caca_draw_sprite(int, int, struct caca_sprite const *, int);
++void CACA_EXPORT caca_free_sprite(struct caca_sprite *);
+ /*  @} */
+ 
+ /** \defgroup bitmap Bitmap handling
+@@ -338,15 +345,15 @@
+  *
+  *  @{ */
+ struct caca_bitmap;
+-struct caca_bitmap *caca_create_bitmap(unsigned int, unsigned int,
++struct caca_bitmap CACA_EXPORT *caca_create_bitmap(unsigned int, unsigned int,
+                                        unsigned int, unsigned int,
+                                        unsigned int, unsigned int,
+                                        unsigned int, unsigned int);
+-void caca_set_bitmap_palette(struct caca_bitmap *,
++void CACA_EXPORT caca_set_bitmap_palette(struct caca_bitmap *,
+                              unsigned int r[], unsigned int g[],
+                              unsigned int b[], unsigned int a[]);
+-void caca_draw_bitmap(int, int, int, int, struct caca_bitmap const *, void *);
+-void caca_free_bitmap(struct caca_bitmap *);
++void CACA_EXPORT caca_draw_bitmap(int, int, int, int, struct caca_bitmap const *, void *);
++void CACA_EXPORT caca_free_bitmap(struct caca_bitmap *);
+ /*  @} */
+ 
+ #ifdef __cplusplus
