@@ -1,3 +1,7 @@
+2005-06-02:
+  - res added cal3d VC8 projects.
+  - res bumped the version to 011.
+  * Released 0.99r0_011
 2005-04-13:
   - res reduced the Jam line length limit on MSYS to 8192 chars.
 2005-04-04:
