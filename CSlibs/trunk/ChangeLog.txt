@@ -1,4 +1,8 @@
-0.99r0_010 (2005-06-02):
+0.99r0_012 (2005-??-??):
+  - Updated cal3d to latest CVS.
+  - Added support for GCC 3.4.4 on MinGW.
+
+0.99r0_011 (2005-06-02):
   - Updated cal3d to latest CVS.
 
 0.99r0_010 (2005-04-04):

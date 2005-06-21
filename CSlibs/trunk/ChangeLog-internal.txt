@@ -1,3 +1,10 @@
+2005-06-21:
+  - res removed the option to install the VC7 runtime to the SYSTEM(32)
+    directory, as this seems to be discouraged by MS.
+  - res slightly changed the VC support installation options to emphasize that
+    the VC 7 cal3d also works with 7.1.
+  - res added support for GCC 3.4.4 on MinGW.
+  - res bumped the version to 012.
 2005-06-02:
   - res added cal3d VC8 projects.
   - res bumped the version to 011.
