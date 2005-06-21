@@ -359,18 +359,6 @@ begin
     and (not FPrevVerInstalled));
 end;
 
-function VCRTSysInstallCheck(): Boolean;
-begin
-  Result := true;
-  if (not IsAdminLoggedOn) then
-  begin
-    Result := MsgBox ('You have chosen to install the VC7 runtime libraries to your System directory; ' +
-      'however, Administrator privileges are required to do so. Lack of them will probably result in ' +
-      'failure of copying the files. ' + #13#10#13#10 + 'Do you want to continue with installing the '+
-      'VisualC 7 runtime libraries to the System directory?', mbConfirmation, MB_YESNO) = IDYES;
-  end;
-end;
-
 {
 function UpdateReadyMemo(Space, NewLine, MemoUserInfoInfo, MemoDirInfo, MemoTypeInfo, MemoComponentsInfo,
                          MemoGroupInfo, MemoTasksInfo: String): String;
