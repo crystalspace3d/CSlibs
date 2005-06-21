@@ -47,7 +47,6 @@ Source: ..\..\version.txt; DestDir: {app}; AfterInstall: WriteVersionTxt
 Source: ..\..\tools\Release\setuptool.dll; DestDir: {app}
 Source: ..\..\libs\Release\*.dll; DestDir: {app}\dlls; Components: Libs/Common
 Source: ..\..\libs\ReleaseVCOnly\*.dll; DestDir: {app}\dlls; Components: Libs/VC
-Source: ..\..\syslibs\*.dll; DestDir: {sys}; Flags: uninsneveruninstall restartreplace; Components: VC7RT
 Source: ..\..\syslibs\*.dll; DestDir: {app}\dlls; Components: Libs/Common
 Source: ..\..\nosource\nasm\*.exe; DestDir: {app}\tools; Components: Extra/NASM
 Source: ..\..\tools\Release\jam.exe; DestDir: {app}\tools; Components: Extra/Jam
@@ -106,7 +105,6 @@ Name: Libs/Common; Description: Libraries shared by all platforms; Types: custom
 Name: Libs/VC; Description: MSVC-only libraries; Types: custom full typVC; Flags: disablenouninstallwarning
 Name: Libs/MinGW; Description: MinGW-only libraries; Types: custom full typMinGW xcompile; Flags: disablenouninstallwarning
 Name: Libs/Cygwin; Description: Cygwin-only libraries; Types: custom full typCygwin; Flags: disablenouninstallwarning
-Name: VC7RT; Description: Install VisualC 7 runtime DLLs to system directory; Types: custom compact full typVC typMinGW typCygwin; Check: VCRTSysInstallCheck; Flags: disablenouninstallwarning
 Name: Extra; Description: Additional components; Types: custom full; Flags: disablenouninstallwarning
 Name: Extra/Cg; Description: Cg headers & libraries; Types: custom full typVC typMinGW typCygwin xcompile; Flags: disablenouninstallwarning
 Name: Extra/DXHeaders; Description: Minimal DirectX 7 headers; Types: custom full typMinGW typCygwin xcompile; Flags: disablenouninstallwarning
