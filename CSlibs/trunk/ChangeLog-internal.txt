@@ -1,3 +1,5 @@
+2005-07-05:
+  - res fixed ODE to allow latest CS CVS to compile again.
 2005-06-21:
   - res removed the option to install the VC7 runtime to the SYSTEM(32)
     directory, as this seems to be discouraged by MS.

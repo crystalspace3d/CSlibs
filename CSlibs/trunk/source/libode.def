@@ -289,3 +289,8 @@ dWorldSetAutoDisableTime
 dWorldSetAutoDisableSteps
 dWorldSetAutoDisableAngularThreshold
 dWorldSetAutoDisableLinearThreshold
+
+dWorldGetContactMaxCorrectingVel
+dWorldGetContactSurfaceLayer
+dWorldSetContactMaxCorrectingVel
+dWorldSetContactSurfaceLayer
