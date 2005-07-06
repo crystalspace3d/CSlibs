@@ -60,7 +60,8 @@ Source: ..\..\libs\ReleaseVC7Only\*.lib; DestDir: {app}\lib\vc7; Components: Lib
 Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.2.3\lib*.*; DestDir: {app}\lib\mingw-gcc-3.2.3; Components: Libs/MinGW
 Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.3.3\lib*.*; DestDir: {app}\lib\mingw-gcc-3.3.3; Components: Libs/MinGW
 Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.4.2\lib*.*; DestDir: {app}\lib\mingw-gcc-3.4.2; Components: Libs/MinGW
-Source: ..\..\libs\ReleaseGCCOnly\cygwin-gcc-3.3.3\lib*.*; DestDir: {app}\lib\cygwin-gcc-3.3.3; Components: Libs/Cygwin
+Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.4.4\lib*.*; DestDir: {app}\lib\mingw-gcc-3.4.4; Components: Libs/MinGW
+Source: ..\..\libs\ReleaseGCCOnly\cygwin-gcc-3.4.4\lib*.*; DestDir: {app}\lib\cygwin-gcc-3.4.4; Components: Libs/Cygwin
 Source: ..\..\nosource\OpenAL\libs\*.lib; DestDir: {app}\lib; Components: Libs/Common
 Source: ..\..\directx\lib\*.*; DestDir: {app}\lib; Flags: recursesubdirs; Components: Extra/DXLibs
 Source: ..\..\nosource\python\*.*; DestDir: {app}\lib; Components: Extra/Python
