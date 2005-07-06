@@ -1,4 +1,6 @@
-0.99r0_012 (2005-??-??):
+0.99r0_013 (2005-??-??):
+
+0.99r0_012 (2005-06-07):
   - Updated cal3d to latest CVS.
   - Added support for GCC 3.4.4 on MinGW.
   - cal3d for Cygwin is now compiled with gcc 3.4.4.
