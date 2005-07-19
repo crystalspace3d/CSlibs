@@ -83,6 +83,7 @@ CG_PROFILE_MACRO(DX9Pixel13,ps_1_3,PS_1_3,"ps_1_3",6161,0)
 CG_PROFILE_MACRO(DX9Pixel20,ps_2_0,PS_2_0,"ps_2_0",6162,0)
 CG_PROFILE_MACRO(DX9Pixel2x,ps_2_x,PS_2_X,"ps_2_x",6163,0)
 
+CG_PROFILE_MACRO(Generic,           generic, GENERIC, "generic", 7002,0)
 
 #undef CG_PROFILE_MACRO
 #undef CG_IN_PROFILES_INCLUDE

@@ -166,6 +166,7 @@ dJointGetUniversalAnchor
 dJointGetUniversalAnchor2
 dJointGetUniversalAxis1
 dJointGetUniversalAxis2
+dJointGetUniversalParam
 dJointGroupCreate
 dJointGroupDestroy
 dJointGroupEmpty
@@ -190,6 +191,7 @@ dJointSetSliderParam
 dJointSetUniversalAnchor
 dJointSetUniversalAxis1
 dJointSetUniversalAxis2
+dJointSetUniversalParam
 dLDLTAddTL
 dLDLTRemove
 dMakeRandomMatrix

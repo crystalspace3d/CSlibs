@@ -1,3 +1,8 @@
+2005-07-19:
+  - res updated Cg to 1.4RC1.
+2005-07-15:
+  - res fixed cal3d for mingw.
+  - res fixed ODE to allow latest CS CVS to compile again.
 2005-07-06:
   * Released 0.99r0_012
   - res bumped the version to 013.
