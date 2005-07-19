@@ -1,4 +1,7 @@
-0.99r0_013 (2005-??-??):
+0.99r0_013 (2005-07-19):
+  - Updated Cg to 1.4RC1.
+  - Fixed cal3d for mingw.
+  - Fixed ODE to allow latest CS CVS to compile again.
 
 0.99r0_012 (2005-06-07):
   - Updated cal3d to latest CVS.
