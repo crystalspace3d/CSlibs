@@ -52,8 +52,6 @@
 #ifndef _cggl_h
 #define _cggl_h
 
-
-
 #include <Cg/cg.h>
 
 /* Set up for either Win32 import/export/lib. */
@@ -362,8 +360,12 @@ CGGLDLL_API GLuint cgGLGetTextureParameter(CGparameter param);
 CGGLDLL_API void cgGLEnableTextureParameter(CGparameter param);
 CGGLDLL_API void cgGLDisableTextureParameter(CGparameter param);
 CGGLDLL_API GLenum cgGLGetTextureEnum(CGparameter param);
+
 CGGLDLL_API void cgGLSetManageTextureParameters(CGcontext ctx, CGbool flag);
 CGGLDLL_API CGbool cgGLGetManageTextureParameters(CGcontext ctx);
+
+CGGLDLL_API void cgGLSetupSampler(CGparameter param, GLuint texobj);
+CGGLDLL_API void cgGLRegisterStates(CGcontext);
 
 #endif
 

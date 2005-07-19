@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (c) 2002, NVIDIA Corporation.
+ * Copyright (c) 2002-2004, NVIDIA Corporation.
  * 
  *  
  * 
@@ -230,6 +230,59 @@ CG_ERROR_MACRO(39,
                "Connecting the parameters failed because The type of the "
                "source parameter is not defined within the given program "
                "or does not match the type with the same name in the program.")
+
+CG_ERROR_MACRO(40,
+               CG_INVALID_EFFECT_HANDLE_ERROR,
+               "Invalid effect handle.")
+
+CG_ERROR_MACRO(41,
+               CG_INVALID_STATE_HANDLE_ERROR,
+               "Invalid state handle.")
+
+CG_ERROR_MACRO(42,
+               CG_INVALID_STATE_ASSIGNMENT_HANDLE_ERROR,
+               "Invalid stateassignment handle.")
+
+CG_ERROR_MACRO(43,
+               CG_INVALID_PASS_HANDLE_ERROR,
+               "Invalid pass handle.")
+
+CG_ERROR_MACRO(44,
+               CG_INVALID_ANNOTATION_HANDLE_ERROR,
+               "Invalid annotation handle.")
+
+CG_ERROR_MACRO(45,
+               CG_INVALID_TECHNIQUE_HANDLE_ERROR,
+               "Invalid technique handle.")
+
+CG_ERROR_MACRO(46,
+               CG_INVALID_PARAMETER_HANDLE_ERROR,
+               "Invalid parameter handle.")
+
+CG_ERROR_MACRO(47,
+               CG_STATE_ASSIGNMENT_TYPE_MISMATCH_ERROR,
+               "Invalid parameter handle.")
+
+CG_ERROR_MACRO(48,
+               CG_INVALID_FUNCTION_HANDLE_ERROR,
+               "Invalid function handle.")
+
+CG_ERROR_MACRO(49,
+               CG_INVALID_TECHNIQUE_ERROR,
+               "Technique did not pass validation.")
+
+CG_ERROR_MACRO(50,
+               CG_INVALID_POINTER_ERROR,
+               "The supplied pointer is NULL.")
+
+CG_ERROR_MACRO(51,
+               CG_NOT_ENOUGH_DATA_ERROR,
+               "Not enough data was provided.")
+
+CG_ERROR_MACRO(52,
+               CG_NON_NUMERIC_PARAMETER_ERROR,
+               "The parameter is not of a numeric type.")
+
 
 #undef CG_ERROR_MACRO
 
