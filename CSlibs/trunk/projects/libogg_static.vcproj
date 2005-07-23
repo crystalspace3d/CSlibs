@@ -2,8 +2,8 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="7.00"
-	Name="setuptool"
-	ProjectGUID="{BD9F766F-A047-4AD8-8DAF-0DDA61619EC6}"
+	Name="libogg_static"
+	ProjectGUID="{5E01539C-E20A-4C50-9480-15484BC5D101}"
 	Keyword="Win32Proj">
 	<Platforms>
 		<Platform
@@ -12,17 +12,17 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="..\tools\Debug"
-			IntermediateDirectory="..\tools\Debug"
+			OutputDirectory="Debug"
+			IntermediateDirectory="Debug"
 			ConfigurationType="2"
 			CharacterSet="2">
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;CS_WIN32_CSCONFIG"
+				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;LIBOGG_EXPORTS"
 				MinimalRebuild="TRUE"
 				BasicRuntimeChecks="3"
-				RuntimeLibrary="5"
+				RuntimeLibrary="1"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="TRUE"
@@ -31,14 +31,12 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="libcsutil_d.lib"
-				OutputFile="$(OutDir)/setuptool.dll"
+				OutputFile="$(OutDir)/libogg.dll"
 				LinkIncremental="2"
-				IgnoreDefaultLibraryNames="MSVCRTD"
-				ModuleDefinitionFile="..\source\tool\setuptool.def"
 				GenerateDebugInformation="TRUE"
-				ProgramDatabaseFile="$(OutDir)/setuptool.pdb"
+				ProgramDatabaseFile="$(OutDir)/libogg.pdb"
 				SubSystem="2"
+				ImportLibrary="$(OutDir)/libogg.lib"
 				TargetMachine="1"/>
 			<Tool
 				Name="VCMIDLTool"/>
@@ -57,46 +55,38 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="..\tools\Release"
-			IntermediateDirectory="..\tools\Release"
-			ConfigurationType="2"
+			OutputDirectory=".\..\libs\Release_static"
+			IntermediateDirectory=".\..\temp\$(ProjectName)_Release_static"
+			ConfigurationType="4"
 			CharacterSet="2"
-			WholeProgramOptimization="TRUE">
+			ManagedExtensions="FALSE"
+			WholeProgramOptimization="FALSE">
 			<Tool
 				Name="VCCLCompilerTool"
-				Optimization="2"
+				Optimization="3"
 				GlobalOptimizations="TRUE"
 				InlineFunctionExpansion="2"
 				EnableIntrinsicFunctions="TRUE"
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
 				OptimizeForProcessor="2"
-				AdditionalIncludeDirectories="&quot;$(CRYSTAL)\include&quot;"
-				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;CS_WIN32_CSCONFIG;_STATIC_CPPLIB"
+				AdditionalIncludeDirectories="../source/libogg/include"
+				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;LIBOGG_EXPORTS;OGG_DYNAMIC_EXPORTS"
 				StringPooling="TRUE"
-				ExceptionHandling="TRUE"
-				RuntimeLibrary="0"
+				ExceptionHandling="FALSE"
+				RuntimeLibrary="2"
 				BufferSecurityCheck="FALSE"
-				EnableFunctionLevelLinking="FALSE"
+				EnableFunctionLevelLinking="TRUE"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
-				Detect64BitPortabilityProblems="TRUE"
-				DebugInformationFormat="3"/>
+				Detect64BitPortabilityProblems="FALSE"
+				DebugInformationFormat="3"
+				CompileAs="0"/>
 			<Tool
 				Name="VCCustomBuildTool"/>
 			<Tool
-				Name="VCLinkerTool"
-				OutputFile="$(OutDir)/setuptool.dll"
-				LinkIncremental="1"
-				IgnoreDefaultLibraryNames=""
-				ModuleDefinitionFile="..\source\tool\setuptool.def"
-				GenerateDebugInformation="FALSE"
-				SubSystem="2"
-				OptimizeReferences="2"
-				EnableCOMDATFolding="2"
-				OptimizeForWindows98="1"
-				MergeSections=".rdata=.text"
-				TargetMachine="1"/>
+				Name="VCLibrarianTool"
+				OutputFile="$(OutDir)/ogg.lib"/>
 			<Tool
 				Name="VCMIDLTool"/>
 			<Tool
@@ -109,8 +99,6 @@
 				Name="VCResourceCompilerTool"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
-			<Tool
-				Name="VCWebDeploymentTool"/>
 		</Configuration>
 	</Configurations>
 	<Files>
@@ -118,33 +106,20 @@
 			Name="Source Files"
 			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm">
 			<File
-				RelativePath="..\source\tool\setuptool.cpp">
+				RelativePath="..\source\libogg\src\bitwise.c">
 			</File>
 			<File
-				RelativePath="..\source\tool\setuptool.def">
-			</File>
-			<File
-				RelativePath="..\source\tool\toolfuncA.cpp">
-			</File>
-			<File
-				RelativePath="..\source\tool\toolfuncW.cpp">
+				RelativePath="..\source\libogg\src\framing.c">
 			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
 			Filter="h;hpp;hxx;hm;inl;inc">
-		</Filter>
-		<Filter
-			Name="Resource Files"
-			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe">
 			<File
-				RelativePath="..\source\tool\cslibs-config.template">
+				RelativePath="..\source\libogg\include\ogg\ogg.h">
 			</File>
 			<File
-				RelativePath="..\source\tool\profile.augment">
-			</File>
-			<File
-				RelativePath="..\source\tool\setuptool.rc">
+				RelativePath="..\source\libogg\include\ogg\os_types.h">
 			</File>
 		</Filter>
 	</Files>

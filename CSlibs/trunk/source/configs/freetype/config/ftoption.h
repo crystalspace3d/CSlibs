@@ -189,11 +189,7 @@ FT_BEGIN_HEADER
 #ifdef 	 LIBFREETYPE2_EXPORTS
 #define  FT_EXPORT(x)   _declspec(dllexport) x
 #else
-  #ifdef __GNUC__
-    #define  FT_EXPORT(x)   __attribute__((dllimport)) x
-  #else
-    #define  FT_EXPORT(x)   _declspec(dllimport) x
-  #endif
+#define  FT_EXPORT(x)   extern x
 #endif
 
 

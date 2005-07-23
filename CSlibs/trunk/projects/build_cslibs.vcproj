@@ -14,46 +14,21 @@
 			Name="Release|Win32"
 			OutputDirectory=".\..\temp"
 			IntermediateDirectory=".\..\temp"
-			ConfigurationType="4"
+			ConfigurationType="10"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="FALSE">
 			<Tool
-				Name="VCCLCompilerTool"
-				InlineFunctionExpansion="1"
-				StringPooling="TRUE"
-				RuntimeLibrary="2"
-				EnableFunctionLevelLinking="TRUE"
-				UsePrecompiledHeader="2"
-				PrecompiledHeaderFile=".\..\temp/build_cslibs.pch"
-				AssemblerListingLocation=".\..\temp/"
-				ObjectFile=".\..\temp/"
-				ProgramDataBaseFileName=".\..\temp/"
-				WarningLevel="4"
-				SuppressStartupBanner="TRUE"/>
-			<Tool
 				Name="VCCustomBuildTool"/>
-			<Tool
-				Name="VCLibrarianTool"
-				OutputFile=".\..\temp\build_cslibs.lib"
-				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"/>
 			<Tool
 				Name="VCPostBuildEventTool"
 				CommandLine="echo Rebasing...
-rebase -b 0x70000000 -v -d ..\libs\Release\*.dll ..\libs\ReleaseVCOnly\*.dll 
+rebase -b 0x70000000 -v -d ..\libs\Release\*.dll ..\libs\ReleaseVCOnly\*.dll
 del ..\temp\build_cslibs.lib
 "/>
 			<Tool
 				Name="VCPreBuildEventTool"/>
-			<Tool
-				Name="VCPreLinkEventTool"/>
-			<Tool
-				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG"
-				Culture="1031"/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"/>
 		</Configuration>
 		<Configuration
 			Name="Debug|Win32"
@@ -101,9 +76,6 @@ rebase -b 0x70000000 -v -d ..\libs\Debug\*.dll
 		</Configuration>
 	</Configurations>
 	<Files>
-		<File
-			RelativePath="dummy.c">
-		</File>
 	</Files>
 	<Globals>
 	</Globals>

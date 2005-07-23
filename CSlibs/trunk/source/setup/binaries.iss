@@ -1,9 +1,17 @@
 #include "CSlibs.inc"
 #define File_OpenALInstaller 		"OpenALwEAX.exe"
+#ifdef STATIC
+#define AppName						CSLibsName + " (Static version)"
+#else
 #define AppName						CSLibsName
+#endif
 #define AppId						"CrystalSpaceWin32Libs"
 
+#ifdef STATIC
+#define SetupName					"cs-win32libs-" + CSLibsVersion + "-static"
+#else
 #define SetupName					"cs-win32libs-" + CSLibsVersion
+#endif
 
 [Setup]
 SolidCompression=true
@@ -45,18 +53,17 @@ Source: ..\..\version.txt; DestDir: {app}; AfterInstall: WriteVersionTxt
 
 ; DLLs, exes
 Source: ..\..\tools\Release\setuptool.dll; DestDir: {app}
-Source: ..\..\libs\Release\*.dll; DestDir: {app}\dlls; Components: Libs/Common
-Source: ..\..\libs\ReleaseVCOnly\*.dll; DestDir: {app}\dlls; Components: Libs/VC
-Source: ..\..\syslibs\*.dll; DestDir: {app}\dlls; Components: Libs/Common
 Source: ..\..\nosource\nasm\*.exe; DestDir: {app}\tools; Components: Extra/NASM
 Source: ..\..\tools\Release\jam.exe; DestDir: {app}\tools; Components: Extra/Jam
 Source: ..\..\nosource\dbghelp\dbghelp.dll; DestDir: {app}\dlls; Components: Extra/Dbghelp
 Source: ..\..\nosource\Cg\dlls\*.*; DestDir: {app}\dlls; Flags: recursesubdirs; Components: Extra/Cg
+#ifndef STATIC
+Source: ..\..\syslibs\*.dll; DestDir: {app}\dlls; Components: Libs/Common
+Source: ..\..\libs\Release\*.dll; DestDir: {app}\dlls; Components: Libs/Common
+Source: ..\..\libs\ReleaseVCOnly\*.dll; DestDir: {app}\dlls; Components: Libs/VC
+#endif
 
-; .libs
-Source: ..\..\libs\Release\*.lib; DestDir: {app}\lib; Components: Libs/Common
-Source: ..\..\libs\ReleaseVC6Only\*.lib; DestDir: {app}\lib\vc6; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC7Only\*.lib; DestDir: {app}\lib\vc7; Components: Libs/VC
+; .libs: common for both static/dynamic
 Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.2.3\lib*.*; DestDir: {app}\lib\mingw-gcc-3.2.3; Components: Libs/MinGW
 Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.3.3\lib*.*; DestDir: {app}\lib\mingw-gcc-3.3.3; Components: Libs/MinGW
 Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.4.2\lib*.*; DestDir: {app}\lib\mingw-gcc-3.4.2; Components: Libs/MinGW
@@ -67,18 +74,38 @@ Source: ..\..\directx\lib\*.*; DestDir: {app}\lib; Flags: recursesubdirs; Compon
 Source: ..\..\nosource\python\*.*; DestDir: {app}\lib; Components: Extra/Python
 Source: ..\..\nosource\Cg\lib\*.*; DestDir: {app}\lib; Flags: recursesubdirs; Components: Extra/Cg
 
+#ifdef STATIC
+; Static .libs
+Source: ..\..\libs\Release_static\*.lib; DestDir: {app}\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC6Only_static\*.lib; DestDir: {app}\lib\vc6; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC7Only_static\*.lib; DestDir: {app}\lib\vc7; Components: Libs/VC
+Source: ..\..\libs\ReleaseGCCOnly_static\mingw\*.a; DestDir: {app}\lib\mingw; Components: Libs/MinGW
+Source: ..\..\libs\ReleaseGCCOnly_static\cygwin\*.a; DestDir: {app}\lib\cygwin; Components: Libs/Cygwin
+#else
+; Dynamic .libs
+Source: ..\..\libs\Release\*.lib; DestDir: {app}\lib; Components: Libs/Common
+Source: ..\..\libs\ReleaseVC6Only\*.lib; DestDir: {app}\lib\vc6; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC7Only\*.lib; DestDir: {app}\lib\vc7; Components: Libs/VC
+#endif
+
 ; headers
 Source: ..\..\headers\*.*; DestDir: {app}\include; Flags: recursesubdirs; Components: Libs/Common
 Source: ..\..\nosource\OpenAL\include\*.*; DestDir: {app}\include\AL; Flags: recursesubdirs; Components: Libs/Common
 Source: ..\..\directx\include\*.*; DestDir: {app}\include; Flags: recursesubdirs; Components: Extra/DXHeaders
 Source: ..\..\nosource\Cg\include\*.*; DestDir: {app}\include; Flags: recursesubdirs; Components: Extra/Cg
 
+#ifndef STATIC
 ; Debug info
 Source: ..\..\libs\Release\*.pdb; DestDir: {app}\dlls\debuginfo; Components: Extra/DebugInfo
 Source: ..\..\libs\ReleaseVCOnly\*.pdb; DestDir: {app}\dlls\debuginfo; Components: Extra/DebugInfo
+#endif
 
 ; Misc stuff
-Source: ..\..\tools\*-config; DestDir: {app}\bin; Components: Libs/Common
+#ifdef STATIC
+Source: ..\..\tools\freetype-config-static; DestDir: {app}\bin; DestName: freetype-config; Components: Libs/Common
+#else
+Source: ..\..\tools\freetype-config; DestDir: {app}\bin; Components: Libs/Common
+#endif
 Source: ..\..\CrystalSpace home page.url; DestDir: {group}
 Source: ..\..\nosource\nasm\copying; DestDir: {app}; Components: Extra/NASM; DestName: copying.nasm
 ; stuff that's been compressed already
@@ -86,8 +113,8 @@ Source: ..\..\nosource\OpenAL\installer\{#File_OpenALInstaller}; DestDir: {app};
 Source: ..\..\out\support\VCsupport.exe; DestDir: {app}; Components: DESupport/VC
 Source: ..\..\out\support\MSYSsupport.exe; DestDir: {app}; Components: DESupport/MSYS
 Source: ..\..\out\support\Cygwinsupport.exe; DestDir: {app}; Components: DESupport/Cygwin
-Source: ..\..\out\support\CopyDLLs.exe; DestDir: {app};
 Source: ..\..\out\support\Crosssupport.exe; DestDir: {app}; Check: IsWinePresent
+Source: ..\..\out\support\CopyDLLs.exe; DestDir: {app};
 [Dirs]
 Name: {app}\tools; Flags: uninsalwaysuninstall
 Name: {app}\support; Flags: uninsalwaysuninstall
@@ -113,7 +140,9 @@ Name: Extra/DXLibs; Description: Minimal DirectX 7 libraries; Types: custom full
 Name: Extra/Jam; Description: Jam build tool; Types: custom full typMinGW typCygwin; Flags: disablenouninstallwarning
 Name: Extra/NASM; Description: NASM Netwide Assembler; Types: custom full typMinGW typCygwin; Flags: disablenouninstallwarning
 Name: Extra/Python; Description: Python GCC import libs; Types: custom full typMinGW typCygwin; Flags: disablenouninstallwarning
+#ifndef STATIC
 Name: Extra/DebugInfo; Description: Debug information; Types: custom full typVC; Flags: disablenouninstallwarning
+#endif
 Name: Extra/Dbghelp; Description: DbgHelp.dll Debugging helper; Types: custom compact full typCygwin typMinGW typVC; Flags: disablenouninstallwarning
 Name: Extra/OpenALInstaller; Description: OpenAL runtime installer; Types: custom full; Flags: disablenouninstallwarning
 Name: DESupport; Description: Support for development environments; Types: custom full; Flags: disablenouninstallwarning

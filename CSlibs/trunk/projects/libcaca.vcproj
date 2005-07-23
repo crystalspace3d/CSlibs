@@ -19,7 +19,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="libcaca/msvc"
+				AdditionalIncludeDirectories="../source/libcaca/msvc"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;LIBCACA_EXPORTS"
 				MinimalRebuild="TRUE"
 				BasicRuntimeChecks="3"
@@ -70,7 +70,7 @@
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
 				OptimizeForProcessor="2"
-				AdditionalIncludeDirectories="libcaca/msvc"
+				AdditionalIncludeDirectories="../source/libcaca/msvc"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;LIBCACA_EXPORTS"
 				StringPooling="TRUE"
 				ExceptionHandling="FALSE"
@@ -122,47 +122,47 @@
 			Name="Source Files"
 			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm">
 			<File
-				RelativePath="libcaca\src\bitmap.c">
+				RelativePath="..\source\libcaca\src\bitmap.c">
 			</File>
 			<File
-				RelativePath="libcaca\src\box.c">
+				RelativePath="..\source\libcaca\src\box.c">
 			</File>
 			<File
-				RelativePath="libcaca\src\caca.c">
+				RelativePath="..\source\libcaca\src\caca.c">
 			</File>
 			<File
-				RelativePath="libcaca\src\conic.c">
+				RelativePath="..\source\libcaca\src\conic.c">
 			</File>
 			<File
-				RelativePath="libcaca\src\event.c">
+				RelativePath="..\source\libcaca\src\event.c">
 			</File>
 			<File
-				RelativePath="libcaca\src\graphics.c">
+				RelativePath="..\source\libcaca\src\graphics.c">
 			</File>
 			<File
-				RelativePath="libcaca\src\line.c">
+				RelativePath="..\source\libcaca\src\line.c">
 			</File>
 			<File
-				RelativePath="libcaca\src\math.c">
+				RelativePath="..\source\libcaca\src\math.c">
 			</File>
 			<File
-				RelativePath="libcaca\src\sprite.c">
+				RelativePath="..\source\libcaca\src\sprite.c">
 			</File>
 			<File
-				RelativePath="libcaca\src\time.c">
+				RelativePath="..\source\libcaca\src\time.c">
 			</File>
 			<File
-				RelativePath="libcaca\src\triangle.c">
+				RelativePath="..\source\libcaca\src\triangle.c">
 			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
 			Filter="h;hpp;hxx;hm;inl;inc">
 			<File
-				RelativePath="libcaca\src\caca.h">
+				RelativePath="..\source\libcaca\src\caca.h">
 			</File>
 			<File
-				RelativePath="libcaca\src\caca_internals.h">
+				RelativePath="..\source\libcaca\src\caca_internals.h">
 			</File>
 		</Filter>
 		<Filter

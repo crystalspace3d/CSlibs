@@ -1,3 +1,8 @@
+2005-07-23:
+  - res bumped the version to 014.
+  - res updated zlib to 1.2.3.
+  - res switched to lib3ds CVS version.
+  - res added experimental support for a static libraries package.
 2005-07-19:
   - res updated Cg to 1.4RC1.
 2005-07-15:
