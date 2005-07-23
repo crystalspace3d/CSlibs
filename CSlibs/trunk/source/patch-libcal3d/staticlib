@@ -1,0 +1,16 @@
+Index: src/cal3d/platform.h
+===================================================================
+RCS file: /cvsroot/cal3d/cal3d/src/cal3d/platform.h,v
+retrieving revision 1.18
+diff -u -r1.18 platform.h
+--- src/cal3d/platform.h	10 Nov 2004 09:22:59 -0000	1.18
++++ src/cal3d/platform.h	23 Jul 2005 18:09:33 -0000
+@@ -35,7 +35,7 @@
+ #ifdef CAL3D_EXPORTS
+ #define CAL3D_API __declspec(dllexport)
+ #else
+-#define CAL3D_API __declspec(dllimport)
++#define CAL3D_API /*__declspec(dllimport)*/
+ #endif
+ #endif
+ 

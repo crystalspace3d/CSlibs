@@ -15,8 +15,8 @@
 
 [Setup]
 SolidCompression=true
-Compression=lzma/ultra
-;Compression=none
+;Compression=lzma/ultra
+Compression=none
 ShowLanguageDialog=no
 AppName={#AppName}
 AppId={#AppId}
@@ -400,6 +400,10 @@ end;
 
 procedure WriteVersionTxt();
 begin
-  SaveStringToFile (ExpandConstant (CurrentFileName), '{#CSLibsVersion}' + #13#10, false);
+  SaveStringToFile (ExpandConstant (CurrentFileName), '{#CSLibsVersion}'
+#ifdef STATIC
+    + ' (static)'
+#endif
+    + #13#10, false);
 end;
 
