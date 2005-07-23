@@ -1,3 +1,8 @@
+0.99r0_014 (2005-??-??):
+  - Updated zlib to 1.2.3.
+  - Switched to lib3ds CVS version.
+  - Experimental static libraries package.
+
 0.99r0_013 (2005-07-19):
   - Updated Cg to 1.4RC1.
   - Fixed cal3d for mingw.

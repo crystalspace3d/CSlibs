@@ -1,0 +1,295 @@
+diff -ur libmikmod.old/configure libmikmod/configure
+--- libmikmod.old/configure	Wed Jan 21 17:43:52 2004
++++ libmikmod/configure	Sat Jul 23 11:58:40 2005
+@@ -7483,10 +7483,13 @@
+ # Choose settings.
+ # ================
+ 
+-cat >> confdefs.h <<\EOF
++if test $ac_cv_header_sys_wait_h = yes 
++then
++    cat >> confdefs.h <<\EOF
+ #define DRV_PIPE 1
+ EOF
+ 
++fi
+ 
+ # If we can guess the drivers needed from the system, no need to ask the user
+ # to specify it manually
+@@ -7500,17 +7503,17 @@
+ do
+ ac_safe=`echo "$ac_hdr" | sed 'y%./+-%__p_%'`
+ echo $ac_n "checking for $ac_hdr""... $ac_c" 1>&6
+-echo "configure:7504: checking for $ac_hdr" >&5
++echo "configure:7507: checking for $ac_hdr" >&5
+ if eval "test \"`echo '$''{'ac_cv_header_$ac_safe'+set}'`\" = set"; then
+   echo $ac_n "(cached) $ac_c" 1>&6
+ else
+   cat > conftest.$ac_ext <<EOF
+-#line 7509 "configure"
++#line 7512 "configure"
+ #include "confdefs.h"
+ #include <$ac_hdr>
+ EOF
+ ac_try="$ac_cpp conftest.$ac_ext >/dev/null 2>conftest.out"
+-{ (eval echo configure:7514: \"$ac_try\") 1>&5; (eval $ac_try) 2>&5; }
++{ (eval echo configure:7517: \"$ac_try\") 1>&5; (eval $ac_try) 2>&5; }
+ ac_err=`grep -v '^ *+' conftest.out | grep -v "^conftest.${ac_ext}\$"`
+ if test -z "$ac_err"; then
+   rm -rf conftest*
+@@ -7547,17 +7550,17 @@
+ do
+ ac_safe=`echo "$ac_hdr" | sed 'y%./+-%__p_%'`
+ echo $ac_n "checking for $ac_hdr""... $ac_c" 1>&6
+-echo "configure:7551: checking for $ac_hdr" >&5
++echo "configure:7554: checking for $ac_hdr" >&5
+ if eval "test \"`echo '$''{'ac_cv_header_$ac_safe'+set}'`\" = set"; then
+   echo $ac_n "(cached) $ac_c" 1>&6
+ else
+   cat > conftest.$ac_ext <<EOF
+-#line 7556 "configure"
++#line 7559 "configure"
+ #include "confdefs.h"
+ #include <$ac_hdr>
+ EOF
+ ac_try="$ac_cpp conftest.$ac_ext >/dev/null 2>conftest.out"
+-{ (eval echo configure:7561: \"$ac_try\") 1>&5; (eval $ac_try) 2>&5; }
++{ (eval echo configure:7564: \"$ac_try\") 1>&5; (eval $ac_try) 2>&5; }
+ ac_err=`grep -v '^ *+' conftest.out | grep -v "^conftest.${ac_ext}\$"`
+ if test -z "$ac_err"; then
+   rm -rf conftest*
+@@ -7593,17 +7596,17 @@
+ do
+ ac_safe=`echo "$ac_hdr" | sed 'y%./+-%__p_%'`
+ echo $ac_n "checking for $ac_hdr""... $ac_c" 1>&6
+-echo "configure:7597: checking for $ac_hdr" >&5
++echo "configure:7600: checking for $ac_hdr" >&5
+ if eval "test \"`echo '$''{'ac_cv_header_$ac_safe'+set}'`\" = set"; then
+   echo $ac_n "(cached) $ac_c" 1>&6
+ else
+   cat > conftest.$ac_ext <<EOF
+-#line 7602 "configure"
++#line 7605 "configure"
+ #include "confdefs.h"
+ #include <$ac_hdr>
+ EOF
+ ac_try="$ac_cpp conftest.$ac_ext >/dev/null 2>conftest.out"
+-{ (eval echo configure:7607: \"$ac_try\") 1>&5; (eval $ac_try) 2>&5; }
++{ (eval echo configure:7610: \"$ac_try\") 1>&5; (eval $ac_try) 2>&5; }
+ ac_err=`grep -v '^ *+' conftest.out | grep -v "^conftest.${ac_ext}\$"`
+ if test -z "$ac_err"; then
+   rm -rf conftest*
+@@ -7645,17 +7648,17 @@
+ do
+ ac_safe=`echo "$ac_hdr" | sed 'y%./+-%__p_%'`
+ echo $ac_n "checking for $ac_hdr""... $ac_c" 1>&6
+-echo "configure:7649: checking for $ac_hdr" >&5
++echo "configure:7652: checking for $ac_hdr" >&5
+ if eval "test \"`echo '$''{'ac_cv_header_$ac_safe'+set}'`\" = set"; then
+   echo $ac_n "(cached) $ac_c" 1>&6
+ else
+   cat > conftest.$ac_ext <<EOF
+-#line 7654 "configure"
++#line 7657 "configure"
+ #include "confdefs.h"
+ #include <$ac_hdr>
+ EOF
+ ac_try="$ac_cpp conftest.$ac_ext >/dev/null 2>conftest.out"
+-{ (eval echo configure:7659: \"$ac_try\") 1>&5; (eval $ac_try) 2>&5; }
++{ (eval echo configure:7662: \"$ac_try\") 1>&5; (eval $ac_try) 2>&5; }
+ ac_err=`grep -v '^ *+' conftest.out | grep -v "^conftest.${ac_ext}\$"`
+ if test -z "$ac_err"; then
+   rm -rf conftest*
+@@ -7764,7 +7767,7 @@
+ 	if test "`uname`" != "Linux"
+ 	then
+ 		echo $ac_n "checking for OSS (/dev/sndstat)""... $ac_c" 1>&6
+-echo "configure:7768: checking for OSS (/dev/sndstat)" >&5
++echo "configure:7771: checking for OSS (/dev/sndstat)" >&5
+ if eval "test \"`echo '$''{'libmikmod_cv_oss_dev_sndstat'+set}'`\" = set"; then
+   echo $ac_n "(cached) $ac_c" 1>&6
+ else
+@@ -7786,17 +7789,17 @@
+ do
+ ac_safe=`echo "$ac_hdr" | sed 'y%./+-%__p_%'`
+ echo $ac_n "checking for $ac_hdr""... $ac_c" 1>&6
+-echo "configure:7790: checking for $ac_hdr" >&5
++echo "configure:7793: checking for $ac_hdr" >&5
+ if eval "test \"`echo '$''{'ac_cv_header_$ac_safe'+set}'`\" = set"; then
+   echo $ac_n "(cached) $ac_c" 1>&6
+ else
+   cat > conftest.$ac_ext <<EOF
+-#line 7795 "configure"
++#line 7798 "configure"
+ #include "confdefs.h"
+ #include <$ac_hdr>
+ EOF
+ ac_try="$ac_cpp conftest.$ac_ext >/dev/null 2>conftest.out"
+-{ (eval echo configure:7800: \"$ac_try\") 1>&5; (eval $ac_try) 2>&5; }
++{ (eval echo configure:7803: \"$ac_try\") 1>&5; (eval $ac_try) 2>&5; }
+ ac_err=`grep -v '^ *+' conftest.out | grep -v "^conftest.${ac_ext}\$"`
+ if test -z "$ac_err"; then
+   rm -rf conftest*
+@@ -7826,17 +7829,17 @@
+ do
+ ac_safe=`echo "$ac_hdr" | sed 'y%./+-%__p_%'`
+ echo $ac_n "checking for $ac_hdr""... $ac_c" 1>&6
+-echo "configure:7830: checking for $ac_hdr" >&5
++echo "configure:7833: checking for $ac_hdr" >&5
+ if eval "test \"`echo '$''{'ac_cv_header_$ac_safe'+set}'`\" = set"; then
+   echo $ac_n "(cached) $ac_c" 1>&6
+ else
+   cat > conftest.$ac_ext <<EOF
+-#line 7835 "configure"
++#line 7838 "configure"
+ #include "confdefs.h"
+ #include <$ac_hdr>
+ EOF
+ ac_try="$ac_cpp conftest.$ac_ext >/dev/null 2>conftest.out"
+-{ (eval echo configure:7840: \"$ac_try\") 1>&5; (eval $ac_try) 2>&5; }
++{ (eval echo configure:7843: \"$ac_try\") 1>&5; (eval $ac_try) 2>&5; }
+ ac_err=`grep -v '^ *+' conftest.out | grep -v "^conftest.${ac_ext}\$"`
+ if test -z "$ac_err"; then
+   rm -rf conftest*
+@@ -7936,14 +7939,14 @@
+ 		# @#!$ libmikmod_dynloading esd requires us to define and make visible
+ 		# extra symbols (at least for 0.2.6 to 0.2.8)
+ 		echo $ac_n "checking if libmikmod_dynloading esd causes problems""... $ac_c" 1>&6
+-echo "configure:7940: checking if libmikmod_dynloading esd causes problems" >&5
++echo "configure:7943: checking if libmikmod_dynloading esd causes problems" >&5
+ if eval "test \"`echo '$''{'libmikmod_cv_esd_broken'+set}'`\" = set"; then
+   echo $ac_n "(cached) $ac_c" 1>&6
+ else
+   libmikmod_oldlibs=$LIBS
+ 		LIBS="$LIBS $ESD_LIBS"
+ 		cat > conftest.$ac_ext <<EOF
+-#line 7947 "configure"
++#line 7950 "configure"
+ #include "confdefs.h"
+ 
+ #include <esd.h>
+@@ -7952,7 +7955,7 @@
+ void *p = handle;
+ ; return 0; }
+ EOF
+-if { (eval echo configure:7956: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext}; then
++if { (eval echo configure:7959: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext}; then
+   rm -rf conftest*
+   libmikmod_cv_esd_broken=no
+ else
+@@ -7992,19 +7995,19 @@
+ 	then
+ 		# RTLD_GLOBAL is not defined under every system
+ 		echo $ac_n "checking if RTLD_GLOBAL is defined""... $ac_c" 1>&6
+-echo "configure:7996: checking if RTLD_GLOBAL is defined" >&5
++echo "configure:7999: checking if RTLD_GLOBAL is defined" >&5
+ if eval "test \"`echo '$''{'libmikmod_cv_decl_rtld_global'+set}'`\" = set"; then
+   echo $ac_n "(cached) $ac_c" 1>&6
+ else
+   cat > conftest.$ac_ext <<EOF
+-#line 8001 "configure"
++#line 8004 "configure"
+ #include "confdefs.h"
+ #include <dlfcn.h>
+ int main() {
+ int flag=RTLD_GLOBAL;
+ ; return 0; }
+ EOF
+-if { (eval echo configure:8008: \"$ac_compile\") 1>&5; (eval $ac_compile) 2>&5; }; then
++if { (eval echo configure:8011: \"$ac_compile\") 1>&5; (eval $ac_compile) 2>&5; }; then
+   rm -rf conftest*
+   libmikmod_cv_decl_rtld_global=yes
+ else
+@@ -8036,7 +8039,7 @@
+ 	# Until there's an easy way to catch broken inlining, we choose flags known
+ 	# to work correctly depending of the compiler version.
+ 	echo $ac_n "checking if inlining functions is safe""... $ac_c" 1>&6
+-echo "configure:8040: checking if inlining functions is safe" >&5
++echo "configure:8043: checking if inlining functions is safe" >&5
+ if eval "test \"`echo '$''{'libmikmod_cv_gcc_inline_safe'+set}'`\" = set"; then
+   echo $ac_n "(cached) $ac_c" 1>&6
+ else
+@@ -8044,7 +8047,7 @@
+   libmikmod_cv_gcc_inline_safe=no
+ else
+   cat > conftest.$ac_ext <<EOF
+-#line 8048 "configure"
++#line 8051 "configure"
+ #include "confdefs.h"
+ 
+ int main()
+@@ -8056,7 +8059,7 @@
+ #endif
+ }
+ EOF
+-if { (eval echo configure:8060: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext} && (./conftest; exit) 2>/dev/null
++if { (eval echo configure:8063: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext} && (./conftest; exit) 2>/dev/null
+ then
+   libmikmod_cv_gcc_inline_safe=yes
+ else
+@@ -8090,7 +8093,7 @@
+ 	# way to detect flawed version (or, better, a reliable workaround) is
+ 	# found.
+ 	echo $ac_n "checking if compiler is pgcc""... $ac_c" 1>&6
+-echo "configure:8094: checking if compiler is pgcc" >&5
++echo "configure:8097: checking if compiler is pgcc" >&5
+ 	if ($CC -v 2>&1 | grep ^pgcc > /dev/null) 2>/dev/null
+ 	then
+ 		libmikmod_gcc_is_pgcc=yes
+diff -ur libmikmod.old/configure.in libmikmod/configure.in
+--- libmikmod.old/configure.in	Sat Jan 22 15:31:39 2005
++++ libmikmod/configure.in	Sat Jul 23 11:58:21 2005
+@@ -385,7 +385,10 @@
+ # Choose settings.
+ # ================
+ 
+-AC_DEFINE(DRV_PIPE)
++if test $ac_cv_header_sys_wait_h = yes 
++then
++    AC_DEFINE(DRV_PIPE)
++fi
+ 
+ # If we can guess the drivers needed from the system, no need to ask the user
+ # to specify it manually
+diff -ur libmikmod.old/docs/mikmod.info libmikmod/docs/mikmod.info
+--- libmikmod.old/docs/mikmod.info	Wed Jan 21 17:43:52 2004
++++ libmikmod/docs/mikmod.info	Sat Jul 23 12:13:02 2005
+@@ -1,4 +1,4 @@
+-This is mikmod.info, produced by makeinfo version 4.0 from mikmod.texi.
++This is mikmod.info, produced by makeinfo version 4.3 from mikmod.texi.
+ 
+    Copyright (C) 1998, 1999, 2000, 2001, 2002 Miodrag Vallat and others
+ -- see file AUTHORS for complete list.
+diff -ur libmikmod.old/playercode/mdriver.c libmikmod/playercode/mdriver.c
+--- libmikmod.old/playercode/mdriver.c	Sat Jan 22 15:31:40 2005
++++ libmikmod/playercode/mdriver.c	Sat Jul 23 12:12:08 2005
+@@ -34,7 +34,7 @@
+ #include <unistd.h>
+ #endif
+ 
+-#if defined unix || (defined __APPLE__ && defined __MACH__)
++#if (defined unix && !defined(WIN32)) || (defined __APPLE__ && defined __MACH__)
+ #include <pwd.h>
+ #include <sys/stat.h>
+ #endif
+@@ -874,7 +874,7 @@
+ 	return ret;
+ }
+ 
+-#if defined unix || (defined __APPLE__ && defined __MACH__)
++#if (defined unix && !defined(WIN32)) || (defined __APPLE__ && defined __MACH__)
+ 
+ /*========== Posix helper functions */
+ 
+diff -ur libmikmod.old/win32/mikmod_build.h libmikmod/win32/mikmod_build.h
+--- libmikmod.old/win32/mikmod_build.h	Fri Jul 22 20:23:26 2005
++++ libmikmod/win32/mikmod_build.h	Fri Jul 22 19:32:29 2005
+@@ -40,7 +40,7 @@
+  * ========== Compiler magic for shared libraries
+  */
+ 
+-#if defined WIN32 && defined _DLL
++#if defined WIN32 && defined _USRDLL
+ #ifdef DLL_EXPORTS
+ #define MIKMODAPI __declspec(dllexport)
+ #else

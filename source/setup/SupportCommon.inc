@@ -1,6 +1,7 @@
 var
   UninstRegEntryNum: integer;
   UninstDescr: string;
+  InitialDirectory: string;
   
   IDinputPage: TInputQueryWizardPage;
 
@@ -30,6 +31,7 @@ procedure SupportInitialize();
 begin
   UninstRegEntryNum := -1;
   UninstDescr := '';
+  InitialDirectory := WizardDirValue;
 
   IDinputPage := CreateInputQueryPage (wpSelectDir,
     'Choose a description',

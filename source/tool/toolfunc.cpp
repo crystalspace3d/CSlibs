@@ -46,7 +46,6 @@ static void GetFullPathName (const char*, int, char*, int) {}
 #endif
 
 #include "csutil/hash.h"
-#include "csutil/hashhandlers.h"
 
 #define TOOLENTRYW(name) \
    extern "C" _declspec(dllexport) void CALLBACK name##W (HWND hwnd, \
@@ -310,8 +309,7 @@ extern "C" _declspec(dllexport) const char* _stdcall WineToUnix (const char* pat
 
 static void WriteReplacing (const char* tmpl, size_t tmplSize,
 			    FILE* file, 
-			    const csHash<const char*, const char*, 
-			    csConstCharHashKeyHandler>& vars)
+			    const csHash<const char*, const char*>& vars)
 {
   const char* p = tmpl;
   const char* lastBlockStart = tmpl;
@@ -416,7 +414,7 @@ TOOLENTRY(WriteCSLibsConfig)
   char* libsPathMinGW = MingWifyPath (libsPath);
   const char* libsPathWine = WineToUnix (libsPath);
 
-  csHash<const char*, const char*, csConstCharHashKeyHandler> vars;
+  csHash<const char*, const char*> vars;
   vars.Put ("CSLIBSPATH", libsPath);
   vars.Put ("CSLIBSPATH_MSYS", libsPathMinGW);
   vars.Put ("CSLIBSPATH_WINE", libsPathWine ? libsPathWine : libsPath);
@@ -599,7 +597,7 @@ TOOLENTRY(AugmentBashProfile)
 
       char* libsPathMinGW = MingWifyPath (libsPath);
       char* pathAugmentMinGW = MingWifyPath (pathAugment);
-      csHash<const char*, const char*, csConstCharHashKeyHandler> vars;
+      csHash<const char*, const char*> vars;
       vars.Put ("CSLIBSPATH", libsPath);
       vars.Put ("CSLIBSPATH_MSYS", libsPathMinGW);
       vars.Put ("PATHAUGMENT", pathAugment);
