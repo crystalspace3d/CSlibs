@@ -140,6 +140,9 @@
 				RelativePath="..\source\libode\ode\src\collision_kernel.cpp">
 			</File>
 			<File
+				RelativePath="..\source\libode\ode\src\collision_quadtreespace.cpp">
+			</File>
+			<File
 				RelativePath="..\source\libode\ode\src\collision_space.cpp">
 			</File>
 			<File

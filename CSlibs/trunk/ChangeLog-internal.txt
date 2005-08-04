@@ -1,3 +1,5 @@
+2005-08-03:
+  - res switched ODE to CVS version.
 2005-07-23:
   - res bumped the version to 014.
   - res updated zlib to 1.2.3.

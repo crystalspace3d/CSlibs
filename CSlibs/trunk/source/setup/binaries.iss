@@ -15,8 +15,8 @@
 
 [Setup]
 SolidCompression=true
-;Compression=lzma/ultra
-Compression=none
+Compression=lzma/ultra
+;Compression=none
 ShowLanguageDialog=no
 AppName={#AppName}
 AppId={#AppId}
@@ -76,7 +76,7 @@ Source: ..\..\nosource\Cg\lib\*.*; DestDir: {app}\lib; Flags: recursesubdirs; Co
 
 #ifdef STATIC
 ; Static .libs
-Source: ..\..\libs\Release_static\*.lib; DestDir: {app}\lib; Components: Libs/VC
+Source: ..\..\libs\Release_static\*.lib; DestDir: {app}\lib\vc; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC6Only_static\*.lib; DestDir: {app}\lib\vc6; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC7Only_static\*.lib; DestDir: {app}\lib\vc7; Components: Libs/VC
 Source: ..\..\libs\ReleaseGCCOnly_static\mingw\*.a; DestDir: {app}\lib\mingw; Components: Libs/MinGW
@@ -98,6 +98,8 @@ Source: ..\..\nosource\Cg\include\*.*; DestDir: {app}\include; Flags: recursesub
 ; Debug info
 Source: ..\..\libs\Release\*.pdb; DestDir: {app}\dlls\debuginfo; Components: Extra/DebugInfo
 Source: ..\..\libs\ReleaseVCOnly\*.pdb; DestDir: {app}\dlls\debuginfo; Components: Extra/DebugInfo
+#else
+Source: ..\..\libs\ReleaseVC7Only_static\*.pdb; DestDir: {app}\lib\vc7; Components: Extra/DebugInfo
 #endif
 
 ; Misc stuff
@@ -140,9 +142,7 @@ Name: Extra/DXLibs; Description: Minimal DirectX 7 libraries; Types: custom full
 Name: Extra/Jam; Description: Jam build tool; Types: custom full typMinGW typCygwin; Flags: disablenouninstallwarning
 Name: Extra/NASM; Description: NASM Netwide Assembler; Types: custom full typMinGW typCygwin; Flags: disablenouninstallwarning
 Name: Extra/Python; Description: Python GCC import libs; Types: custom full typMinGW typCygwin; Flags: disablenouninstallwarning
-#ifndef STATIC
 Name: Extra/DebugInfo; Description: Debug information; Types: custom full typVC; Flags: disablenouninstallwarning
-#endif
 Name: Extra/Dbghelp; Description: DbgHelp.dll Debugging helper; Types: custom compact full typCygwin typMinGW typVC; Flags: disablenouninstallwarning
 Name: Extra/OpenALInstaller; Description: OpenAL runtime installer; Types: custom full; Flags: disablenouninstallwarning
 Name: DESupport; Description: Support for development environments; Types: custom full; Flags: disablenouninstallwarning
