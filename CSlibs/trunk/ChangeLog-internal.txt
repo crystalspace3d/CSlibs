@@ -1,3 +1,6 @@
+2006-08-04:
+  * Released 0.99r0_014
+  - res made VC7 the default selection in the VC support installer.
 2005-08-03:
   - res switched ODE to CVS version.
 2005-07-23:
@@ -7,6 +10,7 @@
   - res added experimental support for a static libraries package.
 2005-07-19:
   - res updated Cg to 1.4RC1.
+  * Released 0.99r0_013
 2005-07-15:
   - res fixed cal3d for mingw.
   - res fixed ODE to allow latest CS CVS to compile again.
