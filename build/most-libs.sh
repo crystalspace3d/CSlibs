@@ -7,7 +7,7 @@ mkdir -p temp/${platform}
 
 CPPFLAGS="-I$(pwd)/source/configs" 
 build/zlib.sh ${platform}
-for lib in libpng libjpeg libmng libfreetype libogg libvorbis ; do
+for lib in lib3ds libpng libjpeg libmng libfreetype libogg libvorbis ; do
   build/lib.sh ${platform} ${lib} 
 done
 build/lib.sh ${platform} libcaca --disable-imlib2 --disable-ncurses --disable-x11 --disable-slang

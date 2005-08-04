@@ -87,7 +87,7 @@
 				OmitFramePointers="TRUE"
 				OptimizeForProcessor="2"
 				AdditionalIncludeDirectories="..\source/lib3ds\"
-				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;_lib3ds;_WIN32;_LIB3DS_DLL"
+				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;_lib3ds;_WIN32;_LIB3DS_DLL;UBUILD_SHARED"
 				StringPooling="TRUE"
 				ExceptionHandling="FALSE"
 				RuntimeLibrary="2"
@@ -106,15 +106,15 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="odbc32.lib odbccp32.lib"
-				OutputFile="$(OutDir)/lib3ds-120-cs.dll"
+				OutputFile="$(OutDir)/lib3ds-cs.dll"
 				LinkIncremental="1"
 				SuppressStartupBanner="TRUE"
 				GenerateDebugInformation="TRUE"
-				ProgramDatabaseFile="$(OutDir)/lib3ds-120-cs.pdb"
+				ProgramDatabaseFile="$(OutDir)/lib3ds-cs.pdb"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
 				OptimizeForWindows98="2"
-				ImportLibrary=".\..\libs\Release/lib3ds-120.lib"
+				ImportLibrary=".\..\libs\Release/lib3ds.lib"
 				MergeSections=".rdata=.text"
 				TargetMachine="1"/>
 			<Tool

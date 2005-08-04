@@ -3,7 +3,7 @@
 scripts/cvs-get libcal3d :pserver:anonymous@cvs.sourceforge.net:/cvsroot/cal3d \
   cal3d HEAD
 scripts/cvs-get libode :pserver:anonymous@cvs.sourceforge.net:/cvsroot/opende \
-  ode ode-05
+  ode HEAD
 scripts/cvs-get lib3ds :pserver:anonymous@cvs.sourceforge.net:/cvsroot/lib3ds \
   lib3ds HEAD
 

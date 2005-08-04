@@ -40,6 +40,7 @@ Source: {src}\include\ogg\*.*; DestDir: {app}\include\csutil\win32\ogg; Flags: e
 Source: {src}\include\vorbis\*.*; DestDir: {app}\include\csutil\win32\vorbis; Flags: external skipifsourcedoesntexist
 Source: {src}\include\Cg\*.*; DestDir: {app}\include\csutil\win32\Cg; Flags: external skipifsourcedoesntexist
 Source: {src}\lib\*.lib; DestDir: {app}\libs\csutil\win32\libs; Flags: external skipifsourcedoesntexist
+Source: {src}\lib\vc\*.lib; DestDir: {app}\libs\csutil\win32\libs; Flags: external skipifsourcedoesntexist
 Source: {src}\lib\vc6\cal3d.*; DestDir: {app}\libs\csutil\win32\libs; Flags: external skipifsourcedoesntexist; Components: cal3d\vc6
 Source: {src}\lib\vc7\cal3d.*; DestDir: {app}\libs\csutil\win32\libs; Flags: external skipifsourcedoesntexist; Components: cal3d\vc7
 [Components]
