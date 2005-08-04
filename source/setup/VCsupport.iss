@@ -46,7 +46,7 @@ Source: {src}\lib\vc7\cal3d.*; DestDir: {app}\libs\csutil\win32\libs; Flags: ext
 [Components]
 Name: cal3d; Description: Install Cal3D library; Types: full; Flags: disablenouninstallwarning
 Name: cal3d\vc6; Description: For VC6; Flags: exclusive disablenouninstallwarning
-Name: cal3d\vc7; Description: For VC7.0 & VC7.1; Flags: exclusive disablenouninstallwarning
+Name: cal3d\vc7; Description: For VC7.0 & VC7.1; Flags: exclusive disablenouninstallwarning; Types: full
 [Registry]
 Root: HKLM; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstvalName}; ValueData: {uninstallexe}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: CheckAdminStuff
 Root: HKCU; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstvalName}; ValueData: {uninstallexe}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: CheckNoAdminStuff
