@@ -1,3 +1,8 @@
+2006-08-11:
+  - res bumped the version to 015.
+  - res make mikmod use the right dllimport/dllexport declspecs for variables
+    again.
+  * Released 0.99r0_015
 2006-08-04:
   * Released 0.99r0_014
   - res made VC7 the default selection in the VC support installer.

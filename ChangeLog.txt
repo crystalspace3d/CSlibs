@@ -1,3 +1,6 @@
+0.99r0_015 (2005-08-11):
+  - Fixed mikmod-related crash.
+
 0.99r0_014 (2005-08-04):
   - Updated zlib to 1.2.3.
   - Switched to lib3ds CVS version.
