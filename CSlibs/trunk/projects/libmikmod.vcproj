@@ -28,7 +28,7 @@
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
 				OptimizeForProcessor="2"
-				AdditionalIncludeDirectories="..\source/libmikmod/include,..\source/libmikmod/win32"
+				AdditionalIncludeDirectories="..\source/libmikmod/include;..\source/libmikmod/win32;../headers_dll"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;LIBMIKMOD_EXPORTS;DLL_EXPORTS;_DLL"
 				StringPooling="TRUE"
 				ExceptionHandling="FALSE"

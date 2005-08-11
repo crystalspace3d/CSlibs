@@ -40,11 +40,13 @@ extern "C" {
  * ========== Compiler magic for shared libraries
  */
 
-#if defined WIN32 && defined _USRDLL
+//#define MIKMOD_DLL
+  
+#if defined WIN32 && defined MIKMOD_DLL
 #ifdef DLL_EXPORTS
 #define MIKMODAPI __declspec(dllexport)
 #else
-#define MIKMODAPI /*__declspec(dllimport)*/
+#define MIKMODAPI __declspec(dllimport)
 #endif
 #else
 #define MIKMODAPI
@@ -498,6 +500,7 @@ struct MP_VOICE*    voice;       /* Audio Voice information (size md_numchn) */
 		UBYTE       patdly;      /* patterndelay counter (command memory) */
 		UBYTE       patdly2;     /* patterndelay counter (real one) */
 		SWORD       posjmp;      /* flag to indicate a jump is needed... */
+		UWORD		bpmlimit;	 /* threshold to detect bpm or speed values */
 } MODULE;
 
 /*
