@@ -107,6 +107,15 @@ Source: ..\..\libs\ReleaseVCOnly\*.pdb; DestDir: {app}\dlls\debuginfo; Component
 Source: ..\..\libs\ReleaseVC7Only_static\*.pdb; DestDir: {app}\lib\vc7; Components: Extra/DebugInfo
 #endif
 
+#ifdef STATIC
+; Special case CEGUI: does not work statically, so include CEGUI DLLs and dependecies here
+Source: ..\..\libs\Release\libfreetype2-cs.dll; DestDir: {app}\dlls; Components: Libs/VC
+Source: ..\..\libs\Release\libz-cs.dll; DestDir: {app}\dlls; Components: Libs/VC
+Source: ..\..\libs\ReleaseVCOnly\*cegui*.dll; DestDir: {app}\dlls; Components: Libs/VC
+Source: ..\..\libs\ReleaseVCOnly\*cegui*.pdb; DestDir: {app}\dlls\debugingo; Components: Extra/DebugInfo
+Source: ..\..\libs\ReleaseVC7Only\cegui*.lib; DestDir: {app}\lib\vc7; Components: Libs/VC
+#endif
+
 ; Misc stuff
 #ifdef STATIC
 Source: ..\..\tools\freetype-config-static; DestDir: {app}\bin; DestName: freetype-config; Components: Libs/Common

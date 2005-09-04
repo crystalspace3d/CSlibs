@@ -1,0 +1,16 @@
+Index: include/CEGUIConfig.h
+===================================================================
+RCS file: /cvsroot/crayzedsgui/cegui_mk2/include/CEGUIConfig.h,v
+retrieving revision 1.8
+diff -u -r1.8 CEGUIConfig.h
+--- include/CEGUIConfig.h	21 Aug 2005 19:15:52 -0000	1.8
++++ include/CEGUIConfig.h	4 Sep 2005 16:54:17 -0000
+@@ -74,7 +74,7 @@
+ // Comment this line if you wish to remove the Xerces-C++ dependency.
+ // The system will revert to using an embedded version of TinyXML instead.
+ //////////////////////////////////////////////////////////////////////////
+-#define CEGUI_WITH_XERCES
++//#define CEGUI_WITH_XERCES
+ 
+ //////////////////////////////////////////////////////////////////////////
+ // Comment/Uncomment these lines to control renderer use in samples where

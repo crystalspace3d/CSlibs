@@ -12,7 +12,6 @@ if test ! -e headers/lib3ds ; then
 fi
 cp source/lib3ds/lib3ds/*.h headers/lib3ds
 cp source/libjpeg/jconfig.h source/libjpeg/jinclude.h source/libjpeg/jerror.h source/libjpeg/jmorecfg.h source/libjpeg/jpeglib.h headers
-cp source/mikmod.h headers/mikmod.h
 cp source/libmng/*.h headers/
 rm -f -r headers/ode
 mkdir headers/ode
@@ -31,6 +30,10 @@ if test ! -e headers/cal3d ; then
 fi
 cp source/libcal3d/src/cal3d/*.h headers/cal3d
 cp source/libcaca/src/caca.h headers/
-
+cp source/libCEGUI/include/*.h headers
+mkdir headers/elements
+cp source/libCEGUI/include/elements/*.h headers/elements
+mkdir headers/falagard
+cp source/libCEGUI/include/falagard/*.h headers/falagard
 
 find headers -type d -name CVS -exec rm -rf {} \; -prune 
