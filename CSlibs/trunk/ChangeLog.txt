@@ -1,3 +1,6 @@
+0.99r0_016 (2005-09-04):
+  - Added CEGUI for VC7.
+
 0.99r0_015 (2005-08-11):
   - Fixed mikmod-related crash.
 

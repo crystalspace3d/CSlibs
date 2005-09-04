@@ -39,14 +39,16 @@ Source: {src}\include\ode\*.*; DestDir: {app}\include\csutil\win32\ode; Flags: e
 Source: {src}\include\ogg\*.*; DestDir: {app}\include\csutil\win32\ogg; Flags: external skipifsourcedoesntexist
 Source: {src}\include\vorbis\*.*; DestDir: {app}\include\csutil\win32\vorbis; Flags: external skipifsourcedoesntexist
 Source: {src}\include\Cg\*.*; DestDir: {app}\include\csutil\win32\Cg; Flags: external skipifsourcedoesntexist
+Source: {src}\include\elements\*.*; DestDir: {app}\include\csutil\win32\elements; Flags: external skipifsourcedoesntexist
+Source: {src}\include\falagard\*.*; DestDir: {app}\include\csutil\win32\falagard; Flags: external skipifsourcedoesntexist
 Source: {src}\lib\*.lib; DestDir: {app}\libs\csutil\win32\libs; Flags: external skipifsourcedoesntexist
 Source: {src}\lib\vc\*.lib; DestDir: {app}\libs\csutil\win32\libs; Flags: external skipifsourcedoesntexist
-Source: {src}\lib\vc6\cal3d.*; DestDir: {app}\libs\csutil\win32\libs; Flags: external skipifsourcedoesntexist; Components: cal3d\vc6
-Source: {src}\lib\vc7\cal3d.*; DestDir: {app}\libs\csutil\win32\libs; Flags: external skipifsourcedoesntexist; Components: cal3d\vc7
+Source: {src}\lib\vc6\*.lib; DestDir: {app}\libs\csutil\win32\libs; Flags: external skipifsourcedoesntexist; Components: VClibs\vc6
+Source: {src}\lib\vc7\*.lib; DestDir: {app}\libs\csutil\win32\libs; Flags: external skipifsourcedoesntexist; Components: VClibs\vc7
 [Components]
-Name: cal3d; Description: Install Cal3D library; Types: full; Flags: disablenouninstallwarning
-Name: cal3d\vc6; Description: For VC6; Flags: exclusive disablenouninstallwarning
-Name: cal3d\vc7; Description: For VC7.0 & VC7.1; Flags: exclusive disablenouninstallwarning; Types: full
+Name: VClibs; Description: Install VC-only library versions; Types: full; Flags: disablenouninstallwarning
+Name: VClibs\vc6; Description: For VC6; Flags: exclusive disablenouninstallwarning
+Name: VClibs\vc7; Description: For VC7.0 & VC7.1; Flags: exclusive disablenouninstallwarning; Types: full
 [Registry]
 Root: HKLM; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstvalName}; ValueData: {uninstallexe}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: CheckAdminStuff
 Root: HKCU; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstvalName}; ValueData: {uninstallexe}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: CheckNoAdminStuff
@@ -59,6 +61,7 @@ FinishedLabel=Setup has finished installing [name] on your computer. You can set
 [Dirs]
 Name: {app}\include\csutil\win32\AL; Flags: uninsalwaysuninstall
 Name: {app}\include\csutil\win32\cal3d; Flags: uninsalwaysuninstall
+Name: {app}\include\csutil\win32\elements; Flags: uninsalwaysuninstall
 Name: {app}\include\csutil\win32\freetype; Flags: uninsalwaysuninstall
 Name: {app}\include\csutil\win32\lib3ds; Flags: uninsalwaysuninstall
 Name: {app}\include\csutil\win32\ode; Flags: uninsalwaysuninstall
