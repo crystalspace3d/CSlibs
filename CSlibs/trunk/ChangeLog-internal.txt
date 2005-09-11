@@ -1,3 +1,7 @@
+2005-09-11:
+  - res tweaked the Wine check a bit.
+  - res changed the default directory logic to by default suggest a path 
+    without spaces.   
 2005-09-04:
   - res bumped the version to 016.
   * Released 0.99r0_016

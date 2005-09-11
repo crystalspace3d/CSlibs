@@ -313,7 +313,10 @@ begin
     @@@ IS evaluates the AppDir at startup time, before the user can enable/
     disable cross-compile settings
   }
-  if IsWinePresent() then
+  if IsWinePresent()
+    or (Pos (' ', Default) <> 0) then
+    { Since we warn about spaces in paths, might be a good idea to choose a
+      default without... }
 	  Result := 'C:\CrystalSpaceLibs'
   else
 	  Result := Default;
