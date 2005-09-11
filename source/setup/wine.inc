@@ -4,7 +4,8 @@
 
 function IsWinePresent(): boolean;
 begin
-  Result := RegKeyExists (HKEY_LOCAL_MACHINE, 'Software\Wine');
+  Result := RegKeyExists (HKEY_LOCAL_MACHINE, 'Software\Wine')
+    or RegKeyExists (HKEY_CURRENT_USER, 'Software\Wine')
 end;
 
 function WineToUnix (path: String): PChar; 
