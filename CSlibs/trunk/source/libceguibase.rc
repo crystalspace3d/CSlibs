@@ -1,5 +1,5 @@
 #define VER_PRODUCT_NUMERIC	0,4,0,0
-#define	VER_PRODUCT_STR		"CVS"
+#define	VER_PRODUCT_STR		"0.4.0"
 #define	VER_DESCRIPTION		"Crazy Eddie's GUI System Mk-2"
 #define VER_INTERNAL		"libceguibase"
 #define	VER_COPYRIGHT		"Copyright ©2004 - 2005 CEGUI Team & Contributing Authors"

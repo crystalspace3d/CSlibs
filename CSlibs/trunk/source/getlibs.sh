@@ -7,7 +7,7 @@ scripts/cvs-get libode :pserver:anonymous@cvs.sourceforge.net:/cvsroot/opende \
 scripts/cvs-get lib3ds :pserver:anonymous@cvs.sourceforge.net:/cvsroot/lib3ds \
   lib3ds HEAD
 scripts/cvs-get libCEGUI :pserver:anonymous@cvs.sourceforge.net:/cvsroot/crayzedsgui \
-  cegui_mk2 HEAD
+  cegui_mk2 v0-4
 
 scripts/url-get libpng ftp://ftp.simplesystems.org/pub/libpng/png/src/libpng-1.2.8-config.tar.gz \
   libpng-1.2.8-config gz

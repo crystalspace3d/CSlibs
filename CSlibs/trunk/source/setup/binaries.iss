@@ -61,6 +61,8 @@ Source: ..\..\nosource\Cg\dlls\*.*; DestDir: {app}\dlls; Flags: recursesubdirs; 
 Source: ..\..\syslibs\*.dll; DestDir: {app}\dlls; Components: Libs/Common
 Source: ..\..\libs\Release\*.dll; DestDir: {app}\dlls; Components: Libs/Common
 Source: ..\..\libs\ReleaseVCOnly\*.dll; DestDir: {app}\dlls; Components: Libs/VC
+#else
+Source: ..\..\libs\ReleaseVCOnly_static\*.dll; DestDir: {app}\dlls; Components: Libs/VC
 #endif
 
 ; .libs: common for both static/dynamic
@@ -104,16 +106,8 @@ Source: ..\..\nosource\Cg\include\*.*; DestDir: {app}\include; Flags: recursesub
 Source: ..\..\libs\Release\*.pdb; DestDir: {app}\dlls\debuginfo; Components: Extra/DebugInfo
 Source: ..\..\libs\ReleaseVCOnly\*.pdb; DestDir: {app}\dlls\debuginfo; Components: Extra/DebugInfo
 #else
+Source: ..\..\libs\ReleaseVCOnly_static\*.pdb; DestDir: {app}\dlls\debuginfo; Components: Extra/DebugInfo
 Source: ..\..\libs\ReleaseVC7Only_static\*.pdb; DestDir: {app}\lib\vc7; Components: Extra/DebugInfo
-#endif
-
-#ifdef STATIC
-; Special case CEGUI: does not work statically, so include CEGUI DLLs and dependecies here
-Source: ..\..\libs\Release\libfreetype2-cs.dll; DestDir: {app}\dlls; Components: Libs/VC
-Source: ..\..\libs\Release\libz-cs.dll; DestDir: {app}\dlls; Components: Libs/VC
-Source: ..\..\libs\ReleaseVCOnly\*cegui*.dll; DestDir: {app}\dlls; Components: Libs/VC
-Source: ..\..\libs\ReleaseVCOnly\*cegui*.pdb; DestDir: {app}\dlls\debugingo; Components: Extra/DebugInfo
-Source: ..\..\libs\ReleaseVC7Only\cegui*.lib; DestDir: {app}\lib\vc7; Components: Libs/VC
 #endif
 
 ; Misc stuff
@@ -151,8 +145,8 @@ Name: Libs/MinGW; Description: MinGW-only libraries; Types: custom full typMinGW
 Name: Libs/Cygwin; Description: Cygwin-only libraries; Types: custom full typCygwin; Flags: disablenouninstallwarning
 Name: Extra; Description: Additional components; Types: custom full; Flags: disablenouninstallwarning
 Name: Extra/Cg; Description: Cg headers & libraries; Types: custom full typVC typMinGW typCygwin xcompile; Flags: disablenouninstallwarning
-Name: Extra/DXHeaders; Description: Minimal DirectX 7 headers; Types: custom full typMinGW typCygwin xcompile; Flags: disablenouninstallwarning
-Name: Extra/DXLibs; Description: Minimal DirectX 7 libraries; Types: custom full xcompile; Flags: disablenouninstallwarning
+Name: Extra/DXHeaders; Description: Minimal DirectX 9 headers; Types: custom full typMinGW typCygwin xcompile; Flags: disablenouninstallwarning
+Name: Extra/DXLibs; Description: Minimal DirectX 9 libraries; Types: custom full xcompile; Flags: disablenouninstallwarning
 Name: Extra/Jam; Description: Jam build tool; Types: custom full typMinGW typCygwin; Flags: disablenouninstallwarning
 Name: Extra/NASM; Description: NASM Netwide Assembler; Types: custom full typMinGW typCygwin; Flags: disablenouninstallwarning
 Name: Extra/Python; Description: Python GCC import libs; Types: custom full typMinGW typCygwin; Flags: disablenouninstallwarning
@@ -197,7 +191,7 @@ Root: HKCU; Subkey: {#CSLibsRegKey}; ValueType: string; ValueName: CSDirectory; 
 SelectDirLabel3=Setup will install [name] into the following folder. Please DO NOT choose you CrystalSpace directory here!
 FinishedLabel=Setup has finished installing [name] on your computer. You should be able to build CrystalSpace from source after setting up support for your development environment(s).
 WelcomeLabel2=This will install third party header files and binary libraries needed by CS (resp. some plugins) as well as some useful tools on your computer.
-NoIconsCheck=&Don't create any icons (not recommended)
+NoProgramGroupCheck2=&Don't create a Start Menu folder (not recommended)
 [Code]
 #include "CodeCommon.inc"
 
@@ -372,11 +366,13 @@ begin
   if (RegQueryStringValue (HKEY_LOCAL_MACHINE,
     UninstKey, 'UninstallString', uninstCmd)) then
   begin
+    if (uninstCmd[1] = '"') and (uninstCmd[Length(uninstCmd)] = '"') then
+      uninstCmd := copy (uninstCmd, 2, Length(uninstCmd) - 2);
     UninstPrevProgress.SetText ('Executing', uninstCmd);
   //if (not InstShellExec (uninstCmd, '/SILENT', '', {true, false,} SW_SHOWNORMAL, resCode)) then
     if (not Exec (uninstCmd, '/SILENT', '', SW_SHOWNORMAL, ewWaitUntilTerminated, resCode)) then
 	  begin
-	    Result := MsgBox ('Failed to execute uninstaller:' + #13#10 + SysErrorMessage (resCode)
+	    Result := MsgBox ('Failed to execute uninstaller (' + uninstCmd + '):' + #13#10 + SysErrorMessage (resCode)
         + #13#10#13#10 + 'Continue with installation?',
         mbConfirmation, MB_YESNO) = IDYES;
   	end;
