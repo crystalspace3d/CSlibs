@@ -1,3 +1,7 @@
+0.99r0_017 (2005-09-20):
+  - Updated minimal DirectX to 9.
+  - CEGUI is now version 0.4.0.
+
 0.99r0_016 (2005-09-04):
   - Added CEGUI for VC7.
 

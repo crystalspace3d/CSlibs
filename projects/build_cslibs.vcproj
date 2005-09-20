@@ -25,7 +25,7 @@
 				Name="VCPostBuildEventTool"
 				CommandLine="echo Rebasing...
 rebase -b 0x70000000 -v -d ..\libs\Release\*.dll ..\libs\ReleaseVCOnly\*.dll ..\libs\ReleaseVC7Only_static\*.dll
-del ..\temp\build_cslibs.lib
+
 "/>
 			<Tool
 				Name="VCPreBuildEventTool"/>

@@ -1,3 +1,8 @@
+2005-09-20:
+  - res improved "static" CEGUI a bit by having it link against static zlib
+    and freetype2.
+  - res bumped the version to 017.
+  * Released 0.99r0_017
 2005-09-11:
   - res tweaked the Wine check a bit.
   - res changed the default directory logic to by default suggest a path 

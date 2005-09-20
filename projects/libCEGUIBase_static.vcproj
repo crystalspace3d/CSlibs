@@ -2,8 +2,8 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="7.00"
-	Name="libCEGUIBase"
-	ProjectGUID="{41479B71-4AA0-47FC-9738-12F6DA994CD0}"
+	Name="libCEGUIBase_static"
+	ProjectGUID="{B9C7EA43-2654-43CC-B772-C9FFDEC1B7AF}"
 	Keyword="Win32Proj">
 	<Platforms>
 		<Platform
@@ -62,8 +62,8 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory=".\..\libs\ReleaseVC7Only"
-			IntermediateDirectory=".\..\temp\libCEGUIBasevc7_Release"
+			OutputDirectory=".\..\libs\ReleaseVC7Only_static"
+			IntermediateDirectory=".\..\temp\libCEGUIBasevc7_Release_static"
 			ConfigurationType="2"
 			CharacterSet="2"
 			WholeProgramOptimization="TRUE">
@@ -92,15 +92,15 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies=""
-				OutputFile="..\libs\ReleaseVCOnly/libceguibase-csvc7.dll"
+				OutputFile="..\libs\ReleaseVCOnly_static/libceguibase-csvc7.dll"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="..\source\libCEGUI\lib;..\source\libCEGUI\dependencies\lib"
 				GenerateDebugInformation="TRUE"
-				ProgramDatabaseFile="..\libs\ReleaseVCOnly/libceguibase-csvc7.pdb"
+				ProgramDatabaseFile="..\libs\ReleaseVCOnly_static/libceguibase-csvc7.pdb"
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
-				ImportLibrary=".\..\libs\ReleaseVC7Only/CEGUIBase.lib"
+				ImportLibrary=".\..\libs\ReleaseVC7Only_static/CEGUIBase.lib"
 				MergeSections=".rdata=.text"
 				TargetMachine="1"/>
 			<Tool

@@ -2,8 +2,8 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="7.00"
-	Name="CEGUIFalagardBase"
-	ProjectGUID="{9155C410-F113-11D9-8CD6-0800200C9A66}"
+	Name="CEGUIFalagardBase_static"
+	ProjectGUID="{F437A449-EF19-47D7-B861-8C0F88F49509}"
 	Keyword="Win32Proj">
 	<Platforms>
 		<Platform
@@ -61,8 +61,8 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory=".\..\libs\ReleaseVC7Only"
-			IntermediateDirectory=".\..\temp\CEGUIFalagardBasevc7_Release"
+			OutputDirectory=".\..\libs\ReleaseVC7Only_static"
+			IntermediateDirectory=".\..\temp\CEGUIFalagardBasevc7_Release_static"
 			ConfigurationType="2"
 			CharacterSet="2"
 			WholeProgramOptimization="TRUE">
@@ -89,15 +89,15 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="..\libs\ReleaseVCOnly/libCEGUIFalagardBase-csvc7.dll"
+				OutputFile="..\libs\ReleaseVCOnly_static/libCEGUIFalagardBase-csvc7.dll"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="..\source\libCEGUI\lib;..\source\libCEGUI\dependencies\lib"
 				GenerateDebugInformation="TRUE"
-				ProgramDatabaseFile="..\libs\ReleaseVCOnly/libCEGUIFalagardBase-csvc7.pdb"
+				ProgramDatabaseFile="..\libs\ReleaseVCOnly_static/libCEGUIFalagardBase-csvc7.pdb"
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
-				ImportLibrary=".\..\libs\ReleaseVC7Only/CEGUIFalagardBase.lib"
+				ImportLibrary=".\..\libs\ReleaseVC7Only_static/CEGUIFalagardBase.lib"
 				MergeSections=".rdata=.text"
 				TargetMachine="1"/>
 			<Tool

@@ -1,0 +1,16 @@
+Index: configure.ac
+===================================================================
+RCS file: /cvsroot/crayzedsgui/cegui_mk2/configure.ac,v
+retrieving revision 1.23
+diff -u -r1.23 configure.ac
+--- configure.ac	20 Aug 2005 20:44:09 -0000	1.23
++++ configure.ac	5 Sep 2005 22:21:44 -0000
+@@ -13,7 +13,7 @@
+ 
+ # Checks for libraries.
+ AC_CHECK_LIB([dl], [main])
+-AC_CHECK_LIB([pthread], [main],, AC_MSG_ERROR([cannot find pthread library]))
++AC_CHECK_LIB([pthread], [main])
+ 
+ CEGUI_CHECK_XML_PARSERS
+ 

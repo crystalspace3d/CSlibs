@@ -1,0 +1,33 @@
+Index: src/CEGUIFactoryModule.cpp
+===================================================================
+RCS file: /cvsroot/crayzedsgui/cegui_mk2/src/CEGUIFactoryModule.cpp,v
+retrieving revision 1.5
+diff -u -r1.5 CEGUIFactoryModule.cpp
+--- src/CEGUIFactoryModule.cpp	10 Jul 2005 09:38:59 -0000	1.5
++++ src/CEGUIFactoryModule.cpp	5 Sep 2005 21:34:13 -0000
+@@ -88,6 +88,25 @@
+ 
+ 	d_handle = DYNLIB_LOAD(d_moduleName.c_str());
+ 
++#if defined(__WIN32__) || defined(_WIN32)
++	// cs-win32libs: Try with prefix & suffix
++	if (d_handle == NULL)
++	{
++  #ifdef CEGUI_FACTORYMODULE_SUFFIX
++	  if (d_moduleName.substr(d_moduleName.length() - 4, 4) == (utf8*)".dll")
++	    d_moduleName.insert(d_moduleName.length() - 4, 
++	      (utf8*)CEGUI_FACTORYMODULE_SUFFIX);
++	  else
++	    d_moduleName += (utf8*)CEGUI_FACTORYMODULE_SUFFIX;
++  #endif
++  #ifdef CEGUI_FACTORYMODULE_PREFIX
++	  d_moduleName.insert(0, (utf8*)CEGUI_FACTORYMODULE_PREFIX);
++  #endif
++
++	  d_handle = DYNLIB_LOAD(d_moduleName.c_str());
++	}
++#endif
++
+ 	// check for library load failure
+ 	if (d_handle == NULL)
+ 	{
