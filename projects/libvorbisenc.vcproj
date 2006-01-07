@@ -2,8 +2,8 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="7.00"
-	Name="libvorbis"
-	ProjectGUID="{DAE97ED8-D289-4993-9C86-50A92F57DA61}"
+	Name="libvorbisenc"
+	ProjectGUID="{D05EA4D9-354D-4040-90CF-CE3E54793042}"
 	Keyword="Win32Proj">
 	<Platforms>
 		<Platform
@@ -70,7 +70,7 @@
 				OmitFramePointers="TRUE"
 				OptimizeForProcessor="2"
 				AdditionalIncludeDirectories="..\source\libvorbis\include;..\source\libogg\include"
-				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;LIBVORBIS_EXPORTS;VORBIS_DYNAMIC_EXPORTS"
+				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;LIBvorbisenc_EXPORTS;vorbisenc_DYNAMIC_EXPORTS"
 				StringPooling="TRUE"
 				ExceptionHandling="FALSE"
 				RuntimeLibrary="2"
@@ -89,14 +89,14 @@
 				OutputFile="$(OutDir)/$(ProjectName)-cs.dll"
 				LinkIncremental="1"
 				SuppressStartupBanner="TRUE"
-				ModuleDefinitionFile="..\source\libvorbis\win32\vorbis.def"
+				ModuleDefinitionFile="..\source\libvorbis\win32\vorbisenc.def"
 				GenerateDebugInformation="TRUE"
 				ProgramDatabaseFile="$(OutDir)/$(ProjectName)-cs.pdb"
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
 				OptimizeForWindows98="2"
-				ImportLibrary="$(OutDir)/vorbis.lib"
+				ImportLibrary="$(OutDir)/vorbisenc.lib"
 				MergeSections=".rdata=.text"
 				TargetMachine="1"/>
 			<Tool
@@ -120,67 +120,7 @@
 			Name="Source Files"
 			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm">
 			<File
-				RelativePath="..\source\libvorbis\lib\analysis.c">
-			</File>
-			<File
-				RelativePath="..\source\libvorbis\lib\bitrate.c">
-			</File>
-			<File
-				RelativePath="..\source\libvorbis\lib\block.c">
-			</File>
-			<File
-				RelativePath="..\source\libvorbis\lib\codebook.c">
-			</File>
-			<File
-				RelativePath="..\source\libvorbis\lib\envelope.c">
-			</File>
-			<File
-				RelativePath="..\source\libvorbis\lib\floor0.c">
-			</File>
-			<File
-				RelativePath="..\source\libvorbis\lib\floor1.c">
-			</File>
-			<File
-				RelativePath="..\source\libvorbis\lib\info.c">
-			</File>
-			<File
-				RelativePath="..\source\libvorbis\lib\lookup.c">
-			</File>
-			<File
-				RelativePath="..\source\libvorbis\lib\lpc.c">
-			</File>
-			<File
-				RelativePath="..\source\libvorbis\lib\lsp.c">
-			</File>
-			<File
-				RelativePath="..\source\libvorbis\lib\mapping0.c">
-			</File>
-			<File
-				RelativePath="..\source\libvorbis\lib\mdct.c">
-			</File>
-			<File
-				RelativePath="..\source\libvorbis\lib\psy.c">
-			</File>
-			<File
-				RelativePath="..\source\libvorbis\lib\registry.c">
-			</File>
-			<File
-				RelativePath="..\source\libvorbis\lib\res0.c">
-			</File>
-			<File
-				RelativePath="..\source\libvorbis\lib\sharedbook.c">
-			</File>
-			<File
-				RelativePath="..\source\libvorbis\lib\smallft.c">
-			</File>
-			<File
-				RelativePath="..\source\libvorbis\lib\synthesis.c">
-			</File>
-			<File
-				RelativePath="..\source\libvorbis\lib\vorbisfile.c">
-			</File>
-			<File
-				RelativePath="..\source\libvorbis\lib\window.c">
+				RelativePath="..\source\libvorbis\lib\vorbisenc.c">
 			</File>
 		</Filter>
 		<Filter
@@ -311,7 +251,7 @@
 				RelativePath="..\source\libvorbis.rc">
 			</File>
 			<File
-				RelativePath="..\source\libvorbis\win32\vorbis.def">
+				RelativePath="..\source\libvorbis\win32\vorbisenc.def">
 			</File>
 		</Filter>
 	</Files>

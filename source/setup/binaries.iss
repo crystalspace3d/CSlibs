@@ -15,8 +15,8 @@
 
 [Setup]
 SolidCompression=true
-Compression=lzma/ultra
-;Compression=none
+;Compression=lzma/ultra
+Compression=none
 ShowLanguageDialog=no
 AppName={#AppName}
 AppId={#AppId}
@@ -61,16 +61,16 @@ Source: ..\..\nosource\Cg\dlls\*.*; DestDir: {app}\dlls; Flags: recursesubdirs; 
 Source: ..\..\syslibs\*.dll; DestDir: {app}\dlls; Components: Libs/Common
 Source: ..\..\libs\Release\*.dll; DestDir: {app}\dlls; Components: Libs/Common
 Source: ..\..\libs\ReleaseVCOnly\*.dll; DestDir: {app}\dlls; Components: Libs/VC
+Source: ..\..\libs\ReleaseGCCOnly\mingw\*.dll; DestDir: {app}\dlls; Components: Libs/MinGW
+; Special case: use "static" CEGUI on Cygwin for non-static setup as well
+Source: ..\..\libs\ReleaseGCCOnly_static\cygwin\*.dll; DestDir: {app}\dlls; Components: Libs/Cygwin
 #else
 Source: ..\..\libs\ReleaseVCOnly_static\*.dll; DestDir: {app}\dlls; Components: Libs/VC
+Source: ..\..\libs\ReleaseGCCOnly_static\mingw\*.dll; DestDir: {app}\dlls; Components: Libs/MinGW
+Source: ..\..\libs\ReleaseGCCOnly_static\cygwin\*.dll; DestDir: {app}\dlls; Components: Libs/Cygwin
 #endif
 
 ; .libs: common for both static/dynamic
-Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.2.3\lib*.*; DestDir: {app}\lib\mingw-gcc-3.2.3; Components: Libs/MinGW
-Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.3.3\lib*.*; DestDir: {app}\lib\mingw-gcc-3.3.3; Components: Libs/MinGW
-Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.4.2\lib*.*; DestDir: {app}\lib\mingw-gcc-3.4.2; Components: Libs/MinGW
-Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.4.4\lib*.*; DestDir: {app}\lib\mingw-gcc-3.4.4; Components: Libs/MinGW
-Source: ..\..\libs\ReleaseGCCOnly\cygwin-gcc-3.4.4\lib*.*; DestDir: {app}\lib\cygwin-gcc-3.4.4; Components: Libs/Cygwin
 Source: ..\..\nosource\OpenAL\libs\*.lib; DestDir: {app}\lib; Components: Libs/Common
 Source: ..\..\directx\lib\*.*; DestDir: {app}\lib; Flags: recursesubdirs; Components: Extra/DXLibs
 Source: ..\..\nosource\python\*.*; DestDir: {app}\lib; Components: Extra/Python
@@ -79,15 +79,28 @@ Source: ..\..\nosource\Cg\lib\*.*; DestDir: {app}\lib; Flags: recursesubdirs; Co
 #ifdef STATIC
 ; Static .libs
 Source: ..\..\libs\Release_static\*.lib; DestDir: {app}\lib\vc; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC6Only_static\*.lib; DestDir: {app}\lib\vc6; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC7Only_static\*.lib; DestDir: {app}\lib\vc7; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC7Only_static\cal3d.lib; DestDir: {app}\lib\vc7; DestName: cal3d_d.lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC8Only_static\*.lib; DestDir: {app}\lib\vc8; Components: Libs/VC
 Source: ..\..\libs\ReleaseGCCOnly_static\mingw\*.a; DestDir: {app}\lib\mingw; Components: Libs/MinGW
 Source: ..\..\libs\ReleaseGCCOnly_static\cygwin\*.a; DestDir: {app}\lib\cygwin; Components: Libs/Cygwin
+Source: ..\..\libs\ReleaseGCCOnly_static\mingw-gcc-3.4\lib*.*; DestDir: {app}\lib\mingw-gcc-3.4; Components: Libs/MinGW
+Source: ..\..\libs\ReleaseGCCOnly_static\cygwin-gcc-3.4\lib*.*; DestDir: {app}\lib\cygwin-gcc-3.4; Components: Libs/Cygwin
+; libcal3d for dynamic is static as well
+Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.4\libcal3d.a; DestDir: {app}\lib\mingw-gcc-3.4; Components: Libs/MinGW
+Source: ..\..\libs\ReleaseGCCOnly\cygwin-gcc-3.4\libcal3d.a; DestDir: {app}\lib\cygwin-gcc-3.4; Components: Libs/Cygwin
 #else
 ; Dynamic .libs
 Source: ..\..\libs\Release\*.lib; DestDir: {app}\lib; Components: Libs/Common
-Source: ..\..\libs\ReleaseVC6Only\*.lib; DestDir: {app}\lib\vc6; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC7Only\*.lib; DestDir: {app}\lib\vc7; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC7Only\cal3d.lib; DestDir: {app}\lib\vc7; DestName: cal3d_d.lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC8Only\*.lib; DestDir: {app}\lib\vc8; Components: Libs/VC
+;Source: ..\..\libs\ReleaseGCCOnly\mingw\*.a; DestDir: {app}\lib\mingw; Components: Libs/MinGW
+;Source: ..\..\libs\ReleaseGCCOnly\cygwin\*.a; DestDir: {app}\lib\cygwin; Components: Libs/Cygwin
+Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.4\lib*.*; DestDir: {app}\lib\mingw-gcc-3.4; Components: Libs/MinGW
+Source: ..\..\libs\ReleaseGCCOnly\cygwin-gcc-3.4\lib*.*; DestDir: {app}\lib\cygwin-gcc-3.4; Components: Libs/Cygwin
+; Special case: use "static" CEGUI on Cygwin for non-static setup as well
+Source: ..\..\libs\ReleaseGCCOnly_static\cygwin-gcc-3.4\lib*.*; DestDir: {app}\lib\cygwin-gcc-3.4; Components: Libs/Cygwin
 #endif
 
 ; headers
@@ -108,6 +121,7 @@ Source: ..\..\libs\ReleaseVCOnly\*.pdb; DestDir: {app}\dlls\debuginfo; Component
 #else
 Source: ..\..\libs\ReleaseVCOnly_static\*.pdb; DestDir: {app}\dlls\debuginfo; Components: Extra/DebugInfo
 Source: ..\..\libs\ReleaseVC7Only_static\*.pdb; DestDir: {app}\lib\vc7; Components: Extra/DebugInfo
+Source: ..\..\libs\ReleaseVC8Only_static\*.pdb; DestDir: {app}\lib\vc7; Components: Extra/DebugInfo
 #endif
 
 ; Misc stuff
@@ -129,12 +143,8 @@ Source: ..\..\out\support\CopyDLLs.exe; DestDir: {app};
 Name: {app}\tools; Flags: uninsalwaysuninstall
 Name: {app}\support; Flags: uninsalwaysuninstall
 Name: {app}\include; Flags: uninsalwaysuninstall
-Name: {app}\include\AL; Flags: uninsalwaysuninstall
 Name: {app}\lib; Flags: uninsalwaysuninstall
-Name: {app}\lib\vc6; Flags: uninsalwaysuninstall
-Name: {app}\lib\vc7; Flags: uninsalwaysuninstall
 Name: {app}\bin; Flags: uninsalwaysuninstall
-Name: {app}\bin\debuginfo; Flags: uninsalwaysuninstall
 Name: {app}\dlls; Flags: uninsalwaysuninstall
 Name: {app}; Flags: uninsalwaysuninstall
 [Components]
@@ -154,7 +164,7 @@ Name: Extra/DebugInfo; Description: Debug information; Types: custom full typVC;
 Name: Extra/Dbghelp; Description: DbgHelp.dll Debugging helper; Types: custom compact full typCygwin typMinGW typVC; Flags: disablenouninstallwarning
 Name: Extra/OpenALInstaller; Description: OpenAL runtime installer; Types: custom full; Flags: disablenouninstallwarning
 Name: DESupport; Description: Support for development environments; Types: custom full; Flags: disablenouninstallwarning
-Name: DESupport/VC; Description: VisualC 6 and 7; Types: custom full typVC; Flags: disablenouninstallwarning
+Name: DESupport/VC; Description: VisualC 7.0, 7.1, 8.0; Types: custom full typVC; Flags: disablenouninstallwarning
 Name: DESupport/MSYS; Description: MSYS; Types: custom full typMinGW; Flags: disablenouninstallwarning
 Name: DESupport/Cygwin; Description: Cygwin; Types: custom full typCygwin; Flags: disablenouninstallwarning
 [Run]

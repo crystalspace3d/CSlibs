@@ -43,12 +43,12 @@ Source: {src}\include\elements\*.*; DestDir: {app}\include\csutil\win32\elements
 Source: {src}\include\falagard\*.*; DestDir: {app}\include\csutil\win32\falagard; Flags: external skipifsourcedoesntexist
 Source: {src}\lib\*.lib; DestDir: {app}\libs\csutil\win32\libs; Flags: external skipifsourcedoesntexist
 Source: {src}\lib\vc\*.lib; DestDir: {app}\libs\csutil\win32\libs; Flags: external skipifsourcedoesntexist
-Source: {src}\lib\vc6\*.lib; DestDir: {app}\libs\csutil\win32\libs; Flags: external skipifsourcedoesntexist; Components: VClibs\vc6
 Source: {src}\lib\vc7\*.lib; DestDir: {app}\libs\csutil\win32\libs; Flags: external skipifsourcedoesntexist; Components: VClibs\vc7
+Source: {src}\lib\vc8\*.lib; DestDir: {app}\libs\csutil\win32\libs; Flags: external skipifsourcedoesntexist; Components: VClibs\vc8
 [Components]
 Name: VClibs; Description: Install VC-only library versions; Types: full; Flags: disablenouninstallwarning
-Name: VClibs\vc6; Description: For VC6; Flags: exclusive disablenouninstallwarning
 Name: VClibs\vc7; Description: For VC7.0 & VC7.1; Flags: exclusive disablenouninstallwarning; Types: full
+Name: VClibs\vc8; Description: For VC8; Flags: exclusive disablenouninstallwarning
 [Registry]
 Root: HKLM; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstvalName}; ValueData: {uninstallexe}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: CheckAdminStuff
 Root: HKCU; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstvalName}; ValueData: {uninstallexe}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: CheckNoAdminStuff

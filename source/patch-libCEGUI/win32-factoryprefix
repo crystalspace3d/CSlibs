@@ -9,7 +9,7 @@ diff -u -r1.5 CEGUIFactoryModule.cpp
  
  	d_handle = DYNLIB_LOAD(d_moduleName.c_str());
  
-+#if defined(__WIN32__) || defined(_WIN32)
++#if defined(__WIN32__) || defined(_WIN32) || defined(__CYGWIN__)
 +	// cs-win32libs: Try with prefix & suffix
 +	if (d_handle == NULL)
 +	{

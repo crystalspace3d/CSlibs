@@ -2,8 +2,8 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="8,00"
-	Name="libcal3d-vc8"
-	ProjectGUID="{E3C20979-17F3-4FDF-A3AA-77041EDF37DF}"
+	Name="libcal3d-vc8_debug"
+	ProjectGUID="{D87DF5E5-EDD9-4353-9BD8-2EDCB1EA8C4D}"
 	>
 	<Platforms>
 		<Platform
@@ -16,13 +16,13 @@
 		<Configuration
 			Name="Release|Win32"
 			OutputDirectory=".\..\libs\ReleaseVC8Only"
-			IntermediateDirectory=".\..\temp\libcal3dvc8_Release"
+			IntermediateDirectory=".\..\temp\libcal3dvc8_d_Release"
 			ConfigurationType="2"
 			InheritedPropertySheets="D:\Programme\Microsoft Visual Studio 8\VC\VCProjectDefaults\UpgradeFromVC70.vsprops"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="false"
 			CharacterSet="2"
-			WholeProgramOptimization="1"
+			WholeProgramOptimization="0"
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
@@ -46,23 +46,18 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				Optimization="3"
-				InlineFunctionExpansion="2"
-				EnableIntrinsicFunctions="true"
-				FavorSizeOrSpeed="1"
-				OmitFramePointers="true"
+				Optimization="0"
+				InlineFunctionExpansion="0"
+				WholeProgramOptimization="false"
 				AdditionalIncludeDirectories="..\source/libcal3d/src"
-				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;CAL3D_EXPORTS;_CRT_SECURE_NO_DEPRECATE"
-				StringPooling="true"
-				ExceptionHandling="1"
-				RuntimeLibrary="2"
-				BufferSecurityCheck="false"
-				EnableFunctionLevelLinking="true"
+				PreprocessorDefinitions="WIN32;DEBUG;_WINDOWS;_USRDLL;CAL3D_EXPORTS;_CRT_SECURE_NO_DEPRECATE"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="3"
 				UsePrecompiledHeader="0"
 				PrecompiledHeaderFile=".\..\temp\libcal3d_Release/libcal3d.pch"
-				AssemblerListingLocation=".\..\temp\libcal3dvc8_Release/"
-				ObjectFile=".\..\temp\libcal3dvc8_Release/"
-				ProgramDataBaseFileName=".\..\temp\libcal3dvc8_Release/"
+				AssemblerListingLocation=".\..\temp\libcal3dvc8_d_Release/"
+				ObjectFile=".\..\temp\libcal3dvc8_d_Release/"
+				ProgramDataBaseFileName=".\..\temp\libcal3dvc8_d_Release/"
 				WarningLevel="3"
 				SuppressStartupBanner="true"
 				DebugInformationFormat="3"
@@ -80,17 +75,14 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="..\libs\ReleaseVCOnly/libcal3d-csvc8.dll"
+				OutputFile="..\libs\ReleaseVCOnly/libcal3d-csvc8_d.dll"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
 				GenerateDebugInformation="true"
-				ProgramDatabaseFile="$(TargetDir)/libcal3d-csvc8.pdb"
+				ProgramDatabaseFile="$(TargetDir)/libcal3d-csvc8_d.pdb"
 				StripPrivateSymbols=""
-				OptimizeReferences="2"
-				EnableCOMDATFolding="2"
-				OptimizeForWindows98="2"
-				ImportLibrary=".\..\libs\ReleaseVC8Only/cal3d.lib"
-				MergeSections=".rdata=.text"
+				ImportLibrary=".\..\libs\ReleaseVC8Only/cal3d_d.lib"
+				MergeSections=""
 				TargetMachine="1"
 			/>
 			<Tool

@@ -1,3 +1,13 @@
+2006-01-06:
+  - Added support to compile CEGUI on MinGW and Cygwin.
+  - Made vorbisenc a separate library.
+2006-01-02:
+  - Changed compiler versioning. Instead of full X.Y.Z, only X.Y is made part
+    of the mingw/cygwin libs directory, since versions with same X.Y but 
+    different Z should be binary compatible. Also, only compile for the latest
+    gcc on mingw.
+  - Removed VC6 support.
+  - Ditched ODE "extern C" patch since CS doesn't seem to need it.
 2005-09-20:
   - res improved "static" CEGUI a bit by having it link against static zlib
     and freetype2.

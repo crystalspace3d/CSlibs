@@ -1,0 +1,21 @@
+diff -ru libvorbis-1.1.2/win32/vorbis.def libvorbis/win32/vorbis.def
+--- libvorbis-1.1.2/win32/vorbis.def	Mon Nov 28 05:43:17 2005
++++ libvorbis/win32/vorbis.def	Fri Jan  6 01:31:40 2006
+@@ -48,9 +48,9 @@
+ ;
+ vorbis_window
+ _analysis_output_always
+-vorbis_encode_init
+-vorbis_encode_setup_managed
+-vorbis_encode_setup_vbr
+-vorbis_encode_init_vbr
+-vorbis_encode_setup_init
+-vorbis_encode_ctl
+\ No newline at end of file
++;vorbis_encode_init
++;vorbis_encode_setup_managed
++;vorbis_encode_setup_vbr
++;vorbis_encode_init_vbr
++;vorbis_encode_setup_init
++;vorbis_encode_ctl
+\ No newline at end of file
