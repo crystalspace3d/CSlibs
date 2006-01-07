@@ -39,7 +39,7 @@ if test "${platform_short}" != "cygwin" ; then
   freetype2_LIBS="-L${basedir}/libs/release -lfreetype2" \
   CEGUI_PLATFORM=${platform} \
   CFLAGS="-O2" \
-  CXXFLAGS="-O2 -DCEGUI_FACTORYMODULE_PREFIX=\"\\\"${libprefix}\\\"\" -DCEGUI_FACTORYMODULE_SUFFIX=\"\\\"-cs${platform}-0\\\"\"" \
+  CXXFLAGS="-O2 -DCEGUI_FACTORYMODULE_PREFIX=\"\\\"${libprefix}\\\"\" -DCEGUI_FACTORYMODULE_SUFFIX=\"\\\"-cs${platform}-0.dll\\\"\"" \
   ${basedir}/source/${library}/configure --prefix=$(pwd)/../prefix/ --disable-static --disable-opengl-renderer "$@"
   make
   make install
@@ -57,7 +57,7 @@ freetype2_CFLAGS="-I${basedir}/headers/" \
 freetype2_LIBS="-L${basedir}/libs/ReleaseGCCOnly_static/${platform_short} -lfreetype -lz" \
 CEGUI_PLATFORM=${platform} \
 CFLAGS="-O2" \
-CXXFLAGS="-O2 -DCEGUI_FACTORYMODULE_PREFIX=\"\\\"${libprefix}\\\"\" -DCEGUI_FACTORYMODULE_SUFFIX=\"\\\"-cs${platform}-0\\\"\"" \
+CXXFLAGS="-O2 -DCEGUI_FACTORYMODULE_PREFIX=\"\\\"${libprefix}\\\"\" -DCEGUI_FACTORYMODULE_SUFFIX=\"\\\"-cs${platform}-0.dll\\\"\"" \
 ${basedir}/source/${library}/configure --prefix=$(pwd)/../prefix/ --disable-static --disable-opengl-renderer "$@"
 make
 make install
