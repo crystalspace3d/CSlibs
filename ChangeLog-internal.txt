@@ -1,3 +1,8 @@
+2006-01-08:
+  * Released 0.99r0_018
+2006-01-07:
+  - Fixed exporting of CEGUI::Singleton<>::ms_Singleton on MinGW & Cygwin.
+  - Removed nasm.
 2006-01-06:
   - Added support to compile CEGUI on MinGW and Cygwin.
   - Made vorbisenc a separate library.

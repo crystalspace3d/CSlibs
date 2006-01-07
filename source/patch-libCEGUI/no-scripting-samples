@@ -1,0 +1,14 @@
+Index: Makefile.am
+===================================================================
+RCS file: /cvsroot/crayzedsgui/cegui_mk2/Makefile.am,v
+retrieving revision 1.6
+diff -u -r1.6 Makefile.am
+--- Makefile.am	26 Mar 2005 15:34:02 -0000	1.6
++++ Makefile.am	7 Jan 2006 04:22:44 -0000
+@@ -1,4 +1,5 @@
+-SUBDIRS = . src include WidgetSets ScriptingModules Samples
++#SUBDIRS = . src include WidgetSets ScriptingModules Samples
++SUBDIRS = . src include WidgetSets
+ 
+ pkgconfigdir = $(libdir)/pkgconfig
+ pkgconfig_DATA = CEGUI.pc CEGUI-OPENGL.pc

@@ -53,7 +53,6 @@ Source: ..\..\version.txt; DestDir: {app}; AfterInstall: WriteVersionTxt
 
 ; DLLs, exes
 Source: ..\..\tools\Release\setuptool.dll; DestDir: {app}
-Source: ..\..\nosource\nasm\*.exe; DestDir: {app}\tools; Components: Extra/NASM
 Source: ..\..\tools\Release\jam.exe; DestDir: {app}\tools; Components: Extra/Jam
 Source: ..\..\nosource\dbghelp\dbghelp.dll; DestDir: {app}\dlls; Components: Extra/Dbghelp
 Source: ..\..\nosource\Cg\dlls\*.*; DestDir: {app}\dlls; Flags: recursesubdirs; Components: Extra/Cg
@@ -131,7 +130,6 @@ Source: ..\..\tools\freetype-config-static; DestDir: {app}\bin; DestName: freety
 Source: ..\..\tools\freetype-config; DestDir: {app}\bin; Components: Libs/Common
 #endif
 Source: ..\..\CrystalSpace home page.url; DestDir: {group}
-Source: ..\..\nosource\nasm\copying; DestDir: {app}; Components: Extra/NASM; DestName: copying.nasm
 ; stuff that's been compressed already
 Source: ..\..\nosource\OpenAL\installer\{#File_OpenALInstaller}; DestDir: {app}; Components: Extra/OpenALInstaller
 Source: ..\..\out\support\VCsupport.exe; DestDir: {app}; Components: DESupport/VC
@@ -158,7 +156,6 @@ Name: Extra/Cg; Description: Cg headers & libraries; Types: custom full typVC ty
 Name: Extra/DXHeaders; Description: Minimal DirectX 9 headers; Types: custom full typMinGW typCygwin xcompile; Flags: disablenouninstallwarning
 Name: Extra/DXLibs; Description: Minimal DirectX 9 libraries; Types: custom full xcompile; Flags: disablenouninstallwarning
 Name: Extra/Jam; Description: Jam build tool; Types: custom full typMinGW typCygwin; Flags: disablenouninstallwarning
-Name: Extra/NASM; Description: NASM Netwide Assembler; Types: custom full typMinGW typCygwin; Flags: disablenouninstallwarning
 Name: Extra/Python; Description: Python GCC import libs; Types: custom full typMinGW typCygwin; Flags: disablenouninstallwarning
 Name: Extra/DebugInfo; Description: Debug information; Types: custom full typVC; Flags: disablenouninstallwarning
 Name: Extra/Dbghelp; Description: DbgHelp.dll Debugging helper; Types: custom compact full typCygwin typMinGW typVC; Flags: disablenouninstallwarning
