@@ -1,0 +1,68 @@
+Index: configure.ac
+===================================================================
+RCS file: /cvsroot/lib3ds/lib3ds/configure.ac,v
+retrieving revision 1.4
+diff -u -r1.4 configure.ac
+--- configure.ac	15 Aug 2005 20:11:09 -0000	1.4
++++ configure.ac	6 Jan 2006 01:15:18 -0000
+@@ -88,33 +88,33 @@
+ AC_SUBST(DMALLOC_CFLAGS)
+ AC_SUBST(DMALLOC_LIBS)
+ 
+-dnl SDL_VERSION=1.2.5
+-SDL_CFLAGS=""
+-SDL_LIBS=""
+-AC_CHECK_LIB(SDL, SDL_init,
+-    [
+-        SDL_LIBS="-lSDL";
+-        AC_CHECK_HEADERS([SDL/SDL.h SDL/SDL_image.h],
+-        [
+-            AC_CHECK_LIB(SDL_image, IMG_Load, 
+-            [
+-                AC_DEFINE(USE_SDL, 1, [SDL and SDL_image are available])
+-                SDL_LIBS="$SDL_LIBS -lSDL_image"
+-            ], 
+-            [
+-                AC_MSG_WARN([The SDL and SDL_image libraries are required for textures in the example programs])
+-            ]
+-            )
+-        ], 
+-        [
+-            AC_MSG_WARN([The SDL and SDL_image header files are required for textures in the example programs])
+-        ]
+-        )
+-    ], 
+-    AC_MSG_WARN([The SDL and SDL_image libraries and headers are required for textures in the example programs.])
+-)
+-AC_SUBST(SDL_CFLAGS)
+-AC_SUBST(SDL_LIBS)
++#~ dnl SDL_VERSION=1.2.5
++#~ SDL_CFLAGS=""
++#~ SDL_LIBS=""
++#~ AC_CHECK_LIB(SDL, SDL_init,
++    #~ [
++        #~ SDL_LIBS="-lSDL";
++        #~ AC_CHECK_HEADERS([SDL/SDL.h SDL/SDL_image.h],
++        #~ [
++            #~ AC_CHECK_LIB(SDL_image, IMG_Load, 
++            #~ [
++                #~ AC_DEFINE(USE_SDL, 1, [SDL and SDL_image are available])
++                #~ SDL_LIBS="$SDL_LIBS -lSDL_image"
++            #~ ], 
++            #~ [
++                #~ AC_MSG_WARN([The SDL and SDL_image libraries are required for textures in the example programs])
++            #~ ]
++            #~ )
++        #~ ], 
++        #~ [
++            #~ AC_MSG_WARN([The SDL and SDL_image header files are required for textures in the example programs])
++        #~ ]
++        #~ )
++    #~ ], 
++    #~ AC_MSG_WARN([The SDL and SDL_image libraries and headers are required for textures in the example programs.])
++#~ )
++#~ AC_SUBST(SDL_CFLAGS)
++#~ AC_SUBST(SDL_LIBS)
+ 
+ AC_OUTPUT([ \
+   lib3ds-config \

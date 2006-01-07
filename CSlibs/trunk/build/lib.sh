@@ -13,7 +13,7 @@ if test ! -e libs/ReleaseGCCOnly_static/${platform} ; then
 fi
 
 cd temp/${platform}/${library}
-CPPFLAGS="$CPPFLAGS -I$(pwd)/../prefix/include" LDFLAGS="$(LDFLAGS) -L$(pwd)/../prefix/lib" $(pwd)/../../../source/${library}/configure --prefix=$(pwd)/../prefix/ --disable-shared "$@"
+CPPFLAGS="$CPPFLAGS -I$(pwd)/../prefix/include" LDFLAGS="$LDFLAGS -L$(pwd)/../prefix/lib" $(pwd)/../../../source/${library}/configure --prefix=$(pwd)/../prefix/ --disable-shared "$@"
 make
 make install
 make install-lib

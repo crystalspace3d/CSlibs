@@ -144,13 +144,7 @@
 			Name="Source Files"
 			Filter="cpp;c;cxx;rc;def;r;odl;idl;hpj;bat">
 			<File
-				RelativePath="..\source\libfreetype\src\autohint\autohint.c">
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCLCompilerTool"
-						AdditionalIncludeDirectories=""/>
-				</FileConfiguration>
+				RelativePath="..\source\libfreetype\src\autofit\autofit.c">
 			</File>
 			<File
 				RelativePath="..\source\libfreetype\src\bdf\bdf.c">
@@ -163,6 +157,9 @@
 						Name="VCCLCompilerTool"
 						AdditionalIncludeDirectories=""/>
 				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\source\libfreetype\src\base\ftbitmap.c">
 			</File>
 			<File
 				RelativePath="..\source\libfreetype\src\cache\ftcache.c">

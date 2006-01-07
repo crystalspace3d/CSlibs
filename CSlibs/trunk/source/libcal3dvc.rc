@@ -2,7 +2,7 @@
 #define	VER_PRODUCT_STR		"0.10 CVS"
 #define	VER_DESCRIPTION		"Cal3D - 3d character animation library"
 #define VER_INTERNAL		"libcal3d"
-#define	VER_COPYRIGHT		"Copyright © 2001-2004 Bruno Heidelberger"
+#define	VER_COPYRIGHT		"Copyright © 2001-2005 Bruno Heidelberger"
 #define VER_TRADEMARKS		"GNU Lesser General Public License"
 #define VER_FILENAME		"libcal3d-csvc.dll"
 #define VER_PRODUCTNAME		"Cal3d"

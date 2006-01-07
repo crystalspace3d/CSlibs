@@ -1,0 +1,41 @@
+Index: include/CEGUIFactoryModule.h
+===================================================================
+RCS file: /cvsroot/crayzedsgui/cegui_mk2/include/CEGUIFactoryModule.h,v
+retrieving revision 1.5
+diff -u -r1.5 CEGUIFactoryModule.h
+--- include/CEGUIFactoryModule.h	10 Jul 2005 09:38:55 -0000	1.5
++++ include/CEGUIFactoryModule.h	6 Jan 2006 22:19:53 -0000
+@@ -32,7 +32,7 @@
+ 	The following is basically taken from DynLib.h, which is part of
+ 	the Ogre project (http://www.ogre3d.org/)
+ *************************************************************************/
+-#if defined(__WIN32__) || defined(_WIN32)
++#if defined(__WIN32__) || defined(_WIN32) || defined(__CYGWIN__)
+ #    define DYNLIB_HANDLE hInstance
+ #    define DYNLIB_LOAD( a ) LoadLibrary( a )
+ #    define DYNLIB_GETSYM( a, b ) GetProcAddress( a, b )
+Index: src/CEGUIFactoryModule.cpp
+===================================================================
+RCS file: /cvsroot/crayzedsgui/cegui_mk2/src/CEGUIFactoryModule.cpp,v
+retrieving revision 1.5
+diff -u -r1.5 CEGUIFactoryModule.cpp
+--- src/CEGUIFactoryModule.cpp	10 Jul 2005 09:38:59 -0000	1.5
++++ src/CEGUIFactoryModule.cpp	6 Jan 2006 22:23:04 -0000
+@@ -28,7 +28,7 @@
+ #include "CEGUIExceptions.h"
+ #include "CEGUIFactoryModule.h"
+ 
+-#if defined(__WIN32__) || defined(_WIN32)
++#if defined(__WIN32__) || defined(_WIN32) || defined(__CYGWIN__)
+ #	if defined(_MSC_VER)
+ #		pragma warning(disable : 4552)	// warning: operator has no effect; expected operator with side-effect
+ #	endif
+@@ -76,7 +76,7 @@
+ #endif
+ 
+ 	/// This optionally adds a _d to the loaded module name under the debug config for Win32
+-#if defined(__WIN32__) || defined(_WIN32)
++#if defined(__WIN32__) || defined(_WIN32) || defined(__CYGWIN__)
+ #	if defined (_DEBUG) && defined (CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG)
+ 	// if name has .dll extension, assume it's complete and do not touch it.
+ 	if (d_moduleName.substr(d_moduleName.length() - 4, 4) != (utf8*)".dll")
