@@ -30,8 +30,8 @@ WizardImageFile=compiler:WizModernImage-IS.bmp
 WizardSmallImageFile=compiler:WizModernSmallImage-IS.bmp
 [Files]
 ; Copy the DLLs to the CS dir.
-Source: {src}\dlls\*.dll; DestDir: {app}; Flags: external skipifsourcedoesntexist
-Source: {src}\dlls\debuginfo\*.pdb; DestDir: {app}; Flags: external skipifsourcedoesntexist
+Source: {src}\dlls\*.dll; DestDir: {app}; Flags: external skipifsourcedoesntexist ignoreversion
+Source: {src}\dlls\debuginfo\*.pdb; DestDir: {app}; Flags: external skipifsourcedoesntexist ignoreversion
 [Registry]
 Root: HKLM; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstvalName}; ValueData: {uninstallexe}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: CheckAdminStuff
 Root: HKCU; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstvalName}; ValueData: {uninstallexe}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: CheckNoAdminStuff
