@@ -79,7 +79,7 @@
 			WholeProgramOptimization="FALSE">
 			<Tool
 				Name="VCCLCompilerTool"
-				Optimization="3"
+				Optimization="2"
 				GlobalOptimizations="TRUE"
 				InlineFunctionExpansion="2"
 				EnableIntrinsicFunctions="TRUE"
@@ -96,7 +96,7 @@
 				PrecompiledHeaderFile=".\..\temp\libz_Release/libz.pch"
 				AssemblerListingLocation=".\..\temp\libz_Release_static/"
 				ObjectFile=".\..\temp\libz_Release_static/"
-				ProgramDataBaseFileName=".\..\temp\libz_Release_static/"
+				ProgramDataBaseFileName="$(OutDir)/zlib.pdb"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
 				DebugInformationFormat="3"/>

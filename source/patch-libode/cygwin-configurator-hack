@@ -4,13 +4,15 @@ RCS file: /cvsroot/opende/ode/configurator.c,v
 retrieving revision 1.14
 diff -u -r1.14 configurator.c
 --- configurator.c	7 Dec 2005 02:42:29 -0000	1.14
-+++ configurator.c	6 Jan 2006 21:11:35 -0000
-@@ -212,6 +212,8 @@
++++ configurator.c	7 Mar 2006 18:39:17 -0000
+@@ -212,6 +212,10 @@
    if (system (cmd) == -1) {
      printf ("WARNING: may not be able to execute '%s'\n",cmd);
    }
++#ifdef __CYGWIN__  
 +  usleep (500000); /* hack to avoid apparent issue on Cygwin where cdata.exe
 +		    * can't be deleted right after run(). */
++#endif
  }
  
  /****************************************************************************/

@@ -3,7 +3,6 @@
 	ProjectType="Visual C++"
 	Version="7.00"
 	Name="CEGUIFalagardBase"
-	ProjectGUID="{9155C410-F113-11D9-8CD6-0800200C9A66}"
 	Keyword="Win32Proj">
 	<Platforms>
 		<Platform
@@ -68,7 +67,7 @@
 			WholeProgramOptimization="TRUE">
 			<Tool
 				Name="VCCLCompilerTool"
-				Optimization="3"
+				Optimization="2"
 				GlobalOptimizations="TRUE"
 				InlineFunctionExpansion="2"
 				EnableIntrinsicFunctions="TRUE"
@@ -97,7 +96,7 @@
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
-				ImportLibrary=".\..\libs\ReleaseVC7Only/CEGUIFalagardBase.lib"
+				ImportLibrary=".\..\libs\ReleaseVC7Only/CEGUIFalagardBase-vc7.lib"
 				MergeSections=".rdata=.text"
 				TargetMachine="1"/>
 			<Tool

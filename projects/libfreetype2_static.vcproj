@@ -22,7 +22,7 @@
 			WholeProgramOptimization="FALSE">
 			<Tool
 				Name="VCCLCompilerTool"
-				Optimization="3"
+				Optimization="2"
 				GlobalOptimizations="TRUE"
 				InlineFunctionExpansion="2"
 				EnableIntrinsicFunctions="TRUE"
@@ -39,7 +39,7 @@
 				PrecompiledHeaderFile=".\..\temp\libfreetype2_Release_static/libfreetype2.pch"
 				AssemblerListingLocation=".\..\temp\libfreetype2_Release_static/"
 				ObjectFile=".\..\temp\libfreetype2_Release_static/"
-				ProgramDataBaseFileName=".\..\temp\libfreetype2_Release_static/"
+				ProgramDataBaseFileName="$(OutDir)/freetype2.pdb"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
 				DebugInformationFormat="3"

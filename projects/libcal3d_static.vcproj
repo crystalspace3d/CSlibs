@@ -22,7 +22,7 @@
 			WholeProgramOptimization="FALSE">
 			<Tool
 				Name="VCCLCompilerTool"
-				Optimization="3"
+				Optimization="2"
 				GlobalOptimizations="TRUE"
 				InlineFunctionExpansion="2"
 				EnableIntrinsicFunctions="TRUE"
@@ -40,7 +40,7 @@
 				PrecompiledHeaderFile=".\..\temp\libcal3d_Release_static/libcal3d.pch"
 				AssemblerListingLocation=".\..\temp\libcal3dvc7_Release_static/"
 				ObjectFile=".\..\temp\libcal3dvc7_Release_static/"
-				ProgramDataBaseFileName="$(OutDir)/cal3d.pdb"
+				ProgramDataBaseFileName="$(OutDir)/cal3d-vc7.pdb"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
 				DebugInformationFormat="3"/>
@@ -48,7 +48,7 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="$(OutDir)/cal3d.lib"/>
+				OutputFile="$(OutDir)/cal3d-vc7.lib"/>
 			<Tool
 				Name="VCMIDLTool"
 				PreprocessorDefinitions="NDEBUG"

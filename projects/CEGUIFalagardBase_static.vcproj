@@ -68,7 +68,7 @@
 			WholeProgramOptimization="TRUE">
 			<Tool
 				Name="VCCLCompilerTool"
-				Optimization="3"
+				Optimization="2"
 				GlobalOptimizations="TRUE"
 				InlineFunctionExpansion="2"
 				EnableIntrinsicFunctions="TRUE"
@@ -97,7 +97,7 @@
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
-				ImportLibrary=".\..\libs\ReleaseVC7Only_static/CEGUIFalagardBase.lib"
+				ImportLibrary=".\..\libs\ReleaseVC7Only_static/CEGUIFalagardBase-vc7.lib"
 				MergeSections=".rdata=.text"
 				TargetMachine="1"/>
 			<Tool

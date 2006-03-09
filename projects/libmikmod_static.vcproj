@@ -22,7 +22,7 @@
 			WholeProgramOptimization="FALSE">
 			<Tool
 				Name="VCCLCompilerTool"
-				Optimization="3"
+				Optimization="2"
 				GlobalOptimizations="TRUE"
 				InlineFunctionExpansion="2"
 				EnableIntrinsicFunctions="TRUE"
@@ -40,7 +40,7 @@
 				PrecompiledHeaderFile=".\..\temp\libmikmod_Release_static/libmikmod.pch"
 				AssemblerListingLocation=".\..\temp\libmikmod_Release_static/"
 				ObjectFile=".\..\temp\libmikmod_Release_static/"
-				ProgramDataBaseFileName=".\..\temp\libmikmod_Release_static/"
+				ProgramDataBaseFileName="$(OutDir)/mikmod.pdb"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
 				DebugInformationFormat="3"

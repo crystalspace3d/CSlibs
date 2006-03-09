@@ -41,14 +41,18 @@ Source: {src}\include\vorbis\*.*; DestDir: {app}\include\csutil\win32\vorbis; Fl
 Source: {src}\include\Cg\*.*; DestDir: {app}\include\csutil\win32\Cg; Flags: external skipifsourcedoesntexist
 Source: {src}\include\elements\*.*; DestDir: {app}\include\csutil\win32\elements; Flags: external skipifsourcedoesntexist
 Source: {src}\include\falagard\*.*; DestDir: {app}\include\csutil\win32\falagard; Flags: external skipifsourcedoesntexist
+Source: {src}\include\js\*.*; DestDir: {app}\include\csutil\win32\js; Flags: external skipifsourcedoesntexist
+Source: {src}\include\BroadphaseCollision\*.*; DestDir: {app}\include\csutil\win32\BroadphaseCollision; Flags: external skipifsourcedoesntexist
+Source: {src}\include\CcdPhysics\*.*; DestDir: {app}\include\csutil\win32\CcdPhysics; Flags: external skipifsourcedoesntexist
+Source: {src}\include\CollisionDispatch\*.*; DestDir: {app}\include\csutil\win32\CollisionDispatch; Flags: external skipifsourcedoesntexist
+Source: {src}\include\CollisionShapes\*.*; DestDir: {app}\include\csutil\win32\CollisionShapes; Flags: external skipifsourcedoesntexist
+Source: {src}\include\ConstraintSolver\*.*; DestDir: {app}\include\csutil\win32\ConstraintSolver; Flags: external skipifsourcedoesntexist
+Source: {src}\include\Dynamics\*.*; DestDir: {app}\include\csutil\win32\Dynamics; Flags: external skipifsourcedoesntexist
+Source: {src}\include\NarrowPhaseCollision\*.*; DestDir: {app}\include\csutil\win32\NarrowPhaseCollision; Flags: external skipifsourcedoesntexist
 Source: {src}\lib\*.lib; DestDir: {app}\libs\csutil\win32\libs; Flags: external skipifsourcedoesntexist
+Source: {src}\lib\*.pdb; DestDir: {app}\libs\csutil\win32\libs; Flags: external skipifsourcedoesntexist
 Source: {src}\lib\vc\*.lib; DestDir: {app}\libs\csutil\win32\libs; Flags: external skipifsourcedoesntexist
-Source: {src}\lib\vc7\*.lib; DestDir: {app}\libs\csutil\win32\libs; Flags: external skipifsourcedoesntexist; Components: VClibs\vc7
-Source: {src}\lib\vc8\*.lib; DestDir: {app}\libs\csutil\win32\libs; Flags: external skipifsourcedoesntexist; Components: VClibs\vc8
-[Components]
-Name: VClibs; Description: Install VC-only library versions; Types: full; Flags: disablenouninstallwarning
-Name: VClibs\vc7; Description: For VC7.0 & VC7.1; Flags: exclusive disablenouninstallwarning; Types: full
-Name: VClibs\vc8; Description: For VC8; Flags: exclusive disablenouninstallwarning
+Source: {src}\lib\vc\*.pdb; DestDir: {app}\libs\csutil\win32\libs; Flags: external skipifsourcedoesntexist
 [Registry]
 Root: HKLM; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstvalName}; ValueData: {uninstallexe}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: CheckAdminStuff
 Root: HKCU; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstvalName}; ValueData: {uninstallexe}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: CheckNoAdminStuff

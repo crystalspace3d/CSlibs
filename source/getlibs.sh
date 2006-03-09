@@ -1,13 +1,16 @@
 #!/bin/sh
 
 scripts/cvs-get libcal3d :pserver:anonymous@cvs.sourceforge.net:/cvsroot/cal3d \
-  cal3d HEAD
+  cal3d
 scripts/cvs-get libode :pserver:anonymous@cvs.sourceforge.net:/cvsroot/opende \
-  ode HEAD
+  ode
 scripts/cvs-get lib3ds :pserver:anonymous@cvs.sourceforge.net:/cvsroot/lib3ds \
-  lib3ds HEAD
+  lib3ds
 scripts/cvs-get libCEGUI :pserver:anonymous@cvs.sourceforge.net:/cvsroot/crayzedsgui \
-  cegui_mk2 v0-4
+  cegui_mk2 -r v0-4
+# Would be nice to find some JS1.6 CVS tag.
+scripts/cvs-get libjs :pserver:anonymous@cvs-mirror.mozilla.org:/cvsroot \
+  JSRef -r HEAD
 
 scripts/url-get libpng ftp://ftp.simplesystems.org/pub/libpng/png/src/libpng-1.2.8-config.tar.gz \
   libpng-1.2.8-config gz
@@ -25,3 +28,5 @@ scripts/url-get libfreetype http://mesh.dl.sourceforge.net/sourceforge/freetype/
   freetype-2.1.10 bz2
 scripts/url-get libcaca http://sam.zoy.org/libcaca/libcaca-0.9.tar.bz2 \
   libcaca-0.9 bz2
+scripts/url-get libbullet http://www.minet.uni-jena.de/~res/bullet-20060223.tar.bz2 \
+  bullet-20060223 bz2

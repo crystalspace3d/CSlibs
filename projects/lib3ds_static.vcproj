@@ -80,7 +80,7 @@
 			WholeProgramOptimization="FALSE">
 			<Tool
 				Name="VCCLCompilerTool"
-				Optimization="3"
+				Optimization="2"
 				GlobalOptimizations="TRUE"
 				InlineFunctionExpansion="2"
 				EnableIntrinsicFunctions="TRUE"
@@ -97,7 +97,7 @@
 				PrecompiledHeaderFile=".\..\temp\lib3ds_Release_static/lib3ds.pch"
 				AssemblerListingLocation=".\..\temp\lib3ds_Release_static/"
 				ObjectFile=".\..\temp\lib3ds_Release_static/"
-				ProgramDataBaseFileName=".\..\temp\lib3ds_Release_static/"
+				ProgramDataBaseFileName="$(OutDir)/lib3ds.pdb"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
 				DebugInformationFormat="3"

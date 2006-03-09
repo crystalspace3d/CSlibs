@@ -61,7 +61,7 @@
 				PrecompiledHeaderFile=".\..\temp\libcal3d_Release_static/libcal3d.pch"
 				AssemblerListingLocation=".\..\temp\libcal3dvc8_Release_static/"
 				ObjectFile=".\..\temp\libcal3dvc8_Release_static/"
-				ProgramDataBaseFileName="$(OutDir)/cal3d.pdb"
+				ProgramDataBaseFileName="$(OutDir)/cal3d-vc8.pdb"
 				WarningLevel="3"
 				SuppressStartupBanner="true"
 				DebugInformationFormat="3"
@@ -79,7 +79,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="$(OutDir)/cal3d.lib"
+				OutputFile="$(OutDir)/cal3d-vc8.lib"
 			/>
 			<Tool
 				Name="VCALinkTool"
