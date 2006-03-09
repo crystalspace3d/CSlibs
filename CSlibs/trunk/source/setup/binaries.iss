@@ -64,6 +64,7 @@ Source: ..\..\libs\ReleaseGCCOnly\mingw\*.dll; DestDir: {app}\dlls; Components: 
 ; Special case: use "static" CEGUI on Cygwin for non-static setup as well
 Source: ..\..\libs\ReleaseGCCOnly_static\cygwin\*.dll; DestDir: {app}\dlls; Components: Libs/Cygwin
 #else
+Source: ..\..\libs\Release\libjs-cs.dll; DestDir: {app}\dlls; Components: Libs/Common
 Source: ..\..\libs\ReleaseVCOnly_static\*.dll; DestDir: {app}\dlls; Components: Libs/VC
 Source: ..\..\libs\ReleaseGCCOnly_static\mingw\*.dll; DestDir: {app}\dlls; Components: Libs/MinGW
 Source: ..\..\libs\ReleaseGCCOnly_static\cygwin\*.dll; DestDir: {app}\dlls; Components: Libs/Cygwin
@@ -77,10 +78,13 @@ Source: ..\..\nosource\Cg\lib\*.*; DestDir: {app}\lib; Flags: recursesubdirs; Co
 
 #ifdef STATIC
 ; Static .libs
+Source: ..\..\libs\Release\js.*; DestDir: {app}\lib; Components: Libs/Common
 Source: ..\..\libs\Release_static\*.lib; DestDir: {app}\lib\vc; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC7Only_static\*.lib; DestDir: {app}\lib\vc7; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC7Only_static\cal3d.lib; DestDir: {app}\lib\vc7; DestName: cal3d_d.lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC8Only_static\*.lib; DestDir: {app}\lib\vc8; Components: Libs/VC
+Source: ..\..\libs\Release_static\*.pdb; DestDir: {app}\lib\vc; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC7Only_static\*.lib; DestDir: {app}\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC7Only_static\*.pdb; DestDir: {app}\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC8Only_static\*.lib; DestDir: {app}\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC8Only_static\*.pdb; DestDir: {app}\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseGCCOnly_static\mingw\*.a; DestDir: {app}\lib\mingw; Components: Libs/MinGW
 Source: ..\..\libs\ReleaseGCCOnly_static\cygwin\*.a; DestDir: {app}\lib\cygwin; Components: Libs/Cygwin
 Source: ..\..\libs\ReleaseGCCOnly_static\mingw-gcc-3.4\lib*.*; DestDir: {app}\lib\mingw-gcc-3.4; Components: Libs/MinGW
@@ -91,9 +95,10 @@ Source: ..\..\libs\ReleaseGCCOnly\cygwin-gcc-3.4\libcal3d.a; DestDir: {app}\lib\
 #else
 ; Dynamic .libs
 Source: ..\..\libs\Release\*.lib; DestDir: {app}\lib; Components: Libs/Common
-Source: ..\..\libs\ReleaseVC7Only\*.lib; DestDir: {app}\lib\vc7; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC7Only\cal3d.lib; DestDir: {app}\lib\vc7; DestName: cal3d_d.lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC8Only\*.lib; DestDir: {app}\lib\vc8; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC7Only\*.lib; DestDir: {app}\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC7Only\*.pdb; DestDir: {app}\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC8Only\*.lib; DestDir: {app}\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC8Only\*.pdb; DestDir: {app}\lib; Components: Libs/VC
 ;Source: ..\..\libs\ReleaseGCCOnly\mingw\*.a; DestDir: {app}\lib\mingw; Components: Libs/MinGW
 ;Source: ..\..\libs\ReleaseGCCOnly\cygwin\*.a; DestDir: {app}\lib\cygwin; Components: Libs/Cygwin
 Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.4\lib*.*; DestDir: {app}\lib\mingw-gcc-3.4; Components: Libs/MinGW
@@ -119,8 +124,7 @@ Source: ..\..\libs\Release\*.pdb; DestDir: {app}\dlls\debuginfo; Components: Ext
 Source: ..\..\libs\ReleaseVCOnly\*.pdb; DestDir: {app}\dlls\debuginfo; Components: Extra/DebugInfo
 #else
 Source: ..\..\libs\ReleaseVCOnly_static\*.pdb; DestDir: {app}\dlls\debuginfo; Components: Extra/DebugInfo
-Source: ..\..\libs\ReleaseVC7Only_static\*.pdb; DestDir: {app}\lib\vc7; Components: Extra/DebugInfo
-Source: ..\..\libs\ReleaseVC8Only_static\*.pdb; DestDir: {app}\lib\vc7; Components: Extra/DebugInfo
+Source: ..\..\libs\Release\libjs-cs.pdb; DestDir: {app}\dlls\debuginfo; Components: Extra/DebugInfo
 #endif
 
 ; Misc stuff
@@ -169,10 +173,10 @@ Filename: rundll32.exe; Parameters: {code:GetShortenedAppDir}\setuptool.dll,Writ
 Filename: {app}\{#File_OpenALInstaller}; WorkingDir: {app}; Components: Extra/OpenALInstaller; Check: RunOpenALInstaller; StatusMsg: Running OpenAL.org runtime installer
 Filename: {app}\CopyDLLs.exe; Description: Copy DLLs to CS directory; Flags: postinstall; WorkingDir: {app}; Parameters: /SILENT; Check: not CrossPresets
 Filename: {app}\CopyDLLs.exe; Description: Copy DLLs to CS directory; Flags: postinstall unchecked; WorkingDir: {app}; Parameters: /SILENT; Check: CrossPresets
-Filename: {app}\VCsupport.exe; Description: Set up VisualC support; Flags: postinstall; Components: DESupport/VC; WorkingDir: {app}
-Filename: {app}\MSYSsupport.exe; Description: Set up MSYS support; Flags: postinstall; Components: DESupport/MSYS; WorkingDir: {app}
-Filename: {app}\Cygwinsupport.exe; Description: Set up Cygwin support; Flags: postinstall; Components: DESupport/Cygwin; WorkingDir: {app}
-Filename: {app}\Crosssupport.exe; Description: Set up Cross compiling support; Flags: postinstall; WorkingDir: {app}; Check: IsWinePresent
+Filename: {app}\VCsupport.exe; Description: Set up VisualC support; Flags: postinstall; Components: DESupport/VC; WorkingDir: {app}; Parameters: {code:GetSupportParams}
+Filename: {app}\MSYSsupport.exe; Description: Set up MSYS support; Flags: postinstall; Components: DESupport/MSYS; WorkingDir: {app}; Parameters: {code:GetSupportParams}
+Filename: {app}\Cygwinsupport.exe; Description: Set up Cygwin support; Flags: postinstall; Components: DESupport/Cygwin; WorkingDir: {app}; Parameters: {code:GetSupportParams}
+Filename: {app}\Crosssupport.exe; Description: Set up Cross compiling support; Flags: postinstall; WorkingDir: {app}; Parameters: {code:GetSupportParams}; Check: IsWinePresent
 [UninstallRun]
 Filename: rundll32.exe; Parameters: {code:GetShortenedAppDir}\setuptool.dll,UninstDESupport
 ; Flags: skipifdoesntexist
@@ -227,6 +231,14 @@ begin
     Result := CSdir;
 end;
 
+function GetSupportParams(Default: String): string;
+begin
+  if WizardSilent then
+    Result := '/SILENT'
+  else
+    Result := '';
+end;
+
 procedure InitializeWizard();
 var
   insertPageAfter: integer;
@@ -252,7 +264,7 @@ begin
   	  'Select whether this should be done. ',
       false, false);
     wineSettingsPage.Add ('&Use cross-compile presets');
-    wineSettingsPage.Values[0] := StrToBool (GetPreviousData('WineEnvironment', '0'));
+    wineSettingsPage.Values[0] := StrToBool (GetPreviousData('WineEnvironment', '1'));
     insertPageAfter := wineSettingsPage.ID;
     
     WizardForm.TypesCombo.ItemIndex := 6;

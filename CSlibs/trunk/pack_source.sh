@@ -53,6 +53,8 @@ NEWCVSROOT=:pserver:anonymous@cvs.sourceforge.net:/cvsroot/crystal
 cd ${WORKDIR}
 echo "${NEWCVSROOT}" > Root
 find . -type d -name CVS -exec cp Root {} \; -prune
+find . -type d -name CVS -exec \
+  sh -c "if grep -q /cvsroot/crystal {}/Root ; then cp Root {} ; fi" \; -prune
 rm Root 
 
 # Copy actual lib sources.

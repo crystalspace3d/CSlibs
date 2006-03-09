@@ -162,7 +162,7 @@
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
-				ImportLibrary=".\..\libs\ReleaseVC8Only/CEGUIFalagardBase.lib"
+				ImportLibrary=".\..\libs\ReleaseVC8Only/CEGUIFalagardBase-vc8.lib"
 				MergeSections=".rdata=.text"
 				TargetMachine="1"
 			/>

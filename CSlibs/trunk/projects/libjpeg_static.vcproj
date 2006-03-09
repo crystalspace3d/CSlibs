@@ -21,7 +21,7 @@
 			WholeProgramOptimization="FALSE">
 			<Tool
 				Name="VCCLCompilerTool"
-				Optimization="3"
+				Optimization="2"
 				GlobalOptimizations="TRUE"
 				InlineFunctionExpansion="2"
 				EnableIntrinsicFunctions="TRUE"
@@ -38,7 +38,7 @@
 				PrecompiledHeaderFile=".\..\temp\libjpeg_Release_static/libjpeg.pch"
 				AssemblerListingLocation=".\..\temp\libjpeg_Release_static/"
 				ObjectFile=".\..\temp\libjpeg_Release_static/"
-				ProgramDataBaseFileName=".\..\temp\libjpeg_Release_static/"
+				ProgramDataBaseFileName="$(OutDir)/libjpeg.pdb"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
 				DebugInformationFormat="3"/>

@@ -36,4 +36,24 @@ cp source/libCEGUI/include/elements/*.h headers/elements
 mkdir headers/falagard
 cp source/libCEGUI/include/falagard/*.h headers/falagard
 
+mkdir headers/BroadphaseCollision
+cp source/libbullet/Bullet/BroadphaseCollision/*.h headers/BroadphaseCollision
+mkdir headers/CollisionDispatch
+cp source/libbullet/Bullet/CollisionDispatch/*.h headers/CollisionDispatch
+mkdir headers/CollisionShapes
+cp source/libbullet/Bullet/CollisionShapes/*.h headers/CollisionShapes
+mkdir headers/NarrowPhaseCollision
+cp source/libbullet/Bullet/NarrowPhaseCollision/*.h headers/NarrowPhaseCollision
+cp source/libbullet/LinearMath/*.h headers/
+mkdir headers/ConstraintSolver
+cp source/libbullet/BulletDynamics/ConstraintSolver/*.h headers/ConstraintSolver
+mkdir headers/Dynamics
+cp source/libbullet/BulletDynamics/Dynamics/*.h headers/Dynamics
+cp source/libbullet/Extras/PhysicsInterface/Common/*.h headers/
+mkdir headers/CcdPhysics
+cp source/libbullet/Extras/PhysicsInterface/CcdPhysics/*.h headers/CcdPhysics
+
+mkdir headers/js
+cp source/libjs/*.h headers/js/
+
 find headers -type d -name CVS -exec rm -rf {} \; -prune 

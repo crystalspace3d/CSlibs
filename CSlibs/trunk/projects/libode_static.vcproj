@@ -22,7 +22,7 @@
 			WholeProgramOptimization="FALSE">
 			<Tool
 				Name="VCCLCompilerTool"
-				Optimization="3"
+				Optimization="2"
 				GlobalOptimizations="TRUE"
 				InlineFunctionExpansion="2"
 				EnableIntrinsicFunctions="TRUE"
@@ -40,7 +40,7 @@
 				PrecompiledHeaderFile=".\..\temp\libode_Release_static_static/libode.pch"
 				AssemblerListingLocation=".\..\temp\libode_Release_static/"
 				ObjectFile=".\..\temp\libode_Release_static/"
-				ProgramDataBaseFileName=".\..\temp\libode_Release_static/"
+				ProgramDataBaseFileName="$(OutDir)/ode.pdb"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
 				DebugInformationFormat="3"

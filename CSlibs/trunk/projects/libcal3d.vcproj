@@ -21,7 +21,7 @@
 			WholeProgramOptimization="TRUE">
 			<Tool
 				Name="VCCLCompilerTool"
-				Optimization="3"
+				Optimization="2"
 				GlobalOptimizations="TRUE"
 				InlineFunctionExpansion="2"
 				EnableIntrinsicFunctions="TRUE"
@@ -57,7 +57,7 @@
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
 				OptimizeForWindows98="2"
-				ImportLibrary=".\..\libs\ReleaseVC7Only/cal3d.lib"
+				ImportLibrary=".\..\libs\ReleaseVC7Only/cal3d-vc7.lib"
 				MergeSections=".rdata=.text"
 				TargetMachine="1"/>
 			<Tool
