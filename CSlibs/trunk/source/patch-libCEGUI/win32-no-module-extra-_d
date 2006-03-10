@@ -1,0 +1,16 @@
+Index: include/CEGUIConfig.h
+===================================================================
+RCS file: /cvsroot/crayzedsgui/cegui_mk2/include/CEGUIConfig.h,v
+retrieving revision 1.8
+diff -u -r1.8 CEGUIConfig.h
+--- include/CEGUIConfig.h	21 Aug 2005 19:15:52 -0000	1.8
++++ include/CEGUIConfig.h	10 Mar 2006 17:22:51 -0000
+@@ -45,7 +45,7 @@
+ // comment this line to suppress the auto appending of '_d' to loaded module
+ // names under Win32.
+ //////////////////////////////////////////////////////////////////////////
+-#define CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG 1
++//#define CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG 1
+ 
+ 
+ //////////////////////////////////////////////////////////////////////////

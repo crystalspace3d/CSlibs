@@ -171,14 +171,14 @@ Name: DESupport/Cygwin; Description: Cygwin; Types: custom full typCygwin; Flags
 [Run]
 Filename: rundll32.exe; Parameters: {code:GetShortenedAppDir}\setuptool.dll,WriteCSLibsConfig {code:GetShortenedAppDir}\
 Filename: {app}\{#File_OpenALInstaller}; WorkingDir: {app}; Components: Extra/OpenALInstaller; Check: RunOpenALInstaller; StatusMsg: Running OpenAL.org runtime installer
-Filename: {app}\CopyDLLs.exe; Description: Copy DLLs to CS directory; Flags: postinstall; WorkingDir: {app}; Parameters: /SILENT; Check: not CrossPresets
-Filename: {app}\CopyDLLs.exe; Description: Copy DLLs to CS directory; Flags: postinstall unchecked; WorkingDir: {app}; Parameters: /SILENT; Check: CrossPresets
-Filename: {app}\VCsupport.exe; Description: Set up VisualC support; Flags: postinstall; Components: DESupport/VC; WorkingDir: {app}; Parameters: {code:GetSupportParams}
+Filename: {app}\CopyDLLs.exe; Description: Copy DLLs to CS directory; Flags: postinstall; WorkingDir: {app}; Parameters: {code:GetSupportParamsSilent}; Check: not CrossPresets
+Filename: {app}\CopyDLLs.exe; Description: Copy DLLs to CS directory; Flags: postinstall unchecked; WorkingDir: {app}; Parameters: {code:GetSupportParamsSilent}; Check: CrossPresets
+Filename: {app}\VCsupport.exe; Description: Set up VisualC support; Flags: postinstall; Components: DESupport/VC; WorkingDir: {app}; Parameters: {code:GetSupportParamsSilent}
 Filename: {app}\MSYSsupport.exe; Description: Set up MSYS support; Flags: postinstall; Components: DESupport/MSYS; WorkingDir: {app}; Parameters: {code:GetSupportParams}
 Filename: {app}\Cygwinsupport.exe; Description: Set up Cygwin support; Flags: postinstall; Components: DESupport/Cygwin; WorkingDir: {app}; Parameters: {code:GetSupportParams}
 Filename: {app}\Crosssupport.exe; Description: Set up Cross compiling support; Flags: postinstall; WorkingDir: {app}; Parameters: {code:GetSupportParams}; Check: IsWinePresent
 [UninstallRun]
-Filename: rundll32.exe; Parameters: {code:GetShortenedAppDir}\setuptool.dll,UninstDESupport
+;Filename: rundll32.exe; Parameters: {code:GetShortenedAppDir}\setuptool.dll,UninstDESupport {code:GetSupportParamsSilent}
 ; Flags: skipifdoesntexist
 [UninstallDelete]
 Name: {app}\tools; Type: filesandordirs
@@ -215,6 +215,7 @@ var
   openALinstallPage: TInputOptionWizardPage;
   CSdirPage: TInputDirWizardPage;
   UninstPrevProgress: TOutputProgressWizardPage;
+  silentType: integer;
   
 const
   UninstKey = 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{#AppId}_is1';
@@ -233,10 +234,45 @@ end;
 
 function GetSupportParams(Default: String): string;
 begin
-  if WizardSilent then
-    Result := '/SILENT'
+  Result := '';
+  case silentType of
+    1: Result := '/SILENT';
+    2: Result := '/VERYSILENT';
+  end;
+end;
+
+function GetSupportParamsSilent(Default: String): string;
+begin
+  if silentType = 2 then
+    Result := '/VERYSILENT'
   else
-    Result := '';
+    Result := '/SILENT';
+end;
+
+procedure CheckSilentType();
+var
+  i: integer;
+begin
+  silentType := 0;
+  for i:=1 to ParamCount do begin
+    if (CompareText (ParamStr (i), '/silent') = 0) then begin
+      if (silentType < 1) then silentType := 1;
+    end else if (CompareText (ParamStr (i), '/verysilent') = 0) then begin
+      if (silentType < 2) then silentType := 2;
+    end;
+  end;
+end;
+
+function InitializeSetup(): boolean;
+begin
+  CheckSilentType();
+  Result := true;
+end;
+
+function InitializeUninstall(): boolean;
+begin
+  CheckSilentType();
+  Result := true;
 end;
 
 procedure InitializeWizard();
@@ -389,7 +425,7 @@ begin
       uninstCmd := copy (uninstCmd, 2, Length(uninstCmd) - 2);
     UninstPrevProgress.SetText ('Executing', uninstCmd);
   //if (not InstShellExec (uninstCmd, '/SILENT', '', {true, false,} SW_SHOWNORMAL, resCode)) then
-    if (not Exec (uninstCmd, '/SILENT', '', SW_SHOWNORMAL, ewWaitUntilTerminated, resCode)) then
+    if (not Exec (uninstCmd, GetSupportParamsSilent(''), '', SW_SHOWNORMAL, ewWaitUntilTerminated, resCode)) then
 	  begin
 	    Result := MsgBox ('Failed to execute uninstaller (' + uninstCmd + '):' + #13#10 + SysErrorMessage (resCode)
         + #13#10#13#10 + 'Continue with installation?',
@@ -439,3 +475,18 @@ begin
     + #13#10, false);
 end;
 
+procedure CurUninstallStepChanged(CurUninstallStep: TUninstallStep);
+var
+  uninstParam: string;
+  resCode: integer;
+begin
+  if CurUninstallStep = usUninstall then begin
+    uninstParam := GetShortenedAppDir('') + '\setuptool.dll,UninstDESupport ' + GetSupportParamsSilent('');
+    if (not Exec ('rundll32.exe', uninstParam, '', SW_SHOWNORMAL, ewWaitUntilTerminated, resCode)) then
+	  begin
+	    if (not UninstallSilent) then
+        MsgBox ('Failed to execute uninstaller (rundll32.exe ' + uninstParam + '):' + #13#10 +
+          SysErrorMessage (resCode), mbError, MB_YESNO);
+   	end;
+  end;
+end;

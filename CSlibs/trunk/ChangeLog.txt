@@ -1,3 +1,6 @@
+0.99r0_020 (2006-03-10):
+  - Fix for debug mode CEGUI.
+
 0.99r0_019 (2006-03-09):
   - Added Bullet.
   - Added SpiderMonkey.
