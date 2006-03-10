@@ -94,7 +94,7 @@ public:
   const LPTSTR content() const { return valueContent; }
 };
 
-static void TryUninst (HKEY key)
+static void TryUninst (HKEY key, const LPTSTR params)
 {
   typedef std::vector<RegValue> RegValues;
   const DWORD regAccess = KEY_READ | KEY_WRITE;
@@ -119,7 +119,7 @@ static void TryUninst (HKEY key)
     if (RegOpenKeyEx (key, subkeyName, 0, regAccess, 
       &subKey) == ERROR_SUCCESS)
     {
-      TryUninst (subKey);
+      TryUninst (subKey, params);
       RegCloseKey (subKey);
       RegDeleteKey (key, subkeyName);
     }
@@ -146,9 +146,8 @@ static void TryUninst (HKEY key)
   {
     RegValue& rv = regValues[i];
 
-    const LPTSTR params = _T("/silent");
-    LPTSTR cmdLine = (LPTSTR)alloca ((2 + _tcslen (rv.content()) + 1 + _tcslen (params) + 1) *
-      sizeof (TCHAR));
+    LPTSTR cmdLine = (LPTSTR)alloca ((2 + _tcslen (rv.content()) + 1 + 
+      _tcslen (params) + 1) * sizeof (TCHAR));
     _tcscpy (cmdLine, _T("\""));
     _tcscat (cmdLine, rv.content());
     _tcscat (cmdLine, _T("\" "));
@@ -182,14 +181,14 @@ TOOLENTRY(UninstDESupport)
   if (RegOpenKeyEx (HKEY_CURRENT_USER, regKey, 0, regAccess, 
     &key) == ERROR_SUCCESS)
   {
-    TryUninst (key);
+    TryUninst (key, lpCmdLine);
     RegCloseKey (key);
   }
 
   if (RegOpenKeyEx (HKEY_LOCAL_MACHINE, regKey, 0, regAccess,
     &key) == ERROR_SUCCESS)
   {
-    TryUninst (key);
+    TryUninst (key, lpCmdLine);
     RegCloseKey (key);
   }
 }
