@@ -7,7 +7,7 @@
 [Setup]
 AppName={#CSLibsName} {#SupportName} support
 AppVerName={#CSLibsName} {#SupportName} support {#CSLibsVersion}
-Compression=none
+Compression=lzma
 UninstallLogMode=new
 CreateUninstallRegKey=false
 UninstallFilesDir={src}\support
@@ -37,8 +37,11 @@ Filename: /bin/sh; WorkingDir: "{app}"; Parameters: "-c ""ln -s {code:GetCsLibsP
 Filename: /bin/sh; WorkingDir: "{app}"; Parameters: "-c ""rm {code:GetDestPath}""";
 [Messages]
 FinishedLabel=Setup has finished installing [name] on your computer. You need to re-run 'configure' to make use of the new libraries. You can set up support for more {#SupportName} installations by re-running this setup.
+[Files]
+Source: ..\..\tools\Release\setuptool.dll; Flags: dontcopy; DestDir: {app}
 [Code]
 #include "CodeCommon.inc"
+#define SetupToolDll    "files:setuptool.dll"
 #include "wine.inc"
 
 var

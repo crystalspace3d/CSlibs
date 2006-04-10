@@ -45,7 +45,7 @@ if test "${platform_short}" != "cygwin" ; then
   make install
   cd ../../..
   strip temp/${platform}/prefix/bin/*.dll
-  cp temp/${platform}/prefix/bin/*.dll libs/ReleaseGCCOnly/${platform_short}
+  cp temp/${platform}/prefix/bin/*.dll libs/ReleaseGCCOnly/${platform}
   for lib in CEGUIBase CEGUIFalagardBase ; do
     cp temp/${platform}/prefix/lib/lib${lib}-cs${platform}.dll.a \
       libs/ReleaseGCCOnly/${platform}/lib${lib}.a
@@ -63,7 +63,7 @@ make
 make install
 cd ../../..
 strip temp/${platform}-static/prefix/bin/*.dll
-cp temp/${platform}-static/prefix/bin/*.dll libs/ReleaseGCCOnly_static/${platform_short}
+cp temp/${platform}-static/prefix/bin/*.dll libs/ReleaseGCCOnly_static/${platform}
 for lib in CEGUIBase CEGUIFalagardBase ; do
   cp temp/${platform}-static/prefix/lib/lib${lib}-cs${platform}.dll.a \
     libs/ReleaseGCCOnly_static/${platform}/lib${lib}.a

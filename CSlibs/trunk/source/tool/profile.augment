@@ -8,14 +8,17 @@ if test "$OSTYPE" = "cygwin" ; then
   if [ -n "$win32libs_PATHaugment" ] ; then
     win32libs_PATHaugment=`cygpath -u "%PATHAUGMENT%"`
   fi
+  win32libs_PATHplatform=cygwin
 else
   win32libs_libsdir="%CSLIBSPATH_MSYS%"
   win32libs_PATHaugment=%PATHAUGMENT_MSYS%
+  win32libs_PATHplatform=mingw
 fi
 export PATH="${win32libs_libsdir}/tools:$PATH"
 
 if [ -n "$win32libs_PATHaugment" ] ; then
-  export PATH="${win32libs_PATHaugment}:$PATH"
+  export PATH="${win32libs_PATHaugment}/${win32libs_PATHplatform}:${win32libs_PATHaugment}:$PATH"
 fi
 unset win32libs_libsdir
 unset win32libs_PATHaugment
+unset win32libs_PATHplatform

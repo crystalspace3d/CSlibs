@@ -2,15 +2,17 @@ Compiling Stuff
 ---------------
 
 Required tools:
-- MSVC 6,7
+- MSVC 7,7.1,8
 - Recent MSYS/MinGW
 - InnoSetup >= 5.0.7
 - Python
 
-If you have VC6, build cal3d for VC6 (libcal3d.dsw) first.
-
-To compile all the libs that come with source, open the solution 
-projects\CSlibs.sln and build it.
+The solutions in the projects directory should be built in the following
+order:
+- CSlibs.sln with VC7.1, target "build_base"
+- CSlibs_vc7.sln with VC7.0, "Build All"
+- CSlibs_vc8.sln with VC8.0, "Build All"
+- CSlibs.sln again with VC7.1, "Build All"
 
 The MinGW-only libs can be built by running build_mingw.sh.
 

@@ -15,8 +15,8 @@
 
 [Setup]
 SolidCompression=true
-Compression=lzma/ultra
-;Compression=none
+;Compression=lzma/ultra
+Compression=none
 ShowLanguageDialog=no
 AppName={#AppName}
 AppId={#AppId}
@@ -59,15 +59,19 @@ Source: ..\..\nosource\Cg\dlls\*.*; DestDir: {app}\dlls; Flags: recursesubdirs; 
 #ifndef STATIC
 Source: ..\..\syslibs\*.dll; DestDir: {app}\dlls; Components: Libs/Common
 Source: ..\..\libs\Release\*.dll; DestDir: {app}\dlls; Components: Libs/Common
-Source: ..\..\libs\ReleaseVCOnly\*.dll; DestDir: {app}\dlls; Components: Libs/VC
-Source: ..\..\libs\ReleaseGCCOnly\mingw\*.dll; DestDir: {app}\dlls; Components: Libs/MinGW
+Source: ..\..\libs\ReleaseVCOnly\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
+Source: ..\..\libs\ReleaseGCCOnly\mingw\*.dll; DestDir: {app}\dlls\mingw; Flags: skipifsourcedoesntexist; Components: Libs/MinGW
+Source: ..\..\libs\ReleaseGCCOnly\cygwin\*.dll; DestDir: {app}\dlls\cygwin; Flags: skipifsourcedoesntexist; Components: Libs/Cygwin
+Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.4\*.dll; DestDir: {app}\dlls\mingw; Components: Libs/MinGW
 ; Special case: use "static" CEGUI on Cygwin for non-static setup as well
-Source: ..\..\libs\ReleaseGCCOnly_static\cygwin\*.dll; DestDir: {app}\dlls; Components: Libs/Cygwin
+Source: ..\..\libs\ReleaseGCCOnly_static\cygwin-gcc-3.4\*.dll; DestDir: {app}\dlls\cygwin; Flags: skipifsourcedoesntexist; Components: Libs/Cygwin
 #else
 Source: ..\..\libs\Release\libjs-cs.dll; DestDir: {app}\dlls; Components: Libs/Common
-Source: ..\..\libs\ReleaseVCOnly_static\*.dll; DestDir: {app}\dlls; Components: Libs/VC
-Source: ..\..\libs\ReleaseGCCOnly_static\mingw\*.dll; DestDir: {app}\dlls; Components: Libs/MinGW
-Source: ..\..\libs\ReleaseGCCOnly_static\cygwin\*.dll; DestDir: {app}\dlls; Components: Libs/Cygwin
+Source: ..\..\libs\ReleaseVCOnly_static\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
+Source: ..\..\libs\ReleaseGCCOnly_static\mingw\*.dll; DestDir: {app}\dlls\mingw; Components: Libs/MinGW
+Source: ..\..\libs\ReleaseGCCOnly_static\cygwin\*.dll; DestDir: {app}\dlls\cygwin; Components: Libs/Cygwin
+Source: ..\..\libs\ReleaseGCCOnly_static\mingw-gcc-3.4\*.dll; DestDir: {app}\dlls\mingw; Components: Libs/MinGW
+Source: ..\..\libs\ReleaseGCCOnly_static\cygwin-gcc-3.4\*.dll; DestDir: {app}\dlls\cygwin; Components: Libs/Cygwin
 #endif
 
 ; .libs: common for both static/dynamic
@@ -83,6 +87,8 @@ Source: ..\..\libs\Release_static\*.lib; DestDir: {app}\lib\vc; Components: Libs
 Source: ..\..\libs\Release_static\*.pdb; DestDir: {app}\lib\vc; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC7Only_static\*.lib; DestDir: {app}\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC7Only_static\*.pdb; DestDir: {app}\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC71Only_static\*.lib; DestDir: {app}\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC71Only_static\*.pdb; DestDir: {app}\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC8Only_static\*.lib; DestDir: {app}\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC8Only_static\*.pdb; DestDir: {app}\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseGCCOnly_static\mingw\*.a; DestDir: {app}\lib\mingw; Components: Libs/MinGW
@@ -97,6 +103,8 @@ Source: ..\..\libs\ReleaseGCCOnly\cygwin-gcc-3.4\libcal3d.a; DestDir: {app}\lib\
 Source: ..\..\libs\Release\*.lib; DestDir: {app}\lib; Components: Libs/Common
 Source: ..\..\libs\ReleaseVC7Only\*.lib; DestDir: {app}\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC7Only\*.pdb; DestDir: {app}\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC71Only\*.lib; DestDir: {app}\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC71Only\*.pdb; DestDir: {app}\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC8Only\*.lib; DestDir: {app}\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC8Only\*.pdb; DestDir: {app}\lib; Components: Libs/VC
 ;Source: ..\..\libs\ReleaseGCCOnly\mingw\*.a; DestDir: {app}\lib\mingw; Components: Libs/MinGW
@@ -120,11 +128,11 @@ Source: ..\..\nosource\Cg\include\*.*; DestDir: {app}\include; Flags: recursesub
 
 #ifndef STATIC
 ; Debug info
-Source: ..\..\libs\Release\*.pdb; DestDir: {app}\dlls\debuginfo; Components: Extra/DebugInfo
-Source: ..\..\libs\ReleaseVCOnly\*.pdb; DestDir: {app}\dlls\debuginfo; Components: Extra/DebugInfo
+Source: ..\..\libs\Release\*.pdb; DestDir: {app}\dlls; Components: Extra/DebugInfo
+Source: ..\..\libs\ReleaseVCOnly\*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo
 #else
-Source: ..\..\libs\ReleaseVCOnly_static\*.pdb; DestDir: {app}\dlls\debuginfo; Components: Extra/DebugInfo
-Source: ..\..\libs\Release\libjs-cs.pdb; DestDir: {app}\dlls\debuginfo; Components: Extra/DebugInfo
+Source: ..\..\libs\ReleaseVCOnly_static\*.pdb; DestDir: {app}\dlls; Components: Extra/DebugInfo
+Source: ..\..\libs\Release\libjs-cs.pdb; DestDir: {app}\dlls; Components: Extra/DebugInfo
 #endif
 
 ; Misc stuff
@@ -157,8 +165,8 @@ Name: Libs/MinGW; Description: MinGW-only libraries; Types: custom full typMinGW
 Name: Libs/Cygwin; Description: Cygwin-only libraries; Types: custom full typCygwin; Flags: disablenouninstallwarning
 Name: Extra; Description: Additional components; Types: custom full; Flags: disablenouninstallwarning
 Name: Extra/Cg; Description: Cg headers & libraries; Types: custom full typVC typMinGW typCygwin xcompile; Flags: disablenouninstallwarning
-Name: Extra/DXHeaders; Description: Minimal DirectX 9 headers; Types: custom full typMinGW typCygwin xcompile; Flags: disablenouninstallwarning
-Name: Extra/DXLibs; Description: Minimal DirectX 9 libraries; Types: custom full xcompile; Flags: disablenouninstallwarning
+Name: Extra/DXHeaders; Description: Minimal DirectX 9 headers; Types: custom full typVC typMinGW typCygwin xcompile; Flags: disablenouninstallwarning
+Name: Extra/DXLibs; Description: Minimal DirectX 9 libraries; Types: custom full typVC xcompile; Flags: disablenouninstallwarning
 Name: Extra/Jam; Description: Jam build tool; Types: custom full typMinGW typCygwin; Flags: disablenouninstallwarning
 Name: Extra/Python; Description: Python GCC import libs; Types: custom full typMinGW typCygwin; Flags: disablenouninstallwarning
 Name: Extra/DebugInfo; Description: Debug information; Types: custom full typVC; Flags: disablenouninstallwarning

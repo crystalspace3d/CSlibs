@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding = "Windows-1252"?>
+<?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="7.00"
+	Version="7.10"
 	Name="libcal3d"
 	SccProjectName=""
 	SccLocalPath="">
@@ -12,8 +12,8 @@
 	<Configurations>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory=".\..\libs\ReleaseVC7Only"
-			IntermediateDirectory=".\..\temp\libcal3dvc7_Release"
+			OutputDirectory=".\..\libs\Releasevc71Only"
+			IntermediateDirectory=".\..\temp\libcal3dvc71_Release"
 			ConfigurationType="2"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="FALSE"
@@ -37,9 +37,9 @@
 				EnableFunctionLevelLinking="TRUE"
 				UsePrecompiledHeader="0"
 				PrecompiledHeaderFile=".\..\temp\libcal3d_Release/libcal3d.pch"
-				AssemblerListingLocation=".\..\temp\libcal3dvc7_Release/"
-				ObjectFile=".\..\temp\libcal3dvc7_Release/"
-				ProgramDataBaseFileName=".\..\temp\libcal3dvc7_Release/"
+				AssemblerListingLocation=".\..\temp\libcal3dvc71_Release/"
+				ObjectFile=".\..\temp\libcal3dvc71_Release/"
+				ProgramDataBaseFileName=".\..\temp\libcal3dvc71_Release/"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
 				DebugInformationFormat="3"/>
@@ -48,16 +48,16 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="odbc32.lib odbccp32.lib"
-				OutputFile="..\libs\ReleaseVCOnly/libcal3d-csvc7.dll"
+				OutputFile="..\libs\ReleaseVCOnly/libcal3d-csvc71.dll"
 				LinkIncremental="1"
 				SuppressStartupBanner="TRUE"
 				GenerateDebugInformation="TRUE"
-				ProgramDatabaseFile="$(TargetDir)/libcal3d-csvc7.pdb"
+				ProgramDatabaseFile="$(TargetDir)/libcal3d-csvc71.pdb"
 				StripPrivateSymbols=""
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
 				OptimizeForWindows98="2"
-				ImportLibrary=".\..\libs\ReleaseVC7Only/cal3d-vc7.lib"
+				ImportLibrary=".\..\libs\Releasevc71Only/cal3d-vc71.lib"
 				MergeSections=".rdata=.text"
 				TargetMachine="1"/>
 			<Tool
@@ -80,7 +80,13 @@
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
 				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 		<Configuration
 			Name="Debug|Win32"
@@ -111,7 +117,7 @@
 				Name="VCLinkerTool"
 				AdditionalOptions="/MACHINE:I386"
 				AdditionalDependencies="odbc32.lib odbccp32.lib"
-				OutputFile=".\..\libs\DebugVCOnly/libcal3d-csvc7_d.dll"
+				OutputFile=".\..\libs\DebugVCOnly/libcal3d-csvc71_d.dll"
 				LinkIncremental="2"
 				SuppressStartupBanner="TRUE"
 				GenerateDebugInformation="TRUE"
@@ -137,9 +143,17 @@
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
 				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 	</Configurations>
+	<References>
+	</References>
 	<Files>
 		<Filter
 			Name="Source Files"

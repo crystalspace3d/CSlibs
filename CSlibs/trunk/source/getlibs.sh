@@ -6,8 +6,7 @@ scripts/cvs-get libode :pserver:anonymous@cvs.sourceforge.net:/cvsroot/opende \
   ode
 scripts/cvs-get lib3ds :pserver:anonymous@cvs.sourceforge.net:/cvsroot/lib3ds \
   lib3ds
-scripts/cvs-get libCEGUI :pserver:anonymous@cvs.sourceforge.net:/cvsroot/crayzedsgui \
-  cegui_mk2 -r v0-4
+scripts/svn-get libCEGUI https://svn.sourceforge.net/svnroot/crayzedsgui/cegui_mk2/branches/v0-4
 # Would be nice to find some JS1.6 CVS tag.
 scripts/cvs-get libjs :pserver:anonymous@cvs-mirror.mozilla.org:/cvsroot \
   JSRef -r HEAD
@@ -28,5 +27,5 @@ scripts/url-get libfreetype http://mesh.dl.sourceforge.net/sourceforge/freetype/
   freetype-2.1.10 bz2
 scripts/url-get libcaca http://sam.zoy.org/libcaca/libcaca-0.9.tar.bz2 \
   libcaca-0.9 bz2
-scripts/url-get libbullet http://www.minet.uni-jena.de/~res/bullet-20060223.tar.bz2 \
-  bullet-20060223 bz2
+scripts/url-get libbullet http://www.continuousphysics.com/ftp/pub/test/physics/source/bullet-1.2src.zip \
+  bullet-1.2src zip bullet

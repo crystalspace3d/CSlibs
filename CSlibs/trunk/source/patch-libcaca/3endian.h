@@ -1,6 +1,6 @@
 diff -ur libcaca.old/src/bitmap.c libcaca/src/bitmap.c
---- libcaca.old/src/bitmap.c	Mon Feb  2 03:00:19 2004
-+++ libcaca/src/bitmap.c	Sat Jul 23 15:33:48 2005
+--- ../libcaca.old/src/bitmap.c	Mon Feb  2 03:00:19 2004
++++ ./src/bitmap.c	Sat Jul 23 15:33:48 2005
 @@ -313,7 +313,7 @@
          case 3:
          {

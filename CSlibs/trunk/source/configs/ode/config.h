@@ -43,7 +43,7 @@ typedef unsigned int intP;
 
 /* available functions */
 #define copysignf _copysign
-#define copysign _copysign
+//#define copysign _copysign
 #define snprintf _snprintf
 #define vsnprintf _vsnprintf
 

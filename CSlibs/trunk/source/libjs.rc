@@ -1,0 +1,10 @@
+#define VER_PRODUCT_NUMERIC	1,6,0,0
+#define	VER_PRODUCT_STR		"1.6"
+#define	VER_DESCRIPTION		"Netscape 32-bit JavaScript Module"
+#define VER_INTERNAL		"libjs"
+#define	VER_COPYRIGHT		"Copyright Netscape Communications. 1994-96"
+#define VER_FILENAME		"libjs-cs.dll"
+#define VER_PRODUCTNAME		"libjs"
+#define VER_COMPANY		"Netscape Communications Corporation"
+
+#include "version.rcinc"

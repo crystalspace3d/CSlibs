@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding = "Windows-1252"?>
+<?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="7.00"
+	Version="7.10"
 	Name="libCEGUIBase"
 	ProjectGUID="{41479B71-4AA0-47FC-9738-12F6DA994CD0}"
 	Keyword="Win32Proj">
@@ -58,12 +58,18 @@
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
 				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory=".\..\libs\ReleaseVC7Only"
-			IntermediateDirectory=".\..\temp\libCEGUIBasevc7_Release"
+			OutputDirectory=".\..\libs\Releasevc71Only"
+			IntermediateDirectory=".\..\temp\libCEGUIBasevc71_Release"
 			ConfigurationType="2"
 			CharacterSet="2"
 			WholeProgramOptimization="TRUE">
@@ -78,7 +84,7 @@
 				OmitFramePointers="TRUE"
 				OptimizeForProcessor="2"
 				AdditionalIncludeDirectories="..\source/libfreetype\include;..\headers_dll;..\source\libCEGUI\include;..\source\libCEGUI\dependencies\include"
-				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;CEGUIBASE_EXPORTS;CEGUI_FACTORYMODULE_PREFIX=&quot;\&quot;lib\&quot;&quot;;CEGUI_FACTORYMODULE_SUFFIX=&quot;\&quot;-csvc7\&quot;&quot;"
+				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;CEGUIBASE_EXPORTS;CEGUI_FACTORYMODULE_PREFIX=&quot;\&quot;lib\&quot;&quot;;CEGUI_FACTORYMODULE_SUFFIX=&quot;\&quot;-csvc71\&quot;&quot;"
 				RuntimeLibrary="2"
 				DisableLanguageExtensions="FALSE"
 				ForceConformanceInForLoopScope="TRUE"
@@ -92,15 +98,15 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies=""
-				OutputFile="..\libs\ReleaseVCOnly/libceguibase-csvc7.dll"
+				OutputFile="..\libs\ReleaseVCOnly/libceguibase-csvc71.dll"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="..\source\libCEGUI\lib;..\source\libCEGUI\dependencies\lib"
 				GenerateDebugInformation="TRUE"
-				ProgramDatabaseFile="..\libs\ReleaseVCOnly/libceguibase-csvc7.pdb"
+				ProgramDatabaseFile="..\libs\ReleaseVCOnly/libceguibase-csvc71.pdb"
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
-				ImportLibrary=".\..\libs\ReleaseVC7Only/CEGUIBase-vc7.lib"
+				ImportLibrary=".\..\libs\Releasevc71Only/CEGUIBase-vc71.lib"
 				MergeSections=".rdata=.text"
 				TargetMachine="1"/>
 			<Tool
@@ -116,9 +122,17 @@
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
 				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 	</Configurations>
+	<References>
+	</References>
 	<Files>
 		<Filter
 			Name="Source Files"

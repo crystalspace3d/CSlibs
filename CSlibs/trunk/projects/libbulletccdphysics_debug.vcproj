@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding = "Windows-1252"?>
+<?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="7.00"
+	Version="7.10"
 	Name="libbulletccdphysics_debug"
 	ProjectGUID="{D3B65B77-573E-44BF-A0EE-76B76D4A4719}"
 	SccProjectName=""
@@ -13,8 +13,8 @@
 	<Configurations>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory=".\..\libs\Releasevc7Only"
-			IntermediateDirectory=".\..\temp\libbulletccdphysicsvc7_d_Release"
+			OutputDirectory=".\..\libs\Releasevc71Only"
+			IntermediateDirectory=".\..\temp\libbulletccdphysicsvc71_d_Release"
 			ConfigurationType="4"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="FALSE"
@@ -29,9 +29,9 @@
 				RuntimeLibrary="3"
 				UsePrecompiledHeader="0"
 				PrecompiledHeaderFile=".\..\temp\libbulletccdphysics_Release/libbulletccdphysics.pch"
-				AssemblerListingLocation=".\..\temp\libbulletccdphysicsvc7_d_Release/"
-				ObjectFile=".\..\temp\libbulletccdphysicsvc7_d_Release/"
-				ProgramDataBaseFileName="$(OutDir)/bulletccdphysics-vc7_d.pdb"
+				AssemblerListingLocation=".\..\temp\libbulletccdphysicsvc71_d_Release/"
+				ObjectFile=".\..\temp\libbulletccdphysicsvc71_d_Release/"
+				ProgramDataBaseFileName="$(OutDir)/bulletccdphysics-vc71_d.pdb"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
 				DebugInformationFormat="3"/>
@@ -39,7 +39,7 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="$(OutDir)/bulletccdphysics-vc7_d.lib"/>
+				OutputFile="$(OutDir)/bulletccdphysics-vc71_d.lib"/>
 			<Tool
 				Name="VCMIDLTool"
 				PreprocessorDefinitions="NDEBUG"
@@ -59,6 +59,12 @@
 				Culture="1031"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 		<Configuration
 			Name="Debug|Win32"
@@ -89,7 +95,7 @@
 				Name="VCLinkerTool"
 				AdditionalOptions="/MACHINE:I386"
 				AdditionalDependencies="odbc32.lib odbccp32.lib"
-				OutputFile=".\..\libs\DebugVCOnly/libbulletccdphysics-csvc7_d_d.dll"
+				OutputFile=".\..\libs\DebugVCOnly/libbulletccdphysics-csvc71_d_d.dll"
 				LinkIncremental="2"
 				SuppressStartupBanner="TRUE"
 				GenerateDebugInformation="TRUE"
@@ -115,9 +121,17 @@
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
 				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 	</Configurations>
+	<References>
+	</References>
 	<Files>
 		<Filter
 			Name="Source Files"
