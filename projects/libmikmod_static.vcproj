@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding = "Windows-1252"?>
+<?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="7.00"
+	Version="7.10"
 	Name="libmikmod_static"
 	ProjectGUID="{4FC766BA-5BB7-4896-B0F1-7FB8D35BBA23}"
 	SccProjectName=""
@@ -69,6 +69,12 @@
 				Culture="1031"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 		<Configuration
 			Name="Debug|Win32"
@@ -126,9 +132,17 @@
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
 				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 	</Configurations>
+	<References>
+	</References>
 	<Files>
 		<Filter
 			Name="Source Files"
@@ -236,10 +250,10 @@
 				RelativePath="..\source\libmikmod\playercode\virtch.c">
 			</File>
 			<File
-				RelativePath="..\source\libmikmod\playercode\virtch_common.c">
+				RelativePath="..\source\libmikmod\playercode\virtch2.c">
 			</File>
 			<File
-				RelativePath="..\source\libmikmod\playercode\virtch2.c">
+				RelativePath="..\source\libmikmod\playercode\virtch_common.c">
 			</File>
 		</Filter>
 		<Filter

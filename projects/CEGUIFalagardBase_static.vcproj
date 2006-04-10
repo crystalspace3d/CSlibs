@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding = "Windows-1252"?>
+<?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="7.00"
+	Version="7.10"
 	Name="CEGUIFalagardBase_static"
 	ProjectGUID="{F437A449-EF19-47D7-B861-8C0F88F49509}"
 	Keyword="Win32Proj">
@@ -57,12 +57,18 @@
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
 				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory=".\..\libs\ReleaseVC7Only_static"
-			IntermediateDirectory=".\..\temp\CEGUIFalagardBasevc7_Release_static"
+			OutputDirectory=".\..\libs\Releasevc71Only_static"
+			IntermediateDirectory=".\..\temp\CEGUIFalagardBasevc71_Release_static"
 			ConfigurationType="2"
 			CharacterSet="2"
 			WholeProgramOptimization="TRUE">
@@ -89,15 +95,15 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="..\libs\ReleaseVCOnly_static/libCEGUIFalagardBase-csvc7.dll"
+				OutputFile="..\libs\ReleaseVCOnly_static/libCEGUIFalagardBase-csvc71.dll"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="..\source\libCEGUI\lib;..\source\libCEGUI\dependencies\lib"
 				GenerateDebugInformation="TRUE"
-				ProgramDatabaseFile="..\libs\ReleaseVCOnly_static/libCEGUIFalagardBase-csvc7.pdb"
+				ProgramDatabaseFile="..\libs\ReleaseVCOnly_static/libCEGUIFalagardBase-csvc71.pdb"
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
-				ImportLibrary=".\..\libs\ReleaseVC7Only_static/CEGUIFalagardBase-vc7.lib"
+				ImportLibrary=".\..\libs\Releasevc71Only_static/CEGUIFalagardBase-vc71.lib"
 				MergeSections=".rdata=.text"
 				TargetMachine="1"/>
 			<Tool
@@ -113,9 +119,17 @@
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
 				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 	</Configurations>
+	<References>
+	</References>
 	<Files>
 		<Filter
 			Name="Source Files"

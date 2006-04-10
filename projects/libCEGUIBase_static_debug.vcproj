@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding = "Windows-1252"?>
+<?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="7.00"
+	Version="7.10"
 	Name="libCEGUIBase_static_debug"
 	ProjectGUID="{F8962390-E48E-4711-91C7-090CEA16BDA8}"
 	Keyword="Win32Proj">
@@ -58,12 +58,18 @@
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
 				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory=".\..\libs\ReleaseVC7Only_static_debug"
-			IntermediateDirectory=".\..\temp\libCEGUIBasevc7_Release_static_debug"
+			OutputDirectory=".\..\libs\Releasevc71Only_static_debug"
+			IntermediateDirectory=".\..\temp\libCEGUIBasevc71_Release_static_debug"
 			ConfigurationType="2"
 			CharacterSet="2"
 			WholeProgramOptimization="TRUE">
@@ -72,9 +78,9 @@
 				AdditionalOptions="/Zm150"
 				Optimization="0"
 				AdditionalIncludeDirectories="..\source/libfreetype\include;..\headers_dll;..\source\libCEGUI\include;..\source\libCEGUI\dependencies\include"
-				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;CEGUIBASE_EXPORTS;CEGUI_FACTORYMODULE_PREFIX=&quot;\&quot;lib\&quot;&quot;;CEGUI_FACTORYMODULE_SUFFIX=&quot;\&quot;-csvc7_d\&quot;&quot;"
+				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;CEGUIBASE_EXPORTS;CEGUI_FACTORYMODULE_PREFIX=&quot;\&quot;lib\&quot;&quot;;CEGUI_FACTORYMODULE_SUFFIX=&quot;\&quot;-csvc71_d\&quot;&quot;"
 				BasicRuntimeChecks="3"
-				RuntimeLibrary="2"
+				RuntimeLibrary="3"
 				BufferSecurityCheck="FALSE"
 				DisableLanguageExtensions="FALSE"
 				ForceConformanceInForLoopScope="TRUE"
@@ -88,15 +94,16 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies=""
-				OutputFile="..\libs\ReleaseVCOnly_static/libceguibase-csvc7_d.dll"
+				OutputFile="..\libs\ReleaseVCOnly_static/libceguibase-csvc71_d.dll"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="..\source\libCEGUI\lib;..\source\libCEGUI\dependencies\lib"
+				IgnoreDefaultLibraryNames="msvcrt"
 				GenerateDebugInformation="TRUE"
-				ProgramDatabaseFile="..\libs\ReleaseVCOnly_static/libceguibase-csvc7_d.pdb"
+				ProgramDatabaseFile="..\libs\ReleaseVCOnly_static/libceguibase-csvc71_d.pdb"
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
-				ImportLibrary=".\..\libs\ReleaseVC7Only_static/CEGUIBase-vc7_d.lib"
+				ImportLibrary=".\..\libs\Releasevc71Only_static/CEGUIBase-vc71_d.lib"
 				MergeSections=".rdata=.text"
 				TargetMachine="1"/>
 			<Tool
@@ -112,9 +119,17 @@
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
 				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 	</Configurations>
+	<References>
+	</References>
 	<Files>
 		<Filter
 			Name="Source Files"

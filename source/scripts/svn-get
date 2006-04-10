@@ -1,0 +1,15 @@
+#!/bin/sh
+
+LIBNAME=$1
+shift
+SVN_ROOT=$1
+
+apply_patches=1
+if [ -e ${LIBNAME} ] ; then
+  apply_patches=0
+fi
+
+svn co ${SVN_ROOT} ${LIBNAME}
+if [ $apply_patches -eq 1 ] ; then
+  scripts/dopatch ${LIBNAME}
+fi

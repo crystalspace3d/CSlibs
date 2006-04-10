@@ -1,3 +1,11 @@
+2006-04-10:
+  - Default DX headers & libs install to "on" for VC.
+  - Changed the Crosscompile support to carry setuptool.dll along to avoid
+    loading issues.
+  - Added the dlls/<platform> directory to PATH for MSYS and Cygwin.
+  - Added VC7.1 versions of C++ libs.
+  - Switched compilation of non-C++ libs to VC7.1 as well.
+  - CEGUI switched from CVS to SVN, hence pull it from the latter now.
 2006-03-10:
   - Fix double _d in CEGUI factory module names.
   - Fixed setup and setuptool to properly forward /SILENT and /VERYSILENT to

@@ -4,6 +4,10 @@ LIBNAME=$1
 URL=$2
 TAR_BASE=$3
 ARC_TYPE=$4
+DIRNAME=$5
+if [ -z ${DIRNAME} ] ; then
+  DIRNAME=${TAR_BASE}
+fi
 
 REVFILE=${LIBNAME}.rev
 
@@ -19,21 +23,23 @@ fi
 rm -rf ${LIBNAME}
 
 if [ ${ARC_TYPE} == gz ] ; then
-  UNARC=gunzip
-  EXT=gz
+  ARCHIVE=${TAR_BASE}.tar.gz
+  UNARC="tar -xzvf ${ARCHIVE}"
 elif [ ${ARC_TYPE} == bz2 ] ; then
-  UNARC=bunzip2
-  EXT=bz2
+  ARCHIVE=${TAR_BASE}.tar.bz2
+  UNARC="tar -xjvf ${ARCHIVE}"
+elif [ ${ARC_TYPE} == zip ] ; then
+  ARCHIVE=${TAR_BASE}.zip
+  UNARC="unzip ${ARCHIVE}"
 else
   echo Unsupported archive type ${ARC_TYPE}
   exit
 fi
 
-wget -c -O ${TAR_BASE}.tar.${EXT} $URL
-${UNARC} ${TAR_BASE}.tar.${EXT}
-tar -xvf ${TAR_BASE}.tar
-rm ${TAR_BASE}.tar
-mv ${TAR_BASE} ${LIBNAME}
+wget -c -O ${ARCHIVE} $URL
+${UNARC}
+rm ${ARCHIVE}
+mv ${DIRNAME} ${LIBNAME}
 
 echo ${TAR_BASE} > ${REVFILE}
 

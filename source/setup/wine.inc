@@ -9,7 +9,7 @@ begin
 end;
 
 function WineToUnix (path: String): PChar; 
-external 'WineToUnix@{#SetupToolDll} stdcall'; 
+external 'WineToUnix@{#SetupToolDll} stdcall';
 function UnixToWine (path: String): PChar; 
-external 'UnixToWine@{#SetupToolDll} stdcall'; 
+external 'UnixToWine@{#SetupToolDll} stdcall';
 

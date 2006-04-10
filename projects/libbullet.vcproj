@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding = "Windows-1252"?>
+<?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="7.00"
+	Version="7.10"
 	Name="libbullet"
 	ProjectGUID="{358873A7-F408-4F5A-8308-655FFEE53883}"
 	SccProjectName=""
@@ -13,8 +13,8 @@
 	<Configurations>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory=".\..\libs\ReleaseVC7Only"
-			IntermediateDirectory=".\..\temp\libbulletvc7_Release"
+			OutputDirectory=".\..\libs\Releasevc71Only"
+			IntermediateDirectory=".\..\temp\libbulletvc71_Release"
 			ConfigurationType="4"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="FALSE"
@@ -38,9 +38,9 @@
 				EnableFunctionLevelLinking="TRUE"
 				UsePrecompiledHeader="0"
 				PrecompiledHeaderFile=".\..\temp\libbullet_Release/libbullet.pch"
-				AssemblerListingLocation=".\..\temp\libbulletvc7_Release/"
-				ObjectFile=".\..\temp\libbulletvc7_Release/"
-				ProgramDataBaseFileName="$(OutDir)/bullet-vc7.pdb"
+				AssemblerListingLocation=".\..\temp\libbulletvc71_Release/"
+				ObjectFile=".\..\temp\libbulletvc71_Release/"
+				ProgramDataBaseFileName="$(OutDir)/bullet-vc71.pdb"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
 				DebugInformationFormat="3"/>
@@ -48,7 +48,7 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="$(OutDir)/bullet-vc7.lib"/>
+				OutputFile="$(OutDir)/bullet-vc71.lib"/>
 			<Tool
 				Name="VCMIDLTool"
 				PreprocessorDefinitions="NDEBUG"
@@ -68,6 +68,12 @@
 				Culture="1031"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 		<Configuration
 			Name="Debug|Win32"
@@ -98,7 +104,7 @@
 				Name="VCLinkerTool"
 				AdditionalOptions="/MACHINE:I386"
 				AdditionalDependencies="odbc32.lib odbccp32.lib"
-				OutputFile=".\..\libs\DebugVCOnly/libbullet-csvc7_d.dll"
+				OutputFile=".\..\libs\DebugVCOnly/libbullet-csvc71_d.dll"
 				LinkIncremental="2"
 				SuppressStartupBanner="TRUE"
 				GenerateDebugInformation="TRUE"
@@ -124,9 +130,17 @@
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
 				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 	</Configurations>
+	<References>
+	</References>
 	<Files>
 		<Filter
 			Name="Source Files"
@@ -208,6 +222,18 @@
 			</File>
 			<File
 				RelativePath="..\..\bullet\Bullet\CollisionShapes\EmptyShape.cpp">
+			</File>
+			<File
+				RelativePath="..\source\libbullet\Bullet\NarrowPhaseCollision\Epa.cpp">
+			</File>
+			<File
+				RelativePath="..\source\libbullet\Bullet\NarrowPhaseCollision\EpaFace.cpp">
+			</File>
+			<File
+				RelativePath="..\source\libbullet\Bullet\NarrowPhaseCollision\EpaPenetrationDepthSolver.cpp">
+			</File>
+			<File
+				RelativePath="..\source\libbullet\Bullet\NarrowPhaseCollision\EpaPolyhedron.cpp">
 			</File>
 			<File
 				RelativePath="..\..\bullet\Bullet\NarrowPhaseCollision\GjkConvexCast.cpp">

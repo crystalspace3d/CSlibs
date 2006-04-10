@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding = "Windows-1252"?>
+<?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="7.00"
+	Version="7.10"
 	Name="build_cslibs"
 	SccProjectName=""
 	SccLocalPath="">
@@ -24,7 +24,7 @@
 			<Tool
 				Name="VCPostBuildEventTool"
 				CommandLine="echo Rebasing...
-rebase -b 0x70000000 -v -d ..\libs\Release\*.dll ..\libs\ReleaseVCOnly\*.dll ..\libs\ReleaseVC7Only_static\*.dll
+rebase -b 0x70000000 -v -d ..\libs\Release\*.dll ..\libs\ReleaseVCOnly\*.dll ..\libs\ReleaseVCOnly_static\*.dll
 
 "/>
 			<Tool
@@ -73,8 +73,16 @@ rebase -b 0x70000000 -v -d ..\libs\Debug\*.dll
 				Culture="1031"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 	</Configurations>
+	<References>
+	</References>
 	<Files>
 	</Files>
 	<Globals>

@@ -303,6 +303,22 @@
 				>
 			</File>
 			<File
+				RelativePath="..\source\libbullet\Bullet\NarrowPhaseCollision\Epa.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\source\libbullet\Bullet\NarrowPhaseCollision\EpaFace.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\source\libbullet\Bullet\NarrowPhaseCollision\EpaPenetrationDepthSolver.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\source\libbullet\Bullet\NarrowPhaseCollision\EpaPolyhedron.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\..\bullet\Bullet\NarrowPhaseCollision\GjkConvexCast.cpp"
 				>
 			</File>
