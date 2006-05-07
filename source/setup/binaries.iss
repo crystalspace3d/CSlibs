@@ -15,8 +15,8 @@
 
 [Setup]
 SolidCompression=true
-;Compression=lzma/ultra
-Compression=none
+Compression=lzma/ultra
+;Compression=none
 ShowLanguageDialog=no
 AppName={#AppName}
 AppId={#AppId}
