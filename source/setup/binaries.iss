@@ -93,8 +93,8 @@ Source: ..\..\libs\ReleaseVC8Only_static\*.lib; DestDir: {app}\lib; Components: 
 Source: ..\..\libs\ReleaseVC8Only_static\*.pdb; DestDir: {app}\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseGCCOnly_static\mingw\*.a; DestDir: {app}\lib\mingw; Components: Libs/MinGW
 Source: ..\..\libs\ReleaseGCCOnly_static\cygwin\*.a; DestDir: {app}\lib\cygwin; Components: Libs/Cygwin
-Source: ..\..\libs\ReleaseGCCOnly_static\mingw-gcc-3.4\lib*.*; DestDir: {app}\lib\mingw-gcc-3.4; Components: Libs/MinGW
-Source: ..\..\libs\ReleaseGCCOnly_static\cygwin-gcc-3.4\lib*.*; DestDir: {app}\lib\cygwin-gcc-3.4; Components: Libs/Cygwin
+Source: ..\..\libs\ReleaseGCCOnly_static\mingw-gcc-3.4\lib*.a; DestDir: {app}\lib\mingw-gcc-3.4; Components: Libs/MinGW
+Source: ..\..\libs\ReleaseGCCOnly_static\cygwin-gcc-3.4\lib*.a; DestDir: {app}\lib\cygwin-gcc-3.4; Components: Libs/Cygwin
 ; libcal3d for dynamic is static as well
 Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.4\libcal3d.a; DestDir: {app}\lib\mingw-gcc-3.4; Components: Libs/MinGW
 Source: ..\..\libs\ReleaseGCCOnly\cygwin-gcc-3.4\libcal3d.a; DestDir: {app}\lib\cygwin-gcc-3.4; Components: Libs/Cygwin
@@ -109,10 +109,10 @@ Source: ..\..\libs\ReleaseVC8Only\*.lib; DestDir: {app}\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC8Only\*.pdb; DestDir: {app}\lib; Components: Libs/VC
 ;Source: ..\..\libs\ReleaseGCCOnly\mingw\*.a; DestDir: {app}\lib\mingw; Components: Libs/MinGW
 ;Source: ..\..\libs\ReleaseGCCOnly\cygwin\*.a; DestDir: {app}\lib\cygwin; Components: Libs/Cygwin
-Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.4\lib*.*; DestDir: {app}\lib\mingw-gcc-3.4; Components: Libs/MinGW
-Source: ..\..\libs\ReleaseGCCOnly\cygwin-gcc-3.4\lib*.*; DestDir: {app}\lib\cygwin-gcc-3.4; Components: Libs/Cygwin
+Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.4\lib*.a; DestDir: {app}\lib\mingw-gcc-3.4; Components: Libs/MinGW
+Source: ..\..\libs\ReleaseGCCOnly\cygwin-gcc-3.4\lib*.a; DestDir: {app}\lib\cygwin-gcc-3.4; Components: Libs/Cygwin
 ; Special case: use "static" CEGUI on Cygwin for non-static setup as well
-Source: ..\..\libs\ReleaseGCCOnly_static\cygwin-gcc-3.4\lib*.*; DestDir: {app}\lib\cygwin-gcc-3.4; Components: Libs/Cygwin
+Source: ..\..\libs\ReleaseGCCOnly_static\cygwin-gcc-3.4\lib*.a; DestDir: {app}\lib\cygwin-gcc-3.4; Components: Libs/Cygwin
 #endif
 
 ; headers
