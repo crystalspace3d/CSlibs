@@ -47,17 +47,12 @@ TOP="`pwd`"
 
 ignorantcopy . ${WORKDIR}/${PACKAGE}
 
-NEWCVSROOT=:pserver:anonymous@cvs.sourceforge.net:/cvsroot/crystal
-
-# Replace the CVS/Root files with a one pointing to anon CVS.
 cd ${WORKDIR}
-echo "${NEWCVSROOT}" > Root
-find . -type d -name CVS -exec cp Root {} \; -prune
-find . -type d -name CVS -exec \
-  sh -c "if grep -q /cvsroot/crystal {}/Root ; then cp Root {} ; fi" \; -prune
-rm Root 
-
 # Copy actual lib sources.
 cp -ur ${TOP}/source ${PACKAGE}/
+
+# Kill all CVS/.svn directories
+find . -type d -name CVS -exec rm -rf {} \; -prune
+find . -type d -name .svn -exec rm -rf {} \; -prune
 
 tar -cjf ${TOP}/out/${TARNAME} ${PACKAGE}

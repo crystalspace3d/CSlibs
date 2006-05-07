@@ -199,6 +199,10 @@
 			Filter="cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
 			>
 			<File
+				RelativePath="..\source\libbullet\Bullet\BroadphaseCollision\AxisSweep3.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\..\bullet\Bullet\CollisionShapes\BoxShape.cpp"
 				>
 			</File>
@@ -283,10 +287,6 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\bullet\Bullet\CollisionShapes\ConvexTriangleCallback.cpp"
-				>
-			</File>
-			<File
 				RelativePath="..\..\bullet\Bullet\CollisionShapes\CylinderShape.cpp"
 				>
 			</File>
@@ -327,6 +327,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\source\libbullet\Bullet\NarrowPhaseCollision\Hull.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\..\bullet\Bullet\NarrowPhaseCollision\ManifoldContactAddResult.cpp"
 				>
 			</File>
@@ -360,6 +364,10 @@
 			</File>
 			<File
 				RelativePath="..\..\bullet\Bullet\NarrowPhaseCollision\RaycastCallback.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\source\libbullet\Bullet\NarrowPhaseCollision\Shape.cpp"
 				>
 			</File>
 			<File

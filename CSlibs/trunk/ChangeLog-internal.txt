@@ -1,3 +1,7 @@
+2006-05-07:
+  * Released 0.99r0_021
+2006-05-05:
+  - jam.exe & setuptool.dll are now compiled with VC8.
 2006-04-10:
   - Default DX headers & libs install to "on" for VC.
   - Changed the Crosscompile support to carry setuptool.dll along to avoid

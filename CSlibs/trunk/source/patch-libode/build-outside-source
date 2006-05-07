@@ -1,0 +1,29 @@
+Index: drawstuff/dstest/Makefile.am
+===================================================================
+--- drawstuff/dstest/Makefile.am	(revision 946)
++++ drawstuff/dstest/Makefile.am	(working copy)
+@@ -7,7 +7,7 @@
+ dstest_LDADD=-ldrawstuff @LDFLAGS@ @GL_LIBS@ @LIBS@
+ if WIN32
+ dstest_DEPENDENCIES+=resources.o
+-resources.o: ../src/resources.rc ../src/resource.h
+-	@WINDRES@ ../src/resources.rc -o resources.o
++resources.o: $(top_srcdir)/drawstuff/src/resources.rc $(top_srcdir)/drawstuff/src/resource.h
++	@WINDRES@ $(top_srcdir)/drawstuff/src/resources.rc -o resources.o
+ dstest_LDADD+= resources.o
+ endif
+Index: ode/test/Makefile.am
+===================================================================
+--- ode/test/Makefile.am	(revision 946)
++++ ode/test/Makefile.am	(working copy)
+@@ -162,8 +162,8 @@
+ 
+ 
+ if WIN32
+-resources.o: ../../drawstuff/src/resources.rc ../../drawstuff/src/resource.h
+-	@WINDRES@ ../../drawstuff/src/resources.rc -o resources.o
++resources.o: $(top_srcdir)/drawstuff/src/resources.rc $(top_srcdir)/drawstuff/src/resource.h
++	@WINDRES@ $(top_srcdir)/drawstuff/src/resources.rc -o resources.o
+ test_ode_LDADD+= resources.o
+ test_chain2_LDADD+= resources.o
+ test_chain1_LDADD+= resources.o

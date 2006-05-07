@@ -53,6 +53,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libbulletdynamics-vc8", "li
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libbulletdynamics-vc8_debug", "libbulletdynamics-vc8_debug.vcproj", "{8588F973-C3F6-4733-AE88-E10D4082878B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libbulletmath-vc8", "libbulletmath-vc8.vcproj", "{AD7A817F-FC62-4D65-846C-A0F2E635F378}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libbulletmath-vc8_debug", "libbulletmath-vc8_debug.vcproj", "{1D4A1A43-C461-4A99-A376-FBAE77EBAF5C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -139,6 +143,14 @@ Global
 		{8588F973-C3F6-4733-AE88-E10D4082878B}.Debug|Win32.Build.0 = Debug|Win32
 		{8588F973-C3F6-4733-AE88-E10D4082878B}.Release|Win32.ActiveCfg = Release|Win32
 		{8588F973-C3F6-4733-AE88-E10D4082878B}.Release|Win32.Build.0 = Release|Win32
+		{AD7A817F-FC62-4D65-846C-A0F2E635F378}.Debug|Win32.ActiveCfg = Debug|Win32
+		{AD7A817F-FC62-4D65-846C-A0F2E635F378}.Debug|Win32.Build.0 = Debug|Win32
+		{AD7A817F-FC62-4D65-846C-A0F2E635F378}.Release|Win32.ActiveCfg = Release|Win32
+		{AD7A817F-FC62-4D65-846C-A0F2E635F378}.Release|Win32.Build.0 = Release|Win32
+		{1D4A1A43-C461-4A99-A376-FBAE77EBAF5C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1D4A1A43-C461-4A99-A376-FBAE77EBAF5C}.Debug|Win32.Build.0 = Debug|Win32
+		{1D4A1A43-C461-4A99-A376-FBAE77EBAF5C}.Release|Win32.ActiveCfg = Release|Win32
+		{1D4A1A43-C461-4A99-A376-FBAE77EBAF5C}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

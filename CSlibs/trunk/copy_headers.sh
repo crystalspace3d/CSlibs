@@ -55,5 +55,6 @@ cp source/libbullet/Extras/PhysicsInterface/CcdPhysics/*.h headers/CcdPhysics
 
 mkdir headers/js
 cp source/libjs/*.h headers/js/
+cp source/libjs/*.tbl headers/js/
 
 find headers -type d -name CVS -exec rm -rf {} \; -prune 

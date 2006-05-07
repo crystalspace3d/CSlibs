@@ -1,5 +1,9 @@
-0.99r0_021 (2006-04-??):
-  - Updated bullet to 1.2.
+0.99r0_021 (2006-05-07):
+  - Updated bullet to 1.4.
+  - Updated cal3d to a CVS snapshot of 2006-04-06.
+  - Updated ODE to SVN version.
+  - Updated CEGUI to v0-4 SVN branch of 2006-05-05.
+  - Updated Cg to latest 1.4 version available from NVidia.
 
 0.99r0_020 (2006-03-10):
   - Fix for debug mode CEGUI.
