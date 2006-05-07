@@ -203,6 +203,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\source\libbullet\BulletDynamics\ConstraintSolver\HingeConstraint.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\source\libbullet\BulletDynamics\ConstraintSolver\OdeConstraintSolver.cpp"
 				>
 			</File>
@@ -224,6 +228,10 @@
 			</File>
 			<File
 				RelativePath="..\source\libbullet\BulletDynamics\ConstraintSolver\SorLcp.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\source\libbullet\BulletDynamics\ConstraintSolver\TypedConstraint.cpp"
 				>
 			</File>
 		</Filter>

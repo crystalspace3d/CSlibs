@@ -1,9 +1,11 @@
 #!/bin/sh
 
-scripts/cvs-get libcal3d :pserver:anonymous@cvs.sourceforge.net:/cvsroot/cal3d \
-  cal3d
-scripts/cvs-get libode :pserver:anonymous@cvs.sourceforge.net:/cvsroot/opende \
-  ode
+# As long as cal3d cvs is broken...
+scripts/url-get libcal3d http://crystalspace3d.org/support/cal3d-20060406.zip \
+  cal3d-20060406 zip cal3d
+#scripts/cvs-get libcal3d :pserver:anonymous@cvs.sourceforge.net:/cvsroot/cal3d \
+  #cal3d
+scripts/svn-get libode https://svn.sourceforge.net/svnroot/opende/trunk/
 scripts/cvs-get lib3ds :pserver:anonymous@cvs.sourceforge.net:/cvsroot/lib3ds \
   lib3ds
 scripts/svn-get libCEGUI https://svn.sourceforge.net/svnroot/crayzedsgui/cegui_mk2/branches/v0-4
@@ -27,5 +29,5 @@ scripts/url-get libfreetype http://mesh.dl.sourceforge.net/sourceforge/freetype/
   freetype-2.1.10 bz2
 scripts/url-get libcaca http://sam.zoy.org/libcaca/libcaca-0.9.tar.bz2 \
   libcaca-0.9 bz2
-scripts/url-get libbullet http://www.continuousphysics.com/ftp/pub/test/physics/source/bullet-1.2src.zip \
-  bullet-1.2src zip bullet
+scripts/url-get libbullet http://www.continuousphysics.com/ftp/pub/test/physics/source/bullet-1.4-source.zip \
+  bullet-1.4 zip

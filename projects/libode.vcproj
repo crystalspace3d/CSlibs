@@ -29,7 +29,7 @@
 				OmitFramePointers="TRUE"
 				OptimizeForProcessor="2"
 				AdditionalIncludeDirectories="..\source/libode\include;..\source/configs;../source/libode/OPCODE"
-				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;LIBODE_EXPORTS"
+				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;LIBODE_EXPORTS;ODE_DLL"
 				StringPooling="TRUE"
 				ExceptionHandling="FALSE"
 				RuntimeLibrary="2"
@@ -52,7 +52,7 @@
 				OutputFile=".\..\libs\Release/libode-cs.dll"
 				LinkIncremental="1"
 				SuppressStartupBanner="TRUE"
-				ModuleDefinitionFile="..\source\libode.def"
+				ModuleDefinitionFile=""
 				GenerateDebugInformation="TRUE"
 				ProgramDatabaseFile=".\..\libs\Release/libode-cs.pdb"
 				OptimizeReferences="2"
@@ -164,6 +164,24 @@
 				RelativePath="..\source\libode\ode\src\array.cpp">
 			</File>
 			<File
+				RelativePath="..\source\libode\ode\src\box.cpp">
+			</File>
+			<File
+				RelativePath="..\source\libode\ode\src\capsule.cpp">
+			</File>
+			<File
+				RelativePath="..\source\libode\ode\src\collision_cylinder_box.cpp">
+			</File>
+			<File
+				RelativePath="..\source\libode\ode\src\collision_cylinder_plane.cpp">
+			</File>
+			<File
+				RelativePath="..\source\libode\ode\src\collision_cylinder_sphere.cpp">
+			</File>
+			<File
+				RelativePath="..\source\libode\ode\src\collision_cylinder_trimesh.cpp">
+			</File>
+			<File
 				RelativePath="..\source\libode\ode\src\collision_kernel.cpp">
 			</File>
 			<File
@@ -171,9 +189,6 @@
 			</File>
 			<File
 				RelativePath="..\source\libode\ode\src\collision_space.cpp">
-			</File>
-			<File
-				RelativePath="..\source\libode\ode\src\collision_std.cpp">
 			</File>
 			<File
 				RelativePath="..\source\libode\ode\src\collision_transform.cpp">
@@ -206,7 +221,16 @@
 				RelativePath="..\source\libode\ode\src\collision_util.cpp">
 			</File>
 			<File
+				RelativePath="..\source\libode\ode\src\convex.cpp">
+			</File>
+			<File
+				RelativePath="..\source\libode\ode\src\cylinder.cpp">
+			</File>
+			<File
 				RelativePath="..\source\libode\ode\src\error.cpp">
+			</File>
+			<File
+				RelativePath="..\source\libode\ode\src\export-dif.cpp">
 			</File>
 			<File
 				RelativePath="..\source\libode\ode\src\fastdot.c">
@@ -251,10 +275,19 @@
 				RelativePath="..\source\libode\ode\src\odemath.cpp">
 			</File>
 			<File
+				RelativePath="..\source\libode\ode\src\plane.cpp">
+			</File>
+			<File
 				RelativePath="..\source\libode\ode\src\quickstep.cpp">
 			</File>
 			<File
+				RelativePath="..\source\libode\ode\src\ray.cpp">
+			</File>
+			<File
 				RelativePath="..\source\libode\ode\src\rotation.cpp">
+			</File>
+			<File
+				RelativePath="..\source\libode\ode\src\sphere.cpp">
 			</File>
 			<File
 				RelativePath="..\source\libode\ode\src\step.cpp">
@@ -277,6 +310,9 @@
 			Filter="h;hpp;hxx;hm;inl">
 			<File
 				RelativePath="..\source\libode\ode\src\array.h">
+			</File>
+			<File
+				RelativePath="..\source\libode\include\ode\collision.h">
 			</File>
 			<File
 				RelativePath="..\source\libode\ode\src\collision_kernel.h">

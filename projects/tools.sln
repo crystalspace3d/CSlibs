@@ -1,27 +1,28 @@
-Microsoft Visual Studio Solution File, Format Version 7.00
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual C++ Express 2005
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "setuptool", "setuptool.vcproj", "{BD9F766F-A047-4AD8-8DAF-0DDA61619EC6}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "jam", "jam.vcproj", "{29FCED00-2C5B-4DF9-82E3-6E14C760CAD2}"
 EndProject
 Global
-	GlobalSection(SolutionConfiguration) = preSolution
-		ConfigName.0 = Debug
-		ConfigName.1 = Release
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
 	EndGlobalSection
-	GlobalSection(ProjectDependencies) = postSolution
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BD9F766F-A047-4AD8-8DAF-0DDA61619EC6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BD9F766F-A047-4AD8-8DAF-0DDA61619EC6}.Debug|Win32.Build.0 = Debug|Win32
+		{BD9F766F-A047-4AD8-8DAF-0DDA61619EC6}.Release|Win32.ActiveCfg = Release|Win32
+		{BD9F766F-A047-4AD8-8DAF-0DDA61619EC6}.Release|Win32.Build.0 = Release|Win32
+		{29FCED00-2C5B-4DF9-82E3-6E14C760CAD2}.Debug|Win32.ActiveCfg = Debug|Win32
+		{29FCED00-2C5B-4DF9-82E3-6E14C760CAD2}.Debug|Win32.Build.0 = Debug|Win32
+		{29FCED00-2C5B-4DF9-82E3-6E14C760CAD2}.Release|Win32.ActiveCfg = Release|Win32
+		{29FCED00-2C5B-4DF9-82E3-6E14C760CAD2}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
-	GlobalSection(ProjectConfiguration) = postSolution
-		{BD9F766F-A047-4AD8-8DAF-0DDA61619EC6}.Debug.ActiveCfg = Debug|Win32
-		{BD9F766F-A047-4AD8-8DAF-0DDA61619EC6}.Debug.Build.0 = Debug|Win32
-		{BD9F766F-A047-4AD8-8DAF-0DDA61619EC6}.Release.ActiveCfg = Release|Win32
-		{BD9F766F-A047-4AD8-8DAF-0DDA61619EC6}.Release.Build.0 = Release|Win32
-		{29FCED00-2C5B-4DF9-82E3-6E14C760CAD2}.Debug.ActiveCfg = Debug|Win32
-		{29FCED00-2C5B-4DF9-82E3-6E14C760CAD2}.Debug.Build.0 = Debug|Win32
-		{29FCED00-2C5B-4DF9-82E3-6E14C760CAD2}.Release.ActiveCfg = Release|Win32
-		{29FCED00-2C5B-4DF9-82E3-6E14C760CAD2}.Release.Build.0 = Release|Win32
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-	EndGlobalSection
-	GlobalSection(ExtensibilityAddIns) = postSolution
+	GlobalSection(DPCodeReviewSolutionGUID) = preSolution
+		DPCodeReviewSolutionGUID = {00000000-0000-0000-0000-000000000000}
 	EndGlobalSection
 EndGlobal

@@ -151,6 +151,24 @@
 				RelativePath="..\source\libode\ode\src\array.cpp">
 			</File>
 			<File
+				RelativePath="..\source\libode\ode\src\box.cpp">
+			</File>
+			<File
+				RelativePath="..\source\libode\ode\src\capsule.cpp">
+			</File>
+			<File
+				RelativePath="..\source\libode\ode\src\collision_cylinder_box.cpp">
+			</File>
+			<File
+				RelativePath="..\source\libode\ode\src\collision_cylinder_plane.cpp">
+			</File>
+			<File
+				RelativePath="..\source\libode\ode\src\collision_cylinder_sphere.cpp">
+			</File>
+			<File
+				RelativePath="..\source\libode\ode\src\collision_cylinder_trimesh.cpp">
+			</File>
+			<File
 				RelativePath="..\source\libode\ode\src\collision_kernel.cpp">
 			</File>
 			<File
@@ -158,9 +176,6 @@
 			</File>
 			<File
 				RelativePath="..\source\libode\ode\src\collision_space.cpp">
-			</File>
-			<File
-				RelativePath="..\source\libode\ode\src\collision_std.cpp">
 			</File>
 			<File
 				RelativePath="..\source\libode\ode\src\collision_transform.cpp">
@@ -193,7 +208,16 @@
 				RelativePath="..\source\libode\ode\src\collision_util.cpp">
 			</File>
 			<File
+				RelativePath="..\source\libode\ode\src\convex.cpp">
+			</File>
+			<File
+				RelativePath="..\source\libode\ode\src\cylinder.cpp">
+			</File>
+			<File
 				RelativePath="..\source\libode\ode\src\error.cpp">
+			</File>
+			<File
+				RelativePath="..\source\libode\ode\src\export-dif.cpp">
 			</File>
 			<File
 				RelativePath="..\source\libode\ode\src\fastdot.c">
@@ -238,10 +262,19 @@
 				RelativePath="..\source\libode\ode\src\odemath.cpp">
 			</File>
 			<File
+				RelativePath="..\source\libode\ode\src\plane.cpp">
+			</File>
+			<File
 				RelativePath="..\source\libode\ode\src\quickstep.cpp">
 			</File>
 			<File
+				RelativePath="..\source\libode\ode\src\ray.cpp">
+			</File>
+			<File
 				RelativePath="..\source\libode\ode\src\rotation.cpp">
+			</File>
+			<File
+				RelativePath="..\source\libode\ode\src\sphere.cpp">
 			</File>
 			<File
 				RelativePath="..\source\libode\ode\src\step.cpp">
