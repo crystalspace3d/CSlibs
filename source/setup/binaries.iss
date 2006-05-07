@@ -68,8 +68,8 @@ Source: ..\..\libs\ReleaseGCCOnly_static\cygwin-gcc-3.4\*.dll; DestDir: {app}\dl
 #else
 Source: ..\..\libs\Release\libjs-cs.dll; DestDir: {app}\dlls; Components: Libs/Common
 Source: ..\..\libs\ReleaseVCOnly_static\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
-Source: ..\..\libs\ReleaseGCCOnly_static\mingw\*.dll; DestDir: {app}\dlls\mingw; Components: Libs/MinGW
-Source: ..\..\libs\ReleaseGCCOnly_static\cygwin\*.dll; DestDir: {app}\dlls\cygwin; Components: Libs/Cygwin
+;Source: ..\..\libs\ReleaseGCCOnly_static\mingw\*.dll; DestDir: {app}\dlls\mingw; Components: Libs/MinGW
+;Source: ..\..\libs\ReleaseGCCOnly_static\cygwin\*.dll; DestDir: {app}\dlls\cygwin; Components: Libs/Cygwin
 Source: ..\..\libs\ReleaseGCCOnly_static\mingw-gcc-3.4\*.dll; DestDir: {app}\dlls\mingw; Components: Libs/MinGW
 Source: ..\..\libs\ReleaseGCCOnly_static\cygwin-gcc-3.4\*.dll; DestDir: {app}\dlls\cygwin; Components: Libs/Cygwin
 #endif
@@ -82,7 +82,7 @@ Source: ..\..\nosource\Cg\lib\*.*; DestDir: {app}\lib; Flags: recursesubdirs; Co
 
 #ifdef STATIC
 ; Static .libs
-Source: ..\..\libs\Release\js.*; DestDir: {app}\lib; Components: Libs/Common
+Source: ..\..\libs\Release\js.lib; DestDir: {app}\lib; Components: Libs/Common
 Source: ..\..\libs\Release_static\*.lib; DestDir: {app}\lib\vc; Components: Libs/VC
 Source: ..\..\libs\Release_static\*.pdb; DestDir: {app}\lib\vc; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC7Only_static\*.lib; DestDir: {app}\lib; Components: Libs/VC
