@@ -1,0 +1,19 @@
+--- LinearMath/SimdScalar.h.orig   2006-06-03 14:13:51.105000000 -0400
++++ LinearMath/SimdScalar.h        2006-06-03 18:15:48.433125000 -0400
+@@ -27,12 +27,12 @@
+ #include <float.h>
+ 
+ #ifdef WIN32
+-#pragma warning(disable:4530)
+-#pragma warning(disable:4996)
+-#ifdef __MINGW32__
++#if defined(__MINGW32__) || defined(__CYGWIN__)
+ #define SIMD_FORCE_INLINE inline
+ #else
+ #define SIMD_FORCE_INLINE __forceinline
++#pragma warning(disable:4530)
++#pragma warning(disable:4996)
+ #endif //__MINGW32__
+ 
+ //#define ATTRIBUTE_ALIGNED16(a) __declspec(align(16)) a
+ 

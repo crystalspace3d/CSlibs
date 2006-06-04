@@ -56,7 +56,7 @@
 
 /* Set up for either Win32 import/export/lib. */
 #ifndef CGGLDLL_API
-#if WIN32
+#ifdef WIN32
     # include <windows.h>
     #ifdef CGGLDLL_EXPORTS
     #define CGGLDLL_API __declspec(dllexport)
