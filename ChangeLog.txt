@@ -1,5 +1,5 @@
 0.99r0_022 (2006-??-??):
-  - Added patch from mdmkolbe to make Cg work on Cygwin.
+  - Added patches from mdmkolbe to make Cg, Ogg and Bullet useable on Cygwin.
 
 0.99r0_021 (2006-05-07):
   - Updated bullet to 1.4.
