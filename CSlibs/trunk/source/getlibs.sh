@@ -1,20 +1,16 @@
 #!/bin/sh
 
-# As long as cal3d cvs is broken...
-scripts/url-get libcal3d http://crystalspace3d.org/support/cal3d-20060406.zip \
-  cal3d-20060406 zip cal3d
-#scripts/cvs-get libcal3d :pserver:anonymous@cvs.sourceforge.net:/cvsroot/cal3d \
-  #cal3d
-scripts/svn-get libode https://svn.sourceforge.net/svnroot/opende/trunk/
-scripts/cvs-get lib3ds :pserver:anonymous@cvs.sourceforge.net:/cvsroot/lib3ds \
+scripts/svn-get libcal3d http://svn.gna.org/svn/cal3d/tags/release-0_11_0/cal3d/
+scripts/svn-get libode https://svn.sourceforge.net/svnroot/opende/branches/0.6/
+scripts/cvs-get lib3ds :pserver:anonymous@lib3ds.cvs.sourceforge.net:/cvsroot/lib3ds \
   lib3ds
-scripts/svn-get libCEGUI https://svn.sourceforge.net/svnroot/crayzedsgui/cegui_mk2/branches/v0-4
+scripts/svn-get libCEGUI https://svn.sourceforge.net/svnroot/crayzedsgui/cegui_mk2/tags/v0-5-0-RC1/
 # Would be nice to find some JS1.6 CVS tag.
 scripts/cvs-get libjs :pserver:anonymous@cvs-mirror.mozilla.org:/cvsroot \
   JSRef -r HEAD
 
-scripts/url-get libpng ftp://ftp.simplesystems.org/pub/libpng/png/src/libpng-1.2.8-config.tar.gz \
-  libpng-1.2.8-config gz
+scripts/url-get libpng ftp://ftp.simplesystems.org/pub/libpng/png/src/libpng-1.2.12.tar.bz2 \
+  libpng-1.2.12 bz2
 scripts/url-get libz http://www.zlib.net/zlib-1.2.3.tar.bz2 \
   zlib-1.2.3 bz2
 scripts/url-get libmng http://mesh.dl.sourceforge.net/sourceforge/libmng/libmng-1.0.9.tar.gz \
@@ -25,9 +21,9 @@ scripts/url-get libvorbis http://downloads.xiph.org/releases/vorbis/libvorbis-1.
   libvorbis-1.1.2 gz
 scripts/url-get libmikmod http://mikmod.raphnet.net/files/libmikmod-3.1.11.tar.gz \
   libmikmod-3.1.11 gz
-scripts/url-get libfreetype http://mesh.dl.sourceforge.net/sourceforge/freetype/freetype-2.1.10.tar.bz2 \
-  freetype-2.1.10 bz2
+scripts/url-get libfreetype http://mesh.dl.sourceforge.net/sourceforge/freetype/freetype-2.2.1.tar.bz2 \
+  freetype-2.2.1 bz2
 scripts/url-get libcaca http://sam.zoy.org/libcaca/libcaca-0.9.tar.bz2 \
   libcaca-0.9 bz2
-scripts/url-get libbullet http://www.continuousphysics.com/ftp/pub/test/physics/source/bullet-1.4-source.zip \
-  bullet-1.4 zip
+scripts/url-get libbullet "http://www.continuousphysics.com/ftp/pub/test/index.php?dir=physics/source/&file=bullet-1.6a-source.zip" \
+  bullet-1.6a zip bullet
