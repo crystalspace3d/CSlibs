@@ -1,0 +1,22 @@
+SubDir TOP source libz ;
+
+MsvcSetTargetProp z : resources : no ;
+MsvcSetTargetProp z : outputfile : [ ConcatDirs libs Release libz-cs.dll ] ;
+MsvcSetTargetProp z : importlib : 
+  [ ConcatDirs [ MsvcWorkbuildToRoot ] $(DOTDOT) libs Release zlib.lib ] ;
+MsvcSetTargetProp z : debuginfo : 
+  [ ConcatDirs [ MsvcWorkbuildToRoot ] $(DOTDOT) $(DOTDOT) libs Release libz-cs.pdb ] ;
+MsvcSetTargetProp z : moduledefinition : 
+  "ModuleDefinitionFile=\"../../$(SUBDIR)/win32/zlib.def\"" ;
+Library z : [ Filter [ Wildcard *.c *.h ] : example.c minigzip.c ] : shared ;
+MsvcDefine z : LIBZ_EXPORTS ;
+MsvcExtraFile z : $(SUBDIR)/win32/zlib.def ;
+MsvcExtraFile z : source/zlib.rc ;
+
+SubVariant static ;
+MsvcSetTargetProp z_static : resources : no ;
+MsvcSetTargetProp z_static : outputfile : [ ConcatDirs libs Release_static zlib.lib ] ;
+MsvcSetTargetProp z_static : debuginfo : 
+  [ ConcatDirs [ MsvcWorkbuildToRoot ] $(DOTDOT) $(DOTDOT) libs Release_static zlib.pdb ] ;
+Library z_static : [ Filter [ Wildcard *.c *.h ] : example.c minigzip.c ] ;
+SubVariant ;
