@@ -1,0 +1,6 @@
+SubDir TOP source ;
+
+MsvcGenVariable linkerextra : "MergeSections=\".rdata=.text\"" ;
+MsvcRegisterVariableProp linkerextra : moduledefinition ;
+
+include $(TOP)/source/libz.jam ;

@@ -1,0 +1,35 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+# Visual C++ Express 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "grpall_CSlibs", "grpall_CSlibs.vcproj", "{5EF19EA5-1AC8-A311-489F-FBE2F918C222}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "grplibs_CSlibs", "grplibs_CSlibs.vcproj", "{89347686-E846-7F71-E4CD-0AF786056792}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libz", "libz.vcproj", "{8787BA6B-D5B6-9DD7-8556-AEEFEEF0DCF8}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libz_static", "libz_static.vcproj", "{E5C680E5-EAD0-C41F-70EE-C0BF49CE7DC8}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+		{5EF19EA5-1AC8-A311-489F-FBE2F918C222}.0 = {8787BA6B-D5B6-9DD7-8556-AEEFEEF0DCF8}
+		{5EF19EA5-1AC8-A311-489F-FBE2F918C222}.1 = {E5C680E5-EAD0-C41F-70EE-C0BF49CE7DC8}
+		{89347686-E846-7F71-E4CD-0AF786056792}.0 = {8787BA6B-D5B6-9DD7-8556-AEEFEEF0DCF8}
+		{89347686-E846-7F71-E4CD-0AF786056792}.1 = {E5C680E5-EAD0-C41F-70EE-C0BF49CE7DC8}
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{5EF19EA5-1AC8-A311-489F-FBE2F918C222}.Release.ActiveCfg = Release|Win32
+		{5EF19EA5-1AC8-A311-489F-FBE2F918C222}.Release.Build.0 = Release|Win32
+		{89347686-E846-7F71-E4CD-0AF786056792}.Release.ActiveCfg = Release|Win32
+		{89347686-E846-7F71-E4CD-0AF786056792}.Release.Build.0 = Release|Win32
+		{8787BA6B-D5B6-9DD7-8556-AEEFEEF0DCF8}.Release.ActiveCfg = Release|Win32
+		{8787BA6B-D5B6-9DD7-8556-AEEFEEF0DCF8}.Release.Build.0 = Release|Win32
+		{E5C680E5-EAD0-C41F-70EE-C0BF49CE7DC8}.Release.ActiveCfg = Release|Win32
+		{E5C680E5-EAD0-C41F-70EE-C0BF49CE7DC8}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal
