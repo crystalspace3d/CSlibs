@@ -1,6 +1,6 @@
 diff -ru libvorbis-1.1.2/win32/vorbis.def libvorbis/win32/vorbis.def
---- libvorbis-1.1.2/win32/vorbis.def	Mon Nov 28 05:43:17 2005
-+++ libvorbis/win32/vorbis.def	Fri Jan  6 01:31:40 2006
+--- win32-old/vorbis.def	Mon Nov 28 05:43:17 2005
++++ win32/vorbis.def	Fri Jan  6 01:31:40 2006
 @@ -48,9 +48,9 @@
  ;
  vorbis_window
