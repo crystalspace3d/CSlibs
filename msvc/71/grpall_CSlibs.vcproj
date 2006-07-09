@@ -26,14 +26,19 @@
 				RuntimeLibrary="2"
 				DebugInformationFormat="3"
 				BufferSecurityCheck="FALSE"
+				GlobalOptimizations="TRUE"
+				InlineFunctionExpansion="2"
+				EnableIntrinsicFunctions="TRUE"
+				FavorSizeOrSpeed="1"
+				OmitFramePointers="TRUE"
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;WIN32"
-				OptimizeForProcessor="1"
+				OptimizeForProcessor="2"
 				AdditionalOptions=" "
-				AdditionalIncludeDirectories=".;..\..;..\..\src"
+				AdditionalIncludeDirectories="."
 				PrecompiledHeaderFile="..\..\out\release71\build\grpall_CSlibs\grpall_CSlibs.pch"
 				AssemblerListingLocation="..\..\out\release71\build\grpall_CSlibs\"
 				ObjectFile="..\..\out\release71\build\grpall_CSlibs\"
-				ProgramDataBaseFileName="..\..\out\release71\build\grpall_CSlibs\all_CSlibs.pdb"
+				ProgramDataBaseFileName="..\..\all_CSlibs.pdb"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
 				Detect64BitPortabilityProblems="TRUE"
@@ -50,14 +55,13 @@
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD"
 				AdditionalOptions=" "
 				AdditionalDependencies=""
-				IgnoreImportLibrary="TRUE"
 				SuppressStartupBanner="TRUE"
 				AdditionalLibraryDirectories=""
-				ProgramDatabaseFile="..\..\out\release71\build\grpall_CSlibs\all_CSlibs.pdb"
+				ProgramDatabaseFile="..\..\all_CSlibs.pdb"
 				TargetMachine="1"/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\out\release71\libs\grpall_CSlibs.lib"
+				OutputFile="..\..\grpall_CSlibs.lib"
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
@@ -76,7 +80,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;PROJECTGEN_VERSION=71"
-				AdditionalIncludeDirectories=".;..\..;..\..\src"
+				AdditionalIncludeDirectories="."
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>

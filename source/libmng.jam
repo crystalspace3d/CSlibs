@@ -1,0 +1,40 @@
+SubDir TOP source libmng ;
+
+MsvcSetTargetProp mng : delayload : libjpeg-cs ;
+BaseLib mng : 
+  [ Wildcard *.c *.h ] : 
+  libmng :
+  $(SUBDIR)/../libmng.def :
+  $(SUBDIR)/../libz $(SUBDIR)/../libjpeg ;
+LibDepends mng : z jpeg ;
+MsvcDefine mng : MNG_SUPPORT_FULL ;
+MsvcDefine mng : MNG_NO_CMS ;
+MsvcDefine mng : MNG_ACCESS_CHUNKS ;
+MsvcDefine mng : MNG_STORE_CHUNKS ;
+MsvcDefine mng : MNG_SUPPORT_WRITE ;
+MsvcDefine mng : MNG_SUPPORT_READ ;
+MsvcDefine mng : MNG_SUPPORT_DISPLAY ;
+MsvcDefine mng : MNG_ERROR_TELLTALE ;
+MsvcDefine mng : MNG_ACCESS_ZLIB ;
+MsvcDefine mng : MNG_ACCESS_JPEG ;
+MsvcDefine mng : MNG_SKIPCANVAS_ABGR8 ;
+MsvcDefine mng : MNG_SKIPCANVAS_ARGB8 ;
+MsvcDefine mng : MNG_SKIPCANVAS_BGR8 ;
+MsvcDefine mng : MNG_SKIPCANVAS_BGRA8 ;
+MsvcDefine mng : MNG_SKIPCANVAS_BGRA8_PM ;
+MsvcDefine mng : MNG_SKIPCANVAS_BGRX8 ;
+MsvcDefine mng : MNG_SKIPCHUNK_iCCP ;
+MsvcDefine mng : MNG_SKIPCHUNK_tEXt ;
+MsvcDefine mng : MNG_SKIPCHUNK_zTXt ;
+MsvcDefine mng : MNG_SKIPCHUNK_iTXt ;
+MsvcDefine mng : MNG_SKIPCHUNK_bKGD ;
+MsvcDefine mng : MNG_SKIPCHUNK_pHYs ;
+MsvcDefine mng : MNG_SKIPCHUNK_sBIT ;
+MsvcDefine mng : MNG_SKIPCHUNK_sPLT ;
+MsvcDefine mng : MNG_SKIPCHUNK_hIST ;
+MsvcDefine mng : MNG_SKIPCHUNK_tIME ;
+MsvcDefine mng : MNG_SKIPCHUNK_eXPI ;
+MsvcDefine mng : MNG_SKIPCHUNK_fPRI ;
+MsvcDefine mng : MNG_SKIPCHUNK_nEED ;
+MsvcDefine mng : MNG_SKIPCHUNK_pHYg ;
+MsvcExtraFile mng : source/libmng.rc ;

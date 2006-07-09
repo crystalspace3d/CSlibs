@@ -38,4 +38,14 @@ FOREACH build IN builds;
   build.defines = build.defines.merge(['_CRT_SECURE_NO_DEPRECATE']);
 END;
 
+# Macro to get debug info location
+MACRO debuginfo GET path([my.doc.sourceroot.0, my.doc.debuginfo.0]);
+
+# Macro to get location for DLL import libs
+MACRO importlib GET path([my.doc.sourceroot.0, my.doc.importlib.0]);
+
+# Macro to get location library output path
+MACRO libfilename(suffix) 
+  GET path([my.doc.sourceroot.0, glue ([my.doc.libname.0, suffix, '.lib'], '')]);
+
 END %]
