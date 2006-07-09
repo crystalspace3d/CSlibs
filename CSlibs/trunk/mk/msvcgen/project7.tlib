@@ -57,13 +57,13 @@ END -%]
 [% interpolate('compiler') -%]
 				PreprocessorDefinitions="
 [%- composedefs(['WIN32']) %]"
-				OptimizeForProcessor="1"
+				OptimizeForProcessor="2"
 				AdditionalOptions="[% flags(compose('cflags', [], ' ')) | html %] [% flags(compose('cflags7', [], ' ')) | html %]"
 				AdditionalIncludeDirectories="[% composedirs('incdirs', ['.']) %]"
 				PrecompiledHeaderFile="[% workbuild([my.doc.project.0,'.pch']) %]"
 				AssemblerListingLocation="[% workbuild([]) %]"
 				ObjectFile="[% workbuild([]) %]"
-				ProgramDataBaseFileName="[% workbuild([my.doc.debuginfo.0]) %]"
+				ProgramDataBaseFileName="[% debuginfo %]"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
 				Detect64BitPortabilityProblems="TRUE"
@@ -76,10 +76,9 @@ END -%]
 [% interpolate('linker') -%]
 				AdditionalOptions="[% flags(compose('lflags', [], ' ')) | html %] [% flags(compose('lflags7', [], ' ')) | html %]"
 				AdditionalDependencies="[% compose('libs', [], ' ') %]"
-				IgnoreImportLibrary="TRUE"
 				SuppressStartupBanner="TRUE"
 				AdditionalLibraryDirectories="[% composedirs('libdirs', []) %]"
-				ProgramDatabaseFile="[% workbuild([my.doc.debuginfo.0]) %]"
+				ProgramDatabaseFile="[% debuginfo %]"
 				TargetMachine="1"/>
 			<Tool
 				Name="VCLibrarianTool"

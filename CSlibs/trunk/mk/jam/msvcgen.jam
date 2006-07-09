@@ -603,9 +603,6 @@ rule MsvcRegisterVariableProp1
   MSVCGEN_VARIABLES_FROM_PROPS += $(variable) $(prop) ;
 }
 
-MsvcRegisterVariableProp importlib : importlib ;
-MsvcRegisterVariableProp debuginfo : debuginfo ;
-
 SetProperty build : projgen : msvc ;
 SetProperty build : projgen_version : $(MSVC_VERSION) ;
 
@@ -733,6 +730,7 @@ rule MsvcGenName1
 rule MsvcProjectDefaultProps
 {
   MsvcSetTargetProp $(rawname) : debuginfo : $(rawname).pdb : weak ;
+  MsvcSetTargetProp $(rawname) : libname : $($(rawname)_MSVCNAME) : weak ;
 }
 
 ## MsvcProject target : type : target-with-ext : sources : options
@@ -1351,6 +1349,25 @@ rule LinkWith
 {
   local libs = [ ResolveLibs $(>) ] ;
   ExternalLibs $(<) : $($(>).EXTERNALLIBS) ;
+  local w ;
+  for w in $(MSVC.WORKSPACES)
+  {
+    local l ;
+    for l in $(libs)_MSVCNAME
+    {
+      if $($(l))
+      {
+	ResponseFile $($(w)_WKS_RESPFILE) : "$($(<)_MSVCNAME)|$($(l))" :
+	  notfile : $($(w)_WKS_RESPDIR) ;
+      }
+    }
+  }
+  $(<).NEEDLIBS = $(libs) ;
+}
+
+rule LibDepends
+{
+  local libs = $(>) ;
   local w ;
   for w in $(MSVC.WORKSPACES)
   {

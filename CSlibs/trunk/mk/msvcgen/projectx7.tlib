@@ -61,6 +61,9 @@
 [% MACRO global_library_shared BLOCK -%]
 			ConfigurationType="2"
 [% END %]
+[% MACRO global_library_shared_release BLOCK -%]
+			WholeProgramOptimization="1"
+[% END %]
 
 [% MACRO global_plugin BLOCK -%]
 			ConfigurationType="2"
@@ -76,6 +79,11 @@
 				RuntimeLibrary="2"
 				DebugInformationFormat="3"
 				BufferSecurityCheck="FALSE"
+				GlobalOptimizations="TRUE"
+				InlineFunctionExpansion="2"
+				EnableIntrinsicFunctions="TRUE"
+				FavorSizeOrSpeed="1"
+				OmitFramePointers="TRUE"
 [% END %]
 [% MACRO compiler_debug BLOCK -%]
 				Optimization="0"
@@ -100,7 +108,7 @@
 
 [% MACRO linker_common BLOCK -%]
 				OutputFile="[% path([my.doc.buildroot.0, my.doc.target.0]) %]"
-[% FOREACH linkerextra IN my.doc.linkerextra -%]
+[% FOREACH linkerextra IN my.doc.linkerextraxml -%]
 				[% linkerextra %]
 [% END -%]
 [% END %]
@@ -116,15 +124,16 @@
 [% MACRO linker_plugin BLOCK -%]
 [% linker_common -%]
 				DelayLoadDLLs="[% glue(my.doc.librarydelay,';','','.dll') %]"
-				ImportLibrary="[% workbuild([my.doc.project.0,'.lib']) %]"
+				IgnoreImportLibrary="TRUE"
 [% END %]
 [% MACRO linker_library_shared BLOCK -%]
 [% linker_common -%]
-				ImportLibrary="[% path([worklibout, my.doc.importlib.0]) %]"
+				DelayLoadDLLs="[% glue(my.doc.librarydelay,';','','.dll') %]"
+				ImportLibrary="[% importlib %]"
 [% END %]
 
 [% MACRO library_outfile(suffix) BLOCK -%]
-				OutputFile="[% worklibout %]\[% my.doc.project.0 %][% suffix %].lib"
+				OutputFile="[% libfilename(suffix) %]"
 [% END %]
 [% MACRO librarian_library_release GET library_outfile('') %]
 [% MACRO librarian_library_debug   GET library_outfile('_d') %]

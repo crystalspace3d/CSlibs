@@ -2,8 +2,8 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="7.10"
-	Name="libz_static"
-	ProjectGUID="{E5C680E5-EAD0-C41F-70EE-C0BF49CE7DC8}"
+	Name="libfreetype2_static"
+	ProjectGUID="{6A34C6DE-AF3A-82C2-1D86-C8B34A9C7115}"
 	SccProjectName=""
 	SccLocalPath="">
 	<Platforms>
@@ -13,8 +13,8 @@
 	<Configurations>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="..\..\out\release71\build\libz_static\"
-			IntermediateDirectory="..\..\out\release71\build\libz_static\"
+			OutputDirectory="..\..\out\release71\build\libfreetype2_static\"
+			IntermediateDirectory="..\..\out\release71\build\libfreetype2_static\"
 			ConfigurationType="4"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="FALSE">
@@ -31,14 +31,14 @@
 				EnableIntrinsicFunctions="TRUE"
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_LIB;_WINDOWS;WIN32"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_LIB;_WINDOWS;FT2_BUILD_LIBRARY;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
-				AdditionalIncludeDirectories="."
-				PrecompiledHeaderFile="..\..\out\release71\build\libz_static\libz_static.pch"
-				AssemblerListingLocation="..\..\out\release71\build\libz_static\"
-				ObjectFile="..\..\out\release71\build\libz_static\"
-				ProgramDataBaseFileName="..\..\libs\Release_static\zlib.pdb"
+				AdditionalIncludeDirectories=".;..\..\source\libfreetype\..\libz;..\..\source\libfreetype\..\configs;..\..\source\libfreetype\include"
+				PrecompiledHeaderFile="..\..\out\release71\build\libfreetype2_static\libfreetype2_static.pch"
+				AssemblerListingLocation="..\..\out\release71\build\libfreetype2_static\"
+				ObjectFile="..\..\out\release71\build\libfreetype2_static\"
+				ProgramDataBaseFileName="..\..\libs\Release_static\freetype2.pdb"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
 				Detect64BitPortabilityProblems="TRUE"
@@ -57,19 +57,19 @@
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
 				AdditionalLibraryDirectories=""
-				ProgramDatabaseFile="..\..\libs\Release_static\zlib.pdb"
+				ProgramDatabaseFile="..\..\libs\Release_static\freetype2.pdb"
 				TargetMachine="1"/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\libs\Release_static\zlib.lib"
+				OutputFile="..\..\libs\Release_static\freetype2.lib"
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_LIB;_WINDOWS"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_LIB;_WINDOWS;FT2_BUILD_LIBRARY"
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
-				TypeLibraryName="..\..\out\release71\build\libz_static\libz_static.tlb"/>
+				TypeLibraryName="..\..\out\release71\build\libfreetype2_static\libfreetype2_static.tlb"/>
 			<Tool
 				Name="VCPostBuildEventTool"
 				/>
@@ -79,8 +79,8 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_LIB;_WINDOWS;PROJECTGEN_VERSION=71"
-				AdditionalIncludeDirectories="."
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_LIB;_WINDOWS;FT2_BUILD_LIBRARY;PROJECTGEN_VERSION=71"
+				AdditionalIncludeDirectories=".;..\..\source\libfreetype\..\libz;..\..\source\libfreetype\..\configs;..\..\source\libfreetype\include"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
@@ -93,77 +93,52 @@
 			Name="Source Files"
 			Filter="">
 			<File
-				RelativePath="..\..\source\libz\adler32.c">
+				RelativePath="..\..\source\libfreetype\src\autofit\autofit.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libz\compress.c">
+				RelativePath="..\..\source\libfreetype\src\base\ftbase.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libz\crc32.c">
+				RelativePath="..\..\source\libfreetype\src\base\ftbitmap.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libz\deflate.c">
+				RelativePath="..\..\source\libfreetype\src\base\ftdebug.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libz\gzio.c">
+				RelativePath="..\..\source\libfreetype\src\base\ftglyph.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libz\infback.c">
+				RelativePath="..\..\source\libfreetype\src\base\ftinit.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libz\inffast.c">
+				RelativePath="..\..\source\libfreetype\src\base\ftsystem.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libz\inflate.c">
+				RelativePath="..\..\source\libfreetype\src\bdf\bdf.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libz\inftrees.c">
+				RelativePath="..\..\source\libfreetype\src\gzip\ftgzip.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libz\trees.c">
+				RelativePath="..\..\source\libfreetype\src\lzw\ftlzw.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libz\uncompr.c">
+				RelativePath="..\..\source\libfreetype\src\pcf\pcf.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libz\zutil.c">
-			</File>
-		</Filter>
-		<Filter
-			Name="Header Files"
-			Filter="">
-			<File
-				RelativePath="..\..\source\libz\crc32.h">
+				RelativePath="..\..\source\libfreetype\src\psnames\psnames.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libz\deflate.h">
+				RelativePath="..\..\source\libfreetype\src\raster\raster.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libz\inffast.h">
+				RelativePath="..\..\source\libfreetype\src\sfnt\sfnt.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libz\inffixed.h">
+				RelativePath="..\..\source\libfreetype\src\smooth\smooth.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libz\inflate.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libz\inftrees.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libz\trees.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libz\zconf.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libz\zconf.in.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libz\zlib.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libz\zutil.h">
+				RelativePath="..\..\source\libfreetype\src\truetype\truetype.c">
 			</File>
 		</Filter>
 	</Files>

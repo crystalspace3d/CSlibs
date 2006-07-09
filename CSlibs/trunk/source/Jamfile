@@ -1,6 +1,52 @@
 SubDir TOP source ;
 
-MsvcGenVariable linkerextra : "MergeSections=\".rdata=.text\"" ;
-MsvcRegisterVariableProp linkerextra : moduledefinition ;
+# Set up default variables used by our custom.cslib
+MsvcRegisterVariableProp importlib : importlib ;
+MsvcRegisterVariableProp debuginfo : debuginfo ;
+MsvcRegisterVariableProp libname : libname ;
+MsvcRegisterVariableProp librarydelay : delayload ;
+
+MsvcGenVariable linkerextraxml : "MergeSections=\".rdata=.text\"" ;
+MsvcRegisterVariableProp linkerextraxml : moduledefinition ;
+
+rule BaseLib
+{
+  local lib = $(1) ;
+  local files = $(2) ;
+  local libname = $(3) ;
+  local deffile = $(4) ;
+  local extrainc = $(5) ;
+  
+  local dllname = "lib$(lib)-cs" ;
+  
+  MsvcSetTargetProp $(lib) : resources : no ;
+  MsvcSetTargetProp $(lib) : outputfile : [ ConcatDirs libs Release $(dllname).dll ] ;
+  MsvcSetTargetProp $(lib) : importlib : [ ConcatDirs libs Release $(libname).lib ] ;
+  MsvcSetTargetProp $(lib) : debuginfo : [ ConcatDirs libs Release $(dllname).pdb ] ;
+  MsvcSetTargetProp $(lib) : moduledefinition : 
+    "ModuleDefinitionFile=\"../../$(deffile)\"" ;
+  Library $(lib) : $(files) : shared ;
+  MsvcExtraFile $(lib) : $(deffile) ;
+  local d ;
+  for d in $(extrainc)
+  {
+    MsvcIncDirs $(lib) : [ ConcatDirs [ MsvcWorkbuildToRoot ] $(d) ] ;
+  }
+  
+  SubVariant static ;
+  MsvcSetTargetProp $(lib)_static : resources : no ;
+  MsvcSetTargetProp $(lib)_static : debuginfo : [ ConcatDirs libs Release_static $(libname).pdb ] ;
+  MsvcSetTargetProp $(lib)_static : libname : [ ConcatDirs libs Release_static $(libname) ] ;
+  Library $(lib)_static : $(files) ;
+  for d in $(extrainc)
+  {
+    MsvcIncDirs $(lib)_static : [ ConcatDirs [ MsvcWorkbuildToRoot ] $(d) ] ;
+  }
+  SubVariant ;
+}
 
 include $(TOP)/source/libz.jam ;
+include $(TOP)/source/libpng.jam ;
+include $(TOP)/source/libjpeg.jam ;
+include $(TOP)/source/libmng.jam ;
+include $(TOP)/source/libfreetype.jam ;

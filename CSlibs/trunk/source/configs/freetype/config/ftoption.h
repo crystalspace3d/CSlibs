@@ -552,26 +552,43 @@ FT_BEGIN_HEADER
   /*                                                                       */
 #undef T1_CONFIG_OPTION_NO_MM_SUPPORT
 
+  /*************************************************************************/
+  /*************************************************************************/
+  /****                                                                 ****/
+  /****    A U T O F I T   M O D U L E    C O N F I G U R A T I O N     ****/
+  /****                                                                 ****/
+  /*************************************************************************/
+  /*************************************************************************/
+
+
+  /*************************************************************************/
+  /*                                                                       */
+  /* Compile autofit module with CJK script support.                       */
+  /*                                                                       */
+#define AF_CONFIG_OPTION_CJK
+
+
  /* */
 
-/*
- * The FT_CONFIG_OPTION_CHESTER_XXXX macros are used to toggle some recent
- * improvements to the auto-hinter contributed by David Chester.  They will
- * most likely disappear completely in the next release.  For now, you
- * should always keep them defined.
- *
- */
-#define  FT_CONFIG_OPTION_CHESTER_HINTS
+  /*
+   * This temporary macro is used to control various optimizations for
+   * reducing the heap footprint of memory-mapped TrueType files.
+   */
+#define FT_OPTIMIZE_MEMORY
 
-#ifdef   FT_CONFIG_OPTION_CHESTER_HINTS
 
-#define  FT_CONFIG_CHESTER_SMALL_F
-#define  FT_CONFIG_CHESTER_ASCENDER
-#define  FT_CONFIG_CHESTER_SERIF
-#define  FT_CONFIG_CHESTER_STEM
-#define  FT_CONFIG_CHESTER_BLUE_SCALE
+  /*
+   * Define this variable if you want to keep the layout of internal
+   * structures that was used prior to FreeType 2.2.  This also compiles in
+   * a few obsolete functions to avoid linking problems on typical Unix
+   * distributions.
+   *
+   * For embedded systems or building a new distribution from scratch, it
+   * is recommended to disable the macro since it reduces the library's code
+   * size and activates a few memory-saving optimizations as well.
+   */
+/*#define FT_CONFIG_OPTION_OLD_INTERNALS*/
 
-#endif /* FT_CONFIG_OPTION_CHESTER_HINTS */
 
 FT_END_HEADER
 

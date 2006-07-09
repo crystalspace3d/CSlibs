@@ -3,10 +3,6 @@ BUILDTOP ?= "@top_builddir@" ;
 
 SubDir TOP ;
 
-IncludeDir ;
-IncludeDir src ;
-IncludeDir $(BUILDTOP) : : literal transient ;
-
 CleanDir clean :
     out ;
 Clean distclean :
