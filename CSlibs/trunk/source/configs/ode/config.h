@@ -61,7 +61,7 @@
   #if defined(ODE_DLL)
     #define ODE_API __declspec(dllexport)
   #elif !defined(ODE_LIB)
-    #define ODE_DLL_API __declspec(dllimport)
+    #define ODE_DLL_API extern /*__declspec(dllimport)*/
   #endif
 #endif
     

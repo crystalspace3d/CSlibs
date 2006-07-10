@@ -4,6 +4,5 @@ BaseLib z :
   [ Filter [ Wildcard *.c *.h ] : example.c minigzip.c ] : 
   zlib :
   $(SUBDIR)/win32/zlib.def ;
-LibDepends png : z ;
 MsvcDefine z : LIBZ_EXPORTS ;
 MsvcExtraFile z : source/zlib.rc ;

@@ -53,7 +53,8 @@ dCloseODE
 dClosestLineSegmentPoints
 dCollide
 dCreateBox
-dCreateCCylinder
+dCreateCapsule
+dCreateConvex
 dCreateGeom
 dCreateGeomClass
 dCreateGeomTransform
@@ -292,20 +293,6 @@ dWorldSetERP
 dWorldSetGravity
 dWorldStep
 dWorldStepFast1
-
-dCollideBoxBox
-dCollideBoxPlane
-dCollideCCylinderPlane
-dCollideCCylinderSphere
-dCollideCCylinderBox
-dCollideCCylinderCCylinder
-dCollideRayPlane
-dCollideRaySphere
-dCollideRayBox
-dCollideRayCCylinder
-dCollideSphereSphere
-dCollideSphereBox
-dCollideSpherePlane
 
 dWorldQuickStep
 dCreateTriMesh

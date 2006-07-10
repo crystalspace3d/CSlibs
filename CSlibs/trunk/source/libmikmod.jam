@@ -1,0 +1,15 @@
+SubDir TOP source libmikmod ;
+
+BaseLib mikmod :
+  drivers/drv_nos.c
+  [ Wildcard loaders : *.c *.h ]
+  [ Wildcard playercode : *.c *.h ]
+  [ Wildcard mmio : *.c *.h ] : 
+  mikmod :
+  :
+  $(SUBDIR)/include $(SUBDIR)/win32 ;
+MsvcIncDirs mikmod : [ ConcatDirs [ MsvcWorkbuildToRoot ] headers_dll ] ;
+MsvcIncDirs mikmod_static : [ ConcatDirs [ MsvcWorkbuildToRoot ] headers_static ] ;
+MsvcDefine mikmod : LIBMIKMOD_EXPORTS ;
+MsvcDefine mikmod : DLL_EXPORTS ;
+MsvcExtraFile mikmod : source/libmikmod.rc ;
