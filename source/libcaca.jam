@@ -1,0 +1,9 @@
+SubDir TOP source libcaca ;
+
+BaseLib caca : 
+  [ Wildcard src : *.c *.h ] : 
+  libcaca :
+  :
+  $(SUBDIR)/msvc ;
+MsvcDefine caca : LIBCACA_EXPORTS ;
+MsvcExtraFile caca : source/libcaca.rc ;

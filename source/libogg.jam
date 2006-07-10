@@ -1,0 +1,10 @@
+SubDir TOP source libogg ;
+
+BaseLib ogg : 
+  [ Wildcard src : *.c *.h ] : 
+  ogg :
+  $(SUBDIR)/win32/ogg.def :
+  $(SUBDIR)/include ;
+MsvcDefine ogg : LIBOGG_EXPORTS ;
+MsvcDefine ogg : OGG_DYNAMIC_EXPORTS ;
+MsvcExtraFile ogg : source/libogg.rc ;

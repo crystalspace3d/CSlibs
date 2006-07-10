@@ -16,6 +16,7 @@ rule BaseLib
   local libname = $(3) ;
   local deffile = $(4) ;
   local extrainc = $(5) ;
+  local options = $(6) ;
   
   local dllname = "lib$(lib)-cs" ;
   
@@ -33,16 +34,19 @@ rule BaseLib
     MsvcIncDirs $(lib) : [ ConcatDirs [ MsvcWorkbuildToRoot ] $(d) ] ;
   }
   
-  SubVariant static ;
-  MsvcSetTargetProp $(lib)_static : resources : no ;
-  MsvcSetTargetProp $(lib)_static : debuginfo : [ ConcatDirs libs Release_static $(libname).pdb ] ;
-  MsvcSetTargetProp $(lib)_static : libname : [ ConcatDirs libs Release_static $(libname) ] ;
-  Library $(lib)_static : $(files) ;
-  for d in $(extrainc)
+  if ! [ IsElem nostatic : $(options) ]
   {
-    MsvcIncDirs $(lib)_static : [ ConcatDirs [ MsvcWorkbuildToRoot ] $(d) ] ;
+    SubVariant static ;
+    MsvcSetTargetProp $(lib)_static : resources : no ;
+    MsvcSetTargetProp $(lib)_static : debuginfo : [ ConcatDirs libs Release_static $(libname).pdb ] ;
+    MsvcSetTargetProp $(lib)_static : libname : [ ConcatDirs libs Release_static $(libname) ] ;
+    Library $(lib)_static : $(files) ;
+    for d in $(extrainc)
+    {
+      MsvcIncDirs $(lib)_static : [ ConcatDirs [ MsvcWorkbuildToRoot ] $(d) ] ;
+    }
+    SubVariant ;
   }
-  SubVariant ;
 }
 
 include $(TOP)/source/libz.jam ;
@@ -50,3 +54,10 @@ include $(TOP)/source/libpng.jam ;
 include $(TOP)/source/libjpeg.jam ;
 include $(TOP)/source/libmng.jam ;
 include $(TOP)/source/libfreetype.jam ;
+include $(TOP)/source/libode.jam ;
+include $(TOP)/source/libmikmod.jam ;
+include $(TOP)/source/lib3ds.jam ;
+include $(TOP)/source/libcaca.jam ;
+include $(TOP)/source/libjs.jam ;
+include $(TOP)/source/libogg.jam ;
+include $(TOP)/source/libvorbis.jam ;
