@@ -1,5 +1,6 @@
 0.99r0_022 (2006-??-??):
   - Added patches from mdmkolbe to make Cg, Ogg and Bullet useable on Cygwin.
+  - Removed mikmod, as it is currently not used by CS.
 
 0.99r0_021 (2006-05-07):
   - Updated bullet to 1.4.

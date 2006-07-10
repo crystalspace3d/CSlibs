@@ -19,8 +19,6 @@ scripts/url-get libogg http://downloads.xiph.org/releases/ogg/libogg-1.1.3.tar.g
   libogg-1.1.3 gz
 scripts/url-get libvorbis http://downloads.xiph.org/releases/vorbis/libvorbis-1.1.2.tar.gz \
   libvorbis-1.1.2 gz
-scripts/url-get libmikmod http://mikmod.raphnet.net/files/libmikmod-3.1.11.tar.gz \
-  libmikmod-3.1.11 gz
 scripts/url-get libfreetype http://mesh.dl.sourceforge.net/sourceforge/freetype/freetype-2.2.1.tar.bz2 \
   freetype-2.2.1 bz2
 scripts/url-get libcaca http://sam.zoy.org/libcaca/libcaca-0.9.tar.bz2 \
