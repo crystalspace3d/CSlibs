@@ -1,3 +1,5 @@
+2006-07-07:
+  - Started work to use msvcgen for the win32libs projects.
 2006-05-07:
   * Released 0.99r0_021
 2006-05-05:
