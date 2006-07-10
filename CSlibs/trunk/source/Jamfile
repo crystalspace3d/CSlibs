@@ -55,7 +55,6 @@ include $(TOP)/source/libjpeg.jam ;
 include $(TOP)/source/libmng.jam ;
 include $(TOP)/source/libfreetype.jam ;
 include $(TOP)/source/libode.jam ;
-include $(TOP)/source/libmikmod.jam ;
 include $(TOP)/source/lib3ds.jam ;
 include $(TOP)/source/libcaca.jam ;
 include $(TOP)/source/libjs.jam ;
