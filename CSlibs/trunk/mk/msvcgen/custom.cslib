@@ -21,11 +21,17 @@
 
 #------------------------------------------------------------------------------
 # Only keep release configuration
+# Note: there's only one configuration in CSlibs, "Release". Since some 
+# projects should be compiled with debug settings, map the debug configuration
+# to the "Release" one.
 #------------------------------------------------------------------------------
+checktag = my.doc.configtemplatetag.0;
+UNLESS checktag; checktag = 'release'; END;
 buildrelease = {};
 FOREACH build IN builds;
-  IF build.tag == 'release';
+  IF build.tag == checktag;
     buildrelease = build;
+    buildrelease.name = "Release";
     BREAK;
   END;
 END;
@@ -44,8 +50,9 @@ MACRO debuginfo GET path([my.doc.sourceroot.0, my.doc.debuginfo.0]);
 # Macro to get location for DLL import libs
 MACRO importlib GET path([my.doc.sourceroot.0, my.doc.importlib.0]);
 
-# Macro to get location library output path
+# Macro to get location library output path 
+# (deliberately ignore suffix, it's added from the Jamfiles.)
 MACRO libfilename(suffix) 
-  GET path([my.doc.sourceroot.0, glue ([my.doc.libname.0, suffix, '.lib'], '')]);
+  GET path([my.doc.sourceroot.0, glue ([my.doc.libname.0, '.lib'], '')]);
 
 END %]

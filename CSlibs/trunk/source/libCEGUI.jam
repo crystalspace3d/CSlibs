@@ -1,0 +1,18 @@
+SubDir TOP source libCEGUI ;
+
+MSVCGEN_VERSION = [ Property build : projgen_version ] ;
+ExtraLib CEGUIBase :
+  [ Wildcard [ ConcatDirs src ] : *.cpp *.h ] 
+  [ Wildcard [ ConcatDirs src elements ] : *.cpp *.h ] 
+  [ Wildcard [ ConcatDirs src falagard ] : *.cpp *.h ] : 
+  CEGUIBase :
+  source/libceguibase.rc :
+  $(SUBDIR)/include $(SUBDIR)/include/elements $(SUBDIR)/include/falagard 
+    $(SUBDIR)/../libpcre $(SUBDIR)/../configs/freetype 
+    $(SUBDIR)/../libfreetype/include :
+  fakestatic :
+  PCRE_STATIC CEGUIBASE_EXPORTS 
+    "CEGUI_FACTORYMODULE_PREFIX=&quot;\\&quot;lib\\&quot;&quot;"
+    "CEGUI_FACTORYMODULE_SUFFIX=&quot;\\&quot;-csvc$(MSVCGEN_VERSION)\\&quot;&quot;" :
+  :
+  z freetype2 pcre pcre_static ;

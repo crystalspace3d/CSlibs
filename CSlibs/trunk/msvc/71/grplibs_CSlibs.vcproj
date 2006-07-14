@@ -38,7 +38,6 @@
 				PrecompiledHeaderFile="..\..\out\release71\build\grplibs_CSlibs\grplibs_CSlibs.pch"
 				AssemblerListingLocation="..\..\out\release71\build\grplibs_CSlibs\"
 				ObjectFile="..\..\out\release71\build\grplibs_CSlibs\"
-				ProgramDataBaseFileName="..\..\libs_CSlibs.pdb"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
 				Detect64BitPortabilityProblems="TRUE"

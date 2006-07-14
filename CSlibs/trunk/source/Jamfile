@@ -5,11 +5,12 @@ MsvcRegisterVariableProp importlib : importlib ;
 MsvcRegisterVariableProp debuginfo : debuginfo ;
 MsvcRegisterVariableProp libname : libname ;
 MsvcRegisterVariableProp librarydelay : delayload ;
+MsvcRegisterVariableProp configtemplatetag : configtemplatetag ;
 
 MsvcGenVariable linkerextraxml : "MergeSections=\".rdata=.text\"" ;
 MsvcRegisterVariableProp linkerextraxml : moduledefinition ;
 
-rule BaseLib
+rule LibCommon
 {
   local lib = $(1) ;
   local files = $(2) ;
@@ -17,35 +18,148 @@ rule BaseLib
   local deffile = $(4) ;
   local extrainc = $(5) ;
   local options = $(6) ;
+  local dllname = $(7) ;
+  if ! $(dllname) { dllname = "lib$(lib)-cs" ; }
+  local outdir = $(8) ;
+  if ! $(outdir) 
+  { 
+    if ! [ IsElem norelease : $(options) ]
+    {
+      outdir = "Release" ; 
+    }
+    else
+    {
+      outdir = "Temp" ; 
+    }
+  }
   
-  local dllname = "lib$(lib)-cs" ;
-  
-  MsvcSetTargetProp $(lib) : resources : no ;
-  MsvcSetTargetProp $(lib) : outputfile : [ ConcatDirs libs Release $(dllname).dll ] ;
-  MsvcSetTargetProp $(lib) : importlib : [ ConcatDirs libs Release $(libname).lib ] ;
-  MsvcSetTargetProp $(lib) : debuginfo : [ ConcatDirs libs Release $(dllname).pdb ] ;
-  MsvcSetTargetProp $(lib) : moduledefinition : 
-    "ModuleDefinitionFile=\"../../$(deffile)\"" ;
-  Library $(lib) : $(files) : shared ;
-  MsvcExtraFile $(lib) : $(deffile) ;
-  local d ;
-  for d in $(extrainc)
+  if ! [ IsElem staticonly : $(options) ]
   {
-    MsvcIncDirs $(lib) : [ ConcatDirs [ MsvcWorkbuildToRoot ] $(d) ] ;
+    MsvcSetTargetProp $(lib) : resources : no ;
+    MsvcSetTargetProp $(lib) : outputfile : [ ConcatDirs libs $(outdir) $(dllname).dll ] ;
+    MsvcSetTargetProp $(lib) : importlib : [ ConcatDirs libs $(outdir) $(libname).lib ] ;
+    MsvcSetTargetProp $(lib) : debuginfo : [ ConcatDirs libs $(outdir) $(dllname).pdb ] ;
+    MsvcSetTargetProp $(lib) : moduledefinition : 
+      "ModuleDefinitionFile=\"../../$(deffile)\"" ;
+    Library $(lib) : $(files) : shared ;
+    MsvcExtraFile $(lib) : $(deffile) ;
+    local d ;
+    for d in $(extrainc)
+    {
+      MsvcIncDirs $(lib) : [ ConcatDirs [ MsvcWorkbuildToRoot ] $(d) ] ;
+    }
   }
   
   if ! [ IsElem nostatic : $(options) ]
   {
     SubVariant static ;
     MsvcSetTargetProp $(lib)_static : resources : no ;
-    MsvcSetTargetProp $(lib)_static : debuginfo : [ ConcatDirs libs Release_static $(libname).pdb ] ;
-    MsvcSetTargetProp $(lib)_static : libname : [ ConcatDirs libs Release_static $(libname) ] ;
+    MsvcSetTargetProp $(lib)_static : debuginfo : [ ConcatDirs libs $(outdir)_static $(libname).pdb ] ;
+    MsvcSetTargetProp $(lib)_static : libname : [ ConcatDirs libs $(outdir)_static $(libname) ] ;
     Library $(lib)_static : $(files) ;
     for d in $(extrainc)
     {
       MsvcIncDirs $(lib)_static : [ ConcatDirs [ MsvcWorkbuildToRoot ] $(d) ] ;
     }
     SubVariant ;
+  }
+}
+  
+if [ Property build : projgen_version ] = 71
+{
+  rule BaseLib 
+  { 
+    LibCommon $(1) : $(2) : $(3) : $(4) : $(5) : $(6) ;
+    SetProperty baseliblibs : $(1) : $(3) ;
+  }
+}
+else
+{
+  rule BaseLib 
+  { 
+    SetProperty baseliblibs : $(1) : $(3) ;
+  }
+}
+
+rule ExtraLib
+{
+  local msvcgenver = [ Property build : projgen_version ] ;
+  local lib = $(1) ;
+  local libname = $(3)-vc$(msvcgenver) ;
+  local rcfile = $(4) ;
+  local options = $(6) ;
+  local dlldef = $(7) ;
+  local staticdef = $(8) ;
+  local baselibdeps = $(9) ;
+  local outdir d ;
+  
+  local dllname = lib$(lib)-csvc$(msvcgenver) ;
+
+  if [ IsElem fakestatic : $(options) ]
+  {
+    options += nostatic ;
+  }
+  if [ IsElem fakestatic2 : $(options) ]
+  {
+    outdir = "ReleaseVC$(msvcgenver)Only_static" ;
+  }
+  else
+  {
+    outdir = "ReleaseVC$(msvcgenver)Only" ;
+  }
+
+  LibCommon $(lib) : $(2) : $(libname) : : $(5) : $(options) : $(dllname) : $(outdir) ;
+  for d in $(dlldef) 
+  {
+    MsvcDefine $(lib) : $(d) ;
+  }
+  for d in $(staticdef) 
+  {
+    MsvcDefine $(lib)_static : $(d) ;
+  }
+  MsvcExtraFile $(lib) : $(rcfile) ;
+  if [ Property build : projgen_version ] = 71
+  {
+    LibDepends $(lib) : $(baselibdeps) ;
+  }
+  else
+  {
+    local b ;
+    for b in $(baselibdeps)
+    {
+      MsvcExternalLibrary $(lib) : [ Property baseliblibs : $(b) ] ;
+    }
+  }
+  
+  MsvcSetTargetProp $(lib)_debug : configtemplatetag : debug ;
+  MsvcSetTargetProp $(lib)_debug_static : configtemplatetag : debug ;
+  LibCommon $(lib)_debug : $(2) : $(libname)_d : : $(5) : $(options) : $(dllname)_d : $(outdir) ;
+  for d in $(dlldef) 
+  {
+    MsvcDefine $(lib)_debug : $(d) ;
+  }
+  for d in $(staticdef) 
+  {
+    MsvcDefine $(lib)_debug_static : $(d) ;
+  }
+  MsvcExtraFile $(lib)_debug : $(rcfile) ;
+  if [ Property build : projgen_version ] = 71
+  {
+    LibDepends $(lib)_debug : $(baselibdeps) ;
+  }
+  else
+  {
+    local b ;
+    for b in $(baselibdeps)
+    {
+      MsvcExternalLibrary $(lib)_debug : [ Property baseliblibs : $(b) ] ;
+    }
+  }
+  
+  if [ IsElem fakestatic : $(options) ]
+  {
+    local newopts = [ Filter $(options) : fakestatic ] fakestatic2 ;
+    ExtraLib $(lib)_static : $(2) : $(3) : $(rcfile) : $(5) : $(newopts) : $(dlldef) : : $(baselibdeps)_static ;
   }
 }
 
@@ -60,3 +174,6 @@ include $(TOP)/source/libcaca.jam ;
 include $(TOP)/source/libjs.jam ;
 include $(TOP)/source/libogg.jam ;
 include $(TOP)/source/libvorbis.jam ;
+include $(TOP)/source/libcal3d.jam ;
+include $(TOP)/source/libpcre.jam ;
+include $(TOP)/source/libCEGUI.jam ;

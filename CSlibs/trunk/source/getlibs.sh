@@ -25,3 +25,5 @@ scripts/url-get libcaca http://sam.zoy.org/libcaca/libcaca-0.9.tar.bz2 \
   libcaca-0.9 bz2
 scripts/url-get libbullet "http://www.continuousphysics.com/ftp/pub/test/index.php?dir=physics/source/&file=bullet-1.6a-source.zip" \
   bullet-1.6a zip bullet
+scripts/url-get libpcre ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-6.7.tar.bz2 \
+  pcre-6.7 bz2

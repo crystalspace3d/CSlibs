@@ -1,0 +1,10 @@
+SubDir TOP source libpcre ;
+
+BaseLib pcre : 
+  [ Filter [ Wildcard *.c *.h ] : 
+    dftables.c pcredemo.c pcregrep.c pcretest.c ucptable.c ] : 
+  pcre :
+  :
+  $(SUBDIR)/../configs/pcre : 
+  staticonly norelease ;
+MsvcDefine pcre_static : PCRE_STATIC ;
