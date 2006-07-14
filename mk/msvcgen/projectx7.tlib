@@ -92,6 +92,21 @@
 				RuntimeTypeInfo="TRUE"
 				RuntimeLibrary="3"
 [% END %]
+[% MACRO compiler_appcon BLOCK -%]
+				ProgramDataBaseFileName="[% workbuild([my.doc.rawtarget.0,'.pdb']) %]"
+[% END %]
+[% MACRO compiler_appgui BLOCK -%]
+				ProgramDataBaseFileName="[% workbuild([my.doc.rawtarget.0,'.pdb']) %]"
+[% END %]
+[% MACRO compiler_plugin BLOCK -%]
+				ProgramDataBaseFileName="[% workbuild([my.doc.rawtarget.0,'.pdb']) %]"
+[% END %]
+[% MACRO compiler_library BLOCK -%]
+				ProgramDataBaseFileName="[% debuginfo %]"
+[% END %]
+[% MACRO compiler_library_shared BLOCK -%]
+				ProgramDataBaseFileName="[% workbuild([my.doc.rawtarget.0,'.pdb']) %]"
+[% END %]
 
 [% MACRO linker_release BLOCK -%]
 				LinkIncremental="1"
