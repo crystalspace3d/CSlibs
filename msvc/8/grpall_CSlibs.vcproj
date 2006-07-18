@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding = "Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="7.10"
+	Version="8.00"
 	Name="grpall_CSlibs"
 	ProjectGUID="{5EF19EA5-1AC8-A311-489F-FBE2F918C222}"
 	SccProjectName=""
@@ -13,8 +13,8 @@
 	<Configurations>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="..\..\out\release71\build\grpall_CSlibs\"
-			IntermediateDirectory="..\..\out\release71\build\grpall_CSlibs\"
+			OutputDirectory="..\..\out\release8\build\grpall_CSlibs\"
+			IntermediateDirectory="..\..\out\release8\build\grpall_CSlibs\"
 			ConfigurationType="4"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="FALSE">
@@ -35,9 +35,9 @@
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
 				AdditionalIncludeDirectories="."
-				PrecompiledHeaderFile="..\..\out\release71\build\grpall_CSlibs\grpall_CSlibs.pch"
-				AssemblerListingLocation="..\..\out\release71\build\grpall_CSlibs\"
-				ObjectFile="..\..\out\release71\build\grpall_CSlibs\"
+				PrecompiledHeaderFile="..\..\out\release8\build\grpall_CSlibs\grpall_CSlibs.pch"
+				AssemblerListingLocation="..\..\out\release8\build\grpall_CSlibs\"
+				ObjectFile="..\..\out\release8\build\grpall_CSlibs\"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
 				Detect64BitPortabilityProblems="TRUE"
@@ -68,7 +68,7 @@
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
-				TypeLibraryName="..\..\out\release71\build\grpall_CSlibs\grpall_CSlibs.tlb"/>
+				TypeLibraryName="..\..\out\release8\build\grpall_CSlibs\grpall_CSlibs.tlb"/>
 			<Tool
 				Name="VCPostBuildEventTool"
 				/>
@@ -78,7 +78,7 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;PROJECTGEN_VERSION=71"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;PROJECTGEN_VERSION=8"
 				AdditionalIncludeDirectories="."
 				Culture="1033"/>
 			<Tool
