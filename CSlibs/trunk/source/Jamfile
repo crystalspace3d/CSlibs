@@ -10,6 +10,7 @@ MsvcRegisterVariableProp configtemplatetag : configtemplatetag ;
 MsvcGenVariable linkerextraxml : "MergeSections=\".rdata=.text\"" ;
 MsvcRegisterVariableProp linkerextraxml : moduledefinition ;
 
+# Goop used by both "base" and "extra" libs
 rule LibCommon
 {
   local lib = $(1) ;
@@ -55,7 +56,7 @@ rule LibCommon
     SubVariant static ;
     MsvcSetTargetProp $(lib)_static : resources : no ;
     MsvcSetTargetProp $(lib)_static : debuginfo : [ ConcatDirs libs $(outdir)_static $(libname).pdb ] ;
-    MsvcSetTargetProp $(lib)_static : libname : [ ConcatDirs libs $(outdir)_static $(libname) ] ;
+    MsvcSetTargetProp $(lib)_static : libname : [ ConcatDirs libs $(outdir)_static $(libname).lib ] ;
     Library $(lib)_static : $(files) ;
     for d in $(extrainc)
     {
@@ -64,41 +65,100 @@ rule LibCommon
     SubVariant ;
   }
 }
-  
+
+# Base library - C, used by all VC versions, built with VC7.1
 if [ Property build : projgen_version ] = 71
 {
   rule BaseLib 
   { 
     LibCommon $(1) : $(2) : $(3) : $(4) : $(5) : $(6) ;
-    SetProperty baseliblibs : $(1) : $(3) ;
+    SetProperty baseliblibs : $(1) : $(1) ;
+    SetProperty baseliblibs : $(1)_debug : $(1) ;
+    SetProperty baseliblibs : $(1)_static : $(1)_static ;
+    SetProperty baseliblibs : $(1)_static_debug : $(1)_static ;
   }
 }
 else
 {
   rule BaseLib 
   { 
-    SetProperty baseliblibs : $(1) : $(3) ;
+    local options = $(6) ;
+    local outdir ;
+    if ! [ IsElem norelease : $(options) ]
+    {
+      outdir = "Release" ; 
+    }
+    else
+    {
+      outdir = "Temp" ; 
+    }
+    local root = [ MsvcWorkbuildToRoot ] ;
+  
+    if ! [ IsElem staticonly : $(options) ]
+    {
+      SetProperty baseliblibs : $(1) : $(root)/libs/$(outdir)/$(3).lib ;
+      SetProperty baseliblibs : $(1)_debug : $(root)/libs/$(outdir)/$(3).lib ;
+    }
+    if ! [ IsElem nostatic : $(options) ]
+    {
+      SetProperty baseliblibs : $(1)_static : $(root)/libs/$(outdir)_static/$(3).lib ;
+      SetProperty baseliblibs : $(1)_static_debug : $(root)/libs/$(outdir)_static/$(3).lib ;
+    }
   }
 }
 
+# Helper to set dependencies of extra libs on base libs
+rule _SetBaseLibs
+{
+  local lib = $(1) ;
+  local baselibdeps = $(2) ;
+  local options = $(3) ;
+
+  for b in $(baselibdeps)
+  {
+    if [ Property extralib : $(b) ]
+    {
+      LibDepends $(lib) : $(b) ;
+    }
+    else
+    {
+      if [ Property build : projgen_version ] = 71
+      {
+	LibDepends $(lib) : [ Property baseliblibs : $(b) ] ;
+      }
+      else
+      {
+	local libfile = [ Property baseliblibs : $(b) ] ;
+	MsvcExternalLibrary $(lib) : $(libfile) ;
+      }
+    }
+  }
+}
+
+# Extra lib - C++, needs to be built for each VC version; also needs different
+# versions for release vs debug mode.
 rule ExtraLib
 {
   local msvcgenver = [ Property build : projgen_version ] ;
   local lib = $(1) ;
-  local libname = $(3)-vc$(msvcgenver) ;
-  local rcfile = $(4) ;
-  local options = $(6) ;
-  local dlldef = $(7) ;
-  local staticdef = $(8) ;
-  local baselibdeps = $(9) ;
-  local outdir d ;
+  local libname ;
+  on $(lib) libname = $(LIBNAME) ;
+  if ! $(libname) { libname = "$(lib)-vc$(msvcgenver)" ; }
+  local rcfile = $(3) ;
+  local options = $(5) ;
+  local dlldef = $(6) ;
+  local staticdef = $(7) ;
+  local baselibdeps = $(8) ;
+  local dllname = $(9) ;
+  if ! $(dllname) { dllname = "lib$(lib)-csvc$(msvcgenver)" ; }
   
-  local dllname = lib$(lib)-csvc$(msvcgenver) ;
-
+  # "fakestatic": static lib is a DLL really (but links against static libs).
+  # For CEGUI.
   if [ IsElem fakestatic : $(options) ]
   {
     options += nostatic ;
   }
+  # For a "fakestatic" library ExtraLib is calls itself
   if [ IsElem fakestatic2 : $(options) ]
   {
     outdir = "ReleaseVC$(msvcgenver)Only_static" ;
@@ -107,8 +167,11 @@ rule ExtraLib
   {
     outdir = "ReleaseVC$(msvcgenver)Only" ;
   }
+  
+  SetProperty extralib : $(lib) : yes ;
+  SetProperty extralib : $(lib)_debug : yes ;
 
-  LibCommon $(lib) : $(2) : $(libname) : : $(5) : $(options) : $(dllname) : $(outdir) ;
+  LibCommon $(lib) : $(2) : $(libname) : : $(4) : $(options) : $(dllname) : $(outdir) ;
   for d in $(dlldef) 
   {
     MsvcDefine $(lib) : $(d) ;
@@ -118,48 +181,33 @@ rule ExtraLib
     MsvcDefine $(lib)_static : $(d) ;
   }
   MsvcExtraFile $(lib) : $(rcfile) ;
-  if [ Property build : projgen_version ] = 71
-  {
-    LibDepends $(lib) : $(baselibdeps) ;
-  }
-  else
-  {
-    local b ;
-    for b in $(baselibdeps)
-    {
-      MsvcExternalLibrary $(lib) : [ Property baseliblibs : $(b) ] ;
-    }
-  }
+  _SetBaseLibs $(lib) : $(baselibdeps) : $(options) ;
   
   MsvcSetTargetProp $(lib)_debug : configtemplatetag : debug ;
-  MsvcSetTargetProp $(lib)_debug_static : configtemplatetag : debug ;
-  LibCommon $(lib)_debug : $(2) : $(libname)_d : : $(5) : $(options) : $(dllname)_d : $(outdir) ;
+  if ! [ IsElem fakestatic : $(options) ] 
+  {
+    MsvcSetTargetProp $(lib)_debug_static : configtemplatetag : debug ;
+  }
+  LibCommon $(lib)_debug : $(2) : $(libname)_d : : $(4) : $(options) : $(dllname)_d : $(outdir) ;
   for d in $(dlldef) 
   {
     MsvcDefine $(lib)_debug : $(d) ;
   }
-  for d in $(staticdef) 
+  if ! [ IsElem fakestatic : $(options) ] 
   {
-    MsvcDefine $(lib)_debug_static : $(d) ;
-  }
-  MsvcExtraFile $(lib)_debug : $(rcfile) ;
-  if [ Property build : projgen_version ] = 71
-  {
-    LibDepends $(lib)_debug : $(baselibdeps) ;
-  }
-  else
-  {
-    local b ;
-    for b in $(baselibdeps)
+    for d in $(staticdef) 
     {
-      MsvcExternalLibrary $(lib)_debug : [ Property baseliblibs : $(b) ] ;
+      MsvcDefine $(lib)_debug_static : $(d) ;
     }
   }
+  MsvcExtraFile $(lib)_debug : $(rcfile) ;
+  _SetBaseLibs $(lib)_debug : $(baselibdeps)_debug : $(options) ;
   
   if [ IsElem fakestatic : $(options) ]
   {
     local newopts = [ Filter $(options) : fakestatic ] fakestatic2 ;
-    ExtraLib $(lib)_static : $(2) : $(3) : $(rcfile) : $(5) : $(newopts) : $(dlldef) : : $(baselibdeps)_static ;
+    LIBNAME on $(lib)_static = $(libname) ;
+    ExtraLib $(lib)_static : $(2) : $(rcfile) : $(4) : $(newopts) : $(dlldef) : : $(baselibdeps)_static : $(dllname) ;
   }
 }
 
@@ -177,3 +225,4 @@ include $(TOP)/source/libvorbis.jam ;
 include $(TOP)/source/libcal3d.jam ;
 include $(TOP)/source/libpcre.jam ;
 include $(TOP)/source/libCEGUI.jam ;
+include $(TOP)/source/libbullet.jam ;

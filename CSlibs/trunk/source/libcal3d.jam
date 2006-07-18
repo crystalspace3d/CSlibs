@@ -2,7 +2,6 @@ SubDir TOP source libcal3d ;
 
 ExtraLib cal3d :
   [ Wildcard [ ConcatDirs src cal3d ] : *.cpp *.h ] : 
-  cal3d :
   source/libcal3dvc.rc :
   $(SUBDIR)/src :
   :

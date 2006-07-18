@@ -1,0 +1,4 @@
+#define VER_INTERNAL		"libCEGUITinyXMLParser"
+#define VER_FILENAME		"libCEGUITinyXMLParser.dll"
+
+#include "libceguicommon.rcinc"

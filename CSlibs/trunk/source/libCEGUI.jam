@@ -1,11 +1,11 @@
 SubDir TOP source libCEGUI ;
 
 MSVCGEN_VERSION = [ Property build : projgen_version ] ;
+
 ExtraLib CEGUIBase :
   [ Wildcard [ ConcatDirs src ] : *.cpp *.h ] 
   [ Wildcard [ ConcatDirs src elements ] : *.cpp *.h ] 
   [ Wildcard [ ConcatDirs src falagard ] : *.cpp *.h ] : 
-  CEGUIBase :
   source/libceguibase.rc :
   $(SUBDIR)/include $(SUBDIR)/include/elements $(SUBDIR)/include/falagard 
     $(SUBDIR)/../libpcre $(SUBDIR)/../configs/freetype 
@@ -13,6 +13,27 @@ ExtraLib CEGUIBase :
   fakestatic :
   PCRE_STATIC CEGUIBASE_EXPORTS 
     "CEGUI_FACTORYMODULE_PREFIX=&quot;\\&quot;lib\\&quot;&quot;"
-    "CEGUI_FACTORYMODULE_SUFFIX=&quot;\\&quot;-csvc$(MSVCGEN_VERSION)\\&quot;&quot;" :
+    "CEGUI_FACTORYMODULE_SUFFIX=&quot;\\&quot;-csvc$(MSVCGEN_VERSION)\\&quot;&quot;" 
+    CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG 
+    CEGUI_DEFAULT_XMLPARSER=TinyXMLParser :
   :
   z freetype2 pcre pcre_static ;
+
+ExtraLib CEGUITinyXMLParser :
+  [ Wildcard [ ConcatDirs XMLParserModules TinyXMLParser ] : *.cpp *.h ] 
+  [ Wildcard [ ConcatDirs XMLParserModules TinyXMLParser ceguitinyxml ] : *.cpp *.h ] : 
+  source/libceguitinyxmlparser.rc :
+  $(SUBDIR)/include :
+  fakestatic :
+  CEGUITINYXMLPARSER_EXPORTS :
+  :
+  CEGUIBase ;
+
+ExtraLib CEGUIFalagardWRBase :
+  [ Wildcard [ ConcatDirs WindowRendererSets Falagard src ] : *.cpp *.h ] : 
+  source/libceguifalagardwrbase.rc :
+  $(SUBDIR)/include $(SUBDIR)/WindowRendererSets/Falagard/include :
+  fakestatic :
+  FALAGARDWRBASE_EXPORTS CEGUIWRMODULE_EXPORTS :
+  :
+  CEGUIBase ;

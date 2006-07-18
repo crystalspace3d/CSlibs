@@ -53,6 +53,6 @@ MACRO importlib GET path([my.doc.sourceroot.0, my.doc.importlib.0]);
 # Macro to get location library output path 
 # (deliberately ignore suffix, it's added from the Jamfiles.)
 MACRO libfilename(suffix) 
-  GET path([my.doc.sourceroot.0, glue ([my.doc.libname.0, '.lib'], '')]);
+  GET path([my.doc.sourceroot.0, my.doc.libname.0]);
 
 END %]

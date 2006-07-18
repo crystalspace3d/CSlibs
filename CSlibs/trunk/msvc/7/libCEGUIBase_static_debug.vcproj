@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding = "Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="7.10"
+	Version="7.00"
 	Name="libCEGUIBase_static_debug"
 	ProjectGUID="{7DF51881-03C0-4B4E-55AE-57886FCBD170}"
 	SccProjectName=""
@@ -13,8 +13,8 @@
 	<Configurations>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="..\..\out\debug71\build\libCEGUIBase_static_debug\"
-			IntermediateDirectory="..\..\out\debug71\build\libCEGUIBase_static_debug\"
+			OutputDirectory="..\..\out\debug7\build\libCEGUIBase_static_debug\"
+			IntermediateDirectory="..\..\out\debug7\build\libCEGUIBase_static_debug\"
 			ConfigurationType="2"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="FALSE">
@@ -25,14 +25,14 @@
 				DebugInformationFormat="4"
 				RuntimeTypeInfo="TRUE"
 				RuntimeLibrary="3"
-				ProgramDataBaseFileName="..\..\out\debug71\build\libCEGUIBase_static_debug\CEGUIBase_static_debug.pdb"
-				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;PCRE_STATIC;CEGUIBASE_EXPORTS;CEGUI_FACTORYMODULE_PREFIX=&quot;\&quot;lib\&quot;&quot;;CEGUI_FACTORYMODULE_SUFFIX=&quot;\&quot;-csvc71\&quot;&quot;;CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG;CEGUI_DEFAULT_XMLPARSER=TinyXMLParser;WIN32"
+				ProgramDataBaseFileName="..\..\out\debug7\build\libCEGUIBase_static_debug\CEGUIBase_static_debug.pdb"
+				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;PCRE_STATIC;CEGUIBASE_EXPORTS;CEGUI_FACTORYMODULE_PREFIX=&quot;\&quot;lib\&quot;&quot;;CEGUI_FACTORYMODULE_SUFFIX=&quot;\&quot;-csvc7\&quot;&quot;;CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG;CEGUI_DEFAULT_XMLPARSER=TinyXMLParser;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
 				AdditionalIncludeDirectories=".;..\..\source\libCEGUI\include;..\..\source\libCEGUI\include\elements;..\..\source\libCEGUI\include\falagard;..\..\source\libCEGUI\..\libpcre;..\..\source\libCEGUI\..\configs\freetype;..\..\source\libCEGUI\..\libfreetype\include"
-				PrecompiledHeaderFile="..\..\out\debug71\build\libCEGUIBase_static_debug\libCEGUIBase_static_debug.pch"
-				AssemblerListingLocation="..\..\out\debug71\build\libCEGUIBase_static_debug\"
-				ObjectFile="..\..\out\debug71\build\libCEGUIBase_static_debug\"
+				PrecompiledHeaderFile="..\..\out\debug7\build\libCEGUIBase_static_debug\libCEGUIBase_static_debug.pch"
+				AssemblerListingLocation="..\..\out\debug7\build\libCEGUIBase_static_debug\"
+				ObjectFile="..\..\out\debug7\build\libCEGUIBase_static_debug\"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
 				Detect64BitPortabilityProblems="TRUE"
@@ -45,26 +45,26 @@
 				LinkIncremental="2"
 				GenerateDebugInformation="TRUE"
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD,MSVCRT"
-				OutputFile="..\..\libs\ReleaseVC71Only_static\libCEGUIBase-csvc71_d.dll"
+				OutputFile="..\..\libs\ReleaseVC7Only_static\libCEGUIBase-csvc7_d.dll"
 				MergeSections=".rdata=.text"
 				DelayLoadDLLs=""
-				ImportLibrary="..\..\libs\ReleaseVC71Only_static\CEGUIBase-vc71_d.lib"
+				ImportLibrary="..\..\libs\ReleaseVC7Only_static\CEGUIBase-vc7_d.lib"
 				AdditionalOptions=" "
-				AdditionalDependencies=""
+				AdditionalDependencies="../../libs/Release_static/zlib.lib ../../libs/Release_static/freetype2.lib ../../libs/Temp_static/pcre.lib"
 				SuppressStartupBanner="TRUE"
 				AdditionalLibraryDirectories=""
-				ProgramDatabaseFile="..\..\libs\ReleaseVC71Only_static\libCEGUIBase-csvc71_d.pdb"
+				ProgramDatabaseFile="..\..\libs\ReleaseVC7Only_static\libCEGUIBase-csvc7_d.pdb"
 				TargetMachine="1"/>
 			<Tool
 				Name="VCLibrarianTool"
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;PCRE_STATIC;CEGUIBASE_EXPORTS;CEGUI_FACTORYMODULE_PREFIX=&quot;\&quot;lib\&quot;&quot;;CEGUI_FACTORYMODULE_SUFFIX=&quot;\&quot;-csvc71\&quot;&quot;;CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG;CEGUI_DEFAULT_XMLPARSER=TinyXMLParser"
+				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;PCRE_STATIC;CEGUIBASE_EXPORTS;CEGUI_FACTORYMODULE_PREFIX=&quot;\&quot;lib\&quot;&quot;;CEGUI_FACTORYMODULE_SUFFIX=&quot;\&quot;-csvc7\&quot;&quot;;CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG;CEGUI_DEFAULT_XMLPARSER=TinyXMLParser"
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
-				TypeLibraryName="..\..\out\debug71\build\libCEGUIBase_static_debug\libCEGUIBase_static_debug.tlb"/>
+				TypeLibraryName="..\..\out\debug7\build\libCEGUIBase_static_debug\libCEGUIBase_static_debug.tlb"/>
 			<Tool
 				Name="VCPostBuildEventTool"
 				/>
@@ -74,7 +74,7 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;PCRE_STATIC;CEGUIBASE_EXPORTS;CEGUI_FACTORYMODULE_PREFIX=&quot;\&quot;lib\&quot;&quot;;CEGUI_FACTORYMODULE_SUFFIX=&quot;\&quot;-csvc71\&quot;&quot;;CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG;CEGUI_DEFAULT_XMLPARSER=TinyXMLParser;PROJECTGEN_VERSION=71"
+				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;PCRE_STATIC;CEGUIBASE_EXPORTS;CEGUI_FACTORYMODULE_PREFIX=&quot;\&quot;lib\&quot;&quot;;CEGUI_FACTORYMODULE_SUFFIX=&quot;\&quot;-csvc7\&quot;&quot;;CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG;CEGUI_DEFAULT_XMLPARSER=TinyXMLParser;PROJECTGEN_VERSION=7"
 				AdditionalIncludeDirectories=".;..\..\source\libCEGUI\include;..\..\source\libCEGUI\include\elements;..\..\source\libCEGUI\include\falagard;..\..\source\libCEGUI\..\libpcre;..\..\source\libCEGUI\..\configs\freetype;..\..\source\libCEGUI\..\libfreetype\include"
 				Culture="1033"/>
 			<Tool
