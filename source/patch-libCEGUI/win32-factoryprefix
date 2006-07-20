@@ -1,33 +1,32 @@
-Index: src/CEGUIFactoryModule.cpp
+Index: src/CEGUIDynamicModule.cpp
 ===================================================================
-RCS file: /cvsroot/crayzedsgui/cegui_mk2/src/CEGUIFactoryModule.cpp,v
-retrieving revision 1.5
-diff -u -r1.5 CEGUIFactoryModule.cpp
---- src/CEGUIFactoryModule.cpp	10 Jul 2005 09:38:59 -0000	1.5
-+++ src/CEGUIFactoryModule.cpp	5 Sep 2005 21:34:13 -0000
-@@ -88,6 +88,25 @@
+--- src/CEGUIDynamicModule.cpp	(revision 1251)
++++ src/CEGUIDynamicModule.cpp	(working copy)
+@@ -30,7 +30,7 @@
+ #include "CEGUIString.h"
+ #include "CEGUIExceptions.h"
  
- 	d_handle = DYNLIB_LOAD(d_moduleName.c_str());
- 
+-#if defined(__WIN32__) || defined(_WIN32)
 +#if defined(__WIN32__) || defined(_WIN32) || defined(__CYGWIN__)
-+	// cs-win32libs: Try with prefix & suffix
-+	if (d_handle == NULL)
-+	{
-+  #ifdef CEGUI_FACTORYMODULE_SUFFIX
-+	  if (d_moduleName.substr(d_moduleName.length() - 4, 4) == (utf8*)".dll")
-+	    d_moduleName.insert(d_moduleName.length() - 4, 
-+	      (utf8*)CEGUI_FACTORYMODULE_SUFFIX);
-+	  else
-+	    d_moduleName += (utf8*)CEGUI_FACTORYMODULE_SUFFIX;
-+  #endif
-+  #ifdef CEGUI_FACTORYMODULE_PREFIX
-+	  d_moduleName.insert(0, (utf8*)CEGUI_FACTORYMODULE_PREFIX);
-+  #endif
-+
-+	  d_handle = DYNLIB_LOAD(d_moduleName.c_str());
-+	}
+ #   if defined(_MSC_VER)
+ #       pragma warning(disable : 4552)  // warning: operator has no effect; expected operator with side-effect
+ #   endif
+@@ -63,6 +63,18 @@
+         d_moduleName.insert(0, "lib");
+ #endif
+ 
++    // cs-win32libs: Prefix & suffix
++#ifdef CEGUI_FACTORYMODULE_PREFIX
++    d_moduleName.insert(0, CEGUI_FACTORYMODULE_PREFIX);
 +#endif
-+
- 	// check for library load failure
- 	if (d_handle == NULL)
- 	{
++#ifdef CEGUI_FACTORYMODULE_SUFFIX
++    if (d_moduleName.substr(d_moduleName.length() - 4, 4) == ".dll")
++      d_moduleName.insert(d_moduleName.length() - 4, 
++	CEGUI_FACTORYMODULE_SUFFIX);
++    else
++      d_moduleName += CEGUI_FACTORYMODULE_SUFFIX;
++#endif
++	  
+     // Optionally add a _d to the module name for the debug config on Win32
+ #if defined(__WIN32__) || defined(_WIN32)
+ #   if defined (_DEBUG) && defined (CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG)

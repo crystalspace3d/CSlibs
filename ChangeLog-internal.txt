@@ -1,3 +1,6 @@
+2006-07-20:
+  - Added generation of pkgconfig files for installed libs.
+  - Updated cslibs-config to support reporting the libs and dlls path.
 2006-07-07:
   - Started work to use msvcgen for the win32libs projects.
 2006-05-07:

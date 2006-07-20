@@ -31,7 +31,7 @@
 				EnableIntrinsicFunctions="TRUE"
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
-				ProgramDataBaseFileName="..\..\libs\Release_static\3ds.pdb"
+				ProgramDataBaseFileName="..\..\libs\Release_static\lib3ds.pdb"
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_LIB;_WINDOWS;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
@@ -57,11 +57,11 @@
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
 				AdditionalLibraryDirectories=""
-				ProgramDatabaseFile="..\..\libs\Release_static\3ds.pdb"
+				ProgramDatabaseFile="..\..\libs\Release_static\lib3ds.pdb"
 				TargetMachine="1"/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\libs\Release_static\3ds.lib"
+				OutputFile="..\..\libs\Release_static\lib3ds.lib"
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"

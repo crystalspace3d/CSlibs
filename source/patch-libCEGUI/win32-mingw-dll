@@ -1,90 +1,97 @@
+Index: src/Makefile.am
+===================================================================
+--- src/Makefile.am	(revision 1251)
++++ src/Makefile.am	(working copy)
+@@ -1,7 +1,7 @@
+-INCLUDES = -I$(top_srcdir)/include -I$(top_srcdir) $(freetype2_CFLAGS) $(pcre_CFLAGS)
+-lib_LTLIBRARIES=libCEGUIBase.la
++INCLUDES = -I$(top_srcdir)/include -I$(top_srcdir) $(freetype2_CFLAGS) $(pcre_CFLAGS) -DCEGUIBASE_EXPORTS
++lib_LTLIBRARIES=libCEGUIBase@DLLSUFFIX@.la
+ 
+-libCEGUIBase_la_SOURCES = CEGUIBase.cpp \
++libCEGUIBase@DLLSUFFIX@_la_SOURCES = CEGUIBase.cpp \
+                       CEGUIBoundSlot.cpp \
+                       CEGUIColourRect.cpp \
+                       CEGUIConfig_xmlHandler.cpp \
+@@ -146,6 +146,6 @@
+                       falagard/CEGUIFalXMLEnumHelper.cpp \
+                       falagard/CEGUIFalagard_xmlHandler.cpp
+ 
+-libCEGUIBase_la_LDFLAGS = -version-info @CEGUI_VERSION_INFO@
++libCEGUIBase@DLLSUFFIX@_la_LDFLAGS = -version-info @CEGUI_VERSION_INFO@ -no-undefined
+ 
+-libCEGUIBase_la_LIBADD = $(freetype2_LIBS) $(pcre_LIBS)
++libCEGUIBase@DLLSUFFIX@_la_LIBADD = $(freetype2_LIBS) $(pcre_LIBS)
+Index: WindowRendererSets/Falagard/src/Makefile.am
+===================================================================
+--- WindowRendererSets/Falagard/src/Makefile.am	(revision 1251)
++++ WindowRendererSets/Falagard/src/Makefile.am	(working copy)
+@@ -1,11 +1,12 @@
+ INCLUDES = -I$(top_srcdir)/include \
+-           -I$(top_srcdir)/WindowRendererSets/Falagard/include 
++           -I$(top_srcdir)/WindowRendererSets/Falagard/include \
++	   -DFALAGARDWRBASE_EXPORTS -DCEGUIWRMODULE_EXPORTS
+ 
+-lib_LTLIBRARIES=libCEGUIFalagardWRBase.la
++lib_LTLIBRARIES=libCEGUIFalagardWRBase@DLLSUFFIX@.la
+ 
+-libCEGUIFalagardWRBase_la_LDFLAGS = -version-info @CEGUI_VERSION_INFO@
++libCEGUIFalagardWRBase@DLLSUFFIX@_la_LDFLAGS = -version-info @CEGUI_VERSION_INFO@ -no-undefined
+ 
+-libCEGUIFalagardWRBase_la_SOURCES = FalButton.cpp \
++libCEGUIFalagardWRBase@DLLSUFFIX@_la_SOURCES = FalButton.cpp \
+                                   FalToggleButton.cpp \
+                                   FalDefault.cpp \
+                                   FalEditbox.cpp \
+@@ -41,3 +42,4 @@
+                                   FalTabControlProperties.cpp \
+                                   FalTitlebar.cpp \
+                                   FalTooltip.cpp
++libCEGUIFalagardWRBase@DLLSUFFIX@_la_LIBADD = -L../../../src -lCEGUIBase@DLLSUFFIX@
 Index: configure.ac
 ===================================================================
-RCS file: /cvsroot/crayzedsgui/cegui_mk2/configure.ac,v
-retrieving revision 1.23.2.1
-diff -u -r1.23.2.1 configure.ac
---- configure.ac	5 Nov 2005 15:43:02 -0000	1.23.2.1
-+++ configure.ac	5 Jan 2006 19:21:28 -0000
-@@ -9,7 +9,12 @@
+--- configure.ac	(revision 1251)
++++ configure.ac	(working copy)
+@@ -9,11 +9,16 @@
  
  # Disable building static library
  AC_DISABLE_STATIC
 -AM_PROG_LIBTOOL
 +AC_LIBTOOL_WIN32_DLL
 +AC_PROG_LIBTOOL
-+
+ 
 +# CSism
 +DLLSUFFIX=-cs${CEGUI_PLATFORM}
 +AC_SUBST(DLLSUFFIX)
- 
++
  # Checks for libraries.
  AC_CHECK_LIB([dl], [main])
-Index: WidgetSets/Falagard/src/Makefile.am
+-AC_CHECK_LIB([pthread], [main],, AC_MSG_ERROR([cannot find pthread library]))
++AC_CHECK_LIB([pthread], [main])
+ 
+ PKG_CHECK_MODULES(freetype2, freetype2 >= 0.15.0)
+ AC_SUBST(freetype2_CFLAGS)
+Index: XMLParserModules/TinyXMLParser/Makefile.am
 ===================================================================
-RCS file: /cvsroot/crayzedsgui/cegui_mk2/WidgetSets/Falagard/src/Makefile.am,v
-retrieving revision 1.2
-diff -u -r1.2 Makefile.am
---- WidgetSets/Falagard/src/Makefile.am	10 Jul 2005 09:38:54 -0000	1.2
-+++ WidgetSets/Falagard/src/Makefile.am	5 Jan 2006 16:13:00 -0000
-@@ -1,9 +1,9 @@
- INCLUDES = -I$(top_srcdir)/include \
--           -I$(top_srcdir)/WidgetSets/Falagard/include 
-+           -I$(top_srcdir)/WidgetSets/Falagard/include -DFALAGARDBASE_EXPORTS
+--- XMLParserModules/TinyXMLParser/Makefile.am	(revision 1251)
++++ XMLParserModules/TinyXMLParser/Makefile.am	(working copy)
+@@ -1,13 +1,16 @@
+-INCLUDES = -I$(top_srcdir)/include
+-lib_LTLIBRARIES=libCEGUITinyXMLParser.la
++INCLUDES = -I$(top_srcdir)/include -DCEGUITINYXMLPARSER_EXPORTS
++lib_LTLIBRARIES=libCEGUITinyXMLParser@DLLSUFFIX@.la
  
--lib_LTLIBRARIES=libCEGUIFalagardBase.la
-+lib_LTLIBRARIES=libCEGUIFalagardBase@DLLSUFFIX@.la
+-libCEGUITinyXMLParser_la_SOURCES = CEGUITinyXMLParser.cpp \
++libCEGUITinyXMLParser@DLLSUFFIX@_la_SOURCES = CEGUITinyXMLParser.cpp \
+                                    CEGUITinyXMLParserModule.cpp \
+                                    ceguitinyxml/tinystr.cpp \
+                                    ceguitinyxml/tinyxml.cpp \
+                                    ceguitinyxml/tinyxmlerror.cpp \
+                                    ceguitinyxml/tinyxmlparser.cpp
  
--libCEGUIFalagardBase_la_SOURCES = FalButton.cpp \
-+libCEGUIFalagardBase@DLLSUFFIX@_la_SOURCES = FalButton.cpp \
-                                   FalCheckbox.cpp \
-                                   FalComboDropList.cpp \
-                                   FalCombobox.cpp \
-@@ -40,3 +40,7 @@
-                                   FalThumb.cpp \
-                                   FalTitlebar.cpp \
-                                   FalTooltip.cpp
-+libCEGUIFalagardBase@DLLSUFFIX@_la_LIBADD = -L../../../src -lCEGUIBase@DLLSUFFIX@
++libCEGUITinyXMLParser@DLLSUFFIX@_la_LDFLAGS = -version-info @CEGUI_VERSION_INFO@ -no-undefined
++libCEGUITinyXMLParser@DLLSUFFIX@_la_LIBADD = -L../../src -lCEGUIBase@DLLSUFFIX@
 +
-+libCEGUIFalagardBase@DLLSUFFIX@_la_LDFLAGS = -no-undefined
-+
-Index: src/Makefile.am
-===================================================================
-RCS file: /cvsroot/crayzedsgui/cegui_mk2/src/Makefile.am,v
-retrieving revision 1.31
-diff -u -r1.31 Makefile.am
---- src/Makefile.am	18 Jul 2005 14:00:13 -0000	1.31
-+++ src/Makefile.am	5 Jan 2006 16:12:47 -0000
-@@ -1,9 +1,9 @@
- SUBDIRS = . renderers
+ pkgincludedir=$(prefix)/include/CEGUI/XMLParserModules/TinyXMLParser
+ pkginclude_HEADERS = CEGUITinyXMLParser.h CEGUITinyXMLParserModule.h
  
--INCLUDES = -I$(top_srcdir)/include $(freetype2_CFLAGS)
--lib_LTLIBRARIES=libCEGUIBase.la
-+INCLUDES = -I$(top_srcdir)/include $(freetype2_CFLAGS) -DCEGUIBASE_EXPORTS
-+lib_LTLIBRARIES=libCEGUIBase@DLLSUFFIX@.la
- 
--libCEGUIBase_la_SOURCES = CEGUIBase.cpp \
-+libCEGUIBase@DLLSUFFIX@_la_SOURCES = CEGUIBase.cpp \
-                       CEGUIColourRect.cpp \
-                       CEGUIConfig_xmlHandler.cpp \
-                       CEGUIDefaultResourceProvider.cpp \
-@@ -155,7 +155,7 @@
-                       pcre/pcreconfig.h
- 
- if CEGUI_USING_TINYXML
--libCEGUIBase_la_SOURCES += CEGUITinyXMLParser.cpp \
-+libCEGUIBase@DLLSUFFIX@_la_SOURCES += CEGUITinyXMLParser.cpp \
-                       tinyxml/tinystr.cpp \
-                       tinyxml/tinyxml.cpp \
-                       tinyxml/tinyxmlerror.cpp \
-@@ -166,8 +166,8 @@
- endif
- 
- if CEGUI_USING_XERCES
--libCEGUIBase_la_SOURCES += CEGUIXercesParser.cpp
-+libCEGUIBase@DLLSUFFIX@_la_SOURCES += CEGUIXercesParser.cpp
- endif
- 
--libCEGUIBase_la_LDFLAGS = -version-info @CEGUI_VERSION_INFO@
--libCEGUIBase_la_LIBADD = $(freetype2_LIBS)
-+libCEGUIBase@DLLSUFFIX@_la_LDFLAGS = -version-info @CEGUI_VERSION_INFO@ -no-undefined
-+libCEGUIBase@DLLSUFFIX@_la_LIBADD = $(freetype2_LIBS)

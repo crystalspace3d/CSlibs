@@ -143,6 +143,9 @@
 				RelativePath="..\..\source\libjpeg\jcsample.c">
 			</File>
 			<File
+				RelativePath="..\..\source\libjpeg\jctrans.c">
+			</File>
+			<File
 				RelativePath="..\..\source\libjpeg\jdapimin.c">
 			</File>
 			<File
@@ -189,6 +192,9 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libjpeg\jdsample.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libjpeg\jdtrans.c">
 			</File>
 			<File
 				RelativePath="..\..\source\libjpeg\jerror.c">

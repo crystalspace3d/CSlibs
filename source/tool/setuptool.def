@@ -6,3 +6,4 @@ EXPORTS
   CleanBashProfile
   UnixToWine
   WineToUnix
+  ToCygwin
