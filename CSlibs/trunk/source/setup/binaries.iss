@@ -44,6 +44,7 @@ Name: compact; Description: Compact installation
 Name: custom; Description: Custom installation; Flags: iscustom
 Name: typVC; Description: VC Typical
 Name: typMinGW; Description: MSYS/MinGW Typical
+Name: typCygwin; Description: Cygwin Typical
 Name: xcompile; Description: Cross-compile Typical
 [Files]
 Source: ..\..\Readme.rtf; DestDir: {app}
@@ -153,6 +154,7 @@ Source: ..\..\CrystalSpace home page.url; DestDir: {group}
 Source: ..\..\nosource\OpenAL\installer\{#File_OpenALInstaller}; DestDir: {app}; Components: Extra/OpenALInstaller
 Source: ..\..\out\support\VCsupport.exe; DestDir: {app}; Components: DESupport/VC
 Source: ..\..\out\support\MSYSsupport.exe; DestDir: {app}; Components: DESupport/MSYS
+Source: ..\..\out\support\Cygwinsupport.exe; DestDir: {app}; Components: DESupport/Cygwin
 Source: ..\..\out\support\Crosssupport.exe; DestDir: {app}; Check: IsWinePresent
 Source: ..\..\out\support\CopyDLLs.exe; DestDir: {app}; Components: Libs/Common Libs/VC Libs/MinGW
 [Dirs]
@@ -166,21 +168,22 @@ Name: {app}\dlls; Flags: uninsalwaysuninstall
 Name: {app}; Flags: uninsalwaysuninstall
 [Components]
 Name: Libs; Description: Win32 libraries; Flags: disablenouninstallwarning
-Name: Libs/Common; Description: Libraries shared by all platforms; Types: custom compact full typVC typMinGW xcompile; Flags: disablenouninstallwarning
+Name: Libs/Common; Description: Libraries shared by all platforms; Types: custom compact full typVC typMinGW typCygwin xcompile; Flags: disablenouninstallwarning
 Name: Libs/VC; Description: MSVC-only libraries; Types: custom full typVC; Flags: disablenouninstallwarning
-Name: Libs/MinGW; Description: MinGW-only libraries; Types: custom full typMinGW xcompile; Flags: disablenouninstallwarning
+Name: Libs/MinGW; Description: MinGW-only libraries; Types: custom full typMinGW typCygwin xcompile; Flags: disablenouninstallwarning
 Name: Extra; Description: Additional components; Types: custom full; Flags: disablenouninstallwarning
-Name: Extra/Cg; Description: Cg headers & libraries; Types: custom full typVC typMinGW xcompile; Flags: disablenouninstallwarning
-Name: Extra/DXHeaders; Description: Minimal DirectX 9 headers; Types: custom full typVC typMinGW xcompile; Flags: disablenouninstallwarning
-Name: Extra/DXLibs; Description: Minimal DirectX 9 libraries; Types: custom full typVC xcompile; Flags: disablenouninstallwarning
-Name: Extra/Jam; Description: Jam build tool; Types: custom full typMinGW; Flags: disablenouninstallwarning
-Name: Extra/Python; Description: Python GCC import libs; Types: custom full typMinGW; Flags: disablenouninstallwarning
-Name: Extra/DebugInfo; Description: Debug information; Types: custom full typVC; Flags: disablenouninstallwarning
-Name: Extra/Dbghelp; Description: DbgHelp.dll Debugging helper; Types: custom compact full typMinGW typVC; Flags: disablenouninstallwarning
+Name: Extra/Cg; Description: Cg headers & libraries; Types: custom full typVC typMinGW typCygwin xcompile; Flags: disablenouninstallwarning
+Name: Extra/DXHeaders; Description: Minimal DirectX 9 headers; Types: custom full typVC typMinGW typCygwin xcompile; Flags: disablenouninstallwarning
+Name: Extra/DXLibs; Description: Minimal DirectX 9 libraries; Types: custom full typVC typCygwin xcompile; Flags: disablenouninstallwarning
+Name: Extra/Jam; Description: Jam build tool; Types: custom full typMinGW typCygwin; Flags: disablenouninstallwarning
+Name: Extra/Python; Description: Python GCC import libs; Types: custom full typMinGW typCygwin; Flags: disablenouninstallwarning
+Name: Extra/DebugInfo; Description: Debug information; Types: custom full typVC typMinGW typCygwin; Flags: disablenouninstallwarning
+Name: Extra/Dbghelp; Description: DbgHelp.dll Debugging helper; Types: custom compact full typMinGW typVC typCygwin; Flags: disablenouninstallwarning
 Name: Extra/OpenALInstaller; Description: OpenAL runtime installer; Types: custom full; Flags: disablenouninstallwarning
 Name: DESupport; Description: Support for development environments; Types: custom full; Flags: disablenouninstallwarning
 Name: DESupport/VC; Description: VisualC 7.0, 7.1, 8.0; Types: custom full typVC; Flags: disablenouninstallwarning
 Name: DESupport/MSYS; Description: MSYS; Types: custom full typMinGW; Flags: disablenouninstallwarning
+Name: DESupport/Cygwin; Description: Cygwin; Types: custom full typCygwin; Flags: disablenouninstallwarning
 [Run]
 Filename: rundll32.exe; Parameters: {code:GetShortenedAppDir}\setuptool.dll,WriteCSLibsConfig {code:GetShortenedAppDir}\
 Filename: {app}\{#File_OpenALInstaller}; Parameters: /S; WorkingDir: {app}; Components: Extra/OpenALInstaller; Check: RunOpenALInstaller; StatusMsg: Running OpenAL.org runtime installer
@@ -188,6 +191,7 @@ Filename: {app}\CopyDLLs.exe; Description: Copy DLLs to CS directory; Flags: pos
 Filename: {app}\CopyDLLs.exe; Description: Copy DLLs to CS directory; Flags: postinstall unchecked; WorkingDir: {app}; Parameters: {code:GetSupportParamsSilent}; Check: CrossPresets; Components: Libs/Common Libs/VC Libs/MinGW
 Filename: {app}\VCsupport.exe; Description: Set up VisualC support; Flags: postinstall; Components: DESupport/VC; WorkingDir: {app}; Parameters: {code:GetSupportParamsSilent}
 Filename: {app}\MSYSsupport.exe; Description: Set up MSYS support; Flags: postinstall; Components: DESupport/MSYS; WorkingDir: {app}; Parameters: {code:GetSupportParams}
+Filename: {app}\Cygwinsupport.exe; Description: Set up Cygwin support; Flags: postinstall; Components: DESupport/Cygwin; WorkingDir: {app}; Parameters: {code:GetSupportParams}
 Filename: {app}\Crosssupport.exe; Description: Set up Cross compiling support; Flags: postinstall; WorkingDir: {app}; Parameters: {code:GetSupportParams}; Check: IsWinePresent
 [UninstallRun]
 ;Filename: rundll32.exe; Parameters: {code:GetShortenedAppDir}\setuptool.dll,UninstDESupport {code:GetSupportParamsSilent}
@@ -201,6 +205,7 @@ Name: {group}\Read Me; Filename: {app}\Readme.rtf; WorkingDir: {app}; Comment: I
 Name: {group}\Copy DLLs to a CS directory; Filename: {app}\CopyDLLs.exe; WorkingDir: {app}; Comment: Copies the 3rd party DLLs to a CS source directory so compiled binaries can find them.; IconIndex: 0;
 Name: {group}\Set up VC support; Filename: {app}\VCsupport.exe; WorkingDir: {app}; Comment: Copies the headers and libraries to your CS source directory so you can use them from VC.; IconIndex: 0; Components: DESupport/VC
 Name: {group}\Set up MSYS support; Filename: {app}\MSYSsupport.exe; WorkingDir: {app}; Comment: Sets up MSYS so you can use the CrystalSpace libs from there.; IconIndex: 0; Components: DESupport/MSYS
+Name: {group}\Set up Cygwin support; Filename: {app}\Cygwinsupport.exe; WorkingDir: {app}; Comment: Sets up MSYS so you can use the CrystalSpace libs from there.; IconIndex: 0; Components: DESupport/Cygwin
 ;Name: "{group}\CrystalSpace home page"; Filename: "{app}\CrystalSpace home page.url"
 Name: {group}\Uninstall {#AppName}; Filename: {uninstallexe}; WorkingDir: {app}; Comment: Remove the {#AppName} from your system.
 [Registry]

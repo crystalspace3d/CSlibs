@@ -8,6 +8,9 @@ fi
 
 # caca, png, z, jpeg, mng
 cp temp/mingw/prefix/include/*.h headers/
+# Take out an "#include <unistd.h>"
+cat headers/zconf.h | sed "s/#if 1/#if 0/" > headers/zconf.new
+mv headers/zconf.new headers/zconf.h
 cp -r temp/mingw/prefix/include/lib3ds headers/
 cp -r temp/mingw/prefix/include/ode headers/
 cp -r temp/mingw/prefix/include/ogg headers/
