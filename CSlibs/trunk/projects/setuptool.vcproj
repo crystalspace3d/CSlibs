@@ -127,7 +127,7 @@
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="true"
 				AdditionalIncludeDirectories="&quot;$(CRYSTAL)\include&quot;"
-				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;CS_WIN32_CSCONFIG;_STATIC_CPPLIB"
+				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;CS_WIN32_CSCONFIG;_STATIC_CPPLIB;_CRT_SECURE_NO_DEPRECATE"
 				StringPooling="true"
 				ExceptionHandling="1"
 				RuntimeLibrary="0"
@@ -231,6 +231,26 @@
 			<File
 				RelativePath="..\source\tool\setuptool.rc"
 				>
+			</File>
+			<File
+				RelativePath="..\source\tool\toolfunc.cpp"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 		</Filter>
 	</Files>

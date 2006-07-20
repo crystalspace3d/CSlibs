@@ -2,7 +2,7 @@ SubDir TOP source lib3ds ;
 
 BaseLib 3ds :
   [ Wildcard lib3ds : *.c *.h ] : 
-  3ds :
+  lib3ds :
   :
   $(SUBDIR) $(SUBDIR)/../configs/lib3ds ;
 MsvcDefine 3ds : UBUILD_SHARED ;

@@ -1,7 +1,7 @@
 SubDir TOP source libjpeg ;
 
 BaseLib jpeg : 
-  [ Filter [ Wildcard j*.c j*.h ] : jmemdos.c jmemansi.c jmemname.c ] : 
+  [ Filter [ Wildcard j*.c j*.h ] : jmemdos.c jmemansi.c jmemname.c jpegtran.c ] : 
   libjpeg :
   source/jpeg.def  ;
 MsvcDefine jpeg : LIBJPEG_EXPORTS ;

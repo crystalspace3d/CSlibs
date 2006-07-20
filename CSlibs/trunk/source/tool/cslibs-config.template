@@ -23,6 +23,8 @@ Options:
 	[--lflags]
 	[--cflags]
 	[--binpath]
+	[--dllpath]
+	[--libpath]
 	[--compiler]
 EOF
 	exit $1
@@ -48,6 +50,12 @@ while test $# -gt 0; do
     --binpath)
       echo_binpath=yes
       ;;
+    --dllpath)
+      echo_dllpath=yes
+      ;;
+    --libpath)
+      echo_libpath=yes
+      ;;
     --compiler)
       compiler=${platform}-$2
       shift
@@ -71,3 +79,10 @@ if test "$echo_binpath" = "yes"; then
       echo ${libsdir}/bin
 fi      
 
+if test "$echo_dllpath" = "yes"; then
+      echo ${libsdir}/dlls
+fi      
+
+if test "$echo_libpath" = "yes"; then
+      echo ${libsdir}/libs
+fi      

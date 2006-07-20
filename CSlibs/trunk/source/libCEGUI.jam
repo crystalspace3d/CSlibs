@@ -13,9 +13,7 @@ ExtraLib CEGUIBase :
   fakestatic :
   PCRE_STATIC CEGUIBASE_EXPORTS 
     "CEGUI_FACTORYMODULE_PREFIX=&quot;\\&quot;lib\\&quot;&quot;"
-    "CEGUI_FACTORYMODULE_SUFFIX=&quot;\\&quot;-csvc$(MSVCGEN_VERSION)\\&quot;&quot;" 
-    CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG 
-    CEGUI_DEFAULT_XMLPARSER=TinyXMLParser :
+    "CEGUI_FACTORYMODULE_SUFFIX=&quot;\\&quot;-csvc$(MSVCGEN_VERSION)\\&quot;&quot;" :
   :
   z freetype2 pcre pcre_static ;
 

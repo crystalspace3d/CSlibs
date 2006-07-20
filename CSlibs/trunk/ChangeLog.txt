@@ -1,6 +1,15 @@
 0.99r0_022 (2006-??-??):
   - Added patches from mdmkolbe to make Cg, Ogg and Bullet useable on Cygwin.
   - Removed mikmod, as it is currently not used by CS.
+  - Updated bullet to 1.6a.
+  - Updated cal3d to 0.11.
+  - Updated CEGUI to 0.5.0 RC 1.
+  - Updated FreeType2 to 2.2.1.
+  - Updated libpng to 1.2.12.
+  - Updated ODE to 0.6.
+  - Updated OpenAL SDK to version 1.1.
+  - Updated SpiderMonkey to latest CVS.
+  - "Native" Cygwin support dropped, CS will use -mno-cygwin.
 
 0.99r0_021 (2006-05-07):
   - Updated bullet to 1.4.

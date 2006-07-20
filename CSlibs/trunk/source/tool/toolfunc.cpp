@@ -22,30 +22,18 @@
 static void GetFullPathName (const char*, int, char*, int) {}
 // bogus, to compile cssysdef.h
 
-#include "cssysdef.h"
-
 #ifdef UNICODE
 #define GetFullPathName	GetFullPathNameW
 #else
 #define GetFullPathName	GetFullPathNameA
 #endif
 
-#undef CS_MEMORY_TRACKER
-#undef new
-#include <new>
-
 #include <malloc.h>
 #include <tchar.h>
 
 #include <vector>
-
-// Small hack to avoid "inconsisten DLL linkage" warning
-#ifdef CS_BUILD_SHARED_LIBS
-#undef CS_CSUTIL_EXPORT
-#define CS_CSUTIL_EXPORT
-#endif
-
-#include "csutil/hash.h"
+#include <string>
+#include <hash_map>
 
 #define TOOLENTRYW(name) \
    extern "C" _declspec(dllexport) void CALLBACK name##W (HWND hwnd, \
@@ -193,14 +181,19 @@ TOOLENTRY(UninstDESupport)
   }
 }
 
-static TCHAR* MingWifyPath (LPTSTR path)
+static TCHAR* MingWifyPath (LPCTSTR path, LPCTSTR prefix = 0)
 {
   if (!path) return 0;
 
-  TCHAR* retPath = new TCHAR[_tcslen (path) + 1];
-  _tcscpy (retPath, path);
+  const size_t prefixLen = prefix ? _tcslen (prefix) : 0;
+  TCHAR* retPath = new TCHAR[prefixLen + _tcslen (path) + 1];
+  if (prefix) 
+    _tcscpy (retPath, prefix);
+  else
+    retPath[0] = 0;
+  _tcscat (retPath, path);
 
-  if (_tcslen (retPath) > 0)
+  if (_tcslen (retPath) - prefixLen > 0)
   {
     TCHAR* p;
     p = _tcschr (retPath, '\\');
@@ -210,10 +203,10 @@ static TCHAR* MingWifyPath (LPTSTR path)
       p = _tcschr (p + 1, '\\');
     }
     // c:/foo -> /c/foo
-    if ((_tcslen (retPath) >= 2) && (retPath[1] == ':'))
+    if ((_tcslen (retPath) - prefixLen >= 2) && (retPath[prefixLen + 1] == ':'))
     {
-      retPath[1] = retPath[0];
-      retPath[0] = '/';
+      retPath[prefixLen + 1] = retPath[prefixLen + 0];
+      retPath[prefixLen + 0] = '/';
     }
   }
 
@@ -302,13 +295,22 @@ extern "C" _declspec(dllexport) const char* _stdcall WineToUnix (const char* pat
 
   return buf;
 }
+
+extern "C" _declspec(dllexport) const char* _stdcall ToCygwin (const char* path)
+{
+  static CharPtrHolder pathBuf;
+
+  pathBuf = MingWifyPath (path, _T("/cygdrive"));
+  return pathBuf;
+}
+
 #endif
 
 #ifndef UNICODE
 
 static void WriteReplacing (const char* tmpl, size_t tmplSize,
 			    FILE* file, 
-			    const csHash<const char*, const char*>& vars)
+                            const stdext::hash_map<std::string, std::string>& vars)
 {
   const char* p = tmpl;
   const char* lastBlockStart = tmpl;
@@ -340,10 +342,12 @@ static void WriteReplacing (const char* tmpl, size_t tmplSize,
 	char tmp[64];
 	strncpy (tmp, varBegin, varEnd - varBegin);
 	tmp[varEnd - varBegin] = 0;
-	const char* val;
-	if ((val = vars.Get (tmp, 0)) != 0)
+        stdext::hash_map<std::string, std::string>::const_iterator val =
+          vars.find (tmp);
+        if (val != vars.end())
 	{
-	  fwrite (val, sizeof (char), strlen (val), file);
+          const std::string& str = val->second;
+          fwrite (str.c_str(), sizeof (char), str.size(), file);
 	}
       }
 
@@ -355,23 +359,6 @@ static void WriteReplacing (const char* tmpl, size_t tmplSize,
   if (lastBlockStart != p)
     fwrite (lastBlockStart, sizeof (char), 
       p - lastBlockStart, file);
-}
-
-/*
-  From CS hash.cpp.
-  Here to avoid linking against libcsutil.
- */
-inline uint32 rotate_bits_right_3 (uint32 h)
-{
-  return (h >> 3) | (h << 29);
-}
-
-uint32 csHashCompute (char const* s)
-{
-  uint32 h = 0;
-  while (*s != 0)
-    h = rotate_bits_right_3(h) + *s++;
-  return h;
 }
 
 TOOLENTRY(WriteCSLibsConfig)
@@ -413,10 +400,10 @@ TOOLENTRY(WriteCSLibsConfig)
   char* libsPathMinGW = MingWifyPath (libsPath);
   const char* libsPathWine = WineToUnix (libsPath);
 
-  csHash<const char*, const char*> vars;
-  vars.Put ("CSLIBSPATH", libsPath);
-  vars.Put ("CSLIBSPATH_MSYS", libsPathMinGW);
-  vars.Put ("CSLIBSPATH_WINE", libsPathWine ? libsPathWine : libsPath);
+  stdext::hash_map<std::string, std::string> vars;
+  vars["CSLIBSPATH"] = libsPath;
+  vars["CSLIBSPATH_MSYS"] = libsPathMinGW;
+  vars["CSLIBSPATH_WINE"] = libsPathWine ? libsPathWine : libsPath;
 
   static const char scriptName[] = "tools\\cslibs-config";
   char* scriptPath = (char*)alloca (strlen (lpCmdLine) + sizeof (scriptName));
@@ -596,11 +583,11 @@ TOOLENTRY(AugmentBashProfile)
 
       char* libsPathMinGW = MingWifyPath (libsPath);
       char* pathAugmentMinGW = MingWifyPath (pathAugment);
-      csHash<const char*, const char*> vars;
-      vars.Put ("CSLIBSPATH", libsPath);
-      vars.Put ("CSLIBSPATH_MSYS", libsPathMinGW);
-      vars.Put ("PATHAUGMENT", pathAugment);
-      vars.Put ("PATHAUGMENT_MSYS", pathAugmentMinGW);
+      stdext::hash_map<std::string, std::string> vars;
+      vars["CSLIBSPATH"] = libsPath;
+      vars["CSLIBSPATH_MSYS"] = libsPathMinGW;
+      vars["PATHAUGMENT"] = pathAugment;
+      vars["PATHAUGMENT_MSYS"] = pathAugmentMinGW;
 
       static const char nl = '\n';
       //fwrite (&nl, sizeof (char), 1, profile);
@@ -655,5 +642,7 @@ TOOLENTRY(CleanBashProfile)
     delete[] oldProfile;
   }
 }
+
+
 
 #endif

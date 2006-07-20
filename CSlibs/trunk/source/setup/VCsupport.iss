@@ -27,28 +27,28 @@ DisableProgramGroupPage=true
 WizardImageFile=compiler:WizModernImage-IS.bmp
 WizardSmallImageFile=compiler:WizModernSmallImage-IS.bmp
 [Files]
-Source: {src}\include\*.*; DestDir: {app}\include\csutil\win32; Flags: external skipifsourcedoesntexist
-Source: {src}\include\AL\*.*; DestDir: {app}\include\csutil\win32\AL; Flags: external skipifsourcedoesntexist
-Source: {src}\include\cal3d\*.*; DestDir: {app}\include\csutil\win32\cal3d; Flags: external skipifsourcedoesntexist
-Source: {src}\include\freetype\*.*; DestDir: {app}\include\csutil\win32\freetype; Flags: external skipifsourcedoesntexist
-Source: {src}\include\freetype\cache\*.*; DestDir: {app}\include\csutil\win32\freetype\cache; Flags: external skipifsourcedoesntexist
-Source: {src}\include\freetype\config\*.*; DestDir: {app}\include\csutil\win32\freetype\config; Flags: external skipifsourcedoesntexist
-Source: {src}\include\freetype\internal\*.*; DestDir: {app}\include\csutil\win32\freetype\internal; Flags: external skipifsourcedoesntexist
-Source: {src}\include\lib3ds\*.*; DestDir: {app}\include\csutil\win32\lib3ds; Flags: external skipifsourcedoesntexist
-Source: {src}\include\ode\*.*; DestDir: {app}\include\csutil\win32\ode; Flags: external skipifsourcedoesntexist
-Source: {src}\include\ogg\*.*; DestDir: {app}\include\csutil\win32\ogg; Flags: external skipifsourcedoesntexist
-Source: {src}\include\vorbis\*.*; DestDir: {app}\include\csutil\win32\vorbis; Flags: external skipifsourcedoesntexist
-Source: {src}\include\Cg\*.*; DestDir: {app}\include\csutil\win32\Cg; Flags: external skipifsourcedoesntexist
-Source: {src}\include\elements\*.*; DestDir: {app}\include\csutil\win32\elements; Flags: external skipifsourcedoesntexist
-Source: {src}\include\falagard\*.*; DestDir: {app}\include\csutil\win32\falagard; Flags: external skipifsourcedoesntexist
-Source: {src}\include\js\*.*; DestDir: {app}\include\csutil\win32\js; Flags: external skipifsourcedoesntexist
-Source: {src}\include\BroadphaseCollision\*.*; DestDir: {app}\include\csutil\win32\BroadphaseCollision; Flags: external skipifsourcedoesntexist
-Source: {src}\include\CcdPhysics\*.*; DestDir: {app}\include\csutil\win32\CcdPhysics; Flags: external skipifsourcedoesntexist
-Source: {src}\include\CollisionDispatch\*.*; DestDir: {app}\include\csutil\win32\CollisionDispatch; Flags: external skipifsourcedoesntexist
-Source: {src}\include\CollisionShapes\*.*; DestDir: {app}\include\csutil\win32\CollisionShapes; Flags: external skipifsourcedoesntexist
-Source: {src}\include\ConstraintSolver\*.*; DestDir: {app}\include\csutil\win32\ConstraintSolver; Flags: external skipifsourcedoesntexist
-Source: {src}\include\Dynamics\*.*; DestDir: {app}\include\csutil\win32\Dynamics; Flags: external skipifsourcedoesntexist
-Source: {src}\include\NarrowPhaseCollision\*.*; DestDir: {app}\include\csutil\win32\NarrowPhaseCollision; Flags: external skipifsourcedoesntexist
+Source: {src}\include\*.*; DestDir: {app}\include\csutil\win32; Flags: external skipifsourcedoesntexist recursesubdirs
+;Source: {src}\include\AL\*.*; DestDir: {app}\include\csutil\win32\AL; Flags: external skipifsourcedoesntexist
+;Source: {src}\include\cal3d\*.*; DestDir: {app}\include\csutil\win32\cal3d; Flags: external skipifsourcedoesntexist
+;Source: {src}\include\freetype\*.*; DestDir: {app}\include\csutil\win32\freetype; Flags: external skipifsourcedoesntexist
+;Source: {src}\include\freetype\cache\*.*; DestDir: {app}\include\csutil\win32\freetype\cache; Flags: external skipifsourcedoesntexist
+;Source: {src}\include\freetype\config\*.*; DestDir: {app}\include\csutil\win32\freetype\config; Flags: external skipifsourcedoesntexist
+;Source: {src}\include\freetype\internal\*.*; DestDir: {app}\include\csutil\win32\freetype\internal; Flags: external skipifsourcedoesntexist
+;Source: {src}\include\lib3ds\*.*; DestDir: {app}\include\csutil\win32\lib3ds; Flags: external skipifsourcedoesntexist
+;Source: {src}\include\ode\*.*; DestDir: {app}\include\csutil\win32\ode; Flags: external skipifsourcedoesntexist
+;Source: {src}\include\ogg\*.*; DestDir: {app}\include\csutil\win32\ogg; Flags: external skipifsourcedoesntexist
+;Source: {src}\include\vorbis\*.*; DestDir: {app}\include\csutil\win32\vorbis; Flags: external skipifsourcedoesntexist
+;Source: {src}\include\Cg\*.*; DestDir: {app}\include\csutil\win32\Cg; Flags: external skipifsourcedoesntexist
+;Source: {src}\include\elements\*.*; DestDir: {app}\include\csutil\win32\elements; Flags: external skipifsourcedoesntexist
+;Source: {src}\include\falagard\*.*; DestDir: {app}\include\csutil\win32\falagard; Flags: external skipifsourcedoesntexist
+;Source: {src}\include\js\*.*; DestDir: {app}\include\csutil\win32\js; Flags: external skipifsourcedoesntexist
+;Source: {src}\include\BroadphaseCollision\*.*; DestDir: {app}\include\csutil\win32\BroadphaseCollision; Flags: external skipifsourcedoesntexist
+;Source: {src}\include\CcdPhysics\*.*; DestDir: {app}\include\csutil\win32\CcdPhysics; Flags: external skipifsourcedoesntexist
+;Source: {src}\include\CollisionDispatch\*.*; DestDir: {app}\include\csutil\win32\CollisionDispatch; Flags: external skipifsourcedoesntexist
+;Source: {src}\include\CollisionShapes\*.*; DestDir: {app}\include\csutil\win32\CollisionShapes; Flags: external skipifsourcedoesntexist
+;Source: {src}\include\ConstraintSolver\*.*; DestDir: {app}\include\csutil\win32\ConstraintSolver; Flags: external skipifsourcedoesntexist
+;Source: {src}\include\Dynamics\*.*; DestDir: {app}\include\csutil\win32\Dynamics; Flags: external skipifsourcedoesntexist
+;Source: {src}\include\NarrowPhaseCollision\*.*; DestDir: {app}\include\csutil\win32\NarrowPhaseCollision; Flags: external skipifsourcedoesntexist
 Source: {src}\lib\*.lib; DestDir: {app}\libs\csutil\win32\libs; Flags: external skipifsourcedoesntexist
 Source: {src}\lib\*.pdb; DestDir: {app}\libs\csutil\win32\libs; Flags: external skipifsourcedoesntexist
 Source: {src}\lib\vc\*.lib; DestDir: {app}\libs\csutil\win32\libs; Flags: external skipifsourcedoesntexist

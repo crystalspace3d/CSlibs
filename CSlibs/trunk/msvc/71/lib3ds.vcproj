@@ -57,7 +57,7 @@
 				OutputFile="..\..\libs\Release\lib3ds-cs.dll"
 				MergeSections=".rdata=.text"
 				DelayLoadDLLs=""
-				ImportLibrary="..\..\libs\Release\3ds.lib"
+				ImportLibrary="..\..\libs\Release\lib3ds.lib"
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"

@@ -1,160 +1,130 @@
-Index: src/CEGUIFontManager.cpp
+Index: src/CEGUISystem.cpp
 ===================================================================
-RCS file: /cvsroot/crayzedsgui/cegui_mk2/src/CEGUIFontManager.cpp,v
-retrieving revision 1.10
-diff -u -r1.10 CEGUIFontManager.cpp
---- src/CEGUIFontManager.cpp	22 Jul 2005 09:59:21 -0000	1.10
-+++ src/CEGUIFontManager.cpp	7 Jan 2006 04:25:27 -0000
-@@ -42,7 +42,7 @@
+--- src/CEGUISystem.cpp	(revision 1251)
++++ src/CEGUISystem.cpp	(working copy)
+@@ -111,7 +111,7 @@
  	Static Data Definitions
  *************************************************************************/
  // singleton instance pointer
--template<> FontManager* Singleton<FontManager>::ms_Singleton	= NULL;
-+template<> CEGUIEXPORT FontManager* Singleton<FontManager>::ms_Singleton	= NULL;
+-template<> System* Singleton<System>::ms_Singleton	= 0;
++template<> CEGUIEXPORT System* Singleton<System>::ms_Singleton	= 0;
  
- 
- 
-Index: src/CEGUIGlobalEventSet.cpp
+ // click event generation defaults
+ const double	System::DefaultSingleClickTimeout	= 0.2;
+Index: src/CEGUISchemeManager.cpp
 ===================================================================
-RCS file: /cvsroot/crayzedsgui/cegui_mk2/src/CEGUIGlobalEventSet.cpp,v
-retrieving revision 1.1
-diff -u -r1.1 CEGUIGlobalEventSet.cpp
---- src/CEGUIGlobalEventSet.cpp	20 Jan 2005 11:44:06 -0000	1.1
-+++ src/CEGUIGlobalEventSet.cpp	7 Jan 2006 04:25:36 -0000
-@@ -32,7 +32,7 @@
- 		Static Data Definitions
- 	*************************************************************************/
- 	// singleton instance pointer
--	template<> GlobalEventSet* Singleton<GlobalEventSet>::ms_Singleton	= NULL;
-+	template<> CEGUIEXPORT GlobalEventSet* Singleton<GlobalEventSet>::ms_Singleton	= NULL;
+--- src/CEGUISchemeManager.cpp	(revision 1251)
++++ src/CEGUISchemeManager.cpp	(working copy)
+@@ -39,7 +39,7 @@
+ 	Static Data Definitions
+ *************************************************************************/
+ // singleton instance pointer
+-template<> SchemeManager* Singleton<SchemeManager>::ms_Singleton	= 0;
++template<> CEGUIEXPORT SchemeManager* Singleton<SchemeManager>::ms_Singleton	= 0;
  
- 	/*************************************************************************
- 		GlobalEventSet constructor.
+ 
+ 
+Index: src/CEGUIWindowManager.cpp
+===================================================================
+--- src/CEGUIWindowManager.cpp	(revision 1251)
++++ src/CEGUIWindowManager.cpp	(working copy)
+@@ -44,7 +44,7 @@
+ 	Static Data Definitions
+ *************************************************************************/
+ // singleton instance pointer
+-template<> WindowManager* Singleton<WindowManager>::ms_Singleton	= 0;
++template<> CEGUIEXPORT WindowManager* Singleton<WindowManager>::ms_Singleton	= 0;
+ // default resource group
+ String WindowManager::d_defaultResourceGroup;
+ 
 Index: src/CEGUIImagesetManager.cpp
 ===================================================================
-RCS file: /cvsroot/crayzedsgui/cegui_mk2/src/CEGUIImagesetManager.cpp,v
-retrieving revision 1.9
-diff -u -r1.9 CEGUIImagesetManager.cpp
---- src/CEGUIImagesetManager.cpp	19 Aug 2005 12:14:19 -0000	1.9
-+++ src/CEGUIImagesetManager.cpp	7 Jan 2006 04:25:49 -0000
-@@ -35,7 +35,7 @@
+--- src/CEGUIImagesetManager.cpp	(revision 1251)
++++ src/CEGUIImagesetManager.cpp	(working copy)
+@@ -39,7 +39,7 @@
  	Static Data Definitions
  *************************************************************************/
  // singleton instance pointer
--template<> ImagesetManager* Singleton<ImagesetManager>::ms_Singleton	= NULL;
-+template<> CEGUIEXPORT ImagesetManager* Singleton<ImagesetManager>::ms_Singleton	= NULL;
+-template<> ImagesetManager* Singleton<ImagesetManager>::ms_Singleton	= 0;
++template<> CEGUIEXPORT ImagesetManager* Singleton<ImagesetManager>::ms_Singleton	= 0;
  
  
  /*************************************************************************
 Index: src/CEGUILogger.cpp
 ===================================================================
-RCS file: /cvsroot/crayzedsgui/cegui_mk2/src/CEGUILogger.cpp,v
-retrieving revision 1.9
-diff -u -r1.9 CEGUILogger.cpp
---- src/CEGUILogger.cpp	3 Jun 2005 14:13:20 -0000	1.9
-+++ src/CEGUILogger.cpp	7 Jan 2006 03:56:35 -0000
-@@ -34,7 +34,7 @@
+--- src/CEGUILogger.cpp	(revision 1251)
++++ src/CEGUILogger.cpp	(working copy)
+@@ -36,7 +36,7 @@
          Static Data Definitions
      *************************************************************************/
      // singleton instance pointer
--    template<> Logger* Singleton<Logger>::ms_Singleton  = NULL;
-+    template<> CEGUIEXPORT Logger* Singleton<Logger>::ms_Singleton  = NULL;
+-    template<> Logger* Singleton<Logger>::ms_Singleton  = 0;
++    template<> CEGUIEXPORT Logger* Singleton<Logger>::ms_Singleton  = 0;
  
  
      /*************************************************************************
 Index: src/CEGUIMouseCursor.cpp
 ===================================================================
-RCS file: /cvsroot/crayzedsgui/cegui_mk2/src/CEGUIMouseCursor.cpp,v
-retrieving revision 1.10.2.1
-diff -u -r1.10.2.1 CEGUIMouseCursor.cpp
---- src/CEGUIMouseCursor.cpp	1 Sep 2005 13:54:26 -0000	1.10.2.1
-+++ src/CEGUIMouseCursor.cpp	7 Jan 2006 04:25:59 -0000
-@@ -41,7 +41,7 @@
+--- src/CEGUIMouseCursor.cpp	(revision 1251)
++++ src/CEGUIMouseCursor.cpp	(working copy)
+@@ -45,7 +45,7 @@
  	Static Data Definitions
  *************************************************************************/
  // singleton instance pointer
--template<> MouseCursor* Singleton<MouseCursor>::ms_Singleton	= NULL;
-+template<> CEGUIEXPORT MouseCursor* Singleton<MouseCursor>::ms_Singleton	= NULL;
+-template<> MouseCursor* Singleton<MouseCursor>::ms_Singleton	= 0;
++template<> CEGUIEXPORT MouseCursor* Singleton<MouseCursor>::ms_Singleton	= 0;
  
  
  /*************************************************************************
-Index: src/CEGUISchemeManager.cpp
+Index: src/CEGUIFontManager.cpp
 ===================================================================
-RCS file: /cvsroot/crayzedsgui/cegui_mk2/src/CEGUISchemeManager.cpp,v
-retrieving revision 1.8.6.1
-diff -u -r1.8.6.1 CEGUISchemeManager.cpp
---- src/CEGUISchemeManager.cpp	17 Nov 2005 15:17:17 -0000	1.8.6.1
-+++ src/CEGUISchemeManager.cpp	7 Jan 2006 04:26:08 -0000
-@@ -35,7 +35,7 @@
- 	Static Data Definitions
- *************************************************************************/
+--- src/CEGUIFontManager.cpp	(revision 1251)
++++ src/CEGUIFontManager.cpp	(working copy)
+@@ -52,7 +52,7 @@
+ static const String FontTypePixmap ("Pixmap");
+ 
  // singleton instance pointer
--template<> SchemeManager* Singleton<SchemeManager>::ms_Singleton	= NULL;
-+template<> CEGUIEXPORT SchemeManager* Singleton<SchemeManager>::ms_Singleton	= NULL;
- 
- 
- 
-Index: src/CEGUISystem.cpp
-===================================================================
-RCS file: /cvsroot/crayzedsgui/cegui_mk2/src/CEGUISystem.cpp,v
-retrieving revision 1.63.2.2
-diff -u -r1.63.2.2 CEGUISystem.cpp
---- src/CEGUISystem.cpp	20 Nov 2005 16:16:21 -0000	1.63.2.2
-+++ src/CEGUISystem.cpp	7 Jan 2006 04:26:21 -0000
-@@ -113,7 +113,7 @@
- 	Static Data Definitions
- *************************************************************************/
- // singleton instance pointer
--template<> System* Singleton<System>::ms_Singleton	= NULL;
-+template<> CEGUIEXPORT System* Singleton<System>::ms_Singleton	= NULL;
- 
- // click event generation defaults
- const double	System::DefaultSingleClickTimeout	= 0.2;
-Index: src/CEGUIWindowFactoryManager.cpp
-===================================================================
-RCS file: /cvsroot/crayzedsgui/cegui_mk2/src/CEGUIWindowFactoryManager.cpp,v
-retrieving revision 1.9.2.2
-diff -u -r1.9.2.2 CEGUIWindowFactoryManager.cpp
---- src/CEGUIWindowFactoryManager.cpp	8 Nov 2005 13:52:40 -0000	1.9.2.2
-+++ src/CEGUIWindowFactoryManager.cpp	7 Jan 2006 04:26:58 -0000
-@@ -35,7 +35,7 @@
- 	Static Data Definitions
- *************************************************************************/
- // singleton instance pointer
--template<> WindowFactoryManager* Singleton<WindowFactoryManager>::ms_Singleton	= NULL;
-+template<> CEGUIEXPORT WindowFactoryManager* Singleton<WindowFactoryManager>::ms_Singleton	= NULL;
- 
- 
- /*************************************************************************
-Index: src/CEGUIWindowManager.cpp
-===================================================================
-RCS file: /cvsroot/crayzedsgui/cegui_mk2/src/CEGUIWindowManager.cpp,v
-retrieving revision 1.22.2.1
-diff -u -r1.22.2.1 CEGUIWindowManager.cpp
---- src/CEGUIWindowManager.cpp	16 Nov 2005 19:29:19 -0000	1.22.2.1
-+++ src/CEGUIWindowManager.cpp	7 Jan 2006 04:27:07 -0000
-@@ -40,7 +40,7 @@
- 	Static Data Definitions
- *************************************************************************/
- // singleton instance pointer
--template<> WindowManager* Singleton<WindowManager>::ms_Singleton	= NULL;
-+template<> CEGUIEXPORT WindowManager* Singleton<WindowManager>::ms_Singleton	= NULL;
+-template<> FontManager* Singleton<FontManager>::ms_Singleton	= 0;
++template<> CEGUIEXPORT FontManager* Singleton<FontManager>::ms_Singleton	= 0;
  
  
  /*************************************************************************
 Index: src/falagard/CEGUIFalWidgetLookManager.cpp
 ===================================================================
-RCS file: /cvsroot/crayzedsgui/cegui_mk2/src/falagard/CEGUIFalWidgetLookManager.cpp,v
-retrieving revision 1.4
-diff -u -r1.4 CEGUIFalWidgetLookManager.cpp
---- src/falagard/CEGUIFalWidgetLookManager.cpp	21 Aug 2005 16:14:21 -0000	1.4
-+++ src/falagard/CEGUIFalWidgetLookManager.cpp	7 Jan 2006 04:26:48 -0000
-@@ -33,7 +33,7 @@
+--- src/falagard/CEGUIFalWidgetLookManager.cpp	(revision 1251)
++++ src/falagard/CEGUIFalWidgetLookManager.cpp	(working copy)
+@@ -37,7 +37,7 @@
  {
      ////////////////////////////////////////////////////////////////////////////////
      // Static data definitions.
 -    template<> WidgetLookManager* Singleton<WidgetLookManager>::ms_Singleton = 0;
 +    template<> CEGUIEXPORT WidgetLookManager* Singleton<WidgetLookManager>::ms_Singleton = 0;
      const String WidgetLookManager::FalagardSchemaName("Falagard.xsd");
+     String WidgetLookManager::d_defaultResourceGroup;
      ////////////////////////////////////////////////////////////////////////////////
+Index: src/CEGUIGlobalEventSet.cpp
+===================================================================
+--- src/CEGUIGlobalEventSet.cpp	(revision 1251)
++++ src/CEGUIGlobalEventSet.cpp	(working copy)
+@@ -36,7 +36,7 @@
+ 		Static Data Definitions
+ 	*************************************************************************/
+ 	// singleton instance pointer
+-	template<> GlobalEventSet* Singleton<GlobalEventSet>::ms_Singleton	= 0;
++	template<> CEGUIEXPORT GlobalEventSet* Singleton<GlobalEventSet>::ms_Singleton	= 0;
  
+ 	/*************************************************************************
+ 		GlobalEventSet constructor.
+Index: src/CEGUIWindowFactoryManager.cpp
+===================================================================
+--- src/CEGUIWindowFactoryManager.cpp	(revision 1251)
++++ src/CEGUIWindowFactoryManager.cpp	(working copy)
+@@ -39,7 +39,7 @@
+ 	Static Data Definitions
+ *************************************************************************/
+ // singleton instance pointer
+-template<> WindowFactoryManager* Singleton<WindowFactoryManager>::ms_Singleton	= 0;
++template<> CEGUIEXPORT WindowFactoryManager* Singleton<WindowFactoryManager>::ms_Singleton	= 0;
+ 
+ 
+ /*************************************************************************

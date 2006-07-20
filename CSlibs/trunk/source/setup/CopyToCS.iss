@@ -35,9 +35,9 @@ Source: {src}\dlls\*.pdb; DestDir: {app}; Flags: external skipifsourcedoesntexis
 Source: {src}\dlls\vc\*.dll; DestDir: {app}; Flags: external skipifsourcedoesntexist ignoreversion
 Source: {src}\dlls\vc\*.pdb; DestDir: {app}; Flags: external skipifsourcedoesntexist ignoreversion
 Source: {src}\dlls\mingw\*.dll; DestDir: {app}; Flags: external skipifsourcedoesntexist ignoreversion
+Source: {src}\dlls\mingw\*.dbg; DestDir: {app}; Flags: external skipifsourcedoesntexist ignoreversion
 Source: {src}\dlls\mingw-gcc-3.4\*.dll; DestDir: {app}; Flags: external skipifsourcedoesntexist ignoreversion
-Source: {src}\dlls\cygwin\*.dll; DestDir: {app}; Flags: external skipifsourcedoesntexist ignoreversion
-Source: {src}\dlls\cygwin-gcc-3.4\*.dll; DestDir: {app}; Flags: external skipifsourcedoesntexist ignoreversion
+Source: {src}\dlls\mingw-gcc-3.4\*.dbg; DestDir: {app}; Flags: external skipifsourcedoesntexist ignoreversion
 [Registry]
 Root: HKLM; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstvalName}; ValueData: {uninstallexe}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: CheckAdminStuff
 Root: HKCU; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstvalName}; ValueData: {uninstallexe}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: CheckNoAdminStuff

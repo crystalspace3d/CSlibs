@@ -15,8 +15,8 @@
 
 [Setup]
 SolidCompression=true
-Compression=lzma/ultra
-;Compression=none
+;Compression=lzma/ultra
+Compression=none
 ShowLanguageDialog=no
 AppName={#AppName}
 AppId={#AppId}
@@ -44,7 +44,6 @@ Name: compact; Description: Compact installation
 Name: custom; Description: Custom installation; Flags: iscustom
 Name: typVC; Description: VC Typical
 Name: typMinGW; Description: MSYS/MinGW Typical
-Name: typCygwin; Description: Cygwin Typical
 Name: xcompile; Description: Cross-compile Typical
 [Files]
 Source: ..\..\Readme.rtf; DestDir: {app}
@@ -56,83 +55,91 @@ Source: ..\..\tools\Release\setuptool.dll; DestDir: {app}
 Source: ..\..\tools\Release\jam.exe; DestDir: {app}\tools; Components: Extra/Jam
 Source: ..\..\nosource\dbghelp\dbghelp.dll; DestDir: {app}\dlls; Components: Extra/Dbghelp
 Source: ..\..\nosource\Cg\dlls\*.*; DestDir: {app}\dlls; Flags: recursesubdirs; Components: Extra/Cg
+Source: ..\..\nosource\freealut\lib\*.dll; DestDir: {app}\dlls; Components: Libs/Common
 #ifndef STATIC
 Source: ..\..\syslibs\*.dll; DestDir: {app}\dlls; Components: Libs/Common
 Source: ..\..\libs\Release\*.dll; DestDir: {app}\dlls; Components: Libs/Common
-Source: ..\..\libs\ReleaseVCOnly\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC7Only\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC71Only\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC8Only\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
 Source: ..\..\libs\ReleaseGCCOnly\mingw\*.dll; DestDir: {app}\dlls\mingw; Flags: skipifsourcedoesntexist; Components: Libs/MinGW
-Source: ..\..\libs\ReleaseGCCOnly\cygwin\*.dll; DestDir: {app}\dlls\cygwin; Flags: skipifsourcedoesntexist; Components: Libs/Cygwin
-Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.4\*.dll; DestDir: {app}\dlls\mingw; Components: Libs/MinGW
-; Special case: use "static" CEGUI on Cygwin for non-static setup as well
-Source: ..\..\libs\ReleaseGCCOnly_static\cygwin-gcc-3.4\*.dll; DestDir: {app}\dlls\cygwin; Flags: skipifsourcedoesntexist; Components: Libs/Cygwin
+Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.4\*.dll; DestDir: {app}\dlls\mingw; Flags: skipifsourcedoesntexist; Components: Libs/MinGW
 #else
 Source: ..\..\libs\Release\libjs-cs.dll; DestDir: {app}\dlls; Components: Libs/Common
-Source: ..\..\libs\ReleaseVCOnly_static\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
-;Source: ..\..\libs\ReleaseGCCOnly_static\mingw\*.dll; DestDir: {app}\dlls\mingw; Components: Libs/MinGW
-;Source: ..\..\libs\ReleaseGCCOnly_static\cygwin\*.dll; DestDir: {app}\dlls\cygwin; Components: Libs/Cygwin
-Source: ..\..\libs\ReleaseGCCOnly_static\mingw-gcc-3.4\*.dll; DestDir: {app}\dlls\mingw; Components: Libs/MinGW
-Source: ..\..\libs\ReleaseGCCOnly_static\cygwin-gcc-3.4\*.dll; DestDir: {app}\dlls\cygwin; Components: Libs/Cygwin
+Source: ..\..\libs\ReleaseVC7Only_static\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC71Only_static\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC8Only_static\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
+Source: ..\..\libs\ReleaseGCCOnly_static\mingw\*.dll; DestDir: {app}\dlls\mingw; Flags: skipifsourcedoesntexist; Components: Libs/MinGW
+Source: ..\..\libs\ReleaseGCCOnly_static\mingw-gcc-3.4\*.dll; DestDir: {app}\dlls\mingw; Flags: skipifsourcedoesntexist; Components: Libs/MinGW
 #endif
 
 ; .libs: common for both static/dynamic
-Source: ..\..\nosource\OpenAL\libs\*.lib; DestDir: {app}\lib; Components: Libs/Common
-Source: ..\..\directx\lib\*.*; DestDir: {app}\lib; Flags: recursesubdirs; Components: Extra/DXLibs
+Source: ..\..\nosource\OpenAL\libs\*.lib; DestDir: {app}\lib; Components: Libs/Common; AfterInstall: LibPostInstall
+Source: ..\..\nosource\freealut\lib\*.lib; DestDir: {app}\lib; Components: Libs/Common; AfterInstall: LibPostInstall
+Source: ..\..\directx\lib\*.*; DestDir: {app}\lib; Flags: recursesubdirs; Components: Extra/DXLibs; AfterInstall: LibPostInstall
 Source: ..\..\nosource\python\*.*; DestDir: {app}\lib; Components: Extra/Python
-Source: ..\..\nosource\Cg\lib\*.*; DestDir: {app}\lib; Flags: recursesubdirs; Components: Extra/Cg
+Source: ..\..\nosource\Cg\lib\*.*; DestDir: {app}\lib; Flags: recursesubdirs; Components: Extra/Cg; AfterInstall: LibPostInstall
 
-#ifdef STATIC
+#ifndef STATIC
+; Dynamic .libs
+Source: ..\..\libs\Release\*.lib; DestDir: {app}\lib; Components: Libs/Common; AfterInstall: LibPostInstall
+Source: ..\..\libs\ReleaseVC7Only\*.lib; DestDir: {app}\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC71Only\*.lib; DestDir: {app}\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC8Only\*.lib; DestDir: {app}\lib; Components: Libs/VC
+; Bullet is always static
+Source: ..\..\libs\ReleaseVC7Only_static\bullet*.lib; DestDir: {app}\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC71Only_static\bullet*.lib; DestDir: {app}\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC8Only_static\bullet*.lib; DestDir: {app}\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.4\lib*.a; DestDir: {app}\lib\mingw-gcc-3.4; Components: Libs/MinGW
+#else
 ; Static .libs
 Source: ..\..\libs\Release\js.lib; DestDir: {app}\lib; Components: Libs/Common
 Source: ..\..\libs\Release_static\*.lib; DestDir: {app}\lib\vc; Components: Libs/VC
-Source: ..\..\libs\Release_static\*.pdb; DestDir: {app}\lib\vc; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC7Only_static\*.lib; DestDir: {app}\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC7Only_static\*.pdb; DestDir: {app}\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC71Only_static\*.lib; DestDir: {app}\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC71Only_static\*.pdb; DestDir: {app}\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC8Only_static\*.lib; DestDir: {app}\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC8Only_static\*.pdb; DestDir: {app}\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseGCCOnly_static\mingw\*.a; DestDir: {app}\lib\mingw; Components: Libs/MinGW
-Source: ..\..\libs\ReleaseGCCOnly_static\cygwin\*.a; DestDir: {app}\lib\cygwin; Components: Libs/Cygwin
 Source: ..\..\libs\ReleaseGCCOnly_static\mingw-gcc-3.4\lib*.a; DestDir: {app}\lib\mingw-gcc-3.4; Components: Libs/MinGW
-Source: ..\..\libs\ReleaseGCCOnly_static\cygwin-gcc-3.4\lib*.a; DestDir: {app}\lib\cygwin-gcc-3.4; Components: Libs/Cygwin
-; libcal3d for dynamic is static as well
+Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.4\libbullet*.a; DestDir: {app}\lib\mingw-gcc-3.4; Components: Libs/MinGW
 Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.4\libcal3d.a; DestDir: {app}\lib\mingw-gcc-3.4; Components: Libs/MinGW
-Source: ..\..\libs\ReleaseGCCOnly\cygwin-gcc-3.4\libcal3d.a; DestDir: {app}\lib\cygwin-gcc-3.4; Components: Libs/Cygwin
-#else
-; Dynamic .libs
-Source: ..\..\libs\Release\*.lib; DestDir: {app}\lib; Components: Libs/Common
-Source: ..\..\libs\ReleaseVC7Only\*.lib; DestDir: {app}\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC7Only\*.pdb; DestDir: {app}\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC71Only\*.lib; DestDir: {app}\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC71Only\*.pdb; DestDir: {app}\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC8Only\*.lib; DestDir: {app}\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC8Only\*.pdb; DestDir: {app}\lib; Components: Libs/VC
-;Source: ..\..\libs\ReleaseGCCOnly\mingw\*.a; DestDir: {app}\lib\mingw; Components: Libs/MinGW
-;Source: ..\..\libs\ReleaseGCCOnly\cygwin\*.a; DestDir: {app}\lib\cygwin; Components: Libs/Cygwin
-Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.4\lib*.a; DestDir: {app}\lib\mingw-gcc-3.4; Components: Libs/MinGW
-Source: ..\..\libs\ReleaseGCCOnly\cygwin-gcc-3.4\lib*.a; DestDir: {app}\lib\cygwin-gcc-3.4; Components: Libs/Cygwin
-; Special case: use "static" CEGUI on Cygwin for non-static setup as well
-Source: ..\..\libs\ReleaseGCCOnly_static\cygwin-gcc-3.4\lib*.a; DestDir: {app}\lib\cygwin-gcc-3.4; Components: Libs/Cygwin
 #endif
 
 ; headers
 Source: ..\..\headers\*.*; DestDir: {app}\include; Flags: recursesubdirs; Components: Libs/Common
 #ifdef STATIC
-Source: ..\..\headers_static\*.*; DestDir: {app}\include; Flags: recursesubdirs; Components: Libs/Common
+;Source: ..\..\headers_static\*.*; DestDir: {app}\include; Flags: recursesubdirs; Components: Libs/Common
 #else
-Source: ..\..\headers_dll\*.*; DestDir: {app}\include; Flags: recursesubdirs; Components: Libs/Common
+;Source: ..\..\headers_dll\*.*; DestDir: {app}\include; Flags: recursesubdirs; Components: Libs/Common
 #endif
 Source: ..\..\nosource\OpenAL\include\*.*; DestDir: {app}\include\AL; Flags: recursesubdirs; Components: Libs/Common
+Source: ..\..\nosource\freealut\include\*.*; DestDir: {app}\include; Flags: recursesubdirs; Components: Libs/Common
 Source: ..\..\directx\include\*.*; DestDir: {app}\include; Flags: recursesubdirs; Components: Extra/DXHeaders
-Source: ..\..\nosource\Cg\include\*.*; DestDir: {app}\include; Flags: recursesubdirs; Components: Extra/Cg
+Source: ..\..\nosource\Cg\include\Cg\*.*; DestDir: {app}\include\Cg; Flags: recursesubdirs; Components: Extra/Cg
 
 #ifndef STATIC
 ; Debug info
 Source: ..\..\libs\Release\*.pdb; DestDir: {app}\dlls; Components: Extra/DebugInfo
-Source: ..\..\libs\ReleaseVCOnly\*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo
+Source: ..\..\libs\ReleaseVC7Only\*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo
+Source: ..\..\libs\ReleaseVC71Only\*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo
+Source: ..\..\libs\ReleaseVC8Only\*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo
+Source: ..\..\libs\ReleaseVC7Only_static\bullet*.pdb; DestDir: {app}\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC71Only_static\bullet*.pdb; DestDir: {app}\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC8Only_static\bullet*.pdb; DestDir: {app}\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseGCCOnly\mingw\*.dbg; DestDir: {app}\dlls\mingw; Components: Extra/DebugInfo
 #else
-Source: ..\..\libs\ReleaseVCOnly_static\*.pdb; DestDir: {app}\dlls; Components: Extra/DebugInfo
+Source: ..\..\libs\ReleaseVC7Only_static\lib*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo
+Source: ..\..\libs\ReleaseVC71Only_static\lib*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo
+Source: ..\..\libs\ReleaseVC8Only_static\lib*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo
 Source: ..\..\libs\Release\libjs-cs.pdb; DestDir: {app}\dlls; Components: Extra/DebugInfo
+Source: ..\..\libs\ReleaseGCCOnly_static\mingw\*.dbg; DestDir: {app}\dlls\mingw; Components: Extra/DebugInfo
+; Always install pdbs for static libs (to avoid compiler complaints)
+Source: ..\..\libs\Release_static\*.pdb; DestDir: {app}\lib\vc; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC7Only_static\bullet*.pdb; DestDir: {app}\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC7Only_static\cal3d*.pdb; DestDir: {app}\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC71Only_static\bullet*.pdb; DestDir: {app}\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC71Only_static\cal3d*.pdb; DestDir: {app}\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC8Only_static\bullet*.pdb; DestDir: {app}\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC8Only_static\cal3d*.pdb; DestDir: {app}\lib; Components: Libs/VC
 #endif
 
 ; Misc stuff
@@ -146,44 +153,41 @@ Source: ..\..\CrystalSpace home page.url; DestDir: {group}
 Source: ..\..\nosource\OpenAL\installer\{#File_OpenALInstaller}; DestDir: {app}; Components: Extra/OpenALInstaller
 Source: ..\..\out\support\VCsupport.exe; DestDir: {app}; Components: DESupport/VC
 Source: ..\..\out\support\MSYSsupport.exe; DestDir: {app}; Components: DESupport/MSYS
-Source: ..\..\out\support\Cygwinsupport.exe; DestDir: {app}; Components: DESupport/Cygwin
 Source: ..\..\out\support\Crosssupport.exe; DestDir: {app}; Check: IsWinePresent
-Source: ..\..\out\support\CopyDLLs.exe; DestDir: {app};
+Source: ..\..\out\support\CopyDLLs.exe; DestDir: {app}; Components: Libs/Common Libs/VC Libs/MinGW
 [Dirs]
 Name: {app}\tools; Flags: uninsalwaysuninstall
 Name: {app}\support; Flags: uninsalwaysuninstall
 Name: {app}\include; Flags: uninsalwaysuninstall
 Name: {app}\lib; Flags: uninsalwaysuninstall
+Name: {app}\lib\pkgconfig; Flags: uninsalwaysuninstall
 Name: {app}\bin; Flags: uninsalwaysuninstall
 Name: {app}\dlls; Flags: uninsalwaysuninstall
 Name: {app}; Flags: uninsalwaysuninstall
 [Components]
 Name: Libs; Description: Win32 libraries; Flags: disablenouninstallwarning
-Name: Libs/Common; Description: Libraries shared by all platforms; Types: custom compact full typVC typMinGW typCygwin xcompile; Flags: disablenouninstallwarning
+Name: Libs/Common; Description: Libraries shared by all platforms; Types: custom compact full typVC typMinGW xcompile; Flags: disablenouninstallwarning
 Name: Libs/VC; Description: MSVC-only libraries; Types: custom full typVC; Flags: disablenouninstallwarning
 Name: Libs/MinGW; Description: MinGW-only libraries; Types: custom full typMinGW xcompile; Flags: disablenouninstallwarning
-Name: Libs/Cygwin; Description: Cygwin-only libraries; Types: custom full typCygwin; Flags: disablenouninstallwarning
 Name: Extra; Description: Additional components; Types: custom full; Flags: disablenouninstallwarning
-Name: Extra/Cg; Description: Cg headers & libraries; Types: custom full typVC typMinGW typCygwin xcompile; Flags: disablenouninstallwarning
-Name: Extra/DXHeaders; Description: Minimal DirectX 9 headers; Types: custom full typVC typMinGW typCygwin xcompile; Flags: disablenouninstallwarning
+Name: Extra/Cg; Description: Cg headers & libraries; Types: custom full typVC typMinGW xcompile; Flags: disablenouninstallwarning
+Name: Extra/DXHeaders; Description: Minimal DirectX 9 headers; Types: custom full typVC typMinGW xcompile; Flags: disablenouninstallwarning
 Name: Extra/DXLibs; Description: Minimal DirectX 9 libraries; Types: custom full typVC xcompile; Flags: disablenouninstallwarning
-Name: Extra/Jam; Description: Jam build tool; Types: custom full typMinGW typCygwin; Flags: disablenouninstallwarning
-Name: Extra/Python; Description: Python GCC import libs; Types: custom full typMinGW typCygwin; Flags: disablenouninstallwarning
+Name: Extra/Jam; Description: Jam build tool; Types: custom full typMinGW; Flags: disablenouninstallwarning
+Name: Extra/Python; Description: Python GCC import libs; Types: custom full typMinGW; Flags: disablenouninstallwarning
 Name: Extra/DebugInfo; Description: Debug information; Types: custom full typVC; Flags: disablenouninstallwarning
-Name: Extra/Dbghelp; Description: DbgHelp.dll Debugging helper; Types: custom compact full typCygwin typMinGW typVC; Flags: disablenouninstallwarning
+Name: Extra/Dbghelp; Description: DbgHelp.dll Debugging helper; Types: custom compact full typMinGW typVC; Flags: disablenouninstallwarning
 Name: Extra/OpenALInstaller; Description: OpenAL runtime installer; Types: custom full; Flags: disablenouninstallwarning
 Name: DESupport; Description: Support for development environments; Types: custom full; Flags: disablenouninstallwarning
 Name: DESupport/VC; Description: VisualC 7.0, 7.1, 8.0; Types: custom full typVC; Flags: disablenouninstallwarning
 Name: DESupport/MSYS; Description: MSYS; Types: custom full typMinGW; Flags: disablenouninstallwarning
-Name: DESupport/Cygwin; Description: Cygwin; Types: custom full typCygwin; Flags: disablenouninstallwarning
 [Run]
 Filename: rundll32.exe; Parameters: {code:GetShortenedAppDir}\setuptool.dll,WriteCSLibsConfig {code:GetShortenedAppDir}\
-Filename: {app}\{#File_OpenALInstaller}; WorkingDir: {app}; Components: Extra/OpenALInstaller; Check: RunOpenALInstaller; StatusMsg: Running OpenAL.org runtime installer
-Filename: {app}\CopyDLLs.exe; Description: Copy DLLs to CS directory; Flags: postinstall; WorkingDir: {app}; Parameters: {code:GetSupportParamsSilent}; Check: not CrossPresets
-Filename: {app}\CopyDLLs.exe; Description: Copy DLLs to CS directory; Flags: postinstall unchecked; WorkingDir: {app}; Parameters: {code:GetSupportParamsSilent}; Check: CrossPresets
+Filename: {app}\{#File_OpenALInstaller}; Parameters: /S; WorkingDir: {app}; Components: Extra/OpenALInstaller; Check: RunOpenALInstaller; StatusMsg: Running OpenAL.org runtime installer
+Filename: {app}\CopyDLLs.exe; Description: Copy DLLs to CS directory; Flags: postinstall; WorkingDir: {app}; Parameters: {code:GetSupportParamsSilent}; Check: not CrossPresets; Components: Libs/Common Libs/VC Libs/MinGW
+Filename: {app}\CopyDLLs.exe; Description: Copy DLLs to CS directory; Flags: postinstall unchecked; WorkingDir: {app}; Parameters: {code:GetSupportParamsSilent}; Check: CrossPresets; Components: Libs/Common Libs/VC Libs/MinGW
 Filename: {app}\VCsupport.exe; Description: Set up VisualC support; Flags: postinstall; Components: DESupport/VC; WorkingDir: {app}; Parameters: {code:GetSupportParamsSilent}
 Filename: {app}\MSYSsupport.exe; Description: Set up MSYS support; Flags: postinstall; Components: DESupport/MSYS; WorkingDir: {app}; Parameters: {code:GetSupportParams}
-Filename: {app}\Cygwinsupport.exe; Description: Set up Cygwin support; Flags: postinstall; Components: DESupport/Cygwin; WorkingDir: {app}; Parameters: {code:GetSupportParams}
 Filename: {app}\Crosssupport.exe; Description: Set up Cross compiling support; Flags: postinstall; WorkingDir: {app}; Parameters: {code:GetSupportParams}; Check: IsWinePresent
 [UninstallRun]
 ;Filename: rundll32.exe; Parameters: {code:GetShortenedAppDir}\setuptool.dll,UninstDESupport {code:GetSupportParamsSilent}
@@ -191,12 +195,12 @@ Filename: {app}\Crosssupport.exe; Description: Set up Cross compiling support; F
 [UninstallDelete]
 Name: {app}\tools; Type: filesandordirs
 Name: {app}\version.txt; Type: files
+Name: {app}\lib\pkgconfig; Type: filesandordirs
 [Icons]
 Name: {group}\Read Me; Filename: {app}\Readme.rtf; WorkingDir: {app}; Comment: Important informations, known issues and solutions.
 Name: {group}\Copy DLLs to a CS directory; Filename: {app}\CopyDLLs.exe; WorkingDir: {app}; Comment: Copies the 3rd party DLLs to a CS source directory so compiled binaries can find them.; IconIndex: 0;
 Name: {group}\Set up VC support; Filename: {app}\VCsupport.exe; WorkingDir: {app}; Comment: Copies the headers and libraries to your CS source directory so you can use them from VC.; IconIndex: 0; Components: DESupport/VC
 Name: {group}\Set up MSYS support; Filename: {app}\MSYSsupport.exe; WorkingDir: {app}; Comment: Sets up MSYS so you can use the CrystalSpace libs from there.; IconIndex: 0; Components: DESupport/MSYS
-Name: {group}\Set up Cygwin support; Filename: {app}\Cygwinsupport.exe; WorkingDir: {app}; Comment: Sets up Cygwin so you can use the CrystalSpace libs from there.; IconIndex: 0; Components: DESupport/Cygwin
 ;Name: "{group}\CrystalSpace home page"; Filename: "{app}\CrystalSpace home page.url"
 Name: {group}\Uninstall {#AppName}; Filename: {uninstallexe}; WorkingDir: {app}; Comment: Remove the {#AppName} from your system.
 [Registry]
@@ -498,3 +502,27 @@ begin
    	end;
   end;
 end;
+
+function ToCygwin (path: String): PChar;
+external 'ToCygwin@{#SetupToolDll} stdcall';
+
+procedure LibPostInstall();
+var
+  pcFileName: string;
+  currentLib, libname: string;
+begin
+  pcFileName := ExpandConstant (CurrentFileName);
+  currentLib := ExtractFileName (pcFileName);
+  currentLib := copy(currentLib, 1, Length (currentLib) - 4);
+  if (CompareText (currentlib, 'zlib') = 0) then
+    libname := 'libz'
+  else
+    libname := currentlib;
+  pcFileName := ExtractFilePath (pcFileName) + 'pkgconfig\' + currentLib + '.pc';
+  SaveStringToFile (pcFileName, 'prefix=' + ToCygwin (ExpandConstant ('{app}')) + #13#10, false);
+  SaveStringToFile (pcFileName, 'Name: ' + libname + #13#10, true);
+  SaveStringToFile (pcFileName, 'Version: 1' + #13#10, true);
+  SaveStringToFile (pcFileName, 'Description: Autogenerated from ' + currentlib + '.lib' + #13#10, true);
+  SaveStringToFile (pcFileName, 'Libs: ${prefix}/lib/' + currentlib + '.lib' + #13#10, true);
+end;
+

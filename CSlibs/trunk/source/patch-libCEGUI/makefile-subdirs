@@ -1,0 +1,11 @@
+Index: Makefile.am
+===================================================================
+--- Makefile.am	(revision 1251)
++++ Makefile.am	(working copy)
+@@ -1,4 +1,5 @@
+-SUBDIRS = . XMLParserModules ImageCodecModules RendererModules src include WindowRendererSets ScriptingModules Samples
++#SUBDIRS = . XMLParserModules ImageCodecModules RendererModules src include WindowRendererSets ScriptingModules Samples
++SUBDIRS = . src include XMLParserModules WindowRendererSets
+ 
+ pkgconfigdir = $(libdir)/pkgconfig
+ pkgconfig_DATA = CEGUI.pc CEGUI-OPENGL.pc
