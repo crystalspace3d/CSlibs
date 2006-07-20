@@ -1,8 +1,15 @@
 #!/bin/sh
 
+determine_platform()
+{
 if test "`uname -o 2> /dev/null`" = "Cygwin" ; then
-  libsdir=`cygpath -u "%CSLIBSPATH%"`
-  platform=cygwin
+  if test -n "$no_cygwin" ; then
+    libsdir=`cygpath -u "%CSLIBSPATH%"`
+    platform=mingw
+  else
+    libsdir=`cygpath -u "%CSLIBSPATH%"`
+    platform=cygwin
+  fi
 else
   if test "`uname -s | sed -e 's+\(.*\)_.*+\1+'`" = "MINGW32" ; then
     libsdir="%CSLIBSPATH_MSYS%"
@@ -12,6 +19,9 @@ else
     platform=mingw
   fi
 fi
+}
+
+determine_platform
 
 compiler=${platform}
 
@@ -20,6 +30,7 @@ usage()
     cat <<EOF
 Usage: cslibs-config [OPTIONS]
 Options:
+	[-mno-cygwin]  # must be specifed before --compiler
 	[--lflags]
 	[--cflags]
 	[--binpath]
@@ -59,6 +70,10 @@ while test $# -gt 0; do
     --compiler)
       compiler=${platform}-$2
       shift
+      ;;
+    -mno-cygwin)
+      no_cygwin=1
+      determine_platform
       ;;
     *)
       usage 1 1>&2
