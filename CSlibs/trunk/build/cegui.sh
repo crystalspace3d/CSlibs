@@ -55,11 +55,11 @@ if test "${platform_short}" != "cygwin" ; then
   cd temp/${library}/${platform}
   freetype2_CFLAGS="-I${basedir}/source/libfreetype/include -I${basedir}/source/configs/freetype" \
   freetype2_LIBS="-L${basedir}/libs/release -lfreetype2" \
-  pcre_CFLAGS="-I${pcre}/include" \
+  pcre_CFLAGS="-I${pcre}/include -DPCRE_STATIC" \
   pcre_LIBS="-L${pcre}/lib -lpcre" \
   CEGUI_PLATFORM=${platform} \
   CFLAGS="-O2" \
-  CXXFLAGS="-O2 -DCEGUI_FACTORYMODULE_PREFIX=\"\\\"${libprefix}\\\"\" -DCEGUI_FACTORYMODULE_SUFFIX=\"\\\"-cs${platform}-1.dll\\\"\" -DPCRE_STATIC" \
+  CXXFLAGS="-O2 -DCEGUI_FACTORYMODULE_PREFIX=\"\\\"${libprefix}\\\"\" -DCEGUI_FACTORYMODULE_SUFFIX=\"\\\"-cs${platform}-1.dll\\\"\"" \
   ${basedir}/source/${library}/configure --prefix=${prefix} --disable-static --disable-opengl-renderer -C "$@"
   make install
   cd ../../..
@@ -81,11 +81,11 @@ rm -rf ${prefix}
 cd temp/${library}/${platform}-static
 freetype2_CFLAGS="-I${basedir}/temp/mingw/prefix/include/ -I${basedir}/temp/mingw/prefix/include/freetype2/" \
 freetype2_LIBS="-L${basedir}/temp/mingw/prefix/lib -lfreetype -lz" \
-pcre_CFLAGS="-I${pcre}/include" \
+pcre_CFLAGS="-I${pcre}/include -DPCRE_STATIC" \
 pcre_LIBS="-L${pcre}/lib -lpcre" \
 CEGUI_PLATFORM=${platform} \
 CFLAGS="-O2" \
-CXXFLAGS="-O2 -DCEGUI_FACTORYMODULE_PREFIX=\"\\\"${libprefix}\\\"\" -DCEGUI_FACTORYMODULE_SUFFIX=\"\\\"-cs${platform}-1.dll\\\"\" -DPCRE_STATIC" \
+CXXFLAGS="-O2 -DCEGUI_FACTORYMODULE_PREFIX=\"\\\"${libprefix}\\\"\" -DCEGUI_FACTORYMODULE_SUFFIX=\"\\\"-cs${platform}-1.dll\\\"\"" \
 ${basedir}/source/${library}/configure --prefix=${prefix} --disable-static --disable-opengl-renderer -C "$@"
 make install
 cd ../../..
