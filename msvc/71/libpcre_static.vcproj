@@ -32,7 +32,7 @@
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
 				ProgramDataBaseFileName="..\..\libs\Temp_static\pcre.pdb"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_LIB;_WINDOWS;PCRE_STATIC;WIN32"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_LIB;_WINDOWS;PCRE_STATIC;SUPPORT_UTF8;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
 				AdditionalIncludeDirectories=".;..\..\source\libpcre\..\configs\pcre"
@@ -65,7 +65,7 @@
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_LIB;_WINDOWS;PCRE_STATIC"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_LIB;_WINDOWS;PCRE_STATIC;SUPPORT_UTF8"
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
@@ -79,7 +79,7 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_LIB;_WINDOWS;PCRE_STATIC;PROJECTGEN_VERSION=71"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_LIB;_WINDOWS;PCRE_STATIC;SUPPORT_UTF8;PROJECTGEN_VERSION=71"
 				AdditionalIncludeDirectories=".;..\..\source\libpcre\..\configs\pcre"
 				Culture="1033"/>
 			<Tool

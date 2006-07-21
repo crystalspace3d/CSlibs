@@ -1,4 +1,4 @@
-#include "CSlibs.inc"
+  #include "CSlibs.inc"
 #define File_OpenALInstaller 		"OpenALwEAX.exe"
 #ifdef STATIC
 #define AppName						CSLibsName + " (Static version)"
@@ -15,8 +15,8 @@
 
 [Setup]
 SolidCompression=true
-;Compression=lzma/ultra
-Compression=none
+Compression=lzma/ultra
+;Compression=none
 ShowLanguageDialog=no
 AppName={#AppName}
 AppId={#AppId}
