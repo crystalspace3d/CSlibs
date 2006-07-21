@@ -99,5 +99,5 @@ if test "$echo_dllpath" = "yes"; then
 fi      
 
 if test "$echo_libpath" = "yes"; then
-      echo ${libsdir}/libs
+      echo ${libsdir}/lib
 fi      
