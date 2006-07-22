@@ -1,0 +1,12 @@
+SubDir TOP source libjs ;
+
+BaseLib js : 
+  [ Filter [ Wildcard *.c *.h ] : jskwgen.c jscpucfg.c ] : 
+  js :
+  :
+  : 
+  nostatic ;
+MsvcDefine js : LIBJS_EXPORTS ;
+MsvcDefine js : XP_WIN ;
+MsvcDefine js : EXPORT_JS_API ;
+MsvcExtraFile js : source/libjs.rc ;

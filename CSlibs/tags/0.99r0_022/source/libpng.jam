@@ -1,0 +1,12 @@
+SubDir TOP source libpng ;
+
+BaseLib png : 
+  [ Wildcard png*.c png*.h ] : 
+  libpng :
+  $(SUBDIR)/scripts/pngw32.def :
+  $(SUBDIR)/../libz $(SUBDIR) ;
+LibDepends png : z ;
+MsvcDefine png : PNG_USE_PNGVCRD ;
+MsvcDefine png : 
+  "SPECIALBUILD=\\&quot;Built for CrystalSpace, may cause problems if used for other software.\\&quot;" ;
+MsvcExtraFile png : source/libpng.rc ;
