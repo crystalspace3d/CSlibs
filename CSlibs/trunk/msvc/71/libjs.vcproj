@@ -151,9 +151,6 @@
 				RelativePath="..\..\source\libjs\jsinterp.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsiter.c">
-			</File>
-			<File
 				RelativePath="..\..\source\libjs\jslock.c">
 			</File>
 			<File
@@ -279,9 +276,6 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libjs\jsinterp.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libjs\jsiter.h">
 			</File>
 			<File
 				RelativePath="..\..\source\libjs\jslibmath.h">

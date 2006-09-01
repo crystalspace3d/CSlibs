@@ -1,3 +1,8 @@
+1.0rc1_001 (2006-09-??):
+  - Updated bullet to 1.9.
+  - Updated CEGUI to 0.5.0 RC2.
+  - Changed SpiderMonkey to SPIDERMONKEY_1_6_0_BRANCH CVS tag.
+
 0.99r0_022 (2006-07-22):
   - Added patches from mdmkolbe to make Cg, Ogg and Bullet useable on Cygwin.
   - Removed mikmod, as it is currently not used by CS.

@@ -71,7 +71,7 @@ if [ Property build : projgen_version ] = 71
 {
   rule BaseLib 
   { 
-    LibCommon $(1) : $(2) : $(3) : $(4) : $(5) : $(6) ;
+    LibCommon $(1) : $(2) : $(3) : $(4) : $(5) : $(6) : : $(7) ;
     SetProperty baseliblibs : $(1) : $(1) ;
     SetProperty baseliblibs : $(1)_debug : $(1) ;
     SetProperty baseliblibs : $(1)_static : $(1)_static ;
@@ -83,14 +83,17 @@ else
   rule BaseLib 
   { 
     local options = $(6) ;
-    local outdir ;
-    if ! [ IsElem norelease : $(options) ]
-    {
-      outdir = "Release" ; 
-    }
-    else
-    {
-      outdir = "Temp" ; 
+    local outdir = $(7) ;
+    if ! $(outdir) 
+    { 
+      if ! [ IsElem norelease : $(options) ]
+      {
+	outdir = "Release" ; 
+      }
+      else
+      {
+	outdir = "Temp" ; 
+      }
     }
     local root = [ MsvcWorkbuildToRoot ] ;
   

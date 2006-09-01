@@ -11,7 +11,7 @@ rebase()
 
 startbase=0x70000000
 # Rebase common DLLs
-base=`rebase $startbase libs/release/*.dll`
+base=`rebase $startbase libs/release/*.dll libs/releasenocygwin/*.dll`
 # Rebase per-version DLLs, ignore debug versions
 rebase $base libs/ReleaseVC7Only/*-csvc7.dll > /dev/null
 rebase $base libs/ReleaseVC71Only/*-csvc71.dll > /dev/null

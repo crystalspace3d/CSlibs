@@ -27,7 +27,8 @@ DisableProgramGroupPage=true
 WizardImageFile=compiler:WizModernImage-IS.bmp
 WizardSmallImageFile=compiler:WizModernSmallImage-IS.bmp
 [Files]
-Source: {src}\include\*.*; DestDir: {app}\include\csutil\win32; Flags: external skipifsourcedoesntexist recursesubdirs
+Source: {src}\common\include\*.*; DestDir: {app}\include\csutil\win32; Flags: external skipifsourcedoesntexist recursesubdirs
+Source: {src}\vc\include\*.*; DestDir: {app}\include\csutil\win32; Flags: external skipifsourcedoesntexist recursesubdirs
 ;Source: {src}\include\AL\*.*; DestDir: {app}\include\csutil\win32\AL; Flags: external skipifsourcedoesntexist
 ;Source: {src}\include\cal3d\*.*; DestDir: {app}\include\csutil\win32\cal3d; Flags: external skipifsourcedoesntexist
 ;Source: {src}\include\freetype\*.*; DestDir: {app}\include\csutil\win32\freetype; Flags: external skipifsourcedoesntexist
@@ -49,10 +50,10 @@ Source: {src}\include\*.*; DestDir: {app}\include\csutil\win32; Flags: external 
 ;Source: {src}\include\ConstraintSolver\*.*; DestDir: {app}\include\csutil\win32\ConstraintSolver; Flags: external skipifsourcedoesntexist
 ;Source: {src}\include\Dynamics\*.*; DestDir: {app}\include\csutil\win32\Dynamics; Flags: external skipifsourcedoesntexist
 ;Source: {src}\include\NarrowPhaseCollision\*.*; DestDir: {app}\include\csutil\win32\NarrowPhaseCollision; Flags: external skipifsourcedoesntexist
-Source: {src}\lib\*.lib; DestDir: {app}\libs\csutil\win32\libs; Flags: external skipifsourcedoesntexist
-Source: {src}\lib\*.pdb; DestDir: {app}\libs\csutil\win32\libs; Flags: external skipifsourcedoesntexist
-Source: {src}\lib\vc\*.lib; DestDir: {app}\libs\csutil\win32\libs; Flags: external skipifsourcedoesntexist
-Source: {src}\lib\vc\*.pdb; DestDir: {app}\libs\csutil\win32\libs; Flags: external skipifsourcedoesntexist
+Source: {src}\common\lib\*.lib; DestDir: {app}\libs\csutil\win32\libs; Flags: external skipifsourcedoesntexist
+Source: {src}\common\lib\*.pdb; DestDir: {app}\libs\csutil\win32\libs; Flags: external skipifsourcedoesntexist
+Source: {src}\vc\lib\*.lib; DestDir: {app}\libs\csutil\win32\libs; Flags: external skipifsourcedoesntexist
+Source: {src}\vc\lib\*.pdb; DestDir: {app}\libs\csutil\win32\libs; Flags: external skipifsourcedoesntexist
 [Registry]
 Root: HKLM; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstvalName}; ValueData: {uninstallexe}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: CheckAdminStuff
 Root: HKCU; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstvalName}; ValueData: {uninstallexe}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: CheckNoAdminStuff
