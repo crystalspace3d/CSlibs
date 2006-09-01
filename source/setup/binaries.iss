@@ -15,8 +15,8 @@
 
 [Setup]
 SolidCompression=true
-Compression=lzma/ultra
-;Compression=none
+;Compression=lzma/ultra
+Compression=none
 ShowLanguageDialog=no
 AppName={#AppName}
 AppId={#AppId}
@@ -75,47 +75,51 @@ Source: ..\..\libs\ReleaseGCCOnly_static\mingw-gcc-3.4\*.dll; DestDir: {app}\dll
 #endif
 
 ; .libs: common for both static/dynamic
-Source: ..\..\nosource\OpenAL\libs\*.lib; DestDir: {app}\lib; Components: Libs/Common; AfterInstall: LibPostInstall
-Source: ..\..\nosource\freealut\lib\*.lib; DestDir: {app}\lib; Components: Libs/Common; AfterInstall: LibPostInstall
-Source: ..\..\directx\lib\*.*; DestDir: {app}\lib; Flags: recursesubdirs; Components: Extra/DXLibs; AfterInstall: LibPostInstall
-Source: ..\..\nosource\python\*.*; DestDir: {app}\lib; Components: Extra/Python
-Source: ..\..\nosource\Cg\lib\*.*; DestDir: {app}\lib; Flags: recursesubdirs; Components: Extra/Cg; AfterInstall: LibPostInstall
+Source: ..\..\nosource\OpenAL\libs\*.lib; DestDir: {app}\common\lib; Components: Libs/Common; AfterInstall: LibPostInstall
+Source: ..\..\nosource\freealut\lib\*.lib; DestDir: {app}\common\lib; Components: Libs/Common; AfterInstall: LibPostInstall
+Source: ..\..\directx\lib\*.*; DestDir: {app}\common\lib; Flags: recursesubdirs; Components: Extra/DXLibs; AfterInstall: LibPostInstall
+Source: ..\..\nosource\python\*.*; DestDir: {app}\common\lib; Components: Extra/Python
+Source: ..\..\nosource\Cg\lib\*.*; DestDir: {app}\common\lib; Flags: recursesubdirs; Components: Extra/Cg; AfterInstall: LibPostInstall
 
 #ifndef STATIC
 ; Dynamic .libs
-Source: ..\..\libs\Release\*.lib; DestDir: {app}\lib; Components: Libs/Common; AfterInstall: LibPostInstall
-Source: ..\..\libs\ReleaseVC7Only\*.lib; DestDir: {app}\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC71Only\*.lib; DestDir: {app}\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC8Only\*.lib; DestDir: {app}\lib; Components: Libs/VC
+Source: ..\..\libs\Release\*.lib; DestDir: {app}\common\lib; Components: Libs/Common; AfterInstall: LibPostInstall
+Source: ..\..\libs\ReleaseVC7Only\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC71Only\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC8Only\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseNoCygwin\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC;
+Source: ..\..\libs\ReleaseNoCygwin\*.lib; DestDir: {app}\mingw\lib; Components: Libs/MinGW; AfterInstall: LibPostInstall
 ; Bullet is always static
-Source: ..\..\libs\ReleaseVC7Only_static\bullet*.lib; DestDir: {app}\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC71Only_static\bullet*.lib; DestDir: {app}\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC8Only_static\bullet*.lib; DestDir: {app}\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.4\lib*.a; DestDir: {app}\lib\mingw-gcc-3.4; Components: Libs/MinGW
+Source: ..\..\libs\ReleaseVC7Only_static\bullet*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC71Only_static\bullet*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC8Only_static\bullet*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.4\lib*.a; DestDir: {app}\mingw\lib; Components: Libs/MinGW
 #else
 ; Static .libs
-Source: ..\..\libs\Release\js.lib; DestDir: {app}\lib; Components: Libs/Common
-Source: ..\..\libs\Release_static\*.lib; DestDir: {app}\lib\vc; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC7Only_static\*.lib; DestDir: {app}\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC71Only_static\*.lib; DestDir: {app}\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC8Only_static\*.lib; DestDir: {app}\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseGCCOnly_static\mingw\*.a; DestDir: {app}\lib\mingw; Components: Libs/MinGW
-Source: ..\..\libs\ReleaseGCCOnly_static\mingw-gcc-3.4\lib*.a; DestDir: {app}\lib\mingw-gcc-3.4; Components: Libs/MinGW
-Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.4\libbullet*.a; DestDir: {app}\lib\mingw-gcc-3.4; Components: Libs/MinGW
-Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.4\libcal3d.a; DestDir: {app}\lib\mingw-gcc-3.4; Components: Libs/MinGW
+Source: ..\..\libs\Release\js.lib; DestDir: {app}\common\lib; Components: Libs/Common
+Source: ..\..\libs\Release_static\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC7Only_static\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC71Only_static\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC8Only_static\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseGCCOnly_static\mingw\*.a; DestDir: {app}\mingw\lib; Components: Libs/MinGW
+Source: ..\..\libs\ReleaseGCCOnly_static\mingw-gcc-3.4\lib*.a; DestDir: {app}\mingw\lib; Components: Libs/MinGW
+Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.4\libbullet*.a; DestDir: {app}\mingw\lib; Components: Libs/MinGW
+Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.4\libcal3d.a; DestDir: {app}\mingw\lib; Components: Libs/MinGW
 #endif
 
 ; headers
-Source: ..\..\headers\*.*; DestDir: {app}\include; Flags: recursesubdirs; Components: Libs/Common
+Source: ..\..\headers\*.*; DestDir: {app}\common\include; Flags: recursesubdirs; Components: Libs/Common
+Source: ..\..\headers-nocygwin\*.*; DestDir: {app}\mingw\include; Flags: recursesubdirs; Components: Libs/MinGW
+Source: ..\..\headers-nocygwin\*.*; DestDir: {app}\vc\include; Flags: recursesubdirs; Components: Libs/VC
 #ifdef STATIC
 ;Source: ..\..\headers_static\*.*; DestDir: {app}\include; Flags: recursesubdirs; Components: Libs/Common
 #else
 ;Source: ..\..\headers_dll\*.*; DestDir: {app}\include; Flags: recursesubdirs; Components: Libs/Common
 #endif
-Source: ..\..\nosource\OpenAL\include\*.*; DestDir: {app}\include\AL; Flags: recursesubdirs; Components: Libs/Common
-Source: ..\..\nosource\freealut\include\*.*; DestDir: {app}\include; Flags: recursesubdirs; Components: Libs/Common
-Source: ..\..\directx\include\*.*; DestDir: {app}\include; Flags: recursesubdirs; Components: Extra/DXHeaders
-Source: ..\..\nosource\Cg\include\Cg\*.*; DestDir: {app}\include\Cg; Flags: recursesubdirs; Components: Extra/Cg
+Source: ..\..\nosource\OpenAL\include\*.*; DestDir: {app}\common\include\AL; Flags: recursesubdirs; Components: Libs/Common
+Source: ..\..\nosource\freealut\include\*.*; DestDir: {app}\common\include; Flags: recursesubdirs; Components: Libs/Common
+Source: ..\..\directx\include\*.*; DestDir: {app}\common\include; Flags: recursesubdirs; Components: Extra/DXHeaders
+Source: ..\..\nosource\Cg\include\Cg\*.*; DestDir: {app}\common\include\Cg; Flags: recursesubdirs; Components: Extra/Cg
 
 #ifndef STATIC
 ; Debug info
@@ -123,9 +127,9 @@ Source: ..\..\libs\Release\*.pdb; DestDir: {app}\dlls; Components: Extra/DebugIn
 Source: ..\..\libs\ReleaseVC7Only\*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo
 Source: ..\..\libs\ReleaseVC71Only\*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo
 Source: ..\..\libs\ReleaseVC8Only\*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo
-Source: ..\..\libs\ReleaseVC7Only_static\bullet*.pdb; DestDir: {app}\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC71Only_static\bullet*.pdb; DestDir: {app}\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC8Only_static\bullet*.pdb; DestDir: {app}\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC7Only_static\bullet*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC71Only_static\bullet*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC8Only_static\bullet*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseGCCOnly\mingw\*.dbg; DestDir: {app}\dlls\mingw; Components: Extra/DebugInfo
 #else
 Source: ..\..\libs\ReleaseVC7Only_static\lib*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo
@@ -134,13 +138,13 @@ Source: ..\..\libs\ReleaseVC8Only_static\lib*.pdb; DestDir: {app}\dlls\vc; Compo
 Source: ..\..\libs\Release\libjs-cs.pdb; DestDir: {app}\dlls; Components: Extra/DebugInfo
 Source: ..\..\libs\ReleaseGCCOnly_static\mingw\*.dbg; DestDir: {app}\dlls\mingw; Components: Extra/DebugInfo
 ; Always install pdbs for static libs (to avoid compiler complaints)
-Source: ..\..\libs\Release_static\*.pdb; DestDir: {app}\lib\vc; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC7Only_static\bullet*.pdb; DestDir: {app}\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC7Only_static\cal3d*.pdb; DestDir: {app}\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC71Only_static\bullet*.pdb; DestDir: {app}\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC71Only_static\cal3d*.pdb; DestDir: {app}\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC8Only_static\bullet*.pdb; DestDir: {app}\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC8Only_static\cal3d*.pdb; DestDir: {app}\lib; Components: Libs/VC
+Source: ..\..\libs\Release_static\*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC7Only_static\bullet*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC7Only_static\cal3d*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC71Only_static\bullet*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC71Only_static\cal3d*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC8Only_static\bullet*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC8Only_static\cal3d*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
 #endif
 
 ; Misc stuff
@@ -160,9 +164,13 @@ Source: ..\..\out\support\CopyDLLs.exe; DestDir: {app}; Components: Libs/Common 
 [Dirs]
 Name: {app}\tools; Flags: uninsalwaysuninstall
 Name: {app}\support; Flags: uninsalwaysuninstall
-Name: {app}\include; Flags: uninsalwaysuninstall
-Name: {app}\lib; Flags: uninsalwaysuninstall
-Name: {app}\lib\pkgconfig; Flags: uninsalwaysuninstall
+Name: {app}\common\include; Flags: uninsalwaysuninstall
+Name: {app}\common\lib; Flags: uninsalwaysuninstall
+Name: {app}\mingw\include; Flags: uninsalwaysuninstall
+Name: {app}\mingw\lib; Flags: uninsalwaysuninstall
+Name: {app}\mingw\lib\pkgconfig; Flags: uninsalwaysuninstall
+Name: {app}\vc\include; Flags: uninsalwaysuninstall
+Name: {app}\vc\lib; Flags: uninsalwaysuninstall
 Name: {app}\bin; Flags: uninsalwaysuninstall
 Name: {app}\dlls; Flags: uninsalwaysuninstall
 Name: {app}; Flags: uninsalwaysuninstall
@@ -199,7 +207,7 @@ Filename: {app}\Crosssupport.exe; Description: Set up Cross compiling support; F
 [UninstallDelete]
 Name: {app}\tools; Type: filesandordirs
 Name: {app}\version.txt; Type: files
-Name: {app}\lib\pkgconfig; Type: filesandordirs
+Name: {app}\mingw\lib\pkgconfig; Type: filesandordirs
 [Icons]
 Name: {group}\Read Me; Filename: {app}\Readme.rtf; WorkingDir: {app}; Comment: Important informations, known issues and solutions.
 Name: {group}\Copy DLLs to a CS directory; Filename: {app}\CopyDLLs.exe; WorkingDir: {app}; Comment: Copies the 3rd party DLLs to a CS source directory so compiled binaries can find them.; IconIndex: 0;
@@ -513,21 +521,30 @@ external 'ToCygwin@{#SetupToolDll} stdcall';
 
 procedure LibPostInstall();
 var
+  srcFileName: string;
+  pcPath: string;
   pcFileName: string;
   currentLib, libname: string;
+  appPath: string;
+  libPath: string;
 begin
-  pcFileName := ExpandConstant (CurrentFileName);
-  currentLib := ExtractFileName (pcFileName);
+  srcFileName := ExpandConstant (CurrentFileName);;
+  currentLib := ExtractFileName (srcFileName);
   currentLib := copy(currentLib, 1, Length (currentLib) - 4);
   if (CompareText (currentlib, 'zlib') = 0) then
     libname := 'libz'
   else
     libname := currentlib;
-  pcFileName := ExtractFilePath (pcFileName) + 'pkgconfig\' + currentLib + '.pc';
-  SaveStringToFile (pcFileName, 'prefix=' + ToCygwin (ExpandConstant ('{app}')) + #13#10, false);
+  appPath := ExpandConstant ('{app}');
+  pcPath := appPath + '\mingw\lib\pkgconfig\';
+    { := ExtractFilePath (pcFileName) + 'pkgconfig\' }
+  pcFileName := pcPath + currentLib + '.pc';
+  SaveStringToFile (pcFileName, 'prefix=' + ToCygwin (appPath) + #13#10, false);
   SaveStringToFile (pcFileName, 'Name: ' + libname + #13#10, true);
   SaveStringToFile (pcFileName, 'Version: 1' + #13#10, true);
   SaveStringToFile (pcFileName, 'Description: Autogenerated from ' + currentlib + '.lib' + #13#10, true);
-  SaveStringToFile (pcFileName, 'Libs: ${prefix}/lib/' + currentlib + '.lib' + #13#10, true);
+  libPath := copy (srcFileName, Length (appPath)+2, Length (srcFileName));
+  StringChange (libPath, '\', '/');
+  SaveStringToFile (pcFileName, 'Libs: ${prefix}/' + libPath + #13#10, true);
 end;
 

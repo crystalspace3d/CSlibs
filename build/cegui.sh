@@ -18,7 +18,7 @@ if ! [ -e ${pcre} ] ; then
   
   make install
   # libtool, doesn't want to link shared libs against static libs. whatever
-  rm ../prefix-pcre/lib/*.la
+  rm ../prefix-${platform}/lib/*.la
   cd ../../..
 fi
 
@@ -95,7 +95,7 @@ for dll in `ls -1 temp/${library}/prefix-${platform_short}-static/bin/*.dll` ; d
   objcopy --add-gnu-debuglink=${dll}.dbg ${dll}
 done
 cp ${prefix}/bin/*.dll libs/ReleaseGCCOnly_static/${platform_short}
-cp ${prefix}/*.dbg libs/ReleaseGCCOnly_static/${platform_short}
+cp ${prefix}/bin/*.dbg libs/ReleaseGCCOnly_static/${platform_short}
 for lib in CEGUIBase CEGUIFalagardWRBase CEGUITinyXMLParser ; do
   cp ${prefix}/lib/lib${lib}-cs${platform}.dll.a \
     libs/ReleaseGCCOnly_static/${platform}/lib${lib}.a

@@ -241,9 +241,6 @@
 				RelativePath="..\..\source\libCEGUI\src\CEGUITextUtils.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIVector.cpp">
-			</File>
-			<File
 				RelativePath="..\..\source\libCEGUI\src\CEGUIWindow.cpp">
 			</File>
 			<File

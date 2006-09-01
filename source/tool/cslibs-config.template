@@ -83,11 +83,11 @@ while test $# -gt 0; do
 done
 
 if test "$echo_cflags" = "yes"; then
-      echo -I${libsdir}/include
+      echo -I${libsdir}/${platform}/include -I${libsdir}/common/include
 fi
 
 if test "$echo_lflags" = "yes"; then
-      echo -L${libsdir}/lib -L${libsdir}/lib/${platform} -L${libsdir}/lib/${compiler}
+      echo -L${libsdir}/${compiler}/lib -L${libsdir}/${platform}/lib -L${libsdir}/common/lib 
 fi      
 
 if test "$echo_binpath" = "yes"; then
@@ -99,5 +99,5 @@ if test "$echo_dllpath" = "yes"; then
 fi      
 
 if test "$echo_libpath" = "yes"; then
-      echo ${libsdir}/lib
+      echo ${libsdir}/${platform}/lib
 fi      
