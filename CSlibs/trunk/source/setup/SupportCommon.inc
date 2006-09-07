@@ -1,6 +1,7 @@
 var
   UninstRegEntryNum: integer;
   UninstDescr: string;
+  UninstRegKey: string;
   InitialDirectory: string;
   
   IDinputPage: TInputQueryWizardPage;
@@ -45,20 +46,8 @@ begin
 end;
 
 function GetUninstvalName(Default: string): string;
-var
-  root: integer;
 begin
-  if IsAdminLoggedOn then
-    root := HKEY_LOCAL_MACHINE
-  else
-    root := HKEY_CURRENT_USER;
-  if (UninstRegEntryNum = -1) then begin
-    repeat
-      UninstRegEntryNum := UninstRegEntryNum + 1;
-    until not RegValueExists (root, '{#UninstKey}',
-      IntToStr (UninstRegEntryNum));
-  end;
-  Result := IntToStr (UninstRegEntryNum);
+  Result := UninstRegKey;
 end;
 
 function GetIconComment(Default: string): string;
@@ -108,6 +97,8 @@ begin
     if (fail) then
       MsgBox ('You cannot use / \ * ? : | < > in the description.', mbError, MB_OK);
     Result := not fail;
+  end else if (CurPage = wpSelectDir) then begin
+    UninstRegKey := ExpandConstant ('{app}');
   end;
 end;
 

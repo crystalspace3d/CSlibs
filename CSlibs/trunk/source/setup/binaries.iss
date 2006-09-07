@@ -1,4 +1,4 @@
-  #include "CSlibs.inc"
+#include "CSlibs.inc"
 #define File_OpenALInstaller 		"OpenALwEAX.exe"
 #ifdef STATIC
 #define AppName						CSLibsName + " (Static version)"
@@ -15,8 +15,8 @@
 
 [Setup]
 SolidCompression=true
-;Compression=lzma/ultra
-Compression=none
+Compression=lzma/ultra
+;Compression=none
 ShowLanguageDialog=no
 AppName={#AppName}
 AppId={#AppId}
@@ -65,6 +65,7 @@ Source: ..\..\libs\ReleaseVC71Only\*.dll; DestDir: {app}\dlls\vc; Components: Li
 Source: ..\..\libs\ReleaseVC8Only\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
 Source: ..\..\libs\ReleaseGCCOnly\mingw\*.dll; DestDir: {app}\dlls\mingw; Flags: skipifsourcedoesntexist; Components: Libs/MinGW
 Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.4\*.dll; DestDir: {app}\dlls\mingw; Flags: skipifsourcedoesntexist; Components: Libs/MinGW
+Source: ..\..\libs\ReleaseNoCygwin\*.dll; DestDir: {app}\dlls; Components: Libs/VC Libs/MinGW
 #else
 Source: ..\..\libs\Release\libjs-cs.dll; DestDir: {app}\dlls; Components: Libs/Common
 Source: ..\..\libs\ReleaseVC7Only_static\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
@@ -130,6 +131,7 @@ Source: ..\..\libs\ReleaseVC8Only\*.pdb; DestDir: {app}\dlls\vc; Components: Ext
 Source: ..\..\libs\ReleaseVC7Only_static\bullet*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC71Only_static\bullet*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC8Only_static\bullet*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseNoCygwin\*.pdb; DestDir: {app}\dlls; Components: Extra/DebugInfo
 Source: ..\..\libs\ReleaseGCCOnly\mingw\*.dbg; DestDir: {app}\dlls\mingw; Components: Extra/DebugInfo
 #else
 Source: ..\..\libs\ReleaseVC7Only_static\lib*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo
@@ -223,6 +225,13 @@ Root: HKLM; Subkey: {#CSLibsRegKey}; ValueType: string; ValueName: CSDirectory; 
 Root: HKCU; Subkey: {#CSLibsRegKey}; ValueType: string; ValueName: ProgramGroup; ValueData: {group}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: CheckNoAdminStuff
 Root: HKCU; Subkey: {#CSLibsRegKey}; ValueType: string; ValueName: InstallPath; ValueData: {app}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: CheckNoAdminStuff
 Root: HKCU; Subkey: {#CSLibsRegKey}; ValueType: string; ValueName: CSDirectory; ValueData: {code:GetCSdir}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: CheckAdminStuff
+; Clean up
+Root: HKLM; Subkey: {#CSLibsRegKey}; ValueType: none; Flags: uninsdeletekey dontcreatekey noerror
+Root: HKCU; Subkey: {#CSLibsRegKey}; ValueType: none; Flags: uninsdeletekey dontcreatekey noerror
+; "Legacy"
+Root: HKLM; Subkey: Software\CrystalSpaceLibs; ValueType: none; Flags: uninsdeletekey dontcreatekey noerror
+Root: HKCU; Subkey: Software\CrystalSpaceLibs; ValueType: none; Flags: uninsdeletekey dontcreatekey noerror
+
 [Messages]
 SelectDirLabel3=Setup will install [name] into the following folder. Please DO NOT choose you CrystalSpace directory here!
 FinishedLabel=Setup has finished installing [name] on your computer. You should be able to build CrystalSpace from source after setting up support for your development environment(s).
