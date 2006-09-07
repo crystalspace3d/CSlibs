@@ -100,3 +100,9 @@ begin
     or FSupportPageSkip (PageID);
 end;
 
+procedure CurStepChanged(CurStep: TSetupStep); 
+begin
+  if CurStep = ssInstall then begin
+    UninstRegKey := ExpandConstant ('{app}');
+  end;
+end;

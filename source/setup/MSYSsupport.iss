@@ -109,6 +109,9 @@ end;
 
 function NextButtonClick(CurPage: Integer): Boolean;
 begin
+  if (CurPage = profileFilePage.ID) then begin
+    UninstRegKey := profileFilePage.Values[0];
+  end;
   Result := FSupportPageNext (CurPage);
 end;
 

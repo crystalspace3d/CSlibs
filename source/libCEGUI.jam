@@ -12,6 +12,7 @@ ExtraLib CEGUIBase :
     $(SUBDIR)/../libfreetype/include :
   fakestatic :
   PCRE_STATIC CEGUIBASE_EXPORTS 
+    "CEGUI_DEFAULT_XMLPARSER=TinyXMLParser"
     "CEGUI_FACTORYMODULE_PREFIX=&quot;\\&quot;lib\\&quot;&quot;"
     "CEGUI_FACTORYMODULE_SUFFIX=&quot;\\&quot;-csvc$(MSVCGEN_VERSION)\\&quot;&quot;" :
   :
