@@ -1,0 +1,17 @@
+Index: prmjtime.c
+===================================================================
+RCS file: /cvsroot/mozilla/js/src/prmjtime.c,v
+retrieving revision 3.54
+diff -u -r3.54 prmjtime.c
+--- prmjtime.c	24 Feb 2006 23:18:05 -0000	3.54
++++ prmjtime.c	6 Mar 2006 00:56:40 -0000
+@@ -58,8 +58,7 @@
+ #include <sys/timeb.h>
+ #endif
+ #ifdef XP_WIN
+-#include <windef.h>
+-#include <winbase.h>
++#include <windows.h>
+ #endif
+ 
+ #if defined(XP_UNIX) || defined(XP_BEOS)

@@ -1,0 +1,38 @@
+SubDir TOP source libbullet ;
+
+ExtraLib bullet :
+  [ Wildcard [ ConcatDirs Bullet BroadphaseCollision ] : *.cpp *.h ] 
+  [ Wildcard [ ConcatDirs Bullet CollisionDispatch ] : *.cpp *.h ] 
+  [ Wildcard [ ConcatDirs Bullet CollisionShapes ] : *.cpp *.h ] 
+  [ Wildcard [ ConcatDirs Bullet NarrowPhaseCollision ] : *.cpp *.h ] : 
+  :
+  $(SUBDIR)/Bullet $(SUBDIR)/LinearMath :
+  staticonly ;
+
+ExtraLib bulletmath :
+  [ Wildcard [ ConcatDirs LinearMath ] : *.cpp *.h ] : 
+  :
+  :
+  staticonly ;
+
+ExtraLib bulletdynamics :
+  [ Wildcard [ ConcatDirs BulletDynamics ConstraintSolver ] : *.cpp *.h ] 
+  [ Wildcard [ ConcatDirs BulletDynamics Dynamics ] : *.cpp *.h ] : 
+  :
+  $(SUBDIR)/Bullet $(SUBDIR)/LinearMath $(SUBDIR)/BulletDynamics :
+  staticonly ;
+
+ExtraLib bulletphysicsinterfacecommon :
+  [ Wildcard [ ConcatDirs Extras PhysicsInterface Common ] : *.cpp *.h ] : 
+  :
+  $(SUBDIR)/Bullet $(SUBDIR)/LinearMath $(SUBDIR)/BulletDynamics  
+  $(SUBDIR)/Extras/PhysicsInterface/Common :
+  staticonly ;
+
+ExtraLib bulletccdphysics :
+  [ Wildcard [ ConcatDirs Extras PhysicsInterface CcdPhysics ] : *.cpp *.h ] : 
+  :
+  $(SUBDIR)/Bullet $(SUBDIR)/LinearMath $(SUBDIR)/BulletDynamics  
+  $(SUBDIR)/Extras/PhysicsInterface/Common :
+  staticonly ;
+

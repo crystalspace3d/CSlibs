@@ -1,0 +1,115 @@
+#!/bin/sh
+
+determine_platform()
+{
+if test "`uname -o 2> /dev/null`" = "Cygwin" ; then
+  if test -n "$no_cygwin" ; then
+    libsdir=`cygpath -u "%CSLIBSPATH%"`
+    platform=mingw
+  else
+    libsdir=`cygpath -u "%CSLIBSPATH%"`
+    platform=cygwin
+  fi
+else
+  if test "`uname -s | sed -e 's+\(.*\)_.*+\1+'`" = "MINGW32" ; then
+    libsdir="%CSLIBSPATH_MSYS%"
+    platform=mingw
+  else
+    libsdir="%CSLIBSPATH_WINE%"
+    platform=mingw
+  fi
+fi
+}
+
+determine_platform
+
+compiler=${platform}
+
+usage()
+{
+    cat <<EOF
+Usage: cslibs-config [OPTIONS]
+Options:
+	[-mno-cygwin]
+	[--lflags]
+	[--cflags]
+	[--binpath]
+	[--dllpath]
+	[--libpath]
+	[--pcpath]
+	[--compiler]
+	
+Notes:
+ * -mno-cygwin should be specified before any other option.
+ * The ...path output is actually a colon-separated list of paths.
+EOF
+	exit $1
+}
+
+if test $# -eq 0; then
+	usage 1 1>&2
+fi
+
+while test $# -gt 0; do
+  case "$1" in
+  -*=*) optarg=`echo "$1" | sed 's/[-_a-zA-Z0-9]*=//'` ;;
+  *) optarg= ;;
+  esac
+
+  case $1 in
+    --cflags)
+      echo_cflags=yes
+      ;;
+    --lflags)
+      echo_lflags=yes
+      ;;
+    --binpath)
+      echo_binpath=yes
+      ;;
+    --dllpath)
+      echo_dllpath=yes
+      ;;
+    --libpath)
+      echo_libpath=yes
+      ;;
+    --pcpath)
+      echo_pcpath=yes
+      ;;
+    --compiler)
+      compiler=${platform}-$2
+      shift
+      ;;
+    -mno-cygwin)
+      no_cygwin=1
+      determine_platform
+      ;;
+    *)
+      usage 1 1>&2
+      ;;
+  esac
+  shift
+done
+
+if test "$echo_cflags" = "yes"; then
+      echo -I${libsdir}/${platform}/include -I${libsdir}/common/include
+fi
+
+if test "$echo_lflags" = "yes"; then
+      echo -L${libsdir}/${compiler}/lib -L${libsdir}/${platform}/lib -L${libsdir}/common/lib 
+fi      
+
+if test "$echo_binpath" = "yes"; then
+      echo ${libsdir}/bin
+fi      
+
+if test "$echo_dllpath" = "yes"; then
+      echo ${libsdir}/dlls/${platform}:${libsdir}/dlls
+fi      
+
+if test "$echo_libpath" = "yes"; then
+      echo ${libsdir}/${platform}/lib:${libsdir}/common/lib
+fi      
+
+if test "$echo_pcpath" = "yes"; then
+      echo ${libsdir}/${platform}/lib/pkgconfig:${libsdir}/common/lib/pkgconfig
+fi      

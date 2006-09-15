@@ -1,0 +1,17 @@
+SubDir TOP source libode ;
+
+BaseLib ode :
+  [ Filter [ Wildcard [ ConcatDirs ode src ] : *.c *.cpp *.h ] : 
+    [ ConcatDirs ode src scrapbook.cpp ] 
+    [ ConcatDirs ode src stack.cpp ] 
+    [ ConcatDirs ode src stack.h ] 
+  ]
+  [ Wildcard [ ConcatDirs OPCODE ] : *.cpp *.h ] 
+  [ Wildcard [ ConcatDirs OPCODE Ice ] : *.cpp *.h ] : 
+  ode :
+  :
+  $(SUBDIR)/../configs $(SUBDIR)/include $(SUBDIR)/OPCODE ;
+MsvcDefine ode : LIBODE_EXPORTS ;
+MsvcDefine ode : ODE_DLL ;
+MsvcDefine ode_static : ODE_LIB ;
+MsvcExtraFile ode : source/libode.rc ;
