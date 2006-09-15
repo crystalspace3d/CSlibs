@@ -23,6 +23,7 @@ cp -r temp/mingw/prefix/include/freetype2/freetype headers/
 
 cp -r temp/libCEGUI/prefix-mingw/include/CEGUI/* headers/
 
+mingw=mingw-gcc-3.4
 cp temp/libbullet/prefix-${mingw}/include/bullet/*.h headers/
 cp -r temp/libbullet/prefix-${mingw}/include/bullet/BroadphaseCollision headers/
 cp -r temp/libbullet/prefix-${mingw}/include/bullet/CcdPhysics headers/

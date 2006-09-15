@@ -30,13 +30,18 @@ usage()
     cat <<EOF
 Usage: cslibs-config [OPTIONS]
 Options:
-	[-mno-cygwin]  # must be specifed before --compiler
+	[-mno-cygwin]
 	[--lflags]
 	[--cflags]
 	[--binpath]
 	[--dllpath]
 	[--libpath]
+	[--pcpath]
 	[--compiler]
+	
+Notes:
+ * -mno-cygwin should be specified before any other option.
+ * The ...path output is actually a colon-separated list of paths.
 EOF
 	exit $1
 }
@@ -67,6 +72,9 @@ while test $# -gt 0; do
     --libpath)
       echo_libpath=yes
       ;;
+    --pcpath)
+      echo_pcpath=yes
+      ;;
     --compiler)
       compiler=${platform}-$2
       shift
@@ -95,9 +103,13 @@ if test "$echo_binpath" = "yes"; then
 fi      
 
 if test "$echo_dllpath" = "yes"; then
-      echo ${libsdir}/dlls
+      echo ${libsdir}/dlls/${platform}:${libsdir}/dlls
 fi      
 
 if test "$echo_libpath" = "yes"; then
-      echo ${libsdir}/${platform}/lib
+      echo ${libsdir}/${platform}/lib:${libsdir}/common/lib
+fi      
+
+if test "$echo_pcpath" = "yes"; then
+      echo ${libsdir}/${platform}/lib/pkgconfig:${libsdir}/common/lib/pkgconfig
 fi      

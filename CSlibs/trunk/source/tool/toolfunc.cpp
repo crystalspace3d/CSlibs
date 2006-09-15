@@ -162,7 +162,11 @@ static void TryUninst (HKEY key, const LPTSTR params)
 
 TOOLENTRY(UninstDESupport)
 {
-  const LPTSTR regKey = _T("SOFTWARE\\CrystalSpaceLibs\\DESupport");
+  const LPTSTR regKeyEnd = _tcschr (lpCmdLine, ' ');
+  LPTSTR regKey = (LPTSTR)alloca ((regKeyEnd - lpCmdLine + 1) * sizeof (TCHAR));
+  memcpy (regKey, lpCmdLine, (regKeyEnd - lpCmdLine) * sizeof (TCHAR));
+  regKey[regKeyEnd - lpCmdLine] = 0;
+  lpCmdLine = regKeyEnd + 1;
   const DWORD regAccess = KEY_READ | KEY_WRITE;
 
   HKEY key;
