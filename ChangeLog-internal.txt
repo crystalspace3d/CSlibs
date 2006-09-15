@@ -1,3 +1,8 @@
+2006-09-15:
+  - Fixed CEGUI debug libs to use _d suffix.
+  - Fixed uninstalling of devenv support.
+  - cslibs-config now also returns a pkgconfig path.
+  - "common" libs now have a pkgconfig subdir as well, not just "mingw".
 2006-09-07:
   - Fixed CEGUI default XML handler.
   - Changed registry path to contain version number, to better support 

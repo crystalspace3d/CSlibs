@@ -168,6 +168,7 @@ Name: {app}\tools; Flags: uninsalwaysuninstall
 Name: {app}\support; Flags: uninsalwaysuninstall
 Name: {app}\common\include; Flags: uninsalwaysuninstall
 Name: {app}\common\lib; Flags: uninsalwaysuninstall
+Name: {app}\common\lib\pkgconfig; Flags: uninsalwaysuninstall
 Name: {app}\mingw\include; Flags: uninsalwaysuninstall
 Name: {app}\mingw\lib; Flags: uninsalwaysuninstall
 Name: {app}\mingw\lib\pkgconfig; Flags: uninsalwaysuninstall
@@ -515,7 +516,7 @@ var
   resCode: integer;
 begin
   if CurUninstallStep = usUninstall then begin
-    uninstParam := GetShortenedAppDir('') + '\setuptool.dll,UninstDESupport ' + GetSupportParamsSilent('');
+    uninstParam := GetShortenedAppDir('') + '\setuptool.dll,UninstDESupport {#CSLibsRegKey}\DESupport ' + GetSupportParamsSilent('');
     if (not Exec ('rundll32.exe', uninstParam, '', SW_SHOWNORMAL, ewWaitUntilTerminated, resCode)) then
 	  begin
 	    if (not UninstallSilent) then
@@ -545,8 +546,8 @@ begin
   else
     libname := currentlib;
   appPath := ExpandConstant ('{app}');
-  pcPath := appPath + '\mingw\lib\pkgconfig\';
-    { := ExtractFilePath (pcFileName) + 'pkgconfig\' }
+  pcPath { := appPath + '\mingw\lib\pkgconfig\';}
+    := ExtractFilePath (srcFileName) + 'pkgconfig\';
   pcFileName := pcPath + currentLib + '.pc';
   SaveStringToFile (pcFileName, 'prefix=' + ToCygwin (appPath) + #13#10, false);
   SaveStringToFile (pcFileName, 'Name: ' + libname + #13#10, true);
