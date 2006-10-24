@@ -1,3 +1,7 @@
+2006-10-24:
+  - Picked VC8-compiled Cg DLLs from the Cg binaries archive.
+  - Added '--incpath' option to cslibs-config.
+  - Fixed libpng.lib not being installed for static version.
 2006-09-15:
   - Fixed CEGUI debug libs to use _d suffix.
   - Fixed uninstalling of devenv support.
