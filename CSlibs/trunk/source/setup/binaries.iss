@@ -102,6 +102,7 @@ Source: ..\..\libs\Release_static\*.lib; DestDir: {app}\vc\lib; Components: Libs
 Source: ..\..\libs\ReleaseVC7Only_static\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC71Only_static\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC8Only_static\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseNoCygwin_static\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseGCCOnly_static\mingw\*.a; DestDir: {app}\mingw\lib; Components: Libs/MinGW
 Source: ..\..\libs\ReleaseGCCOnly_static\mingw-gcc-3.4\lib*.a; DestDir: {app}\mingw\lib; Components: Libs/MinGW
 Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.4\libbullet*.a; DestDir: {app}\mingw\lib; Components: Libs/MinGW
@@ -147,6 +148,7 @@ Source: ..\..\libs\ReleaseVC71Only_static\bullet*.pdb; DestDir: {app}\vc\lib; Co
 Source: ..\..\libs\ReleaseVC71Only_static\cal3d*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC8Only_static\bullet*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC8Only_static\cal3d*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseNoCygwin_static\*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
 #endif
 
 ; Misc stuff
@@ -169,11 +171,14 @@ Name: {app}\support; Flags: uninsalwaysuninstall
 Name: {app}\common\include; Flags: uninsalwaysuninstall
 Name: {app}\common\lib; Flags: uninsalwaysuninstall
 Name: {app}\common\lib\pkgconfig; Flags: uninsalwaysuninstall
+Name: {app}\common; Flags: uninsalwaysuninstall
 Name: {app}\mingw\include; Flags: uninsalwaysuninstall
 Name: {app}\mingw\lib; Flags: uninsalwaysuninstall
 Name: {app}\mingw\lib\pkgconfig; Flags: uninsalwaysuninstall
+Name: {app}\mingw; Flags: uninsalwaysuninstall
 Name: {app}\vc\include; Flags: uninsalwaysuninstall
 Name: {app}\vc\lib; Flags: uninsalwaysuninstall
+Name: {app}\vc; Flags: uninsalwaysuninstall
 Name: {app}\bin; Flags: uninsalwaysuninstall
 Name: {app}\dlls; Flags: uninsalwaysuninstall
 Name: {app}; Flags: uninsalwaysuninstall
