@@ -1,13 +1,3 @@
-function CheckAdminStuff(): Boolean;
-begin
-  Result := IsAdminLoggedOn;
-end;
-
-function CheckNoAdminStuff(): Boolean;
-begin
-  Result := not IsAdminLoggedOn;
-end;
-
 function GetProgramGroupName(Default: String): string;
 var
   grp: string;

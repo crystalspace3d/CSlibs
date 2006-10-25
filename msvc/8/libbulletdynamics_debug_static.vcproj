@@ -94,19 +94,13 @@
 				RelativePath="..\..\source\libbullet\BulletDynamics\ConstraintSolver\HingeConstraint.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libbullet\BulletDynamics\ConstraintSolver\OdeConstraintSolver.cpp">
-			</File>
-			<File
 				RelativePath="..\..\source\libbullet\BulletDynamics\ConstraintSolver\Point2PointConstraint.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libbullet\BulletDynamics\ConstraintSolver\SimpleConstraintSolver.cpp">
+				RelativePath="..\..\source\libbullet\BulletDynamics\ConstraintSolver\SequentialImpulseConstraintSolver.cpp">
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\BulletDynamics\ConstraintSolver\Solve2LinearConstraint.cpp">
-			</File>
-			<File
-				RelativePath="..\..\source\libbullet\BulletDynamics\ConstraintSolver\SorLcp.cpp">
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\BulletDynamics\ConstraintSolver\TypedConstraint.cpp">
@@ -143,19 +137,13 @@
 				RelativePath="..\..\source\libbullet\BulletDynamics\ConstraintSolver\JacobianEntry.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libbullet\BulletDynamics\ConstraintSolver\OdeConstraintSolver.h">
-			</File>
-			<File
 				RelativePath="..\..\source\libbullet\BulletDynamics\ConstraintSolver\Point2PointConstraint.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libbullet\BulletDynamics\ConstraintSolver\SimpleConstraintSolver.h">
+				RelativePath="..\..\source\libbullet\BulletDynamics\ConstraintSolver\SequentialImpulseConstraintSolver.h">
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\BulletDynamics\ConstraintSolver\Solve2LinearConstraint.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libbullet\BulletDynamics\ConstraintSolver\SorLcp.h">
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\BulletDynamics\ConstraintSolver\TypedConstraint.h">

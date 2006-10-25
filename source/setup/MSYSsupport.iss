@@ -30,16 +30,16 @@ DisableProgramGroupPage=true
 WizardImageFile=compiler:WizModernImage-IS.bmp
 WizardSmallImageFile=compiler:WizModernSmallImage-IS.bmp
 [Registry]
-Root: HKLM; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstvalName}; ValueData: {uninstallexe}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: CheckAdminStuff
-Root: HKCU; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstvalName}; ValueData: {uninstallexe}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: CheckNoAdminStuff
-Root: HKLM; Subkey: {#CSLibsRegKey}; ValueType: string; ValueName: {#PlatformName}Profile; ValueData: {code:GetProfileName}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: CheckAdminStuff
-Root: HKCU; Subkey: {#CSLibsRegKey}; ValueType: string; ValueName: {#PlatformName}Profile; ValueData: {code:GetProfileName}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: CheckNoAdminStuff
+Root: HKLM; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstvalName}; ValueData: {uninstallexe}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: IsAdminLoggedOn
+Root: HKCU; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstvalName}; ValueData: {uninstallexe}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: not IsAdminLoggedOn
+Root: HKLM; Subkey: {#CSLibsRegKey}; ValueType: string; ValueName: {#PlatformName}Profile; ValueData: {code:GetProfileName}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: IsAdminLoggedOn
+Root: HKCU; Subkey: {#CSLibsRegKey}; ValueType: string; ValueName: {#PlatformName}Profile; ValueData: {code:GetProfileName}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: not IsAdminLoggedOn
 [Icons]
-Name: {group}\{code:GetIconTitle}; Filename: {uninstallexe}; WorkingDir: {app}; IconIndex: 0; Comment: {code:GetIconComment}
+Name: {group}\{code:GetIconTitle}; Filename: {uninstallexe}; WorkingDir: {app}; IconIndex: 0; Comment: {code:GetIconComment}; Check: InstallIcons
 [Tasks]
 Name: pathaugment; Description: "Augment PATH environment variable to include DLLs dir";
 [Run]
-Filename: rundll32.exe; Parameters: "{code:GetShortenedSrcDir}\setuptool.dll,AugmentBashProfile ""libspath={#CSLibsPathKey}\"" ""profilepath={code:GetProfileName}"""; Check: CheckNoPathAugment
+Filename: rundll32.exe; Parameters: "{code:GetShortenedSrcDir}\setuptool.dll,AugmentBashProfile ""libspath={#CSLibsPathKey}\"" ""profilepath={code:GetProfileName}"""; Check: not CheckPathAugment
 Filename: rundll32.exe; Parameters: "{code:GetShortenedSrcDir}\setuptool.dll,AugmentBashProfile ""libspath={#CSLibsPathKey}\"" ""profilepath={code:GetProfileName}"" ""pathaugment={code:GetShortenedSrcDir}\dlls"""; Check: CheckPathAugment
 [UninstallRun]
 Filename: rundll32.exe; Parameters: {code:GetShortenedSrcDir}\setuptool.dll,CleanBashProfile {#MSYSProfilePathKey}
@@ -118,11 +118,6 @@ end;
 function ShouldSkipPage(PageID: Integer): Boolean;
 begin
   Result := FSupportPageSkip (PageID);
-end;
-
-function CheckNoPathAugment(): Boolean;
-begin
-  Result := not IsTaskSelected ('pathaugment');
 end;
 
 function CheckPathAugment(): Boolean;

@@ -138,6 +138,9 @@
 				RelativePath="..\..\source\libode\ode\src\collision_trimesh_distance.cpp">
 			</File>
 			<File
+				RelativePath="..\..\source\libode\ode\src\collision_trimesh_plane.cpp">
+			</File>
+			<File
 				RelativePath="..\..\source\libode\ode\src\collision_trimesh_ray.cpp">
 			</File>
 			<File
@@ -172,6 +175,9 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libode\ode\src\fastltsolve.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\heightfield.cpp">
 			</File>
 			<File
 				RelativePath="..\..\source\libode\ode\src\joint.cpp">
@@ -368,6 +374,9 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libode\ode\src\collision_util.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\heightfield.h">
 			</File>
 			<File
 				RelativePath="..\..\source\libode\ode\src\joint.h">

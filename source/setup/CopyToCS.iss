@@ -39,10 +39,10 @@ Source: {src}\dlls\mingw\*.dbg; DestDir: {app}; Flags: external skipifsourcedoes
 Source: {src}\dlls\mingw-gcc-3.4\*.dll; DestDir: {app}; Flags: external skipifsourcedoesntexist ignoreversion
 Source: {src}\dlls\mingw-gcc-3.4\*.dbg; DestDir: {app}; Flags: external skipifsourcedoesntexist ignoreversion
 [Registry]
-Root: HKLM; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstvalName}; ValueData: {uninstallexe}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: CheckAdminStuff
-Root: HKCU; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstvalName}; ValueData: {uninstallexe}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: CheckNoAdminStuff
+Root: HKLM; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstvalName}; ValueData: {uninstallexe}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: IsAdminLoggedOn
+Root: HKCU; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstvalName}; ValueData: {uninstallexe}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: not IsAdminLoggedOn
 [Icons]
-Name: {group}\{code:MyGetIconTitle}; Filename: {uninstallexe}; WorkingDir: {app}; IconIndex: 0; Comment: {code:MyGetIconComment}
+Name: {group}\{code:MyGetIconTitle}; Filename: {uninstallexe}; WorkingDir: {app}; IconIndex: 0; Comment: {code:MyGetIconComment}; Check: InstallIcons
 [Messages]
 SelectDirDesc=Where is CrystalSpace installed?
 SelectDirLabel3=Please locate a CrystalSpace directory to copy the DLLs into.

@@ -90,6 +90,15 @@
 			<File
 				RelativePath="..\..\source\libbullet\Extras\PhysicsInterface\CcdPhysics\CcdPhysicsEnvironment.cpp">
 			</File>
+			<File
+				RelativePath="..\..\source\libbullet\Extras\PhysicsInterface\CcdPhysics\ParallelIslandDispatcher.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libbullet\Extras\PhysicsInterface\CcdPhysics\ParallelPhysicsEnvironment.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libbullet\Extras\PhysicsInterface\CcdPhysics\SimulationIsland.cpp">
+			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
@@ -99,6 +108,15 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\Extras\PhysicsInterface\CcdPhysics\CcdPhysicsEnvironment.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libbullet\Extras\PhysicsInterface\CcdPhysics\ParallelIslandDispatcher.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libbullet\Extras\PhysicsInterface\CcdPhysics\ParallelPhysicsEnvironment.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libbullet\Extras\PhysicsInterface\CcdPhysics\SimulationIsland.h">
 			</File>
 		</Filter>
 	</Files>
