@@ -107,3 +107,16 @@ begin
   Result := (CurPage = IDinputPage.ID) and (not AlreadyInstalled());
 end;
   
+function InstallIcons: boolean;
+var
+  inhibitStr: string;
+begin
+  if RegQueryStringValue (HKEY_CURRENT_USER, '{#CSLibsRegKey}', 
+    'InhibitIcons', inhibitStr) then
+    Result := not StrToBool (inhibitStr)
+  else if RegQueryStringValue (HKEY_LOCAL_MACHINE, '{#CSLibsRegKey}', 
+    'InhibitIcons', inhibitStr) then
+    Result := not StrToBool (inhibitStr)
+  else
+    Result := true;
+end;

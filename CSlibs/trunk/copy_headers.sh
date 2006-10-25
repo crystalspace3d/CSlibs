@@ -32,6 +32,7 @@ cp -r temp/libbullet/prefix-${mingw}/include/bullet/CollisionShapes headers/
 cp -r temp/libbullet/prefix-${mingw}/include/bullet/ConstraintSolver headers/
 cp -r temp/libbullet/prefix-${mingw}/include/bullet/Dynamics headers/
 cp -r temp/libbullet/prefix-${mingw}/include/bullet/NarrowPhaseCollision headers/
+cp -r temp/libbullet/prefix-${mingw}/include/bullet/Vehicle headers/
 
 cp -r temp/libcal3d/prefix-${mingw}/include/cal3d headers/
 
