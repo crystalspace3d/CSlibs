@@ -465,8 +465,11 @@ var
 begin
   Result := true;
   UninstPrevProgress.Show ();
-  if (RegQueryStringValue (HKEY_LOCAL_MACHINE,
+  if (not RegQueryStringValue (HKEY_CURRENT_USER,
     UninstKey, 'UninstallString', uninstCmd)) then
+    RegQueryStringValue (HKEY_LOCAL_MACHINE,
+    UninstKey, 'UninstallString', uninstCmd);
+  if (length (uninstCmd) > 0) then
   begin
     if (uninstCmd[1] = '"') and (uninstCmd[Length(uninstCmd)] = '"') then
       uninstCmd := copy (uninstCmd, 2, Length(uninstCmd) - 2);
@@ -522,19 +525,41 @@ begin
     + #13#10, false);
 end;
 
-procedure CurUninstallStepChanged(CurUninstallStep: TUninstallStep);
+procedure UninstallPreviousDESupport();
 var
   uninstParam: string;
   resCode: integer;
+  installDir: string;
+  findrec: TFindRec;
+begin
+  uninstParam := GetShortenedAppDir('') + '\setuptool.dll,UninstDESupport {#CSLibsRegKey}\DESupport ' + GetSupportParamsSilent('');
+  if (not Exec ('rundll32.exe', uninstParam, '', SW_SHOWNORMAL, ewWaitUntilTerminated, resCode)) then
+  begin
+    if (not UninstallSilent) then
+      MsgBox ('Failed to execute uninstaller (rundll32.exe ' + uninstParam + '):' + #13#10 +
+        SysErrorMessage (resCode), mbError, MB_YESNO);
+ 	end;
+ 	{ Safety layer (sometimes, buggy version leave files behind. ahem) }
+  if (not RegQueryStringValue (HKEY_CURRENT_USER,
+    ExpandConstant ('{#CSLibsRegKey}'), 'InstallPath', installDir)) then
+    RegQueryStringValue (HKEY_LOCAL_MACHINE,
+    ExpandConstant ('{#CSLibsRegKey}'), 'InstallPath', installDir);
+  if length (installDir) > 0 then
+  begin
+    if (FindFirst (installDir + '\support\*.exe', findrec)) then
+    begin
+      repeat
+        Exec (installDir + '\support\' + findrec.name, GetSupportParamsSilent(''), '', SW_SHOWNORMAL, ewWaitUntilTerminated, resCode);
+      until not FindNext (findrec);
+      FindClose (findrec);
+    end;
+  end;
+end;
+
+procedure CurUninstallStepChanged(CurUninstallStep: TUninstallStep);
 begin
   if CurUninstallStep = usUninstall then begin
-    uninstParam := GetShortenedAppDir('') + '\setuptool.dll,UninstDESupport {#CSLibsRegKey}\DESupport ' + GetSupportParamsSilent('');
-    if (not Exec ('rundll32.exe', uninstParam, '', SW_SHOWNORMAL, ewWaitUntilTerminated, resCode)) then
-	  begin
-	    if (not UninstallSilent) then
-        MsgBox ('Failed to execute uninstaller (rundll32.exe ' + uninstParam + '):' + #13#10 +
-          SysErrorMessage (resCode), mbError, MB_YESNO);
-   	end;
+    UninstallPreviousDESupport;
   end;
 end;
 
