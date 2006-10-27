@@ -1,0 +1,120 @@
+1.0rc1_002 (2006-10-25):
+  - Updated ODE to 0.7.
+  - Updated bullet to 1.9f.
+
+1.0rc1_001 (2006-09-15):
+  - Updated bullet to 1.9.
+  - Updated CEGUI to 0.5.0 RC2.
+  - Changed SpiderMonkey to SPIDERMONKEY_1_6_0_BRANCH CVS tag.
+
+0.99r0_022 (2006-07-22):
+  - Added patches from mdmkolbe to make Cg, Ogg and Bullet useable on Cygwin.
+  - Removed mikmod, as it is currently not used by CS.
+  - Updated bullet to 1.6a.
+  - Updated cal3d to 0.11.
+  - Updated CEGUI to 0.5.0 RC 1.
+  - Updated FreeType2 to 2.2.1.
+  - Updated libpng to 1.2.12.
+  - Updated ODE to 0.6.
+  - Updated OpenAL SDK to version 1.1.
+  - Updated SpiderMonkey to latest CVS.
+  - "Native" Cygwin support dropped, CS will use -mno-cygwin.
+
+0.99r0_021 (2006-05-07):
+  - Updated bullet to 1.4.
+  - Updated cal3d to a CVS snapshot of 2006-04-06.
+  - Updated ODE to SVN version.
+  - Updated CEGUI to v0-4 SVN branch of 2006-05-05.
+  - Updated Cg to latest 1.4 version available from NVidia.
+
+0.99r0_020 (2006-03-10):
+  - Fix for debug mode CEGUI.
+
+0.99r0_019 (2006-03-09):
+  - Added Bullet.
+  - Added SpiderMonkey.
+  - Updated CEGUI to v0-4 CVS branch of 2006-03-08.
+  - Added debug versions for Cal3d and CEGUI, for both VC7 and VC8.
+
+0.99r0_018 (2006-01-08):
+  - Updated libogg to 1.1.3.
+  - Updated libvorbis to 1.1.2.
+  - Updated freetype2 to 2.1.10.
+  - Updated CEGUI to 0.4.1.
+  - Updated Cg to latest 1.4 version available from NVidia.
+
+0.99r0_017 (2005-09-20):
+  - Updated minimal DirectX to 9.
+  - CEGUI is now version 0.4.0.
+
+0.99r0_016 (2005-09-04):
+  - Added CEGUI for VC7.
+
+0.99r0_015 (2005-08-11):
+  - Fixed mikmod-related crash.
+
+0.99r0_014 (2005-08-04):
+  - Updated zlib to 1.2.3.
+  - Switched to lib3ds CVS version.
+  - Experimental static libraries package.
+  - Switched to ODE CVS version.
+
+0.99r0_013 (2005-07-19):
+  - Updated Cg to 1.4RC1.
+  - Fixed cal3d for mingw.
+  - Fixed ODE to allow latest CS CVS to compile again.
+
+0.99r0_012 (2005-06-07):
+  - Updated cal3d to latest CVS.
+  - Added support for GCC 3.4.4 on MinGW.
+  - cal3d for Cygwin is now compiled with gcc 3.4.4.
+  - Fixed ODE to allow latest CS CVS to compile again.
+
+0.99r0_011 (2005-06-02):
+  - Updated cal3d to latest CVS.
+
+0.99r0_010 (2005-04-04):
+  - Added libcaca.
+  - Updated cal3d to latest CVS.
+
+0.99r0_009 (2005-03-22):
+  - Updated cal3d to latest CVS.
+  - Updated Cg to 1.3.
+  - Enabled BDF and PCF support for FreeType2.
+  
+0.99r0_008 (2005-02-17):
+  - Updated cal3d to latest CVS.
+  - Updated OpenAL Runtime Installer to most recent version.
+
+0.99r0_007 (2005-02-16):
+  - Updated cal3d to latest CVS.
+  - Updated zlib to 1.2.2.
+  - Updated libmng to 1.0.9.
+
+0.99r0_006 (2004-12-24):
+  - Updated cal3d to latest CVS.
+  - Updated libmikmod to 3.1.11-a.
+  - Updated libpng to 1.2.8.
+  - When run under Wine, the cslibs-config and freetype-config scripts are 
+    made executable.
+
+0.99r0_005 (2004-12-20):
+  - Updated cal3d to latest CVS.
+
+0.99r0_004 (2004-12-09):
+  - Changed freetype-config to not return /usr/... library and include paths.
+  - Removed lib3ds-config.
+  - Updated cal3d to latest CVS.
+  - The VC7 runtime DLLs are now always installed, and also placed alongside 
+    the other DLLs (instead a subdirectory).
+  - Added Python 2.4 MinGW link lib.
+
+0.99r0_003 (2004-11-01):
+  - Updated libpng to 1.2.7
+  - Updated cal3d to latest CVS
+  - OggVorbis libraries are now compiled from source (as opposed to using the
+    OggVorbis Win32 SDK)
+  - Updated OpenAL SDK and Runtime Installer to most recent version
+  - mingw cal3d is now also compiled for gcc 3.4.2
+  - Added latest version of dbghelp.dll
+  - Debug info for freetype2 was missing
