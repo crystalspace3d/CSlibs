@@ -540,6 +540,7 @@ begin
         SysErrorMessage (resCode), mbError, MB_YESNO);
  	end;
  	{ Safety layer (sometimes, buggy version leave files behind. ahem) }
+ 	Sleep (1000);
   if (not RegQueryStringValue (HKEY_CURRENT_USER,
     ExpandConstant ('{#CSLibsRegKey}'), 'InstallPath', installDir)) then
     RegQueryStringValue (HKEY_LOCAL_MACHINE,

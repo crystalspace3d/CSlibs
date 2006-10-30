@@ -18,7 +18,7 @@ ExtraLib bulletmath :
 ExtraLib bulletdynamics :
   [ Wildcard [ ConcatDirs BulletDynamics ConstraintSolver ] : *.cpp *.h ] 
   [ Wildcard [ ConcatDirs BulletDynamics Dynamics ] : *.cpp *.h ]
-  [ Wildcard [ ConcatDirs BulletDynamics Vehicles ] : *.cpp *.h ] : 
+  [ Wildcard [ ConcatDirs BulletDynamics Vehicle ] : *.cpp *.h ] : 
   :
   $(SUBDIR)/Bullet $(SUBDIR)/LinearMath $(SUBDIR)/BulletDynamics :
   staticonly ;
