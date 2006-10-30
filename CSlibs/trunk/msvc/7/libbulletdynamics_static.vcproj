@@ -122,6 +122,12 @@
 			<File
 				RelativePath="..\..\source\libbullet\BulletDynamics\Dynamics\RigidBody.cpp">
 			</File>
+			<File
+				RelativePath="..\..\source\libbullet\BulletDynamics\Vehicle\RaycastVehicle.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libbullet\BulletDynamics\Vehicle\WheelInfo.cpp">
+			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
@@ -167,6 +173,15 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\BulletDynamics\Dynamics\RigidBody.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libbullet\BulletDynamics\Vehicle\RaycastVehicle.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libbullet\BulletDynamics\Vehicle\VehicleRaycaster.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libbullet\BulletDynamics\Vehicle\WheelInfo.h">
 			</File>
 		</Filter>
 	</Files>
