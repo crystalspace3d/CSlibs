@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding = "Windows-1252"?>
+<?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="7.10"
@@ -16,82 +16,86 @@
 			OutputDirectory="..\..\out\release71\build\libode\"
 			IntermediateDirectory="..\..\out\release71\build\libode\"
 			ConfigurationType="2"
-			WholeProgramOptimization="1"
 			UseOfMFC="0"
-			ATLMinimizesCRunTimeLibraryUsage="FALSE">
+			ATLMinimizesCRunTimeLibraryUsage="FALSE"
+			WholeProgramOptimization="TRUE">
 			<Tool
 				Name="VCCLCompilerTool"
+				AdditionalOptions=" "
 				Optimization="2"
-				StringPooling="TRUE"
-				EnableFunctionLevelLinking="TRUE"
-				RuntimeLibrary="2"
-				DebugInformationFormat="3"
-				BufferSecurityCheck="FALSE"
 				GlobalOptimizations="TRUE"
 				InlineFunctionExpansion="2"
 				EnableIntrinsicFunctions="TRUE"
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
-				ProgramDataBaseFileName="..\..\out\release71\build\libode\ode.pdb"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;LIBODE_EXPORTS;ODE_DLL;WIN32"
 				OptimizeForProcessor="2"
-				AdditionalOptions=" "
 				AdditionalIncludeDirectories=".;..\..\source\libode\..\configs;..\..\source\libode\include;..\..\source\libode\OPCODE"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;LIBODE_EXPORTS;ODE_DLL;_STATIC_CPPLIB;WIN32"
+				StringPooling="TRUE"
+				RuntimeLibrary="2"
+				BufferSecurityCheck="FALSE"
+				EnableFunctionLevelLinking="TRUE"
+				TreatWChar_tAsBuiltInType="FALSE"
 				PrecompiledHeaderFile="..\..\out\release71\build\libode\libode.pch"
 				AssemblerListingLocation="..\..\out\release71\build\libode\"
 				ObjectFile="..\..\out\release71\build\libode\"
+				ProgramDataBaseFileName="..\..\out\release71\build\libode\ode.pdb"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
 				Detect64BitPortabilityProblems="TRUE"
-				TreatWChar_tAsBuiltInType="false"
+				DebugInformationFormat="3"
 				CompileAs="0"/>
 			<Tool
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				LinkIncremental="1"
-				OptimizeReferences="2"
-				EnableCOMDATFolding="2"
-				GenerateDebugInformation="TRUE"
-				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD"
-				OutputFile="..\..\libs\Release\libode-cs.dll"
-				MergeSections=".rdata=.text"
-				DelayLoadDLLs=""
-				ImportLibrary="..\..\libs\Release\ode.lib"
 				AdditionalOptions=" "
 				AdditionalDependencies=""
+				OutputFile="..\..\libs\Release\libode-cs.dll"
+				LinkIncremental="1"
 				SuppressStartupBanner="TRUE"
 				AdditionalLibraryDirectories=""
+				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD"
+				DelayLoadDLLs=""
+				GenerateDebugInformation="TRUE"
 				ProgramDatabaseFile="..\..\libs\Release\libode-cs.pdb"
+				OptimizeReferences="2"
+				EnableCOMDATFolding="2"
+				ImportLibrary="..\..\libs\Release\ode.lib"
+				MergeSections=".rdata=.text"
 				TargetMachine="1"/>
 			<Tool
-				Name="VCLibrarianTool"
-				SuppressStartupBanner="TRUE"/>
-			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;LIBODE_EXPORTS;ODE_DLL"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;LIBODE_EXPORTS;ODE_DLL;STATIC_CPPLIB"
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
 				TypeLibraryName="..\..\out\release71\build\libode\libode.tlb"/>
 			<Tool
-				Name="VCPostBuildEventTool"
-				/>
+				Name="VCPostBuildEventTool"/>
 			<Tool
 				Name="VCPreBuildEventTool"/>
 			<Tool
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;LIBODE_EXPORTS;ODE_DLL;PROJECTGEN_VERSION=71"
-				AdditionalIncludeDirectories=".;..\..\source\libode\..\configs;..\..\source\libode\include;..\..\source\libode\OPCODE"
-				Culture="1033"/>
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;LIBODE_EXPORTS;ODE_DLL;STATIC_CPPLIB;PROJECTGEN_VERSION=71"
+				Culture="1033"
+				AdditionalIncludeDirectories=".;..\..\source\libode\..\configs;..\..\source\libode\include;..\..\source\libode\OPCODE"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
 				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 	</Configurations>
+	<References>
+	</References>
 	<Files>
 		<Filter
 			Name="Source Files"
@@ -184,66 +188,6 @@
 				RelativePath="..\..\source\libode\ode\src\heightfield.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libode\ode\src\joint.cpp">
-			</File>
-			<File
-				RelativePath="..\..\source\libode\ode\src\lcp.cpp">
-			</File>
-			<File
-				RelativePath="..\..\source\libode\ode\src\mass.cpp">
-			</File>
-			<File
-				RelativePath="..\..\source\libode\ode\src\mat.cpp">
-			</File>
-			<File
-				RelativePath="..\..\source\libode\ode\src\matrix.cpp">
-			</File>
-			<File
-				RelativePath="..\..\source\libode\ode\src\memory.cpp">
-			</File>
-			<File
-				RelativePath="..\..\source\libode\ode\src\misc.cpp">
-			</File>
-			<File
-				RelativePath="..\..\source\libode\ode\src\obstack.cpp">
-			</File>
-			<File
-				RelativePath="..\..\source\libode\ode\src\ode.cpp">
-			</File>
-			<File
-				RelativePath="..\..\source\libode\ode\src\odemath.cpp">
-			</File>
-			<File
-				RelativePath="..\..\source\libode\ode\src\plane.cpp">
-			</File>
-			<File
-				RelativePath="..\..\source\libode\ode\src\quickstep.cpp">
-			</File>
-			<File
-				RelativePath="..\..\source\libode\ode\src\ray.cpp">
-			</File>
-			<File
-				RelativePath="..\..\source\libode\ode\src\rotation.cpp">
-			</File>
-			<File
-				RelativePath="..\..\source\libode\ode\src\sphere.cpp">
-			</File>
-			<File
-				RelativePath="..\..\source\libode\ode\src\step.cpp">
-			</File>
-			<File
-				RelativePath="..\..\source\libode\ode\src\stepfast.cpp">
-			</File>
-			<File
-				RelativePath="..\..\source\libode\ode\src\testing.cpp">
-			</File>
-			<File
-				RelativePath="..\..\source\libode\ode\src\timer.cpp">
-			</File>
-			<File
-				RelativePath="..\..\source\libode\ode\src\util.cpp">
-			</File>
-			<File
 				RelativePath="..\..\source\libode\OPCODE\Ice\IceAABB.cpp">
 			</File>
 			<File
@@ -287,6 +231,36 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libode\OPCODE\Ice\IceUtils.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\joint.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\lcp.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\mass.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\mat.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\matrix.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\memory.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\misc.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\obstack.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\ode.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\odemath.cpp">
 			</File>
 			<File
 				RelativePath="..\..\source\libode\OPCODE\OPC_AABBCollider.cpp">
@@ -352,7 +326,37 @@
 				RelativePath="..\..\source\libode\OPCODE\Opcode.cpp">
 			</File>
 			<File
+				RelativePath="..\..\source\libode\ode\src\plane.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\quickstep.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\ray.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\rotation.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\sphere.cpp">
+			</File>
+			<File
 				RelativePath="..\..\source\libode\OPCODE\StdAfx.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\step.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\stepfast.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\testing.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\timer.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\util.cpp">
 			</File>
 		</Filter>
 		<Filter
@@ -381,33 +385,6 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libode\ode\src\heightfield.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libode\ode\src\joint.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libode\ode\src\lcp.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libode\ode\src\mat.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libode\ode\src\objects.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libode\ode\src\obstack.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libode\ode\src\quickstep.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libode\ode\src\step.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libode\ode\src\testing.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libode\ode\src\util.h">
 			</File>
 			<File
 				RelativePath="..\..\source\libode\OPCODE\Ice\IceAABB.h">
@@ -480,6 +457,21 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libode\OPCODE\Ice\IceUtils.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\joint.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\lcp.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\mat.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\objects.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\obstack.h">
 			</File>
 			<File
 				RelativePath="..\..\source\libode\OPCODE\OPC_AABBCollider.h">
@@ -584,7 +576,19 @@
 				RelativePath="..\..\source\libode\OPCODE\Opcode.h">
 			</File>
 			<File
+				RelativePath="..\..\source\libode\ode\src\quickstep.h">
+			</File>
+			<File
 				RelativePath="..\..\source\libode\OPCODE\Stdafx.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\step.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\testing.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\util.h">
 			</File>
 		</Filter>
 		<Filter
