@@ -13,5 +13,6 @@ BaseLib ode :
   $(SUBDIR)/../configs $(SUBDIR)/include $(SUBDIR)/OPCODE ;
 MsvcDefine ode : LIBODE_EXPORTS ;
 MsvcDefine ode : ODE_DLL ;
+MsvcDefine ode : _STATIC_CPPLIB ;
 MsvcDefine ode_static : ODE_LIB ;
 MsvcExtraFile ode : source/libode.rc ;
