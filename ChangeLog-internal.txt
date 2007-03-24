@@ -2,6 +2,7 @@
   - Made the profile augmentation detect the line endings of the profile file
     and format the augmented block accordingly. Should fix trac #207.
   - Fixed profile augmentation removal with CRLF line endings.
+  - Updated msvcr71.dll to the one from VC7.1 SP1.
 2006-10-29:
   - Fix bullet to include correct vehicle sources.
   - Tweaked support code uninstalling to wait a bit before attempting to
