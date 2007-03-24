@@ -314,7 +314,8 @@ extern "C" _declspec(dllexport) const char* _stdcall ToCygwin (const char* path)
 
 static void WriteReplacing (const char* tmpl, size_t tmplSize,
 			    FILE* file, 
-                            const stdext::hash_map<std::string, std::string>& vars)
+                            const stdext::hash_map<std::string, std::string>& vars,
+                            const char* terminator = 0)
 {
   const char* p = tmpl;
   const char* lastBlockStart = tmpl;
@@ -356,6 +357,15 @@ static void WriteReplacing (const char* tmpl, size_t tmplSize,
       }
 
       p = lastBlockStart = varEnd + 1;
+    }
+    else if (terminator && (*p == '\n'))
+    {
+      if (lastBlockStart != p)
+	fwrite (lastBlockStart, sizeof (char), 
+	  p - lastBlockStart, file);
+      fwrite (terminator, sizeof (char), strlen (terminator), file);
+      p++;
+      lastBlockStart = p;
     }
     else
       p++;
@@ -447,7 +457,7 @@ static void RemoveProfileChanges (char* profile)
     }
     else
       nextLine = lineEnd + 1;
-    if (*lineEnd == '\r') lineEnd--;
+    if (*(lineEnd-1) == '\r') lineEnd--;
 
     if (((lineEnd - curLine) == sizeof (profileStartMarker) - 1) &&
       (strncmp (curLine, profileStartMarker, sizeof (profileStartMarker) - 1) == 0))
@@ -555,6 +565,9 @@ TOOLENTRY(AugmentBashProfile)
     while (*currentParm == ' ') currentParm++;
   }
 
+  const char CRLF[] = "\r\n";
+  const char* lineTerminator;
+
   if ((profilePath != 0) && (libsPath != 0))
   {
     char* oldProfile = 0;
@@ -565,11 +578,20 @@ TOOLENTRY(AugmentBashProfile)
       size_t prfSize = ftell (profile);
       fseek (profile, 0, SEEK_SET);
 
-      oldProfile = new char[prfSize + 2];
+      oldProfile = new char[prfSize + 3];
       fread ((void*)oldProfile, sizeof (char), prfSize, profile);
-      if (oldProfile[prfSize - 1] != '\n')
-	oldProfile[prfSize++] = '\n'; 
+      // Scan for line terminator
+      const char* lt = strchr (oldProfile, '\n');
+      // Write all terminators in the augmentation code like the one found.
+      if ((lt != 0) && (lt > oldProfile) && (*(lt-1) == '\r'))
+        lineTerminator = CRLF;
+      else
+        lineTerminator = 0; // means WriteReplacing () will write LFs.
       // Make sure a line terminator is at the end of the file.
+      if (oldProfile[prfSize - 1] != '\n')
+      {
+        strcat (oldProfile, lineTerminator ? lineTerminator : "\n");
+      }
       oldProfile[prfSize] = 0;
 
       fclose (profile);
@@ -594,15 +616,25 @@ TOOLENTRY(AugmentBashProfile)
       vars["PATHAUGMENT_MSYS"] = pathAugmentMinGW;
 
       static const char nl = '\n';
-      //fwrite (&nl, sizeof (char), 1, profile);
       fwrite (profileStartMarker, sizeof (char), 
 	sizeof (profileStartMarker) - 1, profile);
-      fwrite (&nl, sizeof (char), 1, profile);
+
+      if (lineTerminator)
+        fwrite (lineTerminator, sizeof (char), strlen (lineTerminator), 
+          profile);
+      else
+        fwrite (&nl, sizeof (char), 1, profile);
+
       WriteReplacing (profileAugmentTemplate, profileAugmentTemplateSize,
-	profile, vars);
+	profile, vars, lineTerminator);
       fwrite (profileEndMarker, sizeof (char), 
 	sizeof (profileEndMarker) - 1, profile);
-      fwrite (&nl, sizeof (char), 1, profile);
+
+      if (lineTerminator)
+        fwrite (lineTerminator, sizeof (char), strlen (lineTerminator), 
+          profile);
+      else
+        fwrite (&nl, sizeof (char), 1, profile);
 
       fclose (profile);
       delete[] libsPathMinGW;
