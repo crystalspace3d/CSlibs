@@ -1,3 +1,6 @@
+1.1_001 (2007-??-??):
+  - Updated Cg to 1.5 (Feb 2007).
+
 1.0_001 (2006-11-28):
   - Updated libpng to 1.2.13.
   - Updated CEGUI to 0.5.0.
