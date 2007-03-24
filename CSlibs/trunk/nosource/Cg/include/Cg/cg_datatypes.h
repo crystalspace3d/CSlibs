@@ -14,7 +14,7 @@
  * 
  * In consideration of your agreement to abide by the following terms, and 
  * subject to these terms, NVIDIA grants you a personal, non-exclusive license,
- * under NVIDIA’s copyrights in this original NVIDIA software (the "NVIDIA 
+ * under NVIDIA's copyrights in this original NVIDIA software (the "NVIDIA 
  * Software"), to use, reproduce, modify and redistribute the NVIDIA 
  * Software, with or without modifications, in source and/or binary forms; 
  * provided that if you redistribute the NVIDIA Software, you must retain the 
@@ -55,13 +55,15 @@
  *
  * The macros have the form :
  *
- *   CG_DATATYPE_MACRO(name, compiler_name, nrows, ncols)
+ *   CG_DATATYPE_MACRO(name, compiler_name, enum_name, base_name, nrows, ncols, pc_name)
  *
  *     name          : The name of the data type.
  *     compiler_name : The name of the data type within the compiler syntax.
  *     enum_name     : The C enumerant.
+ *     base_name     : The C enumerant of the base type.
  *     nrows         : Number of rows for matrix types.  Should be 0 other-wise.
  *     ncols         : Number of columns for scalar, vector, and matrix types.
+ *     pc_name       : The C enumerant of the parameter class.
  *   
  */
 

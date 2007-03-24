@@ -14,7 +14,7 @@
  * 
  * In consideration of your agreement to abide by the following terms, and 
  * subject to these terms, NVIDIA grants you a personal, non-exclusive license,
- * under NVIDIA’s copyrights in this original NVIDIA software (the "NVIDIA 
+ * under NVIDIA's copyrights in this original NVIDIA software (the "NVIDIA 
  * Software"), to use, reproduce, modify and redistribute the NVIDIA 
  * Software, with or without modifications, in source and/or binary forms; 
  * provided that if you redistribute the NVIDIA Software, you must retain the 
@@ -58,6 +58,9 @@ CG_PROFILE_MACRO(ARBVertex,arbvp1,ARBVP1,"arbvp1",6150,1)
 CG_PROFILE_MACRO(Fragment40,fp40,FP40,"fp40",6151,0)
 CG_PROFILE_MACRO(ARBFragment,arbfp1,ARBFP1,"arbfp1",7000,0)
 CG_PROFILE_MACRO(Vertex40,vp40,VP40,"vp40",7001,1)
+CG_PROFILE_MACRO(GLSLVertex,glslv,GLSLV,"glslv",7007,1)
+CG_PROFILE_MACRO(GLSLFragment,glslf,GLSLF,"glslf",7008,0)
+CG_PROFILE_MACRO(GLSLCombined, glslc, GLSLC, "glslc", 7009, 0)
 
 #ifndef CG_IN_PROFILES_INCLUDE
 # undef CG_PROFILE_MACRO

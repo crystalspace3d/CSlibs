@@ -14,7 +14,7 @@
  * 
  * In consideration of your agreement to abide by the following terms, and 
  * subject to these terms, NVIDIA grants you a personal, non-exclusive license,
- * under NVIDIA’s copyrights in this original NVIDIA software (the "NVIDIA 
+ * under NVIDIA's copyrights in this original NVIDIA software (the "NVIDIA 
  * Software"), to use, reproduce, modify and redistribute the NVIDIA 
  * Software, with or without modifications, in source and/or binary forms; 
  * provided that if you redistribute the NVIDIA Software, you must retain the 
@@ -223,7 +223,7 @@ CG_ERROR_MACRO(37,
 
 CG_ERROR_MACRO(38, 
                CG_ARRAY_HAS_WRONG_DIMENSION_ERROR, 
-               "The array is has the wrong dimension.")
+               "The array has the wrong dimension.")
 
 CG_ERROR_MACRO(39, 
                CG_TYPE_IS_NOT_DEFINED_IN_PROGRAM_ERROR, 
@@ -255,13 +255,14 @@ CG_ERROR_MACRO(45,
                CG_INVALID_TECHNIQUE_HANDLE_ERROR,
                "Invalid technique handle.")
 
+// Do not use this!  Use CG_INVALID_PARAM_HANDLE_ERROR instead.
 CG_ERROR_MACRO(46,
                CG_INVALID_PARAMETER_HANDLE_ERROR,
                "Invalid parameter handle.")
 
 CG_ERROR_MACRO(47,
                CG_STATE_ASSIGNMENT_TYPE_MISMATCH_ERROR,
-               "Invalid parameter handle.")
+               "Operation is not valid for this type of stateassignment.")
 
 CG_ERROR_MACRO(48,
                CG_INVALID_FUNCTION_HANDLE_ERROR,
@@ -286,6 +287,14 @@ CG_ERROR_MACRO(52,
 CG_ERROR_MACRO(53,
                CG_ARRAY_SIZE_MISMATCH_ERROR,
                "The specified array sizes are not compatible with the given array.")
+
+CG_ERROR_MACRO(54,
+               CG_CANNOT_SET_NON_UNIFORM_PARAMETER_ERROR,
+               "Cannot set the value of a non-uniform parameter.")
+
+CG_ERROR_MACRO(55,
+               CG_DUPLICATE_NAME_ERROR,
+               "This name is already in use.")
 
 #undef CG_ERROR_MACRO
 
