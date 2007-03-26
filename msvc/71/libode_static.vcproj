@@ -126,9 +126,6 @@
 				RelativePath="..\..\source\libode\ode\src\collision_transform.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libode\ode\src\collision_trimesh.cpp">
-			</File>
-			<File
 				RelativePath="..\..\source\libode\ode\src\collision_trimesh_box.cpp">
 			</File>
 			<File
@@ -136,6 +133,12 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libode\ode\src\collision_trimesh_distance.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\collision_trimesh_gimpact.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\collision_trimesh_opcode.cpp">
 			</File>
 			<File
 				RelativePath="..\..\source\libode\ode\src\collision_trimesh_plane.cpp">

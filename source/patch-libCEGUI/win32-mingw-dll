@@ -1,7 +1,7 @@
 Index: src/Makefile.am
 ===================================================================
---- src/Makefile.am	(revision 1251)
-+++ src/Makefile.am	(working copy)
+--- src/Makefile.am	(Revision 1465)
++++ src/Makefile.am	(Arbeitskopie)
 @@ -1,7 +1,7 @@
 -INCLUDES = -I$(top_srcdir)/include -I$(top_srcdir) $(freetype2_CFLAGS) $(pcre_CFLAGS)
 -lib_LTLIBRARIES=libCEGUIBase.la
@@ -13,7 +13,7 @@ Index: src/Makefile.am
                        CEGUIBoundSlot.cpp \
                        CEGUIColourRect.cpp \
                        CEGUIConfig_xmlHandler.cpp \
-@@ -146,6 +146,6 @@
+@@ -145,9 +145,9 @@
                        falagard/CEGUIFalXMLEnumHelper.cpp \
                        falagard/CEGUIFalagard_xmlHandler.cpp
  
@@ -22,6 +22,9 @@ Index: src/Makefile.am
  
 -libCEGUIBase_la_LIBADD = $(freetype2_LIBS) $(pcre_LIBS)
 +libCEGUIBase@DLLSUFFIX@_la_LIBADD = $(freetype2_LIBS) $(pcre_LIBS)
+ 
+ EXTRA_DIST = implementations/mac/macPlugins.cpp \
+              implementations/mac/macPlugins.h
 Index: WindowRendererSets/Falagard/src/Makefile.am
 ===================================================================
 --- WindowRendererSets/Falagard/src/Makefile.am	(revision 1251)

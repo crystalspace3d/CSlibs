@@ -10,19 +10,22 @@
  *   dSINGLE/dDOUBLE   - force ODE to use single-precision (float)
  *                       or double-precision (double) for numbers
  *
- *   dCYLINDER_ENABLED - enable/disable cylinder support
- *
  *   dTRIMESH_ENABLED  - enable/disable trimesh support
+ *   dTRIMESH_OPCODE   - use the OPCODE trimesh engine
+ *   dTRIMESH_GIMPACT  - use the GIMPACT trimesh engine
  *
+ *   dUSE_MALLOC_FOR_ALLOCA (experimental)- 
+ *                       Use malloc() instead of alloca(). Slower, 
+ *                       but allows for larger systems and more 
+ *                       graceful out-of-memory handling.
  ******************************************************************/
 
 #define dSINGLE 1
 
-#define dCYLINDER_ENABLED 1
-
 #define dTRIMESH_ENABLED 1
+#define dTRIMESH_OPCODE 1
 
-
+/* #define dUSE_MALLOC_FOR_ALLOCA */
 
 /******************************************************************
  * SYSTEM SETTINGS - you shouldn't need to change these. If you
@@ -32,7 +35,13 @@
  ******************************************************************/
 
 /* Try to identify the platform */
-#if defined(_MSC_VER) || defined(__CYGWIN32__) || defined(__MINGW32__)
+#if defined(_XENON)
+  #define ODE_PLATFORM_XBOX360
+#elif defined(SN_TARGET_PSP_HW)
+  #define ODE_PLATFORM_PSP
+#elif defined(SN_TARGET_PS3)
+  #define ODE_PLATFORM_PS3
+#elif defined(_MSC_VER) || defined(__CYGWIN32__) || defined(__MINGW32__)
   #define ODE_PLATFORM_WINDOWS
 #elif defined(__linux__)
   #define ODE_PLATFORM_LINUX

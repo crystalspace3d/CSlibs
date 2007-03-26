@@ -1,5 +1,8 @@
 1.1_001 (2007-??-??):
   - Updated Cg to 1.5 (Feb 2007).
+  - Updated FreeType to 2.3.2.
+  - Updated ODE to 0.8.
+  - Updated CEGUI to 0.5 branch r1457.
 
 1.0_001 (2006-11-28):
   - Updated libpng to 1.2.13.
