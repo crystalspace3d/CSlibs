@@ -1,11 +1,12 @@
 Index: Makefile.am
 ===================================================================
---- Makefile.am	(revision 1251)
-+++ Makefile.am	(working copy)
-@@ -1,4 +1,5 @@
--SUBDIRS = . XMLParserModules ImageCodecModules RendererModules src include WindowRendererSets ScriptingModules Samples
-+#SUBDIRS = . XMLParserModules ImageCodecModules RendererModules src include WindowRendererSets ScriptingModules Samples
-+SUBDIRS = . src include XMLParserModules WindowRendererSets
+--- Makefile.am	(Revision 1465)
++++ Makefile.am	(Arbeitskopie)
+@@ -1,5 +1,6 @@
+ AUTOMAKE_OPTIONS = dist-bzip2 dist-zip
+-SUBDIRS = . src include XMLParserModules ImageCodecModules RendererModules WindowRendererSets ScriptingModules Samples XMLRefSchema makefiles
++#SUBDIRS = . src include XMLParserModules ImageCodecModules RendererModules WindowRendererSets ScriptingModules Samples XMLRefSchema makefiles
++SUBDIRS = . src include XMLParserModules WindowRendererSets XMLRefSchema
  
  pkgconfigdir = $(libdir)/pkgconfig
  pkgconfig_DATA = CEGUI.pc CEGUI-OPENGL.pc
