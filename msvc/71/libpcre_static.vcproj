@@ -35,7 +35,7 @@
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_LIB;_WINDOWS;PCRE_STATIC;SUPPORT_UTF8;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
-				AdditionalIncludeDirectories=".;..\..\source\libpcre\..\configs\pcre"
+				AdditionalIncludeDirectories=".;..\..\source\libpcre;..\..\source\libpcre\..\configs\pcre"
 				PrecompiledHeaderFile="..\..\out\release71\build\libpcre_static\libpcre_static.pch"
 				AssemblerListingLocation="..\..\out\release71\build\libpcre_static\"
 				ObjectFile="..\..\out\release71\build\libpcre_static\"
@@ -80,7 +80,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_LIB;_WINDOWS;PCRE_STATIC;SUPPORT_UTF8;PROJECTGEN_VERSION=71"
-				AdditionalIncludeDirectories=".;..\..\source\libpcre\..\configs\pcre"
+				AdditionalIncludeDirectories=".;..\..\source\libpcre;..\..\source\libpcre\..\configs\pcre"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
@@ -123,6 +123,9 @@
 				RelativePath="..\..\source\libpcre\pcre_maketables.c">
 			</File>
 			<File
+				RelativePath="..\..\source\libpcre\pcre_newline.c">
+			</File>
+			<File
 				RelativePath="..\..\source\libpcre\pcre_ord2utf8.c">
 			</File>
 			<File
@@ -149,13 +152,13 @@
 			<File
 				RelativePath="..\..\source\libpcre\pcre_xclass.c">
 			</File>
-			<File
-				RelativePath="..\..\source\libpcre\pcreposix.c">
-			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
 			Filter="">
+			<File
+				RelativePath="..\..\source\libpcre\..\configs\pcre\config.h">
+			</File>
 			<File
 				RelativePath="..\..\source\libpcre\pcre.h">
 			</File>
@@ -176,6 +179,9 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libpcre\ucpinternal.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libpcre\ucptable.h">
 			</File>
 		</Filter>
 	</Files>
