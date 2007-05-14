@@ -14,9 +14,9 @@ if ! [ -e ${pcre} ] ; then
   fi
   
   cd temp/pcre/${platform}
-  $(pwd)/../../../source/libpcre/configure --prefix=${pcre} --enable-shared=no --enable-utf8 --with-link-size=2 --disable-cpp --cache-file=config.cache "$@"
+  $(pwd)/../../../source/libpcre/configure --prefix=${pcre} --enable-shared=no --enable-unicode-properties --enable-utf8 --with-link-size=2 --disable-cpp --cache-file=config.cache "$@"
   
-  make install
+  make install-libLTLIBRARIES install-includeHEADERS install-nodist_includeHEADERS
   cd ../../..
 fi
 

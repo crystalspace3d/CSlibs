@@ -1,12 +1,15 @@
 #!/bin/sh
 
-rm -f -r headers
+rm -f -r headers headers-nocygwin headers-extra
 
 if test ! -e headers ; then
 	mkdir headers
 fi
 if test ! -e headers-nocygwin ; then
 	mkdir headers-nocygwin
+fi
+if test ! -e headers-extra ; then
+	mkdir headers-extra
 fi
 
 # caca, png, z, jpeg, mng
@@ -36,9 +39,9 @@ cp -r temp/libbullet/prefix-${mingw}/include/bullet/Vehicle headers/
 
 cp -r temp/libcal3d/prefix-${mingw}/include/cal3d headers/
 
-mkdir headers/js
-cp source/libjs/*.h headers/js/
-cp source/libjs/*.tbl headers/js/
+mkdir headers-extra/js
+cp source/libjs/*.h headers-extra/js/
+cp source/libjs/*.tbl headers-extra/js/
 
 mkdir -p headers/freetype/config/
 cp source/configs/freetype/config/*.h headers/freetype/config/

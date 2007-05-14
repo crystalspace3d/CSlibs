@@ -5,7 +5,8 @@ BaseLib js :
   js :
   :
   : 
-  nostatic ;
+  nostatic :
+  ReleaseExtra ;
 MsvcDefine js : LIBJS_EXPORTS ;
 MsvcDefine js : XP_WIN ;
 MsvcDefine js : EXPORT_JS_API ;

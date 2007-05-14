@@ -1,3 +1,5 @@
+2007-05-14:
+  - Updated PCRE (used by CEGUI) to 7.1.
 2007-03-24:
   - Made the profile augmentation detect the line endings of the profile file
     and format the augmented block accordingly. Should fix trac #207.
