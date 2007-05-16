@@ -1,4 +1,4 @@
-1.1_001 (2007-??-??):
+1.1_001 (2007-05-16):
   - Updated Cg to 1.5 (Feb 2007).
   - Updated FreeType to 2.3.4.
   - Updated ODE to 0.8.
