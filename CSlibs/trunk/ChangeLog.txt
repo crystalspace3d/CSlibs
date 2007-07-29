@@ -1,3 +1,7 @@
+1.2_001 (2007-08-??):
+  (No significant changes made, pure version bump to match version of new 
+   stable CS.)
+
 1.1_001 (2007-05-16):
   - Fixed trac #207 (wrong line endings for Cygwin profile augmentation).
   - Updated Cg to 1.5 (Feb 2007).
