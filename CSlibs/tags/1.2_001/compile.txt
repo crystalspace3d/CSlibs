@@ -1,0 +1,44 @@
+Compiling Stuff
+---------------
+
+Required tools:
+- MSVC 7,7.1,8
+- Recent MSYS/MinGW, with binutils >= 2.16.91
+- InnoSetup >= 5.0.7
+- Python
+
+
+The solutions in the projects directory should be built in the following
+order:
+- msvc/71/CSlibs.sln with VC7.1
+- msvc/7/CSlibs.sln with VC7.0
+- msvc/8/CSlibs.sln with VC8.0
+
+The MinGW-only libs can be built by running build_mingw.sh. Some libraries
+may need special preparations:
+- lib3ds: run ./autogen.sh
+- libmng: run unmaintained/autogen.sh, copy makefiles/configure.in to the
+	  source root
+- libode: run ./autogen.sh
+- libcal3d: 
+    Run "aclocal && autoconf && autoheader && libtoolize -c && automake".
+    For pcre: copy pcre.h.generic to pcre.h, copy pcre_chartables.c.dist to
+    pcre_chartables.c.
+- libcegui: run ./bootstrap
+
+If you use Cygwin to run above scripts, note that sometimes symlinks are
+generated; MinGW doesn't support those, so you should check the source 
+directories for links and replace those with copies of the files linked.
+
+To copy the headers to the location where they are needed for setup
+generation, run copy_headers.sh.
+
+Last but not least, run the rebase.sh script. Rebasing is not mandatory, but
+gives a small performance advantage.
+
+To create the setup file:
+- Build projects\setuptool.sln
+- Run pyimportlib.cmd <python-dir> NN
+  where NN is the Python version you have installed (e.g. 24)
+- Compile the .iss files in source\setup with InnoSetup in the following order:
+  VCsupport, Cygwinsupport, MSYSsupport, CopyDLLs, Crosssupport, binaries
