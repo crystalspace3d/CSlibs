@@ -33,7 +33,7 @@
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
 				ProgramDataBaseFileName="..\..\out\release71\build\lib3ds\3ds.pdb"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;UBUILD_SHARED;WIN32"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;UBUILD_SHARED;_LIB3DS_DLL;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
 				AdditionalIncludeDirectories=".;..\..\source\lib3ds;..\..\source\lib3ds\..\configs\lib3ds"
@@ -69,7 +69,7 @@
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;UBUILD_SHARED"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;UBUILD_SHARED;_LIB3DS_DLL"
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
@@ -83,7 +83,7 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;UBUILD_SHARED;PROJECTGEN_VERSION=71"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;UBUILD_SHARED;_LIB3DS_DLL;PROJECTGEN_VERSION=71"
 				AdditionalIncludeDirectories=".;..\..\source\lib3ds;..\..\source\lib3ds\..\configs\lib3ds"
 				Culture="1033"/>
 			<Tool
@@ -216,9 +216,6 @@
 			</File>
 			<File
 				RelativePath="..\..\source\lib3ds\lib3ds\vector.h">
-			</File>
-			<File
-				RelativePath="..\..\source\lib3ds\lib3ds\version.h">
 			</File>
 			<File
 				RelativePath="..\..\source\lib3ds\lib3ds\viewport.h">
