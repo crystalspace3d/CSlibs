@@ -214,9 +214,6 @@
 				RelativePath="..\..\source\lib3ds\lib3ds\vector.h">
 			</File>
 			<File
-				RelativePath="..\..\source\lib3ds\lib3ds\version.h">
-			</File>
-			<File
 				RelativePath="..\..\source\lib3ds\lib3ds\viewport.h">
 			</File>
 		</Filter>

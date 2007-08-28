@@ -1,4 +1,7 @@
-1.2_001 (2007-08-??):
+1.2_002 (2007-08-28):
+  - Fixed broken lib3ds DLL.
+
+1.2_001 (2007-08-01):
   (No significant changes made, pure version bump to match version of new 
    stable CS.)
 
