@@ -58,6 +58,7 @@ Source: ..\..\nosource\dbghelp\dbghelp.dll; DestDir: {app}\dlls; Components: Ext
 Source: ..\..\nosource\Cg\dlls\*.*; DestDir: {app}\dlls; Flags: recursesubdirs; Components: Extra/Cg
 Source: ..\..\nosource\freealut\lib\*.dll; DestDir: {app}\dlls; Components: Libs/Common
 #ifndef STATIC
+Source: ..\..\syslibs\*.manifest; DestDir: {app}\dlls; Components: Libs/Common
 Source: ..\..\syslibs\*.dll; DestDir: {app}\dlls; Components: Libs/Common
 Source: ..\..\libs\Release\*.dll; DestDir: {app}\dlls; Components: Libs/Common
 Source: ..\..\libs\ReleaseVC7Only\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
