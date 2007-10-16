@@ -32,6 +32,7 @@ WizardSmallImageFile=compiler:WizModernSmallImage-IS.bmp
 ; Copy the DLLs to the CS dir.
 Source: {src}\dlls\*.dll; DestDir: {app}; Flags: external skipifsourcedoesntexist ignoreversion
 Source: {src}\dlls\*.pdb; DestDir: {app}; Flags: external skipifsourcedoesntexist ignoreversion
+Source: {src}\dlls\*.manifest; DestDir: {app}; Flags: external skipifsourcedoesntexist ignoreversion
 Source: {src}\dlls\vc\*.dll; DestDir: {app}; Flags: external skipifsourcedoesntexist ignoreversion
 Source: {src}\dlls\vc\*.pdb; DestDir: {app}; Flags: external skipifsourcedoesntexist ignoreversion
 Source: {src}\dlls\mingw\*.dll; DestDir: {app}; Flags: external skipifsourcedoesntexist ignoreversion

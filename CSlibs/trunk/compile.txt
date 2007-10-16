@@ -10,9 +10,9 @@ Required tools:
 
 The solutions in the projects directory should be built in the following
 order:
-- msvc/71/CSlibs.sln with VC7.1
-- msvc/7/CSlibs.sln with VC7.0
 - msvc/8/CSlibs.sln with VC8.0
+- msvc/7/CSlibs.sln with VC7.0
+- msvc/71/CSlibs.sln with VC7.1
 
 The MinGW-only libs can be built by running build_mingw.sh. Some libraries
 may need special preparations:
@@ -38,7 +38,7 @@ gives a small performance advantage.
 
 To create the setup file:
 - Build projects\setuptool.sln
-- Run pyimportlib.cmd <python-dir> NN
+- For Python <= 2.4: Run pyimportlib.cmd <python-dir> NN
   where NN is the Python version you have installed (e.g. 24)
 - Compile the .iss files in source\setup with InnoSetup in the following order:
   VCsupport, Cygwinsupport, MSYSsupport, CopyDLLs, Crosssupport, binaries

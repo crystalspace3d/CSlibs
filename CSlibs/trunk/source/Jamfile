@@ -67,7 +67,7 @@ rule LibCommon
 }
 
 # Base library - C, used by all VC versions, built with VC7.1
-if [ Property build : projgen_version ] = 71
+if [ Property build : projgen_version ] = 8
 {
   rule BaseLib 
   { 
@@ -125,7 +125,7 @@ rule _SetBaseLibs
     }
     else
     {
-      if [ Property build : projgen_version ] = 71
+      if [ Property build : projgen_version ] = 8
       {
 	LibDepends $(lib) : [ Property baseliblibs : $(b) ] ;
       }
