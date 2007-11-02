@@ -1,9 +1,18 @@
 SubDir TOP source libcaca ;
 
+BaseLib cucul : 
+  [ Wildcard cucul : *.c *.h ] : 
+  libcucul :
+  :
+  $(SUBDIR) $(SUBDIR)/msvc ;
+MsvcDefine cucul : LIBCUCUL_EXPORTS ;
+MsvcExtraFile cucul : source/libcucul.rc ;
+
 BaseLib caca : 
-  [ Wildcard src : *.c *.h ] : 
+  [ Wildcard caca : *.c *.h ] : 
   libcaca :
   :
-  $(SUBDIR)/msvc ;
+  $(SUBDIR) $(SUBDIR)/cucul  $(SUBDIR)/msvc ;
+LibDepends caca : cucul ;
 MsvcDefine caca : LIBCACA_EXPORTS ;
 MsvcExtraFile caca : source/libcaca.rc ;

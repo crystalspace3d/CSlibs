@@ -2,8 +2,8 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="8.00"
-	Name="libcaca"
-	ProjectGUID="{0F6CF609-2406-605C-1220-6CAF9C0B93EF}"
+	Name="libcucul"
+	ProjectGUID="{911F1946-8142-6762-10E2-3B78998ECFBA}"
 	SccProjectName=""
 	SccLocalPath="">
 	<Platforms>
@@ -13,8 +13,8 @@
 	<Configurations>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="..\..\out\release8\build\libcaca\"
-			IntermediateDirectory="..\..\out\release8\build\libcaca\"
+			OutputDirectory="..\..\out\release8\build\libcucul\"
+			IntermediateDirectory="..\..\out\release8\build\libcucul\"
 			ConfigurationType="2"
 			WholeProgramOptimization="1"
 			UseOfMFC="0"
@@ -32,14 +32,14 @@
 				EnableIntrinsicFunctions="TRUE"
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
-				ProgramDataBaseFileName="..\..\out\release8\build\libcaca\caca.pdb"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;LIBCACA_EXPORTS;WIN32"
+				ProgramDataBaseFileName="..\..\out\release8\build\libcucul\cucul.pdb"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;LIBCUCUL_EXPORTS;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
-				AdditionalIncludeDirectories=".;..\..\source\libcaca;..\..\source\libcaca\cucul;..\..\source\libcaca\msvc"
-				PrecompiledHeaderFile="..\..\out\release8\build\libcaca\libcaca.pch"
-				AssemblerListingLocation="..\..\out\release8\build\libcaca\"
-				ObjectFile="..\..\out\release8\build\libcaca\"
+				AdditionalIncludeDirectories=".;..\..\source\libcaca;..\..\source\libcaca\msvc"
+				PrecompiledHeaderFile="..\..\out\release8\build\libcucul\libcucul.pch"
+				AssemblerListingLocation="..\..\out\release8\build\libcucul\"
+				ObjectFile="..\..\out\release8\build\libcucul\"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
 				Detect64BitPortabilityProblems="TRUE"
@@ -54,26 +54,26 @@
 				EnableCOMDATFolding="2"
 				GenerateDebugInformation="TRUE"
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD"
-				OutputFile="..\..\libs\Release\libcaca-cs.dll"
+				OutputFile="..\..\libs\Release\libcucul-cs.dll"
 				MergeSections=".rdata=.text"
 				DelayLoadDLLs=""
-				ImportLibrary="..\..\libs\Release\libcaca.lib"
+				ImportLibrary="..\..\libs\Release\libcucul.lib"
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
 				AdditionalLibraryDirectories=""
-				ProgramDatabaseFile="..\..\libs\Release\libcaca-cs.pdb"
+				ProgramDatabaseFile="..\..\libs\Release\libcucul-cs.pdb"
 				TargetMachine="1"/>
 			<Tool
 				Name="VCLibrarianTool"
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;LIBCACA_EXPORTS"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;LIBCUCUL_EXPORTS"
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
-				TypeLibraryName="..\..\out\release8\build\libcaca\libcaca.tlb"/>
+				TypeLibraryName="..\..\out\release8\build\libcucul\libcucul.tlb"/>
 			<Tool
 				Name="VCPostBuildEventTool"
 				/>
@@ -83,8 +83,8 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;LIBCACA_EXPORTS;PROJECTGEN_VERSION=8"
-				AdditionalIncludeDirectories=".;..\..\source\libcaca;..\..\source\libcaca\cucul;..\..\source\libcaca\msvc"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;LIBCUCUL_EXPORTS;PROJECTGEN_VERSION=8"
+				AdditionalIncludeDirectories=".;..\..\source\libcaca;..\..\source\libcaca\msvc"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
@@ -97,63 +97,72 @@
 			Name="Source Files"
 			Filter="">
 			<File
-				RelativePath="..\..\source\libcaca\caca\caca.c">
+				RelativePath="..\..\source\libcaca\cucul\attr.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libcaca\caca\caca0.c">
+				RelativePath="..\..\source\libcaca\cucul\box.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libcaca\caca\driver_conio.c">
+				RelativePath="..\..\source\libcaca\cucul\canvas.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libcaca\caca\driver_gl.c">
+				RelativePath="..\..\source\libcaca\cucul\charset.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libcaca\caca\driver_ncurses.c">
+				RelativePath="..\..\source\libcaca\cucul\conic.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libcaca\caca\driver_raw.c">
+				RelativePath="..\..\source\libcaca\cucul\cucul.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libcaca\caca\driver_slang.c">
+				RelativePath="..\..\source\libcaca\cucul\dither.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libcaca\caca\driver_vga.c">
+				RelativePath="..\..\source\libcaca\cucul\export.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libcaca\caca\driver_win32.c">
+				RelativePath="..\..\source\libcaca\cucul\font.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libcaca\caca\driver_x11.c">
+				RelativePath="..\..\source\libcaca\cucul\frame.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libcaca\caca\event.c">
+				RelativePath="..\..\source\libcaca\cucul\import.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libcaca\caca\graphics.c">
+				RelativePath="..\..\source\libcaca\cucul\legacy.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libcaca\caca\time.c">
+				RelativePath="..\..\source\libcaca\cucul\line.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libcaca\cucul\transform.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libcaca\cucul\triangle.c">
 			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
 			Filter="">
 			<File
-				RelativePath="..\..\source\libcaca\caca\caca.h">
+				RelativePath="..\..\source\libcaca\cucul\cucul.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libcaca\caca\caca0.h">
+				RelativePath="..\..\source\libcaca\cucul\cucul_internals.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libcaca\caca\caca_internals.h">
+				RelativePath="..\..\source\libcaca\cucul\font_mono9.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libcaca\cucul\font_monobold12.h">
 			</File>
 		</Filter>
 		<Filter
 			Name="Resource Files"
 			Filter="">
 			<File
-				RelativePath="..\..\source\libcaca.rc">
+				RelativePath="..\..\source\libcucul.rc">
 			</File>
 		</Filter>
 	</Files>
