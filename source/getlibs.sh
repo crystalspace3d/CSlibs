@@ -18,8 +18,8 @@ scripts/url-get libvorbis http://downloads.xiph.org/releases/vorbis/libvorbis-1.
   libvorbis-1.2.0 gz
 scripts/url-get libfreetype http://mesh.dl.sourceforge.net/sourceforge/freetype/freetype-2.3.5.tar.bz2 \
   freetype-2.3.5 bz2
-scripts/url-get libcaca http://sam.zoy.org/libcaca/libcaca-0.9.tar.bz2 \
-  libcaca-0.9 bz2
+scripts/url-get libcaca http://libcaca.zoy.org/files/libcaca-0.99.beta12.tar.gz \
+  libcaca-0.99.beta12 gz
 scripts/url-get libbullet "http://www.continuousphysics.com/ftp/pub/test/index.php?dir=physics/source/&file=bullet-1.9f.zip" \
   bullet-1.9f zip
 scripts/url-get libpcre ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-7.1.tar.bz2 \
