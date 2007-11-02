@@ -6,8 +6,8 @@ scripts/svn-get libCEGUI https://crayzedsgui.svn.sourceforge.net/svnroot/crayzed
 scripts/cvs-get libjs :pserver:anonymous@cvs-mirror.mozilla.org:/cvsroot \
   JSRef -r SPIDERMONKEY_1_6_0_BRANCH
 
-scripts/url-get libpng http://mesh.dl.sourceforge.net/sourceforge/libpng/libpng-1.2.16.tar.bz2 \
-  libpng-1.2.16 bz2
+scripts/url-get libpng http://mesh.dl.sourceforge.net/sourceforge/libpng/libpng-1.2.22.tar.bz2 \
+  libpng-1.2.22 bz2
 scripts/url-get libz http://www.zlib.net/zlib-1.2.3.tar.bz2 \
   zlib-1.2.3 bz2
 scripts/url-get libmng http://mesh.dl.sourceforge.net/sourceforge/libmng/libmng-1.0.9.tar.gz \
