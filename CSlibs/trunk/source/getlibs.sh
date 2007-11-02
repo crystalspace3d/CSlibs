@@ -2,8 +2,6 @@
 
 scripts/svn-get libcal3d http://svn.gna.org/svn/cal3d/tags/release-0_11_0/cal3d/
 scripts/svn-get libode https://opende.svn.sourceforge.net/svnroot/opende/tags/0.8/
-scripts/cvs-get lib3ds :pserver:anonymous@lib3ds.cvs.sourceforge.net:/cvsroot/lib3ds \
-  lib3ds -r lib3ds_release_1_2_0
 scripts/svn-get libCEGUI https://crayzedsgui.svn.sourceforge.net/svnroot/crayzedsgui/cegui_mk2/branches/v0-5/
 # Would be nice to find some JS1.6 CVS tag.
 scripts/cvs-get libjs :pserver:anonymous@cvs-mirror.mozilla.org:/cvsroot \
@@ -27,3 +25,5 @@ scripts/url-get libbullet "http://www.continuousphysics.com/ftp/pub/test/index.p
   bullet-1.9f zip
 scripts/url-get libpcre ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-7.1.tar.bz2 \
   pcre-7.1 bz2
+scripts/url-get lib3ds http://kent.dl.sourceforge.net/sourceforge/lib3ds/lib3ds-1.3.0.zip \
+  lib3ds-1.3.0 zip

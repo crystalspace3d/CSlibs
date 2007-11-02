@@ -5,5 +5,5 @@ BaseLib 3ds :
   lib3ds :
   :
   $(SUBDIR) $(SUBDIR)/../configs/lib3ds ;
-MsvcDefine 3ds : UBUILD_SHARED _LIB3DS_DLL ;
+MsvcDefine 3ds : LIB3DS_EXPORTS BUILD_SHARED ;
 MsvcExtraFile 3ds : source/lib3ds.rc ;
