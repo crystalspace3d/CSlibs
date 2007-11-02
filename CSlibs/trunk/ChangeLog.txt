@@ -6,6 +6,7 @@
   - Updated libvorbis to 1.2.0.
   - Updated FreeType to 2.3.5.
   - Updated caca to 0.99beta12.
+  - Updated Bullet to 2.64.
   
 1.2_002 (2007-08-28):
   - Fixed broken lib3ds DLL.
