@@ -2,9 +2,6 @@
 
 scripts/svn-get libcal3d http://svn.gna.org/svn/cal3d/tags/release-0_11_0/cal3d/
 scripts/svn-get libCEGUI https://crayzedsgui.svn.sourceforge.net/svnroot/crayzedsgui/cegui_mk2/branches/v0-5/
-# Would be nice to find some JS1.6 CVS tag.
-scripts/cvs-get libjs :pserver:anonymous@cvs-mirror.mozilla.org:/cvsroot \
-  JSRef -r SPIDERMONKEY_1_6_0_BRANCH
 
 scripts/url-get libpng http://mesh.dl.sourceforge.net/sourceforge/libpng/libpng-1.2.22.tar.bz2 \
   libpng-1.2.22 bz2
@@ -22,9 +19,10 @@ scripts/url-get libcaca http://libcaca.zoy.org/files/libcaca-0.99.beta12.tar.gz 
   libcaca-0.99.beta12 gz
 scripts/url-get libbullet "http://downloads.sourceforge.net/bullet/bullet-2.64.zip?use_mirror=osdn" \
   bullet-2.64 zip
-scripts/url-get libpcre ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-7.1.tar.bz2 \
-  pcre-7.1 bz2
+scripts/url-get libpcre ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-7.4.tar.bz2 \
+  pcre-7.4 bz2
 scripts/url-get lib3ds http://kent.dl.sourceforge.net/sourceforge/lib3ds/lib3ds-1.3.0.zip \
   lib3ds-1.3.0 zip
 scripts/url-get libode "http://downloads.sourceforge.net/opende/ode-src-0.9.zip?use_mirror=surfnet" \
   ode-src-0.9 zip ode-0.9
+scripts/url-get libjs ftp://ftp.mozilla.org/pub/mozilla.org/js/js-1.7.0.tar.gz js-1.7.0 gz
