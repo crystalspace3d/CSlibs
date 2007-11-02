@@ -10,8 +10,8 @@ scripts/url-get libpng http://mesh.dl.sourceforge.net/sourceforge/libpng/libpng-
   libpng-1.2.22 bz2
 scripts/url-get libz http://www.zlib.net/zlib-1.2.3.tar.bz2 \
   zlib-1.2.3 bz2
-scripts/url-get libmng http://mesh.dl.sourceforge.net/sourceforge/libmng/libmng-1.0.9.tar.gz \
-  libmng-1.0.9 gz
+scripts/url-get libmng http://mesh.dl.sourceforge.net/sourceforge/libmng/libmng-1.0.10.tar.gz \
+  libmng-1.0.10 gz
 scripts/url-get libogg http://downloads.xiph.org/releases/ogg/libogg-1.1.3.tar.gz \
   libogg-1.1.3 gz
 scripts/url-get libvorbis http://downloads.xiph.org/releases/vorbis/libvorbis-1.1.2.tar.gz \
