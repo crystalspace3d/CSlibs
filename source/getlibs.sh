@@ -20,8 +20,8 @@ scripts/url-get libfreetype http://mesh.dl.sourceforge.net/sourceforge/freetype/
   freetype-2.3.5 bz2
 scripts/url-get libcaca http://libcaca.zoy.org/files/libcaca-0.99.beta12.tar.gz \
   libcaca-0.99.beta12 gz
-scripts/url-get libbullet "http://www.continuousphysics.com/ftp/pub/test/index.php?dir=physics/source/&file=bullet-1.9f.zip" \
-  bullet-1.9f zip
+scripts/url-get libbullet "http://downloads.sourceforge.net/bullet/bullet-2.64.zip?use_mirror=osdn" \
+  bullet-2.64 zip
 scripts/url-get libpcre ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-7.1.tar.bz2 \
   pcre-7.1 bz2
 scripts/url-get lib3ds http://kent.dl.sourceforge.net/sourceforge/lib3ds/lib3ds-1.3.0.zip \
