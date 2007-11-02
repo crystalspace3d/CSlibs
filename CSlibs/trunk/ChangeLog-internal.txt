@@ -1,5 +1,6 @@
 2007-11-02:
   - Version bump to 1.3_002.
+  - Updated pcre to 7.4.
 2007-10-16:
   - Version bump to 1.3.
   - Compile "base" libs using VC 8 now.

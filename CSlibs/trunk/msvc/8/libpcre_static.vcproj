@@ -32,7 +32,7 @@
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
 				ProgramDataBaseFileName="..\..\libs\Temp_static\pcre.pdb"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_LIB;_WINDOWS;PCRE_STATIC;SUPPORT_UTF8;WIN32"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_LIB;_WINDOWS;PCRE_STATIC;SUPPORT_UTF8;HAVE_CONFIG_H;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
 				AdditionalIncludeDirectories=".;..\..\source\libpcre;..\..\source\libpcre\..\configs\pcre"
@@ -65,7 +65,7 @@
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_LIB;_WINDOWS;PCRE_STATIC;SUPPORT_UTF8"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_LIB;_WINDOWS;PCRE_STATIC;SUPPORT_UTF8;HAVE_CONFIG_H"
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
@@ -79,7 +79,7 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_LIB;_WINDOWS;PCRE_STATIC;SUPPORT_UTF8;PROJECTGEN_VERSION=8"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_LIB;_WINDOWS;PCRE_STATIC;SUPPORT_UTF8;HAVE_CONFIG_H;PROJECTGEN_VERSION=8"
 				AdditionalIncludeDirectories=".;..\..\source\libpcre;..\..\source\libpcre\..\configs\pcre"
 				Culture="1033"/>
 			<Tool
@@ -170,6 +170,9 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libpcre\pcrecpp.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libpcre\pcrecpp_internal.h">
 			</File>
 			<File
 				RelativePath="..\..\source\libpcre\pcreposix.h">
