@@ -1,7 +1,7 @@
 SubDir TOP source libjs ;
 
 BaseLib js : 
-  [ Filter [ Wildcard *.c *.h ] : jskwgen.c jscpucfg.c ] : 
+  [ Filter [ Wildcard src : *.c *.h ] : src/jskwgen.c src/jscpucfg.c ] : 
   js :
   :
   : 

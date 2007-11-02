@@ -97,260 +97,266 @@
 			Name="Source Files"
 			Filter="">
 			<File
-				RelativePath="..\..\source\libjs\js.c">
+				RelativePath="..\..\source\libjs\src\js.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsapi.c">
+				RelativePath="..\..\source\libjs\src\jsapi.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsarena.c">
+				RelativePath="..\..\source\libjs\src\jsarena.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsarray.c">
+				RelativePath="..\..\source\libjs\src\jsarray.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsatom.c">
+				RelativePath="..\..\source\libjs\src\jsatom.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsbool.c">
+				RelativePath="..\..\source\libjs\src\jsbool.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jscntxt.c">
+				RelativePath="..\..\source\libjs\src\jscntxt.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsdate.c">
+				RelativePath="..\..\source\libjs\src\jsdate.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsdbgapi.c">
+				RelativePath="..\..\source\libjs\src\jsdbgapi.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsdhash.c">
+				RelativePath="..\..\source\libjs\src\jsdhash.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsdtoa.c">
+				RelativePath="..\..\source\libjs\src\jsdtoa.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsemit.c">
+				RelativePath="..\..\source\libjs\src\jsemit.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsexn.c">
+				RelativePath="..\..\source\libjs\src\jsexn.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsfile.c">
+				RelativePath="..\..\source\libjs\src\jsfile.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsfun.c">
+				RelativePath="..\..\source\libjs\src\jsfun.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsgc.c">
+				RelativePath="..\..\source\libjs\src\jsgc.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jshash.c">
+				RelativePath="..\..\source\libjs\src\jshash.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsinterp.c">
+				RelativePath="..\..\source\libjs\src\jsinterp.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jslock.c">
+				RelativePath="..\..\source\libjs\src\jsiter.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jslog2.c">
+				RelativePath="..\..\source\libjs\src\jslock.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jslong.c">
+				RelativePath="..\..\source\libjs\src\jslog2.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsmath.c">
+				RelativePath="..\..\source\libjs\src\jslong.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsnum.c">
+				RelativePath="..\..\source\libjs\src\jsmath.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsobj.c">
+				RelativePath="..\..\source\libjs\src\jsnum.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsopcode.c">
+				RelativePath="..\..\source\libjs\src\jsobj.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsparse.c">
+				RelativePath="..\..\source\libjs\src\jsopcode.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsprf.c">
+				RelativePath="..\..\source\libjs\src\jsparse.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsregexp.c">
+				RelativePath="..\..\source\libjs\src\jsprf.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsscan.c">
+				RelativePath="..\..\source\libjs\src\jsregexp.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsscope.c">
+				RelativePath="..\..\source\libjs\src\jsscan.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsscript.c">
+				RelativePath="..\..\source\libjs\src\jsscope.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsstr.c">
+				RelativePath="..\..\source\libjs\src\jsscript.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsutil.c">
+				RelativePath="..\..\source\libjs\src\jsstr.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsxdrapi.c">
+				RelativePath="..\..\source\libjs\src\jsutil.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsxml.c">
+				RelativePath="..\..\source\libjs\src\jsxdrapi.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\prmjtime.c">
+				RelativePath="..\..\source\libjs\src\jsxml.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libjs\src\prmjtime.c">
 			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
 			Filter="">
 			<File
-				RelativePath="..\..\source\libjs\jsapi.h">
+				RelativePath="..\..\source\libjs\src\jsapi.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsarena.h">
+				RelativePath="..\..\source\libjs\src\jsarena.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsarray.h">
+				RelativePath="..\..\source\libjs\src\jsarray.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsatom.h">
+				RelativePath="..\..\source\libjs\src\jsatom.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsautokw.h">
+				RelativePath="..\..\source\libjs\src\jsautokw.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsbit.h">
+				RelativePath="..\..\source\libjs\src\jsbit.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsbool.h">
+				RelativePath="..\..\source\libjs\src\jsbool.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsclist.h">
+				RelativePath="..\..\source\libjs\src\jsclist.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jscntxt.h">
+				RelativePath="..\..\source\libjs\src\jscntxt.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jscompat.h">
+				RelativePath="..\..\source\libjs\src\jscompat.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsconfig.h">
+				RelativePath="..\..\source\libjs\src\jsconfig.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jscpucfg.h">
+				RelativePath="..\..\source\libjs\src\jscpucfg.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsdate.h">
+				RelativePath="..\..\source\libjs\src\jsdate.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsdbgapi.h">
+				RelativePath="..\..\source\libjs\src\jsdbgapi.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsdhash.h">
+				RelativePath="..\..\source\libjs\src\jsdhash.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsdtoa.h">
+				RelativePath="..\..\source\libjs\src\jsdtoa.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsemit.h">
+				RelativePath="..\..\source\libjs\src\jsemit.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsexn.h">
+				RelativePath="..\..\source\libjs\src\jsexn.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsfile.h">
+				RelativePath="..\..\source\libjs\src\jsfile.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsfun.h">
+				RelativePath="..\..\source\libjs\src\jsfun.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsgc.h">
+				RelativePath="..\..\source\libjs\src\jsgc.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jshash.h">
+				RelativePath="..\..\source\libjs\src\jshash.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsinterp.h">
+				RelativePath="..\..\source\libjs\src\jsinterp.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jslibmath.h">
+				RelativePath="..\..\source\libjs\src\jsiter.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jslock.h">
+				RelativePath="..\..\source\libjs\src\jslibmath.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jslong.h">
+				RelativePath="..\..\source\libjs\src\jslock.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsmath.h">
+				RelativePath="..\..\source\libjs\src\jslong.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsnum.h">
+				RelativePath="..\..\source\libjs\src\jsmath.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsobj.h">
+				RelativePath="..\..\source\libjs\src\jsnum.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsopcode.h">
+				RelativePath="..\..\source\libjs\src\jsobj.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsosdep.h">
+				RelativePath="..\..\source\libjs\src\jsopcode.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsotypes.h">
+				RelativePath="..\..\source\libjs\src\jsosdep.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsparse.h">
+				RelativePath="..\..\source\libjs\src\jsotypes.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsprf.h">
+				RelativePath="..\..\source\libjs\src\jsparse.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsprvtd.h">
+				RelativePath="..\..\source\libjs\src\jsprf.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jspubtd.h">
+				RelativePath="..\..\source\libjs\src\jsprvtd.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsregexp.h">
+				RelativePath="..\..\source\libjs\src\jspubtd.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsscan.h">
+				RelativePath="..\..\source\libjs\src\jsregexp.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsscope.h">
+				RelativePath="..\..\source\libjs\src\jsscan.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsscript.h">
+				RelativePath="..\..\source\libjs\src\jsscope.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsstddef.h">
+				RelativePath="..\..\source\libjs\src\jsscript.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsstr.h">
+				RelativePath="..\..\source\libjs\src\jsstddef.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jstypes.h">
+				RelativePath="..\..\source\libjs\src\jsstr.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsutil.h">
+				RelativePath="..\..\source\libjs\src\jstypes.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsxdrapi.h">
+				RelativePath="..\..\source\libjs\src\jsutil.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\jsxml.h">
+				RelativePath="..\..\source\libjs\src\jsxdrapi.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\prmjtime.h">
+				RelativePath="..\..\source\libjs\src\jsxml.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjs\resource.h">
+				RelativePath="..\..\source\libjs\src\prmjtime.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libjs\src\resource.h">
 			</File>
 		</Filter>
 		<Filter
