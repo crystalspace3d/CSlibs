@@ -2,4 +2,4 @@
 
 platform=$1
 
-build/lib.sh ${platform} libode "install" --enable-release
+build/lib.sh ${platform} libode "install" --enable-release --disable-demos
