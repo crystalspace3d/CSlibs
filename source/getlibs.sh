@@ -1,7 +1,6 @@
 #!/bin/sh
 
 scripts/svn-get libcal3d http://svn.gna.org/svn/cal3d/tags/release-0_11_0/cal3d/
-scripts/svn-get libode https://opende.svn.sourceforge.net/svnroot/opende/tags/0.8/
 scripts/svn-get libCEGUI https://crayzedsgui.svn.sourceforge.net/svnroot/crayzedsgui/cegui_mk2/branches/v0-5/
 # Would be nice to find some JS1.6 CVS tag.
 scripts/cvs-get libjs :pserver:anonymous@cvs-mirror.mozilla.org:/cvsroot \
@@ -27,3 +26,5 @@ scripts/url-get libpcre ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pc
   pcre-7.1 bz2
 scripts/url-get lib3ds http://kent.dl.sourceforge.net/sourceforge/lib3ds/lib3ds-1.3.0.zip \
   lib3ds-1.3.0 zip
+scripts/url-get libode "http://downloads.sourceforge.net/opende/ode-src-0.9.zip?use_mirror=surfnet" \
+  ode-src-0.9 zip ode-0.9
