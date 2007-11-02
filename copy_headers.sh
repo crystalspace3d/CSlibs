@@ -35,8 +35,8 @@ cp -r temp/libbullet/prefix-${mingw}/include/bullet/LinearMath headers/
 cp -r temp/libcal3d/prefix-${mingw}/include/cal3d headers/
 
 mkdir headers-extra/js
-cp source/libjs/*.h headers-extra/js/
-cp source/libjs/*.tbl headers-extra/js/
+cp source/libjs/src/*.h headers-extra/js/
+cp source/libjs/src/*.tbl headers-extra/js/
 
 mkdir -p headers/freetype/config/
 cp source/configs/freetype/config/*.h headers/freetype/config/

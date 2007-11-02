@@ -25,4 +25,4 @@ scripts/url-get lib3ds http://kent.dl.sourceforge.net/sourceforge/lib3ds/lib3ds-
   lib3ds-1.3.0 zip
 scripts/url-get libode "http://downloads.sourceforge.net/opende/ode-src-0.9.zip?use_mirror=surfnet" \
   ode-src-0.9 zip ode-0.9
-scripts/url-get libjs ftp://ftp.mozilla.org/pub/mozilla.org/js/js-1.7.0.tar.gz js-1.7.0 gz
+scripts/url-get libjs ftp://ftp.mozilla.org/pub/mozilla.org/js/js-1.7.0.tar.gz js-1.7.0 gz js
