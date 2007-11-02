@@ -3,6 +3,7 @@
   - Updated ODE to 0.9.
   - Updated libpng to 1.2.22.
   - Updated libmng to 1.0.10.
+  - Updated libvorbis to 1.2.0.
   
 1.2_002 (2007-08-28):
   - Fixed broken lib3ds DLL.

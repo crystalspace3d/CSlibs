@@ -14,8 +14,8 @@ scripts/url-get libmng http://mesh.dl.sourceforge.net/sourceforge/libmng/libmng-
   libmng-1.0.10 gz
 scripts/url-get libogg http://downloads.xiph.org/releases/ogg/libogg-1.1.3.tar.gz \
   libogg-1.1.3 gz
-scripts/url-get libvorbis http://downloads.xiph.org/releases/vorbis/libvorbis-1.1.2.tar.gz \
-  libvorbis-1.1.2 gz
+scripts/url-get libvorbis http://downloads.xiph.org/releases/vorbis/libvorbis-1.2.0.tar.gz \
+  libvorbis-1.2.0 gz
 scripts/url-get libfreetype http://mesh.dl.sourceforge.net/sourceforge/freetype/freetype-2.3.4.tar.bz2 \
   freetype-2.3.4 bz2
 scripts/url-get libcaca http://sam.zoy.org/libcaca/libcaca-0.9.tar.bz2 \
