@@ -72,10 +72,10 @@ if [ Property build : projgen_version ] = 8
   rule BaseLib 
   { 
     LibCommon $(1) : $(2) : $(3) : $(4) : $(5) : $(6) : : $(7) ;
-    SetProperty baseliblibs : $(1) : $(1) ;
-    SetProperty baseliblibs : $(1)_debug : $(1) ;
-    SetProperty baseliblibs : $(1)_static : $(1)_static ;
-    SetProperty baseliblibs : $(1)_static_debug : $(1)_static ;
+    SetProperty baselibdeps : $(1) : $(1) ;
+    SetProperty baselibdeps : $(1)_debug : $(1) ;
+    SetProperty baselibdeps : $(1)_static : $(1)_static ;
+    SetProperty baselibdeps : $(1)_static_debug : $(1)_static ;
   }
 }
 else
@@ -104,8 +104,22 @@ else
     }
     if ! [ IsElem nostatic : $(options) ]
     {
-      SetProperty baseliblibs : $(1)_static : $(root)/libs/$(outdir)_static/$(3).lib ;
-      SetProperty baseliblibs : $(1)_static_debug : $(root)/libs/$(outdir)_static/$(3).lib ;
+      if [ Property build : projgen_version ] != 7
+      {
+	SetProperty baseliblibs : $(1)_static : $(root)/libs/$(outdir)_static/$(3).lib ;
+	SetProperty baseliblibs : $(1)_static_debug : $(root)/libs/$(outdir)_static/$(3).lib ;
+      }
+      else
+      {
+	outdir = "TempVC7Only" ;
+	if ! [ IsElem staticonly : $(options) ]
+	{
+	  options += staticonly ;
+	}
+	LibCommon $(1) : $(2) : $(3) : $(4) : $(5) : $(options) : : $(outdir) ;
+	SetProperty baselibdeps : $(1)_static : $(1)_static ;
+	SetProperty baselibdeps : $(1)_static_debug : $(1)_static ;
+      }
     }
   }
 }
@@ -125,9 +139,10 @@ rule _SetBaseLibs
     }
     else
     {
-      if [ Property build : projgen_version ] = 8
+      local d = [ Property baselibdeps : $(b) ] ;
+      if "$(d)" != ""
       {
-	LibDepends $(lib) : [ Property baseliblibs : $(b) ] ;
+	LibDepends $(lib) : $(d) ;
       }
       else
       {

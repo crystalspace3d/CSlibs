@@ -59,7 +59,7 @@
 				DelayLoadDLLs=""
 				ImportLibrary="..\..\libs\ReleaseVC7Only\CEGUIBase-vc7.lib"
 				AdditionalOptions=" "
-				AdditionalDependencies="../../libs/Release/zlib.lib ../../libs/Release/freetype2.lib ../../libs/Temp_static/pcre.lib"
+				AdditionalDependencies="../../libs/Release/zlib.lib ../../libs/Release/freetype2.lib"
 				SuppressStartupBanner="TRUE"
 				AdditionalLibraryDirectories=""
 				ProgramDatabaseFile="..\..\libs\ReleaseVC7Only\libCEGUIBase-csvc7.pdb"
