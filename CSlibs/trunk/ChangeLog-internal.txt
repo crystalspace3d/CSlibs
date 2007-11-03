@@ -1,6 +1,7 @@
 2007-11-03:
   - Turns out the VC8 compiled static libs don't work well with VC7.0, so give
     VC7.0 it's own set of static libs.
+  - Removed freealut (doesn't appear to be used by OpenAL branch).
 2007-11-02:
   - Version bump to 1.3_002.
   - Updated pcre to 7.4.

@@ -56,7 +56,6 @@ Source: ..\..\tools\Release\setuptool.dll; DestDir: {app}
 Source: ..\..\tools\Release\jam.exe; DestDir: {app}\tools; Components: Extra/Jam
 Source: ..\..\nosource\dbghelp\dbghelp.dll; DestDir: {app}\dlls; Components: Extra/Dbghelp
 Source: ..\..\nosource\Cg\dlls\*.*; DestDir: {app}\dlls; Flags: recursesubdirs; Components: Extra/Cg
-Source: ..\..\nosource\freealut\lib\*.dll; DestDir: {app}\dlls; Components: Libs/Common
 #ifndef STATIC
 Source: ..\..\syslibs\*.manifest; DestDir: {app}\dlls; Components: Libs/Common
 Source: ..\..\syslibs\*.dll; DestDir: {app}\dlls; Components: Libs/Common
@@ -80,7 +79,6 @@ Source: ..\..\libs\ReleaseExtra\libjs-cs.dll; DestDir: {app}\dlls; Components: L
 
 ; .libs: common for both static/dynamic
 Source: ..\..\nosource\OpenAL\libs\*.lib; DestDir: {app}\common\lib; Components: Libs/Common; AfterInstall: LibPostInstall
-Source: ..\..\nosource\freealut\lib\*.lib; DestDir: {app}\common\lib; Components: Libs/Common; AfterInstall: LibPostInstall
 Source: ..\..\directx\lib\*.*; DestDir: {app}\common\lib; Flags: recursesubdirs; Components: Extra/DXLibs; AfterInstall: LibPostInstall
 Source: ..\..\nosource\python\*.*; DestDir: {app}\common\lib; Components: Extra/Python
 Source: ..\..\nosource\Cg\lib\*.*; DestDir: {app}\common\lib; Flags: recursesubdirs; Components: Extra/Cg; AfterInstall: LibPostInstall
@@ -127,7 +125,6 @@ Source: ..\..\headers-extra\*.*; DestDir: {app}\common\include; Flags: recursesu
 ;Source: ..\..\headers_dll\*.*; DestDir: {app}\include; Flags: recursesubdirs; Components: Libs/Common
 #endif
 Source: ..\..\nosource\OpenAL\include\*.*; DestDir: {app}\common\include\AL; Flags: recursesubdirs; Components: Libs/Common
-Source: ..\..\nosource\freealut\include\*.*; DestDir: {app}\common\include; Flags: recursesubdirs; Components: Libs/Common
 Source: ..\..\directx\include\*.*; DestDir: {app}\common\include; Flags: recursesubdirs; Components: Extra/DXHeaders
 Source: ..\..\nosource\Cg\include\Cg\*.*; DestDir: {app}\common\include\Cg; Flags: recursesubdirs; Components: Extra/Cg
 
