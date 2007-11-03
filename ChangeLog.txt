@@ -1,4 +1,4 @@
-1.3_002 (2007-11-??):
+1.3_002 (2007-11-04):
   - Updated lib3ds to 1.3.0.
   - Updated ODE to 0.9.
   - Updated libpng to 1.2.22.
@@ -8,6 +8,8 @@
   - Updated caca to 0.99beta12.
   - Updated Bullet to 2.64.
   - Added information on "Deploying Applications Built Against cs-win32libs".
+  - VC support now installs headers & libs into CS/win32libs and not into
+    CS/include/.../ and CS/libs/.../.
   
 1.2_002 (2007-08-28):
   - Fixed broken lib3ds DLL.

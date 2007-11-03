@@ -27,33 +27,12 @@ DisableProgramGroupPage=true
 WizardImageFile=compiler:WizModernImage-IS.bmp
 WizardSmallImageFile=compiler:WizModernSmallImage-IS.bmp
 [Files]
-Source: {src}\common\include\*.*; DestDir: {app}\include\csutil\win32; Flags: external skipifsourcedoesntexist recursesubdirs
-Source: {src}\vc\include\*.*; DestDir: {app}\include\csutil\win32; Flags: external skipifsourcedoesntexist recursesubdirs
-;Source: {src}\include\AL\*.*; DestDir: {app}\include\csutil\win32\AL; Flags: external skipifsourcedoesntexist
-;Source: {src}\include\cal3d\*.*; DestDir: {app}\include\csutil\win32\cal3d; Flags: external skipifsourcedoesntexist
-;Source: {src}\include\freetype\*.*; DestDir: {app}\include\csutil\win32\freetype; Flags: external skipifsourcedoesntexist
-;Source: {src}\include\freetype\cache\*.*; DestDir: {app}\include\csutil\win32\freetype\cache; Flags: external skipifsourcedoesntexist
-;Source: {src}\include\freetype\config\*.*; DestDir: {app}\include\csutil\win32\freetype\config; Flags: external skipifsourcedoesntexist
-;Source: {src}\include\freetype\internal\*.*; DestDir: {app}\include\csutil\win32\freetype\internal; Flags: external skipifsourcedoesntexist
-;Source: {src}\include\lib3ds\*.*; DestDir: {app}\include\csutil\win32\lib3ds; Flags: external skipifsourcedoesntexist
-;Source: {src}\include\ode\*.*; DestDir: {app}\include\csutil\win32\ode; Flags: external skipifsourcedoesntexist
-;Source: {src}\include\ogg\*.*; DestDir: {app}\include\csutil\win32\ogg; Flags: external skipifsourcedoesntexist
-;Source: {src}\include\vorbis\*.*; DestDir: {app}\include\csutil\win32\vorbis; Flags: external skipifsourcedoesntexist
-;Source: {src}\include\Cg\*.*; DestDir: {app}\include\csutil\win32\Cg; Flags: external skipifsourcedoesntexist
-;Source: {src}\include\elements\*.*; DestDir: {app}\include\csutil\win32\elements; Flags: external skipifsourcedoesntexist
-;Source: {src}\include\falagard\*.*; DestDir: {app}\include\csutil\win32\falagard; Flags: external skipifsourcedoesntexist
-;Source: {src}\include\js\*.*; DestDir: {app}\include\csutil\win32\js; Flags: external skipifsourcedoesntexist
-;Source: {src}\include\BroadphaseCollision\*.*; DestDir: {app}\include\csutil\win32\BroadphaseCollision; Flags: external skipifsourcedoesntexist
-;Source: {src}\include\CcdPhysics\*.*; DestDir: {app}\include\csutil\win32\CcdPhysics; Flags: external skipifsourcedoesntexist
-;Source: {src}\include\CollisionDispatch\*.*; DestDir: {app}\include\csutil\win32\CollisionDispatch; Flags: external skipifsourcedoesntexist
-;Source: {src}\include\CollisionShapes\*.*; DestDir: {app}\include\csutil\win32\CollisionShapes; Flags: external skipifsourcedoesntexist
-;Source: {src}\include\ConstraintSolver\*.*; DestDir: {app}\include\csutil\win32\ConstraintSolver; Flags: external skipifsourcedoesntexist
-;Source: {src}\include\Dynamics\*.*; DestDir: {app}\include\csutil\win32\Dynamics; Flags: external skipifsourcedoesntexist
-;Source: {src}\include\NarrowPhaseCollision\*.*; DestDir: {app}\include\csutil\win32\NarrowPhaseCollision; Flags: external skipifsourcedoesntexist
-Source: {src}\common\lib\*.lib; DestDir: {app}\libs\csutil\win32\libs; Flags: external skipifsourcedoesntexist
-Source: {src}\common\lib\*.pdb; DestDir: {app}\libs\csutil\win32\libs; Flags: external skipifsourcedoesntexist
-Source: {src}\vc\lib\*.lib; DestDir: {app}\libs\csutil\win32\libs; Flags: external skipifsourcedoesntexist
-Source: {src}\vc\lib\*.pdb; DestDir: {app}\libs\csutil\win32\libs; Flags: external skipifsourcedoesntexist
+Source: {src}\common\include\*.*; DestDir: {app}\win32libs\include; Flags: external skipifsourcedoesntexist recursesubdirs
+Source: {src}\vc\include\*.*; DestDir: {app}\win32libs\include; Flags: external skipifsourcedoesntexist recursesubdirs
+Source: {src}\common\lib\*.lib; DestDir: {app}\win32libs\lib; Flags: external skipifsourcedoesntexist
+Source: {src}\common\lib\*.pdb; DestDir: {app}\win32libs\lib; Flags: external skipifsourcedoesntexist
+Source: {src}\vc\lib\*.lib; DestDir: {app}\win32libs\lib; Flags: external skipifsourcedoesntexist
+Source: {src}\vc\lib\*.pdb; DestDir: {app}\win32libs\lib; Flags: external skipifsourcedoesntexist
 [Registry]
 Root: HKLM; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstvalName}; ValueData: {uninstallexe}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: IsAdminLoggedOn
 Root: HKCU; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstvalName}; ValueData: {uninstallexe}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: not IsAdminLoggedOn
@@ -64,15 +43,7 @@ SelectDirDesc=Where is CrystalSpace installed?
 SelectDirLabel3=The CrystalSpace Win32 libraries have to be copied to the CrystalSpace source tree in order to use them with VC. Please locate your CrystalSpace directory.
 FinishedLabel=Setup has finished installing [name] on your computer. You can set up {#SupportName} support for more CS source trees by re-running this setup.
 [Dirs]
-Name: {app}\include\csutil\win32\AL; Flags: uninsalwaysuninstall
-Name: {app}\include\csutil\win32\cal3d; Flags: uninsalwaysuninstall
-Name: {app}\include\csutil\win32\elements; Flags: uninsalwaysuninstall
-Name: {app}\include\csutil\win32\freetype; Flags: uninsalwaysuninstall
-Name: {app}\include\csutil\win32\lib3ds; Flags: uninsalwaysuninstall
-Name: {app}\include\csutil\win32\ode; Flags: uninsalwaysuninstall
-Name: {app}\include\csutil\win32\ogg; Flags: uninsalwaysuninstall
-Name: {app}\include\csutil\win32\vorbis; Flags: uninsalwaysuninstall
-Name: {app}\libs\csutil\win32\libs; Flags: uninsalwaysuninstall
+Name: {app}\win32libs; Flags: uninsalwaysuninstall
 Name: {src}\support; Flags: uninsalwaysuninstall
 [Code]
 #include "CodeCommon.inc"
