@@ -9,15 +9,16 @@ AC_PREREQ([2.54])
 #----------------------------------------------------------------------------
 AC_INIT(
     [CSlibs],
-    [0.99r0_021],
-    [resqu@gmx.ch])
+    [0],
+    [res@crystalspace3d.org])
 CS_PACKAGEINFO(
     [cs-win32libs],
-    [(c) 2003-2006 by Frank Richter],
+    [(c) 2003-2007 by Frank Richter],
     [http://crystalspace3d.org/])
 AC_CONFIG_SRCDIR([mk/jam/build.jam])
 AC_CONFIG_AUX_DIR([mk/autoconf])
 AC_CANONICAL_HOST
+CS_CHECK_HOST
 
 #----------------------------------------------------------------------------
 # Setup for the configuration header.
