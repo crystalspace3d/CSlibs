@@ -1,3 +1,7 @@
+2007-11-16:
+  - res added facilities to collect (MSVC) debug symbols for the compiled
+    libraries and upload them to a directory on crystalspace3d.org which 
+    serves as a "symbol store" for users.
 2007-11-03:
   - Turns out the VC8 compiled static libs don't work well with VC7.0, so give
     VC7.0 it's own set of static libs.
