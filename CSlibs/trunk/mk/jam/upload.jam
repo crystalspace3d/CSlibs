@@ -43,7 +43,7 @@ actions DoUploadDir
 {
   # Pack directory for transfer
   tempdir=${TEMP:-${TMP:-/tmp}}
-  tempfile=upload$$.tbz2
+  tempfile=`mktemp -u upload-XXXXXXXX`.tbz2
   cd $(DIR)
   $(CMD.TAR) -cjvf $tempdir/$tempfile *
   cd -
