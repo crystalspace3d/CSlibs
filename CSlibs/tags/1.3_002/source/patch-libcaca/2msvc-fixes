@@ -1,0 +1,30 @@
+diff -ru ../libcaca.old/common.h ./common.h
+--- ../libcaca.old/common.h	Thu Nov 16 11:25:31 2006
++++ ./common.h	Fri Nov  2 15:09:13 2007
+@@ -29,8 +29,14 @@
+ typedef unsigned short uint16_t;
+ typedef unsigned long int uint32_t;
+ 
+-typedef long int intptr_t;
++#if !defined(_INTPTR_T_DEFINED)
++typedef long int intptr_t;
++#define _INTPTR_T_DEFINED
++#endif
++#if !defined(_UINTPTR_T_DEFINED)
+ typedef unsigned long int uintptr_t;
++#define _UINTPTR_T_DEFINED
++#endif
+ #endif
+ 
+ /* errno handling */
+diff -ru ../libcaca.old/msvc/config.h ./msvc/config.h
+--- ../libcaca.old/msvc/config.h	Sun Apr 16 18:17:44 2006
++++ ./msvc/config.h	Fri Nov  2 15:11:22 2007
+@@ -4,6 +4,7 @@
+ /* #undef HAVE_CONIO_H */
+ /* #undef HAVE_CURSES_H */
+ /* #undef HAVE_ENDIAN_H */
++#define HAVE_ERRNO_H 1
+ #define HAVE_GETENV 1
+ /* #undef HAVE_GETTIMEOFDAY */
+ /* #undef HAVE_IMLIB2_H */
