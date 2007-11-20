@@ -26,7 +26,7 @@ DefaultDirName={code:GetDefaultDir|{pf}\CrystalSpaceLibs}
 OutputDir=..\..\out
 OutputBaseFilename={#SetupName}
 AppPublisher=CrystalSpace
-AppPublisherURL=http://crystalspace3d.org
+AppPublisherURL=http://crystal.sf.net
 DefaultGroupName={#AppName} {#CSLibsVersion}
 UninstallDisplayIcon={app}\setuptool.dll
 InfoBeforeFile=..\..\Readme.rtf
@@ -48,7 +48,6 @@ Name: typCygwin; Description: Cygwin Typical
 Name: xcompile; Description: Cross-compile Typical
 [Files]
 Source: ..\..\Readme.rtf; DestDir: {app}
-Source: ..\..\Deploying Applications Built Against cs-win32libs.rtf; DestDir: {app}
 Source: ..\..\ChangeLog.txt; DestDir: {app}
 Source: ..\..\version.txt; DestDir: {app}; AfterInstall: WriteVersionTxt
 
@@ -57,8 +56,8 @@ Source: ..\..\tools\Release\setuptool.dll; DestDir: {app}
 Source: ..\..\tools\Release\jam.exe; DestDir: {app}\tools; Components: Extra/Jam
 Source: ..\..\nosource\dbghelp\dbghelp.dll; DestDir: {app}\dlls; Components: Extra/Dbghelp
 Source: ..\..\nosource\Cg\dlls\*.*; DestDir: {app}\dlls; Flags: recursesubdirs; Components: Extra/Cg
+Source: ..\..\nosource\freealut\lib\*.dll; DestDir: {app}\dlls; Components: Libs/Common
 #ifndef STATIC
-Source: ..\..\syslibs\*.manifest; DestDir: {app}\dlls; Components: Libs/Common
 Source: ..\..\syslibs\*.dll; DestDir: {app}\dlls; Components: Libs/Common
 Source: ..\..\libs\Release\*.dll; DestDir: {app}\dlls; Components: Libs/Common
 Source: ..\..\libs\ReleaseVC7Only\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
@@ -80,6 +79,7 @@ Source: ..\..\libs\ReleaseExtra\libjs-cs.dll; DestDir: {app}\dlls; Components: L
 
 ; .libs: common for both static/dynamic
 Source: ..\..\nosource\OpenAL\libs\*.lib; DestDir: {app}\common\lib; Components: Libs/Common; AfterInstall: LibPostInstall
+Source: ..\..\nosource\freealut\lib\*.lib; DestDir: {app}\common\lib; Components: Libs/Common; AfterInstall: LibPostInstall
 Source: ..\..\directx\lib\*.*; DestDir: {app}\common\lib; Flags: recursesubdirs; Components: Extra/DXLibs; AfterInstall: LibPostInstall
 Source: ..\..\nosource\python\*.*; DestDir: {app}\common\lib; Components: Extra/Python
 Source: ..\..\nosource\Cg\lib\*.*; DestDir: {app}\common\lib; Flags: recursesubdirs; Components: Extra/Cg; AfterInstall: LibPostInstall
@@ -126,6 +126,7 @@ Source: ..\..\headers-extra\*.*; DestDir: {app}\common\include; Flags: recursesu
 ;Source: ..\..\headers_dll\*.*; DestDir: {app}\include; Flags: recursesubdirs; Components: Libs/Common
 #endif
 Source: ..\..\nosource\OpenAL\include\*.*; DestDir: {app}\common\include\AL; Flags: recursesubdirs; Components: Libs/Common
+Source: ..\..\nosource\freealut\include\*.*; DestDir: {app}\common\include; Flags: recursesubdirs; Components: Libs/Common
 Source: ..\..\directx\include\*.*; DestDir: {app}\common\include; Flags: recursesubdirs; Components: Extra/DXHeaders
 Source: ..\..\nosource\Cg\include\Cg\*.*; DestDir: {app}\common\include\Cg; Flags: recursesubdirs; Components: Extra/Cg
 
@@ -226,7 +227,6 @@ Name: {app}\version.txt; Type: files
 Name: {app}\mingw\lib\pkgconfig; Type: filesandordirs
 [Icons]
 Name: {group}\Read Me; Filename: {app}\Readme.rtf; WorkingDir: {app}; Comment: Important informations, known issues and solutions.
-Name: {group}\Deploying Applications Built Against cs-win32libs; Filename: {app}\Deploying Applications Built Against cs-win32libs; WorkingDir: {app}; Comment: Information on picking the right files from cs-win32libs when packaging applications for distribution
 Name: {group}\Copy DLLs to a CS directory; Filename: {app}\CopyDLLs.exe; WorkingDir: {app}; Comment: Copies the 3rd party DLLs to a CS source directory so compiled binaries can find them.; IconIndex: 0;
 Name: {group}\Set up VC support; Filename: {app}\VCsupport.exe; WorkingDir: {app}; Comment: Copies the headers and libraries to your CS source directory so you can use them from VC.; IconIndex: 0; Components: DESupport/VC
 Name: {group}\Set up MSYS support; Filename: {app}\MSYSsupport.exe; WorkingDir: {app}; Comment: Sets up MSYS so you can use the CrystalSpace libs from there.; IconIndex: 0; Components: DESupport/MSYS

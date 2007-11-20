@@ -29,7 +29,7 @@
 				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_LIB;_WINDOWS;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
-				AdditionalIncludeDirectories=".;..\..\source\libbullet\src;..\..\source\libbullet\src\LinearMath"
+				AdditionalIncludeDirectories=".;..\..\source\libbullet\Bullet;..\..\source\libbullet\LinearMath;..\..\source\libbullet\BulletDynamics"
 				PrecompiledHeaderFile="..\..\out\debug7\build\libbulletdynamics_debug_static\libbulletdynamics_debug_static.pch"
 				AssemblerListingLocation="..\..\out\debug7\build\libbulletdynamics_debug_static\"
 				ObjectFile="..\..\out\debug7\build\libbulletdynamics_debug_static\"
@@ -72,7 +72,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_LIB;_WINDOWS;PROJECTGEN_VERSION=7"
-				AdditionalIncludeDirectories=".;..\..\source\libbullet\src;..\..\source\libbullet\src\LinearMath"
+				AdditionalIncludeDirectories=".;..\..\source\libbullet\Bullet;..\..\source\libbullet\LinearMath;..\..\source\libbullet\BulletDynamics"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
@@ -85,116 +85,95 @@
 			Name="Source Files"
 			Filter="">
 			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btConeTwistConstraint.cpp">
+				RelativePath="..\..\source\libbullet\BulletDynamics\ConstraintSolver\ContactConstraint.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btContactConstraint.cpp">
+				RelativePath="..\..\source\libbullet\BulletDynamics\ConstraintSolver\Generic6DofConstraint.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btGeneric6DofConstraint.cpp">
+				RelativePath="..\..\source\libbullet\BulletDynamics\ConstraintSolver\HingeConstraint.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btHingeConstraint.cpp">
+				RelativePath="..\..\source\libbullet\BulletDynamics\ConstraintSolver\Point2PointConstraint.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btPoint2PointConstraint.cpp">
+				RelativePath="..\..\source\libbullet\BulletDynamics\ConstraintSolver\SequentialImpulseConstraintSolver.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btSequentialImpulseConstraintSolver.cpp">
+				RelativePath="..\..\source\libbullet\BulletDynamics\ConstraintSolver\Solve2LinearConstraint.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btSolve2LinearConstraint.cpp">
+				RelativePath="..\..\source\libbullet\BulletDynamics\ConstraintSolver\TypedConstraint.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btTypedConstraint.cpp">
+				RelativePath="..\..\source\libbullet\BulletDynamics\Dynamics\BU_Joint.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\Dynamics\btContinuousDynamicsWorld.cpp">
+				RelativePath="..\..\source\libbullet\BulletDynamics\Dynamics\ContactJoint.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\Dynamics\btDiscreteDynamicsWorld.cpp">
+				RelativePath="..\..\source\libbullet\BulletDynamics\Dynamics\RigidBody.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\Dynamics\btRigidBody.cpp">
+				RelativePath="..\..\source\libbullet\BulletDynamics\Vehicle\RaycastVehicle.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\Dynamics\btSimpleDynamicsWorld.cpp">
-			</File>
-			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\Dynamics\Bullet-C-API.cpp">
-			</File>
-			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\Vehicle\btRaycastVehicle.cpp">
-			</File>
-			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\Vehicle\btWheelInfo.cpp">
+				RelativePath="..\..\source\libbullet\BulletDynamics\Vehicle\WheelInfo.cpp">
 			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
 			Filter="">
 			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btConeTwistConstraint.h">
+				RelativePath="..\..\source\libbullet\BulletDynamics\ConstraintSolver\ConstraintSolver.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btConstraintSolver.h">
+				RelativePath="..\..\source\libbullet\BulletDynamics\ConstraintSolver\ContactConstraint.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btContactConstraint.h">
+				RelativePath="..\..\source\libbullet\BulletDynamics\ConstraintSolver\ContactSolverInfo.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btContactSolverInfo.h">
+				RelativePath="..\..\source\libbullet\BulletDynamics\ConstraintSolver\Generic6DofConstraint.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btGeneric6DofConstraint.h">
+				RelativePath="..\..\source\libbullet\BulletDynamics\ConstraintSolver\HingeConstraint.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btHingeConstraint.h">
+				RelativePath="..\..\source\libbullet\BulletDynamics\ConstraintSolver\JacobianEntry.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btJacobianEntry.h">
+				RelativePath="..\..\source\libbullet\BulletDynamics\ConstraintSolver\Point2PointConstraint.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btPoint2PointConstraint.h">
+				RelativePath="..\..\source\libbullet\BulletDynamics\ConstraintSolver\SequentialImpulseConstraintSolver.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btSequentialImpulseConstraintSolver.h">
+				RelativePath="..\..\source\libbullet\BulletDynamics\ConstraintSolver\Solve2LinearConstraint.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btSolve2LinearConstraint.h">
+				RelativePath="..\..\source\libbullet\BulletDynamics\ConstraintSolver\TypedConstraint.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btSolverBody.h">
+				RelativePath="..\..\source\libbullet\BulletDynamics\Dynamics\BU_Joint.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btSolverConstraint.h">
+				RelativePath="..\..\source\libbullet\BulletDynamics\Dynamics\ContactJoint.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btTypedConstraint.h">
+				RelativePath="..\..\source\libbullet\BulletDynamics\Dynamics\MassProps.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\Dynamics\btContinuousDynamicsWorld.h">
+				RelativePath="..\..\source\libbullet\BulletDynamics\Dynamics\RigidBody.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\Dynamics\btDiscreteDynamicsWorld.h">
+				RelativePath="..\..\source\libbullet\BulletDynamics\Vehicle\RaycastVehicle.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\Dynamics\btDynamicsWorld.h">
+				RelativePath="..\..\source\libbullet\BulletDynamics\Vehicle\VehicleRaycaster.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\Dynamics\btRigidBody.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\Dynamics\btSimpleDynamicsWorld.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\Vehicle\btRaycastVehicle.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\Vehicle\btVehicleRaycaster.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\Vehicle\btWheelInfo.h">
+				RelativePath="..\..\source\libbullet\BulletDynamics\Vehicle\WheelInfo.h">
 			</File>
 		</Filter>
 	</Files>
