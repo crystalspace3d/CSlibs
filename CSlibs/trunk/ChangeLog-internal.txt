@@ -1,5 +1,6 @@
 2007-12-29:
   - Updated mk/ files from CS.
+  - Reformatted, slightly reworded readme libraries changes notes.
 2007-11-16:
   - res added facilities to collect (MSVC) debug symbols for the compiled
     libraries and upload them to a directory on crystalspace3d.org which 
