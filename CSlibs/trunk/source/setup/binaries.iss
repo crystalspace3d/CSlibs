@@ -64,13 +64,14 @@ Source: ..\..\libs\Release\*.dll; DestDir: {app}\dlls; Components: Libs/Common
 Source: ..\..\libs\ReleaseVC7Only\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC71Only\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC8Only\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC9Only\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
 Source: ..\..\libs\ReleaseGCCOnly\mingw\*.dll; DestDir: {app}\dlls\mingw; Flags: skipifsourcedoesntexist; Components: Libs/MinGW
 Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.4\*.dll; DestDir: {app}\dlls\mingw; Flags: skipifsourcedoesntexist; Components: Libs/MinGW
 Source: ..\..\libs\ReleaseNoCygwin\*.dll; DestDir: {app}\dlls; Components: Libs/VC Libs/MinGW
 #else
-Source: ..\..\libs\ReleaseVC7Only_static\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC71Only_static\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC8Only_static\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC9Only_static\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
 Source: ..\..\libs\ReleaseGCCOnly_static\mingw\*.dll; DestDir: {app}\dlls\mingw; Flags: skipifsourcedoesntexist; Components: Libs/MinGW
 Source: ..\..\libs\ReleaseGCCOnly_static\mingw-gcc-3.4\*.dll; DestDir: {app}\dlls\mingw; Flags: skipifsourcedoesntexist; Components: Libs/MinGW
 #endif
@@ -90,19 +91,21 @@ Source: ..\..\libs\Release\*.lib; DestDir: {app}\common\lib; Components: Libs/Co
 Source: ..\..\libs\ReleaseVC7Only\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC71Only\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC8Only\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC9Only\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseNoCygwin\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC;
 Source: ..\..\libs\ReleaseNoCygwin\*.lib; DestDir: {app}\mingw\lib; Components: Libs/MinGW; AfterInstall: LibPostInstall
 ; Bullet is always static
 Source: ..\..\libs\ReleaseVC7Only_static\bullet*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC71Only_static\bullet*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC8Only_static\bullet*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC9Only_static\bullet*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.4\lib*.a; DestDir: {app}\mingw\lib; Components: Libs/MinGW
 #else
 ; Static .libs
 Source: ..\..\libs\Release_static\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC7Only_static\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC71Only_static\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC8Only_static\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC9Only_static\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseNoCygwin_static\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseGCCOnly_static\mingw\*.a; DestDir: {app}\mingw\lib; Components: Libs/MinGW
 Source: ..\..\libs\ReleaseGCCOnly_static\mingw-gcc-3.4\lib*.a; DestDir: {app}\mingw\lib; Components: Libs/MinGW
@@ -135,24 +138,26 @@ Source: ..\..\libs\Release\*.pdb; DestDir: {app}\dlls; Components: Extra/DebugIn
 Source: ..\..\libs\ReleaseVC7Only\*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo
 Source: ..\..\libs\ReleaseVC71Only\*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo
 Source: ..\..\libs\ReleaseVC8Only\*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo
+Source: ..\..\libs\ReleaseVC9Only\*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo
 Source: ..\..\libs\ReleaseVC7Only_static\bullet*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC71Only_static\bullet*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC8Only_static\bullet*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC9Only_static\bullet*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseNoCygwin\*.pdb; DestDir: {app}\dlls; Components: Extra/DebugInfo
 Source: ..\..\libs\ReleaseGCCOnly\mingw\*.dbg; DestDir: {app}\dlls\mingw; Components: Extra/DebugInfo
 #else
-Source: ..\..\libs\ReleaseVC7Only_static\lib*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo
 Source: ..\..\libs\ReleaseVC71Only_static\lib*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo
 Source: ..\..\libs\ReleaseVC8Only_static\lib*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo
+Source: ..\..\libs\ReleaseVC9Only_static\lib*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo
 Source: ..\..\libs\ReleaseGCCOnly_static\mingw\*.dbg; DestDir: {app}\dlls\mingw; Components: Extra/DebugInfo
 ; Always install pdbs for static libs (to avoid compiler complaints)
 Source: ..\..\libs\Release_static\*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC7Only_static\bullet*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC7Only_static\cal3d*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC71Only_static\bullet*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC71Only_static\cal3d*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC8Only_static\bullet*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC8Only_static\cal3d*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC9Only_static\bullet*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC9Only_static\cal3d*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseNoCygwin_static\*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
 #endif
 #if 0
@@ -205,7 +210,7 @@ Name: Extra/DebugInfo; Description: Debug information; Types: custom full typVC 
 Name: Extra/Dbghelp; Description: DbgHelp.dll Debugging helper; Types: custom compact full typMinGW typVC typCygwin; Flags: disablenouninstallwarning
 Name: Extra/OpenALInstaller; Description: OpenAL runtime installer; Types: custom full; Flags: disablenouninstallwarning
 Name: DESupport; Description: Support for development environments; Types: custom full; Flags: disablenouninstallwarning
-Name: DESupport/VC; Description: VisualC 7.0, 7.1, 8.0; Types: custom full typVC; Flags: disablenouninstallwarning
+Name: DESupport/VC; Description: VisualC 7.0, 7.1, 8.0, 9.0; Types: custom full typVC; Flags: disablenouninstallwarning
 Name: DESupport/MSYS; Description: MSYS; Types: custom full typMinGW; Flags: disablenouninstallwarning
 Name: DESupport/Cygwin; Description: Cygwin; Types: custom full typCygwin; Flags: disablenouninstallwarning
 [Run]

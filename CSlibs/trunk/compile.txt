@@ -2,7 +2,7 @@ Compiling Stuff
 ---------------
 
 Required tools:
-- MSVC 7,7.1,8
+- MSVC 7,7.1,8,9
 - Recent MSYS/MinGW, with binutils >= 2.16.91
 - InnoSetup >= 5.0.7
 - Python
@@ -13,6 +13,7 @@ order:
 - msvc/8/CSlibs.sln with VC8.0
 - msvc/7/CSlibs.sln with VC7.0
 - msvc/71/CSlibs.sln with VC7.1
+- msvc/9/CSlibs.sln with VC9.0
 
 The MinGW-only libs can be built by running build_mingw.sh. Some libraries
 may need special preparations:
