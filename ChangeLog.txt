@@ -1,6 +1,8 @@
 1.3_003 (2007-12-30):
   - Static version no longer supports VC7.
   - VC9 support.
+  - Patched ODE to not abort() or exit() the program when some internal error
+    occurs.
 
 1.3_002 (2007-11-04):
   - Updated lib3ds to 1.3.0.
