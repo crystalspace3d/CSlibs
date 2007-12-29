@@ -11,7 +11,7 @@
 			Name="Win32"/>
 	</Platforms>
 	<Configurations>
-		<Configuration
+  		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="..\..\out\release8\build\libpng\"
 			IntermediateDirectory="..\..\out\release8\build\libpng\"
@@ -33,7 +33,7 @@
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
 				ProgramDataBaseFileName="..\..\out\release8\build\libpng\png.pdb"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;SPECIALBUILD=\&quot;Built for CrystalSpace, may cause problems if used for other software.\&quot;;WIN32"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;SPECIALBUILD=\&quot;Built for CrystalSpace, may cause problems if used for other software.\&quot;;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
 				AdditionalIncludeDirectories=".;..\..\source\libpng\..\libz;..\..\source\libpng"
@@ -44,6 +44,7 @@
 				SuppressStartupBanner="TRUE"
 				Detect64BitPortabilityProblems="TRUE"
 				TreatWChar_tAsBuiltInType="false"
+				ForceConformanceInForLoopScope="true"
 				CompileAs="0"/>
 			<Tool
 				Name="VCCustomBuildTool"/>
@@ -70,7 +71,7 @@
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;SPECIALBUILD=\&quot;Built for CrystalSpace, may cause problems if used for other software.\&quot;"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;SPECIALBUILD=\&quot;Built for CrystalSpace, may cause problems if used for other software.\&quot;"
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
@@ -84,7 +85,7 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;SPECIALBUILD=\&quot;Built for CrystalSpace, may cause problems if used for other software.\&quot;;PROJECTGEN_VERSION=8"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;SPECIALBUILD=\&quot;Built for CrystalSpace, may cause problems if used for other software.\&quot;;PROJECTGEN_VERSION=8"
 				AdditionalIncludeDirectories=".;..\..\source\libpng\..\libz;..\..\source\libpng"
 				Culture="1033"/>
 			<Tool
@@ -92,7 +93,7 @@
 			<Tool
 				Name="VCWebDeploymentTool"/>
 		</Configuration>
-	</Configurations>
+  	</Configurations>
 	<Files>
 		<Filter
 			Name="Source Files"

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding = "Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="7.00"
-	Name="libcal3d_static"
-	ProjectGUID="{014A7362-EE31-DDD9-308E-851D83ADAC22}"
+	Version="9.00"
+	Name="libcal3d_debug"
+	ProjectGUID="{BD135177-210A-F529-7F75-0E50BF489021}"
 	SccProjectName=""
 	SccLocalPath="">
 	<Platforms>
@@ -11,65 +11,61 @@
 			Name="Win32"/>
 	</Platforms>
 	<Configurations>
-		<Configuration
+  		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="..\..\out\release7\build\libcal3d_static\"
-			IntermediateDirectory="..\..\out\release7\build\libcal3d_static\"
-			ConfigurationType="4"
+			OutputDirectory="..\..\out\debug9\build\libcal3d_debug\"
+			IntermediateDirectory="..\..\out\debug9\build\libcal3d_debug\"
+			ConfigurationType="2"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="FALSE">
 			<Tool
 				Name="VCCLCompilerTool"
-				Optimization="2"
-				StringPooling="TRUE"
-				EnableFunctionLevelLinking="TRUE"
-				RuntimeLibrary="2"
-				DebugInformationFormat="3"
-				BufferSecurityCheck="FALSE"
-				GlobalOptimizations="TRUE"
-				InlineFunctionExpansion="2"
-				EnableIntrinsicFunctions="TRUE"
-				FavorSizeOrSpeed="1"
-				OmitFramePointers="TRUE"
-				ProgramDataBaseFileName="..\..\libs\ReleaseVC7Only_static\cal3d-vc7.pdb"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_LIB;_WINDOWS;CAL3D_API=;WIN32"
+				Optimization="0"
+				MinimalRebuild="TRUE"
+				DebugInformationFormat="4"
+				RuntimeTypeInfo="TRUE"
+				RuntimeLibrary="3"
+				ProgramDataBaseFileName="..\..\out\debug9\build\libcal3d_debug\cal3d_debug.pdb"
+				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;CAL3D_EXPORTS;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
 				AdditionalIncludeDirectories=".;..\..\source\libcal3d\src"
-				PrecompiledHeaderFile="..\..\out\release7\build\libcal3d_static\libcal3d_static.pch"
-				AssemblerListingLocation="..\..\out\release7\build\libcal3d_static\"
-				ObjectFile="..\..\out\release7\build\libcal3d_static\"
+				PrecompiledHeaderFile="..\..\out\debug9\build\libcal3d_debug\libcal3d_debug.pch"
+				AssemblerListingLocation="..\..\out\debug9\build\libcal3d_debug\"
+				ObjectFile="..\..\out\debug9\build\libcal3d_debug\"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
 				Detect64BitPortabilityProblems="TRUE"
 				TreatWChar_tAsBuiltInType="false"
+				ForceConformanceInForLoopScope="true"
 				CompileAs="0"/>
 			<Tool
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				LinkIncremental="1"
-				OptimizeReferences="2"
-				EnableCOMDATFolding="2"
+				LinkIncremental="2"
 				GenerateDebugInformation="TRUE"
-				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD"
+				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD,MSVCRT"
+				OutputFile="..\..\libs\ReleaseVC9Only\libcal3d-csvc9_d.dll"
+				MergeSections=".rdata=.text"
+				DelayLoadDLLs=""
+				ImportLibrary="..\..\libs\ReleaseVC9Only\cal3d-vc9_d.lib"
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
 				AdditionalLibraryDirectories=""
-				ProgramDatabaseFile="..\..\libs\ReleaseVC7Only_static\cal3d-vc7.pdb"
+				ProgramDatabaseFile="..\..\libs\ReleaseVC9Only\libcal3d-csvc9_d.pdb"
 				TargetMachine="1"/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\libs\ReleaseVC7Only_static\cal3d-vc7.lib"
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_LIB;_WINDOWS;CAL3D_API="
+				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;CAL3D_EXPORTS"
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
-				TypeLibraryName="..\..\out\release7\build\libcal3d_static\libcal3d_static.tlb"/>
+				TypeLibraryName="..\..\out\debug9\build\libcal3d_debug\libcal3d_debug.tlb"/>
 			<Tool
 				Name="VCPostBuildEventTool"
 				/>
@@ -79,7 +75,7 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_LIB;_WINDOWS;CAL3D_API=;PROJECTGEN_VERSION=7"
+				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;CAL3D_EXPORTS;PROJECTGEN_VERSION=9"
 				AdditionalIncludeDirectories=".;..\..\source\libcal3d\src"
 				Culture="1033"/>
 			<Tool
@@ -87,7 +83,7 @@
 			<Tool
 				Name="VCWebDeploymentTool"/>
 		</Configuration>
-	</Configurations>
+  	</Configurations>
 	<Files>
 		<Filter
 			Name="Source Files"
@@ -344,6 +340,13 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libcal3d\src\cal3d\vector.h">
+			</File>
+		</Filter>
+		<Filter
+			Name="Resource Files"
+			Filter="">
+			<File
+				RelativePath="..\..\source\libcal3dvc.rc">
 			</File>
 		</Filter>
 	</Files>

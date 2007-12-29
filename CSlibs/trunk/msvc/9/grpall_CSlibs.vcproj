@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding = "Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="7.00"
-	Name="libvorbisfile_static"
-	ProjectGUID="{701D489A-A4A1-B1FA-FCA7-06538485A37C}"
+	Version="9.00"
+	Name="grpall_CSlibs"
+	ProjectGUID="{5EF19EA5-1AC8-A311-489F-FBE2F918C222}"
 	SccProjectName=""
 	SccLocalPath="">
 	<Platforms>
@@ -11,10 +11,10 @@
 			Name="Win32"/>
 	</Platforms>
 	<Configurations>
-		<Configuration
+  		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="..\..\out\release7\build\libvorbisfile_static\"
-			IntermediateDirectory="..\..\out\release7\build\libvorbisfile_static\"
+			OutputDirectory="..\..\out\release9\build\grpall_CSlibs\"
+			IntermediateDirectory="..\..\out\release9\build\grpall_CSlibs\"
 			ConfigurationType="4"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="FALSE">
@@ -31,18 +31,18 @@
 				EnableIntrinsicFunctions="TRUE"
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
-				ProgramDataBaseFileName="..\..\libs\TempVC7Only_static\vorbisfile.pdb"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_LIB;_WINDOWS;WIN32"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
-				AdditionalIncludeDirectories=".;..\..\source\libvorbis\include;..\..\source\libogg\include"
-				PrecompiledHeaderFile="..\..\out\release7\build\libvorbisfile_static\libvorbisfile_static.pch"
-				AssemblerListingLocation="..\..\out\release7\build\libvorbisfile_static\"
-				ObjectFile="..\..\out\release7\build\libvorbisfile_static\"
+				AdditionalIncludeDirectories="."
+				PrecompiledHeaderFile="..\..\out\release9\build\grpall_CSlibs\grpall_CSlibs.pch"
+				AssemblerListingLocation="..\..\out\release9\build\grpall_CSlibs\"
+				ObjectFile="..\..\out\release9\build\grpall_CSlibs\"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
 				Detect64BitPortabilityProblems="TRUE"
 				TreatWChar_tAsBuiltInType="false"
+				ForceConformanceInForLoopScope="true"
 				CompileAs="0"/>
 			<Tool
 				Name="VCCustomBuildTool"/>
@@ -57,19 +57,19 @@
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
 				AdditionalLibraryDirectories=""
-				ProgramDatabaseFile="..\..\libs\TempVC7Only_static\vorbisfile.pdb"
+				ProgramDatabaseFile="..\..\"
 				TargetMachine="1"/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\libs\TempVC7Only_static\vorbisfile.lib"
+				OutputFile="..\..\"
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_LIB;_WINDOWS"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE"
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
-				TypeLibraryName="..\..\out\release7\build\libvorbisfile_static\libvorbisfile_static.tlb"/>
+				TypeLibraryName="..\..\out\release9\build\grpall_CSlibs\grpall_CSlibs.tlb"/>
 			<Tool
 				Name="VCPostBuildEventTool"
 				/>
@@ -79,23 +79,16 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_LIB;_WINDOWS;PROJECTGEN_VERSION=7"
-				AdditionalIncludeDirectories=".;..\..\source\libvorbis\include;..\..\source\libogg\include"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;PROJECTGEN_VERSION=9"
+				AdditionalIncludeDirectories="."
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
 				Name="VCWebDeploymentTool"/>
 		</Configuration>
-	</Configurations>
+  	</Configurations>
 	<Files>
-		<Filter
-			Name="Source Files"
-			Filter="">
-			<File
-				RelativePath="..\..\source\libvorbis\lib\vorbisfile.c">
-			</File>
-		</Filter>
 	</Files>
 	<Globals>
 	</Globals>

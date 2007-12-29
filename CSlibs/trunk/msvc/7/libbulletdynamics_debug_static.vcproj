@@ -11,40 +11,49 @@
 			Name="Win32"/>
 	</Platforms>
 	<Configurations>
-		<Configuration
+  		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="..\..\out\debug7\build\libbulletdynamics_debug_static\"
-			IntermediateDirectory="..\..\out\debug7\build\libbulletdynamics_debug_static\"
+			OutputDirectory="..\..\out\release7\build\libbulletdynamics_debug_static\"
+			IntermediateDirectory="..\..\out\release7\build\libbulletdynamics_debug_static\"
 			ConfigurationType="4"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="FALSE">
 			<Tool
 				Name="VCCLCompilerTool"
-				Optimization="0"
-				MinimalRebuild="TRUE"
-				DebugInformationFormat="4"
-				RuntimeTypeInfo="TRUE"
-				RuntimeLibrary="3"
+				Optimization="2"
+				StringPooling="TRUE"
+				EnableFunctionLevelLinking="TRUE"
+				RuntimeLibrary="2"
+				DebugInformationFormat="3"
+				BufferSecurityCheck="FALSE"
+				GlobalOptimizations="TRUE"
+				InlineFunctionExpansion="2"
+				EnableIntrinsicFunctions="TRUE"
+				FavorSizeOrSpeed="1"
+				OmitFramePointers="TRUE"
 				ProgramDataBaseFileName="..\..\libs\ReleaseVC7Only_static\bulletdynamics-vc7_d.pdb"
-				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_LIB;_WINDOWS;WIN32"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
 				AdditionalIncludeDirectories=".;..\..\source\libbullet\src;..\..\source\libbullet\src\LinearMath"
-				PrecompiledHeaderFile="..\..\out\debug7\build\libbulletdynamics_debug_static\libbulletdynamics_debug_static.pch"
-				AssemblerListingLocation="..\..\out\debug7\build\libbulletdynamics_debug_static\"
-				ObjectFile="..\..\out\debug7\build\libbulletdynamics_debug_static\"
+				PrecompiledHeaderFile="..\..\out\release7\build\libbulletdynamics_debug_static\libbulletdynamics_debug_static.pch"
+				AssemblerListingLocation="..\..\out\release7\build\libbulletdynamics_debug_static\"
+				ObjectFile="..\..\out\release7\build\libbulletdynamics_debug_static\"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
 				Detect64BitPortabilityProblems="TRUE"
 				TreatWChar_tAsBuiltInType="false"
+				ForceConformanceInForLoopScope="true"
 				CompileAs="0"/>
 			<Tool
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				LinkIncremental="2"
+				LinkIncremental="1"
+				OptimizeReferences="2"
+				EnableCOMDATFolding="2"
 				GenerateDebugInformation="TRUE"
-				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD,MSVCRT"
+				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD"
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
@@ -57,11 +66,11 @@
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_LIB;_WINDOWS"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE"
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
-				TypeLibraryName="..\..\out\debug7\build\libbulletdynamics_debug_static\libbulletdynamics_debug_static.tlb"/>
+				TypeLibraryName="..\..\out\release7\build\libbulletdynamics_debug_static\libbulletdynamics_debug_static.tlb"/>
 			<Tool
 				Name="VCPostBuildEventTool"
 				/>
@@ -71,7 +80,7 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_LIB;_WINDOWS;PROJECTGEN_VERSION=7"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;PROJECTGEN_VERSION=7"
 				AdditionalIncludeDirectories=".;..\..\source\libbullet\src;..\..\source\libbullet\src\LinearMath"
 				Culture="1033"/>
 			<Tool
@@ -79,7 +88,7 @@
 			<Tool
 				Name="VCWebDeploymentTool"/>
 		</Configuration>
-	</Configurations>
+  	</Configurations>
 	<Files>
 		<Filter
 			Name="Source Files"

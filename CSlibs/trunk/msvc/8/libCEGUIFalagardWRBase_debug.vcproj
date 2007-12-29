@@ -11,7 +11,7 @@
 			Name="Win32"/>
 	</Platforms>
 	<Configurations>
-		<Configuration
+  		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="..\..\out\debug8\build\libCEGUIFalagardWRBase_debug\"
 			IntermediateDirectory="..\..\out\debug8\build\libCEGUIFalagardWRBase_debug\"
@@ -26,7 +26,7 @@
 				RuntimeTypeInfo="TRUE"
 				RuntimeLibrary="3"
 				ProgramDataBaseFileName="..\..\out\debug8\build\libCEGUIFalagardWRBase_debug\CEGUIFalagardWRBase_debug.pdb"
-				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;FALAGARDWRBASE_EXPORTS;CEGUIWRMODULE_EXPORTS;WIN32"
+				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;FALAGARDWRBASE_EXPORTS;CEGUIWRMODULE_EXPORTS;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
 				AdditionalIncludeDirectories=".;..\..\source\libCEGUI\include;..\..\source\libCEGUI\WindowRendererSets\Falagard\include"
@@ -37,6 +37,7 @@
 				SuppressStartupBanner="TRUE"
 				Detect64BitPortabilityProblems="TRUE"
 				TreatWChar_tAsBuiltInType="false"
+				ForceConformanceInForLoopScope="true"
 				CompileAs="0"/>
 			<Tool
 				Name="VCCustomBuildTool"/>
@@ -60,7 +61,7 @@
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;FALAGARDWRBASE_EXPORTS;CEGUIWRMODULE_EXPORTS"
+				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;FALAGARDWRBASE_EXPORTS;CEGUIWRMODULE_EXPORTS"
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
@@ -74,7 +75,7 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;FALAGARDWRBASE_EXPORTS;CEGUIWRMODULE_EXPORTS;PROJECTGEN_VERSION=8"
+				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;FALAGARDWRBASE_EXPORTS;CEGUIWRMODULE_EXPORTS;PROJECTGEN_VERSION=8"
 				AdditionalIncludeDirectories=".;..\..\source\libCEGUI\include;..\..\source\libCEGUI\WindowRendererSets\Falagard\include"
 				Culture="1033"/>
 			<Tool
@@ -82,7 +83,7 @@
 			<Tool
 				Name="VCWebDeploymentTool"/>
 		</Configuration>
-	</Configurations>
+  	</Configurations>
 	<Files>
 		<Filter
 			Name="Source Files"

@@ -11,7 +11,7 @@
 			Name="Win32"/>
 	</Platforms>
 	<Configurations>
-		<Configuration
+  		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="..\..\out\release71\build\libCEGUIFalagardWRBase_static\"
 			IntermediateDirectory="..\..\out\release71\build\libCEGUIFalagardWRBase_static\"
@@ -33,7 +33,7 @@
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
 				ProgramDataBaseFileName="..\..\out\release71\build\libCEGUIFalagardWRBase_static\CEGUIFalagardWRBase_static.pdb"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;FALAGARDWRBASE_EXPORTS;CEGUIWRMODULE_EXPORTS;WIN32"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;FALAGARDWRBASE_EXPORTS;CEGUIWRMODULE_EXPORTS;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
 				AdditionalIncludeDirectories=".;..\..\source\libCEGUI\include;..\..\source\libCEGUI\WindowRendererSets\Falagard\include"
@@ -44,6 +44,7 @@
 				SuppressStartupBanner="TRUE"
 				Detect64BitPortabilityProblems="TRUE"
 				TreatWChar_tAsBuiltInType="false"
+				ForceConformanceInForLoopScope="true"
 				CompileAs="0"/>
 			<Tool
 				Name="VCCustomBuildTool"/>
@@ -69,7 +70,7 @@
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;FALAGARDWRBASE_EXPORTS;CEGUIWRMODULE_EXPORTS"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;FALAGARDWRBASE_EXPORTS;CEGUIWRMODULE_EXPORTS"
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
@@ -83,7 +84,7 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;FALAGARDWRBASE_EXPORTS;CEGUIWRMODULE_EXPORTS;PROJECTGEN_VERSION=71"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;FALAGARDWRBASE_EXPORTS;CEGUIWRMODULE_EXPORTS;PROJECTGEN_VERSION=71"
 				AdditionalIncludeDirectories=".;..\..\source\libCEGUI\include;..\..\source\libCEGUI\WindowRendererSets\Falagard\include"
 				Culture="1033"/>
 			<Tool
@@ -91,7 +92,7 @@
 			<Tool
 				Name="VCWebDeploymentTool"/>
 		</Configuration>
-	</Configurations>
+  	</Configurations>
 	<Files>
 		<Filter
 			Name="Source Files"

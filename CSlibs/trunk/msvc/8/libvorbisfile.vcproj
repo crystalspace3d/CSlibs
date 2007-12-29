@@ -11,7 +11,7 @@
 			Name="Win32"/>
 	</Platforms>
 	<Configurations>
-		<Configuration
+  		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="..\..\out\release8\build\libvorbisfile\"
 			IntermediateDirectory="..\..\out\release8\build\libvorbisfile\"
@@ -33,7 +33,7 @@
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
 				ProgramDataBaseFileName="..\..\out\release8\build\libvorbisfile\vorbisfile.pdb"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;LIBVORBISFILE_EXPORTS;VORBISFILE_DYNAMIC_EXPORTS;WIN32"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;LIBVORBISFILE_EXPORTS;VORBISFILE_DYNAMIC_EXPORTS;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
 				AdditionalIncludeDirectories=".;..\..\source\libvorbis\include;..\..\source\libogg\include"
@@ -44,6 +44,7 @@
 				SuppressStartupBanner="TRUE"
 				Detect64BitPortabilityProblems="TRUE"
 				TreatWChar_tAsBuiltInType="false"
+				ForceConformanceInForLoopScope="true"
 				CompileAs="0"/>
 			<Tool
 				Name="VCCustomBuildTool"/>
@@ -70,7 +71,7 @@
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;LIBVORBISFILE_EXPORTS;VORBISFILE_DYNAMIC_EXPORTS"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;LIBVORBISFILE_EXPORTS;VORBISFILE_DYNAMIC_EXPORTS"
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
@@ -84,7 +85,7 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;LIBVORBISFILE_EXPORTS;VORBISFILE_DYNAMIC_EXPORTS;PROJECTGEN_VERSION=8"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;LIBVORBISFILE_EXPORTS;VORBISFILE_DYNAMIC_EXPORTS;PROJECTGEN_VERSION=8"
 				AdditionalIncludeDirectories=".;..\..\source\libvorbis\include;..\..\source\libogg\include"
 				Culture="1033"/>
 			<Tool
@@ -92,7 +93,7 @@
 			<Tool
 				Name="VCWebDeploymentTool"/>
 		</Configuration>
-	</Configurations>
+  	</Configurations>
 	<Files>
 		<Filter
 			Name="Source Files"
