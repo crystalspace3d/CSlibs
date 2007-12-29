@@ -51,7 +51,8 @@ rule LibCommon
     }
   }
   
-  if ! [ IsElem nostatic : $(options) ]
+  if ! [ IsElem nostatic : $(options) ] && ( [ IsElem staticonly : $(options) ]
+    || [ Property build : projgen_version ] != 7 )
   {
     SubVariant static ;
     MsvcSetTargetProp $(lib)_static : resources : no ;
@@ -66,7 +67,7 @@ rule LibCommon
   }
 }
 
-# Base library - C, used by all VC versions, built with VC7.1
+# Base library - C, used by all VC versions, built with VC8.0
 if [ Property build : projgen_version ] = 8
 {
   rule BaseLib 
@@ -109,13 +110,10 @@ else
 	SetProperty baseliblibs : $(1)_static : $(root)/libs/$(outdir)_static/$(3).lib ;
 	SetProperty baseliblibs : $(1)_static_debug : $(root)/libs/$(outdir)_static/$(3).lib ;
       }
-      else
+      else if [ IsElem staticonly : $(options) ]
       {
-	outdir = "TempVC7Only" ;
-	if ! [ IsElem staticonly : $(options) ]
-	{
-	  options += staticonly ;
-	}
+	local v = [ Property build : projgen_version ] ;
+	outdir = "TempVC$(v)Only" ;
 	LibCommon $(1) : $(2) : $(3) : $(4) : $(5) : $(options) : : $(outdir) ;
 	SetProperty baselibdeps : $(1)_static : $(1)_static ;
 	SetProperty baselibdeps : $(1)_static_debug : $(1)_static ;
@@ -194,15 +192,18 @@ rule ExtraLib
   {
     MsvcDefine $(lib) : $(d) ;
   }
-  for d in $(staticdef) 
+  if [ Property build : projgen_version ] != 7
   {
-    MsvcDefine $(lib)_static : $(d) ;
+    for d in $(staticdef) 
+    {
+      MsvcDefine $(lib)_static : $(d) ;
+    }
   }
   MsvcExtraFile $(lib) : $(rcfile) ;
   _SetBaseLibs $(lib) : $(baselibdeps) : $(options) ;
   
   MsvcSetTargetProp $(lib)_debug : configtemplatetag : debug ;
-  if ! [ IsElem fakestatic : $(options) ] 
+  if ! [ IsElem fakestatic : $(options) ] && [ Property build : projgen_version ] != 7
   {
     MsvcSetTargetProp $(lib)_debug_static : configtemplatetag : debug ;
   }
@@ -211,7 +212,7 @@ rule ExtraLib
   {
     MsvcDefine $(lib)_debug : $(d) ;
   }
-  if ! [ IsElem fakestatic : $(options) ] 
+  if ! [ IsElem fakestatic : $(options) ] && [ Property build : projgen_version ] != 7
   {
     for d in $(staticdef) 
     {
@@ -221,7 +222,7 @@ rule ExtraLib
   MsvcExtraFile $(lib)_debug : $(rcfile) ;
   _SetBaseLibs $(lib)_debug : $(baselibdeps)_debug : $(options) ;
   
-  if [ IsElem fakestatic : $(options) ]
+  if [ IsElem fakestatic : $(options) ] && [ Property build : projgen_version ] != 7
   {
     local newopts = [ Filter $(options) : fakestatic ] fakestatic2 ;
     LIBNAME on $(lib)_static = $(libname) ;
