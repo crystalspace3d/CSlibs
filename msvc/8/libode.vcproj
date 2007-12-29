@@ -11,7 +11,7 @@
 			Name="Win32"/>
 	</Platforms>
 	<Configurations>
-		<Configuration
+  		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="..\..\out\release8\build\libode\"
 			IntermediateDirectory="..\..\out\release8\build\libode\"
@@ -33,7 +33,7 @@
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
 				ProgramDataBaseFileName="..\..\out\release8\build\libode\ode.pdb"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;LIBODE_EXPORTS;ODE_DLL;_STATIC_CPPLIB;WIN32"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;LIBODE_EXPORTS;ODE_DLL;_STATIC_CPPLIB;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
 				AdditionalIncludeDirectories=".;..\..\source\libode\..\configs;..\..\source\libode\include;..\..\source\libode\OPCODE"
@@ -44,6 +44,7 @@
 				SuppressStartupBanner="TRUE"
 				Detect64BitPortabilityProblems="TRUE"
 				TreatWChar_tAsBuiltInType="false"
+				ForceConformanceInForLoopScope="true"
 				CompileAs="0"/>
 			<Tool
 				Name="VCCustomBuildTool"/>
@@ -69,7 +70,7 @@
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;LIBODE_EXPORTS;ODE_DLL;_STATIC_CPPLIB"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;LIBODE_EXPORTS;ODE_DLL;_STATIC_CPPLIB"
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
@@ -83,7 +84,7 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;LIBODE_EXPORTS;ODE_DLL;_STATIC_CPPLIB;PROJECTGEN_VERSION=8"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;LIBODE_EXPORTS;ODE_DLL;_STATIC_CPPLIB;PROJECTGEN_VERSION=8"
 				AdditionalIncludeDirectories=".;..\..\source\libode\..\configs;..\..\source\libode\include;..\..\source\libode\OPCODE"
 				Culture="1033"/>
 			<Tool
@@ -91,7 +92,7 @@
 			<Tool
 				Name="VCWebDeploymentTool"/>
 		</Configuration>
-	</Configurations>
+  	</Configurations>
 	<Files>
 		<Filter
 			Name="Source Files"
@@ -155,9 +156,6 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libode\ode\src\collision_trimesh_trimesh.cpp">
-			</File>
-			<File
-				RelativePath="..\..\source\libode\ode\src\collision_trimesh_trimesh_new.cpp">
 			</File>
 			<File
 				RelativePath="..\..\source\libode\ode\src\collision_util.cpp">

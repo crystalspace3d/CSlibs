@@ -11,7 +11,7 @@
 			Name="Win32"/>
 	</Platforms>
 	<Configurations>
-		<Configuration
+  		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="..\..\out\release71\build\libpcre_static\"
 			IntermediateDirectory="..\..\out\release71\build\libpcre_static\"
@@ -31,8 +31,8 @@
 				EnableIntrinsicFunctions="TRUE"
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
-				ProgramDataBaseFileName="..\..\libs\Temp_static\pcre.pdb"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_LIB;_WINDOWS;PCRE_STATIC;SUPPORT_UTF8;WIN32"
+				ProgramDataBaseFileName="..\..\libs\TempVC71Only_static\pcre.pdb"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;PCRE_STATIC;SUPPORT_UTF8;HAVE_CONFIG_H;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
 				AdditionalIncludeDirectories=".;..\..\source\libpcre;..\..\source\libpcre\..\configs\pcre"
@@ -43,6 +43,7 @@
 				SuppressStartupBanner="TRUE"
 				Detect64BitPortabilityProblems="TRUE"
 				TreatWChar_tAsBuiltInType="false"
+				ForceConformanceInForLoopScope="true"
 				CompileAs="0"/>
 			<Tool
 				Name="VCCustomBuildTool"/>
@@ -57,15 +58,15 @@
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
 				AdditionalLibraryDirectories=""
-				ProgramDatabaseFile="..\..\libs\Temp_static\pcre.pdb"
+				ProgramDatabaseFile="..\..\libs\TempVC71Only_static\pcre.pdb"
 				TargetMachine="1"/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\libs\Temp_static\pcre.lib"
+				OutputFile="..\..\libs\TempVC71Only_static\pcre.lib"
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_LIB;_WINDOWS;PCRE_STATIC;SUPPORT_UTF8"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;PCRE_STATIC;SUPPORT_UTF8;HAVE_CONFIG_H"
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
@@ -79,7 +80,7 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_LIB;_WINDOWS;PCRE_STATIC;SUPPORT_UTF8;PROJECTGEN_VERSION=71"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;PCRE_STATIC;SUPPORT_UTF8;HAVE_CONFIG_H;PROJECTGEN_VERSION=71"
 				AdditionalIncludeDirectories=".;..\..\source\libpcre;..\..\source\libpcre\..\configs\pcre"
 				Culture="1033"/>
 			<Tool
@@ -87,7 +88,7 @@
 			<Tool
 				Name="VCWebDeploymentTool"/>
 		</Configuration>
-	</Configurations>
+  	</Configurations>
 	<Files>
 		<Filter
 			Name="Source Files"
@@ -170,6 +171,9 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libpcre\pcrecpp.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libpcre\pcrecpp_internal.h">
 			</File>
 			<File
 				RelativePath="..\..\source\libpcre\pcreposix.h">
