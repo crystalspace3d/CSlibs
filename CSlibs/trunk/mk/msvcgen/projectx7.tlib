@@ -39,6 +39,13 @@
 # named "compiler_appgui_debug".
 #------------------------------------------------------------------------------
 
+# Construct a shared lib file name that contains the VC version
+[% MACRO library_dll_versuffix GET 
+  ('-' _ my.doc.packageversion.0) IF my.doc.packageversion.0 -%]
+[% MACRO library_dll_outfile(suffix) GET
+  my.doc.rawtarget.0 _ library_dll_versuffix _ '-vc' _ my.doc.msvcversion.0 _ suffix
+%]
+
 [% MACRO global_app BLOCK -%]
 			ConfigurationType="1"
 			CharacterSet="2"
@@ -70,6 +77,20 @@
 [% END %]
 [% MACRO global_plugin_release BLOCK -%]
 			WholeProgramOptimization="1"
+[% END %]
+
+[% MACRO global_dll BLOCK -%]
+			ConfigurationType="2"
+[% END %]
+[% MACRO global_dll_release BLOCK -%]
+			WholeProgramOptimization="1"
+[% END %]
+
+[% MACRO precompiled_header BLOCK -%]
+[%- IF my.doc.pch.0 -%]
+				UsePrecompiledHeader="1"
+				PrecompiledHeaderThrough="[% my.doc.pch.0 %]"
+[% END %]
 [% END %]
 
 [% MACRO compiler_release BLOCK -%]
