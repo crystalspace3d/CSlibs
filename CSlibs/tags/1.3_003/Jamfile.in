@@ -1,0 +1,4 @@
+TOP ?= "@top_srcdir@" ;
+BUILDTOP ?= "@top_builddir@" ;
+
+include $(TOP)/Jamfile.static ;

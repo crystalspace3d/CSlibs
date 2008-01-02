@@ -1,0 +1,6 @@
+#define	VER_DESCRIPTION		"libcaca - ASCII-Art library"
+#define VER_INTERNAL		"libcaca"
+#define VER_FILENAME		"libcaca-cs.dll"
+#define VER_PRODUCTNAME		"libcaca"
+
+#include "libcacacommon.rc"

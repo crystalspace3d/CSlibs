@@ -1,0 +1,111 @@
+--- modules.org	Mon Jun 11 04:26:03 2007
++++ modules.cfg	Fri Nov  2 13:29:42 2007
+@@ -37,29 +37,29 @@
+ # PostScript Type 1 font driver.
+ #
+ # This driver needs the `psaux', `pshinter', and `psnames' modules.
+-FONT_MODULES += type1
++#FONT_MODULES += type1
+ 
+ # CFF/OpenType font driver.
+ #
+ # This driver needs the `sfnt', `pshinter', and `psnames' modules.
+-FONT_MODULES += cff
++#FONT_MODULES += cff
+ 
+ # Type 1 CID-keyed font driver.
+ #
+ # This driver needs the `psaux', `pshinter', and `psnames' modules.
+-FONT_MODULES += cid
++#FONT_MODULES += cid
+ 
+ # PFR/TrueDoc font driver.  See optional extension ftpfr.c below also.
+-FONT_MODULES += pfr
++#FONT_MODULES += pfr
+ 
+ # PostScript Type 42 font driver.
+ #
+ # This driver needs the `truetype' module.
+-FONT_MODULES += type42
++#FONT_MODULES += type42
+ 
+ # Windows FONT/FNT font driver.  See optional extension ftwinfnt.c below
+ # also.
+-FONT_MODULES += winfonts
++#FONT_MODULES += winfonts
+ 
+ # PCF font driver.
+ FONT_MODULES += pcf
+@@ -82,7 +82,7 @@
+ HINTING_MODULES += autofit
+ 
+ # PostScript hinter.
+-HINTING_MODULES += pshinter
++#HINTING_MODULES += pshinter
+ 
+ # The TrueType hinting engine doesn't have a module of its own but is
+ # controlled in file include/freetype/config/ftoption.h
+@@ -107,7 +107,7 @@
+ # FreeType's cache sub-system (quite stable but still in beta -- this means
+ # that its public API is subject to change if necessary).  See
+ # include/freetype/ftcache.h.
+-AUX_MODULES += cache
++#AUX_MODULES += cache
+ 
+ # TrueType GX/AAT table validation.  Needs ftgxval.c below.
+ # AUX_MODULES += gxvalid
+@@ -129,7 +129,7 @@
+ # Auxiliary PostScript driver component to share common code.
+ #
+ # This module depends on `psnames'.
+-AUX_MODULES += psaux
++#AUX_MODULES += psaux
+ 
+ # Support for PostScript glyph names.
+ #
+@@ -166,7 +166,7 @@
+ # Interface for gxvalid module (which is required).
+ #
+ # See include/freetype/ftgxval.h for the API.
+-BASE_EXTENSIONS += ftgxval.c
++#BASE_EXTENSIONS += ftgxval.c
+ 
+ # Multiple Master font interface.
+ #
+@@ -176,12 +176,12 @@
+ # Interface for otvalid module (which is required).
+ #
+ # See include/freetype/ftotval.h for the API.
+-BASE_EXTENSIONS += ftotval.c
++#BASE_EXTENSIONS += ftotval.c
+ 
+ # Interface for accessing PFR-specific data.  Needs PFR font driver.
+ #
+ # See include/freetype/ftpfr.h for the API.
+-BASE_EXTENSIONS += ftpfr.c
++#BASE_EXTENSIONS += ftpfr.c
+ 
+ # Path stroker.
+ #
+@@ -197,18 +197,18 @@
+ # fonts.
+ #
+ # See include/freetype/t1tables.h for the API.
+-BASE_EXTENSIONS += fttype1.c
++#BASE_EXTENSIONS += fttype1.c
+ 
+ # Interface for accessing data specific to Windows FNT files.  Needs winfnt
+ # driver.
+ #
+ # See include/freetype/ftwinfnt.h for the API.
+-BASE_EXTENSIONS += ftwinfnt.c
++#BASE_EXTENSIONS += ftwinfnt.c
+ 
+ # Support functions for X11.
+ #
+ # See include/freetype/ftxf86.h for the API.
+-BASE_EXTENSIONS += ftxf86.c
++#BASE_EXTENSIONS += ftxf86.c
+ 
+ # Support for LCD color filtering of subpixel bitmaps.
+ #
