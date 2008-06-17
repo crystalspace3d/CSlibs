@@ -175,7 +175,8 @@ rule ExtraLib
     options += nostatic ;
   }
   # For a "fakestatic" library ExtraLib is calls itself
-  if [ IsElem fakestatic2 : $(options) ]
+  #if [ IsElem fakestatic2 : $(options) ]
+  if [ IsElem fakestatic : $(options) ]
   {
     outdir = "ReleaseVC$(msvcgenver)Only_static" ;
   }
@@ -222,12 +223,12 @@ rule ExtraLib
   MsvcExtraFile $(lib)_debug : $(rcfile) ;
   _SetBaseLibs $(lib)_debug : $(baselibdeps)_debug : $(options) ;
   
-  if [ IsElem fakestatic : $(options) ] && [ Property build : projgen_version ] != 7
-  {
-    local newopts = [ Filter $(options) : fakestatic ] fakestatic2 ;
-    LIBNAME on $(lib)_static = $(libname) ;
-    ExtraLib $(lib)_static : $(2) : $(rcfile) : $(4) : $(newopts) : $(dlldef) : : $(baselibdeps)_static : $(dllname) ;
-  }
+#  if [ IsElem fakestatic : $(options) ] && [ Property build : projgen_version ] != 7
+#  {
+#    local newopts = [ Filter $(options) : fakestatic ] fakestatic2 ;
+#    LIBNAME on $(lib)_static = $(libname) ;
+#    ExtraLib $(lib)_static : $(2) : $(rcfile) : $(4) : $(newopts) : $(dlldef) : : $(baselibdeps)_static : $(dllname) ;
+#  }
 }
 
 include $(TOP)/source/libz.jam ;

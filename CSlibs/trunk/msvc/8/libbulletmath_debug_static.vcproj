@@ -89,6 +89,9 @@
 				RelativePath="..\..\source\libbullet\src\LinearMath\btAlignedAllocator.cpp">
 			</File>
 			<File
+				RelativePath="..\..\source\libbullet\src\LinearMath\btConvexHull.cpp">
+			</File>
+			<File
 				RelativePath="..\..\source\libbullet\src\LinearMath\btGeometryUtil.cpp">
 			</File>
 			<File
@@ -108,10 +111,16 @@
 				RelativePath="..\..\source\libbullet\src\LinearMath\btAlignedObjectArray.h">
 			</File>
 			<File
+				RelativePath="..\..\source\libbullet\src\LinearMath\btConvexHull.h">
+			</File>
+			<File
 				RelativePath="..\..\source\libbullet\src\LinearMath\btDefaultMotionState.h">
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\LinearMath\btGeometryUtil.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libbullet\src\LinearMath\btHashMap.h">
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\LinearMath\btIDebugDraw.h">

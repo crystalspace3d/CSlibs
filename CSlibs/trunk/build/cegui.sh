@@ -52,7 +52,7 @@ if test "${platform_short}" != "cygwin" ; then
   prefix=${basedir}/temp/${library}/prefix-${platform_short}
   rm -rf ${prefix}
   
-  # libtool, doesn't want to link shared libs against static libs anf refuses to 
+  # libtool, doesn't want to link shared libs against static libs and refuses to 
   # link a static lib for which not .la file exists.
   # So fake some up...
   mkdir -p ${prefix}/lib/
@@ -69,6 +69,7 @@ if test "${platform_short}" != "cygwin" ; then
   CFLAGS="-O2" \
   CXXFLAGS="-O2 -DCEGUI_FACTORYMODULE_PREFIX=\"\\\"${libprefix}\\\"\" -DCEGUI_FACTORYMODULE_SUFFIX=\"\\\"-cs${platform}-1.dll\\\"\"" \
   ${source}/configure --prefix=${prefix} --disable-static --disable-opengl-renderer -C "$@"
+  patch -p0 -i ../../../build/cegui-libtool.diff
   make
   cd ../../..
   
@@ -128,8 +129,9 @@ pcre_CFLAGS="-I${pcre}/include -DPCRE_STATIC" \
 pcre_LIBS="-L${prefix}/lib -lpcre" \
 CEGUI_PLATFORM=${platform} \
 CFLAGS="-O2" \
-CXXFLAGS="-O2 -DCEGUI_FACTORYMODULE_PREFIX=\"\\\"${libprefix}\\\"\" -DCEGUI_FACTORYMODULE_SUFFIX=\"\\\"-cs${platform}-1.dll\\\"\"" \
-${source}/configure --prefix=${prefix} --disable-static --disable-opengl-renderer -C "$@"
+CXXFLAGS="-O2 -DCEGUI_FACTORYMODULE_PREFIX=\"\\\"${libprefix}\\\"\" -DCEGUI_FACTORYMODULE_SUFFIX=\"\\\"-cs${platform}-1.dll\\\"\" -DCEGUI_FALAGARD_RENDERER -DCEGUI_WITH_TINYXML" \
+${source}/configure --prefix=${prefix} --disable-static --disable-opengl-renderer --enable-specialstatic -C "$@"
+patch -p0 -i ../../../build/cegui-libtool.diff
 make
 cd ../../..
 
@@ -137,10 +139,6 @@ mkdir -p ${prefix}/bin/
 mkdir -p ${prefix}/lib/
 cp ${build}/src/.libs/*.dll ${prefix}/bin/
 cp ${build}/src/.libs/*.a ${prefix}/lib/
-cp ${build}/XMLParserModules/TinyXMLParser/.libs/*.dll ${prefix}/bin/
-cp ${build}/XMLParserModules/TinyXMLParser/.libs/*.a ${prefix}/lib/
-cp ${build}/WindowRendererSets/Falagard/src/.libs/*.dll ${prefix}/bin/
-cp ${build}/WindowRendererSets/Falagard/src/.libs/*.a ${prefix}/lib/
 
 for dll in `ls -1 temp/${library}/prefix-${platform_short}-static/bin/*.dll` ; do
   objcopy --only-keep-debug ${dll} ${dll}.dbg

@@ -8,6 +8,17 @@ Required tools:
 - Python
 
 
+The source code is downloaded with source/getlibs.sh (change to the source/
+directory before running that script). You need a couple of tools: svn,
+tar, gzip, bzip2, unzip, wget (possibly others I forgot now).
+
+Before starting the building you need to do the following:
+- libpcre: copy pcre_chartables.c.dist to pcre_chartables.c;
+    copy pcre.h.generic to pcre.h
+- libCEGUI: create empty config.h in include/
+- libjs: compile jskwgen.c to an executable, run it with redirecting its
+    output to jsautokw.h
+
 The solutions in the projects directory should be built in the following
 order:
 - msvc/8/CSlibs.sln with VC8.0
@@ -17,14 +28,11 @@ order:
 
 The MinGW-only libs can be built by running build_mingw.sh. Some libraries
 may need special preparations:
-- lib3ds: run ./autogen.sh
 - libmng: run unmaintained/autogen.sh, copy makefiles/configure.in to the
 	  source root
 - libode: run ./autogen.sh
 - libcal3d: 
     Run "aclocal && autoconf && autoheader && libtoolize -c && automake".
-    For pcre: copy pcre.h.generic to pcre.h, copy pcre_chartables.c.dist to
-    pcre_chartables.c.
 - libcegui: run ./bootstrap
 
 If you use Cygwin to run above scripts, note that sometimes symlinks are

@@ -205,6 +205,9 @@
 			<File
 				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalTooltip.cpp">
 			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalTree.cpp">
+			</File>
 		</Filter>
 		<Filter
 			Name="Resource Files"
