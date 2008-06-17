@@ -51,7 +51,7 @@
 				DelayLoadDLLs=""
 				ImportLibrary="..\..\libs\ReleaseVC9Only\CEGUIBase-vc9_d.lib"
 				AdditionalOptions=" "
-				AdditionalDependencies="../../libs/Release/zlib.lib ../../libs/Release/freetype2.lib ../../libs/Temp_static/pcre.lib"
+				AdditionalDependencies="../../libs/Release/zlib.lib ../../libs/Release/freetype2.lib ../../libs/Temp_static/pcre.lib WinMM.lib"
 				SuppressStartupBanner="TRUE"
 				AdditionalLibraryDirectories=""
 				ProgramDatabaseFile="..\..\libs\ReleaseVC9Only\libCEGUIBase-csvc9_d.pdb"
@@ -215,6 +215,9 @@
 				RelativePath="..\..\source\libCEGUI\src\CEGUIScriptModule.cpp">
 			</File>
 			<File
+				RelativePath="..\..\source\libCEGUI\src\CEGUIScriptWindowHelper.cpp">
+			</File>
+			<File
 				RelativePath="..\..\source\libCEGUI\src\CEGUISize.cpp">
 			</File>
 			<File
@@ -306,6 +309,9 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIFrameWindowProperties.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIGroupBox.cpp">
 			</File>
 			<File
 				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIGUISheet.cpp">
@@ -459,6 +465,15 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libCEGUI\src\elements\CEGUITooltipProperties.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\src\elements\CEGUITree.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\src\elements\CEGUITreeItem.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\src\elements\CEGUITreeProperties.cpp">
 			</File>
 			<File
 				RelativePath="..\..\source\libCEGUI\src\falagard\CEGUIFalagard_xmlHandler.cpp">

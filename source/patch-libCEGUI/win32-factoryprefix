@@ -1,20 +1,11 @@
 Index: src/CEGUIDynamicModule.cpp
 ===================================================================
---- src/CEGUIDynamicModule.cpp	(revision 1251)
-+++ src/CEGUIDynamicModule.cpp	(working copy)
-@@ -30,7 +30,7 @@
- #include "CEGUIString.h"
- #include "CEGUIExceptions.h"
- 
--#if defined(__WIN32__) || defined(_WIN32)
-+#if defined(__WIN32__) || defined(_WIN32) || defined(__CYGWIN__)
- #   if defined(_MSC_VER)
- #       pragma warning(disable : 4552)  // warning: operator has no effect; expected operator with side-effect
- #   endif
-@@ -63,6 +63,18 @@
-         d_moduleName.insert(0, "lib");
+--- src/CEGUIDynamicModule.cpp	(Revision 1734)
++++ src/CEGUIDynamicModule.cpp	(Arbeitskopie)
+@@ -69,6 +69,18 @@
+     if (d_moduleName.substr(d_moduleName.length() - 3, 3) != ".so")
+         d_moduleName += ".so";
  #endif
- 
 +    // cs-win32libs: Prefix & suffix
 +#ifdef CEGUI_FACTORYMODULE_PREFIX
 +    d_moduleName.insert(0, CEGUI_FACTORYMODULE_PREFIX);
@@ -28,5 +19,20 @@ Index: src/CEGUIDynamicModule.cpp
 +#endif
 +	  
      // Optionally add a _d to the module name for the debug config on Win32
- #if defined(__WIN32__) || defined(_WIN32)
+ #if (defined(__WIN32__) || defined(_WIN32))
  #   if defined (_DEBUG) && defined (CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG)
+Index: configure.ac
+===================================================================
+--- configure.ac	(Revision 1734)
++++ configure.ac	(Arbeitskopie)
+@@ -30,6 +30,10 @@
+ # Initialise libtool
+ AM_PROG_LIBTOOL
+ 
++# CSism
++DLLSUFFIX=-cs${CEGUI_PLATFORM}
++AC_SUBST(DLLSUFFIX)
++
+ # Setup some stuff depending on the system we're running on
+ case $host_os in
+     *mingw32* ) MINGW32=yes;;

@@ -1,6 +1,6 @@
-diff -ru ../libcaca.old/cucul/font_mono9.h ./cucul/font_mono9.h
---- ../libcaca.old/cucul/font_mono9.h	Wed Jun 27 13:18:22 2007
-+++ ./cucul/font_mono9.h	Fri Nov  2 15:13:25 2007
+diff -ru ../libcaca-0.99.beta13b/cucul/mono9.data ./cucul/mono9.data
+--- ../libcaca-0.99.beta13b/cucul/mono9.data	Sun Nov  4 10:46:53 2007
++++ ./cucul/mono9.data	Wed Jun  4 15:54:24 2008
 @@ -5,7 +5,7 @@
   */
  
@@ -10,9 +10,9 @@ diff -ru ../libcaca.old/cucul/font_mono9.h ./cucul/font_mono9.h
  char d0[480], d1[480], d2[480], d3[480], d4[480], d5[480],
  d6[480], d7[480], d8[480], d9[480], da[480], db[480],
  dc[480], dd[480], de[480], df[480], d10[480], d11[480],
-diff -ru ../libcaca.old/cucul/font_monobold12.h ./cucul/font_monobold12.h
---- ../libcaca.old/cucul/font_monobold12.h	Wed Jun 27 13:18:54 2007
-+++ ./cucul/font_monobold12.h	Fri Nov  2 15:13:30 2007
+diff -ru ../libcaca-0.99.beta13b/cucul/monobold12.data ./cucul/monobold12.data
+--- ../libcaca-0.99.beta13b/cucul/monobold12.data	Sat Nov  3 21:49:58 2007
++++ ./cucul/monobold12.data	Wed Jun  4 15:54:37 2008
 @@ -5,7 +5,7 @@
   */
  

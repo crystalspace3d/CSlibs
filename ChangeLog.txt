@@ -1,3 +1,11 @@
+1.3_004 (2008-06-18):
+ - Updated Cg to 2.0.
+ - Updated Bullet to 2.69.
+ - Updated CEGUI to 0.6.0.
+ - Updated caca to 0.99beta13b.
+ - Updated libpng to 1.2.29.
+ - "Static" CEGUI version is now a single DLL.
+
 1.3_003 (2007-12-30):
   - Static version no longer supports VC7.
   - VC9 support.

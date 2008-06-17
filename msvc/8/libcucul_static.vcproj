@@ -148,12 +148,6 @@
 			<File
 				RelativePath="..\..\source\libcaca\cucul\cucul_internals.h">
 			</File>
-			<File
-				RelativePath="..\..\source\libcaca\cucul\font_mono9.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libcaca\cucul\font_monobold12.h">
-			</File>
 		</Filter>
 	</Files>
 	<Globals>
