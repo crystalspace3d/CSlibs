@@ -147,7 +147,7 @@ for dll in `ls -1 temp/${library}/prefix-${platform_short}-static/bin/*.dll` ; d
 done
 cp ${prefix}/bin/*.dll libs/ReleaseGCCOnly_static/${platform_short}
 cp ${prefix}/bin/*.dbg libs/ReleaseGCCOnly_static/${platform_short}
-for lib in CEGUIBase CEGUIFalagardWRBase CEGUITinyXMLParser ; do
+for lib in CEGUIBase ; do
   cp ${prefix}/lib/lib${lib}-cs${platform}.dll.a \
     libs/ReleaseGCCOnly_static/${platform}/lib${lib}.a
 done
