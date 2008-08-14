@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #rebase_bin="/d/Programme/Microsoft SDKs/Windows/v1.0/Bin/ReBase"
-rebase_bin="/d/Programme/Microsoft Visual Studio .NET/Common7/Tools/Bin/ReBase"
+rebase_bin="/c/Programme/Microsoft Visual Studio .NET/Common7/Tools/Bin/ReBase"
 
 rebase()
 {

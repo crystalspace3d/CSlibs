@@ -239,10 +239,12 @@ include $(TOP)/source/libfreetype.jam ;
 include $(TOP)/source/libode.jam ;
 include $(TOP)/source/lib3ds.jam ;
 include $(TOP)/source/libcaca.jam ;
-include $(TOP)/source/libjs.jam ;
 include $(TOP)/source/libogg.jam ;
 include $(TOP)/source/libvorbis.jam ;
 include $(TOP)/source/libcal3d.jam ;
 include $(TOP)/source/libpcre.jam ;
 include $(TOP)/source/libCEGUI.jam ;
 include $(TOP)/source/libbullet.jam ;
+
+include $(TOP)/source/libjs.jam ;
+include $(TOP)/source/libwx.jam ;

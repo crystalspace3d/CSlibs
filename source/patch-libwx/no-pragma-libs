@@ -1,0 +1,35 @@
+diff -ru ../wxMSW-2.8.7/include/msvc/wx/setup.h ./include/msvc/wx/setup.h
+--- ../wxMSW-2.8.7/include/msvc/wx/setup.h	Wed Nov 21 10:39:32 2007
++++ ./include/msvc/wx/setup.h	Thu Aug 14 22:01:44 2008
+@@ -30,11 +30,11 @@
+         #endif
+ 
+         #ifdef _DEBUG
+-            #pragma comment(lib,"wxbase28ud")
+-            #pragma comment(lib,"wxbase28ud_net")
+-            #pragma comment(lib,"wxbase28ud_xml")
++            //#pragma comment(lib,"wxbase28ud")
++            //#pragma comment(lib,"wxbase28ud_net")
++            //#pragma comment(lib,"wxbase28ud_xml")
+             #if wxUSE_REGEX
+-                #pragma comment(lib,"wxregexud")
++                //#pragma comment(lib,"wxregexud")
+             #endif
+ 
+             #if wxUSE_GUI
+@@ -79,11 +79,11 @@
+                 #endif
+             #endif // wxUSE_GUI
+         #else // release
+-            #pragma comment(lib,"wxbase28u")
+-            #pragma comment(lib,"wxbase28u_net")
+-            #pragma comment(lib,"wxbase28u_xml")
++            //#pragma comment(lib,"wxbase28u")
++            //#pragma comment(lib,"wxbase28u_net")
++            //#pragma comment(lib,"wxbase28u_xml")
+             #if wxUSE_REGEX
+-                #pragma comment(lib,"wxregexu")
++                //#pragma comment(lib,"wxregexu")
+             #endif
+ 
+             #if wxUSE_GUI

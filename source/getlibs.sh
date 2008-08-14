@@ -1,8 +1,10 @@
 #!/bin/sh
 
+# Libs fetched from source code repos
 scripts/svn-get libcal3d http://svn.gna.org/svn/cal3d/tags/release-0_11_0/cal3d/
 scripts/svn-get libCEGUI https://crayzedsgui.svn.sourceforge.net/svnroot/crayzedsgui/cegui_mk2/tags/v0-6-0/
 
+# Base libs
 scripts/url-get libpng http://mesh.dl.sourceforge.net/sourceforge/libpng/libpng-1.2.29.tar.bz2 \
   libpng-1.2.29 bz2
 scripts/url-get libz http://www.zlib.net/zlib-1.2.3.tar.bz2 \
@@ -25,4 +27,13 @@ scripts/url-get lib3ds http://kent.dl.sourceforge.net/sourceforge/lib3ds/lib3ds-
   lib3ds-1.3.0 zip
 scripts/url-get libode "http://downloads.sourceforge.net/opende/ode-src-0.9.zip?use_mirror=surfnet" \
   ode-src-0.9 zip ode-0.9
+  
+# Extra libs
 scripts/url-get libjs ftp://ftp.mozilla.org/pub/mozilla.org/js/js-1.7.0.tar.gz js-1.7.0 gz js
+scripts/url-get libwx http://surfnet.dl.sourceforge.net/sourceforge/wxwindows/wxMSW-2.8.7.zip wxMSW-2.8.7 zip
+
+# A bit of manual setup
+mkdir -p libwx/lib/vc_lib/mswu/wx/
+cp libwx/include/wx/msw/setup.h libwx/lib/vc_lib/mswu/wx
+mkdir -p libwx/lib/vc_lib/mswud/wx/
+cp libwx/include/wx/msw/setup.h libwx/lib/vc_lib/mswud/wx

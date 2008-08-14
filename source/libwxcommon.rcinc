@@ -1,0 +1,16 @@
+#define _T(X)   X
+
+#include "libwx/include/wx/version.h"
+
+#define VER_PRODUCT_NUMERIC	wxMAJOR_VERSION,wxMINOR_VERSION,wxRELEASE_NUMBER,wxSUBRELEASE_NUMBER
+#define	VER_PRODUCT_STR		wxVERSION_STRING
+#define	VER_DESCRIPTION		"wxWidgets"
+#define	VER_COPYRIGHT		"Copyright (c) 1998-2005 Julian Smart, Robert Roebling et al"
+#define VER_PRODUCTNAME		"wxWidgets"
+
+#define _QUOTE(x) # x
+#define QUOTE(x) _QUOTE(x)
+#define	VERSION_MAJORMINOR	QUOTE(wxMAJOR_VERSION) QUOTE(wxMINOR_VERSION)
+
+
+#include "version.rcinc"
