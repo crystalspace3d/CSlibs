@@ -1,0 +1,12 @@
+diff -ru ../wxMSW-2.8.7/include/wx/msw/setup.h ./include/wx/msw/setup.h
+--- ../wxMSW-2.8.7/include/wx/msw/setup.h	Wed Nov 21 10:17:50 2007
++++ ./include/wx/msw/setup.h	Mon Jun 23 10:30:58 2008
+@@ -991,7 +991,7 @@
+ // Default is 0.
+ //
+ // Recommended setting: 1 if you intend to use OpenGL, 0 otherwise
+-#define wxUSE_GLCANVAS       0
++#define wxUSE_GLCANVAS       1
+ 
+ // wxRichTextCtrl allows editing of styled text.
+ //
