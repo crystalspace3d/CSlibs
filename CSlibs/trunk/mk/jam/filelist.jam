@@ -18,6 +18,15 @@
 #
 #============================================================================
 
+##  ListFile list
+##    Returns the output file name for a certain file list.
+rule ListFile
+{
+    listfile = $(1:S=.txt) ;
+    MakeLocate $(listfile) : [ ConcatDirs $(BUILDTOP) out lists ] ;
+    return $(listfile) ;
+}
+
 ##  DoFileListEntries sourcenames : directory : list
 ##    Creates a new target adding the given sources named by
 ##    `sourcenames' to the file list `list`.  `directory' is a list of 
@@ -50,8 +59,7 @@ rule DoFileListEntry
     dir = [ ConcatDirs $(2) ] ;
     target = $(1:G=filelist!$(SUBDIR:J=!)) ;
     
-    listfile = $(4:S=.txt) ;
-    MakeLocate $(listfile) : [ ConcatDirs $(BUILDTOP) out lists ] ;
+    listfile = [ ListFile $(4) ] ;
     
     SEARCH on $(target) = [ on $(1) GetVar SEARCH ] ;
     Always $(target) ;
@@ -59,7 +67,6 @@ rule DoFileListEntry
     WriteFileListEntry $(listfile) : $(target) : $(dir) : $(1) ;
     Depends $(listfile) : $(target) ;
     
-    Always $(listfile) ;
     return $(listfile) ;
 }
 
