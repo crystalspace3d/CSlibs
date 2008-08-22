@@ -53,6 +53,8 @@ RegisterHeaderRule HeaderRule : $(HDRPATTERN) : .cpp .cc .c++ ;
 
 include $(SUBDIR)/source/Jamfile ;
 
+SubDir TOP ;
+
 # Set up symbol collection targets.
 
 SYMDIR = "$(BUILDTOP)/out/symbols" ;
@@ -78,3 +80,71 @@ Depends collectsymbols : collectsymbols_compress ;
 UploadDir uploadsymbols : $(SYMDIR) : 
   crystal@crystalspace3d.org :
   www/crystalspace3d.org/htdocs/symbols ;
+
+
+# Set up file lists.
+
+SubDir TOP libs release ;
+FileListEntriesData [ Wildcard *.dll ] : : libs-common ;
+FileListEntriesData [ Wildcard *.pdb ] : : libs-common-debug ;
+FileListEntriesData [ Wildcard *.lib ] : : libs-common-link ;
+SubDir TOP libs releasenocygwin ;
+FileListEntriesData [ Wildcard *.dll ] : : libs-common ;
+FileListEntriesData [ Wildcard *.pdb ] : : libs-common-debug ;
+FileListEntriesData [ Wildcard *.lib ] : : libs-common-link ;
+
+SubDir TOP libs releasegcconly mingw ;
+FileListEntriesData [ Wildcard *.dll ] : : libs-mingw ;
+FileListEntriesData [ Wildcard *.dbg ] : : libs-mingw-debug ;
+SubDir TOP libs releasegcconly mingw-gcc-3.4 ;
+FileListEntriesData [ Wildcard libCEGUI*.a libcal3d.a ] : : libs-mingw-link ;
+
+rule VCFileLists
+{
+  local N = $(1) ;
+  
+  SubDir TOP libs releasevc$(N)only ;
+  FileListEntriesData [ Wildcard *vc$(N).dll ] : : libs-vc$(N) ;
+  FileListEntriesData [ Wildcard *vc$(N)_d.dll ] : : libs-vc$(N)_d ;
+  FileListEntriesData [ Wildcard *vc$(N).pdb ] : : libs-vc$(N)-debug ;
+  FileListEntriesData [ Wildcard *vc$(N)_d.pdb ] : : libs-vc$(N)_d-debug ;
+  FileListEntriesData [ Wildcard *vc$(N).lib ] : : libs-vc$(N)-link ;
+  FileListEntriesData [ Wildcard *vc$(N)_d.lib ] : : libs-vc$(N)_d-link ;
+}
+
+VCFileLists 7 ;
+VCFileLists 71 ;
+VCFileLists 8 ;
+VCFileLists 9 ;
+
+SubDir TOP ;
+
+# Merge modules
+
+MSM_VER = "`cat $(TOP)/version.inc | grep MSM_VER | sed -e \"s/.*=\\(.*\\)/\\1/\"`" ;
+
+rule AllMSMs
+{
+  local m ;
+  for m in $(1)
+  {
+    MSIMergeModule winlibs.$(m).dlls : libs-$(m) : $(MSM_VER) ;
+    MSIMergeModule winlibs.$(m).debug : libs-$(m)-debug : $(MSM_VER) ;
+    MSIMergeModule winlibs.$(m).link : libs-$(m)-link : $(MSM_VER) ;
+  }
+}
+AllMSMs common mingw vc7 vc7_d vc71 vc71_d vc8 vc8_d vc9 vc9_d ;
+
+WINLIBS_VER = "`cat $(TOP)/version.inc | grep CSLIBS_VERSION_STR | sed -e \"s/.*\\\"\\(.*\\)\\\"/\\1/\"`" ;
+
+UploadFiles _uploadmsms2 : [ Wildcard $(LOCATE.MSI) : *.msm ] : 
+  crystal@crystalspace3d.org :
+  www/crystalspace3d.org/htdocs/downloads/cs-win32libs/mergemodules/$(WINLIBS_VER) ;
+
+actions DoUploadMSMs2
+{
+  jam _uploadmsms2
+}
+
+Depends uploadmsms : mergemodules ;
+DoUploadMSMs2 uploadmsms ;
