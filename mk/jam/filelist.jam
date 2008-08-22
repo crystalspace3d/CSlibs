@@ -24,8 +24,8 @@ rule ListFile
 {
     listfile = $(1:S=.txt) ;
     MakeLocate $(listfile) : [ ConcatDirs $(BUILDTOP) out lists ] ;
-    Clean cleanfilelists : $(listfile) ;
-    Depends clean : cleanfilelists ;
+    Clean filelistsclean : $(listfile) ;
+    Depends clean : filelistsclean ;
     return $(listfile) ;
 }
 
