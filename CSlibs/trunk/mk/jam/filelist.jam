@@ -64,7 +64,6 @@ rule DoFileListEntry
     listfile = [ ListFile $(4) ] ;
     
     SEARCH on $(target) = [ on $(1) GetVar SEARCH ] ;
-    Always $(target) ;
     NoCare $(target) ;
     WriteFileListEntry $(listfile) : $(target) : $(dir) : $(1) ;
     Depends $(listfile) : $(target) ;
