@@ -21,20 +21,24 @@ rule MSIMergeModule
   ID on $(mod_src) = $(target) ;
   Depends $(mod_src) : $(filelistfile) ;
   GenerateMSMSource $(mod_src) : $(filelistfile) ;
+  Clean mergemodulesclean : $(mod_src) ;
   
   local mod_obj = $(mod_src:S=.wixobj) ;
   MakeLocate $(mod_obj) : $(LOCATE.MSI.TEMP) ;
   Depends $(mod_obj) : $(mod_src) ;
   CompileWXS $(mod_obj) : $(mod_src) ;
+  Clean mergemodulesclean : $(mod_obj) ;
   
   local mod_msm = $(mod_src:S=.msm) ;
   MakeLocate $(mod_msm) : $(LOCATE.MSI) ;
   Depends $(mod_msm) : $(mod_obj) ;
   LinkWIXOBJ $(mod_msm) : $(mod_obj) ;
+  Clean mergemodulesclean : $(mod_msm) ;
   
   Depends $(target) : $(mod_msm) ;
   NotFile $(target) ;
   Depends mergemodules : $(target) ;
+  Depends clean : mergemodulesclean ;
 }
 
 actions together GenerateMSMSource 
