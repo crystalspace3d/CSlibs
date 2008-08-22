@@ -24,6 +24,8 @@ rule ListFile
 {
     listfile = $(1:S=.txt) ;
     MakeLocate $(listfile) : [ ConcatDirs $(BUILDTOP) out lists ] ;
+    Clean cleanfilelists : $(listfile) ;
+    Depends clean : cleanfilelists ;
     return $(listfile) ;
 }
 
@@ -107,7 +109,6 @@ rule WriteFileListEntry
   
   local listfile_gristed = $(listfile:G=$(destname)) ;
   MakeLocate $(listfile_gristed) : [ on $(listfile) GetVar LOCATE ] ;
-  Always $(listfile_gristed) ;
   
   DESTNAME on $(listfile_gristed) = $(destname) ;
   LOCATE on $(srcfile) = [ on $(srcfile) GetVar SEARCH ] ;
