@@ -2,3 +2,4 @@
 #ifdef RC_INVOKED
   #define CSLIBS_VERSION_NUM  1,3,0,4
 #endif
+//MSM_VER=1.3.4
