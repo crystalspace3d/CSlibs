@@ -84,13 +84,19 @@ UploadDir uploadsymbols : $(SYMDIR) :
 
 # Set up file lists.
 
+SubDir TOP nosource Cg dlls ;
+FileListEntriesData [ Wildcard *.dll ] : : libs-common ;
+SubDir TOP nosource Cg lib ;
+FileListEntriesData [ Wildcard *.lib ] : : libs-common-link ;
+SubDir TOP nosource dbghelp ;
+FileListEntriesData [ Wildcard *.dll ] : : libs-common ;
 SubDir TOP libs release ;
 VORBISENC_FILES = [ Wildcard *vorbisenc* ] ;
 FileListEntriesData [ Filter [ Wildcard *.dll ] : $(VORBISENC_FILES) ] : : libs-common ;
 FileListEntriesData libvorbisenc-cs.dll : : libs-common_vorbisenc ;
 FileListEntriesData [ Filter [ Wildcard *.pdb ] : $(VORBISENC_FILES) ] : : libs-common-debug ;
 FileListEntriesData libvorbisenc-cs.pdb : : libs-common_vorbisenc-debug ;
-FileListEntriesData [ Filter [ Wildcard *.lib ] : $(VORBISENC_FILES) ] : : libs-common-link ;
+FileListEntriesData [ Filter [ Wildcard *.lib ] : $(VORBISENC_FILES) ] $(CG_LIBS) : : libs-common-link ;
 FileListEntriesData vorbisenc.lib : : libs-common_vorbisenc-link ;
 SubDir TOP libs releasenocygwin ;
 FileListEntriesData [ Wildcard *.dll ] : : libs-common ;
