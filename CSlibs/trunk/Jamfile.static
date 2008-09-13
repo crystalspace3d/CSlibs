@@ -85,9 +85,9 @@ UploadDir uploadsymbols : $(SYMDIR) :
 # Set up file lists.
 
 SubDir TOP nosource Cg dlls ;
-FileListEntriesData [ Wildcard *.dll ] : : libs-common ;
+FileListEntriesData [ Wildcard *.dll ] : : libs-common_cg ;
 SubDir TOP nosource Cg lib ;
-FileListEntriesData [ Wildcard *.lib ] : : libs-common-link ;
+FileListEntriesData [ Wildcard *.lib ] : : libs-common_cg-link ;
 SubDir TOP nosource dbghelp ;
 FileListEntriesData [ Wildcard *.dll ] : : libs-common ;
 SubDir TOP libs release ;
@@ -143,7 +143,9 @@ rule AllMSMs
     MSIMergeModuleFromList winlibs.$(m).link : libs-$(m)-link : $(MSM_VER) ;
   }
 }
-AllMSMs common common_vorbisenc mingw vc7 vc7_d vc71 vc71_d vc8 vc8_d vc9 vc9_d ;
+AllMSMs common common_cg common_vorbisenc mingw vc7 vc7_d vc71 vc71_d vc8 vc8_d vc9 vc9_d ;
+MakeLocate winlibs.common_openal.msm : $(LOCATE.MSI) ;
+MSIMergeModule winlibs.common_openal.msm : source/setup/OpenALRuntime.wxs : "TOP=$(TOP)" "MSM_VER=$(MSM_VER)" ;
 
 WINLIBS_VER = "`cat $(TOP)/version.inc | grep CSLIBS_VERSION_STR | sed -e \"s/.*\\\"\\(.*\\)\\\"/\\1/\"`" ;
 
