@@ -17,8 +17,6 @@ scripts/url-get libvorbis http://downloads.xiph.org/releases/vorbis/libvorbis-1.
   libvorbis-1.2.0 gz
 scripts/url-get libfreetype http://mesh.dl.sourceforge.net/sourceforge/freetype/freetype-2.3.5.tar.bz2 \
   freetype-2.3.5 bz2
-scripts/url-get libcaca http://libcaca.zoy.org/files/libcaca/libcaca-0.99.beta13b.tar.gz \
-  libcaca-0.99.beta13b gz
 scripts/url-get libbullet http://bullet.googlecode.com/files/bullet-2.69.zip \
   bullet-2.69 zip
 scripts/url-get libpcre ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-7.7.tar.bz2 \
