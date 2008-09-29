@@ -174,15 +174,20 @@ rule ExtraLib
   {
     options += nostatic ;
   }
+  
+  local outdirbase ;
+  on $(lib) outdirbase = $(OUTDIRBASE) ;
+  if ! $(outdirbase) { outdirbase = "Release" ; }
+  
   # For a "fakestatic" library ExtraLib is calls itself
   #if [ IsElem fakestatic2 : $(options) ]
   if [ IsElem fakestatic : $(options) ]
   {
-    outdir = "ReleaseVC$(msvcgenver)Only_static" ;
+    outdir = "$(outdirbase)VC$(msvcgenver)Only_static" ;
   }
   else
   {
-    outdir = "ReleaseVC$(msvcgenver)Only" ;
+    outdir = "$(outdirbase)VC$(msvcgenver)Only" ;
   }
   
   SetProperty extralib : $(lib) : yes ;

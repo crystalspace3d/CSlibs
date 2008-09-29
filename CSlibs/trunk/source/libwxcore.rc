@@ -1,0 +1,4 @@
+#define VER_INTERNAL		"wxmsw" VERSION_MAJORMINOR "_core"
+#define VER_FILENAME		"wxmsw" VERSION_MAJORMINOR "u_core.dll"
+
+#include "libwxcommon.rcinc"
