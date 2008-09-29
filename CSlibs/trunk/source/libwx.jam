@@ -331,6 +331,9 @@ GUI_MSW =
         src/msw/fdrepdlg.cpp
         src/msw/fontdlg.cpp
         ;
+OPENGL_MSW =
+        src/msw/glcanvas.cpp
+        ;
 
 OUTDIRBASE on wxbase$(WX_MAJORMINOR)u = ReleaseExtra ;
 ExtraLib wxbase$(WX_MAJORMINOR)u :
@@ -369,3 +372,19 @@ ExtraLib wxmsw$(WX_MAJORMINOR)u_core :
   wxtiff_static jpeg png ;
 LibDepends wxmsw$(WX_MAJORMINOR)u_core : wxbase$(WX_MAJORMINOR)u ;
 ExternalLibs wxmsw$(WX_MAJORMINOR)u_core : WXMSW_CORE_DEPS ;
+
+WXMSW_GL_DEPS.AVAILABLE = yes ;
+WXMSW_GL_DEPS.LIBS = opengl32.lib glu32.lib ;
+
+OUTDIRBASE on wxmsw$(WX_MAJORMINOR)u_gl = ReleaseExtra ;
+ExtraLib wxmsw$(WX_MAJORMINOR)u_gl :
+  $(OPENGL_MSW) : 
+  source/libwxgl.rc :
+  $(SUBDIR)/include $(SUBDIR)/include/msvc :
+  nostatic :
+  _UNICODE __WXMSW__ WXMAKINGDLL_GL COMPILED_FROM_DSP WXUSINGDLL
+  :
+  :
+  ;
+LibDepends wxmsw$(WX_MAJORMINOR)u_gl : wxbase$(WX_MAJORMINOR)u wxmsw$(WX_MAJORMINOR)u_core ;
+ExternalLibs wxmsw$(WX_MAJORMINOR)u_gl : WXMSW_GL_DEPS ;

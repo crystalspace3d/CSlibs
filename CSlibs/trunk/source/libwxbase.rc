@@ -1,4 +1,3 @@
-#define VER_INTERNAL		"wxbase" VERSION_MAJORMINOR
 #define VER_FILENAME		"wxbase" VERSION_MAJORMINOR "u.dll"
 
 #include "libwxcommon.rcinc"

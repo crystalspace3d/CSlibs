@@ -47,7 +47,11 @@ BEGIN
             VALUE "PrivateBuild", "\0"
             VALUE "ProductName", VER_PRODUCTNAME "\0"
             VALUE "ProductVersion", VER_PRODUCT_STR "\0"
-            VALUE "SpecialBuild", "Built for CrystalSpace; may cause problems if used for other software.\0"
+            VALUE "SpecialBuild", "Built for CrystalSpace; may cause problems if used for other software."
+#ifdef _DEBUG
+                "\nDEBUG build"
+#endif
+            "\0"
         END
     END
     BLOCK "VarFileInfo"
