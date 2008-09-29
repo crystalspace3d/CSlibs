@@ -371,7 +371,9 @@ ExtraLib wxmsw$(WX_MAJORMINOR)u_core :
   :
   wxtiff_static jpeg png ;
 LibDepends wxmsw$(WX_MAJORMINOR)u_core : wxbase$(WX_MAJORMINOR)u ;
+LibDepends wxmsw$(WX_MAJORMINOR)u_core_debug : wxbase$(WX_MAJORMINOR)u_debug ;
 ExternalLibs wxmsw$(WX_MAJORMINOR)u_core : WXMSW_CORE_DEPS ;
+ExternalLibs wxmsw$(WX_MAJORMINOR)u_core_debug : WXMSW_CORE_DEPS ;
 
 WXMSW_GL_DEPS.AVAILABLE = yes ;
 WXMSW_GL_DEPS.LIBS = opengl32.lib glu32.lib ;
@@ -387,4 +389,6 @@ ExtraLib wxmsw$(WX_MAJORMINOR)u_gl :
   :
   ;
 LibDepends wxmsw$(WX_MAJORMINOR)u_gl : wxbase$(WX_MAJORMINOR)u wxmsw$(WX_MAJORMINOR)u_core ;
+LibDepends wxmsw$(WX_MAJORMINOR)u_gl_debug : wxbase$(WX_MAJORMINOR)u_debug wxmsw$(WX_MAJORMINOR)u_core_debug ;
 ExternalLibs wxmsw$(WX_MAJORMINOR)u_gl : WXMSW_GL_DEPS ;
+ExternalLibs wxmsw$(WX_MAJORMINOR)u_gl_debug : WXMSW_GL_DEPS ;
