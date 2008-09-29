@@ -9,7 +9,7 @@ BaseLib png :
   ReleaseNoCygwin ;
 LibDepends png : z ;
 # Apparently broken in 1.2.16
-#MsvcDefine png : PNG_USE_PNGVCRD ;
+MsvcDefine png : PNG_USE_PNGVCRD ;
 MsvcDefine png : 
   "SPECIALBUILD=\\&quot;Built for CrystalSpace, may cause problems if used for other software.\\&quot;" ;
 MsvcExtraFile png : source/libpng.rc ;
