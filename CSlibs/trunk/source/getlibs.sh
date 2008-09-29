@@ -31,7 +31,11 @@ scripts/url-get libjs ftp://ftp.mozilla.org/pub/mozilla.org/js/js-1.7.0.tar.gz j
 scripts/url-get libwx http://surfnet.dl.sourceforge.net/sourceforge/wxwindows/wxMSW-2.8.7.zip wxMSW-2.8.7 zip
 
 # A bit of manual setup
+mkdir -p libwx/lib/vc_dll/mswu/wx/
+mkdir -p libwx/lib/vc_dll/mswud/wx/
 mkdir -p libwx/lib/vc_lib/mswu/wx/
-cp libwx/include/wx/msw/setup.h libwx/lib/vc_lib/mswu/wx
 mkdir -p libwx/lib/vc_lib/mswud/wx/
+cp libwx/include/wx/msw/setup.h libwx/lib/vc_dll/mswu/wx
+cp libwx/include/wx/msw/setup.h libwx/lib/vc_dll/mswud/wx
+cp libwx/include/wx/msw/setup.h libwx/lib/vc_lib/mswu/wx
 cp libwx/include/wx/msw/setup.h libwx/lib/vc_lib/mswud/wx
