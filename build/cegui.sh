@@ -110,7 +110,7 @@ cp ${source}/include/falagard/*.h ${prefix}/include/CEGUI/falagard
 prefix=${basedir}/temp/${library}/prefix-${platform_short}-static
 rm -rf ${prefix}
 
-# libtool, doesn't want to link shared libs against static libs anf refuses to 
+# libtool, doesn't want to link shared libs against static libs and refuses to 
 # link a static lib for which not .la file exists.
 # So fake some up...
 mkdir -p ${prefix}/lib/
