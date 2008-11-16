@@ -33,7 +33,7 @@
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
 				ProgramDataBaseFileName="..\..\out\release8\build\libpng\png.pdb"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;SPECIALBUILD=\&quot;Built for CrystalSpace, may cause problems if used for other software.\&quot;;WIN32"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;PNG_USE_PNGVCRD;SPECIALBUILD=\&quot;Built for CrystalSpace, may cause problems if used for other software.\&quot;;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
 				AdditionalIncludeDirectories=".;..\..\source\libpng\..\libz;..\..\source\libpng"
@@ -71,7 +71,7 @@
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;SPECIALBUILD=\&quot;Built for CrystalSpace, may cause problems if used for other software.\&quot;"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;PNG_USE_PNGVCRD;SPECIALBUILD=\&quot;Built for CrystalSpace, may cause problems if used for other software.\&quot;"
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
@@ -85,7 +85,7 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;SPECIALBUILD=\&quot;Built for CrystalSpace, may cause problems if used for other software.\&quot;;PROJECTGEN_VERSION=8"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;PNG_USE_PNGVCRD;SPECIALBUILD=\&quot;Built for CrystalSpace, may cause problems if used for other software.\&quot;;PROJECTGEN_VERSION=8"
 				AdditionalIncludeDirectories=".;..\..\source\libpng\..\libz;..\..\source\libpng"
 				Culture="1033"/>
 			<Tool
