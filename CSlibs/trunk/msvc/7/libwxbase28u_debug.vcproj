@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding = "Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="8.00"
+	Version="7.00"
 	Name="libwxbase28u_debug"
 	ProjectGUID="{06ADFDCB-91BD-F6A5-8095-F0F747C51A86}"
 	SccProjectName=""
@@ -13,8 +13,8 @@
 	<Configurations>
   		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="..\..\out\debug8\build\libwxbase28u_debug\"
-			IntermediateDirectory="..\..\out\debug8\build\libwxbase28u_debug\"
+			OutputDirectory="..\..\out\debug7\build\libwxbase28u_debug\"
+			IntermediateDirectory="..\..\out\debug7\build\libwxbase28u_debug\"
 			ConfigurationType="2"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="FALSE">
@@ -25,14 +25,14 @@
 				DebugInformationFormat="4"
 				RuntimeTypeInfo="TRUE"
 				RuntimeLibrary="3"
-				ProgramDataBaseFileName="..\..\out\debug8\build\libwxbase28u_debug\wxbase28u_debug.pdb"
+				ProgramDataBaseFileName="..\..\out\debug7\build\libwxbase28u_debug\wxbase28u_debug.pdb"
 				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_BASE;wxUSE_GUI=0;wxUSE_UNICODE=1;wxUSE_BASE=1;COMPILED_FROM_DSP;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
 				AdditionalIncludeDirectories=".;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\regex;..\..\source\libwx\..\libz;..\..\source\libwx\src\expat\lib"
-				PrecompiledHeaderFile="..\..\out\debug8\build\libwxbase28u_debug\libwxbase28u_debug.pch"
-				AssemblerListingLocation="..\..\out\debug8\build\libwxbase28u_debug\"
-				ObjectFile="..\..\out\debug8\build\libwxbase28u_debug\"
+				PrecompiledHeaderFile="..\..\out\debug7\build\libwxbase28u_debug\libwxbase28u_debug.pch"
+				AssemblerListingLocation="..\..\out\debug7\build\libwxbase28u_debug\"
+				ObjectFile="..\..\out\debug7\build\libwxbase28u_debug\"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
 				Detect64BitPortabilityProblems="TRUE"
@@ -46,15 +46,15 @@
 				LinkIncremental="2"
 				GenerateDebugInformation="TRUE"
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD,MSVCRT"
-				OutputFile="..\..\libs\ReleaseExtraVC8Only\libwxbase28u-csvc8_d.dll"
+				OutputFile="..\..\libs\ReleaseExtraVC7Only\libwxbase28u-csvc7_d.dll"
 				MergeSections=".rdata=.text"
 				DelayLoadDLLs=""
-				ImportLibrary="..\..\libs\ReleaseExtraVC8Only\wxbase28u-vc8_d.lib"
+				ImportLibrary="..\..\libs\ReleaseExtraVC7Only\wxbase28u-vc7_d.lib"
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
 				AdditionalLibraryDirectories=""
-				ProgramDatabaseFile="..\..\libs\ReleaseExtraVC8Only\libwxbase28u-csvc8_d.pdb"
+				ProgramDatabaseFile="..\..\libs\ReleaseExtraVC7Only\libwxbase28u-csvc7_d.pdb"
 				TargetMachine="1"/>
 			<Tool
 				Name="VCLibrarianTool"
@@ -65,7 +65,7 @@
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
-				TypeLibraryName="..\..\out\debug8\build\libwxbase28u_debug\libwxbase28u_debug.tlb"/>
+				TypeLibraryName="..\..\out\debug7\build\libwxbase28u_debug\libwxbase28u_debug.tlb"/>
 			<Tool
 				Name="VCPostBuildEventTool"
 				/>
@@ -75,7 +75,7 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_BASE;wxUSE_GUI=0;wxUSE_UNICODE=1;wxUSE_BASE=1;COMPILED_FROM_DSP;PROJECTGEN_VERSION=8"
+				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_BASE;wxUSE_GUI=0;wxUSE_UNICODE=1;wxUSE_BASE=1;COMPILED_FROM_DSP;PROJECTGEN_VERSION=7"
 				AdditionalIncludeDirectories=".;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\regex;..\..\source\libwx\..\libz;..\..\source\libwx\src\expat\lib"
 				Culture="1033"/>
 			<Tool

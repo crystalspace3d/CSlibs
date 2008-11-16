@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding = "Windows-1252"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="7.10"
+	Name="libwxmsw28u_gl_debug"
+	ProjectGUID="{A137D4E5-9B0D-165A-D3A4-DBEF27D1FB54}"
+	SccProjectName=""
+	SccLocalPath="">
+	<Platforms>
+		<Platform
+			Name="Win32"/>
+	</Platforms>
+	<Configurations>
+  		<Configuration
+			Name="Release|Win32"
+			OutputDirectory="..\..\out\debug71\build\libwxmsw28u_gl_debug\"
+			IntermediateDirectory="..\..\out\debug71\build\libwxmsw28u_gl_debug\"
+			ConfigurationType="2"
+			UseOfMFC="0"
+			ATLMinimizesCRunTimeLibraryUsage="FALSE">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				MinimalRebuild="TRUE"
+				DebugInformationFormat="4"
+				RuntimeTypeInfo="TRUE"
+				RuntimeLibrary="3"
+				ProgramDataBaseFileName="..\..\out\debug71\build\libwxmsw28u_gl_debug\wxmsw28u_gl_debug.pdb"
+				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_GL;COMPILED_FROM_DSP;WXUSINGDLL;WIN32"
+				OptimizeForProcessor="2"
+				AdditionalOptions=" "
+				AdditionalIncludeDirectories=".;..\..\source\libwx\include;..\..\source\libwx\include\msvc"
+				PrecompiledHeaderFile="..\..\out\debug71\build\libwxmsw28u_gl_debug\libwxmsw28u_gl_debug.pch"
+				AssemblerListingLocation="..\..\out\debug71\build\libwxmsw28u_gl_debug\"
+				ObjectFile="..\..\out\debug71\build\libwxmsw28u_gl_debug\"
+				WarningLevel="3"
+				SuppressStartupBanner="TRUE"
+				Detect64BitPortabilityProblems="TRUE"
+				TreatWChar_tAsBuiltInType="false"
+				ForceConformanceInForLoopScope="true"
+				CompileAs="0"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				LinkIncremental="2"
+				GenerateDebugInformation="TRUE"
+				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD,MSVCRT"
+				OutputFile="..\..\libs\ReleaseExtraVC71Only\libwxmsw28u_gl-csvc71_d.dll"
+				MergeSections=".rdata=.text"
+				DelayLoadDLLs=""
+				ImportLibrary="..\..\libs\ReleaseExtraVC71Only\wxmsw28u_gl-vc71_d.lib"
+				AdditionalOptions=" "
+				AdditionalDependencies="opengl32.lib glu32.lib"
+				SuppressStartupBanner="TRUE"
+				AdditionalLibraryDirectories=""
+				ProgramDatabaseFile="..\..\libs\ReleaseExtraVC71Only\libwxmsw28u_gl-csvc71_d.pdb"
+				TargetMachine="1"/>
+			<Tool
+				Name="VCLibrarianTool"
+				SuppressStartupBanner="TRUE"/>
+			<Tool
+				Name="VCMIDLTool"
+				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_GL;COMPILED_FROM_DSP;WXUSINGDLL"
+				MkTypLibCompatible="TRUE"
+				SuppressStartupBanner="TRUE"
+				TargetEnvironment="1"
+				TypeLibraryName="..\..\out\debug71\build\libwxmsw28u_gl_debug\libwxmsw28u_gl_debug.tlb"/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_GL;COMPILED_FROM_DSP;WXUSINGDLL;PROJECTGEN_VERSION=71"
+				AdditionalIncludeDirectories=".;..\..\source\libwx\include;..\..\source\libwx\include\msvc"
+				Culture="1033"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+		</Configuration>
+  	</Configurations>
+	<Files>
+		<Filter
+			Name="Source Files"
+			Filter="">
+			<File
+				RelativePath="..\..\source\libwx\src\msw\glcanvas.cpp">
+			</File>
+		</Filter>
+		<Filter
+			Name="Resource Files"
+			Filter="">
+			<File
+				RelativePath="..\..\source\libwxgl.rc">
+			</File>
+		</Filter>
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>
