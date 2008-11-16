@@ -42,3 +42,7 @@ mkdir -p headers/freetype/config/
 cp source/configs/freetype/config/*.h headers/freetype/config/
 cp source/configs/lib3ds/*.h headers/lib3ds/
 cp source/configs/ode/*.h headers/ode/
+
+cp -r temp/libwx/prefix-${mingw}/include/wx-2.8/wx headers/
+cp libwx/include/wx/msw/setup.h headers/wx/msw/
+#cp -r temp/libwx/prefix-${mingw}/lib/wx/include/msw-unicode-release-2.8/wx headers/
