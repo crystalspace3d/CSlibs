@@ -20,8 +20,6 @@
  *                       graceful out-of-memory handling.
  ******************************************************************/
 
-#define dSINGLE 1
-
 #define dTRIMESH_ENABLED 1
 #define dTRIMESH_OPCODE 1
 
@@ -114,32 +112,12 @@
 	#define ODE_INFINITY8 (__ode_huge_val.__d)
 #endif
 
-#if dSINGLE
-	#define dInfinity ODE_INFINITY4
+#ifdef dSINGLE
 	#define dEpsilon  FLT_EPSILON
 #else
-	#define dInfinity ODE_INFINITY8
 	#define dEpsilon  DBL_EPSILON
 #endif
 
-
-/* Well-defined common data types...need to define for 64 bit systems */
-#if defined(_M_IA64) || defined(__ia64__) || defined(_M_AMD64) || defined(__x86_64__)
-  #define X86_64_SYSTEM   1
-  typedef int             int32;
-  typedef unsigned int    uint32;
-  typedef short           int16;
-  typedef unsigned short  uint16;
-  typedef char            int8;
-  typedef unsigned char   uint8;
-#else
-  typedef int             int32;
-  typedef unsigned int    uint32;
-  typedef short           int16;
-  typedef unsigned short  uint16;
-  typedef char            int8;
-  typedef unsigned char   uint8;
-#endif
 
 /* An integer type that can be safely cast to a pointer. This definition
  * should be safe even on 64-bit systems */

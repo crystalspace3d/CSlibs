@@ -6,7 +6,7 @@
 #define	VER_PRODUCT_STR		\
   QUOTE(CEGUI_VERSION_MAJOR) "."  QUOTE(CEGUI_VERSION_MINOR) "." QUOTE(CEGUI_VERSION_PATCH)
 #define	VER_DESCRIPTION		"Crazy Eddie's GUI System Mk-2"
-#define	VER_COPYRIGHT		"Copyright ©2004 - 2006 CEGUI Team & Contributing Authors"
+#define	VER_COPYRIGHT		"Copyright ©2004 - 2008 CEGUI Team & Contributing Authors"
 #define VER_PRODUCTNAME		"CEGUI"
 
 #include "version.rcinc"
