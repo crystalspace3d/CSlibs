@@ -1,3 +1,30 @@
+SubDir TOP source libwx src zlib ;
+
+BaseLib wxzlib : 
+  [ Filter [ Wildcard *.c *.h ] : example.c minigzip.c ] : 
+  wxzlib :
+  :
+  : 
+  staticonly norelease ;
+
+SubDir TOP source libwx src png ;
+
+BaseLib wxpng : 
+  [ Wildcard png*.c png*.h ] : 
+  wxpng :
+  :
+  $(SUBDIR)/../zlib : 
+  staticonly norelease ;
+
+SubDir TOP source libwx src jpeg ;
+
+BaseLib wxjpeg : 
+  [ Filter [ Wildcard j*.c j*.h ] : jmemdos.c jmemansi.c jmemname.c jpegtran.c jmemmac.c ] : 
+  wxjpeg :
+  :
+  : 
+  staticonly norelease ;
+
 SubDir TOP source libwx ;
 
 MSVCGEN_VERSION = [ Property build : projgen_version ] ;
@@ -335,7 +362,7 @@ OPENGL_MSW =
         src/msw/glcanvas.cpp
         ;
 
-OUTDIRBASE on wxbase$(WX_MAJORMINOR)u = ReleaseExtra ;
+OUTDIRBASE on wxbase$(WX_MAJORMINOR)u = ReleaseWX ;
 ExtraLib wxbase$(WX_MAJORMINOR)u :
   $(BASE_COMMON) $(BASE_MSW) : 
   source/libwxbase.rc :
@@ -344,9 +371,9 @@ ExtraLib wxbase$(WX_MAJORMINOR)u :
   _UNICODE __WXMSW__ WXMAKINGDLL_BASE wxUSE_GUI=0 wxUSE_UNICODE=1 wxUSE_BASE=1 COMPILED_FROM_DSP
   :
   :
-  z_static ;
+  wxzlib_static ;
 
-TIF_PLAT = tif_win3.c tif_vms.c tif_unix.c tif_os2.c tif_atari.c tif_apple.c tif_acorn.c ;
+TIF_PLAT = tif_win3.c tif_vms.c tif_unix.c tif_os2.c tif_atari.c tif_apple.c tif_acorn.c tif_msdos.c ;
 
 BaseLib wxtiff : 
   [ Filter [ Wildcard [ ConcatDirs src tiff ] : tif_*.c tif_*.h ] : src/tiff/$(TIF_PLAT) ] :
@@ -359,7 +386,7 @@ LibDepends wxtiff_static : jpeg_static z_static ;
 WXMSW_CORE_DEPS.AVAILABLE = yes ;
 WXMSW_CORE_DEPS.LIBS = comctl32.lib rpcrt4.lib ;
 
-OUTDIRBASE on wxmsw$(WX_MAJORMINOR)u_core = ReleaseExtra ;
+OUTDIRBASE on wxmsw$(WX_MAJORMINOR)u_core = ReleaseWX ;
 ExtraLib wxmsw$(WX_MAJORMINOR)u_core :
   $(GUI_COMMON) $(GUI_MSW) : 
   source/libwxcore.rc :
@@ -369,16 +396,22 @@ ExtraLib wxmsw$(WX_MAJORMINOR)u_core :
   _UNICODE __WXMSW__ WXMAKINGDLL_CORE wxUSE_BASE=0 wxUSE_UNICODE=1 COMPILED_FROM_DSP WXUSINGDLL wxHACK_BOOLEAN=wxInt8
   :
   :
-  wxtiff_static jpeg_static png_static ;
+  wxtiff_static wxjpeg_static wxpng_static wxzlib_static ;
 LibDepends wxmsw$(WX_MAJORMINOR)u_core : wxbase$(WX_MAJORMINOR)u ;
 LibDepends wxmsw$(WX_MAJORMINOR)u_core_debug : wxbase$(WX_MAJORMINOR)u_debug ;
 ExternalLibs wxmsw$(WX_MAJORMINOR)u_core : WXMSW_CORE_DEPS ;
 ExternalLibs wxmsw$(WX_MAJORMINOR)u_core_debug : WXMSW_CORE_DEPS ;
+# Work around linker errors
+if [ Property build : projgen_version ] = 7
+{
+  MsvcCFlags wxmsw$(WX_MAJORMINOR)u_core : "/GL-" ;
+}
+MsvcLFlags wxmsw$(WX_MAJORMINOR)u_core_debug : "/INCREMENTAL:NO" ;
 
 WXMSW_GL_DEPS.AVAILABLE = yes ;
 WXMSW_GL_DEPS.LIBS = opengl32.lib glu32.lib ;
 
-OUTDIRBASE on wxmsw$(WX_MAJORMINOR)u_gl = ReleaseExtra ;
+OUTDIRBASE on wxmsw$(WX_MAJORMINOR)u_gl = ReleaseWX ;
 ExtraLib wxmsw$(WX_MAJORMINOR)u_gl :
   $(OPENGL_MSW) : 
   source/libwxgl.rc :
