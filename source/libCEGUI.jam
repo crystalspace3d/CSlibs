@@ -16,7 +16,8 @@ ExtraLib CEGUIBase :
     CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG
     "CEGUI_LOAD_MODULE_DEBUG_SUFFIX=&quot;\\&quot;_d&quot;&quot;"
     "CEGUI_FACTORYMODULE_PREFIX=&quot;\\&quot;lib\\&quot;&quot;"
-    "CEGUI_FACTORYMODULE_SUFFIX=&quot;\\&quot;-csvc$(MSVCGEN_VERSION)\\&quot;&quot;" :
+    "CEGUI_FACTORYMODULE_SUFFIX=&quot;\\&quot;-csvc$(MSVCGEN_VERSION)\\&quot;&quot;" 
+    :
   :
   z freetype2 pcre_static ;
 
@@ -29,7 +30,10 @@ ExtraLib CEGUITinyXMLParser :
   source/libceguitinyxmlparser.rc :
   $(SUBDIR)/include :
   nostatic :
-  CEGUITINYXMLPARSER_EXPORTS :
+  CEGUITINYXMLPARSER_EXPORTS
+  "CEGUI_TINYXML_H=&quot;\\&quot;ceguitinyxml/tinyxml.h\\&quot;&quot;"
+  "CEGUI_TINYXML_NAMESPACE=CEGUITinyXML"
+  :
   :
   CEGUIBase ;
 
@@ -44,7 +48,7 @@ ExtraLib CEGUIFalagardWRBase :
 
 if [ Property build : projgen_version ] != 7
 {
-  LIBNAME on CEGUIBase_static = CEGUIBase-csvc$(MSVCGEN_VERSION) ;
+  LIBNAME on CEGUIBase_static = CEGUIBase-vc$(MSVCGEN_VERSION) ;
   ExtraLib CEGUIBase_static :
     [ Wildcard [ ConcatDirs src ] : *.cpp *.h ] 
     [ Wildcard [ ConcatDirs src elements ] : *.cpp *.h ] 
@@ -66,7 +70,10 @@ if [ Property build : projgen_version ] != 7
       CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG
       "CEGUI_LOAD_MODULE_DEBUG_SUFFIX=&quot;\\&quot;_d&quot;&quot;"
       "CEGUI_FACTORYMODULE_PREFIX=&quot;\\&quot;lib\\&quot;&quot;"
-      "CEGUI_FACTORYMODULE_SUFFIX=&quot;\\&quot;-csvc$(MSVCGEN_VERSION)\\&quot;&quot;" :
+      "CEGUI_FACTORYMODULE_SUFFIX=&quot;\\&quot;-csvc$(MSVCGEN_VERSION)\\&quot;&quot;" 
+      "CEGUI_TINYXML_H=&quot;\\&quot;ceguitinyxml/tinyxml.h\\&quot;&quot;"
+      "CEGUI_TINYXML_NAMESPACE=CEGUITinyXML"
+    :
     ReleaseVC$(MSVCGEN_VERSION)Only_static :
     z_static freetype2_static pcre_static :
     libCEGUIBase-csvc$(MSVCGEN_VERSION) ;

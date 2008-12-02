@@ -6,11 +6,12 @@ BaseLib ode :
     [ ConcatDirs ode src stack.cpp ] 
     [ ConcatDirs ode src stack.h ] 
   ]
+  [ Wildcard [ ConcatDirs ode src joints ] : *.cpp *.h ] 
   [ Wildcard [ ConcatDirs OPCODE ] : *.cpp *.h ] 
   [ Wildcard [ ConcatDirs OPCODE Ice ] : *.cpp *.h ] : 
   ode :
   :
-  $(SUBDIR)/../configs $(SUBDIR)/include $(SUBDIR)/OPCODE ;
+  $(SUBDIR)/../configs/ode $(SUBDIR)/include $(SUBDIR)/OPCODE ;
 MsvcDefine ode : LIBODE_EXPORTS ;
 MsvcDefine ode : ODE_DLL ;
 MsvcDefine ode : _STATIC_CPPLIB ;
