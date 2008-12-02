@@ -22,9 +22,9 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				MinimalRebuild="TRUE"
-				DebugInformationFormat="4"
 				RuntimeTypeInfo="TRUE"
 				RuntimeLibrary="3"
+				DebugInformationFormat="3"
 				ProgramDataBaseFileName="..\..\libs\ReleaseVC9Only_static\bulletmath-vc9_d.pdb"
 				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;WIN32"
 				OptimizeForProcessor="2"
@@ -43,7 +43,6 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				LinkIncremental="2"
 				GenerateDebugInformation="TRUE"
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD,MSVCRT"
 				AdditionalOptions=" "
@@ -136,9 +135,6 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\LinearMath\btMotionState.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libbullet\src\LinearMath\btPoint3.h">
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\LinearMath\btPoolAllocator.h">

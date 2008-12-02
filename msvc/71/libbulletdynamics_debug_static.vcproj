@@ -22,9 +22,9 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				MinimalRebuild="TRUE"
-				DebugInformationFormat="4"
 				RuntimeTypeInfo="TRUE"
 				RuntimeLibrary="3"
+				DebugInformationFormat="3"
 				ProgramDataBaseFileName="..\..\libs\ReleaseVC71Only_static\bulletdynamics-vc71_d.pdb"
 				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;WIN32"
 				OptimizeForProcessor="2"
@@ -43,7 +43,6 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				LinkIncremental="2"
 				GenerateDebugInformation="TRUE"
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD,MSVCRT"
 				AdditionalOptions=" "
@@ -98,18 +97,6 @@
 				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btHingeConstraint.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btOdeContactJoint.cpp">
-			</File>
-			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btOdeJoint.cpp">
-			</File>
-			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btOdeQuickstepConstraintSolver.cpp">
-			</File>
-			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btOdeTypedJoint.cpp">
-			</File>
-			<File
 				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btPoint2PointConstraint.cpp">
 			</File>
 			<File
@@ -120,9 +107,6 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btSolve2LinearConstraint.cpp">
-			</File>
-			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btSorLcp.cpp">
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btTypedConstraint.cpp">
@@ -174,24 +158,6 @@
 				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btJacobianEntry.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btOdeContactJoint.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btOdeJoint.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btOdeMacros.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btOdeQuickstepConstraintSolver.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btOdeSolverBody.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btOdeTypedJoint.h">
-			</File>
-			<File
 				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btPoint2PointConstraint.h">
 			</File>
 			<File
@@ -208,9 +174,6 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btSolverConstraint.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btSorLcp.h">
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btTypedConstraint.h">

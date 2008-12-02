@@ -22,9 +22,9 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				MinimalRebuild="TRUE"
-				DebugInformationFormat="4"
 				RuntimeTypeInfo="TRUE"
 				RuntimeLibrary="3"
+				DebugInformationFormat="3"
 				ProgramDataBaseFileName="..\..\out\debug9\build\libcal3d_debug\cal3d_debug.pdb"
 				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;CAL3D_EXPORTS;WIN32"
 				OptimizeForProcessor="2"
@@ -43,10 +43,10 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				LinkIncremental="2"
 				GenerateDebugInformation="TRUE"
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD,MSVCRT"
 				OutputFile="..\..\libs\ReleaseVC9Only\libcal3d-csvc9_d.dll"
+				LinkIncremental="1"
 				MergeSections=".rdata=.text"
 				DelayLoadDLLs=""
 				ImportLibrary="..\..\libs\ReleaseVC9Only\cal3d-vc9_d.lib"
