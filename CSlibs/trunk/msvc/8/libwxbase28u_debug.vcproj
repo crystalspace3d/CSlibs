@@ -22,9 +22,9 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				MinimalRebuild="TRUE"
-				DebugInformationFormat="4"
 				RuntimeTypeInfo="TRUE"
 				RuntimeLibrary="3"
+				DebugInformationFormat="3"
 				ProgramDataBaseFileName="..\..\out\debug8\build\libwxbase28u_debug\wxbase28u_debug.pdb"
 				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_BASE;wxUSE_GUI=0;wxUSE_UNICODE=1;wxUSE_BASE=1;COMPILED_FROM_DSP;WIN32"
 				OptimizeForProcessor="2"
@@ -43,18 +43,18 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				LinkIncremental="2"
 				GenerateDebugInformation="TRUE"
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD,MSVCRT"
-				OutputFile="..\..\libs\ReleaseExtraVC8Only\libwxbase28u-csvc8_d.dll"
+				OutputFile="..\..\libs\ReleaseWXVC8Only\libwxbase28u-csvc8_d.dll"
+				LinkIncremental="1"
 				MergeSections=".rdata=.text"
 				DelayLoadDLLs=""
-				ImportLibrary="..\..\libs\ReleaseExtraVC8Only\wxbase28u-vc8_d.lib"
+				ImportLibrary="..\..\libs\ReleaseWXVC8Only\wxbase28u-vc8_d.lib"
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
 				AdditionalLibraryDirectories=""
-				ProgramDatabaseFile="..\..\libs\ReleaseExtraVC8Only\libwxbase28u-csvc8_d.pdb"
+				ProgramDatabaseFile="..\..\libs\ReleaseWXVC8Only\libwxbase28u-csvc8_d.pdb"
 				TargetMachine="1"/>
 			<Tool
 				Name="VCLibrarianTool"

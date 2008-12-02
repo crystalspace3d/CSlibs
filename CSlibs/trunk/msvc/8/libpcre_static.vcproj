@@ -24,17 +24,17 @@
 				StringPooling="TRUE"
 				EnableFunctionLevelLinking="TRUE"
 				RuntimeLibrary="2"
-				DebugInformationFormat="3"
 				BufferSecurityCheck="FALSE"
 				GlobalOptimizations="TRUE"
 				InlineFunctionExpansion="2"
 				EnableIntrinsicFunctions="TRUE"
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
+				DebugInformationFormat="3"
 				ProgramDataBaseFileName="..\..\libs\Temp_static\pcre.pdb"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;PCRE_STATIC;SUPPORT_UTF8;HAVE_CONFIG_H;WIN32"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;PCRE_STATIC;SUPPORT_UTF8;HAVE_CONFIG_H;WIN32"
 				OptimizeForProcessor="2"
-				AdditionalOptions=" "
+				AdditionalOptions="/fp:fast "
 				AdditionalIncludeDirectories=".;..\..\source\libpcre;..\..\source\libpcre\..\configs\pcre"
 				PrecompiledHeaderFile="..\..\out\release8\build\libpcre_static\libpcre_static.pch"
 				AssemblerListingLocation="..\..\out\release8\build\libpcre_static\"
@@ -49,7 +49,6 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				LinkIncremental="1"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
 				GenerateDebugInformation="TRUE"
@@ -66,7 +65,7 @@
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;PCRE_STATIC;SUPPORT_UTF8;HAVE_CONFIG_H"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;PCRE_STATIC;SUPPORT_UTF8;HAVE_CONFIG_H"
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
@@ -80,7 +79,7 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;PCRE_STATIC;SUPPORT_UTF8;HAVE_CONFIG_H;PROJECTGEN_VERSION=8"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;PCRE_STATIC;SUPPORT_UTF8;HAVE_CONFIG_H;PROJECTGEN_VERSION=8"
 				AdditionalIncludeDirectories=".;..\..\source\libpcre;..\..\source\libpcre\..\configs\pcre"
 				Culture="1033"/>
 			<Tool
@@ -142,7 +141,7 @@
 				RelativePath="..\..\source\libpcre\pcre_try_flipped.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libpcre\pcre_ucp_searchfuncs.c">
+				RelativePath="..\..\source\libpcre\pcre_ucd.c">
 			</File>
 			<File
 				RelativePath="..\..\source\libpcre\pcre_valid_utf8.c">
@@ -180,12 +179,6 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libpcre\ucp.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libpcre\ucpinternal.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libpcre\ucptable.h">
 			</File>
 		</Filter>
 	</Files>

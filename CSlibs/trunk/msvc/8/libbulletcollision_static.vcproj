@@ -24,13 +24,13 @@
 				StringPooling="TRUE"
 				EnableFunctionLevelLinking="TRUE"
 				RuntimeLibrary="2"
-				DebugInformationFormat="3"
 				BufferSecurityCheck="FALSE"
 				GlobalOptimizations="TRUE"
 				InlineFunctionExpansion="2"
 				EnableIntrinsicFunctions="TRUE"
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
+				DebugInformationFormat="3"
 				ProgramDataBaseFileName="..\..\libs\ReleaseVC8Only_static\bulletcollision-vc8.pdb"
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;WIN32"
 				OptimizeForProcessor="2"
@@ -49,7 +49,6 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				LinkIncremental="1"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
 				GenerateDebugInformation="TRUE"
@@ -118,7 +117,13 @@
 				RelativePath="..\..\source\libbullet\src\BulletCollision\BroadphaseCollision\btOverlappingPairCache.cpp">
 			</File>
 			<File
+				RelativePath="..\..\source\libbullet\src\BulletCollision\BroadphaseCollision\btQuantizedBvh.cpp">
+			</File>
+			<File
 				RelativePath="..\..\source\libbullet\src\BulletCollision\BroadphaseCollision\btSimpleBroadphase.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionDispatch\btActivatingCollisionAlgorithm.cpp">
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionDispatch\btBoxBoxCollisionAlgorithm.cpp">
@@ -152,6 +157,9 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionDispatch\btEmptyCollisionAlgorithm.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionDispatch\btGhostObject.cpp">
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionDispatch\btManifoldResult.cpp">
@@ -202,6 +210,9 @@
 				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btConvexInternalShape.cpp">
 			</File>
 			<File
+				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btConvexPointCloudShape.cpp">
+			</File>
+			<File
 				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btConvexShape.cpp">
 			</File>
 			<File
@@ -220,6 +231,9 @@
 				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btMinkowskiSumShape.cpp">
 			</File>
 			<File
+				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btMultimaterialTriangleMeshShape.cpp">
+			</File>
+			<File
 				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btMultiSphereShape.cpp">
 			</File>
 			<File
@@ -227,6 +241,9 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btPolyhedralConvexShape.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btScaledBvhTriangleMeshShape.cpp">
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btShapeHull.cpp">
@@ -253,6 +270,9 @@
 				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btTriangleIndexVertexArray.cpp">
 			</File>
 			<File
+				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btTriangleIndexVertexMaterialArray.cpp">
+			</File>
+			<File
 				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btTriangleMesh.cpp">
 			</File>
 			<File
@@ -269,9 +289,6 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletCollision\NarrowPhaseCollision\btGjkConvexCast.cpp">
-			</File>
-			<File
-				RelativePath="..\..\source\libbullet\src\BulletCollision\NarrowPhaseCollision\btGjkEpa.cpp">
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletCollision\NarrowPhaseCollision\btGjkEpa2.cpp">
@@ -332,7 +349,13 @@
 				RelativePath="..\..\source\libbullet\src\BulletCollision\BroadphaseCollision\btOverlappingPairCallback.h">
 			</File>
 			<File
+				RelativePath="..\..\source\libbullet\src\BulletCollision\BroadphaseCollision\btQuantizedBvh.h">
+			</File>
+			<File
 				RelativePath="..\..\source\libbullet\src\BulletCollision\BroadphaseCollision\btSimpleBroadphase.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionDispatch\btActivatingCollisionAlgorithm.h">
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionDispatch\btBoxBoxCollisionAlgorithm.h">
@@ -372,6 +395,9 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionDispatch\btEmptyCollisionAlgorithm.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionDispatch\btGhostObject.h">
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionDispatch\btManifoldResult.h">
@@ -425,6 +451,9 @@
 				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btConvexInternalShape.h">
 			</File>
 			<File
+				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btConvexPointCloudShape.h">
+			</File>
+			<File
 				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btConvexShape.h">
 			</File>
 			<File
@@ -440,7 +469,13 @@
 				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btHeightfieldTerrainShape.h">
 			</File>
 			<File
+				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btMaterial.h">
+			</File>
+			<File
 				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btMinkowskiSumShape.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btMultimaterialTriangleMeshShape.h">
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btMultiSphereShape.h">
@@ -450,6 +485,9 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btPolyhedralConvexShape.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btScaledBvhTriangleMeshShape.h">
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btShapeHull.h">
@@ -474,6 +512,9 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btTriangleIndexVertexArray.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btTriangleIndexVertexMaterialArray.h">
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btTriangleMesh.h">
@@ -501,9 +542,6 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletCollision\NarrowPhaseCollision\btGjkConvexCast.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libbullet\src\BulletCollision\NarrowPhaseCollision\btGjkEpa.h">
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletCollision\NarrowPhaseCollision\btGjkEpa2.h">

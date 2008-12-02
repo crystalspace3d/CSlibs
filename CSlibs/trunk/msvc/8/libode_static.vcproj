@@ -24,18 +24,18 @@
 				StringPooling="TRUE"
 				EnableFunctionLevelLinking="TRUE"
 				RuntimeLibrary="2"
-				DebugInformationFormat="3"
 				BufferSecurityCheck="FALSE"
 				GlobalOptimizations="TRUE"
 				InlineFunctionExpansion="2"
 				EnableIntrinsicFunctions="TRUE"
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
+				DebugInformationFormat="3"
 				ProgramDataBaseFileName="..\..\libs\Release_static\ode.pdb"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;ODE_LIB;WIN32"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;ODE_LIB;WIN32"
 				OptimizeForProcessor="2"
-				AdditionalOptions=" "
-				AdditionalIncludeDirectories=".;..\..\source\libode\..\configs;..\..\source\libode\include;..\..\source\libode\OPCODE"
+				AdditionalOptions="/fp:fast "
+				AdditionalIncludeDirectories=".;..\..\source\libode\..\configs\ode;..\..\source\libode\include;..\..\source\libode\OPCODE"
 				PrecompiledHeaderFile="..\..\out\release8\build\libode_static\libode_static.pch"
 				AssemblerListingLocation="..\..\out\release8\build\libode_static\"
 				ObjectFile="..\..\out\release8\build\libode_static\"
@@ -49,7 +49,6 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				LinkIncremental="1"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
 				GenerateDebugInformation="TRUE"
@@ -66,7 +65,7 @@
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;ODE_LIB"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;ODE_LIB"
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
@@ -80,8 +79,8 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;ODE_LIB;PROJECTGEN_VERSION=8"
-				AdditionalIncludeDirectories=".;..\..\source\libode\..\configs;..\..\source\libode\include;..\..\source\libode\OPCODE"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;ODE_LIB;PROJECTGEN_VERSION=8"
+				AdditionalIncludeDirectories=".;..\..\source\libode\..\configs\ode;..\..\source\libode\include;..\..\source\libode\OPCODE"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
@@ -121,6 +120,9 @@
 				RelativePath="..\..\source\libode\ode\src\collision_quadtreespace.cpp">
 			</File>
 			<File
+				RelativePath="..\..\source\libode\ode\src\collision_sapspace.cpp">
+			</File>
+			<File
 				RelativePath="..\..\source\libode\ode\src\collision_space.cpp">
 			</File>
 			<File
@@ -131,6 +133,9 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libode\ode\src\collision_trimesh_ccylinder.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\collision_trimesh_disabled.cpp">
 			</File>
 			<File
 				RelativePath="..\..\source\libode\ode\src\collision_trimesh_distance.cpp">
@@ -187,7 +192,49 @@
 				RelativePath="..\..\source\libode\ode\src\heightfield.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libode\ode\src\joint.cpp">
+				RelativePath="..\..\source\libode\ode\src\joints\amotor.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\joints\ball.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\joints\contact.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\joints\fixed.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\joints\hinge.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\joints\hinge2.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\joints\joint.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\joints\lmotor.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\joints\null.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\joints\piston.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\joints\plane2d.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\joints\pr.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\joints\pu.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\joints\slider.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\joints\universal.cpp">
 			</File>
 			<File
 				RelativePath="..\..\source\libode\ode\src\lcp.cpp">
@@ -214,7 +261,16 @@
 				RelativePath="..\..\source\libode\ode\src\ode.cpp">
 			</File>
 			<File
+				RelativePath="..\..\source\libode\ode\src\odeinit.cpp">
+			</File>
+			<File
 				RelativePath="..\..\source\libode\ode\src\odemath.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\odeou.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\odetls.cpp">
 			</File>
 			<File
 				RelativePath="..\..\source\libode\ode\src\plane.cpp">
@@ -343,6 +399,9 @@
 				RelativePath="..\..\source\libode\OPCODE\OPC_SweepAndPrune.cpp">
 			</File>
 			<File
+				RelativePath="..\..\source\libode\OPCODE\OPC_ThreadLocalData.cpp">
+			</File>
+			<File
 				RelativePath="..\..\source\libode\OPCODE\OPC_TreeBuilders.cpp">
 			</File>
 			<File
@@ -353,9 +412,6 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libode\OPCODE\Opcode.cpp">
-			</File>
-			<File
-				RelativePath="..\..\source\libode\OPCODE\StdAfx.cpp">
 			</File>
 		</Filter>
 		<Filter
@@ -377,6 +433,9 @@
 				RelativePath="..\..\source\libode\ode\src\collision_transform.h">
 			</File>
 			<File
+				RelativePath="..\..\source\libode\ode\src\collision_trimesh_colliders.h">
+			</File>
+			<File
 				RelativePath="..\..\source\libode\ode\src\collision_trimesh_internal.h">
 			</File>
 			<File
@@ -386,7 +445,55 @@
 				RelativePath="..\..\source\libode\ode\src\heightfield.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libode\ode\src\joint.h">
+				RelativePath="..\..\source\libode\ode\src\joints\amotor.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\joints\ball.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\joints\contact.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\joints\fixed.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\joints\hinge.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\joints\hinge2.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\joints\joint.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\joints\joint_internal.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\joints\joints.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\joints\lmotor.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\joints\null.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\joints\piston.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\joints\plane2d.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\joints\pr.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\joints\pu.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\joints\slider.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\joints\universal.h">
 			</File>
 			<File
 				RelativePath="..\..\source\libode\ode\src\lcp.h">
@@ -399,6 +506,12 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libode\ode\src\obstack.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\odeou.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\ode\src\odetls.h">
 			</File>
 			<File
 				RelativePath="..\..\source\libode\ode\src\quickstep.h">
@@ -567,6 +680,9 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libode\OPCODE\OPC_SweepAndPrune.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libode\OPCODE\OPC_ThreadLocalData.h">
 			</File>
 			<File
 				RelativePath="..\..\source\libode\OPCODE\OPC_TreeBuilders.h">

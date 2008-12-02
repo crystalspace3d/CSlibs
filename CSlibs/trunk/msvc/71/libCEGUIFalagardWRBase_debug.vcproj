@@ -22,9 +22,9 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				MinimalRebuild="TRUE"
-				DebugInformationFormat="4"
 				RuntimeTypeInfo="TRUE"
 				RuntimeLibrary="3"
+				DebugInformationFormat="3"
 				ProgramDataBaseFileName="..\..\out\debug71\build\libCEGUIFalagardWRBase_debug\CEGUIFalagardWRBase_debug.pdb"
 				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;FALAGARDWRBASE_EXPORTS;CEGUIWRMODULE_EXPORTS;WIN32"
 				OptimizeForProcessor="2"
@@ -43,10 +43,10 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				LinkIncremental="2"
 				GenerateDebugInformation="TRUE"
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD,MSVCRT"
 				OutputFile="..\..\libs\ReleaseVC71Only\libCEGUIFalagardWRBase-csvc71_d.dll"
+				LinkIncremental="1"
 				MergeSections=".rdata=.text"
 				DelayLoadDLLs=""
 				ImportLibrary="..\..\libs\ReleaseVC71Only\CEGUIFalagardWRBase-vc71_d.lib"
