@@ -7,3 +7,6 @@ BaseLib 3ds :
   $(SUBDIR) $(SUBDIR)/../configs/lib3ds ;
 MsvcDefine 3ds : LIB3DS_EXPORTS BUILD_SHARED ;
 MsvcExtraFile 3ds : source/lib3ds.rc ;
+# Avoids ICE
+MsvcCFlags 3ds : "/fp:precise" ;
+MsvcCFlags 3ds_static : "/fp:precise" ;

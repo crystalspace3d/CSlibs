@@ -77,6 +77,11 @@ if [ Property build : projgen_version ] = 8
     SetProperty baselibdeps : $(1)_debug : $(1) ;
     SetProperty baselibdeps : $(1)_static : $(1)_static ;
     SetProperty baselibdeps : $(1)_static_debug : $(1)_static ;
+    MsvcCFlags $(1) : "/fp:fast" ;
+    MsvcCFlags $(1)_static : "/fp:fast" ;
+    # Avoid 8.0 runtime "seeping" into manifest when linking in VC 9
+    MsvcDefine $(1)_static : _CRT_NOFORCE_MANIFEST ;
+    MsvcDefine $(1)_static : _STL_NOFORCE_MANIFEST ;
   }
 }
 else
@@ -105,18 +110,19 @@ else
     }
     if ! [ IsElem nostatic : $(options) ]
     {
-      if [ Property build : projgen_version ] != 7
-      {
-	SetProperty baseliblibs : $(1)_static : $(root)/libs/$(outdir)_static/$(3).lib ;
-	SetProperty baseliblibs : $(1)_static_debug : $(root)/libs/$(outdir)_static/$(3).lib ;
-      }
-      else if [ IsElem staticonly : $(options) ]
+      
+      if [ IsElem staticonly : $(options) ]
       {
 	local v = [ Property build : projgen_version ] ;
 	outdir = "TempVC$(v)Only" ;
 	LibCommon $(1) : $(2) : $(3) : $(4) : $(5) : $(options) : : $(outdir) ;
 	SetProperty baselibdeps : $(1)_static : $(1)_static ;
 	SetProperty baselibdeps : $(1)_static_debug : $(1)_static ;
+      }
+      else
+      {
+	SetProperty baseliblibs : $(1)_static : $(root)/libs/$(outdir)_static/$(3).lib ;
+	SetProperty baseliblibs : $(1)_static_debug : $(root)/libs/$(outdir)_static/$(3).lib ;
       }
     }
   }
