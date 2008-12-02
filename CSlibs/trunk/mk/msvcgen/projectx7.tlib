@@ -98,20 +98,20 @@
 				StringPooling="TRUE"
 				EnableFunctionLevelLinking="TRUE"
 				RuntimeLibrary="2"
-				DebugInformationFormat="3"
 				BufferSecurityCheck="FALSE"
 				GlobalOptimizations="TRUE"
 				InlineFunctionExpansion="2"
 				EnableIntrinsicFunctions="TRUE"
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
+				DebugInformationFormat="3"
 [% END %]
 [% MACRO compiler_debug BLOCK -%]
 				Optimization="0"
 				MinimalRebuild="TRUE"
-				DebugInformationFormat="4"
 				RuntimeTypeInfo="TRUE"
 				RuntimeLibrary="3"
+				DebugInformationFormat="3"
 [% END %]
 [% MACRO compiler_appcon BLOCK -%]
 				ProgramDataBaseFileName="[% workbuild([my.doc.rawtarget.0,'.pdb']) %]"
@@ -130,20 +130,19 @@
 [% END %]
 
 [% MACRO linker_release BLOCK -%]
-				LinkIncremental="1"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
 				GenerateDebugInformation="TRUE"
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD"
 [% END %]
 [% MACRO linker_debug BLOCK -%]
-				LinkIncremental="2"
 				GenerateDebugInformation="TRUE"
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD,MSVCRT"
 [% END %]
 
 [% MACRO linker_common BLOCK -%]
 				OutputFile="[% path([my.doc.buildroot.0, my.doc.target.0]) %]"
+				LinkIncremental="1"
 [% FOREACH linkerextra IN my.doc.linkerextraxml -%]
 				[% linkerextra %]
 [% END -%]
