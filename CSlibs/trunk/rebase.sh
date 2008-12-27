@@ -17,10 +17,12 @@ base=`rebase $startbase libs/release/*.dll libs/releasenocygwin/*.dll`
 rebase $base libs/ReleaseVC7Only/*-csvc7.dll > /dev/null
 rebase $base libs/ReleaseVC71Only/*-csvc71.dll > /dev/null
 rebase $base libs/ReleaseVC8Only/*-csvc8.dll > /dev/null
+rebase $base libs/ReleaseVC9Only/*-csvc9.dll > /dev/null
 # Rebase static DLLs; use startbase here as well, since the common libs are
 # (almost) not used anyway
 rebase $startbase libs/ReleaseVC7Only_static/*-csvc7.dll > /dev/null
 rebase $startbase libs/ReleaseVC71Only_static/*-csvc71.dll > /dev/null
 rebase $startbase libs/ReleaseVC8Only_static/*-csvc8.dll > /dev/null
+rebase $startbase libs/ReleaseVC9Only_static/*-csvc9.dll > /dev/null
 
 # MinGW DLLs don't need it since their linker automatically sets a base address
