@@ -1,0 +1,11 @@
+SubDir TOP source libspeex ;
+
+BaseLib speex : 
+  [ Wildcard src : *.c *.h ] : 
+  speex :
+  $(SUBDIR)/win32/speex.def :
+  $(SUBDIR)/include source/libogg/include ;
+LibDepends speex : ogg ;
+MsvcDefine speex : LIBSPEEX_EXPORTS ;
+MsvcDefine speex : SPEEX_DYNAMIC_EXPORTS ;
+MsvcExtraFile speex : source/libspeex.rc ;

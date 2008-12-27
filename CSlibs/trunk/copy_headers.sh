@@ -21,6 +21,7 @@ mv headers/zconf.new headers/zconf.h
 cp -r temp/mingw/prefix/include/lib3ds headers/
 cp -r temp/mingw/prefix/include/ode headers/
 cp -r temp/mingw/prefix/include/ogg headers/
+cp -r temp/mingw/prefix/include/speex headers/
 cp -r temp/mingw/prefix/include/vorbis headers/
 cp -r temp/mingw/prefix/include/freetype2/freetype headers/
 
