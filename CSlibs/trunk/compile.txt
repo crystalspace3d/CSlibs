@@ -3,9 +3,12 @@ Compiling Stuff
 
 Required tools:
 - MSVC 7,7.1,8,9
-- Recent MSYS/MinGW, with binutils >= 2.16.91
+- Recent MSYS/MinGW, with binutils >= 2.16.91, msys make* >= 3.81
 - InnoSetup >= 5.0.7
 - Python
+
+* Download make from the "MSYS Base System". Archive contains a make.exe.
+  If it contains mingw32-make.exe you fetched the wrong package.
 
 
 The source code is downloaded with source/getlibs.sh (change to the source/
