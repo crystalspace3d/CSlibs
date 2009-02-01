@@ -1,11 +1,38 @@
 SubDir TOP source libspeex ;
 
+SPEEXDSP_KISSFFT_SOURCES =
+  [ ConcatDirs libspeex kiss_fft.c ]
+  [ ConcatDirs libspeex kiss_fftr.c ]
+;
+  
+SPEEXDSP_SMALLFT_SOURCES =
+  [ ConcatDirs libspeex smallft.c ]
+;
+  
+SPEEXDSP_SOURCES =
+  [ ConcatDirs libspeex preprocess.c ]
+  [ ConcatDirs libspeex jitter.c ]
+  [ ConcatDirs libspeex mdf.c ]
+  [ ConcatDirs libspeex fftwrap.c ]
+  [ ConcatDirs libspeex filterbank.c ]
+  [ ConcatDirs libspeex resample.c ]
+  [ ConcatDirs libspeex buffer.c ]
+  [ ConcatDirs libspeex scal.c ]
+;
+
 BaseLib speex : 
-  [ Wildcard src : *.c *.h ] : 
+  [ Filter [ Wildcard libspeex : *.c *.h ] :
+    $(SPEEXDSP_SOURCES)
+    $(SPEEXDSP_KISSFFT_SOURCES)
+    $(SPEEXDSP_SMALLFT_SOURCES)
+    [ Wildcard libspeex : test* ]
+  ] :
   speex :
-  $(SUBDIR)/win32/speex.def :
-  $(SUBDIR)/include source/libogg/include ;
+  $(SUBDIR)/win32/libspeex.def :
+  $(SUBDIR)/include $(SUBDIR)/win32 source/libogg/include ;
 LibDepends speex : ogg ;
 MsvcDefine speex : LIBSPEEX_EXPORTS ;
 MsvcDefine speex : SPEEX_DYNAMIC_EXPORTS ;
+MsvcDefine speex : HAVE_CONFIG_H ;
+MsvcDefine speex_static : HAVE_CONFIG_H ;
 MsvcExtraFile speex : source/libspeex.rc ;
