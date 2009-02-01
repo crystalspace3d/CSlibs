@@ -38,6 +38,14 @@ END;
 builds = [buildrelease];
 
 #------------------------------------------------------------------------------
+# Reduce debug information level for all configurations
+#------------------------------------------------------------------------------
+FOREACH platform IN platforms;
+  platform.debugformat_debug = 3;
+  platform.debugformat_release = 3;
+END;
+
+#------------------------------------------------------------------------------
 # Add "no deprecation" flag
 #------------------------------------------------------------------------------
 FOREACH build IN builds;
