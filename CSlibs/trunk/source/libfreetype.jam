@@ -3,7 +3,7 @@ SubDir TOP source libfreetype ;
 MsvcSetTargetProp freetype2 : delayload : libz-cs ;
 BaseLib freetype2 :
   src/base/ftsystem.c src/base/ftinit.c src/base/ftdebug.c src/base/ftbase.c
-  src/base/ftglyph.c src/base/ftbitmap.c
+  src/base/ftglyph.c src/base/ftbitmap.c src/base/fttype1.c
   src/bdf/bdf.c
   src/pcf/pcf.c
   src/sfnt/sfnt.c
