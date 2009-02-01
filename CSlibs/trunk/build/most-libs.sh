@@ -16,7 +16,6 @@ build/lib.sh ${platform} libfreetype
 for lib in libogg libspeex libvorbis ; do
   build/lib.sh ${platform} ${lib} "install"
 done
-build/lib.sh ${platform} libcaca install --disable-imlib2 --disable-ncurses --disable-x11 --disable-slang --disable-gl
 build/ode.sh ${platform}
 
 rm temp/${platform}/prefix/lib/*.la
