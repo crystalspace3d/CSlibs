@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding = "Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="7.10"
-	Name="libwxzlib_static"
-	ProjectGUID="{5E039D86-8329-E980-D434-321B8B4A2D54}"
+	Version="8.00"
+	Name="libspeex_static"
+	ProjectGUID="{5487B851-1210-B24E-E735-578CB6754819}"
 	SccProjectName=""
 	SccLocalPath="">
 	<Platforms>
@@ -13,8 +13,8 @@
 	<Configurations>
       		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="..\..\out\release71\build\libwxzlib_static\"
-			IntermediateDirectory="..\..\out\release71\build\libwxzlib_static\"
+			OutputDirectory="..\..\out\release8\build\libspeex_static\"
+			IntermediateDirectory="..\..\out\release8\build\libspeex_static\"
 			ConfigurationType="4"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="FALSE">
@@ -30,14 +30,14 @@
 				EnableIntrinsicFunctions="TRUE"
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
-                                ProgramDataBaseFileName="..\..\libs\TempVC71Only_static\wxzlib.pdb" 
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;WIN32"
+                                ProgramDataBaseFileName="..\..\libs\Release_static\speex.pdb" 
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;WIN32"
 				OptimizeForProcessor="2"
-				AdditionalOptions=" "
-				AdditionalIncludeDirectories="."
-				PrecompiledHeaderFile="..\..\out\release71\build\libwxzlib_static\libwxzlib_static.pch"
-				AssemblerListingLocation="..\..\out\release71\build\libwxzlib_static\"
-				ObjectFile="..\..\out\release71\build\libwxzlib_static\"
+				AdditionalOptions="/fp:fast "
+				AdditionalIncludeDirectories=".;..\..\source\libspeex\include;..\..\source\libogg\include"
+				PrecompiledHeaderFile="..\..\out\release8\build\libspeex_static\libspeex_static.pch"
+				AssemblerListingLocation="..\..\out\release8\build\libspeex_static\"
+				ObjectFile="..\..\out\release8\build\libspeex_static\"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
 				Detect64BitPortabilityProblems="false"
@@ -57,19 +57,19 @@
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
 				AdditionalLibraryDirectories=""
-				ProgramDatabaseFile="..\..\libs\TempVC71Only_static\wxzlib.pdb"
+				ProgramDatabaseFile="..\..\libs\Release_static\speex.pdb"
 				TargetMachine="1"/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\libs\TempVC71Only_static\wxzlib.lib"
+				OutputFile="..\..\libs\Release_static\speex.lib"
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST"
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
-				TypeLibraryName="..\..\out\release71\build\libwxzlib_static\libwxzlib_static.tlb"/>
+				TypeLibraryName="..\..\out\release8\build\libspeex_static\libspeex_static.tlb"/>
 			<Tool
 				Name="VCPostBuildEventTool"
 				/>
@@ -79,8 +79,8 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;PROJECTGEN_VERSION=71"
-				AdditionalIncludeDirectories=".;..\..\source\libwx\src\zlib"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;PROJECTGEN_VERSION=8"
+				AdditionalIncludeDirectories=".;..\..\source\libspeex;..\..\source\libspeex\include;..\..\source\libogg\include"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
@@ -89,8 +89,8 @@
 		</Configuration>
             		<Configuration
 			Name="Release|x64"
-			OutputDirectory="..\..\out\release71-x64\build\libwxzlib_static\"
-			IntermediateDirectory="..\..\out\release71-x64\build\libwxzlib_static\"
+			OutputDirectory="..\..\out\release8-x64\build\libspeex_static\"
+			IntermediateDirectory="..\..\out\release8-x64\build\libspeex_static\"
 			ConfigurationType="4"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="FALSE">
@@ -106,14 +106,14 @@
 				EnableIntrinsicFunctions="TRUE"
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
-                                ProgramDataBaseFileName="..\..\libs\TempVC71Only_static-x64\wxzlib.pdb" 
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;WIN32"
+                                ProgramDataBaseFileName="..\..\libs\Release_static-x64\speex.pdb" 
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;WIN32"
 				OptimizeForProcessor="2"
-				AdditionalOptions=" "
-				AdditionalIncludeDirectories="."
-				PrecompiledHeaderFile="..\..\out\release71-x64\build\libwxzlib_static\libwxzlib_static.pch"
-				AssemblerListingLocation="..\..\out\release71-x64\build\libwxzlib_static\"
-				ObjectFile="..\..\out\release71-x64\build\libwxzlib_static\"
+				AdditionalOptions="/fp:fast "
+				AdditionalIncludeDirectories=".;..\..\source\libspeex\include;..\..\source\libogg\include"
+				PrecompiledHeaderFile="..\..\out\release8-x64\build\libspeex_static\libspeex_static.pch"
+				AssemblerListingLocation="..\..\out\release8-x64\build\libspeex_static\"
+				ObjectFile="..\..\out\release8-x64\build\libspeex_static\"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
 				Detect64BitPortabilityProblems="false"
@@ -133,19 +133,19 @@
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
 				AdditionalLibraryDirectories=""
-				ProgramDatabaseFile="..\..\libs\TempVC71Only_static-x64\wxzlib-x64.pdb"
+				ProgramDatabaseFile="..\..\libs\Release_static-x64\speex-x64.pdb"
 				TargetMachine="17"/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\libs\TempVC71Only_static-x64\wxzlib.lib"
+				OutputFile="..\..\libs\Release_static-x64\speex.lib"
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST"
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
-				TypeLibraryName="..\..\out\release71-x64\build\libwxzlib_static\libwxzlib_static.tlb"/>
+				TypeLibraryName="..\..\out\release8-x64\build\libspeex_static\libspeex_static.tlb"/>
 			<Tool
 				Name="VCPostBuildEventTool"
 				/>
@@ -155,8 +155,8 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;PROJECTGEN_VERSION=71"
-				AdditionalIncludeDirectories=".;..\..\source\libwx\src\zlib"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;PROJECTGEN_VERSION=8"
+				AdditionalIncludeDirectories=".;..\..\source\libspeex;..\..\source\libspeex\include;..\..\source\libogg\include"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
@@ -169,74 +169,41 @@
 			Name="Source Files"
 			Filter="">
 			<File
-				RelativePath="..\..\source\libwx\src\zlib\adler32.c">
+				RelativePath="..\..\source\libspeex\src\getopt.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\zlib\compress.c">
+				RelativePath="..\..\source\libspeex\src\getopt1.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\zlib\crc32.c">
+				RelativePath="..\..\source\libspeex\src\skeleton.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\zlib\deflate.c">
+				RelativePath="..\..\source\libspeex\src\speexdec.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\zlib\gzio.c">
+				RelativePath="..\..\source\libspeex\src\speexenc.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\zlib\infback.c">
+				RelativePath="..\..\source\libspeex\src\wav_io.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\zlib\inffast.c">
-			</File>
-			<File
-				RelativePath="..\..\source\libwx\src\zlib\inflate.c">
-			</File>
-			<File
-				RelativePath="..\..\source\libwx\src\zlib\inftrees.c">
-			</File>
-			<File
-				RelativePath="..\..\source\libwx\src\zlib\trees.c">
-			</File>
-			<File
-				RelativePath="..\..\source\libwx\src\zlib\uncompr.c">
-			</File>
-			<File
-				RelativePath="..\..\source\libwx\src\zlib\zutil.c">
+				RelativePath="..\..\source\libspeex\src\wave_out.c">
 			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
 			Filter="">
 			<File
-				RelativePath="..\..\source\libwx\src\zlib\crc32.h">
+				RelativePath="..\..\source\libspeex\src\getopt_win.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\zlib\deflate.h">
+				RelativePath="..\..\source\libspeex\src\skeleton.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\zlib\inffast.h">
+				RelativePath="..\..\source\libspeex\src\wav_io.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\zlib\inffixed.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libwx\src\zlib\inflate.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libwx\src\zlib\inftrees.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libwx\src\zlib\trees.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libwx\src\zlib\zconf.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libwx\src\zlib\zlib.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libwx\src\zlib\zutil.h">
+				RelativePath="..\..\source\libspeex\src\wave_out.h">
 			</File>
 		</Filter>
 	</Files>

@@ -7,11 +7,11 @@
 	SccProjectName=""
 	SccLocalPath="">
 	<Platforms>
-		<Platform
-			Name="Win32"/>
+		<Platform Name="Win32"/>
+		<Platform Name="x64"/>
 	</Platforms>
 	<Configurations>
-  		<Configuration
+      		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="..\..\out\debug9\build\libwxmsw28u_core_debug\"
 			IntermediateDirectory="..\..\out\debug9\build\libwxmsw28u_core_debug\"
@@ -24,7 +24,7 @@
 				MinimalRebuild="TRUE"
 				RuntimeTypeInfo="TRUE"
 				RuntimeLibrary="3"
-				DebugInformationFormat="3"
+
 				ProgramDataBaseFileName="..\..\out\debug9\build\libwxmsw28u_core_debug\wxmsw28u_core_debug.pdb"
 				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_CORE;wxUSE_BASE=0;wxUSE_UNICODE=1;COMPILED_FROM_DSP;WXUSINGDLL;wxHACK_BOOLEAN=wxInt8;WIN32"
 				OptimizeForProcessor="2"
@@ -35,9 +35,10 @@
 				ObjectFile="..\..\out\debug9\build\libwxmsw28u_core_debug\"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
-				Detect64BitPortabilityProblems="TRUE"
+				Detect64BitPortabilityProblems="false"
 				TreatWChar_tAsBuiltInType="false"
 				ForceConformanceInForLoopScope="true"
+				DebugInformationFormat="3"
 				CompileAs="0"/>
 			<Tool
 				Name="VCCustomBuildTool"/>
@@ -45,9 +46,9 @@
 				Name="VCLinkerTool"
 				GenerateDebugInformation="TRUE"
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD,MSVCRT"
-				OutputFile="..\..\libs\ReleaseWXVC9Only\libwxmsw28u_core-csvc9_d.dll"
 				LinkIncremental="1"
-				MergeSections=".rdata=.text"
+				OutputFile="..\..\libs\ReleaseWXVC9Only\libwxmsw28u_core-csvc9_d.dll"
+                                MergeSections=".rdata=.text" 
 				DelayLoadDLLs=""
 				ImportLibrary="..\..\libs\ReleaseWXVC9Only\wxmsw28u_core-vc9_d.lib"
 				AdditionalOptions="/INCREMENTAL:NO "
@@ -76,14 +77,87 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_CORE;wxUSE_BASE=0;wxUSE_UNICODE=1;COMPILED_FROM_DSP;WXUSINGDLL;wxHACK_BOOLEAN=wxInt8;PROJECTGEN_VERSION=9"
-				AdditionalIncludeDirectories=".;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\tiff;..\..\source\libwx\..\libz;..\..\source\libwx\..\libpng;..\..\source\libwx\..\libjpeg"
+				AdditionalIncludeDirectories=".;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\tiff;..\..\source\libwx\..\libz;..\..\source\libwx\..\libpng;..\..\source\libwx\..\libjpeg"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
 				Name="VCWebDeploymentTool"/>
 		</Configuration>
-  	</Configurations>
+            		<Configuration
+			Name="Release|x64"
+			OutputDirectory="..\..\out\debug9-x64\build\libwxmsw28u_core_debug\"
+			IntermediateDirectory="..\..\out\debug9-x64\build\libwxmsw28u_core_debug\"
+			ConfigurationType="2"
+			UseOfMFC="0"
+			ATLMinimizesCRunTimeLibraryUsage="FALSE">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				MinimalRebuild="TRUE"
+				RuntimeTypeInfo="TRUE"
+				RuntimeLibrary="3"
+
+				ProgramDataBaseFileName="..\..\out\debug9-x64\build\libwxmsw28u_core_debug\wxmsw28u_core_debug-x64.pdb"
+				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_CORE;wxUSE_BASE=0;wxUSE_UNICODE=1;COMPILED_FROM_DSP;WXUSINGDLL;wxHACK_BOOLEAN=wxInt8;WIN32"
+				OptimizeForProcessor="2"
+				AdditionalOptions=" "
+				AdditionalIncludeDirectories=".;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\tiff;..\..\source\libwx\..\libz;..\..\source\libwx\..\libpng;..\..\source\libwx\..\libjpeg"
+				PrecompiledHeaderFile="..\..\out\debug9-x64\build\libwxmsw28u_core_debug\libwxmsw28u_core_debug.pch"
+				AssemblerListingLocation="..\..\out\debug9-x64\build\libwxmsw28u_core_debug\"
+				ObjectFile="..\..\out\debug9-x64\build\libwxmsw28u_core_debug\"
+				WarningLevel="3"
+				SuppressStartupBanner="TRUE"
+				Detect64BitPortabilityProblems="false"
+				TreatWChar_tAsBuiltInType="false"
+				ForceConformanceInForLoopScope="true"
+				DebugInformationFormat="3"
+				CompileAs="0"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				GenerateDebugInformation="TRUE"
+				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD,MSVCRT"
+				LinkIncremental="1"
+				OutputFile="..\..\libs\ReleaseWXVC9Only-x64\libwxmsw28u_core-csvc9_d-x64.dll"
+                                MergeSections=".rdata=.text" 
+				DelayLoadDLLs=""
+				ImportLibrary="..\..\libs\ReleaseWXVC9Only\wxmsw28u_core-vc9_d.lib"
+				AdditionalOptions="/INCREMENTAL:NO "
+				AdditionalDependencies="comctl32.lib rpcrt4.lib"
+				SuppressStartupBanner="TRUE"
+				AdditionalLibraryDirectories=""
+				ProgramDatabaseFile="..\..\libs\ReleaseWXVC9Only-x64\libwxmsw28u_core-csvc9_d-x64.pdb"
+				TargetMachine="17"/>
+			<Tool
+				Name="VCLibrarianTool"
+				SuppressStartupBanner="TRUE"/>
+			<Tool
+				Name="VCMIDLTool"
+				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_CORE;wxUSE_BASE=0;wxUSE_UNICODE=1;COMPILED_FROM_DSP;WXUSINGDLL;wxHACK_BOOLEAN=wxInt8"
+				MkTypLibCompatible="TRUE"
+				SuppressStartupBanner="TRUE"
+				TargetEnvironment="1"
+				TypeLibraryName="..\..\out\debug9-x64\build\libwxmsw28u_core_debug\libwxmsw28u_core_debug.tlb"/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_CORE;wxUSE_BASE=0;wxUSE_UNICODE=1;COMPILED_FROM_DSP;WXUSINGDLL;wxHACK_BOOLEAN=wxInt8;PROJECTGEN_VERSION=9"
+				AdditionalIncludeDirectories=".;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\tiff;..\..\source\libwx\..\libz;..\..\source\libwx\..\libpng;..\..\source\libwx\..\libjpeg"
+				Culture="1033"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+		</Configuration>
+      	</Configurations>
 	<Files>
 		<Filter
 			Name="Source Files"
