@@ -31,10 +31,10 @@
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
                                 ProgramDataBaseFileName="..\..\libs\Release_static\speex.pdb" 
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;WIN32"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;HAVE_CONFIG_H;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions="/fp:fast "
-				AdditionalIncludeDirectories=".;..\..\source\libspeex\include;..\..\source\libogg\include"
+				AdditionalIncludeDirectories=".;..\..\source\libspeex\include;..\..\source\libspeex\win32;..\..\source\libogg\include"
 				PrecompiledHeaderFile="..\..\out\release8\build\libspeex_static\libspeex_static.pch"
 				AssemblerListingLocation="..\..\out\release8\build\libspeex_static\"
 				ObjectFile="..\..\out\release8\build\libspeex_static\"
@@ -65,7 +65,7 @@
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;HAVE_CONFIG_H"
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
@@ -79,8 +79,8 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;PROJECTGEN_VERSION=8"
-				AdditionalIncludeDirectories=".;..\..\source\libspeex;..\..\source\libspeex\include;..\..\source\libogg\include"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;HAVE_CONFIG_H;PROJECTGEN_VERSION=8"
+				AdditionalIncludeDirectories=".;..\..\source\libspeex;..\..\source\libspeex\include;..\..\source\libspeex\win32;..\..\source\libogg\include"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
@@ -107,10 +107,10 @@
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
                                 ProgramDataBaseFileName="..\..\libs\Release_static-x64\speex.pdb" 
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;WIN32"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;HAVE_CONFIG_H;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions="/fp:fast "
-				AdditionalIncludeDirectories=".;..\..\source\libspeex\include;..\..\source\libogg\include"
+				AdditionalIncludeDirectories=".;..\..\source\libspeex\include;..\..\source\libspeex\win32;..\..\source\libogg\include"
 				PrecompiledHeaderFile="..\..\out\release8-x64\build\libspeex_static\libspeex_static.pch"
 				AssemblerListingLocation="..\..\out\release8-x64\build\libspeex_static\"
 				ObjectFile="..\..\out\release8-x64\build\libspeex_static\"
@@ -141,7 +141,7 @@
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;HAVE_CONFIG_H"
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
@@ -155,8 +155,8 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;PROJECTGEN_VERSION=8"
-				AdditionalIncludeDirectories=".;..\..\source\libspeex;..\..\source\libspeex\include;..\..\source\libogg\include"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;HAVE_CONFIG_H;PROJECTGEN_VERSION=8"
+				AdditionalIncludeDirectories=".;..\..\source\libspeex;..\..\source\libspeex\include;..\..\source\libspeex\win32;..\..\source\libogg\include"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
@@ -169,41 +169,233 @@
 			Name="Source Files"
 			Filter="">
 			<File
-				RelativePath="..\..\source\libspeex\src\getopt.c">
+				RelativePath="..\..\source\libspeex\libspeex\bits.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libspeex\src\getopt1.c">
+				RelativePath="..\..\source\libspeex\libspeex\cb_search.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libspeex\src\skeleton.c">
+				RelativePath="..\..\source\libspeex\libspeex\exc_10_16_table.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libspeex\src\speexdec.c">
+				RelativePath="..\..\source\libspeex\libspeex\exc_10_32_table.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libspeex\src\speexenc.c">
+				RelativePath="..\..\source\libspeex\libspeex\exc_20_32_table.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libspeex\src\wav_io.c">
+				RelativePath="..\..\source\libspeex\libspeex\exc_5_256_table.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libspeex\src\wave_out.c">
+				RelativePath="..\..\source\libspeex\libspeex\exc_5_64_table.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\exc_8_128_table.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\filters.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\gain_table.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\gain_table_lbr.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\hexc_10_32_table.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\hexc_table.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\high_lsp_tables.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\lpc.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\lsp.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\lsp_tables_nb.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\ltp.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\modes.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\modes_wb.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\nb_celp.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\quant_lsp.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\sb_celp.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\speex.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\speex_callbacks.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\speex_header.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\stereo.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\vbr.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\vq.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\window.c">
 			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
 			Filter="">
 			<File
-				RelativePath="..\..\source\libspeex\src\getopt_win.h">
+				RelativePath="..\..\source\libspeex\libspeex\_kiss_fft_guts.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libspeex\src\skeleton.h">
+				RelativePath="..\..\source\libspeex\libspeex\arch.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libspeex\src\wav_io.h">
+				RelativePath="..\..\source\libspeex\libspeex\cb_search.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libspeex\src\wave_out.h">
+				RelativePath="..\..\source\libspeex\libspeex\cb_search_arm4.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\cb_search_bfin.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\cb_search_sse.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\fftwrap.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\filterbank.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\filters.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\filters_arm4.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\filters_bfin.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\filters_sse.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\fixed_arm4.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\fixed_arm5e.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\fixed_bfin.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\fixed_debug.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\fixed_generic.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\kiss_fft.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\kiss_fftr.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\lpc.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\lpc_bfin.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\lsp.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\lsp_bfin.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\ltp.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\ltp_arm4.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\ltp_bfin.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\ltp_sse.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\math_approx.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\misc_bfin.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\modes.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\nb_celp.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\os_support.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\pseudofloat.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\quant_lsp.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\quant_lsp_bfin.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\resample_sse.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\sb_celp.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\smallft.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\stack_alloc.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\vbr.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\vorbis_psy.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\vq.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\vq_arm4.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\vq_bfin.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libspeex\libspeex\vq_sse.h">
 			</File>
 		</Filter>
 	</Files>
