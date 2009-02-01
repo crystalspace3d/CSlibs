@@ -46,6 +46,29 @@
   my.doc.rawtarget.0 _ library_dll_versuffix _ '-vc' _ my.doc.msvcversion.0 _ platform.suffix _ suffix
 %]
 
+# Add a platform suffix to a filename's parent directory
+[% MACRO add_platform_suffix_dir(filename) BLOCK;
+  path_split = filename.split('\\\\');
+  filename = path_split.pop();
+  last_dir = path_split.pop();
+  new_path = path([path(path_split), glue([last_dir, platform.suffix]), filename]);
+  GET new_path;
+END %]
+
+# Add a platform suffix to a filename's basename
+[% MACRO add_platform_suffix_filename(filename) BLOCK;
+  path_split = filename.split('\\\\');
+  filename = path_split.pop();
+  filename_split = filename.split('\\.');
+  filename = glue([filename_split.0, platform.suffix, '.', filename_split.1])
+  new_path = path([path(path_split), filename]);
+  GET new_path;
+END %]
+
+[% MACRO add_platform_suffix(filename) GET 
+  add_platform_suffix_filename(add_platform_suffix_dir(filename))
+%]
+
 [% MACRO global_app BLOCK -%]
 			ConfigurationType="1"
 			CharacterSet="2"
@@ -104,7 +127,6 @@
 				EnableIntrinsicFunctions="TRUE"
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
-				DebugInformationFormat="3"
 [% END %]
 
 [% MACRO compiler_debug BLOCK -%]
@@ -112,48 +134,40 @@
 				MinimalRebuild="TRUE"
 				RuntimeTypeInfo="TRUE"
 				RuntimeLibrary="3"
-				DebugInformationFormat="3"
 [% precompiled_header -%]
 [% END %]
 
 # The default PDB file name
 [% MACRO compiler_default_pdb BLOCK -%]
-				ProgramDataBaseFileName="[% workbuild([platform.name, '\\', my.doc.rawtarget.0, '.pdb']) %]"
+				ProgramDataBaseFileName="[% workbuild([my.doc.rawtarget.0, platform.suffix, '.pdb']) %]"
 [% END %]
 [% MACRO compiler_appcon  GET compiler_default_pdb %]
 [% MACRO compiler_appgui  GET compiler_default_pdb %]
-[% MACRO compiler_library GET compiler_default_pdb %]
+[% MACRO compiler_library BLOCK -%] 
+                                ProgramDataBaseFileName="[% add_platform_suffix_dir(debuginfo) %]" 
+[% END %] 
+[% MACRO compiler_library_shared GET compiler_default_pdb %]
 [% MACRO compiler_plugin  GET compiler_default_pdb %]
 [% MACRO compiler_dll     GET compiler_default_pdb %]
 
-# For shared libraries, use a different PDB name (resembling the shared lib
-# file name)
-[% MACRO compiler_library_shared_release BLOCK -%]
-				ProgramDatabaseFileName="[% workbuild([platform.name, '\\', library_dll_outfile('.pdb')]) %]"
-[% END %]
-
-[% MACRO compiler_library_shared_debug BLOCK -%]
-[% precompiled_header -%]
-				ProgramDatabaseFileName="[% workbuild([platform.name, '\\', library_dll_outfile('_d.pdb')]) %]"
-[% END %]
-
 
 [% MACRO linker_release BLOCK -%]
-				LinkIncremental="1"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
 				GenerateDebugInformation="TRUE"
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD"
 [% END %]
 [% MACRO linker_debug BLOCK -%]
-				LinkIncremental="2"
 				GenerateDebugInformation="TRUE"
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD,MSVCRT"
 [% END %]
 
 [% MACRO linker_common BLOCK -%]
-				OutputFile="[% path([my.doc.buildroot.0, my.doc.target.0]) %]"
-				ProgramDatabaseFile="[% workbuild([platform.name, '\\', my.doc.rawtarget.0, '.pdb']) %]"
+				LinkIncremental="1"
+				OutputFile="[% add_platform_suffix(path([my.doc.buildroot.0, my.doc.target.0])) %]"
+[% FOREACH linkerextra IN my.doc.linkerextraxml -%] 
+                                [% linkerextra %] 
+[% END -%]
 [% END %]
 
 [% MACRO linker_app(subsys) BLOCK -%]
@@ -164,41 +178,21 @@
 [% MACRO linker_appgui_release GET linker_app(2) %]
 [% MACRO linker_appgui_debug GET linker_app(1) %]
 
-[% MACRO linker_library_shared_release BLOCK -%]
-                        OutputFile="[% path([my.doc.buildroot.0, library_dll_outfile('.dll')]) %]"
-				ImportLibrary="[% worklibout %]\[% platform.name %]\[% my.doc.project.0 %].lib"
-				ProgramDatabaseFile="[% workbuild([platform.name, '\\', library_dll_outfile('.pdb')]) %]"
-[% END %]
-
-[% MACRO linker_library_shared_debug BLOCK -%]
-                        OutputFile="[% path([my.doc.buildroot.0, library_dll_outfile('_d.dll')]) %]"
-				ImportLibrary="[% worklibout %]\[% platform.name %]\[% my.doc.project.0 %]_d.lib"
-				ProgramDatabaseFile="[% workbuild([platform.name, '\\', library_dll_outfile('_d.pdb')]) %]"
-[% END %]
-
 [% MACRO linker_plugin BLOCK -%]
 [% linker_common -%]
 				IgnoreImportLibrary="TRUE"
 				DelayLoadDLLs="[% glue(my.doc.librarydelay,';','','.dll') %]"
-				ImportLibrary="[% workbuild([platform.name, '\\', my.doc.project.0, '.lib']) %]"
 [% END %]
 
-[% MACRO linker_dll BLOCK -%]
+[% MACRO linker_library_shared BLOCK -%]
 [% linker_common -%]
 				DelayLoadDLLs="[% glue(my.doc.librarydelay,';','','.dll') %]"
-				ImportLibrary="[% workbuild([platform.name, '\\', my.doc.project.0, '.lib']) %]"
+				ImportLibrary="[% importlib %]"
 [% END %]
 
 [% MACRO library_outfile(suffix) BLOCK -%]
-				OutputFile="[% worklibout %]\[% platform.name %]\[% my.doc.project.0 %][% suffix %].lib"
+				OutputFile="[% add_platform_suffix_dir(libfilename(suffix)) %]"
 [% END %]
 [% MACRO librarian_library_release GET library_outfile('') %]
 [% MACRO librarian_library_debug   GET library_outfile('_d') %]
 [% MACRO librarian_group	   GET library_outfile('') %]
-
-[% MACRO postbuild_common BLOCK -%]
-				CommandLine="md [% path([workroot, 'bin']) %] 2&gt; nul&#x0D;&#x0A;copy /y &quot;$(TargetPath)&quot; [% path([workroot, 'bin\\']) %]&#x0D;&#x0A;"
-[% END %]
-
-[% MACRO postbuild_release GET postbuild_common %]
-[% MACRO postbuild_debug   GET postbuild_common %]

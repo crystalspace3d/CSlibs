@@ -24,6 +24,7 @@
 
   MACRO composedefs(defs) GET compose('defines', defs, ';').replace('"', '\\&quot;');
   MACRO composedirs(tag, seed) GET composepaths(${"build.${tag}key"},seed,';');
+  MACRO debugformat(platform,tag) GET ${"platform.debugformat_${tag}"}; 
 
   my = {};
   load(respfile, 'doc');
@@ -50,8 +51,8 @@ END -%]
     [% FOREACH mutator IN mutators -%]
 		<Configuration
 			Name="[% build.name %][% mutator.namesuffix %]|[% platform.name %]"
-			OutputDirectory="[% workbuild([platform.name]) %]"
-			IntermediateDirectory="[% workbuild([platform.name]) %]"
+			OutputDirectory="[% workbuild([]) %]"
+			IntermediateDirectory="[% workbuild([]) %]"
 [% interpolate('global') -%]
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="FALSE">
@@ -63,15 +64,15 @@ END -%]
 				OptimizeForProcessor="2"
 				AdditionalOptions="[% flags(compose('cflags', [], ' ')) | html %] [% flags(compose('cflags7', [], ' ')) | html %]"
 				AdditionalIncludeDirectories="[% composedirs('incdirs', ['.']) %]"
-				PrecompiledHeaderFile="[% workbuild([platform.name, '\\', my.doc.project.0, '.pch']) %]"
-				AssemblerListingLocation="[% workbuild([platform.name]) %]"
-				ObjectFile="[% workbuild([platform.name]) %]"
+				PrecompiledHeaderFile="[% workbuild([my.doc.project.0, '.pch']) %]"
+				AssemblerListingLocation="[% workbuild([]) %]"
+				ObjectFile="[% workbuild([]) %]"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
 				Detect64BitPortabilityProblems="false"
 				TreatWChar_tAsBuiltInType="false"
 				ForceConformanceInForLoopScope="true"
-				DebugInformationFormat="[% platform.debugformat %]"
+				DebugInformationFormat="[% debugformat(platform, build.tag) %]"
 				CompileAs="0"/>
 			<Tool
 				Name="VCCustomBuildTool"/>
@@ -82,7 +83,7 @@ END -%]
 				AdditionalDependencies="[% compose('libs', [], ' ') %]"
 				SuppressStartupBanner="TRUE"
 				AdditionalLibraryDirectories="[% composedirs('libdirs', []) %]"
-				ProgramDatabaseFile="[% debuginfo %]"
+				ProgramDatabaseFile="[% add_platform_suffix(debuginfo) %]"
 				TargetMachine="[% platform.targetmachine %]"/>
 			<Tool
 				Name="VCLibrarianTool"
@@ -94,7 +95,7 @@ END -%]
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
-				TypeLibraryName="[% workbuild([platform.name, '\\', my.doc.project.0, '.tlb']) %]"/>
+				TypeLibraryName="[% workbuild([my.doc.project.0, '.tlb']) %]"/>
 			<Tool
 				Name="VCPostBuildEventTool"
 [% interpolate('postbuild') -%]
