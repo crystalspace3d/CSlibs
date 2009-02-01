@@ -7,11 +7,11 @@
 	SccProjectName=""
 	SccLocalPath="">
 	<Platforms>
-		<Platform
-			Name="Win32"/>
+		<Platform Name="Win32"/>
+		<Platform Name="x64"/>
 	</Platforms>
 	<Configurations>
-  		<Configuration
+      		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="..\..\out\debug9\build\libCEGUIBase_debug\"
 			IntermediateDirectory="..\..\out\debug9\build\libCEGUIBase_debug\"
@@ -24,7 +24,7 @@
 				MinimalRebuild="TRUE"
 				RuntimeTypeInfo="TRUE"
 				RuntimeLibrary="3"
-				DebugInformationFormat="3"
+
 				ProgramDataBaseFileName="..\..\out\debug9\build\libCEGUIBase_debug\CEGUIBase_debug.pdb"
 				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;PCRE_STATIC;CEGUIBASE_EXPORTS;CEGUI_DEFAULT_XMLPARSER=TinyXMLParser;CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG;CEGUI_LOAD_MODULE_DEBUG_SUFFIX=&quot;\&quot;_d&quot;&quot;;CEGUI_FACTORYMODULE_PREFIX=&quot;\&quot;lib\&quot;&quot;;CEGUI_FACTORYMODULE_SUFFIX=&quot;\&quot;-csvc9\&quot;&quot;;WIN32"
 				OptimizeForProcessor="2"
@@ -35,9 +35,10 @@
 				ObjectFile="..\..\out\debug9\build\libCEGUIBase_debug\"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
-				Detect64BitPortabilityProblems="TRUE"
+				Detect64BitPortabilityProblems="false"
 				TreatWChar_tAsBuiltInType="false"
 				ForceConformanceInForLoopScope="true"
+				DebugInformationFormat="3"
 				CompileAs="0"/>
 			<Tool
 				Name="VCCustomBuildTool"/>
@@ -45,9 +46,9 @@
 				Name="VCLinkerTool"
 				GenerateDebugInformation="TRUE"
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD,MSVCRT"
-				OutputFile="..\..\libs\ReleaseVC9Only\libCEGUIBase-csvc9_d.dll"
 				LinkIncremental="1"
-				MergeSections=".rdata=.text"
+				OutputFile="..\..\libs\ReleaseVC9Only\libCEGUIBase-csvc9_d.dll"
+                                MergeSections=".rdata=.text" 
 				DelayLoadDLLs=""
 				ImportLibrary="..\..\libs\ReleaseVC9Only\CEGUIBase-vc9_d.lib"
 				AdditionalOptions=" "
@@ -76,14 +77,87 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;PCRE_STATIC;CEGUIBASE_EXPORTS;CEGUI_DEFAULT_XMLPARSER=TinyXMLParser;CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG;CEGUI_LOAD_MODULE_DEBUG_SUFFIX=&quot;\&quot;_d&quot;&quot;;CEGUI_FACTORYMODULE_PREFIX=&quot;\&quot;lib\&quot;&quot;;CEGUI_FACTORYMODULE_SUFFIX=&quot;\&quot;-csvc9\&quot;&quot;;PROJECTGEN_VERSION=9"
-				AdditionalIncludeDirectories=".;..\..\source\libCEGUI\include;..\..\source\libCEGUI\include\elements;..\..\source\libCEGUI\include\falagard;..\..\source\libCEGUI\..\libpcre;..\..\source\libCEGUI\..\configs\freetype;..\..\source\libCEGUI\..\libfreetype\include"
+				AdditionalIncludeDirectories=".;..\..\source\libCEGUI;..\..\source\libCEGUI\include;..\..\source\libCEGUI\include\elements;..\..\source\libCEGUI\include\falagard;..\..\source\libCEGUI\..\libpcre;..\..\source\libCEGUI\..\configs\freetype;..\..\source\libCEGUI\..\libfreetype\include"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
 				Name="VCWebDeploymentTool"/>
 		</Configuration>
-  	</Configurations>
+            		<Configuration
+			Name="Release|x64"
+			OutputDirectory="..\..\out\debug9-x64\build\libCEGUIBase_debug\"
+			IntermediateDirectory="..\..\out\debug9-x64\build\libCEGUIBase_debug\"
+			ConfigurationType="2"
+			UseOfMFC="0"
+			ATLMinimizesCRunTimeLibraryUsage="FALSE">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				MinimalRebuild="TRUE"
+				RuntimeTypeInfo="TRUE"
+				RuntimeLibrary="3"
+
+				ProgramDataBaseFileName="..\..\out\debug9-x64\build\libCEGUIBase_debug\CEGUIBase_debug-x64.pdb"
+				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;PCRE_STATIC;CEGUIBASE_EXPORTS;CEGUI_DEFAULT_XMLPARSER=TinyXMLParser;CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG;CEGUI_LOAD_MODULE_DEBUG_SUFFIX=&quot;\&quot;_d&quot;&quot;;CEGUI_FACTORYMODULE_PREFIX=&quot;\&quot;lib\&quot;&quot;;CEGUI_FACTORYMODULE_SUFFIX=&quot;\&quot;-csvc9\&quot;&quot;;WIN32"
+				OptimizeForProcessor="2"
+				AdditionalOptions=" "
+				AdditionalIncludeDirectories=".;..\..\source\libCEGUI\include;..\..\source\libCEGUI\include\elements;..\..\source\libCEGUI\include\falagard;..\..\source\libCEGUI\..\libpcre;..\..\source\libCEGUI\..\configs\freetype;..\..\source\libCEGUI\..\libfreetype\include"
+				PrecompiledHeaderFile="..\..\out\debug9-x64\build\libCEGUIBase_debug\libCEGUIBase_debug.pch"
+				AssemblerListingLocation="..\..\out\debug9-x64\build\libCEGUIBase_debug\"
+				ObjectFile="..\..\out\debug9-x64\build\libCEGUIBase_debug\"
+				WarningLevel="3"
+				SuppressStartupBanner="TRUE"
+				Detect64BitPortabilityProblems="false"
+				TreatWChar_tAsBuiltInType="false"
+				ForceConformanceInForLoopScope="true"
+				DebugInformationFormat="3"
+				CompileAs="0"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				GenerateDebugInformation="TRUE"
+				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD,MSVCRT"
+				LinkIncremental="1"
+				OutputFile="..\..\libs\ReleaseVC9Only-x64\libCEGUIBase-csvc9_d-x64.dll"
+                                MergeSections=".rdata=.text" 
+				DelayLoadDLLs=""
+				ImportLibrary="..\..\libs\ReleaseVC9Only\CEGUIBase-vc9_d.lib"
+				AdditionalOptions=" "
+				AdditionalDependencies="../../libs/Release/zlib.lib ../../libs/Release/freetype2.lib WinMM.lib"
+				SuppressStartupBanner="TRUE"
+				AdditionalLibraryDirectories=""
+				ProgramDatabaseFile="..\..\libs\ReleaseVC9Only-x64\libCEGUIBase-csvc9_d-x64.pdb"
+				TargetMachine="17"/>
+			<Tool
+				Name="VCLibrarianTool"
+				SuppressStartupBanner="TRUE"/>
+			<Tool
+				Name="VCMIDLTool"
+				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;PCRE_STATIC;CEGUIBASE_EXPORTS;CEGUI_DEFAULT_XMLPARSER=TinyXMLParser;CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG;CEGUI_LOAD_MODULE_DEBUG_SUFFIX=&quot;\&quot;_d&quot;&quot;;CEGUI_FACTORYMODULE_PREFIX=&quot;\&quot;lib\&quot;&quot;;CEGUI_FACTORYMODULE_SUFFIX=&quot;\&quot;-csvc9\&quot;&quot;"
+				MkTypLibCompatible="TRUE"
+				SuppressStartupBanner="TRUE"
+				TargetEnvironment="1"
+				TypeLibraryName="..\..\out\debug9-x64\build\libCEGUIBase_debug\libCEGUIBase_debug.tlb"/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;PCRE_STATIC;CEGUIBASE_EXPORTS;CEGUI_DEFAULT_XMLPARSER=TinyXMLParser;CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG;CEGUI_LOAD_MODULE_DEBUG_SUFFIX=&quot;\&quot;_d&quot;&quot;;CEGUI_FACTORYMODULE_PREFIX=&quot;\&quot;lib\&quot;&quot;;CEGUI_FACTORYMODULE_SUFFIX=&quot;\&quot;-csvc9\&quot;&quot;;PROJECTGEN_VERSION=9"
+				AdditionalIncludeDirectories=".;..\..\source\libCEGUI;..\..\source\libCEGUI\include;..\..\source\libCEGUI\include\elements;..\..\source\libCEGUI\include\falagard;..\..\source\libCEGUI\..\libpcre;..\..\source\libCEGUI\..\configs\freetype;..\..\source\libCEGUI\..\libfreetype\include"
+				Culture="1033"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+		</Configuration>
+      	</Configurations>
 	<Files>
 		<Filter
 			Name="Source Files"

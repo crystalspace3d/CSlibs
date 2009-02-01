@@ -7,11 +7,11 @@
 	SccProjectName=""
 	SccLocalPath="">
 	<Platforms>
-		<Platform
-			Name="Win32"/>
+		<Platform Name="Win32"/>
+		<Platform Name="x64"/>
 	</Platforms>
 	<Configurations>
-  		<Configuration
+      		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="..\..\out\release71\build\grpall_CSlibs\"
 			IntermediateDirectory="..\..\out\release71\build\grpall_CSlibs\"
@@ -30,7 +30,6 @@
 				EnableIntrinsicFunctions="TRUE"
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
-				DebugInformationFormat="3"
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
@@ -40,9 +39,10 @@
 				ObjectFile="..\..\out\release71\build\grpall_CSlibs\"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
-				Detect64BitPortabilityProblems="TRUE"
+				Detect64BitPortabilityProblems="false"
 				TreatWChar_tAsBuiltInType="false"
 				ForceConformanceInForLoopScope="true"
+				DebugInformationFormat="3"
 				CompileAs="0"/>
 			<Tool
 				Name="VCCustomBuildTool"/>
@@ -56,11 +56,11 @@
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
 				AdditionalLibraryDirectories=""
-				ProgramDatabaseFile="..\..\"
+				ProgramDatabaseFile="\..\."
 				TargetMachine="1"/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\"
+				OutputFile="\..\.."
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
@@ -79,14 +79,89 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;PROJECTGEN_VERSION=71"
-				AdditionalIncludeDirectories="."
+				AdditionalIncludeDirectories=".;..\..\source\libcal3d"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
 				Name="VCWebDeploymentTool"/>
 		</Configuration>
-  	</Configurations>
+            		<Configuration
+			Name="Release|x64"
+			OutputDirectory="..\..\out\release71-x64\build\grpall_CSlibs\"
+			IntermediateDirectory="..\..\out\release71-x64\build\grpall_CSlibs\"
+			ConfigurationType="4"
+			UseOfMFC="0"
+			ATLMinimizesCRunTimeLibraryUsage="FALSE">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="2"
+				StringPooling="TRUE"
+				EnableFunctionLevelLinking="TRUE"
+				RuntimeLibrary="2"
+				BufferSecurityCheck="FALSE"
+				GlobalOptimizations="TRUE"
+				InlineFunctionExpansion="2"
+				EnableIntrinsicFunctions="TRUE"
+				FavorSizeOrSpeed="1"
+				OmitFramePointers="TRUE"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;WIN32"
+				OptimizeForProcessor="2"
+				AdditionalOptions=" "
+				AdditionalIncludeDirectories="."
+				PrecompiledHeaderFile="..\..\out\release71-x64\build\grpall_CSlibs\grpall_CSlibs.pch"
+				AssemblerListingLocation="..\..\out\release71-x64\build\grpall_CSlibs\"
+				ObjectFile="..\..\out\release71-x64\build\grpall_CSlibs\"
+				WarningLevel="3"
+				SuppressStartupBanner="TRUE"
+				Detect64BitPortabilityProblems="false"
+				TreatWChar_tAsBuiltInType="false"
+				ForceConformanceInForLoopScope="true"
+				DebugInformationFormat="3"
+				CompileAs="0"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				OptimizeReferences="2"
+				EnableCOMDATFolding="2"
+				GenerateDebugInformation="TRUE"
+				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD"
+				AdditionalOptions=" "
+				AdditionalDependencies=""
+				SuppressStartupBanner="TRUE"
+				AdditionalLibraryDirectories=""
+				ProgramDatabaseFile="\..-x64\-x64."
+				TargetMachine="17"/>
+			<Tool
+				Name="VCLibrarianTool"
+				OutputFile="\..-x64\.."
+				SuppressStartupBanner="TRUE"/>
+			<Tool
+				Name="VCMIDLTool"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE"
+				MkTypLibCompatible="TRUE"
+				SuppressStartupBanner="TRUE"
+				TargetEnvironment="1"
+				TypeLibraryName="..\..\out\release71-x64\build\grpall_CSlibs\grpall_CSlibs.tlb"/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;PROJECTGEN_VERSION=71"
+				AdditionalIncludeDirectories=".;..\..\source\libcal3d"
+				Culture="1033"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+		</Configuration>
+      	</Configurations>
 	<Files>
 	</Files>
 	<Globals>

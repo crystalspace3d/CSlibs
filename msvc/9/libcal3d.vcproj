@@ -7,11 +7,11 @@
 	SccProjectName=""
 	SccLocalPath="">
 	<Platforms>
-		<Platform
-			Name="Win32"/>
+		<Platform Name="Win32"/>
+		<Platform Name="x64"/>
 	</Platforms>
 	<Configurations>
-  		<Configuration
+      		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="..\..\out\release9\build\libcal3d\"
 			IntermediateDirectory="..\..\out\release9\build\libcal3d\"
@@ -31,7 +31,6 @@
 				EnableIntrinsicFunctions="TRUE"
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
-				DebugInformationFormat="3"
 				ProgramDataBaseFileName="..\..\out\release9\build\libcal3d\cal3d.pdb"
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;CAL3D_EXPORTS;WIN32"
 				OptimizeForProcessor="2"
@@ -42,9 +41,10 @@
 				ObjectFile="..\..\out\release9\build\libcal3d\"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
-				Detect64BitPortabilityProblems="TRUE"
+				Detect64BitPortabilityProblems="false"
 				TreatWChar_tAsBuiltInType="false"
 				ForceConformanceInForLoopScope="true"
+				DebugInformationFormat="3"
 				CompileAs="0"/>
 			<Tool
 				Name="VCCustomBuildTool"/>
@@ -54,9 +54,9 @@
 				EnableCOMDATFolding="2"
 				GenerateDebugInformation="TRUE"
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD"
-				OutputFile="..\..\libs\ReleaseVC9Only\libcal3d-csvc9.dll"
 				LinkIncremental="1"
-				MergeSections=".rdata=.text"
+				OutputFile="..\..\libs\ReleaseVC9Only\libcal3d-csvc9.dll"
+                                MergeSections=".rdata=.text" 
 				DelayLoadDLLs=""
 				ImportLibrary="..\..\libs\ReleaseVC9Only\cal3d-vc9.lib"
 				AdditionalOptions=" "
@@ -85,14 +85,95 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;CAL3D_EXPORTS;PROJECTGEN_VERSION=9"
-				AdditionalIncludeDirectories=".;..\..\source\libcal3d\src"
+				AdditionalIncludeDirectories=".;..\..\source\libcal3d;..\..\source\libcal3d\src"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
 				Name="VCWebDeploymentTool"/>
 		</Configuration>
-  	</Configurations>
+            		<Configuration
+			Name="Release|x64"
+			OutputDirectory="..\..\out\release9-x64\build\libcal3d\"
+			IntermediateDirectory="..\..\out\release9-x64\build\libcal3d\"
+			ConfigurationType="2"
+			WholeProgramOptimization="1"
+			UseOfMFC="0"
+			ATLMinimizesCRunTimeLibraryUsage="FALSE">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="2"
+				StringPooling="TRUE"
+				EnableFunctionLevelLinking="TRUE"
+				RuntimeLibrary="2"
+				BufferSecurityCheck="FALSE"
+				GlobalOptimizations="TRUE"
+				InlineFunctionExpansion="2"
+				EnableIntrinsicFunctions="TRUE"
+				FavorSizeOrSpeed="1"
+				OmitFramePointers="TRUE"
+				ProgramDataBaseFileName="..\..\out\release9-x64\build\libcal3d\cal3d-x64.pdb"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;CAL3D_EXPORTS;WIN32"
+				OptimizeForProcessor="2"
+				AdditionalOptions=" "
+				AdditionalIncludeDirectories=".;..\..\source\libcal3d\src"
+				PrecompiledHeaderFile="..\..\out\release9-x64\build\libcal3d\libcal3d.pch"
+				AssemblerListingLocation="..\..\out\release9-x64\build\libcal3d\"
+				ObjectFile="..\..\out\release9-x64\build\libcal3d\"
+				WarningLevel="3"
+				SuppressStartupBanner="TRUE"
+				Detect64BitPortabilityProblems="false"
+				TreatWChar_tAsBuiltInType="false"
+				ForceConformanceInForLoopScope="true"
+				DebugInformationFormat="3"
+				CompileAs="0"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				OptimizeReferences="2"
+				EnableCOMDATFolding="2"
+				GenerateDebugInformation="TRUE"
+				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD"
+				LinkIncremental="1"
+				OutputFile="..\..\libs\ReleaseVC9Only-x64\libcal3d-csvc9-x64.dll"
+                                MergeSections=".rdata=.text" 
+				DelayLoadDLLs=""
+				ImportLibrary="..\..\libs\ReleaseVC9Only\cal3d-vc9.lib"
+				AdditionalOptions=" "
+				AdditionalDependencies=""
+				SuppressStartupBanner="TRUE"
+				AdditionalLibraryDirectories=""
+				ProgramDatabaseFile="..\..\libs\ReleaseVC9Only-x64\libcal3d-csvc9-x64.pdb"
+				TargetMachine="17"/>
+			<Tool
+				Name="VCLibrarianTool"
+				SuppressStartupBanner="TRUE"/>
+			<Tool
+				Name="VCMIDLTool"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;CAL3D_EXPORTS"
+				MkTypLibCompatible="TRUE"
+				SuppressStartupBanner="TRUE"
+				TargetEnvironment="1"
+				TypeLibraryName="..\..\out\release9-x64\build\libcal3d\libcal3d.tlb"/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;CAL3D_EXPORTS;PROJECTGEN_VERSION=9"
+				AdditionalIncludeDirectories=".;..\..\source\libcal3d;..\..\source\libcal3d\src"
+				Culture="1033"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+		</Configuration>
+      	</Configurations>
 	<Files>
 		<Filter
 			Name="Source Files"

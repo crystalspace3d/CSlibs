@@ -7,11 +7,11 @@
 	SccProjectName=""
 	SccLocalPath="">
 	<Platforms>
-		<Platform
-			Name="Win32"/>
+		<Platform Name="Win32"/>
+		<Platform Name="x64"/>
 	</Platforms>
 	<Configurations>
-  		<Configuration
+      		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="..\..\out\release8\build\libode\"
 			IntermediateDirectory="..\..\out\release8\build\libode\"
@@ -31,7 +31,6 @@
 				EnableIntrinsicFunctions="TRUE"
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
-				DebugInformationFormat="3"
 				ProgramDataBaseFileName="..\..\out\release8\build\libode\ode.pdb"
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;LIBODE_EXPORTS;ODE_DLL;_STATIC_CPPLIB;WIN32"
 				OptimizeForProcessor="2"
@@ -42,9 +41,10 @@
 				ObjectFile="..\..\out\release8\build\libode\"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
-				Detect64BitPortabilityProblems="TRUE"
+				Detect64BitPortabilityProblems="false"
 				TreatWChar_tAsBuiltInType="false"
 				ForceConformanceInForLoopScope="true"
+				DebugInformationFormat="3"
 				CompileAs="0"/>
 			<Tool
 				Name="VCCustomBuildTool"/>
@@ -54,9 +54,9 @@
 				EnableCOMDATFolding="2"
 				GenerateDebugInformation="TRUE"
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD"
-				OutputFile="..\..\libs\Release\libode-cs.dll"
 				LinkIncremental="1"
-				MergeSections=".rdata=.text"
+				OutputFile="..\..\libs\Release\libode-cs.dll"
+                                MergeSections=".rdata=.text" 
 				DelayLoadDLLs=""
 				ImportLibrary="..\..\libs\Release\ode.lib"
 				AdditionalOptions=" "
@@ -85,14 +85,95 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;LIBODE_EXPORTS;ODE_DLL;_STATIC_CPPLIB;PROJECTGEN_VERSION=8"
-				AdditionalIncludeDirectories=".;..\..\source\libode\..\configs\ode;..\..\source\libode\include;..\..\source\libode\OPCODE"
+				AdditionalIncludeDirectories=".;..\..\source\libode;..\..\source\libode\..\configs\ode;..\..\source\libode\include;..\..\source\libode\OPCODE"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
 				Name="VCWebDeploymentTool"/>
 		</Configuration>
-  	</Configurations>
+            		<Configuration
+			Name="Release|x64"
+			OutputDirectory="..\..\out\release8-x64\build\libode\"
+			IntermediateDirectory="..\..\out\release8-x64\build\libode\"
+			ConfigurationType="2"
+			WholeProgramOptimization="1"
+			UseOfMFC="0"
+			ATLMinimizesCRunTimeLibraryUsage="FALSE">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="2"
+				StringPooling="TRUE"
+				EnableFunctionLevelLinking="TRUE"
+				RuntimeLibrary="2"
+				BufferSecurityCheck="FALSE"
+				GlobalOptimizations="TRUE"
+				InlineFunctionExpansion="2"
+				EnableIntrinsicFunctions="TRUE"
+				FavorSizeOrSpeed="1"
+				OmitFramePointers="TRUE"
+				ProgramDataBaseFileName="..\..\out\release8-x64\build\libode\ode-x64.pdb"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;LIBODE_EXPORTS;ODE_DLL;_STATIC_CPPLIB;WIN32"
+				OptimizeForProcessor="2"
+				AdditionalOptions="/fp:fast "
+				AdditionalIncludeDirectories=".;..\..\source\libode\..\configs\ode;..\..\source\libode\include;..\..\source\libode\OPCODE"
+				PrecompiledHeaderFile="..\..\out\release8-x64\build\libode\libode.pch"
+				AssemblerListingLocation="..\..\out\release8-x64\build\libode\"
+				ObjectFile="..\..\out\release8-x64\build\libode\"
+				WarningLevel="3"
+				SuppressStartupBanner="TRUE"
+				Detect64BitPortabilityProblems="false"
+				TreatWChar_tAsBuiltInType="false"
+				ForceConformanceInForLoopScope="true"
+				DebugInformationFormat="3"
+				CompileAs="0"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				OptimizeReferences="2"
+				EnableCOMDATFolding="2"
+				GenerateDebugInformation="TRUE"
+				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD"
+				LinkIncremental="1"
+				OutputFile="..\..\libs\Release-x64\libode-cs-x64.dll"
+                                MergeSections=".rdata=.text" 
+				DelayLoadDLLs=""
+				ImportLibrary="..\..\libs\Release\ode.lib"
+				AdditionalOptions=" "
+				AdditionalDependencies=""
+				SuppressStartupBanner="TRUE"
+				AdditionalLibraryDirectories=""
+				ProgramDatabaseFile="..\..\libs\Release-x64\libode-cs-x64.pdb"
+				TargetMachine="17"/>
+			<Tool
+				Name="VCLibrarianTool"
+				SuppressStartupBanner="TRUE"/>
+			<Tool
+				Name="VCMIDLTool"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;LIBODE_EXPORTS;ODE_DLL;_STATIC_CPPLIB"
+				MkTypLibCompatible="TRUE"
+				SuppressStartupBanner="TRUE"
+				TargetEnvironment="1"
+				TypeLibraryName="..\..\out\release8-x64\build\libode\libode.tlb"/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;LIBODE_EXPORTS;ODE_DLL;_STATIC_CPPLIB;PROJECTGEN_VERSION=8"
+				AdditionalIncludeDirectories=".;..\..\source\libode;..\..\source\libode\..\configs\ode;..\..\source\libode\include;..\..\source\libode\OPCODE"
+				Culture="1033"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+		</Configuration>
+      	</Configurations>
 	<Files>
 		<Filter
 			Name="Source Files"

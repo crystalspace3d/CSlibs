@@ -7,11 +7,11 @@
 	SccProjectName=""
 	SccLocalPath="">
 	<Platforms>
-		<Platform
-			Name="Win32"/>
+		<Platform Name="Win32"/>
+		<Platform Name="x64"/>
 	</Platforms>
 	<Configurations>
-  		<Configuration
+      		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="..\..\out\release8\build\libpng\"
 			IntermediateDirectory="..\..\out\release8\build\libpng\"
@@ -31,7 +31,6 @@
 				EnableIntrinsicFunctions="TRUE"
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
-				DebugInformationFormat="3"
 				ProgramDataBaseFileName="..\..\out\release8\build\libpng\png.pdb"
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;PNG_USE_PNGVCRD;SPECIALBUILD=\&quot;Built for CrystalSpace, may cause problems if used for other software.\&quot;;WIN32"
 				OptimizeForProcessor="2"
@@ -42,9 +41,10 @@
 				ObjectFile="..\..\out\release8\build\libpng\"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
-				Detect64BitPortabilityProblems="TRUE"
+				Detect64BitPortabilityProblems="false"
 				TreatWChar_tAsBuiltInType="false"
 				ForceConformanceInForLoopScope="true"
+				DebugInformationFormat="3"
 				CompileAs="0"/>
 			<Tool
 				Name="VCCustomBuildTool"/>
@@ -54,10 +54,10 @@
 				EnableCOMDATFolding="2"
 				GenerateDebugInformation="TRUE"
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD"
-				OutputFile="..\..\libs\ReleaseNoCygwin\libpng-cs.dll"
 				LinkIncremental="1"
-				MergeSections=".rdata=.text"
-				ModuleDefinitionFile="../../source/libpng/scripts/pngw32.def"
+				OutputFile="..\..\libs\ReleaseNoCygwin\libpng-cs.dll"
+                                MergeSections=".rdata=.text" 
+                                ModuleDefinitionFile="../../source/libpng/scripts/pngw32.def" 
 				DelayLoadDLLs=""
 				ImportLibrary="..\..\libs\ReleaseNoCygwin\libpng.lib"
 				AdditionalOptions=" "
@@ -86,14 +86,96 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;PNG_USE_PNGVCRD;SPECIALBUILD=\&quot;Built for CrystalSpace, may cause problems if used for other software.\&quot;;PROJECTGEN_VERSION=8"
-				AdditionalIncludeDirectories=".;..\..\source\libpng\..\libz;..\..\source\libpng"
+				AdditionalIncludeDirectories=".;..\..\source\libpng;..\..\source\libpng\..\libz;..\..\source\libpng"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
 				Name="VCWebDeploymentTool"/>
 		</Configuration>
-  	</Configurations>
+            		<Configuration
+			Name="Release|x64"
+			OutputDirectory="..\..\out\release8-x64\build\libpng\"
+			IntermediateDirectory="..\..\out\release8-x64\build\libpng\"
+			ConfigurationType="2"
+			WholeProgramOptimization="1"
+			UseOfMFC="0"
+			ATLMinimizesCRunTimeLibraryUsage="FALSE">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="2"
+				StringPooling="TRUE"
+				EnableFunctionLevelLinking="TRUE"
+				RuntimeLibrary="2"
+				BufferSecurityCheck="FALSE"
+				GlobalOptimizations="TRUE"
+				InlineFunctionExpansion="2"
+				EnableIntrinsicFunctions="TRUE"
+				FavorSizeOrSpeed="1"
+				OmitFramePointers="TRUE"
+				ProgramDataBaseFileName="..\..\out\release8-x64\build\libpng\png-x64.pdb"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;PNG_USE_PNGVCRD;SPECIALBUILD=\&quot;Built for CrystalSpace, may cause problems if used for other software.\&quot;;WIN32"
+				OptimizeForProcessor="2"
+				AdditionalOptions="/fp:fast "
+				AdditionalIncludeDirectories=".;..\..\source\libpng\..\libz;..\..\source\libpng"
+				PrecompiledHeaderFile="..\..\out\release8-x64\build\libpng\libpng.pch"
+				AssemblerListingLocation="..\..\out\release8-x64\build\libpng\"
+				ObjectFile="..\..\out\release8-x64\build\libpng\"
+				WarningLevel="3"
+				SuppressStartupBanner="TRUE"
+				Detect64BitPortabilityProblems="false"
+				TreatWChar_tAsBuiltInType="false"
+				ForceConformanceInForLoopScope="true"
+				DebugInformationFormat="3"
+				CompileAs="0"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				OptimizeReferences="2"
+				EnableCOMDATFolding="2"
+				GenerateDebugInformation="TRUE"
+				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD"
+				LinkIncremental="1"
+				OutputFile="..\..\libs\ReleaseNoCygwin-x64\libpng-cs-x64.dll"
+                                MergeSections=".rdata=.text" 
+                                ModuleDefinitionFile="../../source/libpng/scripts/pngw32.def" 
+				DelayLoadDLLs=""
+				ImportLibrary="..\..\libs\ReleaseNoCygwin\libpng.lib"
+				AdditionalOptions=" "
+				AdditionalDependencies=""
+				SuppressStartupBanner="TRUE"
+				AdditionalLibraryDirectories=""
+				ProgramDatabaseFile="..\..\libs\ReleaseNoCygwin-x64\libpng-cs-x64.pdb"
+				TargetMachine="17"/>
+			<Tool
+				Name="VCLibrarianTool"
+				SuppressStartupBanner="TRUE"/>
+			<Tool
+				Name="VCMIDLTool"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;PNG_USE_PNGVCRD;SPECIALBUILD=\&quot;Built for CrystalSpace, may cause problems if used for other software.\&quot;"
+				MkTypLibCompatible="TRUE"
+				SuppressStartupBanner="TRUE"
+				TargetEnvironment="1"
+				TypeLibraryName="..\..\out\release8-x64\build\libpng\libpng.tlb"/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;PNG_USE_PNGVCRD;SPECIALBUILD=\&quot;Built for CrystalSpace, may cause problems if used for other software.\&quot;;PROJECTGEN_VERSION=8"
+				AdditionalIncludeDirectories=".;..\..\source\libpng;..\..\source\libpng\..\libz;..\..\source\libpng"
+				Culture="1033"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+		</Configuration>
+      	</Configurations>
 	<Files>
 		<Filter
 			Name="Source Files"

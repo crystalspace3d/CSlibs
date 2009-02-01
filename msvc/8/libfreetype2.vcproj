@@ -7,11 +7,11 @@
 	SccProjectName=""
 	SccLocalPath="">
 	<Platforms>
-		<Platform
-			Name="Win32"/>
+		<Platform Name="Win32"/>
+		<Platform Name="x64"/>
 	</Platforms>
 	<Configurations>
-  		<Configuration
+      		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="..\..\out\release8\build\libfreetype2\"
 			IntermediateDirectory="..\..\out\release8\build\libfreetype2\"
@@ -31,7 +31,6 @@
 				EnableIntrinsicFunctions="TRUE"
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
-				DebugInformationFormat="3"
 				ProgramDataBaseFileName="..\..\out\release8\build\libfreetype2\freetype2.pdb"
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;LIBFREETYPE2_EXPORTS;FT2_BUILD_LIBRARY;WIN32"
 				OptimizeForProcessor="2"
@@ -42,9 +41,10 @@
 				ObjectFile="..\..\out\release8\build\libfreetype2\"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
-				Detect64BitPortabilityProblems="TRUE"
+				Detect64BitPortabilityProblems="false"
 				TreatWChar_tAsBuiltInType="false"
 				ForceConformanceInForLoopScope="true"
+				DebugInformationFormat="3"
 				CompileAs="0"/>
 			<Tool
 				Name="VCCustomBuildTool"/>
@@ -54,9 +54,9 @@
 				EnableCOMDATFolding="2"
 				GenerateDebugInformation="TRUE"
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD"
-				OutputFile="..\..\libs\Release\libfreetype2-cs.dll"
 				LinkIncremental="1"
-				MergeSections=".rdata=.text"
+				OutputFile="..\..\libs\Release\libfreetype2-cs.dll"
+                                MergeSections=".rdata=.text" 
 				DelayLoadDLLs="libz-cs.dll"
 				ImportLibrary="..\..\libs\Release\freetype2.lib"
 				AdditionalOptions=" "
@@ -85,14 +85,95 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;LIBFREETYPE2_EXPORTS;FT2_BUILD_LIBRARY;PROJECTGEN_VERSION=8"
-				AdditionalIncludeDirectories=".;..\..\source\libfreetype\..\libz;..\..\source\libfreetype\..\configs;..\..\source\libfreetype\include"
+				AdditionalIncludeDirectories=".;..\..\source\libfreetype;..\..\source\libfreetype\..\libz;..\..\source\libfreetype\..\configs;..\..\source\libfreetype\include"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
 				Name="VCWebDeploymentTool"/>
 		</Configuration>
-  	</Configurations>
+            		<Configuration
+			Name="Release|x64"
+			OutputDirectory="..\..\out\release8-x64\build\libfreetype2\"
+			IntermediateDirectory="..\..\out\release8-x64\build\libfreetype2\"
+			ConfigurationType="2"
+			WholeProgramOptimization="1"
+			UseOfMFC="0"
+			ATLMinimizesCRunTimeLibraryUsage="FALSE">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="2"
+				StringPooling="TRUE"
+				EnableFunctionLevelLinking="TRUE"
+				RuntimeLibrary="2"
+				BufferSecurityCheck="FALSE"
+				GlobalOptimizations="TRUE"
+				InlineFunctionExpansion="2"
+				EnableIntrinsicFunctions="TRUE"
+				FavorSizeOrSpeed="1"
+				OmitFramePointers="TRUE"
+				ProgramDataBaseFileName="..\..\out\release8-x64\build\libfreetype2\freetype2-x64.pdb"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;LIBFREETYPE2_EXPORTS;FT2_BUILD_LIBRARY;WIN32"
+				OptimizeForProcessor="2"
+				AdditionalOptions="/fp:fast "
+				AdditionalIncludeDirectories=".;..\..\source\libfreetype\..\libz;..\..\source\libfreetype\..\configs;..\..\source\libfreetype\include"
+				PrecompiledHeaderFile="..\..\out\release8-x64\build\libfreetype2\libfreetype2.pch"
+				AssemblerListingLocation="..\..\out\release8-x64\build\libfreetype2\"
+				ObjectFile="..\..\out\release8-x64\build\libfreetype2\"
+				WarningLevel="3"
+				SuppressStartupBanner="TRUE"
+				Detect64BitPortabilityProblems="false"
+				TreatWChar_tAsBuiltInType="false"
+				ForceConformanceInForLoopScope="true"
+				DebugInformationFormat="3"
+				CompileAs="0"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				OptimizeReferences="2"
+				EnableCOMDATFolding="2"
+				GenerateDebugInformation="TRUE"
+				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD"
+				LinkIncremental="1"
+				OutputFile="..\..\libs\Release-x64\libfreetype2-cs-x64.dll"
+                                MergeSections=".rdata=.text" 
+				DelayLoadDLLs="libz-cs.dll"
+				ImportLibrary="..\..\libs\Release\freetype2.lib"
+				AdditionalOptions=" "
+				AdditionalDependencies=""
+				SuppressStartupBanner="TRUE"
+				AdditionalLibraryDirectories=""
+				ProgramDatabaseFile="..\..\libs\Release-x64\libfreetype2-cs-x64.pdb"
+				TargetMachine="17"/>
+			<Tool
+				Name="VCLibrarianTool"
+				SuppressStartupBanner="TRUE"/>
+			<Tool
+				Name="VCMIDLTool"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;LIBFREETYPE2_EXPORTS;FT2_BUILD_LIBRARY"
+				MkTypLibCompatible="TRUE"
+				SuppressStartupBanner="TRUE"
+				TargetEnvironment="1"
+				TypeLibraryName="..\..\out\release8-x64\build\libfreetype2\libfreetype2.tlb"/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;LIBFREETYPE2_EXPORTS;FT2_BUILD_LIBRARY;PROJECTGEN_VERSION=8"
+				AdditionalIncludeDirectories=".;..\..\source\libfreetype;..\..\source\libfreetype\..\libz;..\..\source\libfreetype\..\configs;..\..\source\libfreetype\include"
+				Culture="1033"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+		</Configuration>
+      	</Configurations>
 	<Files>
 		<Filter
 			Name="Source Files"
@@ -117,6 +198,9 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libfreetype\src\base\ftsystem.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libfreetype\src\base\fttype1.c">
 			</File>
 			<File
 				RelativePath="..\..\source\libfreetype\src\bdf\bdf.c">

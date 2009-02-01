@@ -7,11 +7,11 @@
 	SccProjectName=""
 	SccLocalPath="">
 	<Platforms>
-		<Platform
-			Name="Win32"/>
+		<Platform Name="Win32"/>
+		<Platform Name="x64"/>
 	</Platforms>
 	<Configurations>
-  		<Configuration
+      		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="..\..\out\debug7\build\libCEGUIFalagardWRBase_debug\"
 			IntermediateDirectory="..\..\out\debug7\build\libCEGUIFalagardWRBase_debug\"
@@ -24,7 +24,7 @@
 				MinimalRebuild="TRUE"
 				RuntimeTypeInfo="TRUE"
 				RuntimeLibrary="3"
-				DebugInformationFormat="3"
+
 				ProgramDataBaseFileName="..\..\out\debug7\build\libCEGUIFalagardWRBase_debug\CEGUIFalagardWRBase_debug.pdb"
 				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;FALAGARDWRBASE_EXPORTS;CEGUIWRMODULE_EXPORTS;WIN32"
 				OptimizeForProcessor="2"
@@ -35,9 +35,10 @@
 				ObjectFile="..\..\out\debug7\build\libCEGUIFalagardWRBase_debug\"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
-				Detect64BitPortabilityProblems="TRUE"
+				Detect64BitPortabilityProblems="false"
 				TreatWChar_tAsBuiltInType="false"
 				ForceConformanceInForLoopScope="true"
+				DebugInformationFormat="3"
 				CompileAs="0"/>
 			<Tool
 				Name="VCCustomBuildTool"/>
@@ -45,9 +46,9 @@
 				Name="VCLinkerTool"
 				GenerateDebugInformation="TRUE"
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD,MSVCRT"
-				OutputFile="..\..\libs\ReleaseVC7Only\libCEGUIFalagardWRBase-csvc7_d.dll"
 				LinkIncremental="1"
-				MergeSections=".rdata=.text"
+				OutputFile="..\..\libs\ReleaseVC7Only\libCEGUIFalagardWRBase-csvc7_d.dll"
+                                MergeSections=".rdata=.text" 
 				DelayLoadDLLs=""
 				ImportLibrary="..\..\libs\ReleaseVC7Only\CEGUIFalagardWRBase-vc7_d.lib"
 				AdditionalOptions=" "
@@ -76,14 +77,87 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;FALAGARDWRBASE_EXPORTS;CEGUIWRMODULE_EXPORTS;PROJECTGEN_VERSION=7"
-				AdditionalIncludeDirectories=".;..\..\source\libCEGUI\include;..\..\source\libCEGUI\WindowRendererSets\Falagard\include"
+				AdditionalIncludeDirectories=".;..\..\source\libCEGUI;..\..\source\libCEGUI\include;..\..\source\libCEGUI\WindowRendererSets\Falagard\include"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
 				Name="VCWebDeploymentTool"/>
 		</Configuration>
-  	</Configurations>
+            		<Configuration
+			Name="Release|x64"
+			OutputDirectory="..\..\out\debug7-x64\build\libCEGUIFalagardWRBase_debug\"
+			IntermediateDirectory="..\..\out\debug7-x64\build\libCEGUIFalagardWRBase_debug\"
+			ConfigurationType="2"
+			UseOfMFC="0"
+			ATLMinimizesCRunTimeLibraryUsage="FALSE">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				MinimalRebuild="TRUE"
+				RuntimeTypeInfo="TRUE"
+				RuntimeLibrary="3"
+
+				ProgramDataBaseFileName="..\..\out\debug7-x64\build\libCEGUIFalagardWRBase_debug\CEGUIFalagardWRBase_debug-x64.pdb"
+				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;FALAGARDWRBASE_EXPORTS;CEGUIWRMODULE_EXPORTS;WIN32"
+				OptimizeForProcessor="2"
+				AdditionalOptions=" "
+				AdditionalIncludeDirectories=".;..\..\source\libCEGUI\include;..\..\source\libCEGUI\WindowRendererSets\Falagard\include"
+				PrecompiledHeaderFile="..\..\out\debug7-x64\build\libCEGUIFalagardWRBase_debug\libCEGUIFalagardWRBase_debug.pch"
+				AssemblerListingLocation="..\..\out\debug7-x64\build\libCEGUIFalagardWRBase_debug\"
+				ObjectFile="..\..\out\debug7-x64\build\libCEGUIFalagardWRBase_debug\"
+				WarningLevel="3"
+				SuppressStartupBanner="TRUE"
+				Detect64BitPortabilityProblems="false"
+				TreatWChar_tAsBuiltInType="false"
+				ForceConformanceInForLoopScope="true"
+				DebugInformationFormat="3"
+				CompileAs="0"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				GenerateDebugInformation="TRUE"
+				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD,MSVCRT"
+				LinkIncremental="1"
+				OutputFile="..\..\libs\ReleaseVC7Only-x64\libCEGUIFalagardWRBase-csvc7_d-x64.dll"
+                                MergeSections=".rdata=.text" 
+				DelayLoadDLLs=""
+				ImportLibrary="..\..\libs\ReleaseVC7Only\CEGUIFalagardWRBase-vc7_d.lib"
+				AdditionalOptions=" "
+				AdditionalDependencies=""
+				SuppressStartupBanner="TRUE"
+				AdditionalLibraryDirectories=""
+				ProgramDatabaseFile="..\..\libs\ReleaseVC7Only-x64\libCEGUIFalagardWRBase-csvc7_d-x64.pdb"
+				TargetMachine="17"/>
+			<Tool
+				Name="VCLibrarianTool"
+				SuppressStartupBanner="TRUE"/>
+			<Tool
+				Name="VCMIDLTool"
+				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;FALAGARDWRBASE_EXPORTS;CEGUIWRMODULE_EXPORTS"
+				MkTypLibCompatible="TRUE"
+				SuppressStartupBanner="TRUE"
+				TargetEnvironment="1"
+				TypeLibraryName="..\..\out\debug7-x64\build\libCEGUIFalagardWRBase_debug\libCEGUIFalagardWRBase_debug.tlb"/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;FALAGARDWRBASE_EXPORTS;CEGUIWRMODULE_EXPORTS;PROJECTGEN_VERSION=7"
+				AdditionalIncludeDirectories=".;..\..\source\libCEGUI;..\..\source\libCEGUI\include;..\..\source\libCEGUI\WindowRendererSets\Falagard\include"
+				Culture="1033"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+		</Configuration>
+      	</Configurations>
 	<Files>
 		<Filter
 			Name="Source Files"
