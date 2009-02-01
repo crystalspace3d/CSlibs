@@ -4,6 +4,8 @@ platform=$1
 shift
 platform_short=$1
 shift
+mode=$1
+shift
 library=libCEGUI
 
 pcre=$(pwd)/temp/pcre/prefix-${platform}
@@ -48,54 +50,56 @@ fi
 basedir=$(pwd)
 source=${basedir}/source/${library}
 
-if test "${platform_short}" != "cygwin" ; then
-  prefix=${basedir}/temp/${library}/prefix-${platform_short}
-  rm -rf ${prefix}
-  
-  # libtool, doesn't want to link shared libs against static libs and refuses to 
-  # link a static lib for which not .la file exists.
-  # So fake some up...
-  mkdir -p ${prefix}/lib/
-  cp ${pcre}/lib/libpcre.a ${prefix}/lib/
-  build/fake-libtool-lib.sh ${prefix}/lib/libpcre.la
+if [ x$mode != xstaticonly ]; then
+  if test "${platform_short}" != "cygwin" ; then
+    prefix=${basedir}/temp/${library}/prefix-${platform_short}
+    rm -rf ${prefix}
+    
+    # libtool, doesn't want to link shared libs against static libs and refuses to 
+    # link a static lib for which not .la file exists.
+    # So fake some up...
+    mkdir -p ${prefix}/lib/
+    cp ${pcre}/lib/libpcre.a ${prefix}/lib/
+    build/fake-libtool-lib.sh ${prefix}/lib/libpcre.la
 
-  build=temp/${library}/${platform}
-  cd ${build}
-  freetype2_CFLAGS="-I${basedir}/source/libfreetype/include -I${basedir}/source/configs/freetype" \
-  freetype2_LIBS="-L${basedir}/libs/release -lfreetype2" \
-  pcre_CFLAGS="-I${pcre}/include -DPCRE_STATIC" \
-  pcre_LIBS="-L${prefix}/lib -lpcre" \
-  CEGUI_PLATFORM=${platform} \
-  CFLAGS="-O2" \
-  CXXFLAGS="-O2 -DCEGUI_FACTORYMODULE_PREFIX=\"\\\"${libprefix}\\\"\" -DCEGUI_FACTORYMODULE_SUFFIX=\"\\\"-cs${platform}-1.dll\\\"\"" \
-  ${source}/configure --prefix=${prefix} --disable-static --disable-opengl-renderer -C "$@"
-  patch -p0 -i ../../../build/cegui-libtool.diff
-  make
-  cd ../../..
-  
-  # libtool: on the link in 'make' it produces the .dll we want; on relinking
-  # in 'make install' it doesn't (since we attempt to utilize a static pcre
-  # as it seems). Hence pull the DLLs out manually. libtool <3
-  mkdir -p ${prefix}/bin/
-  mkdir -p ${prefix}/lib/
-  cp ${build}/src/.libs/*.dll ${prefix}/bin/
-  cp ${build}/src/.libs/*.a ${prefix}/lib/
-  cp ${build}/XMLParserModules/TinyXMLParser/.libs/*.dll ${prefix}/bin/
-  cp ${build}/XMLParserModules/TinyXMLParser/.libs/*.a ${prefix}/lib/
-  cp ${build}/WindowRendererSets/Falagard/src/.libs/*.dll ${prefix}/bin/
-  cp ${build}/WindowRendererSets/Falagard/src/.libs/*.a ${prefix}/lib/
-  
-  for dll in `ls -1 ${prefix}/bin/*.dll` ; do
-    objcopy --only-keep-debug ${dll} ${dll}.dbg
-    objcopy --strip-unneeded ${dll}
-    objcopy --add-gnu-debuglink=${dll}.dbg ${dll}
-  done
-  cp ${prefix}/bin/*.dll libs/ReleaseGCCOnly/${platform_short}
-  cp ${prefix}/bin/*.dbg libs/ReleaseGCCOnly/${platform_short}
-  for lib in CEGUIBase CEGUIFalagardWRBase CEGUITinyXMLParser ; do
-    cp ${prefix}/lib/lib${lib}-cs${platform}.dll.a \
-      libs/ReleaseGCCOnly/${platform}/lib${lib}.a
-  done
+    build=temp/${library}/${platform}
+    cd ${build}
+    freetype2_CFLAGS="-I${basedir}/source/libfreetype/include -I${basedir}/source/configs/freetype" \
+    freetype2_LIBS="-L${basedir}/libs/release -lfreetype2" \
+    pcre_CFLAGS="-I${pcre}/include -DPCRE_STATIC" \
+    pcre_LIBS="-L${prefix}/lib -lpcre" \
+    CEGUI_PLATFORM=${platform} \
+    CFLAGS="-O2" \
+    CXXFLAGS="-O2 -DCEGUI_FACTORYMODULE_PREFIX=\"\\\"${libprefix}\\\"\" -DCEGUI_FACTORYMODULE_SUFFIX=\"\\\"-cs${platform}.dll\\\"\"" \
+    ${source}/configure --prefix=${prefix} --disable-static --disable-opengl-renderer -C "$@"
+    patch -p0 -i ../../../build/cegui-libtool.diff
+    make
+    cd ../../..
+    
+    # libtool: on the link in 'make' it produces the .dll we want; on relinking
+    # in 'make install' it doesn't (since we attempt to utilize a static pcre
+    # as it seems). Hence pull the DLLs out manually. libtool <3
+    mkdir -p ${prefix}/bin/
+    mkdir -p ${prefix}/lib/
+    cp ${build}/src/.libs/*.dll ${prefix}/bin/
+    cp ${build}/src/.libs/*.a ${prefix}/lib/
+    cp ${build}/XMLParserModules/TinyXMLParser/.libs/*.dll ${prefix}/bin/
+    cp ${build}/XMLParserModules/TinyXMLParser/.libs/*.a ${prefix}/lib/
+    cp ${build}/WindowRendererSets/Falagard/src/.libs/*.dll ${prefix}/bin/
+    cp ${build}/WindowRendererSets/Falagard/src/.libs/*.a ${prefix}/lib/
+    
+    for dll in `ls -1 ${prefix}/bin/*.dll` ; do
+      objcopy --only-keep-debug ${dll} ${dll}.dbg
+      objcopy --strip-unneeded ${dll}
+      objcopy --add-gnu-debuglink=${dll}.dbg ${dll}
+    done
+    cp ${prefix}/bin/*.dll libs/ReleaseGCCOnly/${platform_short}
+    cp ${prefix}/bin/*.dbg libs/ReleaseGCCOnly/${platform_short}
+    for lib in CEGUIBase CEGUIFalagardWRBase CEGUITinyXMLParser ; do
+      cp ${prefix}/lib/lib${lib}-cs${platform}.dll.a \
+        libs/ReleaseGCCOnly/${platform}/lib${lib}.a
+    done
+  fi
 fi
 
 # Later steps expect the headers there
@@ -107,47 +111,49 @@ mkdir -p ${prefix}/include/CEGUI/falagard
 cp ${source}/include/falagard/*.h ${prefix}/include/CEGUI/falagard
 
 
-prefix=${basedir}/temp/${library}/prefix-${platform_short}-static
-rm -rf ${prefix}
+if [ x$mode != xnostatic ]; then
+  prefix=${basedir}/temp/${library}/prefix-${platform_short}-static
+  rm -rf ${prefix}
 
-# libtool, doesn't want to link shared libs against static libs and refuses to 
-# link a static lib for which not .la file exists.
-# So fake some up...
-mkdir -p ${prefix}/lib/
-cp temp/${platform_short}/prefix/lib/libz.a ${prefix}/lib/
-build/fake-libtool-lib.sh ${prefix}/lib/libz.la
-cp temp/${platform_short}/prefix/lib/libfreetype.a ${prefix}/lib/
-build/fake-libtool-lib.sh ${prefix}/lib/libfreetype.la
-cp ${pcre}/lib/libpcre.a ${prefix}/lib/
-build/fake-libtool-lib.sh ${prefix}/lib/libpcre.la
+  # libtool, doesn't want to link shared libs against static libs and refuses to 
+  # link a static lib for which not .la file exists.
+  # So fake some up...
+  mkdir -p ${prefix}/lib/
+  cp temp/${platform_short}/prefix/lib/libz.a ${prefix}/lib/
+  build/fake-libtool-lib.sh ${prefix}/lib/libz.la
+  cp temp/${platform_short}/prefix/lib/libfreetype.a ${prefix}/lib/
+  build/fake-libtool-lib.sh ${prefix}/lib/libfreetype.la
+  cp ${pcre}/lib/libpcre.a ${prefix}/lib/
+  build/fake-libtool-lib.sh ${prefix}/lib/libpcre.la
 
-build=temp/${library}/${platform}-static
-cd ${build}
-freetype2_CFLAGS="-I${basedir}/temp/mingw/prefix/include/ -I${basedir}/temp/mingw/prefix/include/freetype2/" \
-freetype2_LIBS="-L${prefix}/lib -lfreetype -lz" \
-pcre_CFLAGS="-I${pcre}/include -DPCRE_STATIC" \
-pcre_LIBS="-L${prefix}/lib -lpcre" \
-CEGUI_PLATFORM=${platform} \
-CFLAGS="-O2" \
-CXXFLAGS="-O2 -DCEGUI_FACTORYMODULE_PREFIX=\"\\\"${libprefix}\\\"\" -DCEGUI_FACTORYMODULE_SUFFIX=\"\\\"-cs${platform}-1.dll\\\"\" -DCEGUI_FALAGARD_RENDERER -DCEGUI_WITH_TINYXML" \
-${source}/configure --prefix=${prefix} --disable-static --disable-opengl-renderer --enable-specialstatic -C "$@"
-patch -p0 -i ../../../build/cegui-libtool.diff
-make
-cd ../../..
+  build=temp/${library}/${platform}-static
+  cd ${build}
+  freetype2_CFLAGS="-I${basedir}/temp/mingw/prefix/include/ -I${basedir}/temp/mingw/prefix/include/freetype2/" \
+  freetype2_LIBS="-L${prefix}/lib -lfreetype -lz" \
+  pcre_CFLAGS="-I${pcre}/include -DPCRE_STATIC" \
+  pcre_LIBS="-L${prefix}/lib -lpcre" \
+  CEGUI_PLATFORM=${platform} \
+  CFLAGS="-O2" \
+  CXXFLAGS="-O2 -DCEGUI_FACTORYMODULE_PREFIX=\"\\\"${libprefix}\\\"\" -DCEGUI_FACTORYMODULE_SUFFIX=\"\\\"-cs${platform}.dll\\\"\" -DCEGUI_FALAGARD_RENDERER -DCEGUI_WITH_TINYXML" \
+  ${source}/configure --prefix=${prefix} --disable-static --disable-opengl-renderer --enable-specialstatic -C "$@"
+  patch -p0 -i ../../../build/cegui-libtool.diff
+  make
+  cd ../../..
 
-mkdir -p ${prefix}/bin/
-mkdir -p ${prefix}/lib/
-cp ${build}/src/.libs/*.dll ${prefix}/bin/
-cp ${build}/src/.libs/*.a ${prefix}/lib/
+  mkdir -p ${prefix}/bin/
+  mkdir -p ${prefix}/lib/
+  cp ${build}/src/.libs/*.dll ${prefix}/bin/
+  cp ${build}/src/.libs/*.a ${prefix}/lib/
 
-for dll in `ls -1 temp/${library}/prefix-${platform_short}-static/bin/*.dll` ; do
-  objcopy --only-keep-debug ${dll} ${dll}.dbg
-  objcopy --strip-unneeded ${dll}
-  objcopy --add-gnu-debuglink=${dll}.dbg ${dll}
-done
-cp ${prefix}/bin/*.dll libs/ReleaseGCCOnly_static/${platform_short}
-cp ${prefix}/bin/*.dbg libs/ReleaseGCCOnly_static/${platform_short}
-for lib in CEGUIBase ; do
-  cp ${prefix}/lib/lib${lib}-cs${platform}.dll.a \
-    libs/ReleaseGCCOnly_static/${platform}/lib${lib}.a
-done
+  for dll in `ls -1 temp/${library}/prefix-${platform_short}-static/bin/*.dll` ; do
+    objcopy --only-keep-debug ${dll} ${dll}.dbg
+    objcopy --strip-unneeded ${dll}
+    objcopy --add-gnu-debuglink=${dll}.dbg ${dll}
+  done
+  cp ${prefix}/bin/*.dll libs/ReleaseGCCOnly_static/${platform_short}
+  cp ${prefix}/bin/*.dbg libs/ReleaseGCCOnly_static/${platform_short}
+  for lib in CEGUIBase ; do
+    cp ${prefix}/lib/lib${lib}-cs${platform}.dll.a \
+      libs/ReleaseGCCOnly_static/${platform}/lib${lib}.a
+  done
+fi
