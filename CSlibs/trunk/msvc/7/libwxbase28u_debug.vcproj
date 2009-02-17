@@ -8,7 +8,6 @@
 	SccLocalPath="">
 	<Platforms>
 		<Platform Name="Win32"/>
-		<Platform Name="x64"/>
 	</Platforms>
 	<Configurations>
       		<Configuration
@@ -67,79 +66,6 @@
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
 				TypeLibraryName="..\..\out\debug7\build\libwxbase28u_debug\libwxbase28u_debug.tlb"/>
-			<Tool
-				Name="VCPostBuildEventTool"
-				/>
-			<Tool
-				Name="VCPreBuildEventTool"/>
-			<Tool
-				Name="VCPreLinkEventTool"/>
-			<Tool
-				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_BASE;wxUSE_GUI=0;wxUSE_BASE=1;COMPILED_FROM_DSP;PROJECTGEN_VERSION=7"
-				AdditionalIncludeDirectories=".;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\regex;..\..\source\libwx\..\libz;..\..\source\libwx\src\expat\lib"
-				Culture="1033"/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"/>
-			<Tool
-				Name="VCWebDeploymentTool"/>
-		</Configuration>
-            		<Configuration
-			Name="Release|x64"
-			OutputDirectory="..\..\out\debug7-x64\build\libwxbase28u_debug\"
-			IntermediateDirectory="..\..\out\debug7-x64\build\libwxbase28u_debug\"
-			ConfigurationType="2"
-			UseOfMFC="0"
-			ATLMinimizesCRunTimeLibraryUsage="FALSE">
-			<Tool
-				Name="VCCLCompilerTool"
-				Optimization="0"
-				MinimalRebuild="TRUE"
-				RuntimeTypeInfo="TRUE"
-				RuntimeLibrary="3"
-
-				ProgramDataBaseFileName="..\..\out\debug7-x64\build\libwxbase28u_debug\wxbase28u_debug-x64.pdb"
-				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_BASE;wxUSE_GUI=0;wxUSE_BASE=1;COMPILED_FROM_DSP;WIN32"
-				OptimizeForProcessor="2"
-				AdditionalOptions=" "
-				AdditionalIncludeDirectories=".;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\regex;..\..\source\libwx\..\libz;..\..\source\libwx\src\expat\lib"
-				PrecompiledHeaderFile="..\..\out\debug7-x64\build\libwxbase28u_debug\libwxbase28u_debug.pch"
-				AssemblerListingLocation="..\..\out\debug7-x64\build\libwxbase28u_debug\"
-				ObjectFile="..\..\out\debug7-x64\build\libwxbase28u_debug\"
-				WarningLevel="3"
-				SuppressStartupBanner="TRUE"
-				Detect64BitPortabilityProblems="false"
-				TreatWChar_tAsBuiltInType="false"
-				ForceConformanceInForLoopScope="true"
-				DebugInformationFormat="3"
-				CompileAs="0"/>
-			<Tool
-				Name="VCCustomBuildTool"/>
-			<Tool
-				Name="VCLinkerTool"
-				GenerateDebugInformation="TRUE"
-				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD,MSVCRT"
-				LinkIncremental="1"
-				OutputFile="..\..\libs\ReleaseWXVC7Only-x64\libwxbase28u-csvc7_d-x64.dll"
-                                MergeSections=".rdata=.text" 
-				DelayLoadDLLs=""
-				ImportLibrary="..\..\libs\ReleaseWXVC7Only\wxbase28u-vc7_d.lib"
-				AdditionalOptions=" "
-				AdditionalDependencies=""
-				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories=""
-				ProgramDatabaseFile="..\..\libs\ReleaseWXVC7Only-x64\libwxbase28u-csvc7_d-x64.pdb"
-				TargetMachine="17"/>
-			<Tool
-				Name="VCLibrarianTool"
-				SuppressStartupBanner="TRUE"/>
-			<Tool
-				Name="VCMIDLTool"
-				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_BASE;wxUSE_GUI=0;wxUSE_BASE=1;COMPILED_FROM_DSP"
-				MkTypLibCompatible="TRUE"
-				SuppressStartupBanner="TRUE"
-				TargetEnvironment="1"
-				TypeLibraryName="..\..\out\debug7-x64\build\libwxbase28u_debug\libwxbase28u_debug.tlb"/>
 			<Tool
 				Name="VCPostBuildEventTool"
 				/>
