@@ -32,7 +32,7 @@
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
 				ProgramDataBaseFileName="..\..\out\release8\build\libwxbase28u\wxbase28u.pdb"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_BASE;wxUSE_GUI=0;wxUSE_UNICODE=1;wxUSE_BASE=1;COMPILED_FROM_DSP;WIN32"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_BASE;wxUSE_GUI=0;wxUSE_BASE=1;COMPILED_FROM_DSP;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
 				AdditionalIncludeDirectories=".;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\regex;..\..\source\libwx\..\libz;..\..\source\libwx\src\expat\lib"
@@ -70,7 +70,7 @@
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_BASE;wxUSE_GUI=0;wxUSE_UNICODE=1;wxUSE_BASE=1;COMPILED_FROM_DSP"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_BASE;wxUSE_GUI=0;wxUSE_BASE=1;COMPILED_FROM_DSP"
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
@@ -84,7 +84,7 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_BASE;wxUSE_GUI=0;wxUSE_UNICODE=1;wxUSE_BASE=1;COMPILED_FROM_DSP;PROJECTGEN_VERSION=8"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_BASE;wxUSE_GUI=0;wxUSE_BASE=1;COMPILED_FROM_DSP;PROJECTGEN_VERSION=8"
 				AdditionalIncludeDirectories=".;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\regex;..\..\source\libwx\..\libz;..\..\source\libwx\src\expat\lib"
 				Culture="1033"/>
 			<Tool
@@ -113,7 +113,7 @@
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
 				ProgramDataBaseFileName="..\..\out\release8-x64\build\libwxbase28u\wxbase28u-x64.pdb"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_BASE;wxUSE_GUI=0;wxUSE_UNICODE=1;wxUSE_BASE=1;COMPILED_FROM_DSP;WIN32"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_BASE;wxUSE_GUI=0;wxUSE_BASE=1;COMPILED_FROM_DSP;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
 				AdditionalIncludeDirectories=".;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\regex;..\..\source\libwx\..\libz;..\..\source\libwx\src\expat\lib"
@@ -151,7 +151,7 @@
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_BASE;wxUSE_GUI=0;wxUSE_UNICODE=1;wxUSE_BASE=1;COMPILED_FROM_DSP"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_BASE;wxUSE_GUI=0;wxUSE_BASE=1;COMPILED_FROM_DSP"
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
@@ -165,7 +165,7 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_BASE;wxUSE_GUI=0;wxUSE_UNICODE=1;wxUSE_BASE=1;COMPILED_FROM_DSP;PROJECTGEN_VERSION=8"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_BASE;wxUSE_GUI=0;wxUSE_BASE=1;COMPILED_FROM_DSP;PROJECTGEN_VERSION=8"
 				AdditionalIncludeDirectories=".;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\regex;..\..\source\libwx\..\libz;..\..\source\libwx\src\expat\lib"
 				Culture="1033"/>
 			<Tool
