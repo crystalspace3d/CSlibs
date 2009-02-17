@@ -1,5 +1,5 @@
 #include "CSlibs.inc"
-#define File_OpenALInstaller 		"OpenALwEAX.exe"
+#define File_OpenALInstaller 		"oalinst.exe"
 #ifdef STATIC
 #define AppName						CSLibsName + " (Static version)"
 #else
@@ -55,6 +55,7 @@ Source: ..\..\version.txt; DestDir: {app}; AfterInstall: WriteVersionTxt
 ; DLLs, exes
 Source: ..\..\tools\Release\setuptool.dll; DestDir: {app}
 Source: ..\..\tools\Release\jam.exe; DestDir: {app}\tools; Components: Extra/Jam
+Source: ..\..\tools\Release\pkg-config.exe; DestDir: {app}\tools; Components: Extra/pkgconfig
 Source: ..\..\nosource\dbghelp\dbghelp.dll; DestDir: {app}\dlls; Components: Extra/Dbghelp
 Source: ..\..\nosource\Cg\dlls\*.*; DestDir: {app}\dlls; Flags: recursesubdirs; Components: Extra/Cg
 #ifndef STATIC
@@ -78,6 +79,13 @@ Source: ..\..\libs\ReleaseGCCOnly_static\mingw-gcc-3.4\*.dll; DestDir: {app}\dll
 #if 0
 Source: ..\..\libs\ReleaseExtra\libjs-cs.dll; DestDir: {app}\dlls; Components: Libs/Common
 #endif
+; wxWidgets
+Source: ..\..\libs\ReleaseWXVC7Only\*.dll; DestDir: {app}\dlls\vc; Components: Libs/wxVC
+Source: ..\..\libs\ReleaseWXVC71Only\*.dll; DestDir: {app}\dlls\vc; Components: Libs/wxVC
+Source: ..\..\libs\ReleaseWXVC8Only\*.dll; DestDir: {app}\dlls\vc; Components: Libs/wxVC
+Source: ..\..\libs\ReleaseWXVC9Only\*.dll; DestDir: {app}\dlls\vc; Components: Libs/wxVC
+; wxWidgets/MinGW
+Source: ..\..\libs\prefix-wx\mingw-gcc-3.4\lib\*.dll; DestDir: {app}\dlls\mingw; Components: Libs/wxMinGW
 
 ; .libs: common for both static/dynamic
 Source: ..\..\nosource\OpenAL\libs\*.lib; DestDir: {app}\common\lib; Components: Libs/Common; AfterInstall: LibPostInstall
@@ -115,6 +123,13 @@ Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.4\libcal3d.a; DestDir: {app}\mingw
 #if 0
 Source: ..\..\libs\ReleaseExtra\*.lib; DestDir: {app}\common\lib; Components: Libs/Common
 #endif
+; wxWidgets
+Source: ..\..\libs\ReleaseWXVC7Only\*.lib; DestDir: {app}\vc\lib; Components: Libs/wxVC
+Source: ..\..\libs\ReleaseWXVC71Only\*.lib; DestDir: {app}\vc\lib; Components: Libs/wxVC
+Source: ..\..\libs\ReleaseWXVC8Only\*.lib; DestDir: {app}\vc\lib; Components: Libs/wxVC
+Source: ..\..\libs\ReleaseWXVC9Only\*.lib; DestDir: {app}\vc\lib; Components: Libs/wxVC
+; wxWidgets/MinGW
+Source: ..\..\libs\prefix-wx\mingw-gcc-3.4\lib\*.a; DestDir: {app}\mingw\lib; Components: Libs/wxMinGW
 
 ; headers
 Source: ..\..\headers\*.*; DestDir: {app}\common\include; Flags: recursesubdirs; Components: Libs/Common
@@ -131,6 +146,11 @@ Source: ..\..\headers-extra\*.*; DestDir: {app}\common\include; Flags: recursesu
 Source: ..\..\nosource\OpenAL\include\*.*; DestDir: {app}\common\include\AL; Flags: recursesubdirs; Components: Libs/Common
 Source: ..\..\directx\include\*.*; DestDir: {app}\common\include; Flags: recursesubdirs; Components: Extra/DXHeaders
 Source: ..\..\nosource\Cg\include\Cg\*.*; DestDir: {app}\common\include\Cg; Flags: recursesubdirs; Components: Extra/Cg
+; wxWidgets/VC
+Source: ..\..\headers-wx\*.*; DestDir: {app}\vc\include; Flags: recursesubdirs; Components: Libs/wxVC
+; wxWidgets/MinGW
+Source: ..\..\libs\prefix-wx\mingw-gcc-3.4\include\*; DestDir: {app}\mingw\include; Flags: recursesubdirs; Components: Libs/wxMinGW
+Source: ..\..\libs\prefix-wx\mingw-gcc-3.4\lib\wx\*; DestDir: {app}\mingw\lib\wx; Flags: recursesubdirs; Components: Libs/wxMinGW
 
 #ifndef STATIC
 ; Debug info
@@ -163,6 +183,11 @@ Source: ..\..\libs\ReleaseNoCygwin_static\*.pdb; DestDir: {app}\vc\lib; Componen
 #if 0
 Source: ..\..\libs\ReleaseExtra\*.pdb; DestDir: {app}\dlls; Components: Extra/DebugInfo
 #endif
+; wxWidgets
+Source: ..\..\libs\ReleaseWXVC7Only\*.pdb; DestDir: {app}\dlls\vc; Components: Libs/wxVC and Extra/DebugInfo
+Source: ..\..\libs\ReleaseWXVC71Only\*.pdb; DestDir: {app}\dlls\vc; Components: Libs/wxVC and Extra/DebugInfo
+Source: ..\..\libs\ReleaseWXVC8Only\*.pdb; DestDir: {app}\dlls\vc; Components: Libs/wxVC and Extra/DebugInfo
+Source: ..\..\libs\ReleaseWXVC9Only\*.pdb; DestDir: {app}\dlls\vc; Components: Libs/wxVC and Extra/DebugInfo
 
 ; Misc stuff
 #ifdef STATIC
@@ -170,6 +195,7 @@ Source: ..\..\tools\freetype-config-static; DestDir: {app}\bin; DestName: freety
 #else
 Source: ..\..\tools\freetype-config; DestDir: {app}\bin; Components: Libs/Common
 #endif
+Source: ..\..\libs\prefix-wx\mingw-gcc-3.4\wx-config; DestDir: {tmp}; Components: Libs/wxMinGW
 Source: ..\..\CrystalSpace home page.url; DestDir: {group}; Check: not WizardNoIcons
 ; stuff that's been compressed already
 Source: ..\..\nosource\OpenAL\installer\{#File_OpenALInstaller}; DestDir: {app}; Components: Extra/OpenALInstaller
@@ -200,11 +226,14 @@ Name: Libs; Description: Win32 libraries; Flags: disablenouninstallwarning
 Name: Libs/Common; Description: Libraries shared by all platforms; Types: custom compact full typVC typMinGW typCygwin xcompile; Flags: disablenouninstallwarning
 Name: Libs/VC; Description: MSVC-only libraries; Types: custom full typVC; Flags: disablenouninstallwarning
 Name: Libs/MinGW; Description: MinGW-only libraries; Types: custom full typMinGW typCygwin xcompile; Flags: disablenouninstallwarning
+Name: Libs/wxVC; Description: wxWidgets (MSVC); Types: custom full typVC; Flags: disablenouninstallwarning
+Name: Libs/wxMinGW; Description: wxWidgets (MinGW); Types: custom full typMinGW typCygwin xcompile; Flags: disablenouninstallwarning
 Name: Extra; Description: Additional components; Types: custom full; Flags: disablenouninstallwarning
 Name: Extra/Cg; Description: Cg headers & libraries; Types: custom full typVC typMinGW typCygwin xcompile; Flags: disablenouninstallwarning
 Name: Extra/DXHeaders; Description: Minimal DirectX 9 headers; Types: custom full typVC typMinGW typCygwin xcompile; Flags: disablenouninstallwarning
 Name: Extra/DXLibs; Description: Minimal DirectX 9 libraries; Types: custom full typVC typCygwin xcompile; Flags: disablenouninstallwarning
 Name: Extra/Jam; Description: Jam build tool; Types: custom full typMinGW typCygwin; Flags: disablenouninstallwarning
+Name: Extra/pkgconfig; Description: pkg-config build helper; Types: custom full typMinGW typCygwin; Flags: disablenouninstallwarning
 Name: Extra/Python; Description: Python GCC import libs; Types: custom full typMinGW typCygwin; Flags: disablenouninstallwarning
 Name: Extra/DebugInfo; Description: Debug information; Types: custom full typVC typMinGW typCygwin; Flags: disablenouninstallwarning
 Name: Extra/Dbghelp; Description: DbgHelp.dll Debugging helper; Types: custom compact full typMinGW typVC typCygwin; Flags: disablenouninstallwarning
@@ -215,6 +244,7 @@ Name: DESupport/MSYS; Description: MSYS; Types: custom full typMinGW; Flags: dis
 Name: DESupport/Cygwin; Description: Cygwin; Types: custom full typCygwin; Flags: disablenouninstallwarning
 [Run]
 Filename: rundll32.exe; Parameters: {code:GetShortenedAppDir}\setuptool.dll,WriteCSLibsConfig {code:GetShortenedAppDir}\
+Filename: rundll32.exe; Parameters: "{code:GetShortenedAppDir}\setuptool.dll,CreateFromTemplate ""destpath={app}\tools\wx-config"" ""srcpath={tmp}\wx-config"" ""libspath={app}\"""; StatusMsg: Generating wx-config; Components: Libs/wxMinGW
 Filename: {app}\{#File_OpenALInstaller}; Parameters: /S; WorkingDir: {app}; Components: Extra/OpenALInstaller; Check: RunOpenALInstaller; StatusMsg: Running OpenAL.org runtime installer
 Filename: {app}\CopyDLLs.exe; Description: Copy DLLs to CS directory; Flags: postinstall; WorkingDir: {app}; Parameters: {code:GetSupportParamsSilent}; Check: not CrossPresets; Components: Libs/Common Libs/VC Libs/MinGW
 Filename: {app}\CopyDLLs.exe; Description: Copy DLLs to CS directory; Flags: postinstall unchecked; WorkingDir: {app}; Parameters: {code:GetSupportParamsSilent}; Check: CrossPresets; Components: Libs/Common Libs/VC Libs/MinGW
@@ -229,6 +259,7 @@ Filename: {app}\Crosssupport.exe; Description: Set up Cross compiling support; F
 Name: {app}\tools; Type: filesandordirs
 Name: {app}\version.txt; Type: files
 Name: {app}\mingw\lib\pkgconfig; Type: filesandordirs
+Name: {app}\tools\wx-config; Type: filesandordirs
 [Icons]
 Name: {group}\Read Me; Filename: {app}\Readme.rtf; WorkingDir: {app}; Comment: Important informations, known issues and solutions.
 Name: {group}\Deploying Applications Built Against cs-win32libs; Filename: {app}\Deploying Applications Built Against cs-win32libs; WorkingDir: {app}; Comment: Information on picking the right files from cs-win32libs when packaging applications for distribution
