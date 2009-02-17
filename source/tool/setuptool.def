@@ -4,6 +4,7 @@ EXPORTS
   WriteCSLibsConfig
   AugmentBashProfile
   CleanBashProfile
+  CreateFromTemplate
   UnixToWine
   WineToUnix
   ToCygwin

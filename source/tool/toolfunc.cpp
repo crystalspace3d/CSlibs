@@ -308,7 +308,7 @@ extern "C" _declspec(dllexport) const char* _stdcall ToCygwin (const char* path)
   return pathBuf;
 }
 
-#endif
+#endif // UNICODE
 
 #ifndef UNICODE
 
@@ -679,6 +679,86 @@ TOOLENTRY(CleanBashProfile)
   }
 }
 
+TOOLENTRY(CreateFromTemplate)
+{
+  std::string destPath;
+  std::string sourcePath;
+  std::string libsPath;
 
+  const char* currentParm = lpCmdLine;
+  while (currentParm && (*currentParm != 0))
+  {
+    const char* parEnd;
+    if (*currentParm == '"')
+    {
+      currentParm++;
+      const char* p = currentParm;
+      while (p && (*p != '"'))
+      {
+	p++;
+      }
+      parEnd = p;
+    }
+    else
+    {
+      parEnd = strchr (currentParm, ' ');
+    }
+    if (parEnd == 0) parEnd = currentParm + strlen (currentParm);
 
-#endif
+    const char* delim = strchr (currentParm, '=');
+    if (delim && (delim < parEnd))
+    {
+      if (_strnicmp (currentParm, "destpath", delim - currentParm) == 0)
+      {
+	destPath.assign (delim + 1, parEnd - delim - 1);
+      }
+      else if (_strnicmp (currentParm, "libspath", delim - currentParm) == 0)
+      {
+	libsPath.assign (delim + 1, parEnd - delim - 1);
+      }
+      else if (_strnicmp (currentParm, "srcpath", delim - currentParm) == 0)
+      {
+	sourcePath.assign (delim + 1, parEnd - delim - 1);
+      }
+    }
+    currentParm = parEnd + 1;
+    while (*currentParm == ' ') currentParm++;
+  }
+
+  if (sourcePath.empty() || destPath.empty() || libsPath.empty()) return;
+
+  char* sourceData = 0;
+  size_t sourceSize = 0;
+  {
+    FILE* sourceFile = fopen (sourcePath.c_str(), "rb");
+    if (sourceFile == 0) return;
+    
+    fseek (sourceFile, 0, SEEK_END);
+    sourceSize = ftell (sourceFile);
+    fseek (sourceFile, 0, SEEK_SET);
+
+    sourceData = new char[sourceSize];
+    fread ((void*)sourceData, sizeof (char), sourceSize, sourceFile);
+    fclose (sourceFile);
+  }
+
+  {
+    FILE* destFile = fopen (destPath.c_str(), "wb");
+    if (destFile != 0)
+    {
+      char* libsPathMinGW = MingWifyPath (libsPath.c_str());
+      stdext::hash_map<std::string, std::string> vars;
+      vars["CSLIBSPATH"] = libsPath;
+      vars["CSLIBSPATH_MSYS"] = libsPathMinGW;
+
+      WriteReplacing (sourceData, sourceSize,
+	destFile, vars);
+
+      fclose (destFile);
+      delete[] libsPathMinGW;
+    }
+  }
+  delete[] sourceData;
+}
+
+#endif // UNICODE
