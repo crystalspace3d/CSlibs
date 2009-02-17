@@ -368,7 +368,7 @@ ExtraLib wxbase$(WX_MAJORMINOR)u :
   source/libwxbase.rc :
   $(SUBDIR)/include $(SUBDIR)/include/msvc $(SUBDIR)/src/regex $(SUBDIR)/../libz $(SUBDIR)/src/expat/lib :
   nostatic :
-  _UNICODE __WXMSW__ WXMAKINGDLL_BASE wxUSE_GUI=0 wxUSE_UNICODE=1 wxUSE_BASE=1 COMPILED_FROM_DSP
+  _UNICODE __WXMSW__ WXMAKINGDLL_BASE wxUSE_GUI=0 wxUSE_BASE=1 COMPILED_FROM_DSP
   :
   :
   wxzlib_static ;
@@ -393,7 +393,7 @@ ExtraLib wxmsw$(WX_MAJORMINOR)u_core :
   $(SUBDIR)/include $(SUBDIR)/include/msvc $(SUBDIR)/src/tiff
   $(SUBDIR)/../libz $(SUBDIR)/../libpng $(SUBDIR)/../libjpeg :
   nostatic :
-  _UNICODE __WXMSW__ WXMAKINGDLL_CORE wxUSE_BASE=0 wxUSE_UNICODE=1 COMPILED_FROM_DSP WXUSINGDLL wxHACK_BOOLEAN=wxInt8
+  _UNICODE __WXMSW__ WXMAKINGDLL_CORE wxUSE_BASE=0 COMPILED_FROM_DSP WXUSINGDLL wxHACK_BOOLEAN=wxInt8
   :
   :
   wxtiff_static wxjpeg_static wxpng_static wxzlib_static ;
