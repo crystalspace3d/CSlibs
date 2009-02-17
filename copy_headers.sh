@@ -1,6 +1,6 @@
 #!/bin/sh
 
-rm -f -r headers headers-nocygwin headers-extra
+rm -f -r headers headers-nocygwin headers-extra headers-wx
 
 if test ! -e headers ; then
 	mkdir headers
@@ -10,6 +10,9 @@ if test ! -e headers-nocygwin ; then
 fi
 if test ! -e headers-extra ; then
 	mkdir headers-extra
+fi
+if test ! -e headers-wx ; then
+	mkdir headers-wx
 fi
 
 # caca, png, z, jpeg, mng
@@ -44,6 +47,6 @@ cp source/configs/freetype/config/*.h headers/freetype/config/
 cp source/configs/lib3ds/*.h headers/lib3ds/
 cp source/configs/ode/*.h headers/ode/
 
-#cp -r source/libwx/include/wx headers-wx/
-cp source/libwx/include/wx/msw/setup.h headers-wx/wx/msw/
+cp -r source/libwx/include/wx headers-wx/
+cp source/libwx/include/wx/msw/setup.h headers-wx/wx/
 #cp -r temp/libwx/prefix-${mingw}/lib/wx/include/msw-unicode-release-2.8/wx headers-wx/
