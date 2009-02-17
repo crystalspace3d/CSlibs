@@ -37,6 +37,7 @@ may need special preparations:
 - libcal3d: 
     Run "aclocal && autoconf && autoheader && libtoolize -c && automake".
 - libcegui: run ./bootstrap
+- libbullet: run ./autogen.sh
 
 If you use Cygwin to run above scripts, note that sometimes symlinks are
 generated; MinGW doesn't support those, so you should check the source 
