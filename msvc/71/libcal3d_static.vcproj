@@ -8,7 +8,6 @@
 	SccLocalPath="">
 	<Platforms>
 		<Platform Name="Win32"/>
-		<Platform Name="x64"/>
 	</Platforms>
 	<Configurations>
       		<Configuration
@@ -70,82 +69,6 @@
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
 				TypeLibraryName="..\..\out\release71\build\libcal3d_static\libcal3d_static.tlb"/>
-			<Tool
-				Name="VCPostBuildEventTool"
-				/>
-			<Tool
-				Name="VCPreBuildEventTool"/>
-			<Tool
-				Name="VCPreLinkEventTool"/>
-			<Tool
-				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;CAL3D_API=;PROJECTGEN_VERSION=71"
-				AdditionalIncludeDirectories=".;..\..\source\libcal3d;..\..\source\libcal3d\src"
-				Culture="1033"/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"/>
-			<Tool
-				Name="VCWebDeploymentTool"/>
-		</Configuration>
-            		<Configuration
-			Name="Release|x64"
-			OutputDirectory="..\..\out\release71-x64\build\libcal3d_static\"
-			IntermediateDirectory="..\..\out\release71-x64\build\libcal3d_static\"
-			ConfigurationType="4"
-			UseOfMFC="0"
-			ATLMinimizesCRunTimeLibraryUsage="FALSE">
-			<Tool
-				Name="VCCLCompilerTool"
-				Optimization="2"
-				StringPooling="TRUE"
-				EnableFunctionLevelLinking="TRUE"
-				RuntimeLibrary="2"
-				BufferSecurityCheck="FALSE"
-				GlobalOptimizations="TRUE"
-				InlineFunctionExpansion="2"
-				EnableIntrinsicFunctions="TRUE"
-				FavorSizeOrSpeed="1"
-				OmitFramePointers="TRUE"
-                                ProgramDataBaseFileName="..\..\libs\ReleaseVC71Only_static-x64\cal3d-vc71.pdb" 
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;CAL3D_API=;WIN32"
-				OptimizeForProcessor="2"
-				AdditionalOptions=" "
-				AdditionalIncludeDirectories=".;..\..\source\libcal3d\src"
-				PrecompiledHeaderFile="..\..\out\release71-x64\build\libcal3d_static\libcal3d_static.pch"
-				AssemblerListingLocation="..\..\out\release71-x64\build\libcal3d_static\"
-				ObjectFile="..\..\out\release71-x64\build\libcal3d_static\"
-				WarningLevel="3"
-				SuppressStartupBanner="TRUE"
-				Detect64BitPortabilityProblems="false"
-				TreatWChar_tAsBuiltInType="false"
-				ForceConformanceInForLoopScope="true"
-				DebugInformationFormat="3"
-				CompileAs="0"/>
-			<Tool
-				Name="VCCustomBuildTool"/>
-			<Tool
-				Name="VCLinkerTool"
-				OptimizeReferences="2"
-				EnableCOMDATFolding="2"
-				GenerateDebugInformation="TRUE"
-				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD"
-				AdditionalOptions=" "
-				AdditionalDependencies=""
-				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories=""
-				ProgramDatabaseFile="..\..\libs\ReleaseVC71Only_static-x64\cal3d-vc71-x64.pdb"
-				TargetMachine="17"/>
-			<Tool
-				Name="VCLibrarianTool"
-				OutputFile="..\..\libs\ReleaseVC71Only_static-x64\cal3d-vc71.lib"
-				SuppressStartupBanner="TRUE"/>
-			<Tool
-				Name="VCMIDLTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;CAL3D_API="
-				MkTypLibCompatible="TRUE"
-				SuppressStartupBanner="TRUE"
-				TargetEnvironment="1"
-				TypeLibraryName="..\..\out\release71-x64\build\libcal3d_static\libcal3d_static.tlb"/>
 			<Tool
 				Name="VCPostBuildEventTool"
 				/>

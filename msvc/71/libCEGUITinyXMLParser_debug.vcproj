@@ -8,7 +8,6 @@
 	SccLocalPath="">
 	<Platforms>
 		<Platform Name="Win32"/>
-		<Platform Name="x64"/>
 	</Platforms>
 	<Configurations>
       		<Configuration
@@ -67,79 +66,6 @@
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
 				TypeLibraryName="..\..\out\debug71\build\libCEGUITinyXMLParser_debug\libCEGUITinyXMLParser_debug.tlb"/>
-			<Tool
-				Name="VCPostBuildEventTool"
-				/>
-			<Tool
-				Name="VCPreBuildEventTool"/>
-			<Tool
-				Name="VCPreLinkEventTool"/>
-			<Tool
-				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;CEGUITINYXMLPARSER_EXPORTS;CEGUI_TINYXML_H=&quot;\&quot;ceguitinyxml/tinyxml.h\&quot;&quot;;CEGUI_TINYXML_NAMESPACE=CEGUITinyXML;PROJECTGEN_VERSION=71"
-				AdditionalIncludeDirectories=".;..\..\source\libCEGUI;..\..\source\libCEGUI\include"
-				Culture="1033"/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"/>
-			<Tool
-				Name="VCWebDeploymentTool"/>
-		</Configuration>
-            		<Configuration
-			Name="Release|x64"
-			OutputDirectory="..\..\out\debug71-x64\build\libCEGUITinyXMLParser_debug\"
-			IntermediateDirectory="..\..\out\debug71-x64\build\libCEGUITinyXMLParser_debug\"
-			ConfigurationType="2"
-			UseOfMFC="0"
-			ATLMinimizesCRunTimeLibraryUsage="FALSE">
-			<Tool
-				Name="VCCLCompilerTool"
-				Optimization="0"
-				MinimalRebuild="TRUE"
-				RuntimeTypeInfo="TRUE"
-				RuntimeLibrary="3"
-
-				ProgramDataBaseFileName="..\..\out\debug71-x64\build\libCEGUITinyXMLParser_debug\CEGUITinyXMLParser_debug-x64.pdb"
-				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;CEGUITINYXMLPARSER_EXPORTS;CEGUI_TINYXML_H=&quot;\&quot;ceguitinyxml/tinyxml.h\&quot;&quot;;CEGUI_TINYXML_NAMESPACE=CEGUITinyXML;WIN32"
-				OptimizeForProcessor="2"
-				AdditionalOptions=" "
-				AdditionalIncludeDirectories=".;..\..\source\libCEGUI\include"
-				PrecompiledHeaderFile="..\..\out\debug71-x64\build\libCEGUITinyXMLParser_debug\libCEGUITinyXMLParser_debug.pch"
-				AssemblerListingLocation="..\..\out\debug71-x64\build\libCEGUITinyXMLParser_debug\"
-				ObjectFile="..\..\out\debug71-x64\build\libCEGUITinyXMLParser_debug\"
-				WarningLevel="3"
-				SuppressStartupBanner="TRUE"
-				Detect64BitPortabilityProblems="false"
-				TreatWChar_tAsBuiltInType="false"
-				ForceConformanceInForLoopScope="true"
-				DebugInformationFormat="3"
-				CompileAs="0"/>
-			<Tool
-				Name="VCCustomBuildTool"/>
-			<Tool
-				Name="VCLinkerTool"
-				GenerateDebugInformation="TRUE"
-				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD,MSVCRT"
-				LinkIncremental="1"
-				OutputFile="..\..\libs\ReleaseVC71Only-x64\libCEGUITinyXMLParser-csvc71_d-x64.dll"
-                                MergeSections=".rdata=.text" 
-				DelayLoadDLLs=""
-				ImportLibrary="..\..\libs\ReleaseVC71Only\CEGUITinyXMLParser-vc71_d.lib"
-				AdditionalOptions=" "
-				AdditionalDependencies=""
-				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories=""
-				ProgramDatabaseFile="..\..\libs\ReleaseVC71Only-x64\libCEGUITinyXMLParser-csvc71_d-x64.pdb"
-				TargetMachine="17"/>
-			<Tool
-				Name="VCLibrarianTool"
-				SuppressStartupBanner="TRUE"/>
-			<Tool
-				Name="VCMIDLTool"
-				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;CEGUITINYXMLPARSER_EXPORTS;CEGUI_TINYXML_H=&quot;\&quot;ceguitinyxml/tinyxml.h\&quot;&quot;;CEGUI_TINYXML_NAMESPACE=CEGUITinyXML"
-				MkTypLibCompatible="TRUE"
-				SuppressStartupBanner="TRUE"
-				TargetEnvironment="1"
-				TypeLibraryName="..\..\out\debug71-x64\build\libCEGUITinyXMLParser_debug\libCEGUITinyXMLParser_debug.tlb"/>
 			<Tool
 				Name="VCPostBuildEventTool"
 				/>
