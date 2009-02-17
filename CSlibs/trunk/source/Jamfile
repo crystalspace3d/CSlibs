@@ -67,8 +67,8 @@ rule LibCommon
   }
 }
 
-# Base library - C, used by all VC versions, built with VC8.0 (for x86) or VC9.0 (for x64)
-if [ Property build : projgen_version ] = 8 || [ Property build : projgen_version ] = 9
+# Base library - C, used by all VC versions, built with VC8.0
+if [ Property build : projgen_version ] = 8
 {
   rule BaseLib 
   { 
