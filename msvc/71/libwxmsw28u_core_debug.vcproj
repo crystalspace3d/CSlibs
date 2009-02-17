@@ -26,7 +26,7 @@
 				RuntimeLibrary="3"
 
 				ProgramDataBaseFileName="..\..\out\debug71\build\libwxmsw28u_core_debug\wxmsw28u_core_debug.pdb"
-				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_CORE;wxUSE_BASE=0;wxUSE_UNICODE=1;COMPILED_FROM_DSP;WXUSINGDLL;wxHACK_BOOLEAN=wxInt8;WIN32"
+				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_CORE;wxUSE_BASE=0;COMPILED_FROM_DSP;WXUSINGDLL;wxHACK_BOOLEAN=wxInt8;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
 				AdditionalIncludeDirectories=".;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\tiff;..\..\source\libwx\..\libz;..\..\source\libwx\..\libpng;..\..\source\libwx\..\libjpeg"
@@ -62,7 +62,7 @@
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_CORE;wxUSE_BASE=0;wxUSE_UNICODE=1;COMPILED_FROM_DSP;WXUSINGDLL;wxHACK_BOOLEAN=wxInt8"
+				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_CORE;wxUSE_BASE=0;COMPILED_FROM_DSP;WXUSINGDLL;wxHACK_BOOLEAN=wxInt8"
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
@@ -76,7 +76,7 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_CORE;wxUSE_BASE=0;wxUSE_UNICODE=1;COMPILED_FROM_DSP;WXUSINGDLL;wxHACK_BOOLEAN=wxInt8;PROJECTGEN_VERSION=71"
+				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_CORE;wxUSE_BASE=0;COMPILED_FROM_DSP;WXUSINGDLL;wxHACK_BOOLEAN=wxInt8;PROJECTGEN_VERSION=71"
 				AdditionalIncludeDirectories=".;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\tiff;..\..\source\libwx\..\libz;..\..\source\libwx\..\libpng;..\..\source\libwx\..\libjpeg"
 				Culture="1033"/>
 			<Tool
@@ -99,7 +99,7 @@
 				RuntimeLibrary="3"
 
 				ProgramDataBaseFileName="..\..\out\debug71-x64\build\libwxmsw28u_core_debug\wxmsw28u_core_debug-x64.pdb"
-				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_CORE;wxUSE_BASE=0;wxUSE_UNICODE=1;COMPILED_FROM_DSP;WXUSINGDLL;wxHACK_BOOLEAN=wxInt8;WIN32"
+				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_CORE;wxUSE_BASE=0;COMPILED_FROM_DSP;WXUSINGDLL;wxHACK_BOOLEAN=wxInt8;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
 				AdditionalIncludeDirectories=".;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\tiff;..\..\source\libwx\..\libz;..\..\source\libwx\..\libpng;..\..\source\libwx\..\libjpeg"
@@ -135,7 +135,7 @@
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_CORE;wxUSE_BASE=0;wxUSE_UNICODE=1;COMPILED_FROM_DSP;WXUSINGDLL;wxHACK_BOOLEAN=wxInt8"
+				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_CORE;wxUSE_BASE=0;COMPILED_FROM_DSP;WXUSINGDLL;wxHACK_BOOLEAN=wxInt8"
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
@@ -149,7 +149,7 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_CORE;wxUSE_BASE=0;wxUSE_UNICODE=1;COMPILED_FROM_DSP;WXUSINGDLL;wxHACK_BOOLEAN=wxInt8;PROJECTGEN_VERSION=71"
+				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_CORE;wxUSE_BASE=0;COMPILED_FROM_DSP;WXUSINGDLL;wxHACK_BOOLEAN=wxInt8;PROJECTGEN_VERSION=71"
 				AdditionalIncludeDirectories=".;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\tiff;..\..\source\libwx\..\libz;..\..\source\libwx\..\libpng;..\..\source\libwx\..\libjpeg"
 				Culture="1033"/>
 			<Tool
