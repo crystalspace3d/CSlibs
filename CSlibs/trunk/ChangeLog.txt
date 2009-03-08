@@ -1,3 +1,18 @@
+1.4_001 (2009-03-09):
+ - Updated CEGUI to 0.6.1.
+ - Updated Bullet to 2.73.
+ - Updated FreeType to 2.3.8.
+ - Updated libpng to 1.2.35.
+ - Updated ODE to 0.10.1.
+ - Updated OpenAL headers + libs. [Mike Gist]
+ - Updated OpenAL installer.
+ - Added pkg-config.
+ - Added speex. [Mike Gist]
+ - Added a build of wxWidgets.
+ - Removed libcaca.
+ - Libs can be built for Win64 now (needs sources). [Mike Gist]
+ - Merge modules available for DLLs from package.
+
 1.3_004 (2008-06-18):
  - Updated Cg to 2.0.
  - Updated Bullet to 2.69.
