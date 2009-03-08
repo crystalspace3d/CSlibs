@@ -131,7 +131,7 @@ rule VCFileLists
   
   SubDir TOP libs releasewxvc$(N)only ;
   FileListEntriesData [ Wildcard *vc$(N).dll ] : : libs-wxvc$(N) ;
-  FileListEntriesData [ Wildcard *vc$(N)_d.dll ] : : libs-wx$vc(N)_d ;
+  FileListEntriesData [ Wildcard *vc$(N)_d.dll ] : : libs-wxvc$(N)_d ;
   FileListEntriesData [ Wildcard *vc$(N).pdb ] : : libs-wxvc$(N)-debug ;
   FileListEntriesData [ Wildcard *vc$(N)_d.pdb ] : : libs-wxvc$(N)_d-debug ;
   FileListEntriesData [ Wildcard *vc$(N).lib ] : : libs-wxvc$(N)-link ;
