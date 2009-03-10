@@ -28,7 +28,7 @@ ignorantcopy() {
   # The actual copy
   mkdir -p ${DST}
   if [ -n "${SRCLIST}" ] ; then
-    sh -c "cp ${SRCLIST} ${DST}/"
+    sh -c "cp -v ${SRCLIST} ${DST}/"
   fi
 }
 
@@ -55,14 +55,14 @@ ignorantcopy2() {
   # The actual copy
   mkdir -p ${DST}
   if [ -n "${SRCLIST}" ] ; then
-    sh -c "cp ${SRCLIST} ${DST}/"
+    sh -c "cp -v ${SRCLIST} ${DST}/"
   fi
 }
 
 WORKDIR=temp/source
 
 if [ -e ${WORKDIR} ] ; then
-  rm -rf ${WORKDIR}
+  rm -rfv ${WORKDIR}
 fi
 
 VERSION=`cat version.inc | grep \".*\" | sed -e 's/#.*\"\(.*\)\"/\\1/'`
@@ -76,4 +76,4 @@ cd ${WORKDIR}
 # Copy actual lib sources.
 ignorantcopy2 ${TOP}/source ${PACKAGE}/source/
 
-tar -cjf ${TOP}/out/${TARNAME} ${PACKAGE}
+tar -cvjf ${TOP}/out/${TARNAME} ${PACKAGE}
