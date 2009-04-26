@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (c) 2002-2008, NVIDIA Corporation.
+ * Copyright (c) 2002-2009, NVIDIA Corporation.
  * 
  *  
  * 
@@ -140,6 +140,7 @@ CGGL_API void CGGLENTRY cgGLDisableProfile(CGprofile profile);
 
 CGGL_API CGprofile CGGLENTRY cgGLGetLatestProfile(CGGLenum profile_type);
 CGGL_API void CGGLENTRY cgGLSetOptimalOptions(CGprofile profile);
+CGGL_API char const ** CGGLENTRY cgGLGetOptimalOptions(CGprofile profile);
 
 /******************************************************************************
  *** Program Managment Functions                                 
