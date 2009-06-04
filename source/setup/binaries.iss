@@ -38,6 +38,7 @@ TimeStampsInUTC=true
 InternalCompressLevel=ultra
 AllowNoIcons=yes
 UsePreviousGroup=no
+PrivilegesRequired=none
 [Types]
 Name: full; Description: Full installation
 Name: compact; Description: Compact installation
