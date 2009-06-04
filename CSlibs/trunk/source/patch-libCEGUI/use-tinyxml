@@ -1,8 +1,8 @@
 Index: include/CEGUIConfig.h
 ===================================================================
---- include/CEGUIConfig.h	(revision 1251)
-+++ include/CEGUIConfig.h	(working copy)
-@@ -79,7 +79,7 @@
+--- include/CEGUIConfig.h	(Revision 2049)
++++ include/CEGUIConfig.h	(Arbeitskopie)
+@@ -54,7 +54,7 @@
  // (XercesParser, ExpatParser, LibxmlParser or TinyXMLParser).
  //////////////////////////////////////////////////////////////////////////
  #ifndef CEGUI_DEFAULT_XMLPARSER
@@ -10,4 +10,4 @@ Index: include/CEGUIConfig.h
 +#	define CEGUI_DEFAULT_XMLPARSER TinyXMLParser
  #endif
  
- #endif // defined(_MSC_VER) || defined(__APPLE__)
+ //////////////////////////////////////////////////////////////////////////

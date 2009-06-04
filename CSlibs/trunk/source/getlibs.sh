@@ -2,7 +2,7 @@
 
 # Libs fetched from source code repos
 scripts/svn-get libcal3d http://svn.gna.org/svn/cal3d/tags/release-0_11_0/cal3d/
-scripts/svn-get libCEGUI https://crayzedsgui.svn.sourceforge.net/svnroot/crayzedsgui/cegui_mk2/tags/v0-6-1/
+scripts/svn-get libCEGUI https://crayzedsgui.svn.sourceforge.net/svnroot/crayzedsgui/cegui_mk2/tags/v0-6-2/
 
 # pkg-config & dependencies
 scripts/url-get glib http://ftp.gnome.org/pub/gnome/sources/glib/2.18/glib-2.18.3.tar.bz2 \
@@ -23,10 +23,10 @@ scripts/url-get libspeex http://downloads.xiph.org/releases/speex/speex-1.2rc1.t
   speex-1.2rc1 gz
 scripts/url-get libvorbis http://downloads.xiph.org/releases/vorbis/libvorbis-1.2.0.tar.gz \
   libvorbis-1.2.0 gz
-scripts/url-get libfreetype http://download.savannah.gnu.org/releases/freetype/freetype-2.3.8.tar.bz2 \
-  freetype-2.3.8 bz2
-scripts/url-get libbullet http://bullet.googlecode.com/files/bullet-2.73-final.zip \
-  bullet-2.73 zip
+scripts/url-get libfreetype http://download.savannah.gnu.org/releases/freetype/freetype-2.3.9.tar.bz2 \
+  freetype-2.3.9 bz2
+scripts/url-get libbullet http://bullet.googlecode.com/files/bullet-2.74.tgz \
+  bullet-2.74 gz
 scripts/url-get libpcre ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-7.8.tar.bz2 \
   pcre-7.8 bz2
 scripts/url-get lib3ds http://kent.dl.sourceforge.net/sourceforge/lib3ds/lib3ds-1.3.0.zip \
@@ -36,7 +36,7 @@ scripts/url-get libode "http://heanet.dl.sourceforge.net/sourceforge/opende/ode-
   
 # Extra libs
 scripts/url-get libjs ftp://ftp.mozilla.org/pub/mozilla.org/js/js-1.7.0.tar.gz js-1.7.0 gz js
-scripts/url-get libwx ftp://ftp.wxwidgets.org/pub/2.8.9/wxMSW-2.8.9.zip wxMSW-2.8.9 zip
+scripts/url-get libwx ftp://ftp.wxwidgets.org/pub/2.8.10/wxMSW-2.8.10.zip wxMSW-2.8.10 zip
 
 # A bit of manual setup
 mkdir -p libwx/lib/vc_dll/mswu/wx/

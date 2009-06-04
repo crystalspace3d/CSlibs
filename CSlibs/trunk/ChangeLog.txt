@@ -1,3 +1,9 @@
+1.4_002 (2009-06-05):
+ - Updated CEGUI to 0.6.2.
+ - Updated freetype to 2.3.9.
+ - Updated bullet to 2.74.
+ - Updated Cg to 2.2. [Mike Gist]
+
 1.4_001 (2009-03-09):
  - Updated CEGUI to 0.6.1.
  - Updated Bullet to 2.73.

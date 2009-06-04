@@ -1,5 +1,5 @@
---- modules.org	Mon Jun 11 04:26:03 2007
-+++ modules.cfg	Fri Nov  2 13:29:42 2007
+--- modules.cfg.orig	Thu Jan 22 09:46:29 2009
++++ modules.cfg	Sun Apr 26 14:59:53 2009
 @@ -37,29 +37,29 @@
  # PostScript Type 1 font driver.
  #
@@ -48,7 +48,7 @@
 @@ -107,7 +107,7 @@
  # FreeType's cache sub-system (quite stable but still in beta -- this means
  # that its public API is subject to change if necessary).  See
- # include/freetype/ftcache.h.
+ # include/freetype/ftcache.h.  Needs ftglyph.c.
 -AUX_MODULES += cache
 +#AUX_MODULES += cache
  
@@ -63,37 +63,34 @@
  
  # Support for PostScript glyph names.
  #
-@@ -166,7 +166,7 @@
- # Interface for gxvalid module (which is required).
+@@ -181,7 +181,7 @@
+ # Interface for gxvalid module.
  #
  # See include/freetype/ftgxval.h for the API.
 -BASE_EXTENSIONS += ftgxval.c
 +#BASE_EXTENSIONS += ftgxval.c
  
- # Multiple Master font interface.
+ # Support for LCD color filtering of subpixel bitmaps.
  #
-@@ -176,12 +176,12 @@
- # Interface for otvalid module (which is required).
+@@ -196,7 +196,7 @@
+ # Interface for otvalid module.
  #
  # See include/freetype/ftotval.h for the API.
 -BASE_EXTENSIONS += ftotval.c
 +#BASE_EXTENSIONS += ftotval.c
  
+ # Support for FT_Face_CheckTrueTypePatents.
+ #
+@@ -206,7 +206,7 @@
  # Interface for accessing PFR-specific data.  Needs PFR font driver.
  #
  # See include/freetype/ftpfr.h for the API.
 -BASE_EXTENSIONS += ftpfr.c
 +#BASE_EXTENSIONS += ftpfr.c
  
- # Path stroker.
+ # Path stroker.  Needs ftglyph.c.
  #
-@@ -197,18 +197,18 @@
- # fonts.
- #
- # See include/freetype/t1tables.h for the API.
- BASE_EXTENSIONS += fttype1.c
- 
- # Interface for accessing data specific to Windows FNT files.  Needs winfnt
+@@ -228,12 +228,12 @@
  # driver.
  #
  # See include/freetype/ftwinfnt.h for the API.
@@ -106,5 +103,5 @@
 -BASE_EXTENSIONS += ftxf86.c
 +#BASE_EXTENSIONS += ftxf86.c
  
- # Support for LCD color filtering of subpixel bitmaps.
- #
+ ####
+ #### The components `ftsystem.c' (for memory allocation and stream I/O
