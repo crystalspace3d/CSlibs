@@ -28,6 +28,7 @@ DisableProgramGroupPage=true
 DisableReadyPage=yes
 WizardImageFile=compiler:WizModernImage-IS.bmp
 WizardSmallImageFile=compiler:WizModernSmallImage-IS.bmp
+PrivilegesRequired=none
 [Files]
 ; Copy the DLLs to the CS dir.
 Source: {src}\dlls\*.dll; DestDir: {app}; Flags: external skipifsourcedoesntexist ignoreversion

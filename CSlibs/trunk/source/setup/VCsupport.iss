@@ -26,6 +26,7 @@ UsePreviousAppDir=false
 DisableProgramGroupPage=true
 WizardImageFile=compiler:WizModernImage-IS.bmp
 WizardSmallImageFile=compiler:WizModernSmallImage-IS.bmp
+PrivilegesRequired=none
 [Files]
 Source: {src}\common\include\*.*; DestDir: {app}\win32libs\include; Flags: external skipifsourcedoesntexist recursesubdirs
 Source: {src}\vc\include\*.*; DestDir: {app}\win32libs\include; Flags: external skipifsourcedoesntexist recursesubdirs
