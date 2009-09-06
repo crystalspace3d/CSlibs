@@ -1,7 +1,7 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
   <Module Id="OpenALRuntime" Language="1033" Version="$(var.MSM_VER)">
     <Package InstallerVersion="200" Id="74dd55f7-f8d1-4b23-b270-c458c323b7cc" Manufacturer="The Crystal Space Project"/>
-    <Binary Id="OpenALwEAX.exe" SourceFile="$(var.TOP)/nosource/OpenAL/installer/oalinst.exe"/>
+    <Binary Id="OpenALwEAX.exe" SourceFile="$(var.TOP)/nosource/x86/OpenAL/installer/oalinst.exe"/>
     <CustomAction Id="RunOpenALInstaller" BinaryKey="OpenALwEAX.exe" ExeCommand="/S /NU" Return="ignore" />
     <InstallExecuteSequence>
       <Custom Action="RunOpenALInstaller" After="InstallFiles">NOT REMOVE</Custom>
