@@ -141,7 +141,7 @@
                                 MergeSections=".rdata=.text" 
                                 ModuleDefinitionFile="../../source/libvorbis/win32/vorbisfile.def" 
 				DelayLoadDLLs=""
-				ImportLibrary="..\..\libs\Release\vorbisfile.lib"
+				ImportLibrary="..\..\libs\Release-x64\vorbisfile.lib"
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"

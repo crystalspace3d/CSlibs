@@ -141,7 +141,7 @@
                                 MergeSections=".rdata=.text" 
                                 ModuleDefinitionFile="../../source/libspeex/win32/libspeex.def" 
 				DelayLoadDLLs=""
-				ImportLibrary="..\..\libs\Release\speex.lib"
+				ImportLibrary="..\..\libs\Release-x64\speex.lib"
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"

@@ -141,7 +141,7 @@
                                 MergeSections=".rdata=.text" 
                                 ModuleDefinitionFile="../../source/libogg/win32/ogg.def" 
 				DelayLoadDLLs=""
-				ImportLibrary="..\..\libs\Release\ogg.lib"
+				ImportLibrary="..\..\libs\Release-x64\ogg.lib"
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"

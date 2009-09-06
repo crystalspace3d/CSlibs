@@ -123,7 +123,7 @@
 				OutputFile="..\..\libs\ReleaseVC9Only-x64\libcal3d-csvc9_d-x64.dll"
                                 MergeSections=".rdata=.text" 
 				DelayLoadDLLs=""
-				ImportLibrary="..\..\libs\ReleaseVC9Only\cal3d-vc9_d.lib"
+				ImportLibrary="..\..\libs\ReleaseVC9Only-x64\cal3d-vc9_d.lib"
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"

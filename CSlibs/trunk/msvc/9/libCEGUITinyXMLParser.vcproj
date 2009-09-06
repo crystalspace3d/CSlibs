@@ -139,7 +139,7 @@
 				OutputFile="..\..\libs\ReleaseVC9Only-x64\libCEGUITinyXMLParser-csvc9-x64.dll"
                                 MergeSections=".rdata=.text" 
 				DelayLoadDLLs=""
-				ImportLibrary="..\..\libs\ReleaseVC9Only\CEGUITinyXMLParser-vc9.lib"
+				ImportLibrary="..\..\libs\ReleaseVC9Only-x64\CEGUITinyXMLParser-vc9.lib"
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"

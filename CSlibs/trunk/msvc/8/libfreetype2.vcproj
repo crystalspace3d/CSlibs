@@ -139,7 +139,7 @@
 				OutputFile="..\..\libs\Release-x64\libfreetype2-cs-x64.dll"
                                 MergeSections=".rdata=.text" 
 				DelayLoadDLLs="libz-cs.dll"
-				ImportLibrary="..\..\libs\Release\freetype2.lib"
+				ImportLibrary="..\..\libs\Release-x64\freetype2.lib"
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"

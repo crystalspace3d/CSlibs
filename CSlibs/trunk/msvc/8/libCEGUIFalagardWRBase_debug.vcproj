@@ -123,7 +123,7 @@
 				OutputFile="..\..\libs\ReleaseVC8Only-x64\libCEGUIFalagardWRBase-csvc8_d-x64.dll"
                                 MergeSections=".rdata=.text" 
 				DelayLoadDLLs=""
-				ImportLibrary="..\..\libs\ReleaseVC8Only\CEGUIFalagardWRBase-vc8_d.lib"
+				ImportLibrary="..\..\libs\ReleaseVC8Only-x64\CEGUIFalagardWRBase-vc8_d.lib"
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"

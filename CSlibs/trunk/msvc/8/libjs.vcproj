@@ -139,7 +139,7 @@
 				OutputFile="..\..\libs\ReleaseExtra-x64\libjs-cs-x64.dll"
                                 MergeSections=".rdata=.text" 
 				DelayLoadDLLs=""
-				ImportLibrary="..\..\libs\ReleaseExtra\js.lib"
+				ImportLibrary="..\..\libs\ReleaseExtra-x64\js.lib"
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"

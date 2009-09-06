@@ -123,7 +123,7 @@
 				OutputFile="..\..\libs\ReleaseWXVC8Only-x64\libwxmsw28u_gl-csvc8_d-x64.dll"
                                 MergeSections=".rdata=.text" 
 				DelayLoadDLLs=""
-				ImportLibrary="..\..\libs\ReleaseWXVC8Only\wxmsw28u_gl-vc8_d.lib"
+				ImportLibrary="..\..\libs\ReleaseWXVC8Only-x64\wxmsw28u_gl-vc8_d.lib"
 				AdditionalOptions=" "
 				AdditionalDependencies="opengl32.lib glu32.lib"
 				SuppressStartupBanner="TRUE"

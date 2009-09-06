@@ -141,7 +141,7 @@
                                 MergeSections=".rdata=.text" 
                                 ModuleDefinitionFile="../../source/libz/win32/zlib.def" 
 				DelayLoadDLLs=""
-				ImportLibrary="..\..\libs\Release\zlib.lib"
+				ImportLibrary="..\..\libs\Release-x64\zlib.lib"
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"

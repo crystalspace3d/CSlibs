@@ -123,7 +123,7 @@
 				OutputFile="..\..\libs\ReleaseWXVC8Only-x64\libwxbase28u-csvc8_d-x64.dll"
                                 MergeSections=".rdata=.text" 
 				DelayLoadDLLs=""
-				ImportLibrary="..\..\libs\ReleaseWXVC8Only\wxbase28u-vc8_d.lib"
+				ImportLibrary="..\..\libs\ReleaseWXVC8Only-x64\wxbase28u-vc8_d.lib"
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"

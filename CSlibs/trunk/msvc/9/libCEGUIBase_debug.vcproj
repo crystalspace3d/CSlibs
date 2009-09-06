@@ -123,7 +123,7 @@
 				OutputFile="..\..\libs\ReleaseVC9Only-x64\libCEGUIBase-csvc9_d-x64.dll"
                                 MergeSections=".rdata=.text" 
 				DelayLoadDLLs=""
-				ImportLibrary="..\..\libs\ReleaseVC9Only\CEGUIBase-vc9_d.lib"
+				ImportLibrary="..\..\libs\ReleaseVC9Only-x64\CEGUIBase-vc9_d.lib"
 				AdditionalOptions=" "
 				AdditionalDependencies="../../libs/Release/zlib.lib ../../libs/Release/freetype2.lib WinMM.lib"
 				SuppressStartupBanner="TRUE"

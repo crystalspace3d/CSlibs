@@ -123,7 +123,7 @@
 				OutputFile="..\..\libs\ReleaseWXVC8Only-x64\libwxmsw28u_core-csvc8_d-x64.dll"
                                 MergeSections=".rdata=.text" 
 				DelayLoadDLLs=""
-				ImportLibrary="..\..\libs\ReleaseWXVC8Only\wxmsw28u_core-vc8_d.lib"
+				ImportLibrary="..\..\libs\ReleaseWXVC8Only-x64\wxmsw28u_core-vc8_d.lib"
 				AdditionalOptions="/INCREMENTAL:NO "
 				AdditionalDependencies="comctl32.lib rpcrt4.lib"
 				SuppressStartupBanner="TRUE"

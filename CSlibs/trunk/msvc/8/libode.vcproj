@@ -139,7 +139,7 @@
 				OutputFile="..\..\libs\Release-x64\libode-cs-x64.dll"
                                 MergeSections=".rdata=.text" 
 				DelayLoadDLLs=""
-				ImportLibrary="..\..\libs\Release\ode.lib"
+				ImportLibrary="..\..\libs\Release-x64\ode.lib"
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
@@ -443,9 +443,6 @@
 				RelativePath="..\..\source\libode\OPCODE\OPC_BaseModel.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libode\OPCODE\OPC_BoxPruning.cpp">
-			</File>
-			<File
 				RelativePath="..\..\source\libode\OPCODE\OPC_Collider.cpp">
 			</File>
 			<File
@@ -480,12 +477,6 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libode\OPCODE\OPC_SphereCollider.cpp">
-			</File>
-			<File
-				RelativePath="..\..\source\libode\OPCODE\OPC_SweepAndPrune.cpp">
-			</File>
-			<File
-				RelativePath="..\..\source\libode\OPCODE\OPC_ThreadLocalData.cpp">
 			</File>
 			<File
 				RelativePath="..\..\source\libode\OPCODE\OPC_TreeBuilders.cpp">
@@ -696,9 +687,6 @@
 				RelativePath="..\..\source\libode\OPCODE\OPC_BoxBoxOverlap.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libode\OPCODE\OPC_BoxPruning.h">
-			</File>
-			<File
 				RelativePath="..\..\source\libode\OPCODE\OPC_Collider.h">
 			</File>
 			<File
@@ -763,12 +751,6 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libode\OPCODE\OPC_SphereTriOverlap.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libode\OPCODE\OPC_SweepAndPrune.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libode\OPCODE\OPC_ThreadLocalData.h">
 			</File>
 			<File
 				RelativePath="..\..\source\libode\OPCODE\OPC_TreeBuilders.h">
