@@ -187,7 +187,7 @@ END %]
 [% MACRO linker_library_shared BLOCK -%]
 [% linker_common -%]
 				DelayLoadDLLs="[% glue(my.doc.librarydelay,';','','.dll') %]"
-				ImportLibrary="[% importlib %]"
+				ImportLibrary="[% add_platform_suffix_dir(importlib) %]"
 [% END %]
 
 [% MACRO library_outfile(suffix) BLOCK -%]
