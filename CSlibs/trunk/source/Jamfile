@@ -51,8 +51,7 @@ rule LibCommon
     }
   }
   
-  if ! [ IsElem nostatic : $(options) ] && ( [ IsElem staticonly : $(options) ]
-    || [ Property build : projgen_version ] != 7 )
+  if ! [ IsElem nostatic : $(options) ]
   {
     SubVariant static ;
     MsvcSetTargetProp $(lib)_static : resources : no ;
@@ -204,18 +203,15 @@ rule ExtraLib
   {
     MsvcDefine $(lib) : $(d) ;
   }
-  if [ Property build : projgen_version ] != 7
+  for d in $(staticdef) 
   {
-    for d in $(staticdef) 
-    {
-      MsvcDefine $(lib)_static : $(d) ;
-    }
+    MsvcDefine $(lib)_static : $(d) ;
   }
   MsvcExtraFile $(lib) : $(rcfile) ;
   _SetBaseLibs $(lib) : $(baselibdeps) : $(options) ;
   
   MsvcSetTargetProp $(lib)_debug : configtemplatetag : debug ;
-  if ! [ IsElem fakestatic : $(options) ] && [ Property build : projgen_version ] != 7
+  if ! [ IsElem fakestatic : $(options) ]
   {
     MsvcSetTargetProp $(lib)_debug_static : configtemplatetag : debug ;
   }
@@ -224,7 +220,7 @@ rule ExtraLib
   {
     MsvcDefine $(lib)_debug : $(d) ;
   }
-  if ! [ IsElem fakestatic : $(options) ] && [ Property build : projgen_version ] != 7
+  if ! [ IsElem fakestatic : $(options) ]
   {
     for d in $(staticdef) 
     {
@@ -233,13 +229,6 @@ rule ExtraLib
   }
   MsvcExtraFile $(lib)_debug : $(rcfile) ;
   _SetBaseLibs $(lib)_debug : $(baselibdeps)_debug : $(options) ;
-  
-#  if [ IsElem fakestatic : $(options) ] && [ Property build : projgen_version ] != 7
-#  {
-#    local newopts = [ Filter $(options) : fakestatic ] fakestatic2 ;
-#    LIBNAME on $(lib)_static = $(libname) ;
-#    ExtraLib $(lib)_static : $(2) : $(rcfile) : $(4) : $(newopts) : $(dlldef) : : $(baselibdeps)_static : $(dllname) ;
-#  }
 }
 
 include $(TOP)/source/libz.jam ;
