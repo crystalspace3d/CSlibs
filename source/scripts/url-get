@@ -31,6 +31,9 @@ elif [ ${ARC_TYPE} == bz2 ] ; then
 elif [ ${ARC_TYPE} == zip ] ; then
   ARCHIVE=${TAR_BASE}.zip
   UNARC="unzip ${ARCHIVE}"
+elif [ ${ARC_TYPE} == xz ] ; then
+  ARCHIVE=${TAR_BASE}.tar.xz
+  UNARC="tar --use-compress-program=unxz -xvf ${ARCHIVE}"
 else
   echo Unsupported archive type ${ARC_TYPE}
   exit
