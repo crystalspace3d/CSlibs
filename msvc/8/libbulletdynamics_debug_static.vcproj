@@ -249,6 +249,9 @@
 				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btTypedConstraint.h">
 			</File>
 			<File
+				RelativePath="..\..\source\libbullet\src\BulletDynamics\Dynamics\btActionInterface.h">
+			</File>
+			<File
 				RelativePath="..\..\source\libbullet\src\BulletDynamics\Dynamics\btContinuousDynamicsWorld.h">
 			</File>
 			<File

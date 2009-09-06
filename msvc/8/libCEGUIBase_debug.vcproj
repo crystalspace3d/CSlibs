@@ -123,7 +123,7 @@
 				OutputFile="..\..\libs\ReleaseVC8Only-x64\libCEGUIBase-csvc8_d-x64.dll"
                                 MergeSections=".rdata=.text" 
 				DelayLoadDLLs=""
-				ImportLibrary="..\..\libs\ReleaseVC8Only\CEGUIBase-vc8_d.lib"
+				ImportLibrary="..\..\libs\ReleaseVC8Only-x64\CEGUIBase-vc8_d.lib"
 				AdditionalOptions=" "
 				AdditionalDependencies="WinMM.lib"
 				SuppressStartupBanner="TRUE"

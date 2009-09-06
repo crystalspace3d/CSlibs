@@ -141,7 +141,7 @@
                                 MergeSections=".rdata=.text" 
                                 ModuleDefinitionFile="../../source/libpng/scripts/pngw32.def" 
 				DelayLoadDLLs=""
-				ImportLibrary="..\..\libs\ReleaseNoCygwin\libpng.lib"
+				ImportLibrary="..\..\libs\ReleaseNoCygwin-x64\libpng.lib"
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
