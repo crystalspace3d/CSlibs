@@ -1,6 +1,6 @@
---- win32/vorbis.def.org	Fri Nov  2 11:04:18 2007
-+++ win32/vorbis.def	Fri Nov  2 11:05:27 2007
-@@ -49,9 +49,9 @@
+--- win32/vorbis.def.orig	Mon Nov 24 20:59:14 2008
++++ win32/vorbis.def	Sat Sep  5 22:14:44 2009
+@@ -49,11 +49,11 @@
  ;
  vorbis_window
  _analysis_output_always
@@ -16,3 +16,5 @@
 +;vorbis_encode_init_vbr
 +;vorbis_encode_setup_init
 +;vorbis_encode_ctl
+ ;
+ vorbis_version_string
