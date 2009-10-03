@@ -1,0 +1,11 @@
+diff -ur ../libspeex.org/win32/libspeex.def ./win32/libspeex.def
+--- ../libspeex.org/win32/libspeex.def	Fri Apr 25 11:21:06 2008
++++ ./win32/libspeex.def	Thu Feb 26 20:03:11 2009
+@@ -61,6 +61,7 @@
+ speex_init_header
+ speex_header_to_packet
+ speex_packet_to_header
++speex_header_free
+ 
+ ;
+ ;	speex_stereo.h

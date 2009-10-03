@@ -1,0 +1,37 @@
+SubDir TOP source libvorbis ;
+
+BaseLib vorbis : 
+  [ Filter [ Wildcard lib : *.c *.h ] : 
+    [ ConcatDirs lib psytune.c ]
+    [ ConcatDirs lib tone.c ]
+    [ ConcatDirs lib vorbisenc.c ]
+    [ ConcatDirs lib vorbisfile.c ]
+  ] :
+  vorbis :
+  $(SUBDIR)/win32/vorbis.def :
+  $(SUBDIR)/include source/libogg/include ;
+LibDepends vorbis : ogg ;
+MsvcDefine vorbis : LIBVORBIS_EXPORTS ;
+MsvcDefine vorbis : VORBIS_DYNAMIC_EXPORTS ;
+MsvcExtraFile vorbis : source/libvorbis.rc ;
+
+BaseLib vorbisfile : 
+  [ ConcatDirs lib vorbisfile.c ] :
+  vorbisfile :
+  $(SUBDIR)/win32/vorbisfile.def :
+  $(SUBDIR)/include source/libogg/include ;
+LibDepends vorbisfile : ogg vorbis ;
+MsvcDefine vorbisfile : LIBVORBISFILE_EXPORTS ;
+MsvcDefine vorbisfile : VORBISFILE_DYNAMIC_EXPORTS ;
+MsvcExtraFile vorbisfile : source/libvorbisfile.rc ;
+
+BaseLib vorbisenc : 
+  [ ConcatDirs lib vorbisenc.c ] :
+  vorbisenc :
+  $(SUBDIR)/win32/vorbisenc.def :
+  $(SUBDIR)/include source/libogg/include ;
+LibDepends vorbisenc : ogg vorbis ;
+MsvcDefine vorbisenc : LIBVORBIS_EXPORTS ;
+MsvcDefine vorbisenc : VORBIS_DYNAMIC_EXPORTS ;
+MsvcExtraFile vorbisenc : source/libvorbis.rc ;
+

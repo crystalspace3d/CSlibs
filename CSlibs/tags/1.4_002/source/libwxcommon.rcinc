@@ -1,0 +1,18 @@
+#define _T(X)   X
+
+#include "libwx/include/wx/version.h"
+
+#define VER_PRODUCT_NUMERIC	wxMAJOR_VERSION,wxMINOR_VERSION,wxRELEASE_NUMBER,wxSUBRELEASE_NUMBER
+#define	VER_PRODUCT_STR		wxVERSION_STRING
+#define	VER_DESCRIPTION		"wxWidgets for MSW"
+#define	VER_COPYRIGHT		"Copyright © 1993-2006 wxWidgets development team"
+#define VER_PRODUCTNAME		"wxWidgets"
+#define VER_INTERNAL		"wxMSW"
+#define VER_COMMENTS            "wxWidgets cross-platform GUI framework"
+
+#define _QUOTE(x) # x
+#define QUOTE(x) _QUOTE(x)
+#define	VERSION_MAJORMINOR	QUOTE(wxMAJOR_VERSION) QUOTE(wxMINOR_VERSION)
+
+
+#include "version.rcinc"

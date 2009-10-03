@@ -1,0 +1,21 @@
+diff -ru ../ode-0.9/ode/src/error.cpp ./ode/src/error.cpp
+--- ../ode-0.9/ode/src/error.cpp	Tue Sep 21 15:56:52 2004
++++ ./ode/src/error.cpp	Tue Nov 27 16:55:17 2007
+@@ -140,7 +140,7 @@
+     s[sizeof(s)-1] = 0;
+     MessageBox(0,s,title,MB_OK | MB_ICONWARNING);
+   }
+-  exit (1);
++  //exit (1);
+ }
+ 
+ 
+@@ -156,7 +156,7 @@
+     s[sizeof(s)-1] = 0;
+     MessageBox(0,s,title,MB_OK | MB_ICONSTOP);
+   }
+-  abort();
++  //abort();
+ }
+ 
+ 

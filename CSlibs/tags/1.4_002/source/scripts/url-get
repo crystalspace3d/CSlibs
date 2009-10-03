@@ -1,0 +1,46 @@
+#!/bin/sh
+
+LIBNAME=$1
+URL=$2
+TAR_BASE=$3
+ARC_TYPE=$4
+DIRNAME=$5
+if [ -z ${DIRNAME} ] ; then
+  DIRNAME=${TAR_BASE}
+fi
+
+REVFILE=${LIBNAME}.rev
+
+if [ -e ${LIBNAME} ] ; then
+  if [ -e ${REVFILE} ] ; then
+    CURRENT_VER=$(cat ${REVFILE})
+    if [ ${CURRENT_VER} == ${TAR_BASE} ] ; then
+      exit
+    fi
+  fi
+fi
+
+rm -rf ${LIBNAME}
+
+if [ ${ARC_TYPE} == gz ] ; then
+  ARCHIVE=${TAR_BASE}.tar.gz
+  UNARC="tar -xzvf ${ARCHIVE}"
+elif [ ${ARC_TYPE} == bz2 ] ; then
+  ARCHIVE=${TAR_BASE}.tar.bz2
+  UNARC="tar -xjvf ${ARCHIVE}"
+elif [ ${ARC_TYPE} == zip ] ; then
+  ARCHIVE=${TAR_BASE}.zip
+  UNARC="unzip ${ARCHIVE}"
+else
+  echo Unsupported archive type ${ARC_TYPE}
+  exit
+fi
+
+wget -c -O ${ARCHIVE} $URL
+${UNARC}
+rm ${ARCHIVE}
+mv ${DIRNAME} ${LIBNAME}
+
+echo ${TAR_BASE} > ${REVFILE}
+
+scripts/dopatch ${LIBNAME}
