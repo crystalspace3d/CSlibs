@@ -141,7 +141,7 @@
                                 MergeSections=".rdata=.text" 
                                 ModuleDefinitionFile="../../source/jpeg.def" 
 				DelayLoadDLLs=""
-				ImportLibrary="..\..\libs\Release-x64\libjpeg.lib"
+				ImportLibrary="..\..\libs\Release\libjpeg.lib"
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"

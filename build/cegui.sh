@@ -1,7 +1,5 @@
 #!/bin/sh
 
-TOP=`dirname $0`/
-
 platform=$1
 shift
 platform_short=$1
@@ -90,7 +88,11 @@ if [ x$mode != xstaticonly ]; then
     cp ${build}/WindowRendererSets/Falagard/src/.libs/*.dll ${prefix}/bin/
     cp ${build}/WindowRendererSets/Falagard/src/.libs/*.a ${prefix}/lib/
     
-    ${TOP}/debug-extract.sh `ls -1 ${prefix}/bin/*.dll`
+    for dll in `ls -1 ${prefix}/bin/*.dll` ; do
+      objcopy --only-keep-debug ${dll} ${dll}.dbg
+      objcopy --strip-unneeded ${dll}
+      objcopy --add-gnu-debuglink=${dll}.dbg ${dll}
+    done
     cp ${prefix}/bin/*.dll libs/ReleaseGCCOnly/${platform_short}
     cp ${prefix}/bin/*.dbg libs/ReleaseGCCOnly/${platform_short}
     for lib in CEGUIBase CEGUIFalagardWRBase CEGUITinyXMLParser ; do
@@ -143,7 +145,11 @@ if [ x$mode != xnostatic ]; then
   cp ${build}/src/.libs/*.dll ${prefix}/bin/
   cp ${build}/src/.libs/*.a ${prefix}/lib/
 
-  ${TOP}/debug-extract.sh `ls -1 temp/${library}/prefix-${platform_short}-static/bin/*.dll`
+  for dll in `ls -1 temp/${library}/prefix-${platform_short}-static/bin/*.dll` ; do
+    objcopy --only-keep-debug ${dll} ${dll}.dbg
+    objcopy --strip-unneeded ${dll}
+    objcopy --add-gnu-debuglink=${dll}.dbg ${dll}
+  done
   cp ${prefix}/bin/*.dll libs/ReleaseGCCOnly_static/${platform_short}
   cp ${prefix}/bin/*.dbg libs/ReleaseGCCOnly_static/${platform_short}
   for lib in CEGUIBase ; do

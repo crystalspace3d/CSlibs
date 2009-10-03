@@ -57,76 +57,80 @@ Source: ..\..\version.txt; DestDir: {app}; AfterInstall: WriteVersionTxt
 Source: ..\..\tools\Release\setuptool.dll; DestDir: {app}
 Source: ..\..\tools\Release\jam.exe; DestDir: {app}\tools; Components: Extra/Jam
 Source: ..\..\tools\Release\pkg-config.exe; DestDir: {app}\tools; Components: Extra/pkgconfig
-Source: ..\..\nosource\x86\dbghelp\dbghelp.dll; DestDir: {app}\dlls; Components: Extra/Dbghelp
-Source: ..\..\nosource\x86\Cg\dlls\*.*; DestDir: {app}\dlls; Flags: recursesubdirs; Components: Extra/Cg
+Source: ..\..\nosource\dbghelp\dbghelp.dll; DestDir: {app}\dlls; Components: Extra/Dbghelp
+Source: ..\..\nosource\Cg\dlls\*.*; DestDir: {app}\dlls; Flags: recursesubdirs; Components: Extra/Cg
 #ifndef STATIC
-Source: ..\..\syslibs\x86\*.manifest; DestDir: {app}\dlls; Components: Libs/Common
-Source: ..\..\syslibs\x86\*.dll; DestDir: {app}\dlls; Components: Libs/Common
+Source: ..\..\syslibs\*.manifest; DestDir: {app}\dlls; Components: Libs/Common
+Source: ..\..\syslibs\*.dll; DestDir: {app}\dlls; Components: Libs/Common
 Source: ..\..\libs\Release\*.dll; DestDir: {app}\dlls; Components: Libs/Common
+Source: ..\..\libs\ReleaseVC7Only\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC71Only\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC8Only\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC9Only\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
 Source: ..\..\libs\ReleaseGCCOnly\mingw\*.dll; DestDir: {app}\dlls\mingw; Flags: skipifsourcedoesntexist; Components: Libs/MinGW
 Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.4\*.dll; DestDir: {app}\dlls\mingw; Flags: skipifsourcedoesntexist; Components: Libs/MinGW
-Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-4.4\*.dll; DestDir: {app}\dlls\mingw; Flags: skipifsourcedoesntexist; Components: Libs/MinGW
 Source: ..\..\libs\ReleaseNoCygwin\*.dll; DestDir: {app}\dlls; Components: Libs/VC Libs/MinGW
 #else
+Source: ..\..\libs\ReleaseVC71Only_static\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC8Only_static\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC9Only_static\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
 Source: ..\..\libs\ReleaseGCCOnly_static\mingw\*.dll; DestDir: {app}\dlls\mingw; Flags: skipifsourcedoesntexist; Components: Libs/MinGW
 Source: ..\..\libs\ReleaseGCCOnly_static\mingw-gcc-3.4\*.dll; DestDir: {app}\dlls\mingw; Flags: skipifsourcedoesntexist; Components: Libs/MinGW
-Source: ..\..\libs\ReleaseGCCOnly_static\mingw-gcc-4.4\*.dll; DestDir: {app}\dlls\mingw; Flags: skipifsourcedoesntexist; Components: Libs/MinGW
 #endif
 #if 0
 Source: ..\..\libs\ReleaseExtra\libjs-cs.dll; DestDir: {app}\dlls; Components: Libs/Common
 #endif
 ; wxWidgets
+Source: ..\..\libs\ReleaseWXVC7Only\*.dll; DestDir: {app}\dlls\vc; Components: Libs/wxVC
+Source: ..\..\libs\ReleaseWXVC71Only\*.dll; DestDir: {app}\dlls\vc; Components: Libs/wxVC
 Source: ..\..\libs\ReleaseWXVC8Only\*.dll; DestDir: {app}\dlls\vc; Components: Libs/wxVC
 Source: ..\..\libs\ReleaseWXVC9Only\*.dll; DestDir: {app}\dlls\vc; Components: Libs/wxVC
 ; wxWidgets/MinGW
 Source: ..\..\libs\prefix-wx\mingw-gcc-3.4\lib\*.dll; DestDir: {app}\dlls\mingw; Components: Libs/wxMinGW
-Source: ..\..\libs\prefix-wx\mingw-gcc-4.4\lib\*.dll; DestDir: {app}\dlls\mingw; Components: Libs/wxMinGW
 
 ; .libs: common for both static/dynamic
-Source: ..\..\nosource\x86\OpenAL\libs\*.lib; DestDir: {app}\common\lib; Components: Libs/Common; AfterInstall: LibPostInstall
+Source: ..\..\nosource\OpenAL\libs\*.lib; DestDir: {app}\common\lib; Components: Libs/Common; AfterInstall: LibPostInstall
 Source: ..\..\directx\lib\*.*; DestDir: {app}\common\lib; Flags: recursesubdirs; Components: Extra/DXLibs; AfterInstall: LibPostInstall
-Source: ..\..\nosource\x86\python\*.*; DestDir: {app}\common\lib; Components: Extra/Python
-Source: ..\..\nosource\x86\Cg\lib\*.*; DestDir: {app}\common\lib; Flags: recursesubdirs; Components: Extra/Cg; AfterInstall: LibPostInstall
+Source: ..\..\nosource\python\*.*; DestDir: {app}\common\lib; Components: Extra/Python
+Source: ..\..\nosource\Cg\lib\*.*; DestDir: {app}\common\lib; Flags: recursesubdirs; Components: Extra/Cg; AfterInstall: LibPostInstall
 
 #ifndef STATIC
 ; Dynamic .libs
 Source: ..\..\libs\Release\*.lib; DestDir: {app}\common\lib; Components: Libs/Common; AfterInstall: LibPostInstall
+Source: ..\..\libs\ReleaseVC7Only\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC71Only\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC8Only\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC9Only\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseNoCygwin\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC;
 Source: ..\..\libs\ReleaseNoCygwin\*.lib; DestDir: {app}\mingw\lib; Components: Libs/MinGW; AfterInstall: LibPostInstall
 ; Bullet is always static
+Source: ..\..\libs\ReleaseVC7Only_static\bullet*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC71Only_static\bullet*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC8Only_static\bullet*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC9Only_static\bullet*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.4\lib*.a; DestDir: {app}\mingw-gcc-3.4\lib; Components: Libs/MinGW
-Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-4.4\lib*.a; DestDir: {app}\mingw-gcc-4.4\lib; Components: Libs/MinGW
+Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.4\lib*.a; DestDir: {app}\mingw\lib; Components: Libs/MinGW
 #else
 ; Static .libs
 Source: ..\..\libs\Release_static\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC71Only_static\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC8Only_static\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC9Only_static\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseNoCygwin_static\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseGCCOnly_static\mingw\*.a; DestDir: {app}\mingw\lib; Components: Libs/MinGW
-Source: ..\..\libs\ReleaseGCCOnly_static\mingw-gcc-3.4\lib*.a; DestDir: {app}\mingw-gcc-3.4\lib; Components: Libs/MinGW
-Source: ..\..\libs\ReleaseGCCOnly_static\mingw-gcc-4.4\lib*.a; DestDir: {app}\mingw-gcc-4.4\lib; Components: Libs/MinGW
-Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.4\libbullet*.a; DestDir: {app}\mingw-gcc-3.4\lib; Components: Libs/MinGW
-Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-4.4\libbullet*.a; DestDir: {app}\mingw-gcc-4.4\lib; Components: Libs/MinGW
-Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.4\libcal3d.a; DestDir: {app}\mingw-gcc-3.4\lib; Components: Libs/MinGW
-Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-4.4\libcal3d.a; DestDir: {app}\mingw-gcc-4.4\lib; Components: Libs/MinGW
+Source: ..\..\libs\ReleaseGCCOnly_static\mingw-gcc-3.4\lib*.a; DestDir: {app}\mingw\lib; Components: Libs/MinGW
+Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.4\libbullet*.a; DestDir: {app}\mingw\lib; Components: Libs/MinGW
+Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.4\libcal3d.a; DestDir: {app}\mingw\lib; Components: Libs/MinGW
 #endif
 #if 0
 Source: ..\..\libs\ReleaseExtra\*.lib; DestDir: {app}\common\lib; Components: Libs/Common
 #endif
 ; wxWidgets
+Source: ..\..\libs\ReleaseWXVC7Only\*.lib; DestDir: {app}\vc\lib; Components: Libs/wxVC
+Source: ..\..\libs\ReleaseWXVC71Only\*.lib; DestDir: {app}\vc\lib; Components: Libs/wxVC
 Source: ..\..\libs\ReleaseWXVC8Only\*.lib; DestDir: {app}\vc\lib; Components: Libs/wxVC
 Source: ..\..\libs\ReleaseWXVC9Only\*.lib; DestDir: {app}\vc\lib; Components: Libs/wxVC
 ; wxWidgets/MinGW
-Source: ..\..\libs\prefix-wx\mingw-gcc-3.4\lib\*.a; DestDir: {app}\mingw-gcc-3.4\lib; Components: Libs/wxMinGW
-Source: ..\..\libs\prefix-wx\mingw-gcc-4.4\lib\*.a; DestDir: {app}\mingw-gcc-4.4\lib; Components: Libs/wxMinGW
+Source: ..\..\libs\prefix-wx\mingw-gcc-3.4\lib\*.a; DestDir: {app}\mingw\lib; Components: Libs/wxMinGW
 
 ; headers
 Source: ..\..\headers\*.*; DestDir: {app}\common\include; Flags: recursesubdirs; Components: Libs/Common
@@ -140,31 +144,37 @@ Source: ..\..\headers-extra\*.*; DestDir: {app}\common\include; Flags: recursesu
 #else
 ;Source: ..\..\headers_dll\*.*; DestDir: {app}\include; Flags: recursesubdirs; Components: Libs/Common
 #endif
-Source: ..\..\nosource\all\OpenAL\include\*.*; DestDir: {app}\common\include\AL; Flags: recursesubdirs; Components: Libs/Common
+Source: ..\..\nosource\OpenAL\include\*.*; DestDir: {app}\common\include\AL; Flags: recursesubdirs; Components: Libs/Common
 Source: ..\..\directx\include\*.*; DestDir: {app}\common\include; Flags: recursesubdirs; Components: Extra/DXHeaders
-Source: ..\..\nosource\all\Cg\include\Cg\*.*; DestDir: {app}\common\include\Cg; Flags: recursesubdirs; Components: Extra/Cg
+Source: ..\..\nosource\Cg\include\Cg\*.*; DestDir: {app}\common\include\Cg; Flags: recursesubdirs; Components: Extra/Cg
 ; wxWidgets/VC
 Source: ..\..\headers-wx\*.*; DestDir: {app}\vc\include; Flags: recursesubdirs; Components: Libs/wxVC
 ; wxWidgets/MinGW
 Source: ..\..\libs\prefix-wx\mingw-gcc-3.4\include\*; DestDir: {app}\mingw\include; Flags: recursesubdirs; Components: Libs/wxMinGW
-Source: ..\..\libs\prefix-wx\mingw-gcc-3.4\lib\wx\*; DestDir: {app}\mingw-gcc-3.4\lib\wx; Flags: recursesubdirs; Components: Libs/wxMinGW
-Source: ..\..\libs\prefix-wx\mingw-gcc-4.4\lib\wx\*; DestDir: {app}\mingw-gcc-4.4\lib\wx; Flags: recursesubdirs; Components: Libs/wxMinGW
+Source: ..\..\libs\prefix-wx\mingw-gcc-3.4\lib\wx\*; DestDir: {app}\mingw\lib\wx; Flags: recursesubdirs; Components: Libs/wxMinGW
 
 #ifndef STATIC
 ; Debug info
 Source: ..\..\libs\Release\*.pdb; DestDir: {app}\dlls; Components: Extra/DebugInfo
+Source: ..\..\libs\ReleaseVC7Only\*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo
+Source: ..\..\libs\ReleaseVC71Only\*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo
 Source: ..\..\libs\ReleaseVC8Only\*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo
 Source: ..\..\libs\ReleaseVC9Only\*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo
+Source: ..\..\libs\ReleaseVC7Only_static\bullet*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC71Only_static\bullet*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC8Only_static\bullet*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC9Only_static\bullet*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseNoCygwin\*.pdb; DestDir: {app}\dlls; Components: Extra/DebugInfo
 Source: ..\..\libs\ReleaseGCCOnly\mingw\*.dbg; DestDir: {app}\dlls\mingw; Components: Extra/DebugInfo
 #else
+Source: ..\..\libs\ReleaseVC71Only_static\lib*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo
 Source: ..\..\libs\ReleaseVC8Only_static\lib*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo
 Source: ..\..\libs\ReleaseVC9Only_static\lib*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo
 Source: ..\..\libs\ReleaseGCCOnly_static\mingw\*.dbg; DestDir: {app}\dlls\mingw; Components: Extra/DebugInfo
 ; Always install pdbs for static libs (to avoid compiler complaints)
 Source: ..\..\libs\Release_static\*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC71Only_static\bullet*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC71Only_static\cal3d*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC8Only_static\bullet*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC8Only_static\cal3d*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC9Only_static\bullet*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
@@ -175,10 +185,10 @@ Source: ..\..\libs\ReleaseNoCygwin_static\*.pdb; DestDir: {app}\vc\lib; Componen
 Source: ..\..\libs\ReleaseExtra\*.pdb; DestDir: {app}\dlls; Components: Extra/DebugInfo
 #endif
 ; wxWidgets
+Source: ..\..\libs\ReleaseWXVC7Only\*.pdb; DestDir: {app}\dlls\vc; Components: Libs/wxVC and Extra/DebugInfo
+Source: ..\..\libs\ReleaseWXVC71Only\*.pdb; DestDir: {app}\dlls\vc; Components: Libs/wxVC and Extra/DebugInfo
 Source: ..\..\libs\ReleaseWXVC8Only\*.pdb; DestDir: {app}\dlls\vc; Components: Libs/wxVC and Extra/DebugInfo
 Source: ..\..\libs\ReleaseWXVC9Only\*.pdb; DestDir: {app}\dlls\vc; Components: Libs/wxVC and Extra/DebugInfo
-Source: ..\..\libs\prefix-wx\mingw-gcc-3.4\lib\*.dbg; DestDir: {app}\dlls\mingw; Components: Libs/wxMinGW and Extra/DebugInfo
-Source: ..\..\libs\prefix-wx\mingw-gcc-4.4\lib\*.dbg; DestDir: {app}\dlls\mingw; Components: Libs/wxMinGW and Extra/DebugInfo
 
 ; Misc stuff
 #ifdef STATIC
@@ -186,12 +196,10 @@ Source: ..\..\tools\freetype-config-static; DestDir: {app}\bin; DestName: freety
 #else
 Source: ..\..\tools\freetype-config; DestDir: {app}\bin; Components: Libs/Common
 #endif
-Source: ..\..\libs\prefix-wx\mingw-gcc-3.4\wx-config*; DestDir: {tmp}; Components: Libs/wxMinGW
-Source: ..\..\libs\prefix-wx\mingw-gcc-4.4\wx-config*; DestDir: {tmp}; Components: Libs/wxMinGW
-Source: ..\..\tools\wx-config; DestDir: {app}\tools; Components: Libs/wxMinGW
+Source: ..\..\libs\prefix-wx\mingw-gcc-3.4\wx-config; DestDir: {tmp}; Components: Libs/wxMinGW
 Source: ..\..\CrystalSpace home page.url; DestDir: {group}; Check: not WizardNoIcons
 ; stuff that's been compressed already
-Source: ..\..\nosource\all\OpenAL\installer\{#File_OpenALInstaller}; DestDir: {app}; Components: Extra/OpenALInstaller
+Source: ..\..\nosource\OpenAL\installer\{#File_OpenALInstaller}; DestDir: {app}; Components: Extra/OpenALInstaller
 Source: ..\..\out\support\VCsupport.exe; DestDir: {app}; Components: DESupport/VC
 Source: ..\..\out\support\MSYSsupport.exe; DestDir: {app}; Components: DESupport/MSYS
 Source: ..\..\out\support\Cygwinsupport.exe; DestDir: {app}; Components: DESupport/Cygwin
@@ -232,13 +240,12 @@ Name: Extra/DebugInfo; Description: Debug information; Types: custom full typVC 
 Name: Extra/Dbghelp; Description: DbgHelp.dll Debugging helper; Types: custom compact full typMinGW typVC typCygwin; Flags: disablenouninstallwarning
 Name: Extra/OpenALInstaller; Description: OpenAL runtime installer; Types: custom full; Flags: disablenouninstallwarning
 Name: DESupport; Description: Support for development environments; Types: custom full; Flags: disablenouninstallwarning
-Name: DESupport/VC; Description: VisualC 8.0, 9.0; Types: custom full typVC; Flags: disablenouninstallwarning
+Name: DESupport/VC; Description: VisualC 7.0, 7.1, 8.0, 9.0; Types: custom full typVC; Flags: disablenouninstallwarning
 Name: DESupport/MSYS; Description: MSYS; Types: custom full typMinGW; Flags: disablenouninstallwarning
 Name: DESupport/Cygwin; Description: Cygwin; Types: custom full typCygwin; Flags: disablenouninstallwarning
 [Run]
 Filename: rundll32.exe; Parameters: {code:GetShortenedAppDir}\setuptool.dll,WriteCSLibsConfig {code:GetShortenedAppDir}\
-Filename: rundll32.exe; Parameters: "{code:GetShortenedAppDir}\setuptool.dll,CreateFromTemplate ""destpath={app}\tools\wx-config-mingw-gcc-3.4"" ""srcpath={tmp}\wx-config-mingw-gcc-3.4"" ""libspath={app}\"""; StatusMsg: Generating wx-config; Components: Libs/wxMinGW
-Filename: rundll32.exe; Parameters: "{code:GetShortenedAppDir}\setuptool.dll,CreateFromTemplate ""destpath={app}\tools\wx-config-mingw-gcc-4.4"" ""srcpath={tmp}\wx-config-mingw-gcc-4.4"" ""libspath={app}\"""; StatusMsg: Generating wx-config; Components: Libs/wxMinGW
+Filename: rundll32.exe; Parameters: "{code:GetShortenedAppDir}\setuptool.dll,CreateFromTemplate ""destpath={app}\tools\wx-config"" ""srcpath={tmp}\wx-config"" ""libspath={app}\"""; StatusMsg: Generating wx-config; Components: Libs/wxMinGW
 Filename: {app}\{#File_OpenALInstaller}; Parameters: /S; WorkingDir: {app}; Components: Extra/OpenALInstaller; Check: RunOpenALInstaller; StatusMsg: Running OpenAL.org runtime installer
 Filename: {app}\CopyDLLs.exe; Description: Copy DLLs to CS directory; Flags: postinstall; WorkingDir: {app}; Parameters: {code:GetSupportParamsSilent}; Check: not CrossPresets; Components: Libs/Common Libs/VC Libs/MinGW
 Filename: {app}\CopyDLLs.exe; Description: Copy DLLs to CS directory; Flags: postinstall unchecked; WorkingDir: {app}; Parameters: {code:GetSupportParamsSilent}; Check: CrossPresets; Components: Libs/Common Libs/VC Libs/MinGW
@@ -253,7 +260,7 @@ Filename: {app}\Crosssupport.exe; Description: Set up Cross compiling support; F
 Name: {app}\tools; Type: filesandordirs
 Name: {app}\version.txt; Type: files
 Name: {app}\mingw\lib\pkgconfig; Type: filesandordirs
-Name: {app}\tools\wx-config*; Type: filesandordirs
+Name: {app}\tools\wx-config; Type: filesandordirs
 [Icons]
 Name: {group}\Read Me; Filename: {app}\Readme.rtf; WorkingDir: {app}; Comment: Important informations, known issues and solutions.
 Name: {group}\Deploying Applications Built Against cs-win32libs; Filename: {app}\Deploying Applications Built Against cs-win32libs; WorkingDir: {app}; Comment: Information on picking the right files from cs-win32libs when packaging applications for distribution
