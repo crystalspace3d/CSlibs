@@ -63,15 +63,10 @@ CollectSymbols collectsymbols_collect :
   libs/release 
   libs/releasenocygwin
   #libs/releaseextra 
-  libs/releasevc7only
-  libs/releasevc71only
-  libs/releasevc71only_static
   libs/releasevc8only
   libs/releasevc8only_static 
   libs/releasevc9only
   libs/releasevc9only_static 
-  libs/releasewxvc7only
-  libs/releasewxvc71only
   libs/releasewxvc8only
   libs/releasewxvc9only
   : $(SYMDIR) ;
@@ -86,11 +81,11 @@ UploadDir uploadsymbols : $(SYMDIR) :
 
 # Set up file lists.
 
-SubDir TOP nosource Cg dlls ;
+SubDir TOP nosource x86 Cg dlls ;
 FileListEntriesData [ Wildcard *.dll ] : : libs-common_cg ;
-SubDir TOP nosource Cg lib ;
+SubDir TOP nosource x86 Cg lib ;
 FileListEntriesData [ Wildcard *.lib ] : : libs-common_cg-link ;
-SubDir TOP nosource dbghelp ;
+SubDir TOP nosource x86 dbghelp ;
 FileListEntriesData [ Wildcard *.dll ] : : libs-common ;
 SubDir TOP libs release ;
 VORBISENC_FILES = [ Wildcard *vorbisenc* ] ;
@@ -105,15 +100,22 @@ FileListEntriesData [ Wildcard *.dll ] : : libs-common ;
 FileListEntriesData [ Wildcard *.pdb ] : : libs-common-debug ;
 FileListEntriesData [ Wildcard *.lib ] : : libs-common-link ;
 
-SubDir TOP libs releasegcconly mingw ;
-FileListEntriesData [ Wildcard *.dll ] : : libs-mingw ;
-FileListEntriesData [ Wildcard *.dbg ] : : libs-mingw-debug ;
-SubDir TOP libs releasegcconly mingw-gcc-3.4 ;
-FileListEntriesData [ Wildcard libCEGUI*.a libcal3d.a ] : : libs-mingw-link ;
+rule MinGWFileLists
+{
+  local ver = $(1) ;
+  SubDir TOP libs releasegcconly mingw ;
+  FileListEntriesData [ Wildcard *-$(ver)*.dll ] : : libs-mingw_$(ver) ;
+  FileListEntriesData [ Wildcard *-$(ver)*.dbg ] : : libs-mingw_$(ver)-debug ;
+  SubDir TOP libs releasegcconly mingw-gcc-$(ver) ;
+  FileListEntriesData [ Wildcard libCEGUI*.a libcal3d.a ] : : libs-mingw_$(ver)-link ;
 
-SubDir TOP libs prefix-wx mingw-gcc-3.4 lib ;
-FileListEntriesData [ Wildcard *.dll ] : : libs-wxmingw ;
-FileListEntriesData [ Wildcard *.a ] : : libs-wxmingw-link ;
+  SubDir TOP libs prefix-wx mingw-gcc-$(ver) lib ;
+  FileListEntriesData [ Wildcard *.dll ] : : libs-wxmingw_$(ver) ;
+  FileListEntriesData [ Wildcard *.a ] : : libs-wxmingw_$(ver)-link ;
+  FileListEntriesData [ Wildcard *.dbg ] : : libs-wxmingw_$(ver)-debug ;
+}
+MinGWFileLists 3.4 ;
+MinGWFileLists 4.4 ;
 
 rule VCFileLists
 {
@@ -157,7 +159,7 @@ rule AllMSMs
     MSIMergeModuleFromList winlibs.$(m).link : libs-$(m)-link : $(MSM_VER) ;
   }
 }
-AllMSMs common common_cg common_vorbisenc mingw vc7 vc7_d vc71 vc71_d vc8 vc8_d vc9 vc9_d wxmingw wxvc7 wxvc7_d wxvc71 wxvc71_d wxvc8 wxvc8_d wxvc9 wxvc9_d ;
+AllMSMs common common_cg common_vorbisenc mingw_3.4 mingw_4.4 vc8 vc8_d vc9 vc9_d wxmingw_3.4 wxmingw_4.4 wxvc8 wxvc8_d wxvc9 wxvc9_d ;
 MakeLocate winlibs.common_openal.msm : $(LOCATE.MSI) ;
 MSIMergeModule winlibs.common_openal.msm : source/setup/OpenALRuntime.wxs : "TOP=$(TOP)" "MSM_VER=$(MSM_VER)" ;
 
