@@ -1,0 +1,57 @@
+Compiling Stuff
+---------------
+
+Required tools:
+- MSVC 7,7.1,8,9
+- Recent MSYS/MinGW, with binutils >= 2.16.91, msys make* >= 3.81
+- InnoSetup >= 5.0.7
+- Python
+
+* Download make from the "MSYS Base System". Archive contains a make.exe.
+  If it contains mingw32-make.exe you fetched the wrong package.
+
+
+The source code is downloaded with source/getlibs.sh (change to the source/
+directory before running that script). You need a couple of tools: svn,
+tar, gzip, bzip2, unzip, wget (possibly others I forgot now).
+
+Before starting the building you need to do the following:
+- libpcre: copy pcre_chartables.c.dist to pcre_chartables.c;
+    copy pcre.h.generic to pcre.h
+- libCEGUI: create empty config.h in include/
+- libjs: compile jskwgen.c to an executable, run it with redirecting its
+    output to jsautokw.h
+
+The solutions in the projects directory should be built in the following
+order:
+- msvc/8/CSlibs.sln with VC8.0
+- msvc/7/CSlibs.sln with VC7.0
+- msvc/71/CSlibs.sln with VC7.1
+- msvc/9/CSlibs.sln with VC9.0
+
+The MinGW-only libs can be built by running build_mingw.sh. Some libraries
+may need special preparations:
+- libmng: run unmaintained/autogen.sh, copy makefiles/configure.in to the
+	  source root
+- libode: run ./autogen.sh
+- libcal3d: 
+    Run "aclocal && autoconf && autoheader && libtoolize -c && automake".
+- libcegui: run ./bootstrap
+- libbullet: run ./autogen.sh
+
+If you use Cygwin to run above scripts, note that sometimes symlinks are
+generated; MinGW doesn't support those, so you should check the source 
+directories for links and replace those with copies of the files linked.
+
+To copy the headers to the location where they are needed for setup
+generation, run copy_headers.sh.
+
+Last but not least, run the rebase.sh script. Rebasing is not mandatory, but
+gives a small performance advantage.
+
+To create the setup file:
+- Build projects\setuptool.sln
+- For Python <= 2.4: Run pyimportlib.cmd <python-dir> NN
+  where NN is the Python version you have installed (e.g. 24)
+- Compile the .iss files in source\setup with InnoSetup in the following order:
+  VCsupport, Cygwinsupport, MSYSsupport, CopyDLLs, Crosssupport, binaries

@@ -1,0 +1,10 @@
+EXPORTS
+  UninstDESupport
+  UninstDESupportW
+  WriteCSLibsConfig
+  AugmentBashProfile
+  CleanBashProfile
+  CreateFromTemplate
+  UnixToWine
+  WineToUnix
+  ToCygwin
