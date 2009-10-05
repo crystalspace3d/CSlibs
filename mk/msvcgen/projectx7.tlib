@@ -165,6 +165,7 @@ END %]
 [% MACRO linker_common BLOCK -%]
 				LinkIncremental="1"
 				OutputFile="[% add_platform_suffix(path([my.doc.buildroot.0, my.doc.target.0])) %]"
+				AdditionalLibraryDirectories="[% composedirs('libdirs', [], platform.suffix) %]"
 [% FOREACH linkerextra IN my.doc.linkerextraxml -%] 
                                 [% linkerextra %] 
 [% END -%]
