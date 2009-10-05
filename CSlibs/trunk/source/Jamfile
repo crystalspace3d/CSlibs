@@ -104,8 +104,10 @@ else
   
     if ! [ IsElem staticonly : $(options) ]
     {
-      SetProperty baseliblibs : $(1) : $(root)/libs/$(outdir)/$(3).lib ;
-      SetProperty baseliblibs : $(1)_debug : $(root)/libs/$(outdir)/$(3).lib ;
+      SetProperty baseliblibs : $(1) : $(3).lib ;
+      SetProperty baseliblibs : $(1)_debug : $(3).lib ;
+      SetProperty baseliblibdirs : $(1) : $(root)/libs/$(outdir) ;
+      SetProperty baseliblibdirs : $(1)_debug : $(root)/libs/$(outdir) ;
     }
     if ! [ IsElem nostatic : $(options) ]
     {
@@ -120,8 +122,10 @@ else
       }
       else
       {
-	SetProperty baseliblibs : $(1)_static : $(root)/libs/$(outdir)_static/$(3).lib ;
-	SetProperty baseliblibs : $(1)_static_debug : $(root)/libs/$(outdir)_static/$(3).lib ;
+	SetProperty baseliblibs : $(1)_static : $(3).lib ;
+	SetProperty baseliblibs : $(1)_static_debug : $(3).lib ;
+	SetProperty baseliblibdirs : $(1)_static : $(root)/libs/$(outdir)_static ;
+	SetProperty baseliblibdirs : $(1)_static_debug : $(root)/libs/$(outdir)_static ;
       }
     }
   }
@@ -151,6 +155,8 @@ rule _SetBaseLibs
       {
 	local libfile = [ Property baseliblibs : $(b) ] ;
 	MsvcExternalLibrary $(lib) : $(libfile) ;
+	local libdirs = [ Property baseliblibdirs : $(b) ] ;
+        MsvcLibDirs $(lib) : $(libdirs) ;
       }
     }
   }
