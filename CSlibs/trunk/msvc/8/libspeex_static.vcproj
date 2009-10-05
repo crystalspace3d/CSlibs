@@ -56,7 +56,6 @@
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories=""
 				ProgramDatabaseFile="..\..\libs\Release_static\speex.pdb"
 				TargetMachine="1"/>
 			<Tool
@@ -132,7 +131,6 @@
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories=""
 				ProgramDatabaseFile="..\..\libs\Release_static-x64\speex-x64.pdb"
 				TargetMachine="17"/>
 			<Tool

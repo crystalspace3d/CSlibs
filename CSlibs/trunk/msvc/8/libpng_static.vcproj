@@ -56,7 +56,6 @@
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories=""
 				ProgramDatabaseFile="..\..\libs\ReleaseNoCygwin_static\libpng.pdb"
 				TargetMachine="1"/>
 			<Tool
@@ -132,7 +131,6 @@
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories=""
 				ProgramDatabaseFile="..\..\libs\ReleaseNoCygwin_static-x64\libpng-x64.pdb"
 				TargetMachine="17"/>
 			<Tool

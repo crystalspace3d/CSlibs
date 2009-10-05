@@ -49,7 +49,6 @@
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories=""
 				ProgramDatabaseFile="..\..\libs\ReleaseVC9Only_static\bulletdynamics-vc9_d.pdb"
 				TargetMachine="1"/>
 			<Tool
@@ -118,7 +117,6 @@
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories=""
 				ProgramDatabaseFile="..\..\libs\ReleaseVC9Only_static-x64\bulletdynamics-vc9_d-x64.pdb"
 				TargetMachine="17"/>
 			<Tool

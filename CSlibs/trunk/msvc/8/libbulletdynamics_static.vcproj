@@ -56,7 +56,6 @@
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories=""
 				ProgramDatabaseFile="..\..\libs\ReleaseVC8Only_static\bulletdynamics-vc8.pdb"
 				TargetMachine="1"/>
 			<Tool
@@ -132,7 +131,6 @@
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories=""
 				ProgramDatabaseFile="..\..\libs\ReleaseVC8Only_static-x64\bulletdynamics-vc8-x64.pdb"
 				TargetMachine="17"/>
 			<Tool

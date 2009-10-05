@@ -56,13 +56,13 @@
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD"
 				LinkIncremental="1"
 				OutputFile="..\..\libs\ReleaseVC9Only_static\libCEGUIBase-csvc9.dll"
+				AdditionalLibraryDirectories="..\..\libs\Release_static"
                                 MergeSections=".rdata=.text" 
 				DelayLoadDLLs=""
 				ImportLibrary="..\..\libs\ReleaseVC9Only_static\CEGUIBase-vc9.lib"
 				AdditionalOptions=" "
-				AdditionalDependencies="../../libs/Release_static/zlib.lib ../../libs/Release_static/freetype2.lib WinMM.lib"
+				AdditionalDependencies="zlib.lib freetype2.lib WinMM.lib"
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories=""
 				ProgramDatabaseFile="..\..\libs\ReleaseVC9Only_static\libCEGUIBase-csvc9.pdb"
 				TargetMachine="1"/>
 			<Tool
@@ -137,13 +137,13 @@
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD"
 				LinkIncremental="1"
 				OutputFile="..\..\libs\ReleaseVC9Only_static-x64\libCEGUIBase-csvc9-x64.dll"
+				AdditionalLibraryDirectories="..\..\libs\Release_static-x64"
                                 MergeSections=".rdata=.text" 
 				DelayLoadDLLs=""
 				ImportLibrary="..\..\libs\ReleaseVC9Only_static-x64\CEGUIBase-vc9.lib"
 				AdditionalOptions=" "
-				AdditionalDependencies="../../libs/Release_static/zlib.lib ../../libs/Release_static/freetype2.lib WinMM.lib"
+				AdditionalDependencies="zlib.lib freetype2.lib WinMM.lib"
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories=""
 				ProgramDatabaseFile="..\..\libs\ReleaseVC9Only_static-x64\libCEGUIBase-csvc9-x64.pdb"
 				TargetMachine="17"/>
 			<Tool

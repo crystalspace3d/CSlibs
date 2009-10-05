@@ -55,7 +55,6 @@
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories=""
 				ProgramDatabaseFile="\..\."
 				TargetMachine="1"/>
 			<Tool
@@ -130,7 +129,6 @@
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories=""
 				ProgramDatabaseFile="\..-x64\-x64."
 				TargetMachine="17"/>
 			<Tool

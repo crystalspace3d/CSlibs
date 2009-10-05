@@ -48,13 +48,13 @@
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD,MSVCRT"
 				LinkIncremental="1"
 				OutputFile="..\..\libs\ReleaseWXVC9Only\libwxmsw28u_core-csvc9_d.dll"
+				AdditionalLibraryDirectories=""
                                 MergeSections=".rdata=.text" 
 				DelayLoadDLLs=""
 				ImportLibrary="..\..\libs\ReleaseWXVC9Only\wxmsw28u_core-vc9_d.lib"
 				AdditionalOptions="/INCREMENTAL:NO "
 				AdditionalDependencies="comctl32.lib rpcrt4.lib"
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories=""
 				ProgramDatabaseFile="..\..\libs\ReleaseWXVC9Only\libwxmsw28u_core-csvc9_d.pdb"
 				TargetMachine="1"/>
 			<Tool
@@ -121,13 +121,13 @@
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD,MSVCRT"
 				LinkIncremental="1"
 				OutputFile="..\..\libs\ReleaseWXVC9Only-x64\libwxmsw28u_core-csvc9_d-x64.dll"
+				AdditionalLibraryDirectories=""
                                 MergeSections=".rdata=.text" 
 				DelayLoadDLLs=""
 				ImportLibrary="..\..\libs\ReleaseWXVC9Only-x64\wxmsw28u_core-vc9_d.lib"
 				AdditionalOptions="/INCREMENTAL:NO "
 				AdditionalDependencies="comctl32.lib rpcrt4.lib"
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories=""
 				ProgramDatabaseFile="..\..\libs\ReleaseWXVC9Only-x64\libwxmsw28u_core-csvc9_d-x64.pdb"
 				TargetMachine="17"/>
 			<Tool

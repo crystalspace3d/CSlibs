@@ -48,13 +48,13 @@
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD,MSVCRT"
 				LinkIncremental="1"
 				OutputFile="..\..\libs\ReleaseVC9Only\libcal3d-csvc9_d.dll"
+				AdditionalLibraryDirectories=""
                                 MergeSections=".rdata=.text" 
 				DelayLoadDLLs=""
 				ImportLibrary="..\..\libs\ReleaseVC9Only\cal3d-vc9_d.lib"
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories=""
 				ProgramDatabaseFile="..\..\libs\ReleaseVC9Only\libcal3d-csvc9_d.pdb"
 				TargetMachine="1"/>
 			<Tool
@@ -121,13 +121,13 @@
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD,MSVCRT"
 				LinkIncremental="1"
 				OutputFile="..\..\libs\ReleaseVC9Only-x64\libcal3d-csvc9_d-x64.dll"
+				AdditionalLibraryDirectories=""
                                 MergeSections=".rdata=.text" 
 				DelayLoadDLLs=""
 				ImportLibrary="..\..\libs\ReleaseVC9Only-x64\cal3d-vc9_d.lib"
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories=""
 				ProgramDatabaseFile="..\..\libs\ReleaseVC9Only-x64\libcal3d-csvc9_d-x64.pdb"
 				TargetMachine="17"/>
 			<Tool
