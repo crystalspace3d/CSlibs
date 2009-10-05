@@ -4,6 +4,12 @@
 #define UninstIconGroup     "{reg:HKCU\" + CSLibsRegKey + ",ProgramGroup|{reg:HKLM\" + CSLibsRegKey + ",ProgramGroup|{userprograms}}}"
 #define CSDir 			        "{reg:HKCU\" + CSLibsRegKey + ",CSDirectory|{reg:HKLM\" + CSLibsRegKey + ",CSDirectory|{%CRYSTAL|{pf}\CrystalSpace}}}"
 
+#ifdef X64
+#define ArchSuffix      "-x64"
+#else
+#define ArchSuffix      ""
+#endif
+
 [Setup]
 AppName={#CSLibsName} {#SupportName} support
 AppVerName={#CSLibsName} {#SupportName} support {#CSLibsVersion}
@@ -17,7 +23,7 @@ EnableDirDoesntExistWarning=true
 AppendDefaultDirName=false
 DirExistsWarning=no
 OutputDir=..\..\out\support
-OutputBaseFilename={#SupportName}support
+OutputBaseFilename={#SupportName}support{#ArchSuffix}
 DefaultGroupName={code:GetProgramGroupName}
 UseSetupLdr=true
 SolidCompression=true
@@ -41,7 +47,7 @@ Root: HKCU; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstv
 Name: {group}\{code:GetIconTitle}; Filename: {uninstallexe}; WorkingDir: {app}; IconIndex: 0; Comment: {code:GetIconComment}; Check: InstallIcons
 [Messages]
 SelectDirDesc=Where is CrystalSpace installed?
-SelectDirLabel3=The CrystalSpace Win32 libraries have to be copied to the CrystalSpace source tree in order to use them with VC. Please locate your CrystalSpace directory.
+SelectDirLabel3=The {#CSLibsName} have to be copied to the CrystalSpace source tree in order to use them with VC. Please locate your CrystalSpace directory.
 FinishedLabel=Setup has finished installing [name] on your computer. You can set up {#SupportName} support for more CS source trees by re-running this setup.
 [Dirs]
 Name: {app}\win32libs; Flags: uninsalwaysuninstall
