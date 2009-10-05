@@ -56,6 +56,7 @@
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD"
 				LinkIncremental="1"
 				OutputFile="..\..\libs\Release\libz-cs.dll"
+				AdditionalLibraryDirectories=""
                                 MergeSections=".rdata=.text" 
                                 ModuleDefinitionFile="../../source/libz/win32/zlib.def" 
 				DelayLoadDLLs=""
@@ -63,7 +64,6 @@
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories=""
 				ProgramDatabaseFile="..\..\libs\Release\libz-cs.pdb"
 				TargetMachine="1"/>
 			<Tool
@@ -138,6 +138,7 @@
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD"
 				LinkIncremental="1"
 				OutputFile="..\..\libs\Release-x64\libz-cs-x64.dll"
+				AdditionalLibraryDirectories=""
                                 MergeSections=".rdata=.text" 
                                 ModuleDefinitionFile="../../source/libz/win32/zlib.def" 
 				DelayLoadDLLs=""
@@ -145,7 +146,6 @@
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories=""
 				ProgramDatabaseFile="..\..\libs\Release-x64\libz-cs-x64.pdb"
 				TargetMachine="17"/>
 			<Tool

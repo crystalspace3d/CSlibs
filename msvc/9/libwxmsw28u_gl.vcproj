@@ -56,13 +56,13 @@
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD"
 				LinkIncremental="1"
 				OutputFile="..\..\libs\ReleaseWXVC9Only\libwxmsw28u_gl-csvc9.dll"
+				AdditionalLibraryDirectories=""
                                 MergeSections=".rdata=.text" 
 				DelayLoadDLLs=""
 				ImportLibrary="..\..\libs\ReleaseWXVC9Only\wxmsw28u_gl-vc9.lib"
 				AdditionalOptions=" "
 				AdditionalDependencies="opengl32.lib glu32.lib"
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories=""
 				ProgramDatabaseFile="..\..\libs\ReleaseWXVC9Only\libwxmsw28u_gl-csvc9.pdb"
 				TargetMachine="1"/>
 			<Tool
@@ -137,13 +137,13 @@
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD"
 				LinkIncremental="1"
 				OutputFile="..\..\libs\ReleaseWXVC9Only-x64\libwxmsw28u_gl-csvc9-x64.dll"
+				AdditionalLibraryDirectories=""
                                 MergeSections=".rdata=.text" 
 				DelayLoadDLLs=""
 				ImportLibrary="..\..\libs\ReleaseWXVC9Only-x64\wxmsw28u_gl-vc9.lib"
 				AdditionalOptions=" "
 				AdditionalDependencies="opengl32.lib glu32.lib"
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories=""
 				ProgramDatabaseFile="..\..\libs\ReleaseWXVC9Only-x64\libwxmsw28u_gl-csvc9-x64.pdb"
 				TargetMachine="17"/>
 			<Tool

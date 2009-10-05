@@ -56,13 +56,13 @@
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD"
 				LinkIncremental="1"
 				OutputFile="..\..\libs\ReleaseVC8Only\libCEGUITinyXMLParser-csvc8.dll"
+				AdditionalLibraryDirectories=""
                                 MergeSections=".rdata=.text" 
 				DelayLoadDLLs=""
 				ImportLibrary="..\..\libs\ReleaseVC8Only\CEGUITinyXMLParser-vc8.lib"
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories=""
 				ProgramDatabaseFile="..\..\libs\ReleaseVC8Only\libCEGUITinyXMLParser-csvc8.pdb"
 				TargetMachine="1"/>
 			<Tool
@@ -137,13 +137,13 @@
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD"
 				LinkIncremental="1"
 				OutputFile="..\..\libs\ReleaseVC8Only-x64\libCEGUITinyXMLParser-csvc8-x64.dll"
+				AdditionalLibraryDirectories=""
                                 MergeSections=".rdata=.text" 
 				DelayLoadDLLs=""
 				ImportLibrary="..\..\libs\ReleaseVC8Only-x64\CEGUITinyXMLParser-vc8.lib"
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories=""
 				ProgramDatabaseFile="..\..\libs\ReleaseVC8Only-x64\libCEGUITinyXMLParser-csvc8-x64.pdb"
 				TargetMachine="17"/>
 			<Tool

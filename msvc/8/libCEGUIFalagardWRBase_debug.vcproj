@@ -48,13 +48,13 @@
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD,MSVCRT"
 				LinkIncremental="1"
 				OutputFile="..\..\libs\ReleaseVC8Only\libCEGUIFalagardWRBase-csvc8_d.dll"
+				AdditionalLibraryDirectories=""
                                 MergeSections=".rdata=.text" 
 				DelayLoadDLLs=""
 				ImportLibrary="..\..\libs\ReleaseVC8Only\CEGUIFalagardWRBase-vc8_d.lib"
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories=""
 				ProgramDatabaseFile="..\..\libs\ReleaseVC8Only\libCEGUIFalagardWRBase-csvc8_d.pdb"
 				TargetMachine="1"/>
 			<Tool
@@ -121,13 +121,13 @@
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD,MSVCRT"
 				LinkIncremental="1"
 				OutputFile="..\..\libs\ReleaseVC8Only-x64\libCEGUIFalagardWRBase-csvc8_d-x64.dll"
+				AdditionalLibraryDirectories=""
                                 MergeSections=".rdata=.text" 
 				DelayLoadDLLs=""
 				ImportLibrary="..\..\libs\ReleaseVC8Only-x64\CEGUIFalagardWRBase-vc8_d.lib"
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories=""
 				ProgramDatabaseFile="..\..\libs\ReleaseVC8Only-x64\libCEGUIFalagardWRBase-csvc8_d-x64.pdb"
 				TargetMachine="17"/>
 			<Tool

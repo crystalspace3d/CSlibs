@@ -56,13 +56,13 @@
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD"
 				LinkIncremental="1"
 				OutputFile="..\..\libs\ReleaseVC9Only\libCEGUIFalagardWRBase-csvc9.dll"
+				AdditionalLibraryDirectories=""
                                 MergeSections=".rdata=.text" 
 				DelayLoadDLLs=""
 				ImportLibrary="..\..\libs\ReleaseVC9Only\CEGUIFalagardWRBase-vc9.lib"
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories=""
 				ProgramDatabaseFile="..\..\libs\ReleaseVC9Only\libCEGUIFalagardWRBase-csvc9.pdb"
 				TargetMachine="1"/>
 			<Tool
@@ -137,13 +137,13 @@
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD"
 				LinkIncremental="1"
 				OutputFile="..\..\libs\ReleaseVC9Only-x64\libCEGUIFalagardWRBase-csvc9-x64.dll"
+				AdditionalLibraryDirectories=""
                                 MergeSections=".rdata=.text" 
 				DelayLoadDLLs=""
 				ImportLibrary="..\..\libs\ReleaseVC9Only-x64\CEGUIFalagardWRBase-vc9.lib"
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories=""
 				ProgramDatabaseFile="..\..\libs\ReleaseVC9Only-x64\libCEGUIFalagardWRBase-csvc9-x64.pdb"
 				TargetMachine="17"/>
 			<Tool

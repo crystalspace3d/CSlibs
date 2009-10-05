@@ -56,6 +56,7 @@
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD"
 				LinkIncremental="1"
 				OutputFile="..\..\libs\Release\libmng-cs.dll"
+				AdditionalLibraryDirectories=""
                                 MergeSections=".rdata=.text" 
                                 ModuleDefinitionFile="../../source/libmng/../libmng.def" 
 				DelayLoadDLLs="libjpeg-cs.dll"
@@ -63,7 +64,6 @@
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories=""
 				ProgramDatabaseFile="..\..\libs\Release\libmng-cs.pdb"
 				TargetMachine="1"/>
 			<Tool
@@ -138,6 +138,7 @@
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD"
 				LinkIncremental="1"
 				OutputFile="..\..\libs\Release-x64\libmng-cs-x64.dll"
+				AdditionalLibraryDirectories=""
                                 MergeSections=".rdata=.text" 
                                 ModuleDefinitionFile="../../source/libmng/../libmng.def" 
 				DelayLoadDLLs="libjpeg-cs.dll"
@@ -145,7 +146,6 @@
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories=""
 				ProgramDatabaseFile="..\..\libs\Release-x64\libmng-cs-x64.pdb"
 				TargetMachine="17"/>
 			<Tool

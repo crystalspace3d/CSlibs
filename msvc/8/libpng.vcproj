@@ -56,6 +56,7 @@
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD"
 				LinkIncremental="1"
 				OutputFile="..\..\libs\ReleaseNoCygwin\libpng-cs.dll"
+				AdditionalLibraryDirectories=""
                                 MergeSections=".rdata=.text" 
                                 ModuleDefinitionFile="../../source/libpng/scripts/pngw32.def" 
 				DelayLoadDLLs=""
@@ -63,7 +64,6 @@
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories=""
 				ProgramDatabaseFile="..\..\libs\ReleaseNoCygwin\libpng-cs.pdb"
 				TargetMachine="1"/>
 			<Tool
@@ -138,6 +138,7 @@
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD"
 				LinkIncremental="1"
 				OutputFile="..\..\libs\ReleaseNoCygwin-x64\libpng-cs-x64.dll"
+				AdditionalLibraryDirectories=""
                                 MergeSections=".rdata=.text" 
                                 ModuleDefinitionFile="../../source/libpng/scripts/pngw32.def" 
 				DelayLoadDLLs=""
@@ -145,7 +146,6 @@
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories=""
 				ProgramDatabaseFile="..\..\libs\ReleaseNoCygwin-x64\libpng-cs-x64.pdb"
 				TargetMachine="17"/>
 			<Tool

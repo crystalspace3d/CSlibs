@@ -56,6 +56,7 @@
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD"
 				LinkIncremental="1"
 				OutputFile="..\..\libs\Release\libvorbis-cs.dll"
+				AdditionalLibraryDirectories=""
                                 MergeSections=".rdata=.text" 
                                 ModuleDefinitionFile="../../source/libvorbis/win32/vorbis.def" 
 				DelayLoadDLLs=""
@@ -63,7 +64,6 @@
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories=""
 				ProgramDatabaseFile="..\..\libs\Release\libvorbis-cs.pdb"
 				TargetMachine="1"/>
 			<Tool
@@ -138,6 +138,7 @@
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD"
 				LinkIncremental="1"
 				OutputFile="..\..\libs\Release-x64\libvorbis-cs-x64.dll"
+				AdditionalLibraryDirectories=""
                                 MergeSections=".rdata=.text" 
                                 ModuleDefinitionFile="../../source/libvorbis/win32/vorbis.def" 
 				DelayLoadDLLs=""
@@ -145,7 +146,6 @@
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories=""
 				ProgramDatabaseFile="..\..\libs\Release-x64\libvorbis-cs-x64.pdb"
 				TargetMachine="17"/>
 			<Tool

@@ -56,7 +56,6 @@
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories=""
 				ProgramDatabaseFile="..\..\libs\Temp_static\wxjpeg.pdb"
 				TargetMachine="1"/>
 			<Tool
@@ -132,7 +131,6 @@
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories=""
 				ProgramDatabaseFile="..\..\libs\Temp_static-x64\wxjpeg-x64.pdb"
 				TargetMachine="17"/>
 			<Tool
