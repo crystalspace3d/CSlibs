@@ -148,7 +148,7 @@ Source: ..\..\libs\prefix-wx\mingw-gcc-4.4\lib\*.dll; DestDir: {app}\dlls\mingw;
 ; .libs: common for both static/dynamic
 Source: ..\..\nosource\{#ArchName}\OpenAL\libs\*.lib; DestDir: {app}\common\lib; Components: Libs/Common; AfterInstall: LibPostInstall
 #ifndef X64
-Source: ..\..\directx\lib\*.*; DestDir: {app}\common\lib; Flags: recursesubdirs; Components: Extra/DXLibs; AfterInstall: LibPostInstall
+Source: ..\..\nosource\{#ArchName}\directx\lib\*.*; DestDir: {app}\common\lib; Flags: recursesubdirs; Components: Extra/DXLibs; AfterInstall: LibPostInstall
 Source: ..\..\nosource\{#ArchName}\python\*.*; DestDir: {app}\common\lib; Components: Extra/Python
 #endif
 Source: ..\..\nosource\{#ArchName}\Cg\lib\*.*; DestDir: {app}\common\lib; Flags: recursesubdirs; Components: Extra/Cg; AfterInstall: LibPostInstall
@@ -212,7 +212,7 @@ Source: ..\..\headers-extra\*.*; DestDir: {app}\common\include; Flags: recursesu
 ;Source: ..\..\headers_dll\*.*; DestDir: {app}\include; Flags: recursesubdirs; Components: Libs/Common
 #endif
 Source: ..\..\nosource\all\OpenAL\include\*.*; DestDir: {app}\common\include\AL; Flags: recursesubdirs; Components: Libs/Common
-Source: ..\..\directx\include\*.*; DestDir: {app}\common\include; Flags: recursesubdirs; Components: Extra/DXHeaders
+Source: ..\..\nosource\all\directx\include\*.*; DestDir: {app}\common\include; Flags: recursesubdirs; Components: Extra/DXHeaders
 Source: ..\..\nosource\all\Cg\include\Cg\*.*; DestDir: {app}\common\include\Cg; Flags: recursesubdirs; Components: Extra/Cg
 ; wxWidgets/VC
 Source: ..\..\headers-wx\*.*; DestDir: {app}\vc\include; Flags: recursesubdirs; Components: Libs/wxVC
