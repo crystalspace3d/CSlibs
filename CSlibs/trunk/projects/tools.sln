@@ -1,8 +1,10 @@
-Microsoft Visual Studio Solution File, Format Version 9.00
-# Visual C++ Express 2005
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "setuptool", "setuptool.vcproj", "{BD9F766F-A047-4AD8-8DAF-0DDA61619EC6}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "jam", "jam.vcproj", "{29FCED00-2C5B-4DF9-82E3-6E14C760CAD2}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "imppatch", "imppatch.vcproj", "{5458CF74-7364-40A8-84B7-37E221EC7D04}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,6 +20,10 @@ Global
 		{29FCED00-2C5B-4DF9-82E3-6E14C760CAD2}.Debug|Win32.Build.0 = Debug|Win32
 		{29FCED00-2C5B-4DF9-82E3-6E14C760CAD2}.Release|Win32.ActiveCfg = Release|Win32
 		{29FCED00-2C5B-4DF9-82E3-6E14C760CAD2}.Release|Win32.Build.0 = Release|Win32
+		{5458CF74-7364-40A8-84B7-37E221EC7D04}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5458CF74-7364-40A8-84B7-37E221EC7D04}.Debug|Win32.Build.0 = Debug|Win32
+		{5458CF74-7364-40A8-84B7-37E221EC7D04}.Release|Win32.ActiveCfg = Release|Win32
+		{5458CF74-7364-40A8-84B7-37E221EC7D04}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
