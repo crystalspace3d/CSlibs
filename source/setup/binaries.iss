@@ -80,10 +80,7 @@ Name: Libs/wxMinGW; Description: wxWidgets (MinGW); Types: custom full typMinGW 
 Name: Extra; Description: Additional components; Types: custom full; Flags: disablenouninstallwarning
 Name: Extra/Cg; Description: Cg headers & libraries; Types: custom full typVC {#GccTypes}; Flags: disablenouninstallwarning
 Name: Extra/DXHeaders; Description: Minimal DirectX 9 headers; Types: custom full typVC {#GccTypes}; Flags: disablenouninstallwarning
-#ifndef X64
-; Have no x64 libs for that yet
 Name: Extra/DXLibs; Description: Minimal DirectX 9 libraries; Types: custom full {#GccTypes}; Flags: disablenouninstallwarning
-#endif
 Name: Extra/Jam; Description: Jam build tool; Types: custom full {#GccTypes_noxcompile}; Flags: disablenouninstallwarning
 #ifndef X64
 Name: Extra/pkgconfig; Description: pkg-config build helper; Types: custom full {#GccTypes_noxcompile}; Flags: disablenouninstallwarning
@@ -147,8 +144,8 @@ Source: ..\..\libs\prefix-wx\mingw-gcc-4.4\lib\*.dll; DestDir: {app}\dlls\mingw;
 
 ; .libs: common for both static/dynamic
 Source: ..\..\nosource\{#ArchName}\OpenAL\libs\*.lib; DestDir: {app}\common\lib; Components: Libs/Common; AfterInstall: LibPostInstall
-#ifndef X64
 Source: ..\..\nosource\{#ArchName}\directx\lib\*.*; DestDir: {app}\common\lib; Flags: recursesubdirs; Components: Extra/DXLibs; AfterInstall: LibPostInstall
+#ifndef X64
 Source: ..\..\nosource\{#ArchName}\python\*.*; DestDir: {app}\common\lib; Components: Extra/Python
 #endif
 Source: ..\..\nosource\{#ArchName}\Cg\lib\*.*; DestDir: {app}\common\lib; Flags: recursesubdirs; Components: Extra/Cg; AfterInstall: LibPostInstall
@@ -279,7 +276,7 @@ Source: ..\..\out\support\MSYSsupport.exe; DestDir: {app}; Components: DESupport
 Source: ..\..\out\support\Cygwinsupport.exe; DestDir: {app}; Components: DESupport/Cygwin
 Source: ..\..\out\support\Crosssupport.exe; DestDir: {app}; Check: IsWinePresent
 #endif
-Source: ..\..\out\support\CopyDLLs.exe; DestDir: {app}; Components: Libs/Common Libs/VC {#Libs_MinGW}
+Source: ..\..\out\support\CopyDLLs{#ArchSuffix}.exe; DestDir: {app}; Components: Libs/Common Libs/VC {#Libs_MinGW}
 [Dirs]
 Name: {app}\tools; Flags: uninsalwaysuninstall
 Name: {app}\support; Flags: uninsalwaysuninstall
@@ -306,9 +303,9 @@ Filename: rundll32.exe; Parameters: "{code:GetShortenedAppDir}\setuptool.dll,Cre
 Filename: rundll32.exe; Parameters: "{code:GetShortenedAppDir}\setuptool.dll,CreateFromTemplate ""destpath={app}\tools\wx-config-mingw-gcc-4.4"" ""srcpath={tmp}\wx-config-mingw-gcc-4.4"" ""libspath={app}\"""; StatusMsg: Generating wx-config; Components: Libs/wxMinGW
 #endif
 Filename: {app}\{#File_OpenALInstaller}; Parameters: /S; WorkingDir: {app}; Components: Extra/OpenALInstaller; Check: RunOpenALInstaller; StatusMsg: Running OpenAL.org runtime installer
-Filename: {app}\CopyDLLs.exe; Description: Copy DLLs to CS directory; Flags: postinstall; WorkingDir: {app}; Parameters: {code:GetSupportParamsSilent}; Check: not CrossPresets; Components: Libs/Common Libs/VC {#Libs_MinGW}
-Filename: {app}\CopyDLLs.exe; Description: Copy DLLs to CS directory; Flags: postinstall unchecked; WorkingDir: {app}; Parameters: {code:GetSupportParamsSilent}; Check: CrossPresets; Components: Libs/Common Libs/VC {#Libs_MinGW}
-Filename: {app}\VCsupport.exe; Description: Set up VisualC support; Flags: postinstall; Components: DESupport/VC; WorkingDir: {app}; Parameters: {code:GetSupportParamsSilent}
+Filename: {app}\CopyDLLs{#ArchSuffix}.exe; Description: Copy DLLs to CS directory; Flags: postinstall; WorkingDir: {app}; Parameters: {code:GetSupportParamsSilent}; Check: not CrossPresets; Components: Libs/Common Libs/VC {#Libs_MinGW}
+Filename: {app}\CopyDLLs{#ArchSuffix}.exe; Description: Copy DLLs to CS directory; Flags: postinstall unchecked; WorkingDir: {app}; Parameters: {code:GetSupportParamsSilent}; Check: CrossPresets; Components: Libs/Common Libs/VC {#Libs_MinGW}
+Filename: {app}\VCsupport{#ArchSuffix}.exe; Description: Set up VisualC support; Flags: postinstall; Components: DESupport/VC; WorkingDir: {app}; Parameters: {code:GetSupportParamsSilent}
 #ifndef X64
 Filename: {app}\MSYSsupport.exe; Description: Set up MSYS support; Flags: postinstall; Components: DESupport/MSYS; WorkingDir: {app}; Parameters: {code:GetSupportParams}
 Filename: {app}\Cygwinsupport.exe; Description: Set up Cygwin support; Flags: postinstall; Components: DESupport/Cygwin; WorkingDir: {app}; Parameters: {code:GetSupportParams}
@@ -320,6 +317,7 @@ Filename: {app}\Crosssupport.exe; Description: Set up Cross compiling support; F
 [UninstallDelete]
 Name: {app}\tools; Type: filesandordirs
 Name: {app}\version.txt; Type: files
+Name: {app}\common; Type: filesandordirs
 Name: {app}\common\lib\pkgconfig; Type: filesandordirs
 #ifndef X64
 Name: {app}\mingw\lib\pkgconfig; Type: filesandordirs
