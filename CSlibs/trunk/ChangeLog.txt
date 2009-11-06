@@ -1,3 +1,6 @@
+1.9_002 (2009-11-06):
+ - DirectX libs: add dinput8.lib, remove ddraw.lib, provide x64 versions.
+
 1.9_001 (2009-10-03):
  - Update libpng to 1.2.39.
  - Update libogg to 1.1.4.
