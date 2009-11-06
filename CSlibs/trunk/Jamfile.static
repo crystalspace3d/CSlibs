@@ -69,6 +69,15 @@ CollectSymbols collectsymbols_collect :
   libs/releasevc9only_static 
   libs/releasewxvc8only
   libs/releasewxvc9only
+  libs/release-x64
+  libs/releasenocygwin-x64
+  #libs/releaseextra-x64
+  libs/releasevc8only-x64
+  libs/releasevc8only_static-x64
+  libs/releasevc9only-x64
+  libs/releasevc9only_static-x64
+  libs/releasewxvc8only-x64
+  libs/releasewxvc9only-x64
   : $(SYMDIR) ;
 Depends collectsymbols_compress : collectsymbols_collect ;
 CompressSymbols collectsymbols_compress : $(SYMDIR) ;
