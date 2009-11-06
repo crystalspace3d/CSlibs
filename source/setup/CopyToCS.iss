@@ -5,6 +5,12 @@
 #define CSLibsPathKey   "{reg:HKCU\" + CSLibsRegKey + ",InstallPath|{reg:HKLM\" + CSLibsRegKey + ",InstallPath|{pf}\CrystalSpaceLibs}}"
 #define CSDir 			        "{reg:HKCU\" + CSLibsRegKey + ",CSDirectory|{reg:HKLM\" + CSLibsRegKey + ",CSDirectory|{%CRYSTAL|{pf}\CrystalSpace}}}"
 
+#ifdef X64
+#define ArchSuffix      "-x64"
+#else
+#define ArchSuffix      ""
+#endif
+
 [Setup]
 AppName=Copy {#CSLibsName} DLLs to CS directory
 AppVerName=Copy {#CSLibsName} {#CSLibsVersion} DLLs to CS directory
@@ -17,7 +23,7 @@ EnableDirDoesntExistWarning=true
 AppendDefaultDirName=false
 DirExistsWarning=no
 OutputDir=..\..\out\support
-OutputBaseFilename=CopyDLLs
+OutputBaseFilename=CopyDLLs{#ArchSuffix}
 DefaultGroupName={code:GetProgramGroupName}
 UseSetupLdr=true
 SolidCompression=true
