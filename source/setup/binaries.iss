@@ -80,7 +80,7 @@ Name: Libs/wxMinGW; Description: wxWidgets (MinGW); Types: custom full typMinGW 
 Name: Extra; Description: Additional components; Types: custom full; Flags: disablenouninstallwarning
 Name: Extra/Cg; Description: Cg headers & libraries; Types: custom full typVC {#GccTypes}; Flags: disablenouninstallwarning
 Name: Extra/DXHeaders; Description: Minimal DirectX 9 headers; Types: custom full typVC {#GccTypes}; Flags: disablenouninstallwarning
-Name: Extra/DXLibs; Description: Minimal DirectX 9 libraries; Types: custom full {#GccTypes}; Flags: disablenouninstallwarning
+Name: Extra/DXLibs; Description: Minimal DirectX 9 libraries; Types: custom full typVC {#GccTypes}; Flags: disablenouninstallwarning
 Name: Extra/Jam; Description: Jam build tool; Types: custom full {#GccTypes_noxcompile}; Flags: disablenouninstallwarning
 #ifndef X64
 Name: Extra/pkgconfig; Description: pkg-config build helper; Types: custom full {#GccTypes_noxcompile}; Flags: disablenouninstallwarning
