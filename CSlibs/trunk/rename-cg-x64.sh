@@ -33,7 +33,3 @@ createimportlib()
 }
 createimportlib nosource/x64/Cg/dlls/cg-x64.dll nosource/x64/Cg/lib/cg.lib
 createimportlib nosource/x64/Cg/dlls/cgGL-x64.dll nosource/x64/Cg/lib/cgGL.lib
-
-
-cp nosource/x86/Cg/dlls/cg.dll nosource/x86/Cg/dlls/cg-foo.dll
-createimportlib nosource/x86/Cg/dlls/cg-foo.dll nosource/x86/Cg/lib/cg.lib
