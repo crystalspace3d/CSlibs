@@ -1,38 +1,35 @@
-Index: src/CEGUIDynamicModule.cpp
+Index: cegui/src/CEGUIDynamicModule.cpp
 ===================================================================
---- src/CEGUIDynamicModule.cpp	(Revision 1734)
-+++ src/CEGUIDynamicModule.cpp	(Arbeitskopie)
-@@ -69,6 +69,18 @@
+--- cegui/src/CEGUIDynamicModule.cpp	(Revision 2337)
++++ cegui/src/CEGUIDynamicModule.cpp	(Arbeitskopie)
+@@ -90,6 +90,30 @@
      if (d_moduleName.substr(d_moduleName.length() - 3, 3) != ".so")
          d_moduleName += ".so";
  #endif
 +    // cs-win32libs: Prefix & suffix
 +#ifdef CEGUI_FACTORYMODULE_PREFIX
-+    d_moduleName.insert(0, CEGUI_FACTORYMODULE_PREFIX);
++    if (d_moduleName.substr(0, strlen(CEGUI_FACTORYMODULE_PREFIX)) != CEGUI_FACTORYMODULE_PREFIX)
++        d_moduleName.insert(0, CEGUI_FACTORYMODULE_PREFIX);
 +#endif
 +#ifdef CEGUI_FACTORYMODULE_SUFFIX
++    // strip .so extension before postfixing, will get added again below
 +    if (d_moduleName.substr(d_moduleName.length() - 4, 4) == ".dll")
-+      d_moduleName.insert(d_moduleName.length() - 4, 
-+	CEGUI_FACTORYMODULE_SUFFIX);
-+    else
-+      d_moduleName += CEGUI_FACTORYMODULE_SUFFIX;
-+#endif
-+	  
-     // Optionally add a _d to the module name for the debug config on Win32
- #if (defined(__WIN32__) || defined(_WIN32))
- #   if defined (_DEBUG) && defined (CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG)
-Index: configure.ac
-===================================================================
---- configure.ac	(Revision 1734)
-+++ configure.ac	(Arbeitskopie)
-@@ -30,6 +30,10 @@
- # Initialise libtool
- AM_PROG_LIBTOOL
- 
-+# CSism
-+DLLSUFFIX=-cs${CEGUI_PLATFORM}
-+AC_SUBST(DLLSUFFIX)
++        d_moduleName = d_moduleName.substr(0, d_moduleName.length() - 4);
 +
- # Setup some stuff depending on the system we're running on
- case $host_os in
-     *mingw32* ) MINGW32=yes;;
++    #ifdef CEGUI_HAS_BUILD_SUFFIX
++        // append a suffix (like _d for debug builds, etc)
++        d_moduleName += CEGUI_BUILD_SUFFIX;
++    #endif
++
++    #ifdef CEGUI_HAS_VERSION_SUFFIX
++        d_moduleName += "-";
++        d_moduleName += CEGUI_VERSION_SUFFIX;
++    #endif
++    
++    if (d_moduleName.substr(d_moduleName.length() - 4, 4) != ".dll")
++        d_moduleName += ".dll";
++#endif
++
+     // Optionally add a _d to the module name for the debug config on Win32
+ #if defined(__WIN32__) || defined(_WIN32)
+ #   if defined (_DEBUG) && defined (CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG)

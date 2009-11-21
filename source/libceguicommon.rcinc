@@ -1,4 +1,4 @@
-#include "libCEGUI/include/CEGUIVersion.h"
+#include "libCEGUI/cegui/include/CEGUIVersion.h"
 
 #define VER_PRODUCT_NUMERIC	CEGUI_VERSION_MAJOR,CEGUI_VERSION_MINOR,CEGUI_VERSION_PATCH,0
 #define _QUOTE(x) # x
@@ -6,7 +6,7 @@
 #define	VER_PRODUCT_STR		\
   QUOTE(CEGUI_VERSION_MAJOR) "."  QUOTE(CEGUI_VERSION_MINOR) "." QUOTE(CEGUI_VERSION_PATCH)
 #define	VER_DESCRIPTION		"Crazy Eddie's GUI System Mk-2"
-#define	VER_COPYRIGHT		"Copyright ©2004 - 2008 CEGUI Team & Contributing Authors"
+#define	VER_COPYRIGHT		"Copyright © 2004 - 2009 Paul D Turner & The CEGUI Development Team"
 #define VER_PRODUCTNAME		"CEGUI"
 
 #include "version.rcinc"

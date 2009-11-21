@@ -18,7 +18,6 @@ tar, gzip, bzip2, unzip, wget (possibly others I forgot now).
 Before starting the building you need to do the following:
 - libpcre: copy pcre_chartables.c.dist to pcre_chartables.c;
     copy pcre.h.generic to pcre.h
-- libCEGUI: create empty config.h in include/
 - libjs: compile jskwgen.c to an executable, run it with redirecting its
     output to jsautokw.h
 
