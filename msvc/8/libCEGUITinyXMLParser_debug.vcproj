@@ -29,7 +29,7 @@
 				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;CEGUITINYXMLPARSER_EXPORTS;CEGUI_TINYXML_H=&quot;\&quot;ceguitinyxml/tinyxml.h\&quot;&quot;;CEGUI_TINYXML_NAMESPACE=CEGUITinyXML;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
-				AdditionalIncludeDirectories=".;..\..\source\libCEGUI\include"
+				AdditionalIncludeDirectories=".;..\..\source\libCEGUI\cegui\include;..\..\source\libCEGUI\cegui\include\XMLParserModules\TinyXMLParser"
 				PrecompiledHeaderFile="..\..\out\debug8\build\libCEGUITinyXMLParser_debug\libCEGUITinyXMLParser_debug.pch"
 				AssemblerListingLocation="..\..\out\debug8\build\libCEGUITinyXMLParser_debug\"
 				ObjectFile="..\..\out\debug8\build\libCEGUITinyXMLParser_debug\"
@@ -77,7 +77,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;CEGUITINYXMLPARSER_EXPORTS;CEGUI_TINYXML_H=&quot;\&quot;ceguitinyxml/tinyxml.h\&quot;&quot;;CEGUI_TINYXML_NAMESPACE=CEGUITinyXML;PROJECTGEN_VERSION=8"
-				AdditionalIncludeDirectories=".;..\..\source\libCEGUI;..\..\source\libCEGUI\include"
+				AdditionalIncludeDirectories=".;..\..\source\libCEGUI;..\..\source\libCEGUI\cegui\include;..\..\source\libCEGUI\cegui\include\XMLParserModules\TinyXMLParser"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
@@ -102,7 +102,7 @@
 				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;CEGUITINYXMLPARSER_EXPORTS;CEGUI_TINYXML_H=&quot;\&quot;ceguitinyxml/tinyxml.h\&quot;&quot;;CEGUI_TINYXML_NAMESPACE=CEGUITinyXML;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
-				AdditionalIncludeDirectories=".;..\..\source\libCEGUI\include"
+				AdditionalIncludeDirectories=".;..\..\source\libCEGUI\cegui\include;..\..\source\libCEGUI\cegui\include\XMLParserModules\TinyXMLParser"
 				PrecompiledHeaderFile="..\..\out\debug8-x64\build\libCEGUITinyXMLParser_debug\libCEGUITinyXMLParser_debug.pch"
 				AssemblerListingLocation="..\..\out\debug8-x64\build\libCEGUITinyXMLParser_debug\"
 				ObjectFile="..\..\out\debug8-x64\build\libCEGUITinyXMLParser_debug\"
@@ -150,7 +150,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;CEGUITINYXMLPARSER_EXPORTS;CEGUI_TINYXML_H=&quot;\&quot;ceguitinyxml/tinyxml.h\&quot;&quot;;CEGUI_TINYXML_NAMESPACE=CEGUITinyXML;PROJECTGEN_VERSION=8"
-				AdditionalIncludeDirectories=".;..\..\source\libCEGUI;..\..\source\libCEGUI\include"
+				AdditionalIncludeDirectories=".;..\..\source\libCEGUI;..\..\source\libCEGUI\cegui\include;..\..\source\libCEGUI\cegui\include\XMLParserModules\TinyXMLParser"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
@@ -163,38 +163,32 @@
 			Name="Source Files"
 			Filter="">
 			<File
-				RelativePath="..\..\source\libCEGUI\XMLParserModules\TinyXMLParser\ceguitinyxml\tinystr.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\XMLParserModules\TinyXMLParser\ceguitinyxml\tinystr.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\XMLParserModules\TinyXMLParser\ceguitinyxml\tinyxml.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\XMLParserModules\TinyXMLParser\ceguitinyxml\tinyxml.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\XMLParserModules\TinyXMLParser\ceguitinyxml\tinyxmlerror.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\XMLParserModules\TinyXMLParser\ceguitinyxml\tinyxmlerror.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\XMLParserModules\TinyXMLParser\ceguitinyxml\tinyxmlparser.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\XMLParserModules\TinyXMLParser\ceguitinyxml\tinyxmlparser.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\XMLParserModules\TinyXMLParser\CEGUITinyXMLParser.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\XMLParserModules\TinyXMLParser\CEGUITinyXMLParser.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\XMLParserModules\TinyXMLParser\CEGUITinyXMLParserModule.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\XMLParserModules\TinyXMLParser\CEGUITinyXMLParserModule.cpp">
 			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
 			Filter="">
 			<File
-				RelativePath="..\..\source\libCEGUI\XMLParserModules\TinyXMLParser\ceguitinyxml\tinystr.h">
+				RelativePath="..\..\source\libCEGUI\cegui\src\XMLParserModules\TinyXMLParser\ceguitinyxml\tinystr.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\XMLParserModules\TinyXMLParser\ceguitinyxml\tinyxml.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libCEGUI\XMLParserModules\TinyXMLParser\CEGUITinyXMLParser.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libCEGUI\XMLParserModules\TinyXMLParser\CEGUITinyXMLParserModule.h">
+				RelativePath="..\..\source\libCEGUI\cegui\src\XMLParserModules\TinyXMLParser\ceguitinyxml\tinyxml.h">
 			</File>
 		</Filter>
 		<Filter

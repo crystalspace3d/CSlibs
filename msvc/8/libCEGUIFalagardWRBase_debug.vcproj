@@ -29,7 +29,7 @@
 				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;FALAGARDWRBASE_EXPORTS;CEGUIWRMODULE_EXPORTS;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
-				AdditionalIncludeDirectories=".;..\..\source\libCEGUI\include;..\..\source\libCEGUI\WindowRendererSets\Falagard\include"
+				AdditionalIncludeDirectories=".;..\..\source\libCEGUI\cegui\include;..\..\source\libCEGUI\cegui\include\WindowRendererSets\Falagard"
 				PrecompiledHeaderFile="..\..\out\debug8\build\libCEGUIFalagardWRBase_debug\libCEGUIFalagardWRBase_debug.pch"
 				AssemblerListingLocation="..\..\out\debug8\build\libCEGUIFalagardWRBase_debug\"
 				ObjectFile="..\..\out\debug8\build\libCEGUIFalagardWRBase_debug\"
@@ -77,7 +77,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;FALAGARDWRBASE_EXPORTS;CEGUIWRMODULE_EXPORTS;PROJECTGEN_VERSION=8"
-				AdditionalIncludeDirectories=".;..\..\source\libCEGUI;..\..\source\libCEGUI\include;..\..\source\libCEGUI\WindowRendererSets\Falagard\include"
+				AdditionalIncludeDirectories=".;..\..\source\libCEGUI;..\..\source\libCEGUI\cegui\include;..\..\source\libCEGUI\cegui\include\WindowRendererSets\Falagard"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
@@ -102,7 +102,7 @@
 				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;FALAGARDWRBASE_EXPORTS;CEGUIWRMODULE_EXPORTS;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
-				AdditionalIncludeDirectories=".;..\..\source\libCEGUI\include;..\..\source\libCEGUI\WindowRendererSets\Falagard\include"
+				AdditionalIncludeDirectories=".;..\..\source\libCEGUI\cegui\include;..\..\source\libCEGUI\cegui\include\WindowRendererSets\Falagard"
 				PrecompiledHeaderFile="..\..\out\debug8-x64\build\libCEGUIFalagardWRBase_debug\libCEGUIFalagardWRBase_debug.pch"
 				AssemblerListingLocation="..\..\out\debug8-x64\build\libCEGUIFalagardWRBase_debug\"
 				ObjectFile="..\..\out\debug8-x64\build\libCEGUIFalagardWRBase_debug\"
@@ -150,7 +150,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;FALAGARDWRBASE_EXPORTS;CEGUIWRMODULE_EXPORTS;PROJECTGEN_VERSION=8"
-				AdditionalIncludeDirectories=".;..\..\source\libCEGUI;..\..\source\libCEGUI\include;..\..\source\libCEGUI\WindowRendererSets\Falagard\include"
+				AdditionalIncludeDirectories=".;..\..\source\libCEGUI;..\..\source\libCEGUI\cegui\include;..\..\source\libCEGUI\cegui\include\WindowRendererSets\Falagard"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
@@ -163,115 +163,121 @@
 			Name="Source Files"
 			Filter="">
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalButton.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalButton.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalDefault.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalDefault.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalEditbox.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalEditbox.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalFrameWindow.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalEditboxProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalItemEntry.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalFrameWindow.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalItemListbox.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalItemEntry.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalListbox.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalItemListbox.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalListHeader.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalListbox.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalListHeaderProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalListHeader.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalListHeaderSegment.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalListHeaderProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalMenubar.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalListHeaderSegment.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalMenuItem.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalMenubar.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalModule.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalMenuItem.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalMultiColumnList.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalModule.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalMultiLineEditbox.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalMultiColumnList.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalPopupMenu.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalMultiLineEditbox.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalProgressBar.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalMultiLineEditboxProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalProgressBarProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalPopupMenu.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalScrollablePane.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalProgressBar.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalScrollbar.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalProgressBarProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalScrollbarProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalScrollablePane.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalSlider.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalScrollbar.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalSliderProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalScrollbarProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalStatic.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalSlider.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalStaticImage.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalSliderProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalStaticImageProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalStatic.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalStaticProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalStaticImage.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalStaticText.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalStaticImageProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalStaticTextProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalStaticProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalSystemButton.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalStaticText.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalTabButton.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalStaticTextProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalTabControl.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalSystemButton.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalTabControlProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalTabButton.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalTitlebar.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalTabControl.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalToggleButton.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalTabControlProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalTooltip.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalTitlebar.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalTree.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalToggleButton.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalTooltip.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalTree.cpp">
 			</File>
 		</Filter>
 		<Filter

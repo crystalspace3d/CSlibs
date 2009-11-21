@@ -176,6 +176,12 @@
 				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btGeneric6DofConstraint.cpp">
 			</File>
 			<File
+				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btGeneric6DofSpringConstraint.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btHinge2Constraint.cpp">
+			</File>
+			<File
 				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btHingeConstraint.cpp">
 			</File>
 			<File
@@ -192,6 +198,9 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btTypedConstraint.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btUniversalConstraint.cpp">
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletDynamics\Dynamics\btContinuousDynamicsWorld.cpp">
@@ -234,6 +243,12 @@
 				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btGeneric6DofConstraint.h">
 			</File>
 			<File
+				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btGeneric6DofSpringConstraint.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btHinge2Constraint.h">
+			</File>
+			<File
 				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btHingeConstraint.h">
 			</File>
 			<File
@@ -259,6 +274,9 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btTypedConstraint.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btUniversalConstraint.h">
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletDynamics\Dynamics\btActionInterface.h">
