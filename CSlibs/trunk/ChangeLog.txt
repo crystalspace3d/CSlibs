@@ -1,5 +1,10 @@
-1.9_003 (2009-??-??):
+1.9_003 (2009-11-??):
  - Updated Cg to 2.2 October 2009 release.
+ - Updated libpng to 1.2.40.
+ - Updated freetype to 2.3.11.
+ - Updated bullet to 2.75.
+ - Updated pcre to 8.00.
+ - Updated cegui to 0.7.1.
 
 1.9_002 (2009-11-06):
  - DirectX libs: add dinput8.lib, remove ddraw.lib, provide x64 versions.

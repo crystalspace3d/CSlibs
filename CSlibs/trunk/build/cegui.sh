@@ -6,6 +6,7 @@ platform=$1
 shift
 platform_short=$1
 shift
+# Build mode: for testing purposes; can be nothing, 'nostatic' or 'staticonly'
 mode=$1
 shift
 library=libCEGUI
@@ -70,11 +71,9 @@ if [ x$mode != xstaticonly ]; then
     freetype2_LIBS="-L${basedir}/libs/release -lfreetype2" \
     pcre_CFLAGS="-I${pcre}/include -DPCRE_STATIC" \
     pcre_LIBS="-L${prefix}/lib -lpcre" \
-    CEGUI_PLATFORM=${platform} \
     CFLAGS="-O2" \
     CXXFLAGS="-O2 -DCEGUI_FACTORYMODULE_PREFIX=\"\\\"${libprefix}\\\"\" -DCEGUI_FACTORYMODULE_SUFFIX=\"\\\"-cs${platform}.dll\\\"\"" \
-    ${source}/configure --prefix=${prefix} --disable-static --disable-opengl-renderer -C "$@"
-    patch -p0 -i ../../../build/cegui-libtool.diff
+    ${source}/configure --prefix=${prefix} --disable-static --disable-opengl-renderer "--with-build-suffix=-cs${platform}" --disable-version-suffix -C "$@"
     make
     cd ../../..
     
@@ -83,12 +82,12 @@ if [ x$mode != xstaticonly ]; then
     # as it seems). Hence pull the DLLs out manually. libtool <3
     mkdir -p ${prefix}/bin/
     mkdir -p ${prefix}/lib/
-    cp ${build}/src/.libs/*.dll ${prefix}/bin/
-    cp ${build}/src/.libs/*.a ${prefix}/lib/
-    cp ${build}/XMLParserModules/TinyXMLParser/.libs/*.dll ${prefix}/bin/
-    cp ${build}/XMLParserModules/TinyXMLParser/.libs/*.a ${prefix}/lib/
-    cp ${build}/WindowRendererSets/Falagard/src/.libs/*.dll ${prefix}/bin/
-    cp ${build}/WindowRendererSets/Falagard/src/.libs/*.a ${prefix}/lib/
+    cp ${build}/cegui/src/.libs/*.dll ${prefix}/bin/
+    cp ${build}/cegui/src/.libs/*.a ${prefix}/lib/
+    cp ${build}/cegui/src/XMLParserModules/TinyXMLParser/.libs/*.dll ${prefix}/bin/
+    cp ${build}/cegui/src/XMLParserModules/TinyXMLParser/.libs/*.a ${prefix}/lib/
+    cp ${build}/cegui/src/WindowRendererSets/Falagard/.libs/*.dll ${prefix}/bin/
+    cp ${build}/cegui/src/WindowRendererSets/Falagard/.libs/*.a ${prefix}/lib/
     
     ${TOP}/debug-extract.sh `ls -1 ${prefix}/bin/*.dll`
     cp ${prefix}/bin/*.dll libs/ReleaseGCCOnly/${platform_short}
@@ -102,11 +101,11 @@ fi
 
 # Later steps expect the headers there
 mkdir -p ${prefix}/include/CEGUI/
-cp ${source}/include/*.h ${prefix}/include/CEGUI
+cp ${source}/cegui/include/*.h ${prefix}/include/CEGUI
 mkdir -p ${prefix}/include/CEGUI/elements
-cp ${source}/include/elements/*.h ${prefix}/include/CEGUI/elements
+cp ${source}/cegui/include/elements/*.h ${prefix}/include/CEGUI/elements
 mkdir -p ${prefix}/include/CEGUI/falagard
-cp ${source}/include/falagard/*.h ${prefix}/include/CEGUI/falagard
+cp ${source}/cegui/include/falagard/*.h ${prefix}/include/CEGUI/falagard
 
 
 if [ x$mode != xnostatic ]; then
@@ -130,18 +129,16 @@ if [ x$mode != xnostatic ]; then
   freetype2_LIBS="-L${prefix}/lib -lfreetype -lz" \
   pcre_CFLAGS="-I${pcre}/include -DPCRE_STATIC" \
   pcre_LIBS="-L${prefix}/lib -lpcre" \
-  CEGUI_PLATFORM=${platform} \
   CFLAGS="-O2" \
-  CXXFLAGS="-O2 -DCEGUI_FACTORYMODULE_PREFIX=\"\\\"${libprefix}\\\"\" -DCEGUI_FACTORYMODULE_SUFFIX=\"\\\"-cs${platform}.dll\\\"\" -DCEGUI_FALAGARD_RENDERER -DCEGUI_WITH_TINYXML" \
-  ${source}/configure --prefix=${prefix} --disable-static --disable-opengl-renderer --enable-specialstatic -C "$@"
-  patch -p0 -i ../../../build/cegui-libtool.diff
+  CXXFLAGS="-O2 -DCEGUI_FACTORYMODULE_PREFIX=\"\\\"${libprefix}\\\"\" -DCEGUI_FALAGARD_RENDERER -DCEGUI_WITH_TINYXML" \
+  ${source}/configure --prefix=${prefix} --disable-static --disable-opengl-renderer "--with-build-suffix=-cs${platform}" --enable-specialstatic --disable-version-suffix -C "$@"
   make
   cd ../../..
 
   mkdir -p ${prefix}/bin/
   mkdir -p ${prefix}/lib/
-  cp ${build}/src/.libs/*.dll ${prefix}/bin/
-  cp ${build}/src/.libs/*.a ${prefix}/lib/
+  cp ${build}/cegui/src/.libs/*.dll ${prefix}/bin/
+  cp ${build}/cegui/src/.libs/*.a ${prefix}/lib/
 
   ${TOP}/debug-extract.sh `ls -1 temp/${library}/prefix-${platform_short}-static/bin/*.dll`
   cp ${prefix}/bin/*.dll libs/ReleaseGCCOnly_static/${platform_short}

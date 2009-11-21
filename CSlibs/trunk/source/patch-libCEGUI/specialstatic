@@ -1,169 +1,8 @@
-Index: include/CEGUIBase.h
-===================================================================
---- include/CEGUIBase.h	(Revision 1734)
-+++ include/CEGUIBase.h	(Arbeitskopie)
-@@ -45,7 +45,7 @@
- 	Dynamic Library import / export control conditional
- 	(Define CEGUIBASE_EXPORTS to export symbols, else they are imported)
- *************************************************************************/
--#if (defined( __WIN32__ ) || defined( _WIN32 )) && !defined(CEGUI_STATIC)
-+#if (defined( __WIN32__ ) || defined( _WIN32 ))
- #   ifdef CEGUIBASE_EXPORTS
- #       define CEGUIEXPORT __declspec(dllexport)
- #   else
-Index: src/Makefile.am
-===================================================================
---- src/Makefile.am	(Revision 1734)
-+++ src/Makefile.am	(Arbeitskopie)
-@@ -1,20 +1,24 @@
- INCLUDES = -I$(top_srcdir)/include -I$(top_srcdir) $(freetype2_CFLAGS) $(pcre_CFLAGS)
- 
--libCEGUIBase_la_LDFLAGS =
-+libCEGUIBase@DLLSUFFIX@_la_LDFLAGS =
- libCEGUIBase_la_LIBADD =
- 
- if MINGW32_BUILD
--libCEGUIBase_la_CPPFLAGS = -DCEGUIBASE_EXPORTS
--libCEGUIBase_la_LDFLAGS += -shared -no-undefined
-+libCEGUIBase@DLLSUFFIX@_la_CPPFLAGS = -DCEGUIBASE_EXPORTS
-+libCEGUIBase@DLLSUFFIX@_la_LDFLAGS += -shared -no-undefined -export-symbols-regex ".*"
- libCEGUIBase_la_LIBADD += -lwinmm
- endif
- 
--libCEGUIBase_la_LDFLAGS += -version-info @CEGUI_VERSION_INFO@
--libCEGUIBase_la_LIBADD += $(freetype2_LIBS) $(pcre_LIBS)
-+libCEGUIBase@DLLSUFFIX@_la_LDFLAGS += -version-info @CEGUI_VERSION_INFO@
-+libCEGUIBase@DLLSUFFIX@_la_LIBADD = $(freetype2_LIBS) $(pcre_LIBS)
- 
--lib_LTLIBRARIES=libCEGUIBase.la
-+if MINGW32_BUILD
-+libCEGUIBase@DLLSUFFIX@_la_LIBADD += -lwinmm
-+endif
- 
--libCEGUIBase_la_SOURCES = CEGUIBase.cpp \
-+lib_LTLIBRARIES=libCEGUIBase@DLLSUFFIX@.la
-+
-+libCEGUIBase@DLLSUFFIX@_la_SOURCES = CEGUIBase.cpp \
-                       CEGUIBoundSlot.cpp \
-                       CEGUIColourRect.cpp \
-                       CEGUIConfig_xmlHandler.cpp \
-@@ -163,6 +167,66 @@
-                       falagard/CEGUIFalXMLEnumHelper.cpp \
-                       falagard/CEGUIFalagard_xmlHandler.cpp
- 
-+if CSWIN32LIBS_STATIC
-+libCEGUIBase@DLLSUFFIX@_la_CPPFLAGS += -DCEGUI_STATIC
-+
-+if MINGW32_BUILD
-+libCEGUIBase@DLLSUFFIX@_la_CPPFLAGS += -DCEGUITINYXMLPARSER_EXPORTS
-+endif
-+
-+libCEGUIBase@DLLSUFFIX@_la_SOURCES += ../XMLParserModules/TinyXMLParser/CEGUITinyXMLParser.cpp \
-+                                   ../XMLParserModules/TinyXMLParser/CEGUITinyXMLParserModule.cpp \
-+                                   ../XMLParserModules/TinyXMLParser/ceguitinyxml/tinystr.cpp \
-+                                   ../XMLParserModules/TinyXMLParser/ceguitinyxml/tinyxml.cpp \
-+                                   ../XMLParserModules/TinyXMLParser/ceguitinyxml/tinyxmlerror.cpp \
-+                                   ../XMLParserModules/TinyXMLParser/ceguitinyxml/tinyxmlparser.cpp
-+
-+
-+INCLUDES += -I$(top_srcdir)/WindowRendererSets/Falagard/include
-+
-+if MINGW32_BUILD
-+libCEGUIBase@DLLSUFFIX@_la_CPPFLAGS += -DFALAGARDWRBASE_EXPORTS -DCEGUIWRMODULE_EXPORTS
-+endif
-+
-+libCEGUIBase@DLLSUFFIX@_la_SOURCES += ../WindowRendererSets/Falagard/src/FalButton.cpp \
-+                                  ../WindowRendererSets/Falagard/src/FalToggleButton.cpp \
-+                                  ../WindowRendererSets/Falagard/src/FalDefault.cpp \
-+                                  ../WindowRendererSets/Falagard/src/FalEditbox.cpp \
-+                                  ../WindowRendererSets/Falagard/src/FalFrameWindow.cpp \
-+                                  ../WindowRendererSets/Falagard/src/FalItemEntry.cpp \
-+								  ../WindowRendererSets/Falagard/src/FalItemListbox.cpp \
-+                                  ../WindowRendererSets/Falagard/src/FalListHeader.cpp \
-+                                  ../WindowRendererSets/Falagard/src/FalListHeaderProperties.cpp \
-+                                  ../WindowRendererSets/Falagard/src/FalListHeaderSegment.cpp \
-+                                  ../WindowRendererSets/Falagard/src/FalListbox.cpp \
-+                                  ../WindowRendererSets/Falagard/src/FalMenubar.cpp \
-+                                  ../WindowRendererSets/Falagard/src/FalMenuItem.cpp \
-+                                  ../WindowRendererSets/Falagard/src/FalModule.cpp \
-+                                  ../WindowRendererSets/Falagard/src/FalMultiColumnList.cpp \
-+                                  ../WindowRendererSets/Falagard/src/FalMultiLineEditbox.cpp \
-+                                  ../WindowRendererSets/Falagard/src/FalPopupMenu.cpp \
-+                                  ../WindowRendererSets/Falagard/src/FalProgressBar.cpp \
-+                                  ../WindowRendererSets/Falagard/src/FalProgressBarProperties.cpp \
-+                                  ../WindowRendererSets/Falagard/src/FalScrollablePane.cpp \
-+                                  ../WindowRendererSets/Falagard/src/FalScrollbar.cpp \
-+                                  ../WindowRendererSets/Falagard/src/FalScrollbarProperties.cpp \
-+                                  ../WindowRendererSets/Falagard/src/FalSlider.cpp \
-+                                  ../WindowRendererSets/Falagard/src/FalSliderProperties.cpp \
-+                                  ../WindowRendererSets/Falagard/src/FalStatic.cpp \
-+                                  ../WindowRendererSets/Falagard/src/FalStaticImage.cpp \
-+                                  ../WindowRendererSets/Falagard/src/FalStaticImageProperties.cpp \
-+                                  ../WindowRendererSets/Falagard/src/FalStaticProperties.cpp \
-+                                  ../WindowRendererSets/Falagard/src/FalStaticText.cpp \
-+                                  ../WindowRendererSets/Falagard/src/FalStaticTextProperties.cpp \
-+                                  ../WindowRendererSets/Falagard/src/FalSystemButton.cpp \
-+                                  ../WindowRendererSets/Falagard/src/FalTabButton.cpp \
-+                                  ../WindowRendererSets/Falagard/src/FalTabControl.cpp \
-+                                  ../WindowRendererSets/Falagard/src/FalTabControlProperties.cpp \
-+                                  ../WindowRendererSets/Falagard/src/FalTitlebar.cpp \
-+                                  ../WindowRendererSets/Falagard/src/FalTree.cpp \
-+                                  ../WindowRendererSets/Falagard/src/FalTooltip.cpp
-+endif
-+
- if MACOSX_BUILD
- INCLUDES += -I$(top_srcdir)/src/implementations/mac
- libCEGUIBase_la_SOURCES += implementations/mac/macPlugins.cpp
-Index: WindowRendererSets/Falagard/include/FalModule.h
-===================================================================
---- WindowRendererSets/Falagard/include/FalModule.h	(Revision 1734)
-+++ WindowRendererSets/Falagard/include/FalModule.h	(Arbeitskopie)
-@@ -31,7 +31,7 @@
- /*************************************************************************
-     Import / Export control macros
- *************************************************************************/
--#if (defined( __WIN32__ ) || defined( _WIN32 )) && !defined(CEGUI_STATIC)
-+#if (defined( __WIN32__ ) || defined( _WIN32 ))
- #   ifdef FALAGARDWRBASE_EXPORTS
- #       define FALAGARDBASE_API __declspec(dllexport)
- #   else
-Index: WindowRendererSets/Falagard/src/Makefile.am
-===================================================================
---- WindowRendererSets/Falagard/src/Makefile.am	(Revision 1734)
-+++ WindowRendererSets/Falagard/src/Makefile.am	(Arbeitskopie)
-@@ -1,20 +1,19 @@
- INCLUDES = -I$(top_srcdir)/include \
-            -I$(top_srcdir)/WindowRendererSets/Falagard/include
- 
--libCEGUIFalagardWRBase_la_LDFLAGS =
-+libCEGUIFalagardWRBase@DLLSUFFIX@_la_LDFLAGS =
- 
- if MINGW32_BUILD
--libCEGUIFalagardWRBase_la_CPPFLAGS = -DFALAGARDWRBASE_EXPORTS -DCEGUIWRMODULE_EXPORTS
--libCEGUIFalagardWRBase_la_LDFLAGS += -no-undefined -avoid-version
-+libCEGUIFalagardWRBase@DLLSUFFIX@_la_CPPFLAGS = -DFALAGARDWRBASE_EXPORTS -DCEGUIWRMODULE_EXPORTS
-+libCEGUIFalagardWRBase@DLLSUFFIX@_la_LDFLAGS += -no-undefined -avoid-version
-+libCEGUIFalagardWRBase@DLLSUFFIX@_la_LIBADD = -L$(top_builddir)/src/ -lCEGUIBase@DLLSUFFIX@
- endif
- 
--libCEGUIFalagardWRBase_la_LDFLAGS += -version-info @CEGUI_VERSION_INFO@
-+libCEGUIFalagardWRBase@DLLSUFFIX@_la_LDFLAGS += -version-info @CEGUI_VERSION_INFO@
- 
--libCEGUIFalagardWRBase_la_LIBADD = $(top_builddir)/src/libCEGUIBase.la
-+lib_LTLIBRARIES=libCEGUIFalagardWRBase@DLLSUFFIX@.la
- 
--lib_LTLIBRARIES=libCEGUIFalagardWRBase.la
--
--libCEGUIFalagardWRBase_la_SOURCES = FalButton.cpp \
-+libCEGUIFalagardWRBase@DLLSUFFIX@_la_SOURCES = FalButton.cpp \
-                                   FalToggleButton.cpp \
-                                   FalDefault.cpp \
-                                   FalEditbox.cpp \
 Index: configure.ac
 ===================================================================
---- configure.ac	(Revision 1734)
+--- configure.ac	(Revision 2337)
 +++ configure.ac	(Arbeitskopie)
-@@ -44,6 +48,15 @@
+@@ -58,6 +62,15 @@
      AC_CHECK_LIB([pthread], [pthread_create],, AC_MSG_ERROR([cannot find pthread library]))
  fi
  
@@ -176,59 +15,187 @@ Index: configure.ac
 +fi
 +
 +
- PKG_CHECK_MODULES(freetype2, freetype2 >= 0.15.0)
- AC_SUBST(freetype2_CFLAGS)
- AC_SUBST(freetype2_LIBS)
-Index: XMLParserModules/TinyXMLParser/CEGUITinyXMLParser.h
+ CEGUI_CHECK_FREETYPE
+ CEGUI_CHECK_PCRE
+ 
+Index: Makefile.am
 ===================================================================
---- XMLParserModules/TinyXMLParser/CEGUITinyXMLParser.h	(Revision 1734)
-+++ XMLParserModules/TinyXMLParser/CEGUITinyXMLParser.h	(Arbeitskopie)
+--- Makefile.am	(Revision 2337)
++++ Makefile.am	(Arbeitskopie)
+@@ -1,4 +1,5 @@
+-SUBDIRS = . cegui datafiles doc projects Samples
++#SUBDIRS = . cegui datafiles doc projects Samples
++SUBDIRS = . cegui datafiles
+ 
+ EXTRA_DIST=bootstrap
+ 
+Index: cegui/include/XMLParserModules/TinyXMLParser/CEGUITinyXMLParser.h
+===================================================================
+--- cegui/include/XMLParserModules/TinyXMLParser/CEGUITinyXMLParser.h	(Revision 2337)
++++ cegui/include/XMLParserModules/TinyXMLParser/CEGUITinyXMLParser.h	(Arbeitskopie)
 @@ -30,7 +30,7 @@
  
- #include "CEGUIXMLParser.h"
+ #include "../../CEGUIXMLParser.h"
  
 -#if (defined( __WIN32__ ) || defined( _WIN32 )) && !defined(CEGUI_STATIC)
 +#if (defined( __WIN32__ ) || defined( _WIN32 ))
  #   ifdef CEGUITINYXMLPARSER_EXPORTS
  #       define CEGUITINYXMLPARSER_API __declspec(dllexport)
  #   else
-Index: XMLParserModules/TinyXMLParser/Makefile.am
+Index: cegui/include/CEGUIBase.h
 ===================================================================
---- XMLParserModules/TinyXMLParser/Makefile.am	(Revision 1734)
-+++ XMLParserModules/TinyXMLParser/Makefile.am	(Arbeitskopie)
-@@ -1,14 +1,15 @@
- INCLUDES = -I$(top_srcdir)/include
- 
- if MINGW32_BUILD
--libCEGUITinyXMLParser_la_CPPFLAGS = -DCEGUITINYXMLPARSER_EXPORTS
--libCEGUITinyXMLParser_la_LDFLAGS = -no-undefined -avoid-version
-+libCEGUITinyXMLParser@DLLSUFFIX@_la_CPPFLAGS = -DCEGUITINYXMLPARSER_EXPORTS
-+libCEGUITinyXMLParser@DLLSUFFIX@_la_LDFLAGS = -no-undefined -avoid-version
-+libCEGUITinyXMLParser@DLLSUFFIX@_la_LIBADD = -L$(top_builddir)/src -lCEGUIBase@DLLSUFFIX@
- endif
- 
--lib_LTLIBRARIES=libCEGUITinyXMLParser.la
-+lib_LTLIBRARIES=libCEGUITinyXMLParser@DLLSUFFIX@.la
- libCEGUITinyXMLParser_la_LIBADD = $(top_builddir)/src/libCEGUIBase.la
- 
--libCEGUITinyXMLParser_la_SOURCES = CEGUITinyXMLParser.cpp \
-+libCEGUITinyXMLParser@DLLSUFFIX@_la_SOURCES = CEGUITinyXMLParser.cpp \
-                                    CEGUITinyXMLParserModule.cpp
- if BUILD_USING_INTERNAL_TINYXML
- libCEGUITinyXMLParser_la_SOURCES += ceguitinyxml/tinystr.cpp \
-Index: Makefile.am
+--- cegui/include/CEGUIBase.h	(Revision 2337)
++++ cegui/include/CEGUIBase.h	(Arbeitskopie)
+@@ -45,7 +45,7 @@
+ 	Dynamic Library import / export control conditional
+ 	(Define CEGUIBASE_EXPORTS to export symbols, else they are imported)
+ *************************************************************************/
+-#if (defined( __WIN32__ ) || defined( _WIN32 )) && !defined(CEGUI_STATIC)
++#if (defined( __WIN32__ ) || defined( _WIN32 ))
+ #   ifdef CEGUIBASE_EXPORTS
+ #       define CEGUIEXPORT __declspec(dllexport)
+ #   else
+Index: cegui/include/WindowRendererSets/Falagard/FalModule.h
 ===================================================================
---- Makefile.am	(Revision 1734)
-+++ Makefile.am	(Arbeitskopie)
-@@ -1,5 +1,10 @@
- AUTOMAKE_OPTIONS = dist-bzip2 dist-zip
--SUBDIRS = . src include XMLParserModules ImageCodecModules RendererModules WindowRendererSets ScriptingModules Samples makefiles
-+#SUBDIRS = . src include XMLParserModules ImageCodecModules RendererModules WindowRendererSets ScriptingModules Samples makefiles
+--- cegui/include/WindowRendererSets/Falagard/FalModule.h	(Revision 2337)
++++ cegui/include/WindowRendererSets/Falagard/FalModule.h	(Arbeitskopie)
+@@ -31,7 +31,7 @@
+ #include "../../CEGUIWindowRendererModule.h"
+ #include "../../CEGUIWindowRenderer.h"
+ 
+-#if (defined( __WIN32__ ) || defined( _WIN32 )) && !defined(CEGUI_STATIC)
++#if (defined( __WIN32__ ) || defined( _WIN32 ))
+ #   ifdef FALAGARDWRBASE_EXPORTS
+ #       define FALAGARDBASE_API __declspec(dllexport)
+ #   else
+Index: cegui/include/ImageCodecModules/TGAImageCodec/CEGUITGAImageCodec.h
+===================================================================
+--- cegui/include/ImageCodecModules/TGAImageCodec/CEGUITGAImageCodec.h	(Revision 2337)
++++ cegui/include/ImageCodecModules/TGAImageCodec/CEGUITGAImageCodec.h	(Arbeitskopie)
+@@ -32,7 +32,7 @@
+ #define _CEGUITGAImageCodec_h_
+ #include "../../CEGUIImageCodec.h"
+ 
+-#if (defined( __WIN32__ ) || defined( _WIN32 )) && !defined(CEGUI_STATIC)
++#if (defined( __WIN32__ ) || defined( _WIN32 ))
+ #   ifdef CEGUITGAIMAGECODEC_EXPORTS
+ #       define CEGUITGAIMAGECODEC_API __declspec(dllexport)
+ #   else
+Index: cegui/src/Makefile.am
+===================================================================
+--- cegui/src/Makefile.am	(Revision 2337)
++++ cegui/src/Makefile.am	(Arbeitskopie)
+@@ -1,11 +1,18 @@
+-SUBDIRS = . ImageCodecModules RendererModules ScriptingModules WindowRendererSets XMLParserModules
++#SUBDIRS = . ImageCodecModules RendererModules ScriptingModules WindowRendererSets XMLParserModules
 +if CSWIN32LIBS_STATIC
-+SUBDIRS = . src include
++SUBDIRS = .
 +else
-+SUBDIRS = . src include XMLParserModules WindowRendererSets
++SUBDIRS = . WindowRendererSets XMLParserModules
 +endif
  
- pkgconfigdir = $(libdir)/pkgconfig
- pkgconfig_DATA = CEGUI.pc CEGUI-OPENGL.pc
+ INCLUDES = -I$(top_srcdir)/cegui/include $(freetype2_CFLAGS) $(pcre_CFLAGS) \
+-           $(fribidi_CFLAGS)
++           $(fribidi_CFLAGS) \
++           -I$(top_srcdir)/cegui/include/XMLParserModules/TinyXMLParser
+ 
+ libCEGUIBase@cegui_bsfx@_la_LDFLAGS = @CEGUI_LIB_LINK_FLAGS@ \
+                                       $(freetype2_LIBS) $(pcre_LIBS) \
+-                                      $(fribidi_LIBS)
++                                      $(fribidi_LIBS) \
++                                      -export-symbols-regex "^(_Z([KTISVN]*5CEGUI|Thn).*|[A-Za-z]*)$$"
+ 
+ libCEGUIBase@cegui_bsfx@_la_LIBADD = $(cegui_pc_platform_libs)
+ 
+@@ -198,6 +205,76 @@
+ libCEGUIBase@cegui_bsfx@_la_SOURCES += CEGUIMinibidiVisualMapping.cpp
+ endif
+ 
++if CSWIN32LIBS_STATIC
++
++if MINGW32_BUILD
++libCEGUIBase@cegui_bsfx@_la_CPPFLAGS += -DCEGUITINYXMLPARSER_EXPORTS
++libCEGUIBase@cegui_bsfx@_la_CPPFLAGS += -DCEGUI_STATIC
++endif
++
++libCEGUIBase@cegui_bsfx@_la_SOURCES += XMLParserModules/TinyXMLParser/CEGUITinyXMLParser.cpp \
++                                   XMLParserModules/TinyXMLParser/CEGUITinyXMLParserModule.cpp \
++                                   XMLParserModules/TinyXMLParser/ceguitinyxml/tinystr.cpp \
++                                   XMLParserModules/TinyXMLParser/ceguitinyxml/tinyxml.cpp \
++                                   XMLParserModules/TinyXMLParser/ceguitinyxml/tinyxmlerror.cpp \
++                                   XMLParserModules/TinyXMLParser/ceguitinyxml/tinyxmlparser.cpp
++
++
++INCLUDES += -I$(top_srcdir)/cegui/include/WindowRendererSets/Falagard
++
++if MINGW32_BUILD
++libCEGUIBase@cegui_bsfx@_la_CPPFLAGS += -DFALAGARDWRBASE_EXPORTS -DCEGUIWRMODULE_EXPORTS
++endif
++
++libCEGUIBase@cegui_bsfx@_la_SOURCES += WindowRendererSets/Falagard/FalButton.cpp \
++                                  WindowRendererSets/Falagard/FalToggleButton.cpp \
++                                  WindowRendererSets/Falagard/FalDefault.cpp \
++                                  WindowRendererSets/Falagard/FalEditbox.cpp \
++                                  WindowRendererSets/Falagard/FalEditboxProperties.cpp \
++                                  WindowRendererSets/Falagard/FalFrameWindow.cpp \
++                                  WindowRendererSets/Falagard/FalItemEntry.cpp \
++                                  WindowRendererSets/Falagard/FalItemListbox.cpp \
++                                  WindowRendererSets/Falagard/FalListHeader.cpp \
++                                  WindowRendererSets/Falagard/FalListHeaderProperties.cpp \
++                                  WindowRendererSets/Falagard/FalListHeaderSegment.cpp \
++                                  WindowRendererSets/Falagard/FalListbox.cpp \
++                                  WindowRendererSets/Falagard/FalMenubar.cpp \
++                                  WindowRendererSets/Falagard/FalMenuItem.cpp \
++                                  WindowRendererSets/Falagard/FalModule.cpp \
++                                  WindowRendererSets/Falagard/FalMultiColumnList.cpp \
++                                  WindowRendererSets/Falagard/FalMultiLineEditbox.cpp \
++                                  WindowRendererSets/Falagard/FalMultiLineEditboxProperties.cpp \
++                                  WindowRendererSets/Falagard/FalPopupMenu.cpp \
++                                  WindowRendererSets/Falagard/FalProgressBar.cpp \
++                                  WindowRendererSets/Falagard/FalProgressBarProperties.cpp \
++                                  WindowRendererSets/Falagard/FalScrollablePane.cpp \
++                                  WindowRendererSets/Falagard/FalScrollbar.cpp \
++                                  WindowRendererSets/Falagard/FalScrollbarProperties.cpp \
++                                  WindowRendererSets/Falagard/FalSlider.cpp \
++                                  WindowRendererSets/Falagard/FalSliderProperties.cpp \
++                                  WindowRendererSets/Falagard/FalStatic.cpp \
++                                  WindowRendererSets/Falagard/FalStaticImage.cpp \
++                                  WindowRendererSets/Falagard/FalStaticImageProperties.cpp \
++                                  WindowRendererSets/Falagard/FalStaticProperties.cpp \
++                                  WindowRendererSets/Falagard/FalStaticText.cpp \
++                                  WindowRendererSets/Falagard/FalStaticTextProperties.cpp \
++                                  WindowRendererSets/Falagard/FalSystemButton.cpp \
++                                  WindowRendererSets/Falagard/FalTabButton.cpp \
++                                  WindowRendererSets/Falagard/FalTabControl.cpp \
++                                  WindowRendererSets/Falagard/FalTabControlProperties.cpp \
++                                  WindowRendererSets/Falagard/FalTitlebar.cpp \
++                                  WindowRendererSets/Falagard/FalTree.cpp \
++                                  WindowRendererSets/Falagard/FalTooltip.cpp
++endif
++
++INCLUDES += -I$(top_srcdir)/cegui/include/ImageCodecModules/TGAImageCodec
++
++if MINGW32_BUILD
++libCEGUIBase@cegui_bsfx@_la_CPPFLAGS += -DCEGUITGAIMAGECODEC_EXPORTS
++endif
++
++libCEGUIBase@cegui_bsfx@_la_SOURCES += ImageCodecModules/TGAImageCodec/CEGUITGAImageCodec.cpp ImageCodecModules/TGAImageCodec/CEGUITGAImageCodecModule.cpp
++
+ if MACOSX_BUILD
+ INCLUDES += -I$(top_srcdir)/src/implementations/mac
+ libCEGUIBase@cegui_bsfx@_la_SOURCES += implementations/mac/macPlugins.cpp
+Index: cegui/include/Makefile.am
+===================================================================
+--- cegui/include/Makefile.am	(Revision 2337)
++++ cegui/include/Makefile.am	(Arbeitskopie)
+@@ -1,4 +1,9 @@
+-SUBDIRS = . elements falagard ImageCodecModules RendererModules ScriptingModules WindowRendererSets XMLParserModules
++#SUBDIRS = . elements falagard ImageCodecModules RendererModules ScriptingModules WindowRendererSets XMLParserModules
++if CSWIN32LIBS_STATIC
++SUBDIRS = . 
++else
++SUBDIRS = . XMLParserModules WindowRendererSets
++endif
+ 
+ pkginclude_HEADERS = CEGUI.h \
+                  CEGUIBase.h \

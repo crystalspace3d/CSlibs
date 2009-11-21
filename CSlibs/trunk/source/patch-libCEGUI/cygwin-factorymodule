@@ -1,13 +1,13 @@
-Index: include/CEGUIDynamicModule.h
+Index: cegui/include/CEGUIDynamicModule.h
 ===================================================================
---- include/CEGUIDynamicModule.h	(Revision 1734)
-+++ include/CEGUIDynamicModule.h	(Arbeitskopie)
+--- cegui/include/CEGUIDynamicModule.h	(Revision 2337)
++++ cegui/include/CEGUIDynamicModule.h	(Arbeitskopie)
 @@ -34,7 +34,7 @@
      The following is basically taken from DynLib.h, which is part of
      the Ogre project (http://www.ogre3d.org/)
  *************************************************************************/
 -#if defined(__WIN32__) || defined(_WIN32)
 +#if defined(__WIN32__) || defined(_WIN32) || defined(__CYGWIN__)
- #	define DYNLIB_HANDLE hInstance
- #	define DYNLIB_LOAD( a ) LoadLibrary( a )
- #	define DYNLIB_GETSYM( a, b ) GetProcAddress( a, b )
+ #   define DYNLIB_HANDLE hInstance
+ #   define DYNLIB_LOAD( a ) LoadLibrary( a )
+ #   define DYNLIB_GETSYM( a, b ) GetProcAddress( a, b )

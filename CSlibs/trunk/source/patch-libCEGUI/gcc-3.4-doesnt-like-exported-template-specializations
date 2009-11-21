@@ -1,0 +1,122 @@
+Index: cegui/include/CEGUILeftAlignedRenderedString.h
+===================================================================
+--- cegui/include/CEGUILeftAlignedRenderedString.h	(Revision 2337)
++++ cegui/include/CEGUILeftAlignedRenderedString.h	(Arbeitskopie)
+@@ -51,6 +51,8 @@
+     size_t getFormattedLineCount() const;
+     float getHorizontalExtent() const;
+     float getVerticalExtent() const;
++
++    typedef LeftAlignedRenderedString LastLineRenderedString;
+ };
+     
+ } // End of  CEGUI namespace section
+Index: cegui/include/CEGUIRenderedStringWordWrapper.h
+===================================================================
+--- cegui/include/CEGUIRenderedStringWordWrapper.h	(Revision 2337)
++++ cegui/include/CEGUIRenderedStringWordWrapper.h	(Arbeitskopie)
+@@ -30,6 +30,7 @@
+ 
+ #include "CEGUIFormattedRenderedString.h"
+ #include "CEGUIJustifiedRenderedString.h"
++#include "CEGUILeftAlignedRenderedString.h"
+ #include "CEGUIVector.h"
+ #include <vector>
+ 
+@@ -68,8 +69,8 @@
+ };
+ 
+ //! specialised version of format used with Justified text
+-template <> CEGUIEXPORT
+-void RenderedStringWordWrapper<JustifiedRenderedString>::format(const Size& area_size);
++//template <> CEGUIEXPORT
++//void RenderedStringWordWrapper<JustifiedRenderedString>::format(const Size& area_size);
+ 
+ //----------------------------------------------------------------------------//
+ template <typename T>
+@@ -96,7 +97,7 @@
+     rstring = *d_renderedString;
+     float rs_width;
+ 
+-    T* frs;
++    FormattedRenderedString* frs;
+ 
+     for (size_t line = 0; line < rstring.getLineCount(); ++line)
+     {
+@@ -108,7 +109,8 @@
+ 
+             // split rstring at width into lstring and remaining rstring
+             rstring.split(line, area_size.d_width, lstring);
+-            frs = new T(*new RenderedString(lstring));
++            //frs = new T(*new RenderedString(lstring));
++            frs = new T(lstring);
+             frs->format(area_size);
+             d_lines.push_back(frs);
+             line = 0;
+@@ -116,7 +118,8 @@
+     }
+ 
+     // last line.
+-    frs = new T(*new RenderedString(rstring));
++    //frs = new T(*new RenderedString(rstring));
++    frs = new typename T::LastLineRenderedString (rstring);
+     frs->format(area_size);
+     d_lines.push_back(frs);
+ }
+Index: cegui/include/CEGUIJustifiedRenderedString.h
+===================================================================
+--- cegui/include/CEGUIJustifiedRenderedString.h	(Revision 2337)
++++ cegui/include/CEGUIJustifiedRenderedString.h	(Arbeitskopie)
+@@ -58,6 +58,7 @@
+     float getHorizontalExtent() const;
+     float getVerticalExtent() const;
+ 
++    typedef LeftAlignedRenderedString LastLineRenderedString;
+ protected:
+     //! space extra size for each line to achieve justified formatting.
+     std::vector<float> d_spaceExtras;
+Index: cegui/include/CEGUIRightAlignedRenderedString.h
+===================================================================
+--- cegui/include/CEGUIRightAlignedRenderedString.h	(Revision 2337)
++++ cegui/include/CEGUIRightAlignedRenderedString.h	(Arbeitskopie)
+@@ -58,6 +58,7 @@
+     float getHorizontalExtent() const;
+     float getVerticalExtent() const;
+ 
++    typedef RightAlignedRenderedString LastLineRenderedString;
+ protected:
+     std::vector<float> d_offsets;
+ };
+Index: cegui/include/CEGUICentredRenderedString.h
+===================================================================
+--- cegui/include/CEGUICentredRenderedString.h	(Revision 2337)
++++ cegui/include/CEGUICentredRenderedString.h	(Arbeitskopie)
+@@ -58,6 +58,7 @@
+     float getHorizontalExtent() const;
+     float getVerticalExtent() const;
+ 
++    typedef CentredRenderedString LastLineRenderedString;
+ protected:
+     std::vector<float> d_offsets;
+ };
+Index: cegui/src/CEGUIJustifiedRenderedStringWordWrapper.cpp
+===================================================================
+--- cegui/src/CEGUIJustifiedRenderedStringWordWrapper.cpp	(Revision 2337)
++++ cegui/src/CEGUIJustifiedRenderedStringWordWrapper.cpp	(Arbeitskopie)
+@@ -36,6 +36,7 @@
+ namespace CEGUI
+ {
+ //----------------------------------------------------------------------------//
++  #if 0
+ template <>
+ void RenderedStringWordWrapper<JustifiedRenderedString>::format(const Size& area_size)
+ {
+@@ -69,7 +70,7 @@
+     frs->format(area_size);
+     d_lines.push_back(frs);
+ }
+-
++#endif
+ //----------------------------------------------------------------------------//
+     
+ } // End of  CEGUI namespace section
