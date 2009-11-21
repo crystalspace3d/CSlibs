@@ -32,10 +32,10 @@
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
 				ProgramDataBaseFileName="..\..\out\release9\build\libCEGUIBase_static\CEGUIBase_static.pdb"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;PCRE_STATIC;CEGUIBASE_STATIC;CEGUIBASE_EXPORTS;FALAGARDWRBASE_EXPORTS;CEGUIWRMODULE_EXPORTS;CEGUITINYXMLPARSER_EXPORTS;CEGUI_STATIC;CEGUI_WITH_TINYXML;CEGUI_FALAGARD_RENDERER;CEGUI_DEFAULT_XMLPARSER=TinyXMLParser;CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG;CEGUI_LOAD_MODULE_DEBUG_SUFFIX=&quot;\&quot;_d&quot;&quot;;CEGUI_FACTORYMODULE_PREFIX=&quot;\&quot;lib\&quot;&quot;;CEGUI_FACTORYMODULE_SUFFIX=&quot;\&quot;-csvc9\&quot;&quot;;CEGUI_TINYXML_H=&quot;\&quot;ceguitinyxml/tinyxml.h\&quot;&quot;;CEGUI_TINYXML_NAMESPACE=CEGUITinyXML;WIN32"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;PCRE_STATIC;CEGUIBASE_STATIC;CEGUIBASE_EXPORTS;CEGUI_HAS_FREETYPE;FALAGARDWRBASE_EXPORTS;CEGUIWRMODULE_EXPORTS;CEGUITINYXMLPARSER_EXPORTS;CEGUITGAIMAGECODEC_EXPORTS;CEGUI_STATIC;CEGUI_WITH_TINYXML;CEGUI_FALAGARD_RENDERER;CEGUI_CODEC_TGA;CEGUI_DEFAULT_XMLPARSER=TinyXMLParser;CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG;CEGUI_LOAD_MODULE_DEBUG_SUFFIX=&quot;\&quot;_d&quot;&quot;;CEGUI_FACTORYMODULE_PREFIX=&quot;\&quot;lib\&quot;&quot;;CEGUI_BUILD_SUFFIX=&quot;\&quot;-csvc9\&quot;&quot;;CEGUI_TINYXML_H=&quot;\&quot;ceguitinyxml/tinyxml.h\&quot;&quot;;CEGUI_TINYXML_NAMESPACE=CEGUITinyXML;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
-				AdditionalIncludeDirectories=".;..\..\source\libCEGUI\include;..\..\source\libCEGUI\include\elements;..\..\source\libCEGUI\include\falagard;..\..\source\libCEGUI\WindowRendererSets\Falagard\include;..\..\source\libCEGUI\..\libpcre;..\..\source\libCEGUI\..\configs\freetype;..\..\source\libCEGUI\..\libfreetype\include"
+				AdditionalIncludeDirectories=".;..\..\source\libCEGUI\cegui\include;..\..\source\libCEGUI\cegui\include\elements;..\..\source\libCEGUI\cegui\include\falagard;..\..\source\libCEGUI\cegui\include\ImageCodecModules\TGAImageCodec;..\..\source\libCEGUI\cegui\include\WindowRendererSets\Falagard;..\..\source\libCEGUI\cegui\include\XMLParserModules\TinyXMLParser;..\..\source\libCEGUI\..\libpcre;..\..\source\libCEGUI\..\configs\freetype;..\..\source\libCEGUI\..\libfreetype\include"
 				PrecompiledHeaderFile="..\..\out\release9\build\libCEGUIBase_static\libCEGUIBase_static.pch"
 				AssemblerListingLocation="..\..\out\release9\build\libCEGUIBase_static\"
 				ObjectFile="..\..\out\release9\build\libCEGUIBase_static\"
@@ -70,7 +70,7 @@
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;PCRE_STATIC;CEGUIBASE_STATIC;CEGUIBASE_EXPORTS;FALAGARDWRBASE_EXPORTS;CEGUIWRMODULE_EXPORTS;CEGUITINYXMLPARSER_EXPORTS;CEGUI_STATIC;CEGUI_WITH_TINYXML;CEGUI_FALAGARD_RENDERER;CEGUI_DEFAULT_XMLPARSER=TinyXMLParser;CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG;CEGUI_LOAD_MODULE_DEBUG_SUFFIX=&quot;\&quot;_d&quot;&quot;;CEGUI_FACTORYMODULE_PREFIX=&quot;\&quot;lib\&quot;&quot;;CEGUI_FACTORYMODULE_SUFFIX=&quot;\&quot;-csvc9\&quot;&quot;;CEGUI_TINYXML_H=&quot;\&quot;ceguitinyxml/tinyxml.h\&quot;&quot;;CEGUI_TINYXML_NAMESPACE=CEGUITinyXML"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;PCRE_STATIC;CEGUIBASE_STATIC;CEGUIBASE_EXPORTS;CEGUI_HAS_FREETYPE;FALAGARDWRBASE_EXPORTS;CEGUIWRMODULE_EXPORTS;CEGUITINYXMLPARSER_EXPORTS;CEGUITGAIMAGECODEC_EXPORTS;CEGUI_STATIC;CEGUI_WITH_TINYXML;CEGUI_FALAGARD_RENDERER;CEGUI_CODEC_TGA;CEGUI_DEFAULT_XMLPARSER=TinyXMLParser;CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG;CEGUI_LOAD_MODULE_DEBUG_SUFFIX=&quot;\&quot;_d&quot;&quot;;CEGUI_FACTORYMODULE_PREFIX=&quot;\&quot;lib\&quot;&quot;;CEGUI_BUILD_SUFFIX=&quot;\&quot;-csvc9\&quot;&quot;;CEGUI_TINYXML_H=&quot;\&quot;ceguitinyxml/tinyxml.h\&quot;&quot;;CEGUI_TINYXML_NAMESPACE=CEGUITinyXML"
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
@@ -84,8 +84,8 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;PCRE_STATIC;CEGUIBASE_STATIC;CEGUIBASE_EXPORTS;FALAGARDWRBASE_EXPORTS;CEGUIWRMODULE_EXPORTS;CEGUITINYXMLPARSER_EXPORTS;CEGUI_STATIC;CEGUI_WITH_TINYXML;CEGUI_FALAGARD_RENDERER;CEGUI_DEFAULT_XMLPARSER=TinyXMLParser;CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG;CEGUI_LOAD_MODULE_DEBUG_SUFFIX=&quot;\&quot;_d&quot;&quot;;CEGUI_FACTORYMODULE_PREFIX=&quot;\&quot;lib\&quot;&quot;;CEGUI_FACTORYMODULE_SUFFIX=&quot;\&quot;-csvc9\&quot;&quot;;CEGUI_TINYXML_H=&quot;\&quot;ceguitinyxml/tinyxml.h\&quot;&quot;;CEGUI_TINYXML_NAMESPACE=CEGUITinyXML;PROJECTGEN_VERSION=9"
-				AdditionalIncludeDirectories=".;..\..\source\libCEGUI;..\..\source\libCEGUI\include;..\..\source\libCEGUI\include\elements;..\..\source\libCEGUI\include\falagard;..\..\source\libCEGUI\WindowRendererSets\Falagard\include;..\..\source\libCEGUI\..\libpcre;..\..\source\libCEGUI\..\configs\freetype;..\..\source\libCEGUI\..\libfreetype\include"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;PCRE_STATIC;CEGUIBASE_STATIC;CEGUIBASE_EXPORTS;CEGUI_HAS_FREETYPE;FALAGARDWRBASE_EXPORTS;CEGUIWRMODULE_EXPORTS;CEGUITINYXMLPARSER_EXPORTS;CEGUITGAIMAGECODEC_EXPORTS;CEGUI_STATIC;CEGUI_WITH_TINYXML;CEGUI_FALAGARD_RENDERER;CEGUI_CODEC_TGA;CEGUI_DEFAULT_XMLPARSER=TinyXMLParser;CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG;CEGUI_LOAD_MODULE_DEBUG_SUFFIX=&quot;\&quot;_d&quot;&quot;;CEGUI_FACTORYMODULE_PREFIX=&quot;\&quot;lib\&quot;&quot;;CEGUI_BUILD_SUFFIX=&quot;\&quot;-csvc9\&quot;&quot;;CEGUI_TINYXML_H=&quot;\&quot;ceguitinyxml/tinyxml.h\&quot;&quot;;CEGUI_TINYXML_NAMESPACE=CEGUITinyXML;PROJECTGEN_VERSION=9"
+				AdditionalIncludeDirectories=".;..\..\source\libCEGUI;..\..\source\libCEGUI\cegui\include;..\..\source\libCEGUI\cegui\include\elements;..\..\source\libCEGUI\cegui\include\falagard;..\..\source\libCEGUI\cegui\include\ImageCodecModules\TGAImageCodec;..\..\source\libCEGUI\cegui\include\WindowRendererSets\Falagard;..\..\source\libCEGUI\cegui\include\XMLParserModules\TinyXMLParser;..\..\source\libCEGUI\..\libpcre;..\..\source\libCEGUI\..\configs\freetype;..\..\source\libCEGUI\..\libfreetype\include"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
@@ -113,10 +113,10 @@
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
 				ProgramDataBaseFileName="..\..\out\release9-x64\build\libCEGUIBase_static\CEGUIBase_static-x64.pdb"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;PCRE_STATIC;CEGUIBASE_STATIC;CEGUIBASE_EXPORTS;FALAGARDWRBASE_EXPORTS;CEGUIWRMODULE_EXPORTS;CEGUITINYXMLPARSER_EXPORTS;CEGUI_STATIC;CEGUI_WITH_TINYXML;CEGUI_FALAGARD_RENDERER;CEGUI_DEFAULT_XMLPARSER=TinyXMLParser;CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG;CEGUI_LOAD_MODULE_DEBUG_SUFFIX=&quot;\&quot;_d&quot;&quot;;CEGUI_FACTORYMODULE_PREFIX=&quot;\&quot;lib\&quot;&quot;;CEGUI_FACTORYMODULE_SUFFIX=&quot;\&quot;-csvc9\&quot;&quot;;CEGUI_TINYXML_H=&quot;\&quot;ceguitinyxml/tinyxml.h\&quot;&quot;;CEGUI_TINYXML_NAMESPACE=CEGUITinyXML;WIN32"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;PCRE_STATIC;CEGUIBASE_STATIC;CEGUIBASE_EXPORTS;CEGUI_HAS_FREETYPE;FALAGARDWRBASE_EXPORTS;CEGUIWRMODULE_EXPORTS;CEGUITINYXMLPARSER_EXPORTS;CEGUITGAIMAGECODEC_EXPORTS;CEGUI_STATIC;CEGUI_WITH_TINYXML;CEGUI_FALAGARD_RENDERER;CEGUI_CODEC_TGA;CEGUI_DEFAULT_XMLPARSER=TinyXMLParser;CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG;CEGUI_LOAD_MODULE_DEBUG_SUFFIX=&quot;\&quot;_d&quot;&quot;;CEGUI_FACTORYMODULE_PREFIX=&quot;\&quot;lib\&quot;&quot;;CEGUI_BUILD_SUFFIX=&quot;\&quot;-csvc9\&quot;&quot;;CEGUI_TINYXML_H=&quot;\&quot;ceguitinyxml/tinyxml.h\&quot;&quot;;CEGUI_TINYXML_NAMESPACE=CEGUITinyXML;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
-				AdditionalIncludeDirectories=".;..\..\source\libCEGUI\include;..\..\source\libCEGUI\include\elements;..\..\source\libCEGUI\include\falagard;..\..\source\libCEGUI\WindowRendererSets\Falagard\include;..\..\source\libCEGUI\..\libpcre;..\..\source\libCEGUI\..\configs\freetype;..\..\source\libCEGUI\..\libfreetype\include"
+				AdditionalIncludeDirectories=".;..\..\source\libCEGUI\cegui\include;..\..\source\libCEGUI\cegui\include\elements;..\..\source\libCEGUI\cegui\include\falagard;..\..\source\libCEGUI\cegui\include\ImageCodecModules\TGAImageCodec;..\..\source\libCEGUI\cegui\include\WindowRendererSets\Falagard;..\..\source\libCEGUI\cegui\include\XMLParserModules\TinyXMLParser;..\..\source\libCEGUI\..\libpcre;..\..\source\libCEGUI\..\configs\freetype;..\..\source\libCEGUI\..\libfreetype\include"
 				PrecompiledHeaderFile="..\..\out\release9-x64\build\libCEGUIBase_static\libCEGUIBase_static.pch"
 				AssemblerListingLocation="..\..\out\release9-x64\build\libCEGUIBase_static\"
 				ObjectFile="..\..\out\release9-x64\build\libCEGUIBase_static\"
@@ -151,7 +151,7 @@
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;PCRE_STATIC;CEGUIBASE_STATIC;CEGUIBASE_EXPORTS;FALAGARDWRBASE_EXPORTS;CEGUIWRMODULE_EXPORTS;CEGUITINYXMLPARSER_EXPORTS;CEGUI_STATIC;CEGUI_WITH_TINYXML;CEGUI_FALAGARD_RENDERER;CEGUI_DEFAULT_XMLPARSER=TinyXMLParser;CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG;CEGUI_LOAD_MODULE_DEBUG_SUFFIX=&quot;\&quot;_d&quot;&quot;;CEGUI_FACTORYMODULE_PREFIX=&quot;\&quot;lib\&quot;&quot;;CEGUI_FACTORYMODULE_SUFFIX=&quot;\&quot;-csvc9\&quot;&quot;;CEGUI_TINYXML_H=&quot;\&quot;ceguitinyxml/tinyxml.h\&quot;&quot;;CEGUI_TINYXML_NAMESPACE=CEGUITinyXML"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;PCRE_STATIC;CEGUIBASE_STATIC;CEGUIBASE_EXPORTS;CEGUI_HAS_FREETYPE;FALAGARDWRBASE_EXPORTS;CEGUIWRMODULE_EXPORTS;CEGUITINYXMLPARSER_EXPORTS;CEGUITGAIMAGECODEC_EXPORTS;CEGUI_STATIC;CEGUI_WITH_TINYXML;CEGUI_FALAGARD_RENDERER;CEGUI_CODEC_TGA;CEGUI_DEFAULT_XMLPARSER=TinyXMLParser;CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG;CEGUI_LOAD_MODULE_DEBUG_SUFFIX=&quot;\&quot;_d&quot;&quot;;CEGUI_FACTORYMODULE_PREFIX=&quot;\&quot;lib\&quot;&quot;;CEGUI_BUILD_SUFFIX=&quot;\&quot;-csvc9\&quot;&quot;;CEGUI_TINYXML_H=&quot;\&quot;ceguitinyxml/tinyxml.h\&quot;&quot;;CEGUI_TINYXML_NAMESPACE=CEGUITinyXML"
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
@@ -165,8 +165,8 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;PCRE_STATIC;CEGUIBASE_STATIC;CEGUIBASE_EXPORTS;FALAGARDWRBASE_EXPORTS;CEGUIWRMODULE_EXPORTS;CEGUITINYXMLPARSER_EXPORTS;CEGUI_STATIC;CEGUI_WITH_TINYXML;CEGUI_FALAGARD_RENDERER;CEGUI_DEFAULT_XMLPARSER=TinyXMLParser;CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG;CEGUI_LOAD_MODULE_DEBUG_SUFFIX=&quot;\&quot;_d&quot;&quot;;CEGUI_FACTORYMODULE_PREFIX=&quot;\&quot;lib\&quot;&quot;;CEGUI_FACTORYMODULE_SUFFIX=&quot;\&quot;-csvc9\&quot;&quot;;CEGUI_TINYXML_H=&quot;\&quot;ceguitinyxml/tinyxml.h\&quot;&quot;;CEGUI_TINYXML_NAMESPACE=CEGUITinyXML;PROJECTGEN_VERSION=9"
-				AdditionalIncludeDirectories=".;..\..\source\libCEGUI;..\..\source\libCEGUI\include;..\..\source\libCEGUI\include\elements;..\..\source\libCEGUI\include\falagard;..\..\source\libCEGUI\WindowRendererSets\Falagard\include;..\..\source\libCEGUI\..\libpcre;..\..\source\libCEGUI\..\configs\freetype;..\..\source\libCEGUI\..\libfreetype\include"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;PCRE_STATIC;CEGUIBASE_STATIC;CEGUIBASE_EXPORTS;CEGUI_HAS_FREETYPE;FALAGARDWRBASE_EXPORTS;CEGUIWRMODULE_EXPORTS;CEGUITINYXMLPARSER_EXPORTS;CEGUITGAIMAGECODEC_EXPORTS;CEGUI_STATIC;CEGUI_WITH_TINYXML;CEGUI_FALAGARD_RENDERER;CEGUI_CODEC_TGA;CEGUI_DEFAULT_XMLPARSER=TinyXMLParser;CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG;CEGUI_LOAD_MODULE_DEBUG_SUFFIX=&quot;\&quot;_d&quot;&quot;;CEGUI_FACTORYMODULE_PREFIX=&quot;\&quot;lib\&quot;&quot;;CEGUI_BUILD_SUFFIX=&quot;\&quot;-csvc9\&quot;&quot;;CEGUI_TINYXML_H=&quot;\&quot;ceguitinyxml/tinyxml.h\&quot;&quot;;CEGUI_TINYXML_NAMESPACE=CEGUITinyXML;PROJECTGEN_VERSION=9"
+				AdditionalIncludeDirectories=".;..\..\source\libCEGUI;..\..\source\libCEGUI\cegui\include;..\..\source\libCEGUI\cegui\include\elements;..\..\source\libCEGUI\cegui\include\falagard;..\..\source\libCEGUI\cegui\include\ImageCodecModules\TGAImageCodec;..\..\source\libCEGUI\cegui\include\WindowRendererSets\Falagard;..\..\source\libCEGUI\cegui\include\XMLParserModules\TinyXMLParser;..\..\source\libCEGUI\..\libpcre;..\..\source\libCEGUI\..\configs\freetype;..\..\source\libCEGUI\..\libfreetype\include"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
@@ -179,593 +179,659 @@
 			Name="Source Files"
 			Filter="">
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIBase.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIBase.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIBoundSlot.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIBasicRenderedStringParser.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIcolour.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIBiDiVisualMapping.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIColourRect.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIBoundSlot.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIConfig_xmlHandler.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUICentredRenderedString.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUICoordConverter.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIcolour.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIDataContainer.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIColourRect.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIDefaultLogger.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIConfig_xmlHandler.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIDefaultResourceProvider.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUICoordConverter.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIDynamicModule.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIDataContainer.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIEvent.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIDefaultLogger.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIEventArgs.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIDefaultRenderedStringParser.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIEventSet.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIDefaultResourceProvider.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIEventSignal.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIDynamicModule.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIEventSignalSet.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIEvent.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIExceptions.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIEventArgs.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIFactoryModule.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIEventSet.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIFont.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIEventSignal.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIFont_xmlHandler.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIEventSignalSet.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIFontManager.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIExceptions.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIFontProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIFactoryModule.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIFreeTypeFont.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIFont.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIGlobalEventSet.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIFont_xmlHandler.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIGUILayout_xmlHandler.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIFontManager.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIImage.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIFontProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIImageCodec.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIFormattedRenderedString.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIImageset.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIFreeTypeFont.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIImageset_xmlHandler.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIFribidiVisualMapping.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIImagesetManager.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIGlobalEventSet.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUILogger.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIGUILayout_xmlHandler.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIMouseCursor.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIImage.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIPixmapFont.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIImageCodec.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIProperty.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIImageset.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIPropertyHelper.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIImageset_xmlHandler.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIPropertySet.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIImagesetManager.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIRect.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIJustifiedRenderedString.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIRenderCache.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIJustifiedRenderedStringWordWrapper.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIRenderer.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUILeftAlignedRenderedString.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIScheme.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUILogger.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIScheme_xmlHandler.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIMinibidiVisualMapping.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUISchemeManager.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIMouseCursor.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIScriptModule.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUINamedXMLResourceManager.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIScriptWindowHelper.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIPCRERegexMatcher.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUISize.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIPixmapFont.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIString.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIProperty.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUISubscriberSlot.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIPropertyHelper.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUISystem.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIPropertySet.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUITexture.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIRect.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUITextUtils.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIRenderedString.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIWindow.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIRenderedStringComponent.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIWindowFactory.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIRenderedStringImageComponent.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIWindowFactoryManager.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIRenderedStringTextComponent.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIWindowManager.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIRenderedStringWidgetComponent.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIWindowProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIRenderingRoot.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIWindowRenderer.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIRenderingSurface.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIWindowRendererManager.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIRenderingWindow.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIXMLAttributes.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIRenderQueue.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIXMLHandler.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIRightAlignedRenderedString.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIXMLParser.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIScheme.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\CEGUIXMLSerializer.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIScheme_xmlHandler.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIBaseFactories.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUISchemeManager.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIButtonBase.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIScriptModule.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUICheckbox.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUISize.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUICheckboxProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIString.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIClippedContainer.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUISubscriberSlot.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUICombobox.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUISystem.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIComboboxProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUITextUtils.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIComboDropList.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIWindow.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIDragContainer.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIWindowFactory.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIDragContainerProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIWindowFactoryManager.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIEditbox.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIWindowManager.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIEditboxProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIWindowProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIFrameWindow.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIWindowRenderer.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIFrameWindowProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIWindowRendererManager.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIGroupBox.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIWindowRendererModule.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIGUISheet.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIWRFactoryRegisterer.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIItemEntry.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIXMLAttributes.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIItemEntryProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIXMLHandler.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIItemListBase.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIXMLParser.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIItemListBaseProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIXMLSerializer.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIItemListbox.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIButtonBase.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIItemListboxProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUICheckbox.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIListbox.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUICheckboxProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIListboxItem.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIClippedContainer.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIListboxProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUICombobox.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIListboxTextItem.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIComboboxProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIListHeader.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIComboDropList.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIListHeaderProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIDragContainer.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIListHeaderSegment.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIDragContainerProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIListHeaderSegmentProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIEditbox.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIMenubar.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIEditboxProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIMenuBase.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIFrameWindow.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIMenuBaseProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIFrameWindowProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIMenuItem.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIGroupBox.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIMultiColumnList.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIGUISheet.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIMultiColumnListProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIItemEntry.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIMultiLineEditbox.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIItemEntryProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIMultiLineEditboxProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIItemListBase.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIPopupMenu.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIItemListBaseProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIPopupMenuProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIItemListbox.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIProgressBar.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIItemListboxProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIProgressBarProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIListbox.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIPushButton.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIListboxItem.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIRadioButton.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIListboxProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIRadioButtonProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIListboxTextItem.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIScrollablePane.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIListHeader.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIScrollablePaneProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIListHeaderProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIScrollbar.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIListHeaderSegment.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIScrollbarProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIListHeaderSegmentProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIScrolledContainer.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIMenubar.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIScrolledContainerProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIMenuBase.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIScrolledItemListBase.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIMenuBaseProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIScrolledItemListBaseProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIMenuItem.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUISlider.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIMultiColumnList.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUISliderProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIMultiColumnListProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUISpinner.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIMultiLineEditbox.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUISpinnerProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIMultiLineEditboxProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUITabButton.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIPopupMenu.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUITabControl.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIPopupMenuProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUITabControlProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIProgressBar.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIThumb.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIProgressBarProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUIThumbProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIPushButton.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUITitlebar.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIRadioButton.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUITitlebarProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIRadioButtonProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUITooltip.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIScrollablePane.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUITooltipProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIScrollablePaneProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUITree.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIScrollbar.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUITreeItem.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIScrollbarProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\elements\CEGUITreeProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIScrolledContainer.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\falagard\CEGUIFalagard_xmlHandler.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIScrolledContainerProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\falagard\CEGUIFalComponentBase.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIScrolledItemListBase.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\falagard\CEGUIFalDimensions.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIScrolledItemListBaseProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\falagard\CEGUIFalFrameComponent.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUISlider.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\falagard\CEGUIFalImageryComponent.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUISliderProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\falagard\CEGUIFalImagerySection.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUISpinner.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\falagard\CEGUIFalLayerSpecification.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUISpinnerProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\falagard\CEGUIFalNamedArea.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUITabButton.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\falagard\CEGUIFalPropertyDefinition.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUITabControl.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\falagard\CEGUIFalPropertyDefinitionBase.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUITabControlProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\falagard\CEGUIFalPropertyInitialiser.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIThumb.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\falagard\CEGUIFalPropertyLinkDefinition.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIThumbProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\falagard\CEGUIFalSectionSpecification.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUITitlebar.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\falagard\CEGUIFalStateImagery.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUITitlebarProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\falagard\CEGUIFalTextComponent.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUITooltip.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\falagard\CEGUIFalWidgetComponent.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUITooltipProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\falagard\CEGUIFalWidgetLookFeel.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUITree.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\falagard\CEGUIFalWidgetLookManager.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUITreeItem.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\src\falagard\CEGUIFalXMLEnumHelper.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUITreeProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalButton.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\falagard\CEGUIFalagard_xmlHandler.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalDefault.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\falagard\CEGUIFalComponentBase.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalEditbox.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\falagard\CEGUIFalDimensions.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalFrameWindow.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\falagard\CEGUIFalFrameComponent.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalItemEntry.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\falagard\CEGUIFalImageryComponent.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalItemListbox.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\falagard\CEGUIFalImagerySection.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalListbox.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\falagard\CEGUIFalLayerSpecification.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalListHeader.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\falagard\CEGUIFalNamedArea.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalListHeaderProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\falagard\CEGUIFalPropertyDefinition.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalListHeaderSegment.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\falagard\CEGUIFalPropertyDefinitionBase.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalMenubar.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\falagard\CEGUIFalPropertyInitialiser.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalMenuItem.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\falagard\CEGUIFalPropertyLinkDefinition.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalModule.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\falagard\CEGUIFalSectionSpecification.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalMultiColumnList.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\falagard\CEGUIFalStateImagery.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalMultiLineEditbox.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\falagard\CEGUIFalTextComponent.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalPopupMenu.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\falagard\CEGUIFalWidgetComponent.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalProgressBar.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\falagard\CEGUIFalWidgetLookFeel.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalProgressBarProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\falagard\CEGUIFalWidgetLookManager.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalScrollablePane.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\falagard\CEGUIFalXMLEnumHelper.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalScrollbar.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\ImageCodecModules\TGAImageCodec\CEGUITGAImageCodec.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalScrollbarProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\ImageCodecModules\TGAImageCodec\CEGUITGAImageCodecModule.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalSlider.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\minibidi.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalSliderProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalButton.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalStatic.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalDefault.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalStaticImage.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalEditbox.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalStaticImageProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalEditboxProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalStaticProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalFrameWindow.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalStaticText.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalItemEntry.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalStaticTextProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalItemListbox.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalSystemButton.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalListbox.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalTabButton.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalListHeader.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalTabControl.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalListHeaderProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalTabControlProperties.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalListHeaderSegment.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalTitlebar.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalMenubar.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalToggleButton.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalMenuItem.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalTooltip.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalModule.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\WindowRendererSets\Falagard\src\FalTree.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalMultiColumnList.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\XMLParserModules\TinyXMLParser\ceguitinyxml\tinystr.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalMultiLineEditbox.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\XMLParserModules\TinyXMLParser\ceguitinyxml\tinyxml.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalMultiLineEditboxProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\XMLParserModules\TinyXMLParser\ceguitinyxml\tinyxmlerror.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalPopupMenu.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\XMLParserModules\TinyXMLParser\ceguitinyxml\tinyxmlparser.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalProgressBar.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\XMLParserModules\TinyXMLParser\CEGUITinyXMLParser.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalProgressBarProperties.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\XMLParserModules\TinyXMLParser\CEGUITinyXMLParserModule.cpp">
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalScrollablePane.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalScrollbar.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalScrollbarProperties.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalSlider.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalSliderProperties.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalStatic.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalStaticImage.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalStaticImageProperties.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalStaticProperties.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalStaticText.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalStaticTextProperties.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalSystemButton.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalTabButton.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalTabControl.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalTabControlProperties.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalTitlebar.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalToggleButton.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalTooltip.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalTree.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\XMLParserModules\TinyXMLParser\ceguitinyxml\tinystr.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\XMLParserModules\TinyXMLParser\ceguitinyxml\tinyxml.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\XMLParserModules\TinyXMLParser\ceguitinyxml\tinyxmlerror.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\XMLParserModules\TinyXMLParser\ceguitinyxml\tinyxmlparser.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\XMLParserModules\TinyXMLParser\CEGUITinyXMLParser.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\XMLParserModules\TinyXMLParser\CEGUITinyXMLParserModule.cpp">
 			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
 			Filter="">
 			<File
-				RelativePath="..\..\source\libCEGUI\XMLParserModules\TinyXMLParser\ceguitinyxml\tinystr.h">
+				RelativePath="..\..\source\libCEGUI\cegui\src\XMLParserModules\TinyXMLParser\ceguitinyxml\tinystr.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libCEGUI\XMLParserModules\TinyXMLParser\ceguitinyxml\tinyxml.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libCEGUI\XMLParserModules\TinyXMLParser\CEGUITinyXMLParser.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libCEGUI\XMLParserModules\TinyXMLParser\CEGUITinyXMLParserModule.h">
+				RelativePath="..\..\source\libCEGUI\cegui\src\XMLParserModules\TinyXMLParser\ceguitinyxml\tinyxml.h">
 			</File>
 		</Filter>
 		<Filter
