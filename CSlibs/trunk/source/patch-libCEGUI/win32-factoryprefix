@@ -1,8 +1,8 @@
 Index: cegui/src/CEGUIDynamicModule.cpp
 ===================================================================
---- cegui/src/CEGUIDynamicModule.cpp	(Revision 2337)
+--- cegui/src/CEGUIDynamicModule.cpp	(Revision 2338)
 +++ cegui/src/CEGUIDynamicModule.cpp	(Arbeitskopie)
-@@ -90,6 +90,30 @@
+@@ -90,6 +90,24 @@
      if (d_moduleName.substr(d_moduleName.length() - 3, 3) != ".so")
          d_moduleName += ".so";
  #endif
@@ -11,7 +11,6 @@ Index: cegui/src/CEGUIDynamicModule.cpp
 +    if (d_moduleName.substr(0, strlen(CEGUI_FACTORYMODULE_PREFIX)) != CEGUI_FACTORYMODULE_PREFIX)
 +        d_moduleName.insert(0, CEGUI_FACTORYMODULE_PREFIX);
 +#endif
-+#ifdef CEGUI_FACTORYMODULE_SUFFIX
 +    // strip .so extension before postfixing, will get added again below
 +    if (d_moduleName.substr(d_moduleName.length() - 4, 4) == ".dll")
 +        d_moduleName = d_moduleName.substr(0, d_moduleName.length() - 4);
@@ -22,14 +21,23 @@ Index: cegui/src/CEGUIDynamicModule.cpp
 +    #endif
 +
 +    #ifdef CEGUI_HAS_VERSION_SUFFIX
-+        d_moduleName += "-";
-+        d_moduleName += CEGUI_VERSION_SUFFIX;
++        d_moduleName += "-" CEGUI_VERSION_SUFFIX;
 +    #endif
-+    
-+    if (d_moduleName.substr(d_moduleName.length() - 4, 4) != ".dll")
-+        d_moduleName += ".dll";
-+#endif
 +
      // Optionally add a _d to the module name for the debug config on Win32
  #if defined(__WIN32__) || defined(_WIN32)
  #   if defined (_DEBUG) && defined (CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG)
+@@ -99,6 +117,13 @@
+ #   endif
+ #endif
+ 
++#ifdef _WIN64
++        d_moduleName += "-x64";
++#endif
++
++    if (d_moduleName.substr(d_moduleName.length() - 4, 4) != ".dll")
++        d_moduleName += ".dll";
++
+     d_handle = DYNLIB_LOAD(d_moduleName.c_str());
+ 
+ #if defined(__linux__) || defined(__MINGW32__) || defined(__FreeBSD__)

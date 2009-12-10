@@ -1,6 +1,6 @@
 Index: cegui/include/CEGUILeftAlignedRenderedString.h
 ===================================================================
---- cegui/include/CEGUILeftAlignedRenderedString.h	(Revision 2337)
+--- cegui/include/CEGUILeftAlignedRenderedString.h	(Revision 2338)
 +++ cegui/include/CEGUILeftAlignedRenderedString.h	(Arbeitskopie)
 @@ -51,6 +51,8 @@
      size_t getFormattedLineCount() const;
@@ -13,7 +13,7 @@ Index: cegui/include/CEGUILeftAlignedRenderedString.h
  } // End of  CEGUI namespace section
 Index: cegui/include/CEGUIRenderedStringWordWrapper.h
 ===================================================================
---- cegui/include/CEGUIRenderedStringWordWrapper.h	(Revision 2337)
+--- cegui/include/CEGUIRenderedStringWordWrapper.h	(Revision 2338)
 +++ cegui/include/CEGUIRenderedStringWordWrapper.h	(Arbeitskopie)
 @@ -30,6 +30,7 @@
  
@@ -43,29 +43,9 @@ Index: cegui/include/CEGUIRenderedStringWordWrapper.h
  
      for (size_t line = 0; line < rstring.getLineCount(); ++line)
      {
-@@ -108,7 +109,8 @@
- 
-             // split rstring at width into lstring and remaining rstring
-             rstring.split(line, area_size.d_width, lstring);
--            frs = new T(*new RenderedString(lstring));
-+            //frs = new T(*new RenderedString(lstring));
-+            frs = new T(lstring);
-             frs->format(area_size);
-             d_lines.push_back(frs);
-             line = 0;
-@@ -116,7 +118,8 @@
-     }
- 
-     // last line.
--    frs = new T(*new RenderedString(rstring));
-+    //frs = new T(*new RenderedString(rstring));
-+    frs = new typename T::LastLineRenderedString (rstring);
-     frs->format(area_size);
-     d_lines.push_back(frs);
- }
 Index: cegui/include/CEGUIJustifiedRenderedString.h
 ===================================================================
---- cegui/include/CEGUIJustifiedRenderedString.h	(Revision 2337)
+--- cegui/include/CEGUIJustifiedRenderedString.h	(Revision 2338)
 +++ cegui/include/CEGUIJustifiedRenderedString.h	(Arbeitskopie)
 @@ -58,6 +58,7 @@
      float getHorizontalExtent() const;
@@ -77,7 +57,7 @@ Index: cegui/include/CEGUIJustifiedRenderedString.h
      std::vector<float> d_spaceExtras;
 Index: cegui/include/CEGUIRightAlignedRenderedString.h
 ===================================================================
---- cegui/include/CEGUIRightAlignedRenderedString.h	(Revision 2337)
+--- cegui/include/CEGUIRightAlignedRenderedString.h	(Revision 2338)
 +++ cegui/include/CEGUIRightAlignedRenderedString.h	(Arbeitskopie)
 @@ -58,6 +58,7 @@
      float getHorizontalExtent() const;
@@ -89,7 +69,7 @@ Index: cegui/include/CEGUIRightAlignedRenderedString.h
  };
 Index: cegui/include/CEGUICentredRenderedString.h
 ===================================================================
---- cegui/include/CEGUICentredRenderedString.h	(Revision 2337)
+--- cegui/include/CEGUICentredRenderedString.h	(Revision 2338)
 +++ cegui/include/CEGUICentredRenderedString.h	(Arbeitskopie)
 @@ -58,6 +58,7 @@
      float getHorizontalExtent() const;
@@ -101,7 +81,7 @@ Index: cegui/include/CEGUICentredRenderedString.h
  };
 Index: cegui/src/CEGUIJustifiedRenderedStringWordWrapper.cpp
 ===================================================================
---- cegui/src/CEGUIJustifiedRenderedStringWordWrapper.cpp	(Revision 2337)
+--- cegui/src/CEGUIJustifiedRenderedStringWordWrapper.cpp	(Revision 2338)
 +++ cegui/src/CEGUIJustifiedRenderedStringWordWrapper.cpp	(Arbeitskopie)
 @@ -36,6 +36,7 @@
  namespace CEGUI
