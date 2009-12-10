@@ -6,6 +6,7 @@ platform_short=$2
 if test ! -e temp/libcal3d/${platform} ; then
 	mkdir -p temp/libcal3d/${platform}
 fi
+mkdir -p libs/ReleaseGCCOnly/${platform}
 
 prefix=$(pwd)/temp/libcal3d/prefix-${platform}
 cd temp/libcal3d/${platform}
