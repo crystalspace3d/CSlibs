@@ -1,6 +1,6 @@
 SubDir TOP source libmng ;
 
-MsvcSetTargetProp mng : delayload : libjpeg-cs ;
+MsvcSetTargetProp mng : delayload : libjpeg-cs libjpeg-cs-x64 ;
 BaseLib mng : 
   [ Wildcard *.c *.h ] : 
   libmng :
