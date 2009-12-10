@@ -6,6 +6,7 @@ Required tools:
 - Recent MSYS/MinGW, with binutils >= 2.16.91, msys make* >= 3.81
 - InnoSetup >= 5.0.7
 - Python
+- CMake
 
 * Download make from the "MSYS Base System". Archive contains a make.exe.
   If it contains mingw32-make.exe you fetched the wrong package.

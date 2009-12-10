@@ -12,7 +12,13 @@ fi
 
 prefix=$(pwd)/temp/libbullet/prefix-${platform}
 cd temp/libbullet/${platform}
-../../../source/libbullet/configure --prefix=${prefix} --disable-shared -C
-jam install
+CC="${CC}.exe" CXX="${CXX}.exe" cmake -G "MSYS Makefiles" -DCMAKE_BUILD_TYPE=RelWithDebInfo "-DCMAKE_INSTALL_PREFIX=${prefix}" ../../../source/libbullet
+cd src/LinearMath
+make install
+cd ../BulletCollision
+make install
+cd ../BulletDynamics
+make install
+cd ../..
 cd ../../..
-cp ${prefix}/lib/libbullet*.a libs/ReleaseGCCOnly/${platform}
+cp ${prefix}/lib/*.a libs/ReleaseGCCOnly/${platform}
