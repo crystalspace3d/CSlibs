@@ -9,9 +9,9 @@ begin
     or RegKeyExists (HKEY_CURRENT_USER, 'Software\Wine')
 end;
 
-function WineToUnix (path: String): PChar; 
+function WineToUnix (path: String): PAnsiChar; 
 external 'WineToUnix@{#SetupToolDll} stdcall';
-function UnixToWine (path: String): PChar; 
+function UnixToWine (path: String): PAnsiChar; 
 external 'UnixToWine@{#SetupToolDll} stdcall';
 
 #else
