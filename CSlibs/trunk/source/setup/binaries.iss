@@ -674,7 +674,7 @@ begin
   end;
 end;
 
-function ToCygwin (path: String): PChar;
+function ToCygwin (path: String): PAnsiChar;
 external 'ToCygwin@{#SetupToolDll} stdcall';
 
 procedure LibPostInstall();
@@ -705,4 +705,5 @@ begin
   StringChange (libPath, '\', '/');
   SaveStringToFile (pcFileName, 'Libs: ${prefix}/' + libPath + #13#10, true);
 end;
+
 
