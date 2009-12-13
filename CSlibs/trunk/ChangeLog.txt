@@ -1,4 +1,4 @@
-1.9_003 (2009-11-??):
+1.9_003 (2009-12-12):
  - Updated Cg to 2.2 October 2009 release.
  - Updated libpng to 1.2.40.
  - Updated freetype to 2.3.11.
