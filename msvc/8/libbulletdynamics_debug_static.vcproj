@@ -153,6 +153,9 @@
 			Name="Source Files"
 			Filter="">
 			<File
+				RelativePath="..\..\source\libbullet\src\BulletDynamics\Character\btKinematicCharacterController.cpp">
+			</File>
+			<File
 				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btConeTwistConstraint.cpp">
 			</File>
 			<File
@@ -213,6 +216,12 @@
 		<Filter
 			Name="Header Files"
 			Filter="">
+			<File
+				RelativePath="..\..\source\libbullet\src\BulletDynamics\Character\btCharacterControllerInterface.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libbullet\src\BulletDynamics\Character\btKinematicCharacterController.h">
+			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btConeTwistConstraint.h">
 			</File>
