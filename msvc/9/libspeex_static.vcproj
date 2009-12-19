@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding = "Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="8.00"
+	Version="9.00"
 	Name="libspeex_static"
 	ProjectGUID="{5487B851-1210-B24E-E735-578CB6754819}"
 	SccProjectName=""
@@ -13,8 +13,8 @@
 	<Configurations>
       		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="..\..\out\release8\build\libspeex_static\"
-			IntermediateDirectory="..\..\out\release8\build\libspeex_static\"
+			OutputDirectory="..\..\out\release9\build\libspeex_static\"
+			IntermediateDirectory="..\..\out\release9\build\libspeex_static\"
 			ConfigurationType="4"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="FALSE">
@@ -35,9 +35,9 @@
 				OptimizeForProcessor="2"
 				AdditionalOptions="/fp:fast "
 				AdditionalIncludeDirectories=".;..\..\source\libspeex\include;..\..\source\libspeex\win32;..\..\source\libogg\include"
-				PrecompiledHeaderFile="..\..\out\release8\build\libspeex_static\libspeex_static.pch"
-				AssemblerListingLocation="..\..\out\release8\build\libspeex_static\"
-				ObjectFile="..\..\out\release8\build\libspeex_static\"
+				PrecompiledHeaderFile="..\..\out\release9\build\libspeex_static\libspeex_static.pch"
+				AssemblerListingLocation="..\..\out\release9\build\libspeex_static\"
+				ObjectFile="..\..\out\release9\build\libspeex_static\"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
 				Detect64BitPortabilityProblems="false"
@@ -68,7 +68,7 @@
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
-				TypeLibraryName="..\..\out\release8\build\libspeex_static\libspeex_static.tlb"/>
+				TypeLibraryName="..\..\out\release9\build\libspeex_static\libspeex_static.tlb"/>
 			<Tool
 				Name="VCPostBuildEventTool"
 				/>
@@ -78,7 +78,7 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;HAVE_CONFIG_H;PROJECTGEN_VERSION=8"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;HAVE_CONFIG_H;PROJECTGEN_VERSION=9"
 				AdditionalIncludeDirectories=".;..\..\source\libspeex;..\..\source\libspeex\include;..\..\source\libspeex\win32;..\..\source\libogg\include"
 				Culture="1033"/>
 			<Tool
@@ -88,8 +88,8 @@
 		</Configuration>
             		<Configuration
 			Name="Release|x64"
-			OutputDirectory="..\..\out\release8-x64\build\libspeex_static\"
-			IntermediateDirectory="..\..\out\release8-x64\build\libspeex_static\"
+			OutputDirectory="..\..\out\release9-x64\build\libspeex_static\"
+			IntermediateDirectory="..\..\out\release9-x64\build\libspeex_static\"
 			ConfigurationType="4"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="FALSE">
@@ -110,9 +110,9 @@
 				OptimizeForProcessor="2"
 				AdditionalOptions="/fp:fast "
 				AdditionalIncludeDirectories=".;..\..\source\libspeex\include;..\..\source\libspeex\win32;..\..\source\libogg\include"
-				PrecompiledHeaderFile="..\..\out\release8-x64\build\libspeex_static\libspeex_static.pch"
-				AssemblerListingLocation="..\..\out\release8-x64\build\libspeex_static\"
-				ObjectFile="..\..\out\release8-x64\build\libspeex_static\"
+				PrecompiledHeaderFile="..\..\out\release9-x64\build\libspeex_static\libspeex_static.pch"
+				AssemblerListingLocation="..\..\out\release9-x64\build\libspeex_static\"
+				ObjectFile="..\..\out\release9-x64\build\libspeex_static\"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
 				Detect64BitPortabilityProblems="false"
@@ -143,7 +143,7 @@
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
-				TypeLibraryName="..\..\out\release8-x64\build\libspeex_static\libspeex_static.tlb"/>
+				TypeLibraryName="..\..\out\release9-x64\build\libspeex_static\libspeex_static.tlb"/>
 			<Tool
 				Name="VCPostBuildEventTool"
 				/>
@@ -153,7 +153,7 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;HAVE_CONFIG_H;PROJECTGEN_VERSION=8"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;HAVE_CONFIG_H;PROJECTGEN_VERSION=9"
 				AdditionalIncludeDirectories=".;..\..\source\libspeex;..\..\source\libspeex\include;..\..\source\libspeex\win32;..\..\source\libogg\include"
 				Culture="1033"/>
 			<Tool

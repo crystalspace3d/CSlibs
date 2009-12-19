@@ -2,8 +2,8 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="libwxpng_static"
-	ProjectGUID="{92B650F3-C9BE-8C7E-CB66-8941D265C3DC}"
+	Name="libvorbis_static"
+	ProjectGUID="{3D7F519D-02E9-BF81-13F5-BAE46044C6ED}"
 	SccProjectName=""
 	SccLocalPath="">
 	<Platforms>
@@ -13,8 +13,8 @@
 	<Configurations>
       		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="..\..\out\release9\build\libwxpng_static\"
-			IntermediateDirectory="..\..\out\release9\build\libwxpng_static\"
+			OutputDirectory="..\..\out\release9\build\libvorbis_static\"
+			IntermediateDirectory="..\..\out\release9\build\libvorbis_static\"
 			ConfigurationType="4"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="FALSE">
@@ -30,14 +30,14 @@
 				EnableIntrinsicFunctions="TRUE"
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
-                                ProgramDataBaseFileName="..\..\libs\Temp_static\wxpng.pdb" 
+                                ProgramDataBaseFileName="..\..\libs\Release_static\vorbis.pdb" 
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions="/fp:fast "
-				AdditionalIncludeDirectories=".;..\..\source\libwx\src\png\..\zlib"
-				PrecompiledHeaderFile="..\..\out\release9\build\libwxpng_static\libwxpng_static.pch"
-				AssemblerListingLocation="..\..\out\release9\build\libwxpng_static\"
-				ObjectFile="..\..\out\release9\build\libwxpng_static\"
+				AdditionalIncludeDirectories=".;..\..\source\libvorbis\include;..\..\source\libogg\include"
+				PrecompiledHeaderFile="..\..\out\release9\build\libvorbis_static\libvorbis_static.pch"
+				AssemblerListingLocation="..\..\out\release9\build\libvorbis_static\"
+				ObjectFile="..\..\out\release9\build\libvorbis_static\"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
 				Detect64BitPortabilityProblems="false"
@@ -56,11 +56,11 @@
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				ProgramDatabaseFile="..\..\libs\Temp_static\wxpng.pdb"
+				ProgramDatabaseFile="..\..\libs\Release_static\vorbis.pdb"
 				TargetMachine="1"/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\libs\Temp_static\wxpng.lib"
+				OutputFile="..\..\libs\Release_static\vorbis.lib"
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
@@ -68,7 +68,7 @@
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
-				TypeLibraryName="..\..\out\release9\build\libwxpng_static\libwxpng_static.tlb"/>
+				TypeLibraryName="..\..\out\release9\build\libvorbis_static\libvorbis_static.tlb"/>
 			<Tool
 				Name="VCPostBuildEventTool"
 				/>
@@ -79,7 +79,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;PROJECTGEN_VERSION=9"
-				AdditionalIncludeDirectories=".;..\..\source\libwx\src\png;..\..\source\libwx\src\png\..\zlib"
+				AdditionalIncludeDirectories=".;..\..\source\libvorbis;..\..\source\libvorbis\include;..\..\source\libogg\include"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
@@ -88,8 +88,8 @@
 		</Configuration>
             		<Configuration
 			Name="Release|x64"
-			OutputDirectory="..\..\out\release9-x64\build\libwxpng_static\"
-			IntermediateDirectory="..\..\out\release9-x64\build\libwxpng_static\"
+			OutputDirectory="..\..\out\release9-x64\build\libvorbis_static\"
+			IntermediateDirectory="..\..\out\release9-x64\build\libvorbis_static\"
 			ConfigurationType="4"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="FALSE">
@@ -105,14 +105,14 @@
 				EnableIntrinsicFunctions="TRUE"
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
-                                ProgramDataBaseFileName="..\..\libs\Temp_static-x64\wxpng.pdb" 
+                                ProgramDataBaseFileName="..\..\libs\Release_static-x64\vorbis.pdb" 
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions="/fp:fast "
-				AdditionalIncludeDirectories=".;..\..\source\libwx\src\png\..\zlib"
-				PrecompiledHeaderFile="..\..\out\release9-x64\build\libwxpng_static\libwxpng_static.pch"
-				AssemblerListingLocation="..\..\out\release9-x64\build\libwxpng_static\"
-				ObjectFile="..\..\out\release9-x64\build\libwxpng_static\"
+				AdditionalIncludeDirectories=".;..\..\source\libvorbis\include;..\..\source\libogg\include"
+				PrecompiledHeaderFile="..\..\out\release9-x64\build\libvorbis_static\libvorbis_static.pch"
+				AssemblerListingLocation="..\..\out\release9-x64\build\libvorbis_static\"
+				ObjectFile="..\..\out\release9-x64\build\libvorbis_static\"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
 				Detect64BitPortabilityProblems="false"
@@ -131,11 +131,11 @@
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				ProgramDatabaseFile="..\..\libs\Temp_static-x64\wxpng-x64.pdb"
+				ProgramDatabaseFile="..\..\libs\Release_static-x64\vorbis-x64.pdb"
 				TargetMachine="17"/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\libs\Temp_static-x64\wxpng.lib"
+				OutputFile="..\..\libs\Release_static-x64\vorbis.lib"
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
@@ -143,7 +143,7 @@
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
-				TypeLibraryName="..\..\out\release9-x64\build\libwxpng_static\libwxpng_static.tlb"/>
+				TypeLibraryName="..\..\out\release9-x64\build\libvorbis_static\libvorbis_static.tlb"/>
 			<Tool
 				Name="VCPostBuildEventTool"
 				/>
@@ -154,7 +154,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;PROJECTGEN_VERSION=9"
-				AdditionalIncludeDirectories=".;..\..\source\libwx\src\png;..\..\source\libwx\src\png\..\zlib"
+				AdditionalIncludeDirectories=".;..\..\source\libvorbis;..\..\source\libvorbis\include;..\..\source\libogg\include"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
@@ -167,71 +167,128 @@
 			Name="Source Files"
 			Filter="">
 			<File
-				RelativePath="..\..\source\libwx\src\png\png.c">
+				RelativePath="..\..\source\libvorbis\lib\analysis.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\png\pngerror.c">
+				RelativePath="..\..\source\libvorbis\lib\barkmel.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\png\pnggccrd.c">
+				RelativePath="..\..\source\libvorbis\lib\bitrate.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\png\pngget.c">
+				RelativePath="..\..\source\libvorbis\lib\block.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\png\pngmem.c">
+				RelativePath="..\..\source\libvorbis\lib\codebook.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\png\pngpread.c">
+				RelativePath="..\..\source\libvorbis\lib\envelope.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\png\pngread.c">
+				RelativePath="..\..\source\libvorbis\lib\floor0.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\png\pngrio.c">
+				RelativePath="..\..\source\libvorbis\lib\floor1.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\png\pngrtran.c">
+				RelativePath="..\..\source\libvorbis\lib\info.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\png\pngrutil.c">
+				RelativePath="..\..\source\libvorbis\lib\lookup.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\png\pngset.c">
+				RelativePath="..\..\source\libvorbis\lib\lpc.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\png\pngtest.c">
+				RelativePath="..\..\source\libvorbis\lib\lsp.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\png\pngtrans.c">
+				RelativePath="..\..\source\libvorbis\lib\mapping0.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\png\pngvcrd.c">
+				RelativePath="..\..\source\libvorbis\lib\mdct.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\png\pngwio.c">
+				RelativePath="..\..\source\libvorbis\lib\psy.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\png\pngwrite.c">
+				RelativePath="..\..\source\libvorbis\lib\registry.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\png\pngwtran.c">
+				RelativePath="..\..\source\libvorbis\lib\res0.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\png\pngwutil.c">
+				RelativePath="..\..\source\libvorbis\lib\sharedbook.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libvorbis\lib\smallft.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libvorbis\lib\synthesis.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libvorbis\lib\window.c">
 			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
 			Filter="">
 			<File
-				RelativePath="..\..\source\libwx\src\png\png.h">
+				RelativePath="..\..\source\libvorbis\lib\backends.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\png\pngasmrd.h">
+				RelativePath="..\..\source\libvorbis\lib\bitrate.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\png\pngconf.h">
+				RelativePath="..\..\source\libvorbis\lib\codebook.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libvorbis\lib\codec_internal.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libvorbis\lib\envelope.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libvorbis\lib\highlevel.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libvorbis\lib\lookup.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libvorbis\lib\lookup_data.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libvorbis\lib\lpc.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libvorbis\lib\lsp.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libvorbis\lib\masking.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libvorbis\lib\mdct.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libvorbis\lib\misc.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libvorbis\lib\os.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libvorbis\lib\psy.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libvorbis\lib\registry.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libvorbis\lib\scales.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libvorbis\lib\smallft.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libvorbis\lib\window.h">
 			</File>
 		</Filter>
 	</Files>
