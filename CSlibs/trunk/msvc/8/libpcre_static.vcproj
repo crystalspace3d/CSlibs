@@ -30,10 +30,10 @@
 				EnableIntrinsicFunctions="TRUE"
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
-                                ProgramDataBaseFileName="..\..\libs\Temp_static\pcre.pdb" 
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;PCRE_STATIC;SUPPORT_UTF8;HAVE_CONFIG_H;WIN32"
+                                ProgramDataBaseFileName="..\..\libs\TempVC8Only_static\pcre.pdb" 
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;PCRE_STATIC;SUPPORT_UTF8;HAVE_CONFIG_H;WIN32"
 				OptimizeForProcessor="2"
-				AdditionalOptions="/fp:fast "
+				AdditionalOptions=" "
 				AdditionalIncludeDirectories=".;..\..\source\libpcre;..\..\source\libpcre\..\configs\pcre"
 				PrecompiledHeaderFile="..\..\out\release8\build\libpcre_static\libpcre_static.pch"
 				AssemblerListingLocation="..\..\out\release8\build\libpcre_static\"
@@ -56,15 +56,15 @@
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				ProgramDatabaseFile="..\..\libs\Temp_static\pcre.pdb"
+				ProgramDatabaseFile="..\..\libs\TempVC8Only_static\pcre.pdb"
 				TargetMachine="1"/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\libs\Temp_static\pcre.lib"
+				OutputFile="..\..\libs\TempVC8Only_static\pcre.lib"
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;PCRE_STATIC;SUPPORT_UTF8;HAVE_CONFIG_H"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;PCRE_STATIC;SUPPORT_UTF8;HAVE_CONFIG_H"
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
@@ -78,7 +78,7 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;PCRE_STATIC;SUPPORT_UTF8;HAVE_CONFIG_H;PROJECTGEN_VERSION=8"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;PCRE_STATIC;SUPPORT_UTF8;HAVE_CONFIG_H;PROJECTGEN_VERSION=8"
 				AdditionalIncludeDirectories=".;..\..\source\libpcre;..\..\source\libpcre;..\..\source\libpcre\..\configs\pcre"
 				Culture="1033"/>
 			<Tool
@@ -105,10 +105,10 @@
 				EnableIntrinsicFunctions="TRUE"
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
-                                ProgramDataBaseFileName="..\..\libs\Temp_static-x64\pcre.pdb" 
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;PCRE_STATIC;SUPPORT_UTF8;HAVE_CONFIG_H;WIN32"
+                                ProgramDataBaseFileName="..\..\libs\TempVC8Only_static-x64\pcre.pdb" 
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;PCRE_STATIC;SUPPORT_UTF8;HAVE_CONFIG_H;WIN32"
 				OptimizeForProcessor="2"
-				AdditionalOptions="/fp:fast "
+				AdditionalOptions=" "
 				AdditionalIncludeDirectories=".;..\..\source\libpcre;..\..\source\libpcre\..\configs\pcre"
 				PrecompiledHeaderFile="..\..\out\release8-x64\build\libpcre_static\libpcre_static.pch"
 				AssemblerListingLocation="..\..\out\release8-x64\build\libpcre_static\"
@@ -131,15 +131,15 @@
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				ProgramDatabaseFile="..\..\libs\Temp_static-x64\pcre-x64.pdb"
+				ProgramDatabaseFile="..\..\libs\TempVC8Only_static-x64\pcre-x64.pdb"
 				TargetMachine="17"/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\libs\Temp_static-x64\pcre.lib"
+				OutputFile="..\..\libs\TempVC8Only_static-x64\pcre.lib"
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;PCRE_STATIC;SUPPORT_UTF8;HAVE_CONFIG_H"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;PCRE_STATIC;SUPPORT_UTF8;HAVE_CONFIG_H"
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
@@ -153,7 +153,7 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;PCRE_STATIC;SUPPORT_UTF8;HAVE_CONFIG_H;PROJECTGEN_VERSION=8"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;PCRE_STATIC;SUPPORT_UTF8;HAVE_CONFIG_H;PROJECTGEN_VERSION=8"
 				AdditionalIncludeDirectories=".;..\..\source\libpcre;..\..\source\libpcre;..\..\source\libpcre\..\configs\pcre"
 				Culture="1033"/>
 			<Tool

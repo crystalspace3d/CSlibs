@@ -78,7 +78,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;PROJECTGEN_VERSION=9"
-				AdditionalIncludeDirectories=".;..\..\source\libcal3d"
+				AdditionalIncludeDirectories=".;..\..\source\libz"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
@@ -152,7 +152,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;PROJECTGEN_VERSION=9"
-				AdditionalIncludeDirectories=".;..\..\source\libcal3d"
+				AdditionalIncludeDirectories=".;..\..\source\libz"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>

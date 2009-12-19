@@ -2,8 +2,8 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="libwxpng_static"
-	ProjectGUID="{92B650F3-C9BE-8C7E-CB66-8941D265C3DC}"
+	Name="lib3ds_static"
+	ProjectGUID="{10BF9AB5-12FB-8A18-165B-88A1649D8337}"
 	SccProjectName=""
 	SccLocalPath="">
 	<Platforms>
@@ -13,8 +13,8 @@
 	<Configurations>
       		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="..\..\out\release9\build\libwxpng_static\"
-			IntermediateDirectory="..\..\out\release9\build\libwxpng_static\"
+			OutputDirectory="..\..\out\release9\build\lib3ds_static\"
+			IntermediateDirectory="..\..\out\release9\build\lib3ds_static\"
 			ConfigurationType="4"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="FALSE">
@@ -30,14 +30,14 @@
 				EnableIntrinsicFunctions="TRUE"
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
-                                ProgramDataBaseFileName="..\..\libs\Temp_static\wxpng.pdb" 
+                                ProgramDataBaseFileName="..\..\libs\Release_static\lib3ds.pdb" 
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;WIN32"
 				OptimizeForProcessor="2"
-				AdditionalOptions="/fp:fast "
-				AdditionalIncludeDirectories=".;..\..\source\libwx\src\png\..\zlib"
-				PrecompiledHeaderFile="..\..\out\release9\build\libwxpng_static\libwxpng_static.pch"
-				AssemblerListingLocation="..\..\out\release9\build\libwxpng_static\"
-				ObjectFile="..\..\out\release9\build\libwxpng_static\"
+				AdditionalOptions="/fp:fast /fp:precise "
+				AdditionalIncludeDirectories=".;..\..\source\lib3ds;..\..\source\lib3ds\..\configs\lib3ds"
+				PrecompiledHeaderFile="..\..\out\release9\build\lib3ds_static\lib3ds_static.pch"
+				AssemblerListingLocation="..\..\out\release9\build\lib3ds_static\"
+				ObjectFile="..\..\out\release9\build\lib3ds_static\"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
 				Detect64BitPortabilityProblems="false"
@@ -56,11 +56,11 @@
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				ProgramDatabaseFile="..\..\libs\Temp_static\wxpng.pdb"
+				ProgramDatabaseFile="..\..\libs\Release_static\lib3ds.pdb"
 				TargetMachine="1"/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\libs\Temp_static\wxpng.lib"
+				OutputFile="..\..\libs\Release_static\lib3ds.lib"
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
@@ -68,7 +68,7 @@
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
-				TypeLibraryName="..\..\out\release9\build\libwxpng_static\libwxpng_static.tlb"/>
+				TypeLibraryName="..\..\out\release9\build\lib3ds_static\lib3ds_static.tlb"/>
 			<Tool
 				Name="VCPostBuildEventTool"
 				/>
@@ -79,7 +79,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;PROJECTGEN_VERSION=9"
-				AdditionalIncludeDirectories=".;..\..\source\libwx\src\png;..\..\source\libwx\src\png\..\zlib"
+				AdditionalIncludeDirectories=".;..\..\source\lib3ds;..\..\source\lib3ds;..\..\source\lib3ds\..\configs\lib3ds"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
@@ -88,8 +88,8 @@
 		</Configuration>
             		<Configuration
 			Name="Release|x64"
-			OutputDirectory="..\..\out\release9-x64\build\libwxpng_static\"
-			IntermediateDirectory="..\..\out\release9-x64\build\libwxpng_static\"
+			OutputDirectory="..\..\out\release9-x64\build\lib3ds_static\"
+			IntermediateDirectory="..\..\out\release9-x64\build\lib3ds_static\"
 			ConfigurationType="4"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="FALSE">
@@ -105,14 +105,14 @@
 				EnableIntrinsicFunctions="TRUE"
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
-                                ProgramDataBaseFileName="..\..\libs\Temp_static-x64\wxpng.pdb" 
+                                ProgramDataBaseFileName="..\..\libs\Release_static-x64\lib3ds.pdb" 
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;WIN32"
 				OptimizeForProcessor="2"
-				AdditionalOptions="/fp:fast "
-				AdditionalIncludeDirectories=".;..\..\source\libwx\src\png\..\zlib"
-				PrecompiledHeaderFile="..\..\out\release9-x64\build\libwxpng_static\libwxpng_static.pch"
-				AssemblerListingLocation="..\..\out\release9-x64\build\libwxpng_static\"
-				ObjectFile="..\..\out\release9-x64\build\libwxpng_static\"
+				AdditionalOptions="/fp:fast /fp:precise "
+				AdditionalIncludeDirectories=".;..\..\source\lib3ds;..\..\source\lib3ds\..\configs\lib3ds"
+				PrecompiledHeaderFile="..\..\out\release9-x64\build\lib3ds_static\lib3ds_static.pch"
+				AssemblerListingLocation="..\..\out\release9-x64\build\lib3ds_static\"
+				ObjectFile="..\..\out\release9-x64\build\lib3ds_static\"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
 				Detect64BitPortabilityProblems="false"
@@ -131,11 +131,11 @@
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				ProgramDatabaseFile="..\..\libs\Temp_static-x64\wxpng-x64.pdb"
+				ProgramDatabaseFile="..\..\libs\Release_static-x64\lib3ds-x64.pdb"
 				TargetMachine="17"/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\libs\Temp_static-x64\wxpng.lib"
+				OutputFile="..\..\libs\Release_static-x64\lib3ds.lib"
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
@@ -143,7 +143,7 @@
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
-				TypeLibraryName="..\..\out\release9-x64\build\libwxpng_static\libwxpng_static.tlb"/>
+				TypeLibraryName="..\..\out\release9-x64\build\lib3ds_static\lib3ds_static.tlb"/>
 			<Tool
 				Name="VCPostBuildEventTool"
 				/>
@@ -154,7 +154,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;PROJECTGEN_VERSION=9"
-				AdditionalIncludeDirectories=".;..\..\source\libwx\src\png;..\..\source\libwx\src\png\..\zlib"
+				AdditionalIncludeDirectories=".;..\..\source\lib3ds;..\..\source\lib3ds;..\..\source\lib3ds\..\configs\lib3ds"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
@@ -167,71 +167,122 @@
 			Name="Source Files"
 			Filter="">
 			<File
-				RelativePath="..\..\source\libwx\src\png\png.c">
+				RelativePath="..\..\source\lib3ds\lib3ds\atmosphere.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\png\pngerror.c">
+				RelativePath="..\..\source\lib3ds\lib3ds\background.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\png\pnggccrd.c">
+				RelativePath="..\..\source\lib3ds\lib3ds\camera.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\png\pngget.c">
+				RelativePath="..\..\source\lib3ds\lib3ds\chunk.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\png\pngmem.c">
+				RelativePath="..\..\source\lib3ds\lib3ds\ease.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\png\pngpread.c">
+				RelativePath="..\..\source\lib3ds\lib3ds\file.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\png\pngread.c">
+				RelativePath="..\..\source\lib3ds\lib3ds\io.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\png\pngrio.c">
+				RelativePath="..\..\source\lib3ds\lib3ds\light.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\png\pngrtran.c">
+				RelativePath="..\..\source\lib3ds\lib3ds\material.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\png\pngrutil.c">
+				RelativePath="..\..\source\lib3ds\lib3ds\matrix.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\png\pngset.c">
+				RelativePath="..\..\source\lib3ds\lib3ds\mesh.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\png\pngtest.c">
+				RelativePath="..\..\source\lib3ds\lib3ds\node.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\png\pngtrans.c">
+				RelativePath="..\..\source\lib3ds\lib3ds\quat.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\png\pngvcrd.c">
+				RelativePath="..\..\source\lib3ds\lib3ds\shadow.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\png\pngwio.c">
+				RelativePath="..\..\source\lib3ds\lib3ds\tcb.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\png\pngwrite.c">
+				RelativePath="..\..\source\lib3ds\lib3ds\tracks.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\png\pngwtran.c">
+				RelativePath="..\..\source\lib3ds\lib3ds\vector.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\png\pngwutil.c">
+				RelativePath="..\..\source\lib3ds\lib3ds\viewport.c">
 			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
 			Filter="">
 			<File
-				RelativePath="..\..\source\libwx\src\png\png.h">
+				RelativePath="..\..\source\lib3ds\lib3ds\atmosphere.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\png\pngasmrd.h">
+				RelativePath="..\..\source\lib3ds\lib3ds\background.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\png\pngconf.h">
+				RelativePath="..\..\source\lib3ds\lib3ds\camera.h">
+			</File>
+			<File
+				RelativePath="..\..\source\lib3ds\lib3ds\chunk.h">
+			</File>
+			<File
+				RelativePath="..\..\source\lib3ds\lib3ds\chunktable.h">
+			</File>
+			<File
+				RelativePath="..\..\source\lib3ds\lib3ds\ease.h">
+			</File>
+			<File
+				RelativePath="..\..\source\lib3ds\lib3ds\file.h">
+			</File>
+			<File
+				RelativePath="..\..\source\lib3ds\lib3ds\io.h">
+			</File>
+			<File
+				RelativePath="..\..\source\lib3ds\lib3ds\light.h">
+			</File>
+			<File
+				RelativePath="..\..\source\lib3ds\lib3ds\material.h">
+			</File>
+			<File
+				RelativePath="..\..\source\lib3ds\lib3ds\matrix.h">
+			</File>
+			<File
+				RelativePath="..\..\source\lib3ds\lib3ds\mesh.h">
+			</File>
+			<File
+				RelativePath="..\..\source\lib3ds\lib3ds\node.h">
+			</File>
+			<File
+				RelativePath="..\..\source\lib3ds\lib3ds\quat.h">
+			</File>
+			<File
+				RelativePath="..\..\source\lib3ds\lib3ds\shadow.h">
+			</File>
+			<File
+				RelativePath="..\..\source\lib3ds\lib3ds\tcb.h">
+			</File>
+			<File
+				RelativePath="..\..\source\lib3ds\lib3ds\tracks.h">
+			</File>
+			<File
+				RelativePath="..\..\source\lib3ds\lib3ds\types.h">
+			</File>
+			<File
+				RelativePath="..\..\source\lib3ds\lib3ds\vector.h">
+			</File>
+			<File
+				RelativePath="..\..\source\lib3ds\lib3ds\viewport.h">
 			</File>
 		</Filter>
 	</Files>

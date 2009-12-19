@@ -30,10 +30,10 @@
 				EnableIntrinsicFunctions="TRUE"
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
-                                ProgramDataBaseFileName="..\..\libs\TempVC9Only_static\wxzlib.pdb" 
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;WIN32"
+                                ProgramDataBaseFileName="..\..\libs\Temp_static\wxzlib.pdb" 
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;WIN32"
 				OptimizeForProcessor="2"
-				AdditionalOptions=" "
+				AdditionalOptions="/fp:fast "
 				AdditionalIncludeDirectories="."
 				PrecompiledHeaderFile="..\..\out\release9\build\libwxzlib_static\libwxzlib_static.pch"
 				AssemblerListingLocation="..\..\out\release9\build\libwxzlib_static\"
@@ -56,15 +56,15 @@
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				ProgramDatabaseFile="..\..\libs\TempVC9Only_static\wxzlib.pdb"
+				ProgramDatabaseFile="..\..\libs\Temp_static\wxzlib.pdb"
 				TargetMachine="1"/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\libs\TempVC9Only_static\wxzlib.lib"
+				OutputFile="..\..\libs\Temp_static\wxzlib.lib"
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST"
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
@@ -78,7 +78,7 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;PROJECTGEN_VERSION=9"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;PROJECTGEN_VERSION=9"
 				AdditionalIncludeDirectories=".;..\..\source\libwx\src\zlib"
 				Culture="1033"/>
 			<Tool
@@ -105,10 +105,10 @@
 				EnableIntrinsicFunctions="TRUE"
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
-                                ProgramDataBaseFileName="..\..\libs\TempVC9Only_static-x64\wxzlib.pdb" 
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;WIN32"
+                                ProgramDataBaseFileName="..\..\libs\Temp_static-x64\wxzlib.pdb" 
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;WIN32"
 				OptimizeForProcessor="2"
-				AdditionalOptions=" "
+				AdditionalOptions="/fp:fast "
 				AdditionalIncludeDirectories="."
 				PrecompiledHeaderFile="..\..\out\release9-x64\build\libwxzlib_static\libwxzlib_static.pch"
 				AssemblerListingLocation="..\..\out\release9-x64\build\libwxzlib_static\"
@@ -131,15 +131,15 @@
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				ProgramDatabaseFile="..\..\libs\TempVC9Only_static-x64\wxzlib-x64.pdb"
+				ProgramDatabaseFile="..\..\libs\Temp_static-x64\wxzlib-x64.pdb"
 				TargetMachine="17"/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\libs\TempVC9Only_static-x64\wxzlib.lib"
+				OutputFile="..\..\libs\Temp_static-x64\wxzlib.lib"
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST"
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
@@ -153,7 +153,7 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;PROJECTGEN_VERSION=9"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;PROJECTGEN_VERSION=9"
 				AdditionalIncludeDirectories=".;..\..\source\libwx\src\zlib"
 				Culture="1033"/>
 			<Tool

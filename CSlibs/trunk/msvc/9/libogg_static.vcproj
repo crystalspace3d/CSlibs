@@ -2,8 +2,8 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="libwxpng_static"
-	ProjectGUID="{92B650F3-C9BE-8C7E-CB66-8941D265C3DC}"
+	Name="libogg_static"
+	ProjectGUID="{544D9014-37E1-84C4-B16E-C0DB6EE857B1}"
 	SccProjectName=""
 	SccLocalPath="">
 	<Platforms>
@@ -13,8 +13,8 @@
 	<Configurations>
       		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="..\..\out\release9\build\libwxpng_static\"
-			IntermediateDirectory="..\..\out\release9\build\libwxpng_static\"
+			OutputDirectory="..\..\out\release9\build\libogg_static\"
+			IntermediateDirectory="..\..\out\release9\build\libogg_static\"
 			ConfigurationType="4"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="FALSE">
@@ -30,14 +30,14 @@
 				EnableIntrinsicFunctions="TRUE"
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
-                                ProgramDataBaseFileName="..\..\libs\Temp_static\wxpng.pdb" 
+                                ProgramDataBaseFileName="..\..\libs\Release_static\ogg.pdb" 
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions="/fp:fast "
-				AdditionalIncludeDirectories=".;..\..\source\libwx\src\png\..\zlib"
-				PrecompiledHeaderFile="..\..\out\release9\build\libwxpng_static\libwxpng_static.pch"
-				AssemblerListingLocation="..\..\out\release9\build\libwxpng_static\"
-				ObjectFile="..\..\out\release9\build\libwxpng_static\"
+				AdditionalIncludeDirectories=".;..\..\source\libogg\include"
+				PrecompiledHeaderFile="..\..\out\release9\build\libogg_static\libogg_static.pch"
+				AssemblerListingLocation="..\..\out\release9\build\libogg_static\"
+				ObjectFile="..\..\out\release9\build\libogg_static\"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
 				Detect64BitPortabilityProblems="false"
@@ -56,11 +56,11 @@
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				ProgramDatabaseFile="..\..\libs\Temp_static\wxpng.pdb"
+				ProgramDatabaseFile="..\..\libs\Release_static\ogg.pdb"
 				TargetMachine="1"/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\libs\Temp_static\wxpng.lib"
+				OutputFile="..\..\libs\Release_static\ogg.lib"
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
@@ -68,7 +68,7 @@
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
-				TypeLibraryName="..\..\out\release9\build\libwxpng_static\libwxpng_static.tlb"/>
+				TypeLibraryName="..\..\out\release9\build\libogg_static\libogg_static.tlb"/>
 			<Tool
 				Name="VCPostBuildEventTool"
 				/>
@@ -79,7 +79,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;PROJECTGEN_VERSION=9"
-				AdditionalIncludeDirectories=".;..\..\source\libwx\src\png;..\..\source\libwx\src\png\..\zlib"
+				AdditionalIncludeDirectories=".;..\..\source\libogg;..\..\source\libogg\include"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
@@ -88,8 +88,8 @@
 		</Configuration>
             		<Configuration
 			Name="Release|x64"
-			OutputDirectory="..\..\out\release9-x64\build\libwxpng_static\"
-			IntermediateDirectory="..\..\out\release9-x64\build\libwxpng_static\"
+			OutputDirectory="..\..\out\release9-x64\build\libogg_static\"
+			IntermediateDirectory="..\..\out\release9-x64\build\libogg_static\"
 			ConfigurationType="4"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="FALSE">
@@ -105,14 +105,14 @@
 				EnableIntrinsicFunctions="TRUE"
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
-                                ProgramDataBaseFileName="..\..\libs\Temp_static-x64\wxpng.pdb" 
+                                ProgramDataBaseFileName="..\..\libs\Release_static-x64\ogg.pdb" 
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions="/fp:fast "
-				AdditionalIncludeDirectories=".;..\..\source\libwx\src\png\..\zlib"
-				PrecompiledHeaderFile="..\..\out\release9-x64\build\libwxpng_static\libwxpng_static.pch"
-				AssemblerListingLocation="..\..\out\release9-x64\build\libwxpng_static\"
-				ObjectFile="..\..\out\release9-x64\build\libwxpng_static\"
+				AdditionalIncludeDirectories=".;..\..\source\libogg\include"
+				PrecompiledHeaderFile="..\..\out\release9-x64\build\libogg_static\libogg_static.pch"
+				AssemblerListingLocation="..\..\out\release9-x64\build\libogg_static\"
+				ObjectFile="..\..\out\release9-x64\build\libogg_static\"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
 				Detect64BitPortabilityProblems="false"
@@ -131,11 +131,11 @@
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				ProgramDatabaseFile="..\..\libs\Temp_static-x64\wxpng-x64.pdb"
+				ProgramDatabaseFile="..\..\libs\Release_static-x64\ogg-x64.pdb"
 				TargetMachine="17"/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\libs\Temp_static-x64\wxpng.lib"
+				OutputFile="..\..\libs\Release_static-x64\ogg.lib"
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
@@ -143,7 +143,7 @@
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
-				TypeLibraryName="..\..\out\release9-x64\build\libwxpng_static\libwxpng_static.tlb"/>
+				TypeLibraryName="..\..\out\release9-x64\build\libogg_static\libogg_static.tlb"/>
 			<Tool
 				Name="VCPostBuildEventTool"
 				/>
@@ -154,7 +154,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;PROJECTGEN_VERSION=9"
-				AdditionalIncludeDirectories=".;..\..\source\libwx\src\png;..\..\source\libwx\src\png\..\zlib"
+				AdditionalIncludeDirectories=".;..\..\source\libogg;..\..\source\libogg\include"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
@@ -167,71 +167,10 @@
 			Name="Source Files"
 			Filter="">
 			<File
-				RelativePath="..\..\source\libwx\src\png\png.c">
+				RelativePath="..\..\source\libogg\src\bitwise.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\png\pngerror.c">
-			</File>
-			<File
-				RelativePath="..\..\source\libwx\src\png\pnggccrd.c">
-			</File>
-			<File
-				RelativePath="..\..\source\libwx\src\png\pngget.c">
-			</File>
-			<File
-				RelativePath="..\..\source\libwx\src\png\pngmem.c">
-			</File>
-			<File
-				RelativePath="..\..\source\libwx\src\png\pngpread.c">
-			</File>
-			<File
-				RelativePath="..\..\source\libwx\src\png\pngread.c">
-			</File>
-			<File
-				RelativePath="..\..\source\libwx\src\png\pngrio.c">
-			</File>
-			<File
-				RelativePath="..\..\source\libwx\src\png\pngrtran.c">
-			</File>
-			<File
-				RelativePath="..\..\source\libwx\src\png\pngrutil.c">
-			</File>
-			<File
-				RelativePath="..\..\source\libwx\src\png\pngset.c">
-			</File>
-			<File
-				RelativePath="..\..\source\libwx\src\png\pngtest.c">
-			</File>
-			<File
-				RelativePath="..\..\source\libwx\src\png\pngtrans.c">
-			</File>
-			<File
-				RelativePath="..\..\source\libwx\src\png\pngvcrd.c">
-			</File>
-			<File
-				RelativePath="..\..\source\libwx\src\png\pngwio.c">
-			</File>
-			<File
-				RelativePath="..\..\source\libwx\src\png\pngwrite.c">
-			</File>
-			<File
-				RelativePath="..\..\source\libwx\src\png\pngwtran.c">
-			</File>
-			<File
-				RelativePath="..\..\source\libwx\src\png\pngwutil.c">
-			</File>
-		</Filter>
-		<Filter
-			Name="Header Files"
-			Filter="">
-			<File
-				RelativePath="..\..\source\libwx\src\png\png.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libwx\src\png\pngasmrd.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libwx\src\png\pngconf.h">
+				RelativePath="..\..\source\libogg\src\framing.c">
 			</File>
 		</Filter>
 	</Files>
