@@ -97,7 +97,7 @@ Name: DESupport/Cygwin; Description: Cygwin; Types: custom full typCygwin; Flags
 #endif
 [Files]
 Source: ..\..\Readme.rtf; DestDir: {app}
-Source: ..\..\Deploying Applications Built Against cs-win32libs.rtf; DestDir: {app}
+Source: ..\..\Deploying Applications Built Against cs-winlibs.rtf; DestDir: {app}
 Source: ..\..\ChangeLog.txt; DestDir: {app}
 Source: ..\..\version.txt; DestDir: {app}; AfterInstall: WriteVersionTxt
 
@@ -110,8 +110,6 @@ Source: ..\..\tools\Release\pkg-config.exe; DestDir: {app}\tools; Components: Ex
 Source: ..\..\nosource\{#ArchName}\dbghelp\dbghelp.dll; DestDir: {app}\dlls; Components: Extra/Dbghelp
 Source: ..\..\nosource\{#ArchName}\Cg\dlls\*.*; DestDir: {app}\dlls; Flags: recursesubdirs; Components: Extra/Cg
 #ifndef STATIC
-Source: ..\..\syslibs\{#ArchName}\*.manifest; DestDir: {app}\dlls; Components: Libs/Common
-Source: ..\..\syslibs\{#ArchName}\*.dll; DestDir: {app}\dlls; Components: Libs/Common
 Source: ..\..\libs\Release{#ArchSuffix}\*.dll; DestDir: {app}\dlls; Components: Libs/Common
 Source: ..\..\libs\ReleaseVC8Only{#ArchSuffix}\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC9Only{#ArchSuffix}\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
@@ -325,7 +323,7 @@ Name: {app}\tools\wx-config*; Type: filesandordirs
 #endif
 [Icons]
 Name: {group}\Read Me; Filename: {app}\Readme.rtf; WorkingDir: {app}; Comment: Important informations, known issues and solutions.
-Name: {group}\Deploying Applications Built Against cs-win32libs; Filename: {app}\Deploying Applications Built Against cs-win32libs; WorkingDir: {app}; Comment: Information on picking the right files from cs-win32libs when packaging applications for distribution
+Name: {group}\Deploying Applications Built Against {#CSLibsOutputName}; Filename: {app}\Deploying Applications Built Against cs-winlibs.rtf; WorkingDir: {app}; Comment: Information on picking the right files from {#CSLibsOutputName} when packaging applications for distribution
 Name: {group}\Copy DLLs to a CS directory; Filename: {app}\CopyDLLs.exe; WorkingDir: {app}; Comment: Copies the 3rd party DLLs to a CS source directory so compiled binaries can find them.; IconIndex: 0;
 Name: {group}\Set up VC support; Filename: {app}\VCsupport.exe; WorkingDir: {app}; Comment: Copies the headers and libraries to your CS source directory so you can use them from VC.; IconIndex: 0; Components: DESupport/VC
 #ifndef X64

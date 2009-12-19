@@ -66,8 +66,8 @@ rule LibCommon
   }
 }
 
-# Base library - C, used by all VC versions, built with VC8.0
-if [ Property build : projgen_version ] = 8
+# Base library - C, used by all VC versions, built with VC9.0
+if [ Property build : projgen_version ] = 9
 {
   rule BaseLib 
   { 
@@ -76,9 +76,17 @@ if [ Property build : projgen_version ] = 8
     SetProperty baselibdeps : $(1)_debug : $(1) ;
     SetProperty baselibdeps : $(1)_static : $(1)_static ;
     SetProperty baselibdeps : $(1)_static_debug : $(1)_static ;
+    
     MsvcCFlags $(1) : "/fp:fast" ;
+    # Set up for linking against msvcrt.dll instead of msvcr90.dll
+    MsvcLFlags $(1) : "/nodefaultlib:msvcrt" ;
+    MsvcLFlags $(1) : ../../nosource/x86/link-msvcrt/msvcrt_win2000.obj ../../nosource/x86/link-msvcrt/msvcrt.lib : : x86 ;
+    MsvcLFlags $(1) : ../../nosource/x64/link-msvcrt/msvcrt_win2003.obj ../../nosource/x64/link-msvcrt/msvcrt.lib : : x64 ;
+    MsvcDefine $(1) : _CRT_NOFORCE_MANIFEST ;
+    MsvcDefine $(1) : _STL_NOFORCE_MANIFEST ;
+    
     MsvcCFlags $(1)_static : "/fp:fast" ;
-    # Avoid 8.0 runtime "seeping" into manifest when linking in VC 9
+    # Avoid 9.0 runtime "seeping" into manifest when linking in VC 8
     MsvcDefine $(1)_static : _CRT_NOFORCE_MANIFEST ;
     MsvcDefine $(1)_static : _STL_NOFORCE_MANIFEST ;
   }
