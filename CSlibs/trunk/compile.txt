@@ -7,6 +7,7 @@ Required tools:
 - InnoSetup >= 5.0.7
 - Python
 - CMake
+- Windows DDK
 
 * Download make from the "MSYS Base System". Archive contains a make.exe.
   If it contains mingw32-make.exe you fetched the wrong package.
@@ -16,6 +17,10 @@ The source code is downloaded with source/getlibs.sh (change to the source/
 directory before running that script). You need a couple of tools: svn,
 tar, gzip, bzip2, unzip, wget (possibly others I forgot now).
 
+After installing the WinDDK run copy-winddk-files.sh with the path to the DDK,
+e.g. "./copy-winddk-files.sh /c/WinDDK/7600.16385.0". Libraries will fail to
+link if this isn't done.
+
 Before starting the building you need to do the following:
 - libpcre: copy pcre_chartables.c.dist to pcre_chartables.c;
     copy pcre.h.generic to pcre.h
@@ -24,8 +29,8 @@ Before starting the building you need to do the following:
 
 The solutions in the projects directory should be built in the following
 order:
-- msvc/8/CSlibs.sln with VC8.0
 - msvc/9/CSlibs.sln with VC9.0
+- msvc/8/CSlibs.sln with VC8.0
 
 The MinGW-only libs can be built by running build_mingw.sh. Some libraries
 may need special preparations:
