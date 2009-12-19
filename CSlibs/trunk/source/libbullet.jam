@@ -4,6 +4,7 @@ ExtraLib bulletcollision :
   [ Wildcard [ ConcatDirs src BulletCollision BroadphaseCollision ] : *.cpp *.h ] 
   [ Wildcard [ ConcatDirs src BulletCollision CollisionDispatch ] : *.cpp *.h ] 
   [ Wildcard [ ConcatDirs src BulletCollision CollisionShapes ] : *.cpp *.h ] 
+  [ Wildcard [ ConcatDirs src BulletCollision Gimpact ] : *.cpp *.h ] 
   [ Wildcard [ ConcatDirs src BulletCollision NarrowPhaseCollision ] : *.cpp *.h ] : 
   :
   $(SUBDIR)/src $(SUBDIR)/src/LinearMath :
@@ -16,6 +17,7 @@ ExtraLib bulletmath :
   staticonly ;
 
 ExtraLib bulletdynamics :
+  [ Wildcard [ ConcatDirs src BulletDynamics Character ] : *.cpp *.h ] 
   [ Wildcard [ ConcatDirs src BulletDynamics ConstraintSolver ] : *.cpp *.h ] 
   [ Wildcard [ ConcatDirs src BulletDynamics Dynamics ] : *.cpp *.h ]
   [ Wildcard [ ConcatDirs src BulletDynamics Vehicle ] : *.cpp *.h ] : 
