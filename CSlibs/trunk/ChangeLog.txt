@@ -1,3 +1,9 @@
+1.9_004 (2009-12-23):
+ - Build "common" libraries using VC9.0.
+ - Made common libraries use msvcrt.dll as the runtime.
+ - Renamed dbghelp.dll to dbghelp-x64.dll on x64.
+ - New directory layout for "VC support".
+
 1.9_003 (2009-12-12):
  - Updated Cg to 2.2 October 2009 release.
  - Updated libpng to 1.2.40.
