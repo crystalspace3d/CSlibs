@@ -6,8 +6,10 @@
 
 #ifdef X64
 #define ArchSuffix      "-x64"
+#define ArchDir         "x64"
 #else
 #define ArchSuffix      ""
+#define ArchDir         "x86"
 #endif
 
 [Setup]
@@ -34,12 +36,12 @@ WizardImageFile=compiler:WizModernImage-IS.bmp
 WizardSmallImageFile=compiler:WizModernSmallImage-IS.bmp
 PrivilegesRequired=none
 [Files]
-Source: {src}\common\include\*.*; DestDir: {app}\win32libs\include; Flags: external skipifsourcedoesntexist recursesubdirs
-Source: {src}\vc\include\*.*; DestDir: {app}\win32libs\include; Flags: external skipifsourcedoesntexist recursesubdirs
-Source: {src}\common\lib\*.lib; DestDir: {app}\win32libs\lib; Flags: external skipifsourcedoesntexist
-Source: {src}\common\lib\*.pdb; DestDir: {app}\win32libs\lib; Flags: external skipifsourcedoesntexist
-Source: {src}\vc\lib\*.lib; DestDir: {app}\win32libs\lib; Flags: external skipifsourcedoesntexist
-Source: {src}\vc\lib\*.pdb; DestDir: {app}\win32libs\lib; Flags: external skipifsourcedoesntexist
+Source: {src}\common\include\*.*; DestDir: {app}\winlibs\{#ArchDir}\include; Flags: external skipifsourcedoesntexist recursesubdirs
+Source: {src}\vc\include\*.*; DestDir: {app}\winlibs\{#ArchDir}\include; Flags: external skipifsourcedoesntexist recursesubdirs
+Source: {src}\common\lib\*.lib; DestDir: {app}\winlibs\{#ArchDir}\lib; Flags: external skipifsourcedoesntexist
+Source: {src}\common\lib\*.pdb; DestDir: {app}\winlibs\{#ArchDir}\lib; Flags: external skipifsourcedoesntexist
+Source: {src}\vc\lib\*.lib; DestDir: {app}\winlibs\{#ArchDir}\lib; Flags: external skipifsourcedoesntexist
+Source: {src}\vc\lib\*.pdb; DestDir: {app}\winlibs\{#ArchDir}\lib; Flags: external skipifsourcedoesntexist
 [Registry]
 Root: HKLM; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstvalName}; ValueData: {uninstallexe}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: IsAdminLoggedOn
 Root: HKCU; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstvalName}; ValueData: {uninstallexe}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: not IsAdminLoggedOn
@@ -84,3 +86,4 @@ begin
     UninstRegKey := ExpandConstant ('{app}');
   end;
 end;
+

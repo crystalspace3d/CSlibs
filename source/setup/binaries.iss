@@ -107,7 +107,11 @@ Source: ..\..\tools\Release\jam.exe; DestDir: {app}\tools; Components: Extra/Jam
 #ifndef X64
 Source: ..\..\tools\Release\pkg-config.exe; DestDir: {app}\tools; Components: Extra/pkgconfig
 #endif
-Source: ..\..\nosource\{#ArchName}\dbghelp\dbghelp.dll; DestDir: {app}\dlls; Components: Extra/Dbghelp
+#ifdef X64
+Source: ..\..\nosource\x64\dbghelp\dbghelp.dll; DestDir: {app}\dlls; DestName: dbghelp-x64.dll; Components: Extra/Dbghelp
+#else
+Source: ..\..\nosource\x86\dbghelp\dbghelp.dll; DestDir: {app}\dlls; Components: Extra/Dbghelp
+#endif
 Source: ..\..\nosource\{#ArchName}\Cg\dlls\*.*; DestDir: {app}\dlls; Flags: recursesubdirs; Components: Extra/Cg
 #ifndef STATIC
 Source: ..\..\libs\Release{#ArchSuffix}\*.dll; DestDir: {app}\dlls; Components: Libs/Common
@@ -703,5 +707,6 @@ begin
   StringChange (libPath, '\', '/');
   SaveStringToFile (pcFileName, 'Libs: ${prefix}/' + libPath + #13#10, true);
 end;
+
 
 
