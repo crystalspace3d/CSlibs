@@ -11,7 +11,7 @@ ignorantcopy() {
   local IGNORED=`svn pg svn:ignore ${SRC}`
   local LSOPT="-I CVS -I .svn"
   for i in ${IGNORED} ; do
-    local LSOPT="${LSOPT} -I ${i}"
+    local LSOPT="${LSOPT} -I \"${i}\""
   done
   
   # Generate list of files to copy
