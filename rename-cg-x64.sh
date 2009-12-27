@@ -24,7 +24,7 @@ createimportlib()
   echo LIBRARY `basename $DLL` > $DEFFILE
   echo EXPORTS >> $DEFFILE
 
-  "$VCTOOLS/dumpbin" //EXPORTS $DLL | grep -x " *[0-9]\{1,\} *[0-9A-F]* [0-9A-F]* [0-9A-Za-z_?@]*" | sed -e "s/ *\([0-9]*\).* \(.*\)/\2 @\1/" >> $DEFFILE
+  "$VCTOOLS/dumpbin" //EXPORTS $DLL | grep -x " *[0-9]\{1,\} *[0-9A-F]* [0-9A-F]* [0-9A-Za-z_?@]*" | sed -e "s/ *\([0-9]*\).* \(.*\)/\2/" >> $DEFFILE
   MACHINE=`"$VCTOOLS/dumpbin" //HEADERS $DLL | grep "machine (.*)" | sed -e "s/.*(\(.*\)).*/\1/"`
   "$VCTOOLS/lib" -DEF:$DEFFILE -OUT:$LIB -MACHINE:$MACHINE
   
