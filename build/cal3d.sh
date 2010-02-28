@@ -10,7 +10,7 @@ mkdir -p libs/ReleaseGCCOnly/${platform}
 
 prefix=$(pwd)/temp/libcal3d/prefix-${platform}
 cd temp/libcal3d/${platform}
-CPPFLAGS="-DNDEBUG" ../../../source/libcal3d/configure --prefix=${prefix} --disable-shared -C
+CPPFLAGS="-DNDEBUG" ../../../source/libcal3d/configure $CONFIGUREOPTS --prefix=${prefix} --disable-shared -C
 make install
 cd ../../..
 cp ${prefix}/lib/*.a libs/ReleaseGCCOnly/${platform}

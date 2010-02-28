@@ -19,7 +19,7 @@ if ! [ -e ${pcre} ] ; then
   fi
   
   cd temp/pcre/${platform}
-  $(pwd)/../../../source/libpcre/configure --prefix=${pcre} --enable-shared=no --enable-unicode-properties --enable-utf8 --with-link-size=2 --disable-cpp --cache-file=config.cache "$@"
+  $(pwd)/../../../source/libpcre/configure $CONFIGUREOPTS --prefix=${pcre} --enable-shared=no --enable-unicode-properties --enable-utf8 --with-link-size=2 --disable-cpp --cache-file=config.cache "$@"
   
   make install-libLTLIBRARIES install-includeHEADERS install-nodist_includeHEADERS
   cd ../../..
@@ -50,6 +50,12 @@ else
   libprefix=lib
 fi
 
+if [ "${platform_short}" = "mingw64" ] ; then
+  LIBSUFFIX=-x64
+else
+  LIBSUFFIX=
+fi
+
 basedir=$(pwd)
 source=${basedir}/source/${library}
 
@@ -64,16 +70,28 @@ if [ x$mode != xstaticonly ]; then
     mkdir -p ${prefix}/lib/
     cp ${pcre}/lib/libpcre.a ${prefix}/lib/
     build/fake-libtool-lib.sh ${prefix}/lib/libpcre.la
+    
+    FREETYPE="-L${basedir}/libs/release -lfreetype2"
+    if [ "${platform_short}" = "mingw64" ] ; then
+      #cp ${basedir}/libs/release-x64/freetype2.lib ${prefix}/lib/libfreetype2.a
+      #build/fake-libtool-lib.sh ${prefix}/lib/libfreetype2.la
+      # @@@ Apparently, mingw64 can't use MSVC import libs (like mingw32 can)
+      cp temp/${platform_short}/prefix/lib/libz.a ${prefix}/lib/
+      build/fake-libtool-lib.sh ${prefix}/lib/libz.la
+      cp temp/${platform_short}/prefix/lib/libfreetype.a ${prefix}/lib/
+      build/fake-libtool-lib.sh ${prefix}/lib/libfreetype.la
+      FREETYPE="-lfreetype -lz"
+    fi
 
     build=temp/${library}/${platform}
     cd ${build}
     freetype2_CFLAGS="-I${basedir}/source/libfreetype/include -I${basedir}/source/configs/freetype" \
-    freetype2_LIBS="-L${basedir}/libs/release -lfreetype2" \
+    freetype2_LIBS="$FREETYPE" \
     pcre_CFLAGS="-I${pcre}/include -DPCRE_STATIC" \
     pcre_LIBS="-L${prefix}/lib -lpcre" \
     CFLAGS="-O2" \
     CXXFLAGS="-O2 -DCEGUI_FACTORYMODULE_PREFIX=\"\\\"${libprefix}\\\"\" -DCEGUI_FACTORYMODULE_SUFFIX=\"\\\"-cs${platform}.dll\\\"\"" \
-    ${source}/configure --prefix=${prefix} --disable-static --disable-opengl-renderer "--with-build-suffix=-cs${platform}" --disable-version-suffix -C "$@"
+    ${source}/configure $CONFIGUREOPTS --prefix=${prefix} --disable-static --disable-opengl-renderer "--with-build-suffix=-cs${platform}" --disable-version-suffix -C "$@"
     make
     cd ../../..
     
@@ -131,7 +149,7 @@ if [ x$mode != xnostatic ]; then
   pcre_LIBS="-L${prefix}/lib -lpcre" \
   CFLAGS="-O2" \
   CXXFLAGS="-O2 -DCEGUI_FACTORYMODULE_PREFIX=\"\\\"${libprefix}\\\"\" -DCEGUI_FALAGARD_RENDERER -DCEGUI_WITH_TINYXML" \
-  ${source}/configure --prefix=${prefix} --disable-static --disable-opengl-renderer "--with-build-suffix=-cs${platform}" --enable-specialstatic --disable-version-suffix -C "$@"
+  ${source}/configure $CONFIGUREOPTS --prefix=${prefix} --disable-static --disable-opengl-renderer "--with-build-suffix=-cs${platform}" --enable-specialstatic --disable-version-suffix -C "$@"
   make
   cd ../../..
 

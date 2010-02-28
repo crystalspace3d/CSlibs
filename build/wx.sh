@@ -14,7 +14,7 @@ fi
 
 prefix=$(pwd)/temp/libwx/prefix-${platform}
 cd temp/libwx/${platform}
-../../../source/libwx/configure --prefix=${prefix} -C --with-opengl --without-subdirs --enable-unicode --enable-vendor=cs${platform}
+../../../source/libwx/configure --prefix=${prefix} $CONFIGUREOPTS -C --with-opengl --without-subdirs --enable-unicode --enable-vendor=cs${platform}
 make install
 cd ../../..
 

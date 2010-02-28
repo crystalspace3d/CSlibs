@@ -15,7 +15,7 @@ if test ! -e libs/ReleaseGCCOnly_static/${platform} ; then
 fi
 
 cd temp/${platform}/${library}
-CPPFLAGS="$CPPFLAGS -I$(pwd)/../prefix/include" LDFLAGS="$LDFLAGS -L$(pwd)/../prefix/lib" $(pwd)/../../../source/${library}/configure --prefix=$(pwd)/../prefix/ --disable-shared --cache-file=config.cache "$@"
+CPPFLAGS="$CPPFLAGS -I$(pwd)/../prefix/include" LDFLAGS="$LDFLAGS -L$(pwd)/../prefix/lib" $(pwd)/../../../source/${library}/configure $CONFIGUREOPTS --prefix=$(pwd)/../prefix/ --disable-shared --cache-file=config.cache "$@"
 
 if [ -z ${targets} ] ; then targets="install" ; fi
 
