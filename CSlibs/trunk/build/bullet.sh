@@ -12,13 +12,14 @@ fi
 
 prefix=$(pwd)/temp/libbullet/prefix-${platform}
 cd temp/libbullet/${platform}
-CC="${CC}.exe" CXX="${CXX}.exe" cmake -G "MSYS Makefiles" -DCMAKE_BUILD_TYPE=RelWithDebInfo "-DCMAKE_INSTALL_PREFIX=${prefix}" -DBUILD_EXTRAS=OFF -DBUILD_DEMOS=OFF ../../../source/libbullet
-cd src/LinearMath
+CMAKE_OPTS=""
+CMAKE_OPTS="$CMAKE_OPTS -DCMAKE_BUILD_TYPE=RelWithDebInfo"
+CMAKE_OPTS="$CMAKE_OPTS -DCMAKE_INSTALL_PREFIX=${prefix}"
+CMAKE_OPTS="$CMAKE_OPTS -DBUILD_EXTRAS=OFF -DBUILD_DEMOS=OFF"
+if [ -n "$BUILD_TARGET" ] ; then
+  CMAKE_OPTS="$CMAKE_OPTS -DCMAKE_SYSTEM_NAME=Windows"
+fi
+CC="${CC}.exe" CXX="${CXX}.exe" cmake -G "MSYS Makefiles" $CMAKE_OPTS ../../../source/libbullet
 make install
-cd ../BulletCollision
-make install
-cd ../BulletDynamics
-make install
-cd ../..
 cd ../../..
 cp ${prefix}/lib/*.a libs/ReleaseGCCOnly/${platform}
