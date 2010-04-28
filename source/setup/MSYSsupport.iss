@@ -9,6 +9,12 @@
 #define CSLibsPathKey   "{reg:HKCU\" + CSLibsRegKey + ",InstallPath|{reg:HKLM\" + CSLibsRegKey + ",InstallPath|{pf}\CrystalSpaceLibs}}"
 #define MSYSProfilePathKey   "{reg:HKCU\" + CSLibsRegKey + ","  + PlatformName + "Profile|{reg:HKLM\" + CSLibsRegKey + "," + PlatformName + "Profile|{pf}\" + PlatformName + "}}"
 
+#ifdef X64
+#define ArchSuffix        "-x64"
+#else
+#define ArchSuffix        ""
+#endif
+
 [Setup]
 AppName={#CSLibsName} {#PlatformName} support
 AppVerName={#CSLibsName} {#PlatformName} support {#CSLibsVersion}
@@ -21,7 +27,7 @@ EnableDirDoesntExistWarning=true
 AppendDefaultDirName=false
 DirExistsWarning=no
 OutputDir=..\..\out\support
-OutputBaseFilename={#PlatformName}support
+OutputBaseFilename={#PlatformName}support{#ArchSuffix}
 DefaultGroupName={code:GetProgramGroupName}
 UseSetupLdr=true
 SolidCompression=true
