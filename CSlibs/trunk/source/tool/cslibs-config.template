@@ -2,10 +2,19 @@
 
 determine_platform()
 {
+# If our filename starts with x86_64, this is a CSlibs for mingw64
+case $(basename $0) in
+  x86_64*)
+    mingw_platform=mingw64
+    ;;
+  *)
+    mingw_platform=mingw
+    ;;
+esac
 if test "`uname -o 2> /dev/null`" = "Cygwin" ; then
   if test -n "$no_cygwin" ; then
     libsdir=`cygpath -u "%CSLIBSPATH%"`
-    platform=mingw
+    platform=$mingw_platform
   else
     libsdir=`cygpath -u "%CSLIBSPATH%"`
     platform=cygwin
@@ -13,11 +22,10 @@ if test "`uname -o 2> /dev/null`" = "Cygwin" ; then
 else
   if test "`uname -s | sed -e 's+\(.*\)_.*+\1+'`" = "MINGW32" ; then
     libsdir="%CSLIBSPATH_MSYS%"
-    platform=mingw
   else
     libsdir="%CSLIBSPATH_WINE%"
-    platform=mingw
   fi
+  platform=$mingw_platform
 fi
 }
 

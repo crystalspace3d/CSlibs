@@ -375,67 +375,6 @@ static void WriteReplacing (const char* tmpl, size_t tmplSize,
       p - lastBlockStart, file);
 }
 
-TOOLENTRY(WriteCSLibsConfig)
-{
-  static char* csconfigTemplate = 0;
-  static DWORD csconfigTemplateSize;
-  if (csconfigTemplate == 0)
-  {
-    HMODULE myHandle = GetModuleHandle ("setuptool");
-    HRSRC rscInfo = FindResource (myHandle, MAKEINTRESOURCE(1), RT_RCDATA);
-    if (rscInfo == 0)
-    {
-      return;
-    }
-    csconfigTemplateSize = SizeofResource (myHandle, rscInfo);
-    if (csconfigTemplateSize == 0)
-    {
-      return;
-    }
-    HGLOBAL resData = LoadResource (myHandle, rscInfo);
-    if (resData == 0)
-    {
-      return;
-    }
-    csconfigTemplate = (char*)LockResource (resData);
-    if (csconfigTemplate == 0)
-    {
-      return;
-    }
-  }
-
-  char* libsPath = (char*)alloca (strlen (lpCmdLine) + 1);
-  strcpy (libsPath, lpCmdLine);
-  char* p;
-  if ((strlen (libsPath) >= 1) && 
-    ((*(p = &libsPath[strlen (libsPath) - 1]) == '\\')))
-    *p = 0;
-
-  char* libsPathMinGW = MingWifyPath (libsPath);
-  const char* libsPathWine = WineToUnix (libsPath);
-
-  stdext::hash_map<std::string, std::string> vars;
-  vars["CSLIBSPATH"] = libsPath;
-  vars["CSLIBSPATH_MSYS"] = libsPathMinGW;
-  vars["CSLIBSPATH_WINE"] = libsPathWine ? libsPathWine : libsPath;
-
-  static const char scriptName[] = "tools\\cslibs-config";
-  char* scriptPath = (char*)alloca (strlen (lpCmdLine) + sizeof (scriptName));
-  strcpy (scriptPath, lpCmdLine);
-  strcat (scriptPath, scriptName);
-
-  FILE* script = fopen (scriptPath, "wb");
-  if (script != 0)
-  {
-    WriteReplacing (csconfigTemplate, csconfigTemplateSize,
-      script, vars);
-
-    fclose (script);
-  }
-
-  delete[] libsPathMinGW;
-}
-
 static const char profileStartMarker[] = 
   "### Don't remove this comment, it's needed to locate the changes inserted below.";
 static const char profileEndMarker[] = 
@@ -747,9 +686,11 @@ TOOLENTRY(CreateFromTemplate)
     if (destFile != 0)
     {
       char* libsPathMinGW = MingWifyPath (libsPath.c_str());
+      const char* libsPathWine = WineToUnix (libsPath.c_str());
       stdext::hash_map<std::string, std::string> vars;
       vars["CSLIBSPATH"] = libsPath;
       vars["CSLIBSPATH_MSYS"] = libsPathMinGW;
+      vars["CSLIBSPATH_WINE"] = libsPathWine ? libsPathWine : libsPath;
 
       WriteReplacing (sourceData, sourceSize,
 	destFile, vars);

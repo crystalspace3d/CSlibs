@@ -16,10 +16,12 @@
 #define ArchName          "x64"
 #define ArchSuffix        "-x64"
 #define ArchSuffixMingw   "64"
+#define CSLibsConfigName  "x86_64-w64-mingw32-cslibs-config"
 #else
 #define ArchName          "x86"
 #define ArchSuffix        ""
 #define ArchSuffixMingw   ""
+#define CSLibsConfigName  "cslibs-config"
 #endif
 
 #define AppId						"CrystalSpaceWin32Libs" + ArchSuffix
@@ -218,9 +220,7 @@ Source: ..\..\libs\prefix-wx\mingw64-gcc-4.4\lib\*.a; DestDir: {app}\mingw64-gcc
 
 ; headers
 Source: ..\..\headers\*.*; DestDir: {app}\common\include; Flags: recursesubdirs; Components: Libs/Common
-#ifndef X64
-Source: ..\..\headers-nocygwin\*.*; DestDir: {app}\mingw\include; Flags: recursesubdirs; Components: Libs/MinGW
-#endif
+Source: ..\..\headers-nocygwin\*.*; DestDir: {app}\mingw{#ArchSuffixMingw}\include; Flags: recursesubdirs; Components: Libs/MinGW
 Source: ..\..\headers-nocygwin\*.*; DestDir: {app}\vc\include; Flags: recursesubdirs; Components: Libs/VC
 #if 0
 Source: ..\..\headers-extra\*.*; DestDir: {app}\common\include; Flags: recursesubdirs; Components: Libs/Common
@@ -288,21 +288,23 @@ Source: ..\..\libs\prefix-wx\mingw64-gcc-4.4\lib\*.dbg; DestDir: {app}\dlls\ming
 #endif
 
 ; Misc stuff
-#ifdef STATIC
+Source: ..\..\source\tool\cslibs-config.template; DestDir: {tmp}; Components: Libs/Common; Flags: deleteafterinstall
+#if Defined(STATIC) || Defined(X64)
+; Defined(X64) -> As long as we ship static libs for mingw64
 Source: ..\..\tools\freetype-config-static; DestDir: {app}\bin; DestName: freetype-config; Components: Libs/Common
 #else
 Source: ..\..\tools\freetype-config; DestDir: {app}\bin; Components: Libs/Common
 #endif
 #ifndef X64
-Source: ..\..\libs\prefix-wx\mingw-gcc-3.4\wx-config*; DestDir: {tmp}; Components: Libs/wxMinGW
+Source: ..\..\libs\prefix-wx\mingw-gcc-3.4\wx-config*; DestDir: {tmp}; Components: Libs/wxMinGW; Flags: deleteafterinstall
 #endif
-Source: ..\..\libs\prefix-wx\mingw-gcc-4.4\wx-config*; DestDir: {tmp}; Components: Libs/wxMinGW
+Source: ..\..\libs\prefix-wx\mingw-gcc-4.4\wx-config*; DestDir: {tmp}; Components: Libs/wxMinGW; Flags: deleteafterinstall
 Source: ..\..\tools\wx-config; DestDir: {app}\tools; Components: Libs/wxMinGW
 Source: ..\..\CrystalSpace home page.url; DestDir: {group}; Check: not WizardNoIcons
 ; stuff that's been compressed already
 Source: ..\..\nosource\all\OpenAL\installer\{#File_OpenALInstaller}; DestDir: {app}; Components: Extra/OpenALInstaller
 Source: ..\..\out\support\VCsupport{#ArchSuffix}.exe; DestDir: {app}; Components: DESupport/VC
-Source: ..\..\out\support\MSYSsupport.exe; DestDir: {app}; Components: DESupport/MSYS
+Source: ..\..\out\support\MSYSsupport{#ArchSuffix}.exe; DestDir: {app}; Components: DESupport/MSYS
 #ifndef X64
 Source: ..\..\out\support\Cygwinsupport.exe; DestDir: {app}; Components: DESupport/Cygwin
 Source: ..\..\out\support\Crosssupport.exe; DestDir: {app}; Check: IsWinePresent
@@ -333,7 +335,7 @@ Name: {app}\bin; Flags: uninsalwaysuninstall
 Name: {app}\dlls; Flags: uninsalwaysuninstall
 Name: {app}; Flags: uninsalwaysuninstall
 [Run]
-Filename: rundll32.exe; Parameters: {code:GetShortenedAppDir}\setuptool.dll,WriteCSLibsConfig {code:GetShortenedAppDir}\
+Filename: rundll32.exe; Parameters: "{code:GetShortenedAppDir}\setuptool.dll,CreateFromTemplate ""srcpath={tmp}\cslibs-config.template"" ""libspath={code:GetShortenedAppDir}"" ""destpath={app}\tools\{#CSLibsConfigName}"""; StatusMsg: Generating cslibs-config;
 #ifndef X64
 Filename: rundll32.exe; Parameters: "{code:GetShortenedAppDir}\setuptool.dll,CreateFromTemplate ""destpath={app}\tools\wx-config-mingw-gcc-3.4"" ""srcpath={tmp}\wx-config-mingw-gcc-3.4"" ""libspath={app}\"""; StatusMsg: Generating wx-config; Components: Libs/wxMinGW
 #endif
@@ -342,7 +344,7 @@ Filename: {app}\{#File_OpenALInstaller}; Parameters: /S; WorkingDir: {app}; Comp
 Filename: {app}\CopyDLLs{#ArchSuffix}.exe; Description: Copy DLLs to CS directory; Flags: postinstall; WorkingDir: {app}; Parameters: {code:GetSupportParamsSilent}; Check: not CrossPresets; Components: Libs/Common Libs/VC Libs/MinGW
 Filename: {app}\CopyDLLs{#ArchSuffix}.exe; Description: Copy DLLs to CS directory; Flags: postinstall unchecked; WorkingDir: {app}; Parameters: {code:GetSupportParamsSilent}; Check: CrossPresets; Components: Libs/Common Libs/VC Libs/MinGW
 Filename: {app}\VCsupport{#ArchSuffix}.exe; Description: Set up VisualC support; Flags: postinstall; Components: DESupport/VC; WorkingDir: {app}; Parameters: {code:GetSupportParamsSilent}
-Filename: {app}\MSYSsupport.exe; Description: Set up MSYS support; Flags: postinstall; Components: DESupport/MSYS; WorkingDir: {app}; Parameters: {code:GetSupportParams}
+Filename: {app}\MSYSsupport{#ArchSuffix}.exe; Description: Set up MSYS support; Flags: postinstall; Components: DESupport/MSYS; WorkingDir: {app}; Parameters: {code:GetSupportParams}
 #ifndef X64
 Filename: {app}\Cygwinsupport.exe; Description: Set up Cygwin support; Flags: postinstall; Components: DESupport/Cygwin; WorkingDir: {app}; Parameters: {code:GetSupportParams}
 Filename: {app}\Crosssupport.exe; Description: Set up Cross compiling support; Flags: postinstall; WorkingDir: {app}; Parameters: {code:GetSupportParams}; Check: IsWinePresent
@@ -360,9 +362,9 @@ Name: {app}\tools\wx-config*; Type: filesandordirs
 [Icons]
 Name: {group}\Read Me; Filename: {app}\Readme.rtf; WorkingDir: {app}; Comment: Important informations, known issues and solutions.
 Name: {group}\Deploying Applications Built Against {#CSLibsOutputName}; Filename: {app}\Deploying Applications Built Against cs-winlibs.rtf; WorkingDir: {app}; Comment: Information on picking the right files from {#CSLibsOutputName} when packaging applications for distribution
-Name: {group}\Copy DLLs to a CS directory; Filename: {app}\CopyDLLs.exe; WorkingDir: {app}; Comment: Copies the 3rd party DLLs to a CS source directory so compiled binaries can find them.; IconIndex: 0;
-Name: {group}\Set up VC support; Filename: {app}\VCsupport.exe; WorkingDir: {app}; Comment: Copies the headers and libraries to your CS source directory so you can use them from VC.; IconIndex: 0; Components: DESupport/VC
-Name: {group}\Set up MSYS support; Filename: {app}\MSYSsupport.exe; WorkingDir: {app}; Comment: Sets up MSYS so you can use the CrystalSpace libs from there.; IconIndex: 0; Components: DESupport/MSYS
+Name: {group}\Copy DLLs to a CS directory; Filename: {app}\CopyDLLs{#ArchSuffix}.exe; WorkingDir: {app}; Comment: Copies the 3rd party DLLs to a CS source directory so compiled binaries can find them.; IconIndex: 0;
+Name: {group}\Set up VC support; Filename: {app}\VCsupport{#ArchSuffix}.exe; WorkingDir: {app}; Comment: Copies the headers and libraries to your CS source directory so you can use them from VC.; IconIndex: 0; Components: DESupport/VC
+Name: {group}\Set up MSYS support; Filename: {app}\MSYSsupport{#ArchSuffix}.exe; WorkingDir: {app}; Comment: Sets up MSYS so you can use the CrystalSpace libs from there.; IconIndex: 0; Components: DESupport/MSYS
 #ifndef X64
 Name: {group}\Set up Cygwin support; Filename: {app}\Cygwinsupport.exe; WorkingDir: {app}; Comment: Sets up MSYS so you can use the CrystalSpace libs from there.; IconIndex: 0; Components: DESupport/Cygwin
 #endif
@@ -739,6 +741,8 @@ begin
   StringChange (libPath, '\', '/');
   SaveStringToFile (pcFileName, 'Libs: ${prefix}/' + libPath + #13#10, true);
 end;
+
+
 
 
 
