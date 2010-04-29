@@ -62,7 +62,6 @@ Depends collectsymbols_collect : collectsymbols_clean ;
 CollectSymbols collectsymbols_collect : 
   libs/release 
   libs/releasenocygwin
-  #libs/releaseextra 
   libs/releasevc8only
   libs/releasevc8only_static 
   libs/releasevc9only
@@ -71,7 +70,6 @@ CollectSymbols collectsymbols_collect :
   libs/releasewxvc9only
   libs/release-x64
   libs/releasenocygwin-x64
-  #libs/releaseextra-x64
   libs/releasevc8only-x64
   libs/releasevc8only_static-x64
   libs/releasevc9only-x64
