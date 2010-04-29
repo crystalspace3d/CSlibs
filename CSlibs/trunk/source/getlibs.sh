@@ -35,7 +35,6 @@ scripts/url-get libode "http://downloads.sourceforge.net/project/opende/ODE/0.11
   ode-0.11.1 zip
   
 # Extra libs
-scripts/url-get libjs ftp://ftp.mozilla.org/pub/mozilla.org/js/js-1.7.0.tar.gz js-1.7.0 gz js
 scripts/url-get libwx ftp://ftp.wxwidgets.org/pub/2.8.10/wxMSW-2.8.10.zip wxMSW-2.8.10 zip
 
 # A bit of manual setup
