@@ -31,6 +31,7 @@ Help maintainerclean :
 MsvcGenSubDir TOP msvc : common ;
 MsvcGenSubDir TOP msvc 8 : 8 ;
 MsvcGenSubDir TOP msvc 9 : 9 ;
+MsvcGenSubDir TOP msvc 10 : 10 ;
 MsvcGenTemplateDir TOP mk msvcgen ;
 
 # Customize the build configurations to contain some defines required by
@@ -145,10 +146,9 @@ rule VCFileLists
   FileListEntriesData [ Wildcard *vc$(N)_d.lib ] : : libs-wxvc$(N)_d-link ;
 }
 
-VCFileLists 7 ;
-VCFileLists 71 ;
 VCFileLists 8 ;
 VCFileLists 9 ;
+VCFileLists 10 ;
 
 SubDir TOP ;
 
@@ -166,7 +166,7 @@ rule AllMSMs
     MSIMergeModuleFromList winlibs.$(m).link : libs-$(m)-link : $(MSM_VER) ;
   }
 }
-AllMSMs common common_cg common_vorbisenc mingw_3.4 mingw_4.4 vc8 vc8_d vc9 vc9_d wxmingw_3.4 wxmingw_4.4 wxvc8 wxvc8_d wxvc9 wxvc9_d ;
+AllMSMs common common_cg common_vorbisenc mingw_3.4 mingw_4.4 vc8 vc8_d vc9 vc9_d vc10 vc10_d wxmingw_3.4 wxmingw_4.4 wxvc8 wxvc8_d wxvc9 wxvc9_d wxvc10 wxvc10_d ;
 MakeLocate winlibs.common_openal.msm : $(LOCATE.MSI) ;
 MSIMergeModule winlibs.common_openal.msm : source/setup/OpenALRuntime.wxs : "TOP=$(TOP)" "MSM_VER=$(MSM_VER)" ;
 

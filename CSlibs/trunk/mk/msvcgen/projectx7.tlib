@@ -60,7 +60,11 @@ END %]
   path_split = filename.split('\\\\');
   filename = path_split.pop();
   filename_split = filename.split('\\.');
-  filename = glue([filename_split.0, platform.suffix, '.', filename_split.1])
+  IF filename_split.size > 1;
+    filename = glue([filename_split.0, platform.suffix, '.', filename_split.1]);
+  ELSE;
+    filename = glue([filename_split.0, platform.suffix]);
+  END;
   new_path = path([path(path_split), filename]);
   GET new_path;
 END %]
@@ -164,7 +168,7 @@ END %]
 
 [% MACRO linker_common BLOCK -%]
 				LinkIncremental="1"
-				OutputFile="[% add_platform_suffix(path([my.doc.buildroot.0, my.doc.target.0])) %]"
+				OutputFile="[% add_platform_suffix(path([my.doc.buildroot.0, my.doc.target.0])) %].dll"
 				AdditionalLibraryDirectories="[% composedirs('libdirs', [], platform.suffix) %]"
 [% FOREACH linkerextra IN my.doc.linkerextraxml -%] 
                                 [% linkerextra %] 
@@ -188,12 +192,12 @@ END %]
 [% MACRO linker_library_shared BLOCK -%]
 [% linker_common -%]
 				DelayLoadDLLs="[% glue(my.doc.librarydelay,';','','.dll') %]"
-				ImportLibrary="[% add_platform_suffix_dir(importlib) %]"
+				ImportLibrary="[% add_platform_suffix_dir(importlib) %].lib"
 [% END %]
 
 [% MACRO library_outfile(suffix) BLOCK -%]
-				OutputFile="[% add_platform_suffix_dir(libfilename(suffix)) %]"
+				OutputFile="[% add_platform_suffix_dir(libfilename(suffix)) %].lib"
 [% END %]
 [% MACRO librarian_library_release GET library_outfile('') %]
 [% MACRO librarian_library_debug   GET library_outfile('_d') %]
-[% MACRO librarian_group	   GET library_outfile('') %]
+[% MACRO librarian_group	   GET '' %]

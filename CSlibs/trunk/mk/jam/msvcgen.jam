@@ -41,7 +41,7 @@
 #
 #==============================================================================
 
-MSVCGEN_SUPPORTED_VERSIONS = 6 7 71 8 9 ;
+MSVCGEN_SUPPORTED_VERSIONS = 6 7 71 8 9 10 ;
 MSVCGEN_BUILD_ROOT ?= [ ConcatDirs $(BUILDTOP) out ] ;
 MSVCGEN_BUILD_TEMP ?= [ ConcatDirs $(MSVCGEN_BUILD_ROOT) msvcgen ] ;
 
@@ -154,40 +154,51 @@ rule MsvcGenSubDir1 { }
 rule MsvcGenTemplateDir { MsvcGenTemplateDir1 $(1) ; }
 rule MsvcGenTemplateDir1 { }
 
-## MsvcExternalLibrary target [ : libs [ : mode ]]
+## MsvcExternalLibrary target [ : libs [ : mode [ : arch ]]]
 ##   Invoke this rule to link 'target' with one or more MSVC-specific external
 ##   libraries.  For example, 'libs' might be "wsock32.lib".  'mode' should be
 ##   "release" or "debug". If 'mode' is omitted, then 'libs' is used for
-##   release and debug.
-rule MsvcExternalLibrary { MsvcExternalLibrary1 $(1) : $(2) : $(3) ; }
+##   release and debug. 'arch' should be "x86" or "x64". If 'arch' is omitted,
+##   then 'directories' is used for x86 and x64.
+rule MsvcExternalLibrary { MsvcExternalLibrary1 $(1) : $(2) : $(3) : $(4) ; }
 rule MsvcExternalLibrary1 { }
 
-## MsvcDefine target [ : key [ : value [ : mode ]]]
+## MsvcDefine target [ : key [ : value [ : mode [ : arch ]]]]
 ##   Invoke this rule to define an MSVC-specific preprocessor macro 'key'
 ##   having 'value' for 'target'.  'mode' should be "release" or "debug". If
 ##   'mode' is omitted, then 'key/value' is used for release and debug.
-rule MsvcDefine { MsvcDefine1 $(1) : $(2) : $(3) : $(4) ; }
+##   'arch' should be "x86" or "x64". If 'arch' is omitted, then 'directories'
+##   is used for x86 and x64.
+rule MsvcDefine { MsvcDefine1 $(1) : $(2) : $(3) : $(4) : $(5) ; }
 rule MsvcDefine1 { }
 
-## MsvcIncDirs target : directories [ : mode ]
-##   Invoke this rule to define an MSVC-specific additional include directories.
+## MsvcIncDirs target : directories [ : mode [ : arch ]]
+##   Invoke this rule to define MSVC-specific additional include directories.
+##   'target' can be omitted in which case the include directories are added
+##   to all MSVC projects.
 ##   'mode' should be "release" or "debug". If 'mode' is omitted, then 
-##   'directories' is used for release and debug.
-rule MsvcIncDirs { MsvcIncDirs1 $(1) : $(2) : $(3) ; }
+##   'directories' is used for release and debug. 'arch' should be "x86"
+##   or "x64". If 'arch' is omitted, then 'directories' is used for x86 and
+##   x64.
+rule MsvcIncDirs { MsvcIncDirs1 $(1) : $(2) : $(3) : $(4) ; }
 rule MsvcIncDirs1 { }
 
-## MsvcCFlags target [ : cflags [ : mode ]]
+## MsvcCFlags target [ : cflags [ : mode [ : arch ]]]
 ##   Invoke this rule to set additional MSVC-specific compiler flags for
 ##   'target'.  'mode' should be "release" or "debug". If 'mode' is omitted,
-##   then 'cflags' is used for release and debug.
-rule MsvcCFlags { MsvcCFlags1 $(1) : $(2) : $(3) ; }
+##   then 'cflags' is used for release and debug. 'arch' should be "x86" or
+##   "x64". If 'arch' is omitted, then 'cflags' is used for x86 and x64.
+rule MsvcCFlags { MsvcCFlags1 $(1) : $(2) : $(3) : $(4) ; }
 rule MsvcCFlags1 { }
 
-## MsvcLibDirs target : libdirs [ : mode ]
-##   Invoke this rule to define an MSVC-specific additional library directories.
+## MsvcLibDirs target : libdirs [ : mode [ : arch ]]
+##   Invoke this rule to define MSVC-specific additional library directories.
+##   'target' can be omitted in which case the library directories are added
+##   to all MSVC projects.
 ##   'mode' should be "release" or "debug". If 'mode' is omitted, then 
-##   'directories' is used for release and debug.
-rule MsvcLibDirs { _MsvcLibDirs $(1) : $(2) : $(3) ; }
+##   'libdirs' is used for release and debug. 'arch' should be "x86"
+##   or "x64". If 'arch' is omitted, then 'libdirs' is used for x86 and x64.
+rule MsvcLibDirs { _MsvcLibDirs $(1) : $(2) : $(3) : $(4) ; }
 rule _MsvcLibDirs { }
 
 ## MsvcLFlags target [ : lflags [ : mode [ : arch ]]]
@@ -498,6 +509,17 @@ if $(MSVC_VERSION) = 6
   SUFWSP = dsw ;
   MSVC_FORCE_CRLF = yes ;
   MSVC_TEMPLATE_SUFFIX = 6 ;
+  MSVC_MANIFEST_IN_PROJECT = no ;
+}
+else if $(MSVC_VERSION) = 10 # Version 10
+{
+  SUFPRJ = vcxproj ;
+  SUFWSP = sln ;
+  MSVC_FORCE_CRLF = no ;
+  MSVC_TEMPLATE_SUFFIX = 10 ;
+  MSVC_FORMATVERSION_WSP = 11.00 ;
+  MSVC_WSP_HEADERCOMMENT = "# Visual C++ Express 2010" ;
+  MSVC_MANIFEST_IN_PROJECT = yes ;
 }
 else # Versions 7, 71, 8, 9 and "unknown"
 {
@@ -509,23 +531,27 @@ else # Versions 7, 71, 8, 9 and "unknown"
   {
     MSVC_FORMATVERSION_PRJ = 7.00 ;
     MSVC_FORMATVERSION_WSP = 7.00 ;
+    MSVC_MANIFEST_IN_PROJECT = no ;
   }
   else if $(MSVC_VERSION) = 71
   {
     MSVC_FORMATVERSION_PRJ = 7.10 ;
     MSVC_FORMATVERSION_WSP = 8.00 ;
+    MSVC_MANIFEST_IN_PROJECT = no ;
   }
   else if $(MSVC_VERSION) = 8
   {
     MSVC_FORMATVERSION_PRJ = 8.00 ;
     MSVC_FORMATVERSION_WSP = 9.00 ;
     MSVC_WSP_HEADERCOMMENT = "# Visual C++ Express 2005" ;
+    MSVC_MANIFEST_IN_PROJECT = yes ;
   }
   else if $(MSVC_VERSION) = 9
   {
     MSVC_FORMATVERSION_PRJ = 9.00 ;
     MSVC_FORMATVERSION_WSP = 10.00 ;
     MSVC_WSP_HEADERCOMMENT = "# Visual C++ Express 2008" ;
+    MSVC_MANIFEST_IN_PROJECT = yes ;
   }
   else
   {
@@ -719,6 +745,8 @@ rule MsvcGenWorkspace1
     "reject|$(rejects)"
     "formatversion|$(MSVC_FORMATVERSION_WSP)"
     "headercomment|$(MSVC_WSP_HEADERCOMMENT)"
+    "projectext|$(SUFPRJ)"
+    "msvcversion|$(MSVC_VERSION)"
     $(MSVCGEN_VARIABLES)
     : notfile : $(respdir) ;
   MsvcRmTemps msvcgen : $(respfile) ;
@@ -966,7 +994,7 @@ rule MsvcProject
         MANIFEST_NAME on $(manifestrc) = $(manifest) ;
         GenerateWin32ManifestRc $(manifestrc) ;
         Depends $(manifestrc) : $(manifest) ;
-        if $(MSVC_VERSION) >= 8
+        if "$(MSVC_MANIFEST_IN_PROJECT)" = "yes"
         {
           # VC8: Manifest appears in project along other files, a special build
           # tool cares about the embedding into a resource. (The resource goop
@@ -999,10 +1027,13 @@ rule MsvcProject
       }
     }
   }
+
+  ResponseFile $(respfile) : $(MSVC.RESPEMIT.GLOBAL) : notfile : $(respdir) ;
   
   local inckeys = "include" includedebug ;
   local incdirs = $(MSVC.INCDIRS_LITERAL) $(MSVC.INCDIRS_LITERAL.$(rawname)) ;
   ResponseFile $(respfile) : "$(inckeys)|$(incdirs)" : notfile : $(respdir) ;
+  ResponseFile $(respfile) : "$(inckeys)-x64|$(incdirs)" : notfile : $(respdir) ;
 
   local incdir ;
   for incdir in $(MSVC.INCDIRS) $(MSVC.INCDIRS.$(rawname))
@@ -1016,8 +1047,9 @@ rule MsvcProject
       incdir = [ ConcatDirs $(relpath) $(incdir) ] ;
     }
     ResponseFile $(respfile) : "$(inckeys)|$(incdir)" : notfile : $(respdir) ;
+    ResponseFile $(respfile) : "$(inckeys)-x64|$(incdir)" : notfile : $(respdir) ;
   }
-
+  
   if ! [ Property msvcgen : templatedir ]
   {
     exit "Error: You must invoke MsvcGenTemplateDir for project generation." ;
@@ -1082,6 +1114,148 @@ rule RegisterWellKnownCompileGroup
   MSVCGEN.DELAYED_COMPILE_GROUPS = ;
 }
 
+rule _ApplyStaticPluginFlags
+{
+  local package target plugins ;
+  plugins = $(2) ;
+  package = $(3) ;
+  
+  if $(package)
+  {
+    # External static plugins.
+    local lflags.debug lflags.release p mode arch ;
+    # Grab flags
+    local target_lflags.release.x86 target_lflags.debug.x86 ;
+    local target_lflags.release.x64 target_lflags.debug.x64 ;
+    local target_relaydeps ;
+    for p in $(plugins)
+    {
+      NotFile $(p) ;
+      for mode in debug release
+      {
+	for arch in x86 x64
+	{
+	  local cflags ;
+	  if $(STATICPLUGIN.$(p).CFLAGS.$(mode).$(arch).$(MSVC_VERSION))
+	  {
+	    cflags = $(STATICPLUGIN.$(p).CFLAGS.$(mode).$(arch).$(MSVC_VERSION)) ;
+	  }
+	  else if $(STATICPLUGIN.$(p).CFLAGS.$(mode).$(MSVC_VERSION))
+	  {
+	    cflags = $(STATICPLUGIN.$(p).CFLAGS.$(mode).$(MSVC_VERSION)) ;
+	  }
+	  else
+	  {
+	    cflags = $(STATICPLUGIN.$(p).CFLAGS.$(mode)) ;
+	  }
+	  if $(STATICPLUGIN.$(p).LFLAGS.$(mode).$(arch).$(MSVC_VERSION))
+	  {
+	    target_lflags.$(mode).$(arch) += $(STATICPLUGIN.$(p).LFLAGS.$(mode).$(arch).$(MSVC_VERSION)) ;
+	  }
+	  else if $(STATICPLUGIN.$(p).LFLAGS.$(mode).$(MSVC_VERSION))
+	  {
+	    target_lflags.$(mode).$(arch) += $(STATICPLUGIN.$(p).LFLAGS.$(mode).$(MSVC_VERSION)) ;
+	  }
+	  else
+	  {
+	    target_lflags.$(mode).$(arch) += $(STATICPLUGIN.$(p).LFLAGS.$(mode)) ;
+	  }
+	  for target in $(1)
+	  {
+	    MsvcCFlags $(target) : $(cflags) : $(arch) ;
+	  }
+	}
+      }
+      
+      local relaydeps = $(STATICPLUGIN.$(p).RELAYDEPS) ;
+      for relaydep in $(relaydeps)
+      {
+	local has_dep = no ;
+	for trd in $(target_relaydeps)
+	{
+	  if $(trd) = $(relaydep)
+	  {
+	    has_dep = yes ;
+	  }
+	}
+	if $(has_dep) = no
+	{
+          target_relaydeps += $(relaydep) ;
+          for target in $(1)
+          {
+            RelayLibs $(target) : $(relaydep) : $(STATICPLUGIN.$(p).RELAYLIBS.$(relaydep)) ;
+          }
+	}
+      }
+    }
+    for mode in debug release
+    {
+      for arch in x86 x64
+      {
+	local lflags = [ RemoveDupFlags $(target_lflags.$(mode).$(arch)) ] ;
+	for target in $(1)
+	{
+	  MsvcLFlags $(target) : $(lflags) : $(mode) : $(arch) ;
+	}
+      }
+    }
+  }
+  else
+  {
+    # link with static plugins
+    for target in $(1)
+    {
+      LinkWith $(target) : $(STATICPLUGINS.LIBRARY) ;
+    }
+    
+    # Local static plugins
+    local libs p ;
+    # Grab flags
+    local target_relaydeps ;
+    for p in $(plugins)
+    {
+      for target in $(1)
+      {
+        LinkWith $(target) : $($(p).NEEDLIBS) ;
+        ExternalLibs $(target) : $($(p).EXTERNALLIBS) ;
+      }
+
+      for mode in debug release
+      {
+	for a in x86 x64
+	{
+          for target in $(1)
+          {
+            MsvcExternalLibrary $(target) : $($(p)_$(mode)_$(a)_EXTERNALLIBS) : $(mode) : $(a) ;
+          }
+	}
+      }
+      
+      local relaydeps = $($(p).RELAYDEPS) ;
+      for relaydep in $(relaydeps)
+      {
+	local has_dep = no ;
+	for trd in $(target_relaydeps)
+	{
+	  if $(trd) = $(relaydep)
+	  {
+	    has_dep = yes ;
+	  }
+	}
+	if $(has_dep) = no
+	{
+          target_relaydeps += $(relaydep) ;
+          for target in $(1)
+          {
+            RelayLibs $(target) : $(relaydep) : $(STATICPLUGIN.$(p).RELAYLIBS.$(relaydep)) ;
+          }
+	}
+      }
+    }
+  }
+  
+}
+
 rule LinkStaticPlugins
 {
   local package target plugins optplugins ;
@@ -1090,11 +1264,6 @@ rule LinkStaticPlugins
   plugins = $(2) ;
   optplugins = $(3) ;
   package = $(4) ;
-  
-  local target_link_with target_ext_libs target_ext_libs.release target_ext_libs.debug ;
-  local target_lflags.release target_lflags.debug ;
-  local target_cflags.release target_cflags.debug ;
-  local target_relaydeps target_relaylibs ;
   
   if $(package)
   {
@@ -1114,56 +1283,11 @@ rule LinkStaticPlugins
 	plugins += $(p) ;
       }
     }
-    # Grab flags
-    for p in $(plugins)
-    {
-      NotFile $(p) ;
-      for mode in debug release
-      {
-        if $(STATICPLUGIN.$(p).CFLAGS.$(mode).$(MSVC_VERSION))
-        {
-	  target_cflags.$(mode) += $(STATICPLUGIN.$(p).CFLAGS.$(mode).$(MSVC_VERSION)) ;
-	}
-	else
-	{
-	  target_cflags.$(mode) += $(STATICPLUGIN.$(p).CFLAGS.$(mode)) ;
-	}
-	if $(STATICPLUGIN.$(p).LFLAGS.$(mode).$(MSVC_VERSION))
-	{
-	  target_lflags.$(mode) += $(STATICPLUGIN.$(p).LFLAGS.$(mode).$(MSVC_VERSION)) ;
-	}
-	else
-	{
-	  target_lflags.$(mode) += $(STATICPLUGIN.$(p).LFLAGS.$(mode)) ;
-	}
-      }
-      
-      local relaydeps = $(STATICPLUGIN.$(p).RELAYDEPS) ;
-      for relaydep in $(relaydeps)
-      {
-	local has_dep = no ;
-	for trd in $(target_relaydeps)
-	{
-	  if $(trd) = $(relaydep)
-	  {
-	    has_dep = yes ;
-	  }
-	}
-	if $(has_dep) = no
-	{
-	  target_relaydeps += $(relaydep) ;
-	  target_relaylibs += "$(STATICPLUGIN.$(p).RELAYLIBS.$(relaydep))" ;
-	}
-      }
-    }
   }
   else
   {
-    # link with static plugins
-    target_link_with += $(STATICPLUGINS.LIBRARY) ;
-    
     # Local static plugins
-    local libs p ;
+    local p ;
     # Collect optional plugins
     for p in $(optplugins)
     {
@@ -1172,37 +1296,8 @@ rule LinkStaticPlugins
 	plugins += $(p) ;
       }
     }
-    # Grab flags
-    for p in $(plugins)
-    {
-      target_link_with += $($(p).NEEDLIBS) ;
-
-      target_ext_libs += $($(p).EXTERNALLIBS) ;
-      for mode in debug release
-      {
-        target_ext_libs.$(mode) += $($(p)_$(mode)_EXTERNALLIBS) ;
-      }
-      
-      local relaydeps = $($(p).RELAYDEPS) ;
-      for relaydep in $(relaydeps)
-      {
-	local has_dep = no ;
-	for trd in $(target_relaydeps)
-	{
-	  if $(trd) = $(relaydep)
-	  {
-	    has_dep = yes ;
-	  }
-	}
-	if $(has_dep) = no
-	{
-	  target_relaydeps += $(relaydep) ;
-	  target_relaylibs += "$($(p).RELAYLIBS.$(relaydep))" ;
-	}
-      }
-    }
   }
-
+  
   # Generate static plugin instantiation
   local outdir = [ Property msvcgen : outdircommon ] ;
   if "$(outdir)" = ""
@@ -1283,33 +1378,9 @@ rule LinkStaticPlugins
     
     GeneratePluginLibraryGlueApp $(appglue) : $(plugin_lib_name) ;
     
-    ExternalLibs $(plugin_lib_name) : $(target_ext_libs) ;
-    for mode in debug release
-    {
-      MsvcLFlags $(plugin_lib_name) : 
-	[ RemoveDupFlags $(target_lflags.$(mode)) ] : $(mode) ;
-      MsvcCFlags $(plugin_lib_name) : $(target_cflags.$(mode)) ;
-      MsvcExternalLibrary $(plugin_lib_name) : $(target_ext_libs.$(mode)) : $(mode) ;
-    }
-    for relaydep in $(target_relaydeps)
-    {
-      local relaylibs = $(target_relaylibs[1]) ;
-      target_relaylibs = $(target_relaylibs[2-]) ;
-      RelayLibs $(plugin_lib_name) : $(relaydep) : $(relaylibs) ;
-    }
-    LinkWith $(plugin_lib_name) : $(target_link_with) ;
-    
-    # Nevertheless link plugin deps to actual target to make static lib builds
-    # work
-    ExternalLibs $(target) : $(target_ext_libs) ;
-    for mode in debug release
-    {
-      MsvcLFlags $(target) : 
-	[ RemoveDupFlags $(target_lflags.$(mode)) ] : $(mode) ;
-      MsvcCFlags $(target) : $(target_cflags.$(mode)) ;
-      MsvcExternalLibrary $(target) : $(target_ext_libs.$(mode)) : $(mode) ;
-    }
-    LinkWith $(target) : $(target_link_with) ;
+    # We need to get the external libs for the plugin lib; but they have to be 
+    # specified after LinkStaticPlugins
+    $(target).PROPAGATE_EXTERNALLIBS += $(plugin_lib_name) ;
     
     # Add usefile to project
     MsvcAddFileToProject $($(target)_PRJ_RESPFILE) : 
@@ -1317,24 +1388,14 @@ rule LinkStaticPlugins
     Depends $(target) : $(appglue) ;
     Depends msvcgen : $(appglue) ;
     LinkWith $(target) : $(plugin_lib_name) ;
+    
+    # @@@ Something is overflowing Jam's little mind or so ...
+    # $(target) changes it's value, somewhere!
+    _ApplyStaticPluginFlags $(<) $(plugin_lib_name) : $(plugins) : $(package) ;
   }
   else
   {
-    ExternalLibs $(target) : $(target_ext_libs) ;
-    for mode in debug release
-    {
-      MsvcLFlags $(target) : 
-	[ RemoveDupFlags $(target_lflags.$(mode)) ] : $(mode) ;
-      MsvcCFlags $(target) : $(target_cflags.$(mode)) ;
-      MsvcExternalLibrary $(target) : $(target_ext_libs.$(mode)) : $(mode) ;
-    }
-    for relaydep in $(target_relaydeps)
-    {
-      local relaylibs = $(target_relaylibs[1]) ;
-      target_relaylibs = $(target_relaylibs[2-]) ;
-      RelayLibs $(target) : $(relaydep) : $(relaylibs) ;
-    }
-    LinkWith $(target) : $(target_link_with) ;
+    _ApplyStaticPluginFlags $(target) : $(plugins) : $(package) ;
     
     # Add usefile to project
     MsvcAddFileToProject $($(target)_PRJ_RESPFILE) : 
@@ -1379,7 +1440,7 @@ rule Plugin
   MakeLocate $(plugin_impl_file) : $(outdircommon) ;
   WritePluginImplement $(plugin_impl_file) ;
   Depends msvcgen : $(plugin_impl_file) ;
-  $(<)_EXTRASOURCES = $(plugin_impl_file:R=$(outdircommon))
+  $(<)_EXTRASOURCES = $(plugin_impl_file:R=$(outdircommon)) ;
   
   local metafile ;
   metafile = [ FAppendSuffix $(<) : $(SUFMETA) ] ;
@@ -1494,69 +1555,92 @@ rule StaticPluginLibrary
 # Write out CFLAGS, LFLAGS needed by a plugin
 rule WriteDependencies
 {
-  local cflags.debug cflags.release ;
-  local lflags.debug lflags.release ;
   local depfile = $(<) ;
   local plugin = $(>) ;
   local libname = $(3) ;
-  local depfile_gristed = $(depfile:G=$(plugin)) ;
-  MakeLocate $(depfile_gristed) : [ on $(depfile) GetVar LOCATE ] ;
   
-  # "Artificially" insert static library itself
-  lflags.debug += $(MSVC.PREFIX.library_static)$(libname)_d.lib ;
-  lflags.release += $(MSVC.PREFIX.library_static)$(libname).lib ;
-  # Collect other libs
-  local libs = [ ResolveLibs $($(plugin).NEEDLIBS) ] ;
-  lflags.debug += $(MSVC.PREFIX.library_static)$(libs)_d.lib ;
-  lflags.release += $(MSVC.PREFIX.library_static)$(libs).lib ;
-  
-  # Defines
-  local l ;
-  for l in $($(plugin).EXTERNALLIBS)
-  {
-    if $($(l).DEFINES.DEBUG)
-    {
-      cflags.debug += "\"/D $($(l).DEFINES.DEBUG)\"" ;
-      cflags.release += "\"/D $($(l).DEFINES)\"" ;
-    }
-    else
-    {
-      cflags.debug += "\"/D $($(l).DEFINES)\"" ;
-      cflags.release += "\"/D $($(l).DEFINES)\"" ;
-    }
-  }
-  # Link flags
-  local mode ;
-  for mode in debug release
-  {
-    lflags.$(mode) += $($(plugin).LFLAGS.$(mode))  ;
-    lflags.$(mode) += $($(plugin)_$(mode)_EXTERNALLIBS)  ;
-  }
-  CFLAGS.DEBUG on $(depfile_gristed) = "$(cflags.debug)" ;
-  CFLAGS.RELEASE on $(depfile_gristed) = "$(cflags.release)" ;
-  lflags.debug = [ RemoveDups $(lflags.debug) ] ;
-  LFLAGS.DEBUG on $(depfile_gristed) = "$(lflags.debug)" ;
-  lflags.release = [ RemoveDups $(lflags.release) ] ;
-  LFLAGS.RELEASE on $(depfile_gristed) = "$(lflags.release)" ;
-  LIBNAME on $(depfile_gristed) = $(libname) ;
-  
+  local depfile_gristed_plugin = $(depfile:G=$(plugin)) ;
+  MakeLocate $(depfile_gristed_plugin) : [ on $(depfile) GetVar LOCATE ] ;
   if $($(depfile).FIRSTTIME) != "yes"
   {
-    CreateDepFlagsFile $(depfile_gristed) ;
+    CreateDepFlagsFile $(depfile_gristed_plugin) ;
     $(depfile).FIRSTTIME = "yes" ;
   }
-  WriteDepFlags $(depfile_gristed) : $(plugin) ;
+  WriteDepFlagsPluginAvail $(depfile_gristed_plugin) : $(plugin) ;
+  
+  local mode arch ;
+  for mode in debug release
+  {
+    for arch in x86 x64
+    {
+      local depfile_gristed = $(depfile:G=$(plugin)_$(mode)_$(arch)) ;
+      MakeLocate $(depfile_gristed) : [ on $(depfile) GetVar LOCATE ] ;
+      
+      local lflags cflags ;
+      if "$(mode)" = "debug"
+      {
+	# "Artificially" insert static library itself
+	lflags += $(MSVC.PREFIX.library_static)$(libname)_d.lib ;
+	# Collect other libs
+	local libs = [ ResolveLibs $($(plugin).NEEDLIBS) ] ;
+	lflags += $(MSVC.PREFIX.library_static)$(libs)_d.lib ;
+      }
+      else
+      {
+	# "Artificially" insert static library itself
+	lflags += $(MSVC.PREFIX.library_static)$(libname).lib ;
+	# Collect other libs
+	local libs = [ ResolveLibs $($(plugin).NEEDLIBS) ] ;
+	lflags += $(MSVC.PREFIX.library_static)$(libs).lib ;
+      }
+  
+      # Defines
+      local l ;
+      for l in $($(plugin).EXTERNALLIBS)
+      {
+	if "$(mode)" = "debug"
+	{
+	  if $($(l).DEFINES.DEBUG)
+	  {
+	    cflags += "\"/D $($(l).DEFINES.DEBUG)\"" ;
+	  }
+	  else
+	  {
+	    cflags += "\"/D $($(l).DEFINES)\"" ;
+	  }
+	}
+	else
+	{
+	  cflags += "\"/D $($(l).DEFINES)\"" ;
+	}
+      }
+  
+      # Link flags
+      lflags += $($(plugin).LFLAGS.$(mode))  ;
+      lflags += $($(plugin)_$(mode)_$(arch)_EXTERNALLIBS)  ;
+      CFLAGS on $(depfile_gristed) = "$(cflags)" ;
+      lflags = [ RemoveDups $(lflags) ] ;
+      LFLAGS on $(depfile_gristed) = "$(lflags)" ;
+      MODE on $(depfile_gristed) = "$(mode)" ;
+      ARCH on $(depfile_gristed) = "$(arch)" ;
+  
+      WriteDepFlags $(depfile_gristed) : $(plugin) ;
+      Depends $(depfile_gristed) : $(depfile_gristed_plugin) ;
+      Depends $(depfile) : $(depfile_gristed) ;
+      Always $(depfile_gristed) ;
+    }
+  }
   
   local relaydeps = $($(plugin).RELAYDEPS) ;
   for relaydep in $(relaydeps)
   {
-    RELAYDEP on $(depfile_gristed) = "$(relaydep)" ;
-    RELAYLIBS on $(depfile_gristed) = "$($(plugin).RELAYLIBS.$(relaydep))" ;
-    WriteDepRelayLibs $(depfile_gristed) : $(plugin) ;
+    RELAYDEP on $(depfile_gristed_plugin) = "$(relaydep)" ;
+    RELAYLIBS on $(depfile_gristed_plugin) = "$($(plugin).RELAYLIBS.$(relaydep))" ;
+    WriteDepRelayLibs $(depfile_gristed_plugin) : $(plugin) ;
   }
   
-  Depends $(depfile) : $(depfile_gristed) ;
-  Always $(depfile_gristed) ;
+  Depends $(depfile) : $(depfile_gristed_plugin) ;
+  Always $(depfile_gristed_plugin) ;
 }
 
 actions CreateDepFlagsFile
@@ -1570,14 +1654,18 @@ actions CreateDepFlagsFile
 EOT
 }
 
-actions WriteDepFlags
+actions WriteDepFlagsPluginAvail
 {
   cat << EOT >> $(<)
 STATICPLUGINS.AVAILABLE += $(>) ;
-STATICPLUGIN.$(>).CFLAGS.debug.$(MSVC_VERSION) = $(CFLAGS.DEBUG) ;
-STATICPLUGIN.$(>).CFLAGS.release.$(MSVC_VERSION) = $(CFLAGS.RELEASE) ;
-STATICPLUGIN.$(>).LFLAGS.debug.$(MSVC_VERSION) = $(LFLAGS.DEBUG) ;
-STATICPLUGIN.$(>).LFLAGS.release.$(MSVC_VERSION) = $(LFLAGS.RELEASE) ;
+EOT
+}
+
+actions WriteDepFlags
+{
+  cat << EOT >> $(<)
+STATICPLUGIN.$(>).CFLAGS.$(MODE).$(ARCH).$(MSVC_VERSION) = $(CFLAGS) ;
+STATICPLUGIN.$(>).LFLAGS.$(MODE).$(ARCH).$(MSVC_VERSION) = $(LFLAGS) ;
 EOT
 }
 
@@ -1623,22 +1711,9 @@ rule CompileGroups
 
 rule LinkWith
 {
-  local libs = [ ResolveLibs $(>) ] ;
   ExternalLibs $(<) : $($(>).EXTERNALLIBS) ;
-  local w ;
-  for w in $(MSVC.WORKSPACES)
-  {
-    local l ;
-    for l in $(libs)_MSVCNAME
-    {
-      if $($(l))
-      {
-	ResponseFile $($(w)_WKS_RESPFILE) : "$($(<)_MSVCNAME)|$($(l))" :
-	  notfile : $($(w)_WKS_RESPDIR) ;
-      }
-    }
-  }
-  $(<).NEEDLIBS = $(libs) ;
+  local libs = [ ResolveLibs $(>) ] ;
+  LibDepends $(<) : $(libs) ;
 }
 
 rule LibDepends
@@ -1647,15 +1722,25 @@ rule LibDepends
   for w in $(MSVC.WORKSPACES)
   {
     local l ;
-    for l in $(libs)_MSVCNAME
+    for l in $(libs)
     {
-      if $($(l))
+      if $($(l)_MSVCNAME)
       {
-	ResponseFile $($(w)_WKS_RESPFILE) : "$($(<)_MSVCNAME)|$($(l))" :
+	ResponseFile $($(w)_WKS_RESPFILE) : "$($(<)_MSVCNAME)|$($(l)_MSVCNAME)" :
 	  notfile : $($(w)_WKS_RESPDIR) ;
       }
     }
   }
+  local l ;
+  for l in $(libs)
+  {
+    if ! [ IsElem $(l) : $($(<).NEEDLIBS) ]
+    {
+      ResponseFile $($(<)_PRJ_RESPFILE) : "depends|$($(l)_MSVCNAME)" :
+        notfile : $($(<)_PRJ_RESPDIR) ;
+      $(<).NEEDLIBS += $(l) ;
+    }
+  }  
 }
 
 rule RelayLibs
@@ -1730,21 +1815,30 @@ rule _MsvcRespEmit
   if ! [ IsElem ignoremode ] { modes = [ MsvcClassifyMode $(mode) ] ; }
   if ! [ IsElem ignorearch ] { archs = [ MsvcClassifyArch $(arch) ] ; }
 
-  ResponseFile $($(target)_PRJ_RESPFILE) : "$(tag)$(modes)$(archs)|$(items)" :
-    notfile : $($(target)_PRJ_RESPDIR) ;
+  if "$(target)" = ""
+  {
+    MSVC.RESPEMIT.GLOBAL += "$(tag)$(modes)$(archs)|$(items)" ;
+  }
+  else
+  {
+    ResponseFile $($(target)_PRJ_RESPFILE) : "$(tag)$(modes)$(archs)|$(items)" :
+      notfile : $($(target)_PRJ_RESPDIR) ;
+  }
 }
 
-# MsvcExternalLibrary target [ : libs [ : mode ]]
+# MsvcExternalLibrary target [ : libs [ : mode [ : arch ]]]
 #   (See documentation above.)
 rule MsvcExternalLibrary1
 {
-  _MsvcRespEmit $(1) : $(2) : library : $(3) ;
+  _MsvcRespEmit $(1) : $(2) : library : $(3) : $(4) ;
   local mode = $(3) ;
   mode ?= debug release ;
-  $(1)_$(mode)_EXTERNALLIBS += $(2) ;
+  local arch = $(4) ;
+  arch ?= x86 x64 ;
+  $(1)_$(mode)_$(arch)_EXTERNALLIBS += $(2) ;
 }
 
-# MsvcDefine target [ : key [ : value [ : mode ]]]
+# MsvcDefine target [ : key [ : value [ : mode [ : arch ]]]]
 #   (See documentation above.)
 rule MsvcDefine1
 {
@@ -1752,6 +1846,8 @@ rule MsvcDefine1
   local key = $(2) ;
   local value = $(3) ;
   local mode = $(4) ;
+  local arch = $(5) ;
+  arch ?= x86 x64 ;
   if $(key)
   {
     local def ;
@@ -1763,16 +1859,19 @@ rule MsvcDefine1
     {
       def = $(key) ;
     }
-    _MsvcRespEmit $(target) : $(def) : define : $(mode) ;
-    STATICPLUGINS.$(target).MSVC_DEFINES += $(def) ;
+    for a in $(arch)
+    {
+      _MsvcRespEmit $(target) : $(def) : define : $(mode) : $(a) ;
+      STATICPLUGINS.$(target).MSVC_DEFINES.$(a) += $(def) ;
+    }
   }
 }
 
-# MsvcIncDirs target : directory [ : mode ]
+# MsvcIncDirs target : directory [ : mode [ : arch]]
 #   (See documentation above.)
 rule MsvcIncDirs1 
 { 
-  _MsvcIncDirs $(1) : $(2) : $(3) ;
+  _MsvcIncDirs $(1) : $(2) : $(3) : $(4) ;
 }
 
 ## MsvcUsePCH target : file
@@ -1782,19 +1881,19 @@ rule MsvcUsePCH1
   _MsvcRespEmit $(1) : $(2) : pch ; 
 }
 
-# _MsvcDefine target : tuples [ : mode ]
+# _MsvcDefine target : tuples [ : mode [ : arch ]]
 #   Similar to MsvcDefine, but works with a list of `key=value' tuples. Also
 #   understands `key' with no value.
 rule _MsvcDefine
 {
-  _MsvcRespEmit $(1) : $(2) : define : $(3) ;
+  _MsvcRespEmit $(1) : $(2) : define : $(3) : $(4) ;
 }
 
-# MsvcCFLags target [ : cflags [ : mode ]]
+# MsvcCFlags target [ : cflags [ : mode [ : arch ]]]
 #   (See documentation above.)
 rule MsvcCFlags1
 {
-  _MsvcRespEmit $(1) : $(2) : cflags : $(3) ;
+  _MsvcRespEmit $(1) : $(2) : cflags : $(3) : $(4) ;
 }
 
 # MsvcLFlags target [ : lflags [ : mode [ : arch ]]]
@@ -1819,20 +1918,20 @@ rule MsvcExtraFile1
   MsvcAddFileToProject $(respfile) : $(files) : $(respdir) ;
 }
 
-# _MsvcIncDirs target : incdirs [ : mode ]
+# _MsvcIncDirs target : incdirs [ : mode [ : arch ]]
 #   Helper for ExternalLibs which processes the contents of TAG.INCDIRS for
 #   an external library.
 rule _MsvcIncDirs
 {
-  _MsvcRespEmit $(1) : $(2) : include : $(3) ;
+  _MsvcRespEmit $(1) : $(2) : include : $(3) : $(4) ;
 }
 
-# _MsvcLibDirs target : libdirs [ : mode ]
+# _MsvcLibDirs target : libdirs [ : mode [ : arch ]]
 #   Helper for ExternalLibs which processes the contents of TAG.LIBDIRS for
 #   an external library.
 rule _MsvcLibDirs
 {
-  _MsvcRespEmit $(1) : $(2) : libdir : $(3) ;
+  _MsvcRespEmit $(1) : $(2) : libdir : $(3) : $(4) ;
 }
 
 # _ExternalLibsHelperMsvc target : libtag : subrule : attribute
@@ -1842,26 +1941,52 @@ rule _ExternalLibsHelperMsvc
   local lib = $(2) ;
   local rulename = $(3) ;
   local attrib = $(4) ;
-
-  if $($(lib).$(attrib).DEBUG.$(MSVC_VERSION))
+  local arch_X86 = x86 ;
+  local arch_X64 = x64 ;
+  
+  for a in X86 X64
   {
-    $(rulename) $(target) : $($(lib).$(attrib).DEBUG.$(MSVC_VERSION)) : debug ;
-  }
-  else if $($(lib).$(attrib).DEBUG)
-  {
-    $(rulename) $(target) : $($(lib).$(attrib).DEBUG) : debug ;
-  }
-  else
-  {
-    $(rulename) $(target) : $($(lib).$(attrib)) : debug ;
-  }
-  if $($(lib).$(attrib).$(MSVC_VERSION))
-  {
-    $(rulename) $(target) : $($(lib).$(attrib).$(MSVC_VERSION)) : release ;
-  }
-  else
-  {
-    $(rulename) $(target) : $($(lib).$(attrib)) : release ;
+    if $($(lib).$(attrib).DEBUG.$(a).$(MSVC_VERSION))
+    {
+      $(rulename) $(target) : $($(lib).$(attrib).DEBUG.$(a).$(MSVC_VERSION)) : debug : $(arch_$(a)) ;
+    }
+    else if $($(lib).$(attrib).DEBUG.$(MSVC_VERSION))
+    {
+      $(rulename) $(target) : $($(lib).$(attrib).DEBUG.$(MSVC_VERSION)) : debug : $(arch_$(a)) ;
+    }
+    else if $($(lib).$(attrib).DEBUG.$(a))
+    {
+      $(rulename) $(target) : $($(lib).$(attrib).DEBUG.$(a)) : debug : $(arch_$(a)) ;
+    }
+    else if $($(lib).$(attrib).DEBUG)
+    {
+      $(rulename) $(target) : $($(lib).$(attrib).DEBUG) : debug : $(arch_$(a)) ;
+    }
+    else if $($(lib).$(attrib).$(a))
+    {
+      $(rulename) $(target) : $($(lib).$(attrib).$(a)) : debug : $(arch_$(a)) ;
+    }
+    else
+    {
+      $(rulename) $(target) : $($(lib).$(attrib)) : debug : $(arch_$(a)) ;
+    }
+    
+    if $($(lib).$(attrib).$(a).$(MSVC_VERSION))
+    {
+      $(rulename) $(target) : $($(lib).$(attrib).$(a).$(MSVC_VERSION)) : release : $(arch_$(a)) ;
+    }
+    else if $($(lib).$(attrib).$(MSVC_VERSION))
+    {
+      $(rulename) $(target) : $($(lib).$(attrib).$(MSVC_VERSION)) : release : $(arch_$(a)) ;
+    }
+    else if $($(lib).$(attrib).$(a))
+    {
+      $(rulename) $(target) : $($(lib).$(attrib).$(a)) : release : $(arch_$(a)) ;
+    }
+    else
+    {
+      $(rulename) $(target) : $($(lib).$(attrib)) : release : $(arch_$(a)) ;
+    }
   }
 }
 
@@ -1878,6 +2003,11 @@ rule ExternalLibs
     _ExternalLibsHelperMsvc $(<) : $(i) : _MsvcLibDirs : LIBDIRS ;
     
     $(<).EXTERNALLIBS += $(i) ;
+  }
+  
+  for target in $($(<).PROPAGATE_EXTERNALLIBS)
+  {
+    ExternalLibs $(target) : $(>) ;
   }
 }
 
