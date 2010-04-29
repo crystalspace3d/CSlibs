@@ -43,6 +43,8 @@ builds = [buildrelease];
 FOREACH platform IN platforms;
   platform.debugformat_debug = 3;
   platform.debugformat_release = 3;
+  platform.debugformat10_debug = 'ProgramDatabase';
+  platform.debugformat10_release = 'ProgramDatabase';
 END;
 
 #------------------------------------------------------------------------------

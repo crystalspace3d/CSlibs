@@ -20,6 +20,33 @@
 #============================================================================
 SHELL ?= "/bin/sh" ;
 
+# Helper to set unset elements of PACKAGE_VERSION_LIST to 0
+rule _NormalizeVersionList
+{
+  local v1, v2, v3, v4 ;
+  v1 = $(PACKAGE_VERSION_LIST[1]) ;
+  if ! $(v1) { v1 = 0 ; }
+  v2 = $(PACKAGE_VERSION_LIST[2]) ;
+  if ! $(v2) { v2 = 0 ; }
+  v3 = $(PACKAGE_VERSION_LIST[3]) ;
+  if ! $(v3) { v3 = 0 ; }
+  v4 = $(PACKAGE_VERSION_LIST[4]) ;
+  if ! $(v4) { v4 = 0 ; }
+  return $(v1) $(v2) $(v3) $(v4) ;
+}
+PACKAGE_VERSION_NORM = [ _NormalizeVersionList ] ;
+
+# Allow customization of some values written to the .rc file
+WIN32RC.EXTRAHEADER ?= ;
+WIN32RC.VERSIONNUMBER ?=
+  # Remove any RC tag
+  "`echo '$(PACKAGE_VERSION_NORM[1]),$(PACKAGE_VERSION_NORM[2]),$(PACKAGE_VERSION_NORM[3]),$(PACKAGE_VERSION_NORM[4])' | $(SED) 's/[^0123456789._,]//g'`" ;
+WIN32RC.VERSIONNUMBER.FILE ?= $(WIN32RC.VERSIONNUMBER) ;
+WIN32RC.VERSIONNUMBER.PRODUCT ?= $(WIN32RC.VERSIONNUMBER) ;
+WIN32RC.VERSIONSTR ?= "\"$(PACKAGE_VERSION)\"" ;
+WIN32RC.VERSIONSTR.FILE ?= $(WIN32RC.VERSIONSTR) ;
+WIN32RC.VERSIONSTR.PRODUCT ?= $(WIN32RC.VERSIONSTR) ;
+
 CMD.WINDRES ?= windres ;
 # DLL-tools not used by this script, but clients might have a need for them.
 CMD.DLLTOOL ?= dlltool ;
@@ -58,20 +85,19 @@ actions GenerateWin32VersionRc
 {
     cat > $(<) << __EOF__
 // This file is generated automatically.
+__EOF__
+
+    cat >> $(<) << __EOF__
+$(WIN32RC.EXTRAHEADER)
+__EOF__
+
+    cat >> $(<) << __EOF__
 
 1 VERSIONINFO
-FILEVERSION 
 __EOF__
 
-	# Remove any RC tag
-	echo '$(PACKAGE_VERSION_LIST[1]),$(PACKAGE_VERSION_LIST[2]),$(PACKAGE_VERSION_LIST[3]),$(PACKAGE_VERSION_LIST[4])' | $(SED) 's/RC\([0-9]\)//g' | $(SED) 's/[^0123456789._,]//g' >> $(<)
-
-cat >> $(<) << __EOF__
-PRODUCTVERSION 
-__EOF__
-
-	# Remove any RC tag
-	echo '$(PACKAGE_VERSION_LIST[1]),$(PACKAGE_VERSION_LIST[2]),$(PACKAGE_VERSION_LIST[3]),$(PACKAGE_VERSION_LIST[4])' | $(SED) 's/RC\([0-9]\)//g' | $(SED) 's/[^0123456789._,]//g' >> $(<)
+	echo FILEVERSION $(WIN32RC.VERSIONNUMBER.FILE) >> $(<)
+	echo PRODUCTVERSION $(WIN32RC.VERSIONNUMBER.PRODUCT) >> $(<)
 
 cat >> $(<) << __EOF__
 #ifdef CS_DEBUG
@@ -85,8 +111,8 @@ FILEFLAGS 0x0
     BLOCK "040904E4"
     {
       VALUE "ProductName", "$(PRODUCT_NAME)"
-      VALUE "ProductVersion", "$(PACKAGE_VERSION)"
-      VALUE "FileVersion", "$(PACKAGE_VERSION)"
+      VALUE "ProductVersion", $(WIN32RC.VERSIONSTR.PRODUCT)
+      VALUE "FileVersion", $(WIN32RC.VERSIONSTR.FILE)
       VALUE "LegalCopyright", "$(PACKAGE_COPYRIGHT)"
       VALUE "FileDescription", "$(PRODUCT_DESCRIPTION)"
 #ifdef CS_DEBUG
@@ -125,7 +151,7 @@ __EOF__
 
     # Filter out non-numerical characters from the version number. Windows does
     # not like them.
-    echo '$(PACKAGE_VERSION_LIST[1]).$(PACKAGE_VERSION_LIST[2]).$(PACKAGE_VERSION_LIST[3]).$(PACKAGE_VERSION_LIST[4])' | $(SED) 's/RC\([0-9]\)//g' | $(SED) 's/[^0123456789.]//g' | $(SED) 's/\(.*\)/    version="\1"/' >> $(<)
+    echo '$(PACKAGE_VERSION_NORM[1]).$(PACKAGE_VERSION_NORM[2]).$(PACKAGE_VERSION_NORM[3]).$(PACKAGE_VERSION_NORM[4])' | $(SED) 's/RC\([0-9]\)//g' | $(SED) 's/[^0123456789.]//g' | $(SED) 's/\(.*\)/    version="\1"/' >> $(<)
   
     cat >> $(<) << __EOF__
     processorArchitecture="X86"
@@ -174,7 +200,7 @@ actions GenerateIconRc
 
 actions together CompileResources
 {
-    cat $(>) | $(CMD.WINDRES) $(WINDRES.FLAGS) $(RCFLAGS) --include-dir=$(>:D) -o $(<)
+    cat $(>) | $(CMD.WINDRES) $(WINDRES.FLAGS) $(RCFLAGS) --include-dir=$(HDRS) --include-dir=$(>:D) -o $(<)
 }
 
 rule CompileResources
@@ -245,7 +271,7 @@ rule ConstructStaticLibraryTarget
 rule ConstructSharedLibraryTarget
 {
   local libbase = [ LibraryBaseName $(<) ] ;
-  return $(libbase)-$(COMPILER.TYPE).dll ;
+  return $(libbase)-$(COMPILER.C++.TYPE).dll ;
 }
 rule ConstructSharedLibraryLinkLib
 {
@@ -260,18 +286,6 @@ rule ConstructPluginTarget
 # Also invoked by msvcgen.jam.
 rule MakeVersionRc
 {
-  # normalize version list
-  local v1, v2, v3, v4 ;
-  v1 = $(PACKAGE_VERSION_LIST[1]) ;
-  if ! $(v1) { v1 = 0 ; }
-  v2 = $(PACKAGE_VERSION_LIST[2]) ;
-  if ! $(v2) { v2 = 0 ; }
-  v3 = $(PACKAGE_VERSION_LIST[3]) ;
-  if ! $(v3) { v3 = 0 ; }
-  v4 = $(PACKAGE_VERSION_LIST[4]) ;
-  if ! $(v4) { v4 = 0 ; }
-  PACKAGE_VERSION_LIST on $(<) = $(v1) $(v2) $(v3) $(v4) ;
-      
   local desc = [ Description $(>) ] ;
   if ! $(desc) { desc = "$(>)" ; }
   PRODUCT_DESCRIPTION on $(<) = $(desc) ;
@@ -287,18 +301,6 @@ rule MakeVersionRc
 
 rule MakeManifestFile
 {
-  # normalize version list
-  local v1, v2, v3, v4 ;
-  v1 = $(PACKAGE_VERSION_LIST[1]) ;
-  if ! $(v1) { v1 = 0 ; }
-  v2 = $(PACKAGE_VERSION_LIST[2]) ;
-  if ! $(v2) { v2 = 0 ; }
-  v3 = $(PACKAGE_VERSION_LIST[3]) ;
-  if ! $(v3) { v3 = 0 ; }
-  v4 = $(PACKAGE_VERSION_LIST[4]) ;
-  if ! $(v4) { v4 = 0 ; }
-  PACKAGE_VERSION_LIST on $(<) = $(v1) $(v2) $(v3) $(v4) ;
-      
   local desc = [ Description $(>) ] ;
   if ! $(desc) { desc = "$(>)" ; }
   PRODUCT_DESCRIPTION on $(<) = $(desc) ;
@@ -339,6 +341,7 @@ rule AppResourceWin32
   LOCATE on $(versionrc) = $(LOCATE_TARGET) ;
   SEARCH on $(versionrc) = $(LOCATE_TARGET) ;
   
+  MakeLocate $(versionrc) : $(LOCATE_TARGET) ;
   MakeVersionRc $(versionrc) : $(<) ;
   Clean $(<)clean : $(versionrc) ;
   Clean clean : $(versionrc) ;
@@ -350,6 +353,7 @@ rule AppResourceWin32
     LOCATE on $(manifestrc) = $(LOCATE_TARGET) ;
     SEARCH on $(manifestrc) = $(LOCATE_TARGET) ;
   
+    MakeLocate $(manifestrc) : $(LOCATE_TARGET) ;
     MakeManifestRc $(manifestrc) : $(<) ;
     Clean $(<)clean : $(manifestrc) ;
     Clean clean : $(manifestrc) ;
@@ -404,12 +408,32 @@ rule PluginResourceWin32
   Win32Resource $(<) : $(versionrc) $(metarc) ;
 }
 
+rule SharedLibResourceWin32
+{
+  local versionrc ;
+
+  versionrc = [ DoObjectGrist $(<)_versionrc.rc ] ;
+    MakeLocate $(versionrc) : $(LOCATE_TARGET) ;
+  MakeVersionRc $(versionrc) : $(<) ;
+  
+  Clean clean : $(versionrc) ;
+  Clean $(<)clean : $(versionrc) ;
+
+  Win32Resource $(<) : $(versionrc) ;
+}
+
 # SystemLinkApplication target : objects : options
 rule SystemLinkApplication
 {
   local target = $($(<)_TARGET) ;
 
   Depends $(target) : $(>) ;
+  if ! [ IsElem console : $(3) ] && $(MODE) = optimize
+  {
+    # Like the MSVC projects build GUI applications as such in optimize builds.
+    # In debug mode, let everything be console apps.
+    EXTRALFLAGS on $(target) += -mwindows ;
+  }
   LinkApplication $(target) : $(>) ;
   # setup clean rules
   Clean clean : $(target) ;
@@ -439,10 +463,39 @@ rule SystemInstallApplication
   }
 }
 
+rule SystemDoFileListEntryApplications
+{
+  local target = $($(<)_TARGET) ;
+  local entries = [ DoFileListEntries $(target) : : $(2) ] ;
+  if $(LINK.DEBUG.INFO.SEPARATE) = "yes"
+  {
+    local debugfile = $($(target)_DEBUGFILE) ;
+    entries += [ DoFileListEntries $(debugfile) : : debug-$(2) ] ;
+  }
+  return $(entries) ;
+}
+
+
 rule SystemInstallPlugin
 {
   Depends install_plugin : [ DoInstall $(<) : $(plugindir) $(2) :
       $(INSTALL_PROGRAM) ] ;
+}
+
+rule SystemDoFileListEntryPlugin
+{
+  local target = $($(<)_TARGET) ;
+  local entries = [ DoFileListEntries $(target) : : $(2) ] ;
+  if $(LINK.DEBUG.INFO.SEPARATE) = "yes"
+  {
+    local debugfile = $($(target)_DEBUGFILE) ;
+    entries += [ DoFileListEntries $(debugfile) : : debug-$(2) ] ;
+  }
+  if $(EMBED_META) != "yes" || $(OBJCOPY.AVAILABLE) != "yes"
+  {
+    entries += [ DoFileListEntries $($(<)_METAFILE) : : $(2) ] ;
+  }
+  return $(entries) ;
 }
 
 # SystemLinkPlugin target : objects : options
@@ -540,6 +593,7 @@ rule SystemLinkSharedLibrary
   IMPLIB on $(target) = $(linklib) ;
   Depends $(linklib) : $(target) ;
   LinkSharedLibrary $(target) : $(lib) ;
+  SharedLibResourceWin32 $(<) ;
 
   Clean clean : $(target) ;
   Clean $(barename)clean : $(target) ;
@@ -577,7 +631,7 @@ actions GenerateImportLib
 
 actions LinkApplication bind NEEDLIBS bind EXTRAOBJECTS
 {
-  $(CMD.LINK) -o $(<) $(>) $(EXTRAOBJECTS) $(NEEDLIBS) $(LINKLIBS)
+  $(CMD.LINK) -o $(<) $(>) $(EXTRAOBJECTS) $(NEEDLIBS) $(LINKLIBS) $(EXTRALFLAGS)
 }
 
 if $(USE_DLLWRAP) != "yes"
