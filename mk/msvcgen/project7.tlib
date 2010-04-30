@@ -23,9 +23,9 @@
   PROCESS projectx7.tlib;
 
   MACRO composedefs(defs) GET compose('defines', defs, ';').replace('"', '\\&quot;');
-  MACRO composedirs(tag, seed) BLOCK;
+  MACRO composedirs(tag, seed, suffix) BLOCK;
     buildtag = ${"build.${tag}key"};
-    GET composepaths("${buildtag}${platform.suffix}",seed,';');
+    GET composepaths("${buildtag}${platform.suffix}",seed,';','',suffix);
   END;
   MACRO debugformat(platform,tag) GET ${"platform.debugformat_${tag}"};
   MACRO comparable_msvc_version BLOCK;

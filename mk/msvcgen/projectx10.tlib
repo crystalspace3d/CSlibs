@@ -73,8 +73,20 @@ END %]
 END %]
 
 [% MACRO add_platform_suffix(filename) GET 
-  add_platform_suffix_filename(add_platform_suffix_dir(filename))
+  add_platform_suffix_filename(add_platform_suffix_dir(slash(filename)))
 %]
+
+[% MACRO extract_dir(filename) BLOCK;
+  path_split = filename.split('\\\\');
+  dummy = path_split.pop();
+  new_path = path(path_split);
+  GET new_path;
+END %]
+
+[% MACRO extract_file(filename) BLOCK;
+  path_split = filename.split('\\\\');
+  GET path_split.pop();
+END %]
 
 [% MACRO PropertiesConfiguration_app BLOCK -%]
     <ConfigurationType>Application</ConfigurationType>
@@ -121,7 +133,6 @@ END %]
 Condition="'$(Configuration)|$(Platform)'=='[% build.name %][% mutator.namesuffix %]|[% platform.name %]'"
 [%- END %]
 [% MACRO PropertiesDirsAndIncremental_common BLOCK -%]
-    <OutDir [% condition_build_mutator_platform %]>[% path([my.doc.buildroot.0, '']) %]</OutDir>
     <IntDir [% condition_build_mutator_platform %]>[% workbuild([]) %]</IntDir>
 [% END %]
 [% MACRO PropertiesDirsAndIncremental_target_default BLOCK -%]
@@ -144,10 +155,12 @@ Condition="'$(Configuration)|$(Platform)'=='[% build.name %][% mutator.namesuffi
 [% PropertiesDirsAndIncremental_target_default -%]
 [% END %]
 [% MACRO PropertiesDirsAndIncremental_library BLOCK -%]
-    <TargetName [% condition_build_mutator_platform %]>[% add_platform_suffix_dir(libfilename(suffix)) %]</TargetName>
+    <OutDir [% condition_build_mutator_platform %]>[% path([my.doc.buildroot.0, extract_dir(add_platform_suffix_dir(slash(my.doc.libname.0))), '']) %]</OutDir>
+    <TargetName [% condition_build_mutator_platform %]>[% extract_file(slash(my.doc.libname.0)) %]</TargetName>
 [% END %]
 [% MACRO PropertiesDirsAndIncremental_library_shared BLOCK -%]
-    <TargetName [% condition_build_mutator_platform %]>[% add_platform_suffix(path([my.doc.buildroot.0, my.doc.target.0])) %]</TargetName>
+    <OutDir [% condition_build_mutator_platform %]>[% path([my.doc.buildroot.0, extract_dir(add_platform_suffix(my.doc.target.0)), '']) %]</OutDir>
+    <TargetName [% condition_build_mutator_platform %]>[% extract_file(add_platform_suffix_filename(slash(my.doc.target.0))) %]</TargetName>
 [% END %]
 [% MACRO PropertiesDirsAndIncremental_plugin BLOCK -%]
 [% PropertiesDirsAndIncremental_target_default -%]
@@ -203,7 +216,7 @@ Condition="'$(Configuration)|$(Platform)'=='[% build.name %][% mutator.namesuffi
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <IgnoreSpecificDefaultLibraries>LIBC;LIBCD;LIBCMT;LIBCMTD;MSVCRT;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>LIBC;LIBCD;LIBCMT;LIBCMTD;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
 [% END %]
 [% MACRO linker_debug BLOCK -%]
       <GenerateDebugInformation>true</GenerateDebugInformation>
