@@ -15,9 +15,9 @@ ExtraLib CEGUIBase :
     CEGUI_HAS_FREETYPE CEGUI_HAS_DEFAULT_LOGGER
     "CEGUI_DEFAULT_XMLPARSER=TinyXMLParser"
     CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG
-    "CEGUI_LOAD_MODULE_DEBUG_SUFFIX=&quot;\\&quot;_d&quot;&quot;"
-    "CEGUI_FACTORYMODULE_PREFIX=&quot;\\&quot;lib\\&quot;&quot;"
-    CEGUI_HAS_BUILD_SUFFIX "CEGUI_BUILD_SUFFIX=&quot;\\&quot;-csvc$(MSVCGEN_VERSION)\\&quot;&quot;" 
+    "CEGUI_LOAD_MODULE_DEBUG_SUFFIX=\"_d\""
+    "CEGUI_FACTORYMODULE_PREFIX=\"lib\""
+    CEGUI_HAS_BUILD_SUFFIX "CEGUI_BUILD_SUFFIX=\"-csvc$(MSVCGEN_VERSION)\""
     :
   :
   z freetype2 pcre_static ;
@@ -32,7 +32,7 @@ ExtraLib CEGUITinyXMLParser :
   $(SUBDIR)/cegui/include $(SUBDIR)/cegui/include/XMLParserModules/TinyXMLParser :
   nostatic :
   CEGUITINYXMLPARSER_EXPORTS
-  "CEGUI_TINYXML_H=&quot;\\&quot;ceguitinyxml/tinyxml.h\\&quot;&quot;"
+  "CEGUI_TINYXML_H=\"ceguitinyxml/tinyxml.h\""
   "CEGUI_TINYXML_NAMESPACE=CEGUITinyXML"
   :
   :
@@ -72,10 +72,10 @@ ExtraLib CEGUIBase_static :
     CEGUI_STATIC CEGUI_WITH_TINYXML CEGUI_FALAGARD_RENDERER CEGUI_CODEC_TGA
     "CEGUI_DEFAULT_XMLPARSER=TinyXMLParser"
     CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG
-    "CEGUI_LOAD_MODULE_DEBUG_SUFFIX=&quot;\\&quot;_d&quot;&quot;"
-    "CEGUI_FACTORYMODULE_PREFIX=&quot;\\&quot;lib\\&quot;&quot;"
-    CEGUI_HAS_BUILD_SUFFIX "CEGUI_BUILD_SUFFIX=&quot;\\&quot;-csvc$(MSVCGEN_VERSION)\\&quot;&quot;" 
-    "CEGUI_TINYXML_H=&quot;\\&quot;ceguitinyxml/tinyxml.h\\&quot;&quot;"
+    "CEGUI_LOAD_MODULE_DEBUG_SUFFIX=\"_d\""
+    "CEGUI_FACTORYMODULE_PREFIX=\"lib\""
+    CEGUI_HAS_BUILD_SUFFIX "CEGUI_BUILD_SUFFIX=\"-csvc$(MSVCGEN_VERSION)\"" 
+    "CEGUI_TINYXML_H=\"ceguitinyxml/tinyxml.h\""
     "CEGUI_TINYXML_NAMESPACE=CEGUITinyXML"
   :
   ReleaseVC$(MSVCGEN_VERSION)Only_static :
