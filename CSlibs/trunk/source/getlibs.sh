@@ -11,8 +11,8 @@ scripts/url-get pkg-config http://ftp.gnome.org/pub/gnome/binaries/win32/depende
   pkg-config-0.23 gz
 
 # Base libs
-scripts/url-get libpng ftp://ftp.simplesystems.org/pub/libpng/png/src/libpng-1.2.40.tar.xz \
-  libpng-1.2.40 xz
+scripts/url-get libpng ftp://ftp.simplesystems.org/pub/libpng/png/src/libpng-1.2.43.tar.xz \
+  libpng-1.2.43 xz
 scripts/url-get libz http://www.zlib.net/zlib-1.2.3.tar.bz2 \
   zlib-1.2.3 bz2
 scripts/url-get libmng http://mesh.dl.sourceforge.net/sourceforge/libmng/libmng-1.0.10.tar.gz \
