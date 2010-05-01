@@ -34,6 +34,7 @@ mingw=mingw-gcc-3.4
 cp temp/libbullet/prefix-${mingw}/include/bullet/*.h headers/
 cp -r temp/libbullet/prefix-${mingw}/include/bullet/BulletCollision headers/
 cp -r temp/libbullet/prefix-${mingw}/include/bullet/BulletDynamics headers/
+cp -r temp/libbullet/prefix-${mingw}/include/bullet/BulletSoftBody headers/
 cp -r temp/libbullet/prefix-${mingw}/include/bullet/LinearMath headers/
 
 cp -r temp/libcal3d/prefix-${mingw}/include/cal3d headers/
