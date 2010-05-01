@@ -1,6 +1,7 @@
 1.9_005 (2010-??-??):
 - Updated Cg to 2.2 February 2010 release.
 - Added BulletSoftBody.
+- Updated libpng to 1.2.43.
 
 1.9_004 (2009-12-23):
  - Build "common" libraries using VC9.0.
