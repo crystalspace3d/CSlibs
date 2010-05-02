@@ -9,7 +9,7 @@ CPPFLAGS="-I$(pwd)/source/configs -I$(pwd)/headers_static"
 build/zlib.sh ${platform}
 build/lib.sh ${platform} lib3ds "install"
 build/lib.sh ${platform} libpng "install-libLTLIBRARIES install-data"
-rm temp/${platform}/prefix/lib/libpng12.*
+mv temp/${platform}/prefix/lib/libpng14.a temp/${platform}/prefix/lib/libpng.a
 build/lib.sh ${platform} libjpeg "install-lib"
 build/lib.sh ${platform} libmng 
 build/lib.sh ${platform} libfreetype 

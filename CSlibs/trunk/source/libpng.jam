@@ -3,7 +3,7 @@ SubDir TOP source libpng ;
 BaseLib png : 
   [ Wildcard png*.c png*.h ] : 
   libpng :
-  $(SUBDIR)/scripts/pngw32.def :
+  $(SUBDIR)/scripts/pngwin.def :
   $(SUBDIR)/../libz $(SUBDIR) :
   :
   ReleaseNoCygwin ;
