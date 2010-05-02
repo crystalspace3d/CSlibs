@@ -11,7 +11,7 @@
 		<Platform Name="x64"/>
 	</Platforms>
 	<Configurations>
-      		<Configuration
+		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="..\..\out\release9\build\libpng\"
 			IntermediateDirectory="..\..\out\release9\build\libpng\"
@@ -58,7 +58,7 @@
 				OutputFile="..\..\libs\ReleaseNoCygwin\libpng-cs.dll"
 				AdditionalLibraryDirectories=""
                                 MergeSections=".rdata=.text" 
-                                ModuleDefinitionFile="../../source/libpng/scripts/pngw32.def" 
+                                ModuleDefinitionFile="../../source/libpng/scripts/pngwin.def" 
 				DelayLoadDLLs=""
 				ImportLibrary="..\..\libs\ReleaseNoCygwin\libpng.lib"
 				AdditionalOptions="/nodefaultlib:msvcrt ..\..\nosource\x86\link-msvcrt\msvcrt_win2000.obj ..\..\nosource\x86\link-msvcrt\msvcrt.lib "
@@ -93,7 +93,7 @@
 			<Tool
 				Name="VCWebDeploymentTool"/>
 		</Configuration>
-            		<Configuration
+		<Configuration
 			Name="Release|x64"
 			OutputDirectory="..\..\out\release9-x64\build\libpng\"
 			IntermediateDirectory="..\..\out\release9-x64\build\libpng\"
@@ -140,7 +140,7 @@
 				OutputFile="..\..\libs\ReleaseNoCygwin-x64\libpng-cs-x64.dll"
 				AdditionalLibraryDirectories=""
                                 MergeSections=".rdata=.text" 
-                                ModuleDefinitionFile="../../source/libpng/scripts/pngw32.def" 
+                                ModuleDefinitionFile="../../source/libpng/scripts/pngwin.def" 
 				DelayLoadDLLs=""
 				ImportLibrary="..\..\libs\ReleaseNoCygwin-x64\libpng.lib"
 				AdditionalOptions="/nodefaultlib:msvcrt ..\..\nosource\x64\link-msvcrt\msvcrt_win2003.obj ..\..\nosource\x64\link-msvcrt\msvcrt.lib "
@@ -175,7 +175,7 @@
 			<Tool
 				Name="VCWebDeploymentTool"/>
 		</Configuration>
-      	</Configurations>
+	</Configurations>
 	<Files>
 		<Filter
 			Name="Source Files"
@@ -185,9 +185,6 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libpng\pngerror.c">
-			</File>
-			<File
-				RelativePath="..\..\source\libpng\pnggccrd.c">
 			</File>
 			<File
 				RelativePath="..\..\source\libpng\pngget.c">
@@ -220,9 +217,6 @@
 				RelativePath="..\..\source\libpng\pngtrans.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libpng\pngvcrd.c">
-			</File>
-			<File
 				RelativePath="..\..\source\libpng\pngwio.c">
 			</File>
 			<File
@@ -244,6 +238,9 @@
 			<File
 				RelativePath="..\..\source\libpng\pngconf.h">
 			</File>
+			<File
+				RelativePath="..\..\source\libpng\pngpriv.h">
+			</File>
 		</Filter>
 		<Filter
 			Name="Resource Files"
@@ -251,8 +248,12 @@
 			<File
 				RelativePath="..\..\source\libpng.rc">
 			</File>
+		</Filter>
+		<Filter
+			Name="Other Files"
+			Filter="">
 			<File
-				RelativePath="..\..\source\libpng\scripts\pngw32.def">
+				RelativePath="..\..\source\libpng\scripts\pngwin.def">
 			</File>
 		</Filter>
 	</Files>

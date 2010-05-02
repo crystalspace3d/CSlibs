@@ -11,7 +11,7 @@
 		<Platform Name="x64"/>
 	</Platforms>
 	<Configurations>
-      		<Configuration
+		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="..\..\out\release9\build\libbulletmath_static\"
 			IntermediateDirectory="..\..\out\release9\build\libbulletmath_static\"
@@ -86,7 +86,7 @@
 			<Tool
 				Name="VCWebDeploymentTool"/>
 		</Configuration>
-            		<Configuration
+		<Configuration
 			Name="Release|x64"
 			OutputDirectory="..\..\out\release9-x64\build\libbulletmath_static\"
 			IntermediateDirectory="..\..\out\release9-x64\build\libbulletmath_static\"
@@ -161,7 +161,7 @@
 			<Tool
 				Name="VCWebDeploymentTool"/>
 		</Configuration>
-      	</Configurations>
+	</Configurations>
 	<Files>
 		<Filter
 			Name="Source Files"
@@ -177,6 +177,9 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\LinearMath\btQuickprof.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libbullet\src\LinearMath\btSerializer.cpp">
 			</File>
 		</Filter>
 		<Filter
@@ -235,6 +238,9 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\LinearMath\btScalar.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libbullet\src\LinearMath\btSerializer.h">
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\LinearMath\btStackAlloc.h">

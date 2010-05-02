@@ -11,7 +11,7 @@
 		<Platform Name="x64"/>
 	</Platforms>
 	<Configurations>
-      		<Configuration
+		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="..\..\out\debug9\build\libwxmsw28u_gl_debug\"
 			IntermediateDirectory="..\..\out\debug9\build\libwxmsw28u_gl_debug\"
@@ -84,7 +84,7 @@
 			<Tool
 				Name="VCWebDeploymentTool"/>
 		</Configuration>
-            		<Configuration
+		<Configuration
 			Name="Release|x64"
 			OutputDirectory="..\..\out\debug9-x64\build\libwxmsw28u_gl_debug\"
 			IntermediateDirectory="..\..\out\debug9-x64\build\libwxmsw28u_gl_debug\"
@@ -157,7 +157,7 @@
 			<Tool
 				Name="VCWebDeploymentTool"/>
 		</Configuration>
-      	</Configurations>
+	</Configurations>
 	<Files>
 		<Filter
 			Name="Source Files"

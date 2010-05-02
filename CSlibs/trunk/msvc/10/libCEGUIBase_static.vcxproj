@@ -1,0 +1,379 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D5D7183D-3451-DA11-3D96-B4637027965A}</ProjectGuid>
+    <SccProjectName />
+    <SccLocalPath />
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)'=='Release'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Platform)'=='Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Platform)'=='x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\out\release10\build\libCEGUIBase_static\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\libs\ReleaseVC10Only_static\</OutDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">libCEGUIBase-csvc10</TargetName>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\out\release10-x64\build\libCEGUIBase_static\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\libs\ReleaseVC10Only_static-x64\</OutDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">libCEGUIBase-csvc10-x64</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OmitFramePointers>true</OmitFramePointers>
+      <ProgramDataBaseFileName>..\..\out\release10\build\libCEGUIBase_static\Win32\CEGUIBase_static.pdb</ProgramDataBaseFileName>
+      <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;PCRE_STATIC;CEGUIBASE_STATIC;CEGUIBASE_EXPORTS;CEGUI_HAS_FREETYPE;CEGUI_HAS_DEFAULT_LOGGER;FALAGARDWRBASE_EXPORTS;CEGUIWRMODULE_EXPORTS;CEGUITINYXMLPARSER_EXPORTS;CEGUITGAIMAGECODEC_EXPORTS;CEGUI_STATIC;CEGUI_WITH_TINYXML;CEGUI_FALAGARD_RENDERER;CEGUI_CODEC_TGA;CEGUI_DEFAULT_XMLPARSER=TinyXMLParser;CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG;CEGUI_LOAD_MODULE_DEBUG_SUFFIX="_d";CEGUI_FACTORYMODULE_PREFIX="lib";CEGUI_HAS_BUILD_SUFFIX;CEGUI_BUILD_SUFFIX="-csvc10";CEGUI_TINYXML_H="ceguitinyxml/tinyxml.h";CEGUI_TINYXML_NAMESPACE=CEGUITinyXML;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>.;..\..\source\libCEGUI\cegui\include;..\..\source\libCEGUI\cegui\include\elements;..\..\source\libCEGUI\cegui\include\falagard;..\..\source\libCEGUI\cegui\include\ImageCodecModules\TGAImageCodec;..\..\source\libCEGUI\cegui\include\WindowRendererSets\Falagard;..\..\source\libCEGUI\cegui\include\XMLParserModules\TinyXMLParser;..\..\source\libCEGUI\..\libpcre;..\..\source\libCEGUI\..\configs\freetype;..\..\source\libCEGUI\..\libfreetype\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeaderOutputFile>..\..\out\release10\build\libCEGUIBase_static\libCEGUIBase_static.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>..\..\out\release10\build\libCEGUIBase_static\</AssemblerListingLocation>
+      <ObjectFileName>..\..\out\release10\build\libCEGUIBase_static\</ObjectFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <Link>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>LIBC;LIBCD;LIBCMT;LIBCMTD;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <OutputFile>..\..\libs\ReleaseVC10Only_static\libCEGUIBase-csvc10.dll</OutputFile>
+      <AdditionalLibraryDirectories>..\..\libs\Release_static;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <MergeSections>.rdata=.text</MergeSections> 
+      <DelayLoadDLLs>;%(DelayLoadDLLs)</DelayLoadDLLs>
+      <ImportLibrary>..\..\libs\ReleaseVC10Only_static\CEGUIBase-vc10.lib</ImportLibrary>
+      <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>zlib.lib;freetype2.lib;WinMM.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ProgramDatabaseFile>..\..\libs\ReleaseVC10Only_static\libCEGUIBase-csvc10.pdb</ProgramDatabaseFile>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Lib>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;PCRE_STATIC;CEGUIBASE_STATIC;CEGUIBASE_EXPORTS;CEGUI_HAS_FREETYPE;CEGUI_HAS_DEFAULT_LOGGER;FALAGARDWRBASE_EXPORTS;CEGUIWRMODULE_EXPORTS;CEGUITINYXMLPARSER_EXPORTS;CEGUITGAIMAGECODEC_EXPORTS;CEGUI_STATIC;CEGUI_WITH_TINYXML;CEGUI_FALAGARD_RENDERER;CEGUI_CODEC_TGA;CEGUI_DEFAULT_XMLPARSER=TinyXMLParser;CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG;CEGUI_LOAD_MODULE_DEBUG_SUFFIX="_d";CEGUI_FACTORYMODULE_PREFIX="lib";CEGUI_HAS_BUILD_SUFFIX;CEGUI_BUILD_SUFFIX="-csvc10";CEGUI_TINYXML_H="ceguitinyxml/tinyxml.h";CEGUI_TINYXML_NAMESPACE=CEGUITinyXML;PROJECTGEN_VERSION=10;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;..\..\source\libCEGUI;..\..\source\libCEGUI\cegui\include;..\..\source\libCEGUI\cegui\include\elements;..\..\source\libCEGUI\cegui\include\falagard;..\..\source\libCEGUI\cegui\include\ImageCodecModules\TGAImageCodec;..\..\source\libCEGUI\cegui\include\WindowRendererSets\Falagard;..\..\source\libCEGUI\cegui\include\XMLParserModules\TinyXMLParser;..\..\source\libCEGUI\..\libpcre;..\..\source\libCEGUI\..\configs\freetype;..\..\source\libCEGUI\..\libfreetype\include</AdditionalIncludeDirectories>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OmitFramePointers>true</OmitFramePointers>
+      <ProgramDataBaseFileName>..\..\out\release10-x64\build\libCEGUIBase_static\x64\CEGUIBase_static.pdb</ProgramDataBaseFileName>
+      <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;PCRE_STATIC;CEGUIBASE_STATIC;CEGUIBASE_EXPORTS;CEGUI_HAS_FREETYPE;CEGUI_HAS_DEFAULT_LOGGER;FALAGARDWRBASE_EXPORTS;CEGUIWRMODULE_EXPORTS;CEGUITINYXMLPARSER_EXPORTS;CEGUITGAIMAGECODEC_EXPORTS;CEGUI_STATIC;CEGUI_WITH_TINYXML;CEGUI_FALAGARD_RENDERER;CEGUI_CODEC_TGA;CEGUI_DEFAULT_XMLPARSER=TinyXMLParser;CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG;CEGUI_LOAD_MODULE_DEBUG_SUFFIX="_d";CEGUI_FACTORYMODULE_PREFIX="lib";CEGUI_HAS_BUILD_SUFFIX;CEGUI_BUILD_SUFFIX="-csvc10";CEGUI_TINYXML_H="ceguitinyxml/tinyxml.h";CEGUI_TINYXML_NAMESPACE=CEGUITinyXML;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>.;..\..\source\libCEGUI\cegui\include;..\..\source\libCEGUI\cegui\include\elements;..\..\source\libCEGUI\cegui\include\falagard;..\..\source\libCEGUI\cegui\include\ImageCodecModules\TGAImageCodec;..\..\source\libCEGUI\cegui\include\WindowRendererSets\Falagard;..\..\source\libCEGUI\cegui\include\XMLParserModules\TinyXMLParser;..\..\source\libCEGUI\..\libpcre;..\..\source\libCEGUI\..\configs\freetype;..\..\source\libCEGUI\..\libfreetype\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeaderOutputFile>..\..\out\release10-x64\build\libCEGUIBase_static\libCEGUIBase_static.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>..\..\out\release10-x64\build\libCEGUIBase_static\</AssemblerListingLocation>
+      <ObjectFileName>..\..\out\release10-x64\build\libCEGUIBase_static\</ObjectFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <Link>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>LIBC;LIBCD;LIBCMT;LIBCMTD;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <OutputFile>..\..\libs\ReleaseVC10Only_static-x64\libCEGUIBase-csvc10-x64.dll</OutputFile>
+      <AdditionalLibraryDirectories>..\..\libs\Release_static-x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <MergeSections>.rdata=.text</MergeSections> 
+      <DelayLoadDLLs>;%(DelayLoadDLLs)</DelayLoadDLLs>
+      <ImportLibrary>..\..\libs\ReleaseVC10Only_static-x64\CEGUIBase-vc10.lib</ImportLibrary>
+      <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>zlib.lib;freetype2.lib;WinMM.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ProgramDatabaseFile>..\..\libs\ReleaseVC10Only_static-x64\libCEGUIBase-csvc10-x64.pdb</ProgramDatabaseFile>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+    <Lib>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;PCRE_STATIC;CEGUIBASE_STATIC;CEGUIBASE_EXPORTS;CEGUI_HAS_FREETYPE;CEGUI_HAS_DEFAULT_LOGGER;FALAGARDWRBASE_EXPORTS;CEGUIWRMODULE_EXPORTS;CEGUITINYXMLPARSER_EXPORTS;CEGUITGAIMAGECODEC_EXPORTS;CEGUI_STATIC;CEGUI_WITH_TINYXML;CEGUI_FALAGARD_RENDERER;CEGUI_CODEC_TGA;CEGUI_DEFAULT_XMLPARSER=TinyXMLParser;CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG;CEGUI_LOAD_MODULE_DEBUG_SUFFIX="_d";CEGUI_FACTORYMODULE_PREFIX="lib";CEGUI_HAS_BUILD_SUFFIX;CEGUI_BUILD_SUFFIX="-csvc10";CEGUI_TINYXML_H="ceguitinyxml/tinyxml.h";CEGUI_TINYXML_NAMESPACE=CEGUITinyXML;PROJECTGEN_VERSION=10;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;..\..\source\libCEGUI;..\..\source\libCEGUI\cegui\include;..\..\source\libCEGUI\cegui\include\elements;..\..\source\libCEGUI\cegui\include\falagard;..\..\source\libCEGUI\cegui\include\ImageCodecModules\TGAImageCodec;..\..\source\libCEGUI\cegui\include\WindowRendererSets\Falagard;..\..\source\libCEGUI\cegui\include\XMLParserModules\TinyXMLParser;..\..\source\libCEGUI\..\libpcre;..\..\source\libCEGUI\..\configs\freetype;..\..\source\libCEGUI\..\libfreetype\include</AdditionalIncludeDirectories>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIBase.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIBasicRenderedStringParser.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIBiDiVisualMapping.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIBoundSlot.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUICentredRenderedString.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIcolour.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIColourRect.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIConfig_xmlHandler.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUICoordConverter.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIDataContainer.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIDefaultLogger.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIDefaultRenderedStringParser.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIDefaultResourceProvider.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIDynamicModule.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIEvent.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIEventArgs.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIEventSet.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIEventSignal.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIEventSignalSet.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIExceptions.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIFactoryModule.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIFont.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIFont_xmlHandler.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIFontManager.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIFontProperties.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIFormattedRenderedString.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIFreeTypeFont.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIFribidiVisualMapping.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIGlobalEventSet.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIGUILayout_xmlHandler.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIImage.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIImageCodec.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIImageset.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIImageset_xmlHandler.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIImagesetManager.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIJustifiedRenderedString.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIJustifiedRenderedStringWordWrapper.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUILeftAlignedRenderedString.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUILogger.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIMinibidiVisualMapping.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIMouseCursor.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUINamedXMLResourceManager.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIPCRERegexMatcher.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIPixmapFont.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIProperty.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIPropertyHelper.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIPropertySet.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIRect.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIRenderedString.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIRenderedStringComponent.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIRenderedStringImageComponent.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIRenderedStringTextComponent.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIRenderedStringWidgetComponent.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIRenderingRoot.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIRenderingSurface.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIRenderingWindow.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIRenderQueue.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIRightAlignedRenderedString.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIScheme.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIScheme_xmlHandler.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUISchemeManager.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIScriptModule.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUISize.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIString.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUISubscriberSlot.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUISystem.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUITextUtils.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIWindow.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIWindowFactory.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIWindowFactoryManager.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIWindowManager.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIWindowProperties.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIWindowRenderer.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIWindowRendererManager.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIWindowRendererModule.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIWRFactoryRegisterer.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIXMLAttributes.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIXMLHandler.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIXMLParser.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\CEGUIXMLSerializer.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIButtonBase.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUICheckbox.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUICheckboxProperties.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIClippedContainer.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUICombobox.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIComboboxProperties.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIComboDropList.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIDragContainer.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIDragContainerProperties.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIEditbox.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIEditboxProperties.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIFrameWindow.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIFrameWindowProperties.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIGroupBox.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIGUISheet.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIItemEntry.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIItemEntryProperties.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIItemListBase.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIItemListBaseProperties.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIItemListbox.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIItemListboxProperties.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIListbox.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIListboxItem.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIListboxProperties.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIListboxTextItem.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIListHeader.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIListHeaderProperties.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIListHeaderSegment.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIListHeaderSegmentProperties.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIMenubar.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIMenuBase.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIMenuBaseProperties.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIMenuItem.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIMultiColumnList.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIMultiColumnListProperties.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIMultiLineEditbox.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIMultiLineEditboxProperties.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIPopupMenu.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIPopupMenuProperties.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIProgressBar.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIProgressBarProperties.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIPushButton.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIRadioButton.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIRadioButtonProperties.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIScrollablePane.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIScrollablePaneProperties.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIScrollbar.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIScrollbarProperties.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIScrolledContainer.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIScrolledContainerProperties.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIScrolledItemListBase.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIScrolledItemListBaseProperties.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUISlider.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUISliderProperties.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUISpinner.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUISpinnerProperties.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUITabButton.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUITabControl.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUITabControlProperties.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIThumb.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIThumbProperties.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUITitlebar.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUITitlebarProperties.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUITooltip.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUITooltipProperties.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUITree.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUITreeItem.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUITreeProperties.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\falagard\CEGUIFalagard_xmlHandler.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\falagard\CEGUIFalComponentBase.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\falagard\CEGUIFalDimensions.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\falagard\CEGUIFalFrameComponent.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\falagard\CEGUIFalImageryComponent.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\falagard\CEGUIFalImagerySection.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\falagard\CEGUIFalLayerSpecification.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\falagard\CEGUIFalNamedArea.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\falagard\CEGUIFalPropertyDefinition.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\falagard\CEGUIFalPropertyDefinitionBase.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\falagard\CEGUIFalPropertyInitialiser.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\falagard\CEGUIFalPropertyLinkDefinition.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\falagard\CEGUIFalSectionSpecification.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\falagard\CEGUIFalStateImagery.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\falagard\CEGUIFalTextComponent.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\falagard\CEGUIFalWidgetComponent.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\falagard\CEGUIFalWidgetLookFeel.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\falagard\CEGUIFalWidgetLookManager.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\falagard\CEGUIFalXMLEnumHelper.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\ImageCodecModules\TGAImageCodec\CEGUITGAImageCodec.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\ImageCodecModules\TGAImageCodec\CEGUITGAImageCodecModule.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\minibidi.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalButton.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalDefault.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalEditbox.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalEditboxProperties.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalFrameWindow.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalItemEntry.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalItemListbox.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalListbox.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalListHeader.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalListHeaderProperties.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalListHeaderSegment.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalMenubar.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalMenuItem.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalModule.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalMultiColumnList.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalMultiLineEditbox.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalMultiLineEditboxProperties.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalPopupMenu.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalProgressBar.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalProgressBarProperties.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalScrollablePane.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalScrollbar.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalScrollbarProperties.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalSlider.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalSliderProperties.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalStatic.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalStaticImage.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalStaticImageProperties.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalStaticProperties.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalStaticText.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalStaticTextProperties.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalSystemButton.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalTabButton.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalTabControl.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalTabControlProperties.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalTitlebar.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalToggleButton.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalTooltip.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\WindowRendererSets\Falagard\FalTree.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\XMLParserModules\TinyXMLParser\ceguitinyxml\tinystr.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\XMLParserModules\TinyXMLParser\ceguitinyxml\tinyxml.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\XMLParserModules\TinyXMLParser\ceguitinyxml\tinyxmlerror.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\XMLParserModules\TinyXMLParser\ceguitinyxml\tinyxmlparser.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\XMLParserModules\TinyXMLParser\CEGUITinyXMLParser.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\XMLParserModules\TinyXMLParser\CEGUITinyXMLParserModule.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\source\libCEGUI\cegui\src\XMLParserModules\TinyXMLParser\ceguitinyxml\tinystr.h" />
+    <ClInclude Include="..\..\source\libCEGUI\cegui\src\XMLParserModules\TinyXMLParser\ceguitinyxml\tinyxml.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\..\source\libceguibase.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="libpcre_static.vcxproj">
+      <Project>{40D00D4F-9093-83F0-3E72-8C393E57EF9D}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

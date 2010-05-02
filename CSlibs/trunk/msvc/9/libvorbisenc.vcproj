@@ -11,7 +11,7 @@
 		<Platform Name="x64"/>
 	</Platforms>
 	<Configurations>
-      		<Configuration
+		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="..\..\out\release9\build\libvorbisenc\"
 			IntermediateDirectory="..\..\out\release9\build\libvorbisenc\"
@@ -93,7 +93,7 @@
 			<Tool
 				Name="VCWebDeploymentTool"/>
 		</Configuration>
-            		<Configuration
+		<Configuration
 			Name="Release|x64"
 			OutputDirectory="..\..\out\release9-x64\build\libvorbisenc\"
 			IntermediateDirectory="..\..\out\release9-x64\build\libvorbisenc\"
@@ -175,7 +175,7 @@
 			<Tool
 				Name="VCWebDeploymentTool"/>
 		</Configuration>
-      	</Configurations>
+	</Configurations>
 	<Files>
 		<Filter
 			Name="Source Files"
@@ -190,6 +190,10 @@
 			<File
 				RelativePath="..\..\source\libvorbis.rc">
 			</File>
+		</Filter>
+		<Filter
+			Name="Other Files"
+			Filter="">
 			<File
 				RelativePath="..\..\source\libvorbis\win32\vorbisenc.def">
 			</File>
