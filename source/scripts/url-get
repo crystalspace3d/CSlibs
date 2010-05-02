@@ -44,6 +44,10 @@ ${UNARC}
 rm ${ARCHIVE}
 mv ${DIRNAME} ${LIBNAME}
 
+# Touch directory and all files, to make sure they're rebuild
+# (can happen that the times in the archive are older than the last build of the previous version...)
+find ${LIBNAME} -exec echo {} \;
+
 echo ${TAR_BASE} > ${REVFILE}
 
 scripts/dopatch ${LIBNAME}
