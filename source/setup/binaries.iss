@@ -28,7 +28,7 @@
 
 [Setup]
 SolidCompression=true
-Compression=lzma/ultra
+Compression=lzma2/ultra64
 ;Compression=none
 ShowLanguageDialog=no
 AppName={#AppName}
@@ -87,7 +87,7 @@ Name: Extra/DebugInfo; Description: Debug information; Types: custom full typVC 
 Name: Extra/Dbghelp; Description: DbgHelp.dll Debugging helper; Types: custom compact full typVC {#GccTypes_noxcompile}; Flags: disablenouninstallwarning
 Name: Extra/OpenALInstaller; Description: OpenAL runtime installer; Types: custom full; Flags: disablenouninstallwarning
 Name: DESupport; Description: Support for development environments; Types: custom full; Flags: disablenouninstallwarning
-Name: DESupport/VC; Description: VisualC 8.0, 9.0; Types: custom full typVC; Flags: disablenouninstallwarning
+Name: DESupport/VC; Description: Visual C++ 2005, 2008, 2010; Types: custom full typVC; Flags: disablenouninstallwarning
 Name: DESupport/MSYS; Description: MSYS; Types: custom full typMinGW; Flags: disablenouninstallwarning
 #ifndef X64
 Name: DESupport/Cygwin; Description: Cygwin; Types: custom full typCygwin; Flags: disablenouninstallwarning
@@ -114,6 +114,7 @@ Source: ..\..\nosource\{#ArchName}\Cg\dlls\*.*; DestDir: {app}\dlls; Flags: recu
 Source: ..\..\libs\Release{#ArchSuffix}\*.dll; DestDir: {app}\dlls; Components: Libs/Common
 Source: ..\..\libs\ReleaseVC8Only{#ArchSuffix}\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC9Only{#ArchSuffix}\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC10Only{#ArchSuffix}\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
 #ifndef X64
 Source: ..\..\libs\ReleaseGCCOnly\mingw\*.dll; DestDir: {app}\dlls\mingw; Flags: skipifsourcedoesntexist; Components: Libs/MinGW
 Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.4\*.dll; DestDir: {app}\dlls\mingw; Flags: skipifsourcedoesntexist; Components: Libs/MinGW
@@ -129,6 +130,7 @@ Source: ..\..\libs\ReleaseNoCygwin{#ArchSuffix}\*.dll; DestDir: {app}\dlls; Comp
 #else /* STATIC */
 Source: ..\..\libs\ReleaseVC8Only_static{#ArchSuffix}\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC9Only_static{#ArchSuffix}\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC10Only_static{#ArchSuffix}\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
 #ifndef X64
 Source: ..\..\libs\ReleaseGCCOnly_static\mingw\*.dll; DestDir: {app}\dlls\mingw; Flags: skipifsourcedoesntexist; Components: Libs/MinGW
 Source: ..\..\libs\ReleaseGCCOnly_static\mingw-gcc-3.4\*.dll; DestDir: {app}\dlls\mingw; Flags: skipifsourcedoesntexist; Components: Libs/MinGW
@@ -144,6 +146,7 @@ Source: ..\..\libs\ReleaseExtra{#ArchSuffix}\libjs-cs-x64.dll; DestDir: {app}\dl
 ; wxWidgets
 Source: ..\..\libs\ReleaseWXVC8Only{#ArchSuffix}\*.dll; DestDir: {app}\dlls\vc; Components: Libs/wxVC
 Source: ..\..\libs\ReleaseWXVC9Only{#ArchSuffix}\*.dll; DestDir: {app}\dlls\vc; Components: Libs/wxVC
+Source: ..\..\libs\ReleaseWXVC10Only{#ArchSuffix}\*.dll; DestDir: {app}\dlls\vc; Components: Libs/wxVC
 ; wxWidgets/MinGW
 #ifndef X64
 Source: ..\..\libs\prefix-wx\mingw-gcc-3.4\lib\*.dll; DestDir: {app}\dlls\mingw; Components: Libs/wxMinGW
@@ -165,6 +168,7 @@ Source: ..\..\nosource\{#ArchName}\Cg\lib\*.*; DestDir: {app}\common\lib; Flags:
 Source: ..\..\libs\Release{#ArchSuffix}\*.lib; DestDir: {app}\common\lib; Components: Libs/Common; AfterInstall: LibPostInstall
 Source: ..\..\libs\ReleaseVC8Only{#ArchSuffix}\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC9Only{#ArchSuffix}\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC10Only{#ArchSuffix}\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseNoCygwin{#ArchSuffix}\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC;
 #ifndef X64
 Source: ..\..\libs\ReleaseNoCygwin{#ArchSuffix}\*.lib; DestDir: {app}\mingw{#ArchSuffixMingw}\lib; Components: Libs/MinGW; AfterInstall: LibPostInstall
@@ -172,6 +176,7 @@ Source: ..\..\libs\ReleaseNoCygwin{#ArchSuffix}\*.lib; DestDir: {app}\mingw{#Arc
 ; Bullet is always static
 Source: ..\..\libs\ReleaseVC8Only_static{#ArchSuffix}\bullet*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC9Only_static{#ArchSuffix}\bullet*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC10Only_static{#ArchSuffix}\bullet*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
 #ifndef X64
 Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-3.4\lib*.a; DestDir: {app}\mingw-gcc-3.4\lib; Components: Libs/MinGW
 Source: ..\..\libs\ReleaseGCCOnly\mingw-gcc-4.4\lib*.a; DestDir: {app}\mingw-gcc-4.4\lib; Components: Libs/MinGW
@@ -185,6 +190,7 @@ Source: ..\..\libs\ReleaseGCCOnly_static\mingw64\*.a; DestDir: {app}\mingw64\lib
 Source: ..\..\libs\Release_static{#ArchSuffix}\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC8Only_static{#ArchSuffix}\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC9Only_static{#ArchSuffix}\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC10Only_static{#ArchSuffix}\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseNoCygwin_static{#ArchSuffix}\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
 #ifndef X64
 Source: ..\..\libs\ReleaseGCCOnly_static\mingw\*.a; DestDir: {app}\mingw\lib; Components: Libs/MinGW
@@ -210,6 +216,7 @@ Source: ..\..\libs\ReleaseExtra{#ArchSuffix}\*.lib; DestDir: {app}\common\lib; C
 ; wxWidgets
 Source: ..\..\libs\ReleaseWXVC8Only{#ArchSuffix}\*.lib; DestDir: {app}\vc\lib; Components: Libs/wxVC
 Source: ..\..\libs\ReleaseWXVC9Only{#ArchSuffix}\*.lib; DestDir: {app}\vc\lib; Components: Libs/wxVC
+Source: ..\..\libs\ReleaseWXVC10Only{#ArchSuffix}\*.lib; DestDir: {app}\vc\lib; Components: Libs/wxVC
 #ifndef X64
 ; wxWidgets/MinGW
 Source: ..\..\libs\prefix-wx\mingw-gcc-3.4\lib\*.a; DestDir: {app}\mingw-gcc-3.4\lib; Components: Libs/wxMinGW
@@ -250,8 +257,10 @@ Source: ..\..\libs\prefix-wx\mingw64-gcc-4.4\lib\wx\*; DestDir: {app}\mingw64-gc
 Source: ..\..\libs\Release{#ArchSuffix}\*.pdb; DestDir: {app}\dlls; Components: Extra/DebugInfo and Libs/Common
 Source: ..\..\libs\ReleaseVC8Only{#ArchSuffix}\*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo and Libs/VC
 Source: ..\..\libs\ReleaseVC9Only{#ArchSuffix}\*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo and Libs/VC
+Source: ..\..\libs\ReleaseVC10Only{#ArchSuffix}\*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo and Libs/VC
 Source: ..\..\libs\ReleaseVC8Only_static{#ArchSuffix}\bullet*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC9Only_static{#ArchSuffix}\bullet*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC10Only_static{#ArchSuffix}\bullet*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseNoCygwin{#ArchSuffix}\*.pdb; DestDir: {app}\dlls; Components: Extra/DebugInfo and Libs/VC
 #ifndef X64
 Source: ..\..\libs\ReleaseGCCOnly\mingw\*.dbg; DestDir: {app}\dlls\mingw; Components: Extra/DebugInfo and Libs/MinGW
@@ -261,6 +270,7 @@ Source: ..\..\libs\ReleaseGCCOnly\mingw64\*.dbg; DestDir: {app}\dlls\mingw64; Co
 #else
 Source: ..\..\libs\ReleaseVC8Only_static{#ArchSuffix}\lib*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo and Libs/VC
 Source: ..\..\libs\ReleaseVC9Only_static{#ArchSuffix}\lib*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo and Libs/VC
+Source: ..\..\libs\ReleaseVC10Only_static{#ArchSuffix}\lib*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo and Libs/VC
 #ifndef X64
 Source: ..\..\libs\ReleaseGCCOnly_static\mingw\*.dbg; DestDir: {app}\dlls\mingw; Components: Extra/DebugInfo and Libs/MinGW
 #else
@@ -272,6 +282,8 @@ Source: ..\..\libs\ReleaseVC8Only_static{#ArchSuffix}\bullet*.pdb; DestDir: {app
 Source: ..\..\libs\ReleaseVC8Only_static{#ArchSuffix}\cal3d*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC9Only_static{#ArchSuffix}\bullet*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC9Only_static{#ArchSuffix}\cal3d*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC10Only_static{#ArchSuffix}\bullet*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC10Only_static{#ArchSuffix}\cal3d*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseNoCygwin_static{#ArchSuffix}\*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
 #endif
 #if 0
@@ -280,6 +292,7 @@ Source: ..\..\libs\ReleaseExtra{#ArchSuffix}\*.pdb; DestDir: {app}\dlls; Compone
 ; wxWidgets
 Source: ..\..\libs\ReleaseWXVC8Only{#ArchSuffix}\*.pdb; DestDir: {app}\dlls\vc; Components: Libs/wxVC and Extra/DebugInfo
 Source: ..\..\libs\ReleaseWXVC9Only{#ArchSuffix}\*.pdb; DestDir: {app}\dlls\vc; Components: Libs/wxVC and Extra/DebugInfo
+Source: ..\..\libs\ReleaseWXVC10Only{#ArchSuffix}\*.pdb; DestDir: {app}\dlls\vc; Components: Libs/wxVC and Extra/DebugInfo
 #ifndef X64
 Source: ..\..\libs\prefix-wx\mingw-gcc-3.4\lib\*.dbg; DestDir: {app}\dlls\mingw; Components: Libs/wxMinGW and Extra/DebugInfo
 Source: ..\..\libs\prefix-wx\mingw-gcc-4.4\lib\*.dbg; DestDir: {app}\dlls\mingw; Components: Libs/wxMinGW and Extra/DebugInfo
@@ -343,7 +356,7 @@ Filename: rundll32.exe; Parameters: "{code:GetShortenedAppDir}\setuptool.dll,Cre
 Filename: {app}\{#File_OpenALInstaller}; Parameters: /S; WorkingDir: {app}; Components: Extra/OpenALInstaller; Check: RunOpenALInstaller; StatusMsg: Running OpenAL.org runtime installer
 Filename: {app}\CopyDLLs{#ArchSuffix}.exe; Description: Copy DLLs to CS directory; Flags: postinstall; WorkingDir: {app}; Parameters: {code:GetSupportParamsSilent}; Check: not CrossPresets; Components: Libs/Common Libs/VC Libs/MinGW
 Filename: {app}\CopyDLLs{#ArchSuffix}.exe; Description: Copy DLLs to CS directory; Flags: postinstall unchecked; WorkingDir: {app}; Parameters: {code:GetSupportParamsSilent}; Check: CrossPresets; Components: Libs/Common Libs/VC Libs/MinGW
-Filename: {app}\VCsupport{#ArchSuffix}.exe; Description: Set up VisualC support; Flags: postinstall; Components: DESupport/VC; WorkingDir: {app}; Parameters: {code:GetSupportParamsSilent}
+Filename: {app}\VCsupport{#ArchSuffix}.exe; Description: Set up Visual C++ support; Flags: postinstall; Components: DESupport/VC; WorkingDir: {app}; Parameters: {code:GetSupportParamsSilent}
 Filename: {app}\MSYSsupport{#ArchSuffix}.exe; Description: Set up MSYS support; Flags: postinstall; Components: DESupport/MSYS; WorkingDir: {app}; Parameters: {code:GetSupportParams}
 #ifndef X64
 Filename: {app}\Cygwinsupport.exe; Description: Set up Cygwin support; Flags: postinstall; Components: DESupport/Cygwin; WorkingDir: {app}; Parameters: {code:GetSupportParams}
@@ -741,6 +754,7 @@ begin
   StringChange (libPath, '\', '/');
   SaveStringToFile (pcFileName, 'Libs: ${prefix}/' + libPath + #13#10, true);
 end;
+
 
 
 

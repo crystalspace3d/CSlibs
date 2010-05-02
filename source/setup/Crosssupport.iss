@@ -7,7 +7,7 @@
 [Setup]
 AppName={#CSLibsName} {#SupportName} support
 AppVerName={#CSLibsName} {#SupportName} support {#CSLibsVersion}
-Compression=lzma
+Compression=lzma2
 UninstallLogMode=new
 CreateUninstallRegKey=false
 UninstallFilesDir={src}\support
@@ -112,4 +112,5 @@ function ShouldSkipPage(PageID: Integer): Boolean;
 begin
   Result := FSupportPageSkip (PageID);
 end;
+
 

@@ -4,7 +4,7 @@ Compiling Stuff
 Required tools:
 - MSVC 8,9,10
 - Recent MSYS/MinGW, with binutils >= 2.16.91, msys make* >= 3.81
-- InnoSetup >= 5.0.7
+- InnoSetup >= 5.3.9
 - Python
 - CMake
 - Windows DDK
