@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{5E021136-A3BF-4C46-0F5A-00AEA143E048}</ProjectGuid>
+    <SccProjectName />
+    <SccLocalPath />
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)'=='Release'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Platform)'=='Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Platform)'=='x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\out\debug10\build\libCEGUITinyXMLParser_debug\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\libs\ReleaseVC10Only\</OutDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">libCEGUITinyXMLParser-csvc10_d</TargetName>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\out\debug10-x64\build\libCEGUITinyXMLParser_debug\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\libs\ReleaseVC10Only-x64\</OutDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">libCEGUITinyXMLParser-csvc10_d-x64</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <MinimalRebuild>true</MinimalRebuild>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>      <ProgramDataBaseFileName>..\..\out\debug10\build\libCEGUITinyXMLParser_debug\Win32\CEGUITinyXMLParser_debug.pdb</ProgramDataBaseFileName>
+      <PreprocessorDefinitions>_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;CEGUITINYXMLPARSER_EXPORTS;CEGUI_TINYXML_H="ceguitinyxml/tinyxml.h";CEGUI_TINYXML_NAMESPACE=CEGUITinyXML;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>.;..\..\source\libCEGUI\cegui\include;..\..\source\libCEGUI\cegui\include\XMLParserModules\TinyXMLParser;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeaderOutputFile>..\..\out\debug10\build\libCEGUITinyXMLParser_debug\libCEGUITinyXMLParser_debug.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>..\..\out\debug10\build\libCEGUITinyXMLParser_debug\</AssemblerListingLocation>
+      <ObjectFileName>..\..\out\debug10\build\libCEGUITinyXMLParser_debug\</ObjectFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>LIBC;LIBCD;LIBCMT;LIBCMTD;MSVCRT;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <OutputFile>..\..\libs\ReleaseVC10Only\libCEGUITinyXMLParser-csvc10_d.dll</OutputFile>
+      <AdditionalLibraryDirectories>;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <MergeSections>.rdata=.text</MergeSections> 
+      <DelayLoadDLLs>;%(DelayLoadDLLs)</DelayLoadDLLs>
+      <ImportLibrary>..\..\libs\ReleaseVC10Only\CEGUITinyXMLParser-vc10_d.lib</ImportLibrary>
+      <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>;%(AdditionalDependencies)</AdditionalDependencies>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ProgramDatabaseFile>..\..\libs\ReleaseVC10Only\libCEGUITinyXMLParser-csvc10_d.pdb</ProgramDatabaseFile>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Lib>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;CEGUITINYXMLPARSER_EXPORTS;CEGUI_TINYXML_H="ceguitinyxml/tinyxml.h";CEGUI_TINYXML_NAMESPACE=CEGUITinyXML;PROJECTGEN_VERSION=10;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;..\..\source\libCEGUI;..\..\source\libCEGUI\cegui\include;..\..\source\libCEGUI\cegui\include\XMLParserModules\TinyXMLParser</AdditionalIncludeDirectories>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <MinimalRebuild>true</MinimalRebuild>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>      <ProgramDataBaseFileName>..\..\out\debug10-x64\build\libCEGUITinyXMLParser_debug\x64\CEGUITinyXMLParser_debug.pdb</ProgramDataBaseFileName>
+      <PreprocessorDefinitions>_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;CEGUITINYXMLPARSER_EXPORTS;CEGUI_TINYXML_H="ceguitinyxml/tinyxml.h";CEGUI_TINYXML_NAMESPACE=CEGUITinyXML;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>.;..\..\source\libCEGUI\cegui\include;..\..\source\libCEGUI\cegui\include\XMLParserModules\TinyXMLParser;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeaderOutputFile>..\..\out\debug10-x64\build\libCEGUITinyXMLParser_debug\libCEGUITinyXMLParser_debug.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>..\..\out\debug10-x64\build\libCEGUITinyXMLParser_debug\</AssemblerListingLocation>
+      <ObjectFileName>..\..\out\debug10-x64\build\libCEGUITinyXMLParser_debug\</ObjectFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>LIBC;LIBCD;LIBCMT;LIBCMTD;MSVCRT;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <OutputFile>..\..\libs\ReleaseVC10Only-x64\libCEGUITinyXMLParser-csvc10_d-x64.dll</OutputFile>
+      <AdditionalLibraryDirectories>;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <MergeSections>.rdata=.text</MergeSections> 
+      <DelayLoadDLLs>;%(DelayLoadDLLs)</DelayLoadDLLs>
+      <ImportLibrary>..\..\libs\ReleaseVC10Only-x64\CEGUITinyXMLParser-vc10_d.lib</ImportLibrary>
+      <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>;%(AdditionalDependencies)</AdditionalDependencies>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ProgramDatabaseFile>..\..\libs\ReleaseVC10Only-x64\libCEGUITinyXMLParser-csvc10_d-x64.pdb</ProgramDatabaseFile>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+    <Lib>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;CEGUITINYXMLPARSER_EXPORTS;CEGUI_TINYXML_H="ceguitinyxml/tinyxml.h";CEGUI_TINYXML_NAMESPACE=CEGUITinyXML;PROJECTGEN_VERSION=10;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;..\..\source\libCEGUI;..\..\source\libCEGUI\cegui\include;..\..\source\libCEGUI\cegui\include\XMLParserModules\TinyXMLParser</AdditionalIncludeDirectories>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\XMLParserModules\TinyXMLParser\ceguitinyxml\tinystr.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\XMLParserModules\TinyXMLParser\ceguitinyxml\tinyxml.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\XMLParserModules\TinyXMLParser\ceguitinyxml\tinyxmlerror.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\XMLParserModules\TinyXMLParser\ceguitinyxml\tinyxmlparser.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\XMLParserModules\TinyXMLParser\CEGUITinyXMLParser.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\XMLParserModules\TinyXMLParser\CEGUITinyXMLParserModule.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\source\libCEGUI\cegui\src\XMLParserModules\TinyXMLParser\ceguitinyxml\tinystr.h" />
+    <ClInclude Include="..\..\source\libCEGUI\cegui\src\XMLParserModules\TinyXMLParser\ceguitinyxml\tinyxml.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\..\source\libceguitinyxmlparser.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="libCEGUIBase_debug.vcxproj">
+      <Project>{F234FBAB-A137-F72F-9584-AA50206D91C7}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

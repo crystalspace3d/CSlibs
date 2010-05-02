@@ -11,7 +11,7 @@
 		<Platform Name="x64"/>
 	</Platforms>
 	<Configurations>
-      		<Configuration
+		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="..\..\out\release8\build\grplibs_CSlibs\"
 			IntermediateDirectory="..\..\out\release8\build\grplibs_CSlibs\"
@@ -55,11 +55,10 @@
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				ProgramDatabaseFile="\..\."
+				ProgramDatabaseFile="\..\"
 				TargetMachine="1"/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="\..\.."
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
@@ -85,7 +84,7 @@
 			<Tool
 				Name="VCWebDeploymentTool"/>
 		</Configuration>
-            		<Configuration
+		<Configuration
 			Name="Release|x64"
 			OutputDirectory="..\..\out\release8-x64\build\grplibs_CSlibs\"
 			IntermediateDirectory="..\..\out\release8-x64\build\grplibs_CSlibs\"
@@ -129,11 +128,10 @@
 				AdditionalOptions=" "
 				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				ProgramDatabaseFile="\..-x64\-x64."
+				ProgramDatabaseFile="\..-x64\-x64"
 				TargetMachine="17"/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="\..-x64\.."
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
@@ -159,7 +157,7 @@
 			<Tool
 				Name="VCWebDeploymentTool"/>
 		</Configuration>
-      	</Configurations>
+	</Configurations>
 	<Files>
 	</Files>
 	<Globals>

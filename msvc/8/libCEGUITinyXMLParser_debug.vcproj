@@ -11,7 +11,7 @@
 		<Platform Name="x64"/>
 	</Platforms>
 	<Configurations>
-      		<Configuration
+		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="..\..\out\debug8\build\libCEGUITinyXMLParser_debug\"
 			IntermediateDirectory="..\..\out\debug8\build\libCEGUITinyXMLParser_debug\"
@@ -26,7 +26,7 @@
 				RuntimeLibrary="3"
 
 				ProgramDataBaseFileName="..\..\out\debug8\build\libCEGUITinyXMLParser_debug\CEGUITinyXMLParser_debug.pdb"
-				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;CEGUITINYXMLPARSER_EXPORTS;CEGUI_TINYXML_H=&quot;\&quot;ceguitinyxml/tinyxml.h\&quot;&quot;;CEGUI_TINYXML_NAMESPACE=CEGUITinyXML;WIN32"
+				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;CEGUITINYXMLPARSER_EXPORTS;CEGUI_TINYXML_H=\&quot;ceguitinyxml/tinyxml.h\&quot;;CEGUI_TINYXML_NAMESPACE=CEGUITinyXML;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
 				AdditionalIncludeDirectories=".;..\..\source\libCEGUI\cegui\include;..\..\source\libCEGUI\cegui\include\XMLParserModules\TinyXMLParser"
@@ -62,7 +62,7 @@
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;CEGUITINYXMLPARSER_EXPORTS;CEGUI_TINYXML_H=&quot;\&quot;ceguitinyxml/tinyxml.h\&quot;&quot;;CEGUI_TINYXML_NAMESPACE=CEGUITinyXML"
+				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;CEGUITINYXMLPARSER_EXPORTS;CEGUI_TINYXML_H=\&quot;ceguitinyxml/tinyxml.h\&quot;;CEGUI_TINYXML_NAMESPACE=CEGUITinyXML"
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
@@ -76,7 +76,7 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;CEGUITINYXMLPARSER_EXPORTS;CEGUI_TINYXML_H=&quot;\&quot;ceguitinyxml/tinyxml.h\&quot;&quot;;CEGUI_TINYXML_NAMESPACE=CEGUITinyXML;PROJECTGEN_VERSION=8"
+				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;CEGUITINYXMLPARSER_EXPORTS;CEGUI_TINYXML_H=\&quot;ceguitinyxml/tinyxml.h\&quot;;CEGUI_TINYXML_NAMESPACE=CEGUITinyXML;PROJECTGEN_VERSION=8"
 				AdditionalIncludeDirectories=".;..\..\source\libCEGUI;..\..\source\libCEGUI\cegui\include;..\..\source\libCEGUI\cegui\include\XMLParserModules\TinyXMLParser"
 				Culture="1033"/>
 			<Tool
@@ -84,7 +84,7 @@
 			<Tool
 				Name="VCWebDeploymentTool"/>
 		</Configuration>
-            		<Configuration
+		<Configuration
 			Name="Release|x64"
 			OutputDirectory="..\..\out\debug8-x64\build\libCEGUITinyXMLParser_debug\"
 			IntermediateDirectory="..\..\out\debug8-x64\build\libCEGUITinyXMLParser_debug\"
@@ -99,7 +99,7 @@
 				RuntimeLibrary="3"
 
 				ProgramDataBaseFileName="..\..\out\debug8-x64\build\libCEGUITinyXMLParser_debug\CEGUITinyXMLParser_debug-x64.pdb"
-				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;CEGUITINYXMLPARSER_EXPORTS;CEGUI_TINYXML_H=&quot;\&quot;ceguitinyxml/tinyxml.h\&quot;&quot;;CEGUI_TINYXML_NAMESPACE=CEGUITinyXML;WIN32"
+				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;CEGUITINYXMLPARSER_EXPORTS;CEGUI_TINYXML_H=\&quot;ceguitinyxml/tinyxml.h\&quot;;CEGUI_TINYXML_NAMESPACE=CEGUITinyXML;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
 				AdditionalIncludeDirectories=".;..\..\source\libCEGUI\cegui\include;..\..\source\libCEGUI\cegui\include\XMLParserModules\TinyXMLParser"
@@ -135,7 +135,7 @@
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;CEGUITINYXMLPARSER_EXPORTS;CEGUI_TINYXML_H=&quot;\&quot;ceguitinyxml/tinyxml.h\&quot;&quot;;CEGUI_TINYXML_NAMESPACE=CEGUITinyXML"
+				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;CEGUITINYXMLPARSER_EXPORTS;CEGUI_TINYXML_H=\&quot;ceguitinyxml/tinyxml.h\&quot;;CEGUI_TINYXML_NAMESPACE=CEGUITinyXML"
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
@@ -149,7 +149,7 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;CEGUITINYXMLPARSER_EXPORTS;CEGUI_TINYXML_H=&quot;\&quot;ceguitinyxml/tinyxml.h\&quot;&quot;;CEGUI_TINYXML_NAMESPACE=CEGUITinyXML;PROJECTGEN_VERSION=8"
+				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;CEGUITINYXMLPARSER_EXPORTS;CEGUI_TINYXML_H=\&quot;ceguitinyxml/tinyxml.h\&quot;;CEGUI_TINYXML_NAMESPACE=CEGUITinyXML;PROJECTGEN_VERSION=8"
 				AdditionalIncludeDirectories=".;..\..\source\libCEGUI;..\..\source\libCEGUI\cegui\include;..\..\source\libCEGUI\cegui\include\XMLParserModules\TinyXMLParser"
 				Culture="1033"/>
 			<Tool
@@ -157,7 +157,7 @@
 			<Tool
 				Name="VCWebDeploymentTool"/>
 		</Configuration>
-      	</Configurations>
+	</Configurations>
 	<Files>
 		<Filter
 			Name="Source Files"

@@ -11,7 +11,7 @@
 		<Platform Name="x64"/>
 	</Platforms>
 	<Configurations>
-      		<Configuration
+		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="..\..\out\release8\build\libcal3d_static\"
 			IntermediateDirectory="..\..\out\release8\build\libcal3d_static\"
@@ -86,7 +86,7 @@
 			<Tool
 				Name="VCWebDeploymentTool"/>
 		</Configuration>
-            		<Configuration
+		<Configuration
 			Name="Release|x64"
 			OutputDirectory="..\..\out\release8-x64\build\libcal3d_static\"
 			IntermediateDirectory="..\..\out\release8-x64\build\libcal3d_static\"
@@ -161,7 +161,7 @@
 			<Tool
 				Name="VCWebDeploymentTool"/>
 		</Configuration>
-      	</Configurations>
+	</Configurations>
 	<Files>
 		<Filter
 			Name="Source Files"

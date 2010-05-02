@@ -11,7 +11,7 @@
 		<Platform Name="x64"/>
 	</Platforms>
 	<Configurations>
-      		<Configuration
+		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="..\..\out\release9\build\libpng_static\"
 			IntermediateDirectory="..\..\out\release9\build\libpng_static\"
@@ -86,7 +86,7 @@
 			<Tool
 				Name="VCWebDeploymentTool"/>
 		</Configuration>
-            		<Configuration
+		<Configuration
 			Name="Release|x64"
 			OutputDirectory="..\..\out\release9-x64\build\libpng_static\"
 			IntermediateDirectory="..\..\out\release9-x64\build\libpng_static\"
@@ -161,7 +161,7 @@
 			<Tool
 				Name="VCWebDeploymentTool"/>
 		</Configuration>
-      	</Configurations>
+	</Configurations>
 	<Files>
 		<Filter
 			Name="Source Files"
@@ -171,9 +171,6 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libpng\pngerror.c">
-			</File>
-			<File
-				RelativePath="..\..\source\libpng\pnggccrd.c">
 			</File>
 			<File
 				RelativePath="..\..\source\libpng\pngget.c">
@@ -206,9 +203,6 @@
 				RelativePath="..\..\source\libpng\pngtrans.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libpng\pngvcrd.c">
-			</File>
-			<File
 				RelativePath="..\..\source\libpng\pngwio.c">
 			</File>
 			<File
@@ -229,6 +223,9 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libpng\pngconf.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libpng\pngpriv.h">
 			</File>
 		</Filter>
 	</Files>

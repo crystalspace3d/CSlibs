@@ -11,7 +11,7 @@
 		<Platform Name="x64"/>
 	</Platforms>
 	<Configurations>
-      		<Configuration
+		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="..\..\out\release9\build\libz_static\"
 			IntermediateDirectory="..\..\out\release9\build\libz_static\"
@@ -86,7 +86,7 @@
 			<Tool
 				Name="VCWebDeploymentTool"/>
 		</Configuration>
-            		<Configuration
+		<Configuration
 			Name="Release|x64"
 			OutputDirectory="..\..\out\release9-x64\build\libz_static\"
 			IntermediateDirectory="..\..\out\release9-x64\build\libz_static\"
@@ -161,7 +161,7 @@
 			<Tool
 				Name="VCWebDeploymentTool"/>
 		</Configuration>
-      	</Configurations>
+	</Configurations>
 	<Files>
 		<Filter
 			Name="Source Files"
@@ -179,7 +179,16 @@
 				RelativePath="..\..\source\libz\deflate.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libz\gzio.c">
+				RelativePath="..\..\source\libz\gzclose.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libz\gzlib.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libz\gzread.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libz\gzwrite.c">
 			</File>
 			<File
 				RelativePath="..\..\source\libz\infback.c">
@@ -213,6 +222,9 @@
 				RelativePath="..\..\source\libz\deflate.h">
 			</File>
 			<File
+				RelativePath="..\..\source\libz\gzguts.h">
+			</File>
+			<File
 				RelativePath="..\..\source\libz\inffast.h">
 			</File>
 			<File
@@ -229,9 +241,6 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libz\zconf.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libz\zconf.in.h">
 			</File>
 			<File
 				RelativePath="..\..\source\libz\zlib.h">

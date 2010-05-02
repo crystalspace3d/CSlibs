@@ -11,7 +11,7 @@
 		<Platform Name="x64"/>
 	</Platforms>
 	<Configurations>
-      		<Configuration
+		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="..\..\out\release9\build\libbulletcollision_static\"
 			IntermediateDirectory="..\..\out\release9\build\libbulletcollision_static\"
@@ -86,7 +86,7 @@
 			<Tool
 				Name="VCWebDeploymentTool"/>
 		</Configuration>
-            		<Configuration
+		<Configuration
 			Name="Release|x64"
 			OutputDirectory="..\..\out\release9-x64\build\libbulletcollision_static\"
 			IntermediateDirectory="..\..\out\release9-x64\build\libbulletcollision_static\"
@@ -161,7 +161,7 @@
 			<Tool
 				Name="VCWebDeploymentTool"/>
 		</Configuration>
-      	</Configurations>
+	</Configurations>
 	<Files>
 		<Filter
 			Name="Source Files"
@@ -240,6 +240,9 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionDispatch\btGhostObject.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionDispatch\btInternalEdgeUtility.cpp">
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionDispatch\btManifoldResult.cpp">
@@ -525,6 +528,9 @@
 				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionDispatch\btGhostObject.h">
 			</File>
 			<File
+				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionDispatch\btInternalEdgeUtility.h">
+			</File>
+			<File
 				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionDispatch\btManifoldResult.h">
 			</File>
 			<File
@@ -646,6 +652,9 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btTriangleIndexVertexMaterialArray.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btTriangleInfoMap.h">
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btTriangleMesh.h">
