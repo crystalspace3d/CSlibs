@@ -2,7 +2,7 @@ Compiling Stuff
 ---------------
 
 Required tools:
-- MSVC 8,9
+- MSVC 8,9,10
 - Recent MSYS/MinGW, with binutils >= 2.16.91, msys make* >= 3.81
 - InnoSetup >= 5.0.7
 - Python
@@ -29,6 +29,7 @@ The solutions in the projects directory should be built in the following
 order:
 - msvc/9/CSlibs.sln with VC9.0
 - msvc/8/CSlibs.sln with VC8.0
+- msvc/10/CSlibs.sln with VC10.0
 
 The MinGW-only libs can be built by running build_mingw.sh. Some libraries
 may need special preparations:
@@ -39,6 +40,9 @@ may need special preparations:
     Run "aclocal && autoconf && autoheader && libtoolize -c && automake".
 - libcegui: run ./bootstrap
 - libbullet: run ./autogen.sh
+
+Further preparations for mingw64:
+- libwx: run autoconf
 
 If you use Cygwin to run above scripts, note that sometimes symlinks are
 generated; MinGW doesn't support those, so you should check the source 
