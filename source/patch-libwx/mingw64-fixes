@@ -25,12 +25,12 @@ diff -ru ../libwx.org/src/aui/framemanager.cpp ./src/aui/framemanager.cpp
 diff -ru ../libwx.org/src/common/utilscmn.cpp ./src/common/utilscmn.cpp
 --- ../libwx.org/src/common/utilscmn.cpp	Fri Mar  6 12:00:47 2009
 +++ ./src/common/utilscmn.cpp	Sun Feb 28 06:37:14 2010
-@@ -817,7 +817,7 @@
- 
-     ::ShellExecuteEx(&sei);
- 
+@@ -822,7 +822,7 @@
+     //hInstApp member is only valid if the function fails, in which case it
+     //receives one of the following error values, which are less than or
+     //equal to 32.
 -    const int nResult = (int) sei.hInstApp;
-+    const int nResult = (int)(intptr_t)sei.hInstApp;
++    const int nResult = (int)(intptr_t) sei.hInstApp;
  
      // Firefox returns file not found for some reason, so make an exception
      // for it
@@ -216,7 +216,7 @@ diff -ru ../libwx.org/src/msw/printdlg.cpp ./src/msw/printdlg.cpp
  
      if (!hDevMode)
      {
-@@ -350,8 +350,8 @@
+@@ -396,8 +396,8 @@
  
  bool wxWindowsPrintNativeData::TransferFrom( const wxPrintData &data )
  {
@@ -224,9 +224,9 @@ diff -ru ../libwx.org/src/msw/printdlg.cpp ./src/msw/printdlg.cpp
 -    HGLOBAL hDevNames = (HGLOBAL)(DWORD) m_devNames;
 +    HGLOBAL hDevMode = (HGLOBAL)(DWORD_PTR) m_devMode;
 +    HGLOBAL hDevNames = (HGLOBAL)(DWORD_PTR) m_devNames;
-     if (!hDevMode)
-     {
-         // Use PRINTDLG as a way of creating a DEVMODE object
+     WinPrinter printer;
+     LPTSTR szPrinterName = (LPTSTR)data.GetPrinterName().wx_str();
+ 
 @@ -398,7 +398,7 @@
          else
          {

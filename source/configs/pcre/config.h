@@ -52,7 +52,7 @@ them both to 0; an emulation function will be used. */
 
 /* Define to 1 if you have the <inttypes.h> header file. */
 #ifndef HAVE_INTTYPES_H
-#define HAVE_INTTYPES_H 1
+//#define HAVE_INTTYPES_H 1
 #endif
 
 /* Define to 1 if you have the <limits.h> header file. */
@@ -77,7 +77,7 @@ them both to 0; an emulation function will be used. */
 
 /* Define to 1 if you have the <stdint.h> header file. */
 #ifndef HAVE_STDINT_H
-#define HAVE_STDINT_H 1
+//#define HAVE_STDINT_H 1
 #endif
 
 /* Define to 1 if you have the <stdlib.h> header file. */

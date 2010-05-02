@@ -1,7 +1,15 @@
 1.9_005 (2010-??-??):
-- Updated Cg to 2.2 February 2010 release.
-- Added BulletSoftBody.
-- Updated libpng to 1.2.43.
+ - Updated Cg to 2.2 February 2010 release.
+ - Added BulletSoftBody for VC.
+ - Updated libz to 1.2.5.
+ - Updated libpng to 1.4.1.
+ - Update libogg to 1.2.0.
+ - Update libvorbis to 1.3.1.
+ - Updated freetype to 2.3.12.
+ - Updated bullet to 2.76.
+ - Updated pcre to 8.02.
+ - Updated wx to 2.8.11.
+ - Added support for VC 10.
 
 1.9_004 (2009-12-23):
  - Build "common" libraries using VC9.0.

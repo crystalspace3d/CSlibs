@@ -1,4 +1,5 @@
 #define _T(X)   X
+#define wxT(X)  X
 
 #include "libwx/include/wx/version.h"
 
