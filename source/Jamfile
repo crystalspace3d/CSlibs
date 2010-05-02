@@ -8,7 +8,9 @@ MsvcRegisterVariableProp librarydelay : delayload ;
 MsvcRegisterVariableProp configtemplatetag : configtemplatetag ;
 
 MsvcGenVariable linkerextraxml : "MergeSections=\".rdata=.text\"" ;
+MsvcGenVariable linkerextraxml10 : "<MergeSections>.rdata=.text</MergeSections>" ;
 MsvcRegisterVariableProp linkerextraxml : moduledefinition ;
+MsvcRegisterVariableProp linkerextraxml10 : moduledefinition10 ;
 
 # Goop used by both "base" and "extra" libs
 rule LibCommon
@@ -37,11 +39,13 @@ rule LibCommon
   if ! [ IsElem staticonly : $(options) ]
   {
     MsvcSetTargetProp $(lib) : resources : no ;
-    MsvcSetTargetProp $(lib) : outputfile : [ ConcatDirs libs $(outdir) $(dllname).dll ] ;
-    MsvcSetTargetProp $(lib) : importlib : [ ConcatDirs libs $(outdir) $(libname).lib ] ;
+    MsvcSetTargetProp $(lib) : outputfile : [ ConcatDirs libs $(outdir) $(dllname) ] ;
+    MsvcSetTargetProp $(lib) : importlib : [ ConcatDirs libs $(outdir) $(libname) ] ;
     MsvcSetTargetProp $(lib) : debuginfo : [ ConcatDirs libs $(outdir) $(dllname).pdb ] ;
     MsvcSetTargetProp $(lib) : moduledefinition : 
       "ModuleDefinitionFile=\"../../$(deffile)\"" ;
+    MsvcSetTargetProp $(lib) : moduledefinition10 : 
+      "<ModuleDefinitionFile>../../$(deffile)</ModuleDefinitionFile>" ;
     Library $(lib) : $(files) : shared ;
     MsvcExtraFile $(lib) : $(deffile) ;
     local d ;
@@ -56,7 +60,7 @@ rule LibCommon
     SubVariant static ;
     MsvcSetTargetProp $(lib)_static : resources : no ;
     MsvcSetTargetProp $(lib)_static : debuginfo : [ ConcatDirs libs $(outdir)_static $(libname).pdb ] ;
-    MsvcSetTargetProp $(lib)_static : libname : [ ConcatDirs libs $(outdir)_static $(libname).lib ] ;
+    MsvcSetTargetProp $(lib)_static : libname : [ ConcatDirs libs $(outdir)_static $(libname) ] ;
     Library $(lib)_static : $(files) ;
     for d in $(extrainc)
     {
