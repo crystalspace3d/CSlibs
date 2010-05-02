@@ -26,7 +26,7 @@ ExtraLib bulletdynamics :
   staticonly ;
 
 ExtraLib bulletsoftbody :
-  [ Wildcard [ ConcatDirs src BulletSoftBody ] : *.cpp *.h ]
+  [ Wildcard [ ConcatDirs src BulletSoftBody ] : *.cpp *.h ] :
   :
-  $(SUBDIR)/src $(SUBDIR)/src/LinearMath :
+  $(SUBDIR)/src :
   staticonly ;
