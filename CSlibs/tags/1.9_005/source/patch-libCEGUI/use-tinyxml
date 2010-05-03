@@ -1,0 +1,13 @@
+Index: cegui/include/CEGUIConfig.h
+===================================================================
+--- cegui/include/CEGUIConfig.h	(Revision 2337)
++++ cegui/include/CEGUIConfig.h	(Arbeitskopie)
+@@ -54,7 +54,7 @@
+ // (XercesParser, ExpatParser, LibxmlParser or TinyXMLParser).
+ //////////////////////////////////////////////////////////////////////////
+ #ifndef CEGUI_DEFAULT_XMLPARSER
+-#	define CEGUI_DEFAULT_XMLPARSER ExpatParser
++#	define CEGUI_DEFAULT_XMLPARSER TinyXMLParser
+ #endif
+ 
+ //////////////////////////////////////////////////////////////////////////

@@ -1,0 +1,185 @@
+SubDir TOP ;
+
+CleanDir clean :
+    out ;
+Clean distclean :
+    aclocal.m4
+    config.h
+    config.h.in~
+    config.log
+    config.status
+    config.status.lineno
+    config.cache
+    configure.lineno
+    Jamconfig
+    Jamfile ;
+CleanDir distclean :
+    autom4te.cache ;
+Depends distclean : clean ;
+
+Clean maintainerclean :
+  config.h.in
+  configure ;
+Depends maintainerclean : distclean ;
+
+Help distclean : "Remove built targets and configuration" ;
+Help maintainerclean :
+    "Remove built targets, configuration, and generated files." ;
+
+# Set up subdirectories into which the different generated project for 
+# different go.
+MsvcGenSubDir TOP msvc : common ;
+MsvcGenSubDir TOP msvc 8 : 8 ;
+MsvcGenSubDir TOP msvc 9 : 9 ;
+MsvcGenSubDir TOP msvc 10 : 10 ;
+MsvcGenTemplateDir TOP mk msvcgen ;
+
+# Customize the build configurations to contain some defines required by
+# CrystalSpace.  NOTE: The file with the customization options is assumed
+# to reside in mk/msvcgen/.
+MsvcGenVariable customize : custom.cslib ;
+
+# Set up the workspace we want msvcgen to synthesize.
+MsvcGenWorkspace CSlibs ;
+
+rule CcRule { }
+RegisterFileType CcRule : .c ;
+RegisterHeaderRule HeaderRule : $(HDRPATTERN) : .c ;
+
+rule C++Rule { }
+RegisterFileType C++Rule : .cpp .cc .c++ ;
+RegisterHeaderRule HeaderRule : $(HDRPATTERN) : .cpp .cc .c++ ;
+
+include $(SUBDIR)/source/Jamfile ;
+
+SubDir TOP ;
+
+# Set up symbol collection targets.
+
+SYMDIR = "$(BUILDTOP)/out/symbols" ;
+
+CleanDir collectsymbols_clean : $(SYMDIR) ;
+Depends collectsymbols_collect : collectsymbols_clean ;
+CollectSymbols collectsymbols_collect : 
+  libs/release 
+  libs/releasenocygwin
+  libs/releasevc8only
+  libs/releasevc8only_static 
+  libs/releasevc9only
+  libs/releasevc9only_static 
+  libs/releasewxvc8only
+  libs/releasewxvc9only
+  libs/release-x64
+  libs/releasenocygwin-x64
+  libs/releasevc8only-x64
+  libs/releasevc8only_static-x64
+  libs/releasevc9only-x64
+  libs/releasevc9only_static-x64
+  libs/releasewxvc8only-x64
+  libs/releasewxvc9only-x64
+  : $(SYMDIR) ;
+Depends collectsymbols_compress : collectsymbols_collect ;
+CompressSymbols collectsymbols_compress : $(SYMDIR) ;
+Depends collectsymbols : collectsymbols_compress ;
+
+UploadDir uploadsymbols : $(SYMDIR) : 
+  crystal@crystalspace3d.org :
+  www/crystalspace3d.org/htdocs/symbols ;
+
+
+# Set up file lists.
+
+SubDir TOP nosource x86 Cg dlls ;
+FileListEntriesData [ Wildcard *.dll ] : : libs-common_cg ;
+SubDir TOP nosource x86 Cg lib ;
+FileListEntriesData [ Wildcard *.lib ] : : libs-common_cg-link ;
+SubDir TOP nosource x86 dbghelp ;
+FileListEntriesData [ Wildcard *.dll ] : : libs-common ;
+SubDir TOP libs release ;
+VORBISENC_FILES = [ Wildcard *vorbisenc* ] ;
+FileListEntriesData [ Filter [ Wildcard *.dll ] : $(VORBISENC_FILES) ] : : libs-common ;
+FileListEntriesData libvorbisenc-cs.dll : : libs-common_vorbisenc ;
+FileListEntriesData [ Filter [ Wildcard *.pdb ] : $(VORBISENC_FILES) ] : : libs-common-debug ;
+FileListEntriesData libvorbisenc-cs.pdb : : libs-common_vorbisenc-debug ;
+FileListEntriesData [ Filter [ Wildcard *.lib ] : $(VORBISENC_FILES) ] $(CG_LIBS) : : libs-common-link ;
+FileListEntriesData vorbisenc.lib : : libs-common_vorbisenc-link ;
+SubDir TOP libs releasenocygwin ;
+FileListEntriesData [ Wildcard *.dll ] : : libs-common ;
+FileListEntriesData [ Wildcard *.pdb ] : : libs-common-debug ;
+FileListEntriesData [ Wildcard *.lib ] : : libs-common-link ;
+
+rule MinGWFileLists
+{
+  local ver = $(1) ;
+  SubDir TOP libs releasegcconly mingw ;
+  FileListEntriesData [ Wildcard *-$(ver)*.dll ] : : libs-mingw_$(ver) ;
+  FileListEntriesData [ Wildcard *-$(ver)*.dbg ] : : libs-mingw_$(ver)-debug ;
+  SubDir TOP libs releasegcconly mingw-gcc-$(ver) ;
+  FileListEntriesData [ Wildcard libCEGUI*.a libcal3d.a ] : : libs-mingw_$(ver)-link ;
+
+  SubDir TOP libs prefix-wx mingw-gcc-$(ver) lib ;
+  FileListEntriesData [ Wildcard *.dll ] : : libs-wxmingw_$(ver) ;
+  FileListEntriesData [ Wildcard *.a ] : : libs-wxmingw_$(ver)-link ;
+  FileListEntriesData [ Wildcard *.dbg ] : : libs-wxmingw_$(ver)-debug ;
+}
+MinGWFileLists 3.4 ;
+MinGWFileLists 4.4 ;
+
+rule VCFileLists
+{
+  local N = $(1) ;
+  
+  SubDir TOP libs releasevc$(N)only ;
+  FileListEntriesData [ Wildcard *vc$(N).dll ] : : libs-vc$(N) ;
+  FileListEntriesData [ Wildcard *vc$(N)_d.dll ] : : libs-vc$(N)_d ;
+  FileListEntriesData [ Wildcard *vc$(N).pdb ] : : libs-vc$(N)-debug ;
+  FileListEntriesData [ Wildcard *vc$(N)_d.pdb ] : : libs-vc$(N)_d-debug ;
+  FileListEntriesData [ Wildcard *vc$(N).lib ] : : libs-vc$(N)-link ;
+  FileListEntriesData [ Wildcard *vc$(N)_d.lib ] : : libs-vc$(N)_d-link ;
+  
+  SubDir TOP libs releasewxvc$(N)only ;
+  FileListEntriesData [ Wildcard *vc$(N).dll ] : : libs-wxvc$(N) ;
+  FileListEntriesData [ Wildcard *vc$(N)_d.dll ] : : libs-wxvc$(N)_d ;
+  FileListEntriesData [ Wildcard *vc$(N).pdb ] : : libs-wxvc$(N)-debug ;
+  FileListEntriesData [ Wildcard *vc$(N)_d.pdb ] : : libs-wxvc$(N)_d-debug ;
+  FileListEntriesData [ Wildcard *vc$(N).lib ] : : libs-wxvc$(N)-link ;
+  FileListEntriesData [ Wildcard *vc$(N)_d.lib ] : : libs-wxvc$(N)_d-link ;
+}
+
+VCFileLists 8 ;
+VCFileLists 9 ;
+VCFileLists 10 ;
+
+SubDir TOP ;
+
+# Merge modules
+
+MSM_VER = "`cat $(TOP)/version.inc | grep MSM_VER | sed -e \"s/.*=\\(.*\\)/\\1/\"`" ;
+
+rule AllMSMs
+{
+  local m ;
+  for m in $(1)
+  {
+    MSIMergeModuleFromList winlibs.$(m).dlls : libs-$(m) : $(MSM_VER) ;
+    MSIMergeModuleFromList winlibs.$(m).debug : libs-$(m)-debug : $(MSM_VER) ;
+    MSIMergeModuleFromList winlibs.$(m).link : libs-$(m)-link : $(MSM_VER) ;
+  }
+}
+AllMSMs common common_cg common_vorbisenc mingw_3.4 mingw_4.4 vc8 vc8_d vc9 vc9_d vc10 vc10_d wxmingw_3.4 wxmingw_4.4 wxvc8 wxvc8_d wxvc9 wxvc9_d wxvc10 wxvc10_d ;
+MakeLocate winlibs.common_openal.msm : $(LOCATE.MSI) ;
+MSIMergeModule winlibs.common_openal.msm : source/setup/OpenALRuntime.wxs : "TOP=$(TOP)" "MSM_VER=$(MSM_VER)" ;
+
+WINLIBS_VER = "`cat $(TOP)/version.inc | grep CSLIBS_VERSION_STR | sed -e \"s/.*\\\"\\(.*\\)\\\"/\\1/\"`" ;
+
+UploadFiles _uploadmsms2 : [ Wildcard $(LOCATE.MSI) : *.msm ] : 
+  crystal@crystalspace3d.org :
+  www/crystalspace3d.org/htdocs/downloads/cs-win32libs/mergemodules/$(WINLIBS_VER) ;
+
+actions DoUploadMSMs2
+{
+  jam "-sSCP=$(SCP)" "-sSSH=$(SSH)" _uploadmsms2
+}
+
+Depends uploadmsms : mergemodules ;
+DoUploadMSMs2 uploadmsms ;

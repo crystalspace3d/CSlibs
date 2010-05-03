@@ -1,0 +1,130 @@
+Index: cegui/src/CEGUISystem.cpp
+===================================================================
+--- cegui/src/CEGUISystem.cpp	(Revision 2337)
++++ cegui/src/CEGUISystem.cpp	(Arbeitskopie)
+@@ -159,7 +159,7 @@
+ 	Static Data Definitions
+ *************************************************************************/
+ // singleton instance pointer
+-template<> System* Singleton<System>::ms_Singleton	= 0;
++template<> CEGUIEXPORT System* Singleton<System>::ms_Singleton	= 0;
+ 
+ // click event generation defaults
+ const double	System::DefaultSingleClickTimeout	= 0.0; // was 0.2
+Index: cegui/src/CEGUISchemeManager.cpp
+===================================================================
+--- cegui/src/CEGUISchemeManager.cpp	(Revision 2337)
++++ cegui/src/CEGUISchemeManager.cpp	(Arbeitskopie)
+@@ -32,7 +32,7 @@
+ namespace CEGUI
+ {
+ //----------------------------------------------------------------------------//
+-template<> SchemeManager* Singleton<SchemeManager>::ms_Singleton = 0;
++template<> CEGUIEXPORT SchemeManager* Singleton<SchemeManager>::ms_Singleton = 0;
+ 
+ //----------------------------------------------------------------------------//
+ SchemeManager::SchemeManager() :
+Index: cegui/src/CEGUIWindowManager.cpp
+===================================================================
+--- cegui/src/CEGUIWindowManager.cpp	(Revision 2337)
++++ cegui/src/CEGUIWindowManager.cpp	(Arbeitskopie)
+@@ -44,7 +44,7 @@
+ 	Static Data Definitions
+ *************************************************************************/
+ // singleton instance pointer
+-template<> WindowManager* Singleton<WindowManager>::ms_Singleton	= 0;
++template<> CEGUIEXPORT WindowManager* Singleton<WindowManager>::ms_Singleton	= 0;
+ // default resource group
+ String WindowManager::d_defaultResourceGroup;
+ 
+Index: cegui/src/CEGUIImagesetManager.cpp
+===================================================================
+--- cegui/src/CEGUIImagesetManager.cpp	(Revision 2337)
++++ cegui/src/CEGUIImagesetManager.cpp	(Arbeitskopie)
+@@ -34,7 +34,7 @@
+ {
+ //----------------------------------------------------------------------------//
+ // singleton instance pointer
+-template<> ImagesetManager* Singleton<ImagesetManager>::ms_Singleton = 0;
++template<> CEGUIEXPORT ImagesetManager* Singleton<ImagesetManager>::ms_Singleton = 0;
+ 
+ //----------------------------------------------------------------------------//
+ ImagesetManager::ImagesetManager() :
+Index: cegui/src/CEGUILogger.cpp
+===================================================================
+--- cegui/src/CEGUILogger.cpp	(Revision 2337)
++++ cegui/src/CEGUILogger.cpp	(Arbeitskopie)
+@@ -36,7 +36,7 @@
+         Static Data Definitions
+     *************************************************************************/
+     // singleton instance pointer
+-    template<> Logger* Singleton<Logger>::ms_Singleton  = 0;
++    template<> CEGUIEXPORT Logger* Singleton<Logger>::ms_Singleton  = 0;
+ 
+ 
+     /*************************************************************************
+Index: cegui/src/CEGUIMouseCursor.cpp
+===================================================================
+--- cegui/src/CEGUIMouseCursor.cpp	(Revision 2337)
++++ cegui/src/CEGUIMouseCursor.cpp	(Arbeitskopie)
+@@ -46,7 +46,7 @@
+ 	Static Data Definitions
+ *************************************************************************/
+ // singleton instance pointer
+-template<> MouseCursor* Singleton<MouseCursor>::ms_Singleton	= 0;
++template<> CEGUIEXPORT MouseCursor* Singleton<MouseCursor>::ms_Singleton	= 0;
+ 
+ 
+ /*************************************************************************
+Index: cegui/src/CEGUIFontManager.cpp
+===================================================================
+--- cegui/src/CEGUIFontManager.cpp	(Revision 2337)
++++ cegui/src/CEGUIFontManager.cpp	(Arbeitskopie)
+@@ -46,7 +46,7 @@
+ {
+ //----------------------------------------------------------------------------//
+ // singleton instance pointer
+-template<> FontManager* Singleton<FontManager>::ms_Singleton = 0;
++template<> CEGUIEXPORT FontManager* Singleton<FontManager>::ms_Singleton = 0;
+ 
+ //----------------------------------------------------------------------------//
+ FontManager::FontManager() :
+Index: cegui/src/falagard/CEGUIFalWidgetLookManager.cpp
+===================================================================
+--- cegui/src/falagard/CEGUIFalWidgetLookManager.cpp	(Revision 2337)
++++ cegui/src/falagard/CEGUIFalWidgetLookManager.cpp	(Arbeitskopie)
+@@ -37,7 +37,7 @@
+ {
+     ////////////////////////////////////////////////////////////////////////////////
+     // Static data definitions.
+-    template<> WidgetLookManager* Singleton<WidgetLookManager>::ms_Singleton = 0;
++    template<> CEGUIEXPORT WidgetLookManager* Singleton<WidgetLookManager>::ms_Singleton = 0;
+     const String WidgetLookManager::FalagardSchemaName("Falagard.xsd");
+     String WidgetLookManager::d_defaultResourceGroup;
+     ////////////////////////////////////////////////////////////////////////////////
+Index: cegui/src/CEGUIGlobalEventSet.cpp
+===================================================================
+--- cegui/src/CEGUIGlobalEventSet.cpp	(Revision 2337)
++++ cegui/src/CEGUIGlobalEventSet.cpp	(Arbeitskopie)
+@@ -36,7 +36,7 @@
+ 		Static Data Definitions
+ 	*************************************************************************/
+ 	// singleton instance pointer
+-	template<> GlobalEventSet* Singleton<GlobalEventSet>::ms_Singleton	= 0;
++	template<> CEGUIEXPORT GlobalEventSet* Singleton<GlobalEventSet>::ms_Singleton	= 0;
+ 
+ 	/*************************************************************************
+ 		GlobalEventSet constructor.
+Index: cegui/src/CEGUIWindowFactoryManager.cpp
+===================================================================
+--- cegui/src/CEGUIWindowFactoryManager.cpp	(Revision 2337)
++++ cegui/src/CEGUIWindowFactoryManager.cpp	(Arbeitskopie)
+@@ -39,7 +39,7 @@
+ 	Static Data Definitions
+ *************************************************************************/
+ // singleton instance pointer
+-template<> WindowFactoryManager* Singleton<WindowFactoryManager>::ms_Singleton	= 0;
++template<> CEGUIEXPORT WindowFactoryManager* Singleton<WindowFactoryManager>::ms_Singleton	= 0;
+ // list of owned WindowFactory object pointers
+ WindowFactoryManager::OwnedWindowFactoryList WindowFactoryManager::d_ownedFactories;
+ 

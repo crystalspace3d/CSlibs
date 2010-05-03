@@ -1,0 +1,4 @@
+#define VER_INTERNAL		"libCEGUIBase"
+#define VER_FILENAME		"libCEGUIBase.dll"
+
+#include "libceguicommon.rcinc"

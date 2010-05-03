@@ -1,0 +1,8 @@
+--- win32/libspeex.def.org	Thu Feb 26 20:03:11 2009
++++ win32/libspeex.def	Tue Mar 10 06:36:21 2009
+@@ -1,4 +1,4 @@
+-LIBRARY libspeex
++LIBRARY
+ EXPORTS
+ 
+ 

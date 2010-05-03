@@ -1,0 +1,201 @@
+Index: configure.ac
+===================================================================
+--- configure.ac	(Revision 2337)
++++ configure.ac	(Arbeitskopie)
+@@ -58,6 +62,15 @@
+     AC_CHECK_LIB([pthread], [pthread_create],, AC_MSG_ERROR([cannot find pthread library]))
+ fi
+ 
++AC_ARG_ENABLE([specialstatic],
++    AC_HELP_STRING([--enable-specialstatic], [Enable building CEGUI in special cs-win32libs static mode.]), 
++    [cegui_enable_specialstatic=$enableval], [cegui_enable_specialstatic=no])
++AM_CONDITIONAL([CSWIN32LIBS_STATIC], [test x$cegui_enable_specialstatic = xyes])
++if test x$cegui_enable_specialstatic = xyes ; then 
++    CPPFLAGS="$CPPFLAGS -DCEGUI_STATIC"
++fi
++
++
+ CEGUI_CHECK_FREETYPE
+ CEGUI_CHECK_PCRE
+ 
+Index: Makefile.am
+===================================================================
+--- Makefile.am	(Revision 2337)
++++ Makefile.am	(Arbeitskopie)
+@@ -1,4 +1,5 @@
+-SUBDIRS = . cegui datafiles doc projects Samples
++#SUBDIRS = . cegui datafiles doc projects Samples
++SUBDIRS = . cegui datafiles
+ 
+ EXTRA_DIST=bootstrap
+ 
+Index: cegui/include/XMLParserModules/TinyXMLParser/CEGUITinyXMLParser.h
+===================================================================
+--- cegui/include/XMLParserModules/TinyXMLParser/CEGUITinyXMLParser.h	(Revision 2337)
++++ cegui/include/XMLParserModules/TinyXMLParser/CEGUITinyXMLParser.h	(Arbeitskopie)
+@@ -30,7 +30,7 @@
+ 
+ #include "../../CEGUIXMLParser.h"
+ 
+-#if (defined( __WIN32__ ) || defined( _WIN32 )) && !defined(CEGUI_STATIC)
++#if (defined( __WIN32__ ) || defined( _WIN32 ))
+ #   ifdef CEGUITINYXMLPARSER_EXPORTS
+ #       define CEGUITINYXMLPARSER_API __declspec(dllexport)
+ #   else
+Index: cegui/include/CEGUIBase.h
+===================================================================
+--- cegui/include/CEGUIBase.h	(Revision 2337)
++++ cegui/include/CEGUIBase.h	(Arbeitskopie)
+@@ -45,7 +45,7 @@
+ 	Dynamic Library import / export control conditional
+ 	(Define CEGUIBASE_EXPORTS to export symbols, else they are imported)
+ *************************************************************************/
+-#if (defined( __WIN32__ ) || defined( _WIN32 )) && !defined(CEGUI_STATIC)
++#if (defined( __WIN32__ ) || defined( _WIN32 ))
+ #   ifdef CEGUIBASE_EXPORTS
+ #       define CEGUIEXPORT __declspec(dllexport)
+ #   else
+Index: cegui/include/WindowRendererSets/Falagard/FalModule.h
+===================================================================
+--- cegui/include/WindowRendererSets/Falagard/FalModule.h	(Revision 2337)
++++ cegui/include/WindowRendererSets/Falagard/FalModule.h	(Arbeitskopie)
+@@ -31,7 +31,7 @@
+ #include "../../CEGUIWindowRendererModule.h"
+ #include "../../CEGUIWindowRenderer.h"
+ 
+-#if (defined( __WIN32__ ) || defined( _WIN32 )) && !defined(CEGUI_STATIC)
++#if (defined( __WIN32__ ) || defined( _WIN32 ))
+ #   ifdef FALAGARDWRBASE_EXPORTS
+ #       define FALAGARDBASE_API __declspec(dllexport)
+ #   else
+Index: cegui/include/ImageCodecModules/TGAImageCodec/CEGUITGAImageCodec.h
+===================================================================
+--- cegui/include/ImageCodecModules/TGAImageCodec/CEGUITGAImageCodec.h	(Revision 2337)
++++ cegui/include/ImageCodecModules/TGAImageCodec/CEGUITGAImageCodec.h	(Arbeitskopie)
+@@ -32,7 +32,7 @@
+ #define _CEGUITGAImageCodec_h_
+ #include "../../CEGUIImageCodec.h"
+ 
+-#if (defined( __WIN32__ ) || defined( _WIN32 )) && !defined(CEGUI_STATIC)
++#if (defined( __WIN32__ ) || defined( _WIN32 ))
+ #   ifdef CEGUITGAIMAGECODEC_EXPORTS
+ #       define CEGUITGAIMAGECODEC_API __declspec(dllexport)
+ #   else
+Index: cegui/src/Makefile.am
+===================================================================
+--- cegui/src/Makefile.am	(Revision 2337)
++++ cegui/src/Makefile.am	(Arbeitskopie)
+@@ -1,11 +1,18 @@
+-SUBDIRS = . ImageCodecModules RendererModules ScriptingModules WindowRendererSets XMLParserModules
++#SUBDIRS = . ImageCodecModules RendererModules ScriptingModules WindowRendererSets XMLParserModules
++if CSWIN32LIBS_STATIC
++SUBDIRS = .
++else
++SUBDIRS = . WindowRendererSets XMLParserModules
++endif
+ 
+ INCLUDES = -I$(top_srcdir)/cegui/include $(freetype2_CFLAGS) $(pcre_CFLAGS) \
+-           $(fribidi_CFLAGS)
++           $(fribidi_CFLAGS) \
++           -I$(top_srcdir)/cegui/include/XMLParserModules/TinyXMLParser
+ 
+ libCEGUIBase@cegui_bsfx@_la_LDFLAGS = @CEGUI_LIB_LINK_FLAGS@ \
+                                       $(freetype2_LIBS) $(pcre_LIBS) \
+-                                      $(fribidi_LIBS)
++                                      $(fribidi_LIBS) \
++                                      -export-symbols-regex "^(_Z([KTISVN]*5CEGUI|Thn).*|[A-Za-z]*)$$"
+ 
+ libCEGUIBase@cegui_bsfx@_la_LIBADD = $(cegui_pc_platform_libs)
+ 
+@@ -198,6 +205,76 @@
+ libCEGUIBase@cegui_bsfx@_la_SOURCES += CEGUIMinibidiVisualMapping.cpp
+ endif
+ 
++if CSWIN32LIBS_STATIC
++
++if MINGW32_BUILD
++libCEGUIBase@cegui_bsfx@_la_CPPFLAGS += -DCEGUITINYXMLPARSER_EXPORTS
++libCEGUIBase@cegui_bsfx@_la_CPPFLAGS += -DCEGUI_STATIC
++endif
++
++libCEGUIBase@cegui_bsfx@_la_SOURCES += XMLParserModules/TinyXMLParser/CEGUITinyXMLParser.cpp \
++                                   XMLParserModules/TinyXMLParser/CEGUITinyXMLParserModule.cpp \
++                                   XMLParserModules/TinyXMLParser/ceguitinyxml/tinystr.cpp \
++                                   XMLParserModules/TinyXMLParser/ceguitinyxml/tinyxml.cpp \
++                                   XMLParserModules/TinyXMLParser/ceguitinyxml/tinyxmlerror.cpp \
++                                   XMLParserModules/TinyXMLParser/ceguitinyxml/tinyxmlparser.cpp
++
++
++INCLUDES += -I$(top_srcdir)/cegui/include/WindowRendererSets/Falagard
++
++if MINGW32_BUILD
++libCEGUIBase@cegui_bsfx@_la_CPPFLAGS += -DFALAGARDWRBASE_EXPORTS -DCEGUIWRMODULE_EXPORTS
++endif
++
++libCEGUIBase@cegui_bsfx@_la_SOURCES += WindowRendererSets/Falagard/FalButton.cpp \
++                                  WindowRendererSets/Falagard/FalToggleButton.cpp \
++                                  WindowRendererSets/Falagard/FalDefault.cpp \
++                                  WindowRendererSets/Falagard/FalEditbox.cpp \
++                                  WindowRendererSets/Falagard/FalEditboxProperties.cpp \
++                                  WindowRendererSets/Falagard/FalFrameWindow.cpp \
++                                  WindowRendererSets/Falagard/FalItemEntry.cpp \
++                                  WindowRendererSets/Falagard/FalItemListbox.cpp \
++                                  WindowRendererSets/Falagard/FalListHeader.cpp \
++                                  WindowRendererSets/Falagard/FalListHeaderProperties.cpp \
++                                  WindowRendererSets/Falagard/FalListHeaderSegment.cpp \
++                                  WindowRendererSets/Falagard/FalListbox.cpp \
++                                  WindowRendererSets/Falagard/FalMenubar.cpp \
++                                  WindowRendererSets/Falagard/FalMenuItem.cpp \
++                                  WindowRendererSets/Falagard/FalModule.cpp \
++                                  WindowRendererSets/Falagard/FalMultiColumnList.cpp \
++                                  WindowRendererSets/Falagard/FalMultiLineEditbox.cpp \
++                                  WindowRendererSets/Falagard/FalMultiLineEditboxProperties.cpp \
++                                  WindowRendererSets/Falagard/FalPopupMenu.cpp \
++                                  WindowRendererSets/Falagard/FalProgressBar.cpp \
++                                  WindowRendererSets/Falagard/FalProgressBarProperties.cpp \
++                                  WindowRendererSets/Falagard/FalScrollablePane.cpp \
++                                  WindowRendererSets/Falagard/FalScrollbar.cpp \
++                                  WindowRendererSets/Falagard/FalScrollbarProperties.cpp \
++                                  WindowRendererSets/Falagard/FalSlider.cpp \
++                                  WindowRendererSets/Falagard/FalSliderProperties.cpp \
++                                  WindowRendererSets/Falagard/FalStatic.cpp \
++                                  WindowRendererSets/Falagard/FalStaticImage.cpp \
++                                  WindowRendererSets/Falagard/FalStaticImageProperties.cpp \
++                                  WindowRendererSets/Falagard/FalStaticProperties.cpp \
++                                  WindowRendererSets/Falagard/FalStaticText.cpp \
++                                  WindowRendererSets/Falagard/FalStaticTextProperties.cpp \
++                                  WindowRendererSets/Falagard/FalSystemButton.cpp \
++                                  WindowRendererSets/Falagard/FalTabButton.cpp \
++                                  WindowRendererSets/Falagard/FalTabControl.cpp \
++                                  WindowRendererSets/Falagard/FalTabControlProperties.cpp \
++                                  WindowRendererSets/Falagard/FalTitlebar.cpp \
++                                  WindowRendererSets/Falagard/FalTree.cpp \
++                                  WindowRendererSets/Falagard/FalTooltip.cpp
++endif
++
++INCLUDES += -I$(top_srcdir)/cegui/include/ImageCodecModules/TGAImageCodec
++
++if MINGW32_BUILD
++libCEGUIBase@cegui_bsfx@_la_CPPFLAGS += -DCEGUITGAIMAGECODEC_EXPORTS
++endif
++
++libCEGUIBase@cegui_bsfx@_la_SOURCES += ImageCodecModules/TGAImageCodec/CEGUITGAImageCodec.cpp ImageCodecModules/TGAImageCodec/CEGUITGAImageCodecModule.cpp
++
+ if MACOSX_BUILD
+ INCLUDES += -I$(top_srcdir)/src/implementations/mac
+ libCEGUIBase@cegui_bsfx@_la_SOURCES += implementations/mac/macPlugins.cpp
+Index: cegui/include/Makefile.am
+===================================================================
+--- cegui/include/Makefile.am	(Revision 2337)
++++ cegui/include/Makefile.am	(Arbeitskopie)
+@@ -1,4 +1,9 @@
+-SUBDIRS = . elements falagard ImageCodecModules RendererModules ScriptingModules WindowRendererSets XMLParserModules
++#SUBDIRS = . elements falagard ImageCodecModules RendererModules ScriptingModules WindowRendererSets XMLParserModules
++if CSWIN32LIBS_STATIC
++SUBDIRS = . 
++else
++SUBDIRS = . XMLParserModules WindowRendererSets
++endif
+ 
+ pkginclude_HEADERS = CEGUI.h \
+                  CEGUIBase.h \
