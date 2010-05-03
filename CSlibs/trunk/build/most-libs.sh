@@ -10,7 +10,7 @@ build/zlib.sh ${platform}
 build/lib.sh ${platform} lib3ds "install"
 build/lib.sh ${platform} libpng "install-libLTLIBRARIES install-data"
 mv temp/${platform}/prefix/lib/libpng14.a temp/${platform}/prefix/lib/libpng.a
-build/lib.sh ${platform} libjpeg "install-lib"
+build/lib.sh ${platform} libjpeg "install-libLTLIBRARIES install-data"
 build/lib.sh ${platform} libmng 
 build/lib.sh ${platform} libfreetype 
 for lib in libogg libspeex libvorbis ; do
