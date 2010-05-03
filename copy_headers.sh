@@ -43,6 +43,7 @@ mkdir -p headers/freetype/config/
 cp source/configs/freetype/config/*.h headers/freetype/config/
 cp source/configs/lib3ds/*.h headers/lib3ds/
 cp source/configs/ode/*.h headers/ode/
+cp source/configs/libjpeg/*.h headers/
 
 cp -r source/libwx/include/wx headers-wx/
 cp source/libwx/include/wx/msw/setup.h headers-wx/wx/

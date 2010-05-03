@@ -35,7 +35,7 @@
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;LIBJPEG_EXPORTS;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions="/fp:fast "
-				AdditionalIncludeDirectories="."
+				AdditionalIncludeDirectories=".;..\..\source\libjpeg\..\configs\libjpeg"
 				PrecompiledHeaderFile="..\..\out\release9\build\libjpeg\libjpeg.pch"
 				AssemblerListingLocation="..\..\out\release9\build\libjpeg\"
 				ObjectFile="..\..\out\release9\build\libjpeg\"
@@ -86,7 +86,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;LIBJPEG_EXPORTS;PROJECTGEN_VERSION=9"
-				AdditionalIncludeDirectories=".;..\..\source\libjpeg"
+				AdditionalIncludeDirectories=".;..\..\source\libjpeg;..\..\source\libjpeg\..\configs\libjpeg"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
@@ -117,7 +117,7 @@
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;LIBJPEG_EXPORTS;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions="/fp:fast "
-				AdditionalIncludeDirectories="."
+				AdditionalIncludeDirectories=".;..\..\source\libjpeg\..\configs\libjpeg"
 				PrecompiledHeaderFile="..\..\out\release9-x64\build\libjpeg\libjpeg.pch"
 				AssemblerListingLocation="..\..\out\release9-x64\build\libjpeg\"
 				ObjectFile="..\..\out\release9-x64\build\libjpeg\"
@@ -168,7 +168,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;LIBJPEG_EXPORTS;PROJECTGEN_VERSION=9"
-				AdditionalIncludeDirectories=".;..\..\source\libjpeg"
+				AdditionalIncludeDirectories=".;..\..\source\libjpeg;..\..\source\libjpeg\..\configs\libjpeg"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
@@ -181,10 +181,16 @@
 			Name="Source Files"
 			Filter="">
 			<File
+				RelativePath="..\..\source\libjpeg\jaricom.c">
+			</File>
+			<File
 				RelativePath="..\..\source\libjpeg\jcapimin.c">
 			</File>
 			<File
 				RelativePath="..\..\source\libjpeg\jcapistd.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libjpeg\jcarith.c">
 			</File>
 			<File
 				RelativePath="..\..\source\libjpeg\jccoefct.c">
@@ -217,9 +223,6 @@
 				RelativePath="..\..\source\libjpeg\jcparam.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libjpeg\jcphuff.c">
-			</File>
-			<File
 				RelativePath="..\..\source\libjpeg\jcprepct.c">
 			</File>
 			<File
@@ -233,6 +236,9 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libjpeg\jdapistd.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libjpeg\jdarith.c">
 			</File>
 			<File
 				RelativePath="..\..\source\libjpeg\jdatadst.c">
@@ -268,9 +274,6 @@
 				RelativePath="..\..\source\libjpeg\jdmerge.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libjpeg\jdphuff.c">
-			</File>
-			<File
 				RelativePath="..\..\source\libjpeg\jdpostct.c">
 			</File>
 			<File
@@ -301,9 +304,6 @@
 				RelativePath="..\..\source\libjpeg\jidctint.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libjpeg\jidctred.c">
-			</File>
-			<File
 				RelativePath="..\..\source\libjpeg\jmemmgr.c">
 			</File>
 			<File
@@ -323,19 +323,7 @@
 			Name="Header Files"
 			Filter="">
 			<File
-				RelativePath="..\..\source\libjpeg\jchuff.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libjpeg\jconfig-mac-cw.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libjpeg\jconfig.h">
-			</File>
-			<File
 				RelativePath="..\..\source\libjpeg\jdct.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libjpeg\jdhuff.h">
 			</File>
 			<File
 				RelativePath="..\..\source\libjpeg\jerror.h">
@@ -350,9 +338,6 @@
 				RelativePath="..\..\source\libjpeg\jmorecfg.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libjpeg\jos2fig.h">
-			</File>
-			<File
 				RelativePath="..\..\source\libjpeg\jpegint.h">
 			</File>
 			<File
@@ -360,9 +345,6 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libjpeg\jversion.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libjpeg\jwinfig.h">
 			</File>
 		</Filter>
 		<Filter
