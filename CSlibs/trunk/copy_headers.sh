@@ -31,11 +31,11 @@ cp -r temp/mingw/prefix/include/freetype2/freetype headers/
 cp -r temp/libCEGUI/prefix-mingw/include/CEGUI/* headers/
 
 mingw=mingw-gcc-3.4
-cp temp/libbullet/prefix-${mingw}/include/bullet/*.h headers/
-cp -r temp/libbullet/prefix-${mingw}/include/bullet/BulletCollision headers/
-cp -r temp/libbullet/prefix-${mingw}/include/bullet/BulletDynamics headers/
-cp -r temp/libbullet/prefix-${mingw}/include/bullet/BulletSoftBody headers/
-cp -r temp/libbullet/prefix-${mingw}/include/bullet/LinearMath headers/
+cp temp/libbullet/prefix-${mingw}/include/*.h headers/
+cp -r temp/libbullet/prefix-${mingw}/include/BulletCollision headers/
+cp -r temp/libbullet/prefix-${mingw}/include/BulletDynamics headers/
+cp -r temp/libbullet/prefix-${mingw}/include/BulletSoftBody headers/
+cp -r temp/libbullet/prefix-${mingw}/include/LinearMath headers/
 
 cp -r temp/libcal3d/prefix-${mingw}/include/cal3d headers/
 
