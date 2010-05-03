@@ -1,4 +1,4 @@
-1.9_005 (2010-??-??):
+1.9_005 (2010-05-03):
  - Updated Cg to 2.2 February 2010 release.
  - Added BulletSoftBody for VC.
  - Updated libz to 1.2.5.
