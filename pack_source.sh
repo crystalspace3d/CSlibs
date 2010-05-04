@@ -66,7 +66,7 @@ if [ -e ${WORKDIR} ] ; then
 fi
 
 VERSION=`cat version.inc | grep \".*\" | sed -e 's/#.*\"\(.*\)\"/\\1/'`
-PACKAGE="cs-win32libs-${VERSION}-src"
+PACKAGE="cs-winlibs-${VERSION}-src"
 TARNAME="${PACKAGE}.tar.bz2"
 TOP="`pwd`"
 
