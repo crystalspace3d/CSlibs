@@ -67,16 +67,22 @@ CollectSymbols collectsymbols_collect :
   libs/releasevc8only_static 
   libs/releasevc9only
   libs/releasevc9only_static 
+  libs/releasevc10only
+  libs/releasevc10only_static 
   libs/releasewxvc8only
   libs/releasewxvc9only
+  libs/releasewxvc10only
   libs/release-x64
   libs/releasenocygwin-x64
   libs/releasevc8only-x64
   libs/releasevc8only_static-x64
   libs/releasevc9only-x64
   libs/releasevc9only_static-x64
+  libs/releasevc10only-x64
+  libs/releasevc10only_static-x64
   libs/releasewxvc8only-x64
   libs/releasewxvc9only-x64
+  libs/releasewxvc10only-x64
   : $(SYMDIR) ;
 Depends collectsymbols_compress : collectsymbols_collect ;
 CompressSymbols collectsymbols_compress : $(SYMDIR) ;
@@ -174,7 +180,7 @@ WINLIBS_VER = "`cat $(TOP)/version.inc | grep CSLIBS_VERSION_STR | sed -e \"s/.*
 
 UploadFiles _uploadmsms2 : [ Wildcard $(LOCATE.MSI) : *.msm ] : 
   crystal@crystalspace3d.org :
-  www/crystalspace3d.org/htdocs/downloads/cs-win32libs/mergemodules/$(WINLIBS_VER) ;
+  www/crystalspace3d.org/htdocs/downloads/cs-winlibs/mergemodules/$(WINLIBS_VER) ;
 
 actions DoUploadMSMs2
 {
