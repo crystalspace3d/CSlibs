@@ -1,5 +1,16 @@
 #!/bin/sh
 
 platform=$1
+platform_short=$2
 
-build/lib.sh ${platform} libode "install" --enable-release --disable-demos
+if test ! -e temp/libode/${platform} ; then
+	mkdir -p temp/libode/${platform}
+fi
+mkdir -p libs/ReleaseGCCOnly/${platform}
+
+prefix=$(pwd)/temp/libode/prefix-${platform}
+cd temp/libode/${platform}
+../../../source/libode/configure $CONFIGUREOPTS --prefix=${prefix} --disable-shared --cache-file=config.cache --enable-release --disable-demos
+make install
+cd ../../..
+cp ${prefix}/lib/*.a libs/ReleaseGCCOnly_static/${platform}

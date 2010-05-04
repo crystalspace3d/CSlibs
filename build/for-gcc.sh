@@ -7,3 +7,4 @@ build/cal3d.sh ${platform} ${platform_short}
 build/cegui.sh ${platform} ${platform_short}
 build/bullet.sh ${platform} ${platform_short}
 build/wx.sh ${platform} ${platform_short}
+build/ode.sh ${platform} ${platform_short}
