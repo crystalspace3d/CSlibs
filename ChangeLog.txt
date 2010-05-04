@@ -1,3 +1,7 @@
+1.9_006 (2010-05-04):
+ - libjpeg struct size mismatch fix.
+ - Fixes for static ODE, Freetype on MinGW.
+
 1.9_005 (2010-05-03):
  - Updated Cg to 2.2 February 2010 release.
  - Added BulletSoftBody for VC.
