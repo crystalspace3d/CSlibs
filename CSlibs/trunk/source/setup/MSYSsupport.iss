@@ -67,17 +67,19 @@ end;
 
 #include "SupportCommon.inc"
 
+function DetectProfileName(): string;
+var
+  installDir: string;
+begin
 #if PlatformName == "MSYS"
-function DetectProfileName(): string;
-begin
-  Result := ExpandConstant ('{#MSYSPathKey}\') + 'etc\profile';
-end;
+  installDir := ExpandConstant ('{#MSYSPathKey}');
+  if installDir = '' then installDir := 'c:\msys\1.0';
 #elif PlatformName == "Cygwin"
-function DetectProfileName(): string;
-begin
-  Result := ExpandConstant ('{reg:HKCU\Software\Cygnus Solutions\Cygwin\mounts v2\/,native|{reg:HKLM\Software\Cygnus Solutions\Cygwin\mounts v2\/,native|{pf}\Cygwin}}\') + 'etc\profile';
-end;
+  installDir := ExpandConstant ('{reg:HKCU\Software\Cygnus Solutions\Cygwin\mounts v2\/,native|{reg:HKLM\Software\Cygnus Solutions\Cygwin\mounts v2\/,native|{pf}\Cygwin}}')
+  if installDir = '' then installDir := 'c:\cygwin';
 #endif
+  Result := installDir + '\etc\profile';
+end;
 
 function GetShortenedSrcDir(Default: String): string;
 var
@@ -117,9 +119,19 @@ end;
 function NextButtonClick(CurPage: Integer): Boolean;
 begin
   if (CurPage = profileFilePage.ID) then begin
-    UninstRegKey := profileFilePage.Values[0];
-  end;
-  Result := FSupportPageNext (CurPage);
+    if (not FileExists (profileFilePage.Values[0])) then
+    begin
+      MsgBox ('The specified ''profile'' file does not exists; please check if the path is correct.', mbError, MB_OK);
+      Result := false;
+    end
+    else
+    begin
+      UninstRegKey := profileFilePage.Values[0];
+      Result := true;
+    end;
+  end
+  else
+    Result := FSupportPageNext (CurPage);
 end;
 
 function ShouldSkipPage(PageID: Integer): Boolean;
@@ -131,5 +143,6 @@ function CheckPathAugment(): Boolean;
 begin
   Result := IsTaskSelected ('pathaugment');
 end;
+
 
 
