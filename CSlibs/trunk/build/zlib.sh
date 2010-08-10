@@ -2,19 +2,17 @@
 
 platform=$1
 
-cp -R source/libz temp/${platform}/
-chmod -R a+w temp/${platform}/libz
+SOURCES=$(pwd)/source/libz
+rm -f $SOURCES/zconf.h
+mkdir -p temp/${platform}/libz
 cd temp/${platform}/libz
-# configure was disabled on mingw with zlib 1.2.5
-#prefix=$(pwd)/../prefix ./configure
-#make
-#make install
-
-MAKE_OPTS=
+CMAKE_OPTS=""
+CMAKE_OPTS="$CMAKE_OPTS -DCMAKE_BUILD_TYPE=RelWithDebInfo"
+CMAKE_OPTS="$CMAKE_OPTS -DCMAKE_INSTALL_PREFIX=$(pwd)/../prefix"
+CMAKE_OPTS="$CMAKE_OPTS -DBUILD_SHARED_LIBS=off"
+CMAKE_OPTS="$CMAKE_OPTS -DSKIP_INSTALL_FILES=on"
 if [ -n "$BUILD_TARGET" ] ; then
-  MAKE_OPTS="PREFIX=$BUILD_TARGET-"
+  CMAKE_OPTS="$CMAKE_OPTS -DCMAKE_SYSTEM_NAME=Windows"
 fi
-make -f win32/Makefile.gcc $MAKE_OPTS libz.a
-LIBDIR=$(pwd)/../prefix/lib
-mkdir -p $LIBDIR
-cp libz.a $LIBDIR
+CC="${CC}.exe" CXX="${CXX}.exe" cmake -G "MSYS Makefiles" $CMAKE_OPTS $SOURCES
+make install
