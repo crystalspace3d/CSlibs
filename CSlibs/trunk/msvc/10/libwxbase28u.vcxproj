@@ -56,7 +56,7 @@
       <ProgramDataBaseFileName>..\..\out\release10\build\libwxbase28u\Win32\wxbase28u.pdb</ProgramDataBaseFileName>
       <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_BASE;wxUSE_GUI=0;wxUSE_BASE=1;COMPILED_FROM_DSP;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>.;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\regex;..\..\source\libwx\..\libz;..\..\source\libwx\src\expat\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\regex;..\..\source\libwx\src\zlib;..\..\source\libwx\src\expat\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderOutputFile>..\..\out\release10\build\libwxbase28u\libwxbase28u.pch</PrecompiledHeaderOutputFile>
       <AssemblerListingLocation>..\..\out\release10\build\libwxbase28u\</AssemblerListingLocation>
       <ObjectFileName>..\..\out\release10\build\libwxbase28u\</ObjectFileName>
@@ -89,7 +89,7 @@
     </PostBuildEvent>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_BASE;wxUSE_GUI=0;wxUSE_BASE=1;COMPILED_FROM_DSP;PROJECTGEN_VERSION=10;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\regex;..\..\source\libwx\..\libz;..\..\source\libwx\src\expat\lib</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\regex;..\..\source\libwx\src\zlib;..\..\source\libwx\src\expat\lib</AdditionalIncludeDirectories>
       <Culture>0x0409</Culture>
     </ResourceCompile>
   </ItemDefinitionGroup>
@@ -107,7 +107,7 @@
       <ProgramDataBaseFileName>..\..\out\release10-x64\build\libwxbase28u\x64\wxbase28u.pdb</ProgramDataBaseFileName>
       <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_BASE;wxUSE_GUI=0;wxUSE_BASE=1;COMPILED_FROM_DSP;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>.;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\regex;..\..\source\libwx\..\libz;..\..\source\libwx\src\expat\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\regex;..\..\source\libwx\src\zlib;..\..\source\libwx\src\expat\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderOutputFile>..\..\out\release10-x64\build\libwxbase28u\libwxbase28u.pch</PrecompiledHeaderOutputFile>
       <AssemblerListingLocation>..\..\out\release10-x64\build\libwxbase28u\</AssemblerListingLocation>
       <ObjectFileName>..\..\out\release10-x64\build\libwxbase28u\</ObjectFileName>
@@ -140,7 +140,7 @@
     </PostBuildEvent>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_BASE;wxUSE_GUI=0;wxUSE_BASE=1;COMPILED_FROM_DSP;PROJECTGEN_VERSION=10;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\regex;..\..\source\libwx\..\libz;..\..\source\libwx\src\expat\lib</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\regex;..\..\source\libwx\src\zlib;..\..\source\libwx\src\expat\lib</AdditionalIncludeDirectories>
       <Culture>0x0409</Culture>
     </ResourceCompile>
   </ItemDefinitionGroup>

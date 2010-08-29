@@ -35,7 +35,7 @@
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;LIBZ_EXPORTS;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions="/fp:fast "
-				AdditionalIncludeDirectories="."
+				AdditionalIncludeDirectories=".;..\..\source\libz\..\configs"
 				PrecompiledHeaderFile="..\..\out\release9\build\libz\libz.pch"
 				AssemblerListingLocation="..\..\out\release9\build\libz\"
 				ObjectFile="..\..\out\release9\build\libz\"
@@ -86,7 +86,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;LIBZ_EXPORTS;PROJECTGEN_VERSION=9"
-				AdditionalIncludeDirectories=".;..\..\source\libz"
+				AdditionalIncludeDirectories=".;..\..\source\libz;..\..\source\libz\..\configs"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
@@ -117,7 +117,7 @@
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;LIBZ_EXPORTS;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions="/fp:fast "
-				AdditionalIncludeDirectories="."
+				AdditionalIncludeDirectories=".;..\..\source\libz\..\configs"
 				PrecompiledHeaderFile="..\..\out\release9-x64\build\libz\libz.pch"
 				AssemblerListingLocation="..\..\out\release9-x64\build\libz\"
 				ObjectFile="..\..\out\release9-x64\build\libz\"
@@ -168,7 +168,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;LIBZ_EXPORTS;PROJECTGEN_VERSION=9"
-				AdditionalIncludeDirectories=".;..\..\source\libz"
+				AdditionalIncludeDirectories=".;..\..\source\libz;..\..\source\libz\..\configs"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
@@ -252,9 +252,6 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libz\trees.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libz\zconf.h">
 			</File>
 			<File
 				RelativePath="..\..\source\libz\zlib.h">

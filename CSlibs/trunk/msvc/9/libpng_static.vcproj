@@ -34,7 +34,7 @@
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions="/fp:fast "
-				AdditionalIncludeDirectories=".;..\..\source\libpng\..\libz;..\..\source\libpng"
+				AdditionalIncludeDirectories=".;..\..\source\libpng\..\configs;..\..\source\libpng\..\libz;..\..\source\libpng"
 				PrecompiledHeaderFile="..\..\out\release9\build\libpng_static\libpng_static.pch"
 				AssemblerListingLocation="..\..\out\release9\build\libpng_static\"
 				ObjectFile="..\..\out\release9\build\libpng_static\"
@@ -79,7 +79,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;PROJECTGEN_VERSION=9"
-				AdditionalIncludeDirectories=".;..\..\source\libpng;..\..\source\libpng\..\libz;..\..\source\libpng"
+				AdditionalIncludeDirectories=".;..\..\source\libpng;..\..\source\libpng\..\configs;..\..\source\libpng\..\libz;..\..\source\libpng"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
@@ -109,7 +109,7 @@
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions="/fp:fast "
-				AdditionalIncludeDirectories=".;..\..\source\libpng\..\libz;..\..\source\libpng"
+				AdditionalIncludeDirectories=".;..\..\source\libpng\..\configs;..\..\source\libpng\..\libz;..\..\source\libpng"
 				PrecompiledHeaderFile="..\..\out\release9-x64\build\libpng_static\libpng_static.pch"
 				AssemblerListingLocation="..\..\out\release9-x64\build\libpng_static\"
 				ObjectFile="..\..\out\release9-x64\build\libpng_static\"
@@ -154,7 +154,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;PROJECTGEN_VERSION=9"
-				AdditionalIncludeDirectories=".;..\..\source\libpng;..\..\source\libpng\..\libz;..\..\source\libpng"
+				AdditionalIncludeDirectories=".;..\..\source\libpng;..\..\source\libpng\..\configs;..\..\source\libpng\..\libz;..\..\source\libpng"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>

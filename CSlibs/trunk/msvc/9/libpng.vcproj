@@ -35,7 +35,7 @@
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;PNG_USE_PNGVCRD;SPECIALBUILD=\&quot;Built for CrystalSpace, may cause problems if used for other software.\&quot;;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions="/fp:fast "
-				AdditionalIncludeDirectories=".;..\..\source\libpng\..\libz;..\..\source\libpng"
+				AdditionalIncludeDirectories=".;..\..\source\libpng\..\configs;..\..\source\libpng\..\libz;..\..\source\libpng"
 				PrecompiledHeaderFile="..\..\out\release9\build\libpng\libpng.pch"
 				AssemblerListingLocation="..\..\out\release9\build\libpng\"
 				ObjectFile="..\..\out\release9\build\libpng\"
@@ -86,7 +86,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;PNG_USE_PNGVCRD;SPECIALBUILD=\&quot;Built for CrystalSpace, may cause problems if used for other software.\&quot;;PROJECTGEN_VERSION=9"
-				AdditionalIncludeDirectories=".;..\..\source\libpng;..\..\source\libpng\..\libz;..\..\source\libpng"
+				AdditionalIncludeDirectories=".;..\..\source\libpng;..\..\source\libpng\..\configs;..\..\source\libpng\..\libz;..\..\source\libpng"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
@@ -117,7 +117,7 @@
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;PNG_USE_PNGVCRD;SPECIALBUILD=\&quot;Built for CrystalSpace, may cause problems if used for other software.\&quot;;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions="/fp:fast "
-				AdditionalIncludeDirectories=".;..\..\source\libpng\..\libz;..\..\source\libpng"
+				AdditionalIncludeDirectories=".;..\..\source\libpng\..\configs;..\..\source\libpng\..\libz;..\..\source\libpng"
 				PrecompiledHeaderFile="..\..\out\release9-x64\build\libpng\libpng.pch"
 				AssemblerListingLocation="..\..\out\release9-x64\build\libpng\"
 				ObjectFile="..\..\out\release9-x64\build\libpng\"
@@ -168,7 +168,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;PNG_USE_PNGVCRD;SPECIALBUILD=\&quot;Built for CrystalSpace, may cause problems if used for other software.\&quot;;PROJECTGEN_VERSION=9"
-				AdditionalIncludeDirectories=".;..\..\source\libpng;..\..\source\libpng\..\libz;..\..\source\libpng"
+				AdditionalIncludeDirectories=".;..\..\source\libpng;..\..\source\libpng\..\configs;..\..\source\libpng\..\libz;..\..\source\libpng"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
