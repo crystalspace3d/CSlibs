@@ -35,6 +35,8 @@ DisableProgramGroupPage=true
 WizardImageFile=compiler:WizModernImage-IS.bmp
 WizardSmallImageFile=compiler:WizModernSmallImage-IS.bmp
 PrivilegesRequired=none
+SignTool=standard
+SignedUninstaller=yes
 [Files]
 Source: {src}\common\include\*.*; DestDir: {app}\winlibs\{#ArchDir}\include; Flags: external skipifsourcedoesntexist recursesubdirs
 Source: {src}\vc\include\*.*; DestDir: {app}\winlibs\{#ArchDir}\include; Flags: external skipifsourcedoesntexist recursesubdirs
@@ -86,4 +88,5 @@ begin
     UninstRegKey := ExpandConstant ('{app}');
   end;
 end;
+
 

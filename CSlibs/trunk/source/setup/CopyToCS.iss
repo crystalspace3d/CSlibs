@@ -35,6 +35,8 @@ DisableReadyPage=yes
 WizardImageFile=compiler:WizModernImage-IS.bmp
 WizardSmallImageFile=compiler:WizModernSmallImage-IS.bmp
 PrivilegesRequired=none
+SignTool=standard
+SignedUninstaller=yes
 [Files]
 ; Copy the DLLs to the CS dir.
 Source: {src}\dlls\*.dll; DestDir: {app}; Flags: external skipifsourcedoesntexist ignoreversion
@@ -42,10 +44,15 @@ Source: {src}\dlls\*.pdb; DestDir: {app}; Flags: external skipifsourcedoesntexis
 Source: {src}\dlls\*.manifest; DestDir: {app}; Flags: external skipifsourcedoesntexist ignoreversion
 Source: {src}\dlls\vc\*.dll; DestDir: {app}; Flags: external skipifsourcedoesntexist ignoreversion
 Source: {src}\dlls\vc\*.pdb; DestDir: {app}; Flags: external skipifsourcedoesntexist ignoreversion
-Source: {src}\dlls\mingw\*.dll; DestDir: {app}; Flags: external skipifsourcedoesntexist ignoreversion
-Source: {src}\dlls\mingw\*.dbg; DestDir: {app}; Flags: external skipifsourcedoesntexist ignoreversion
-Source: {src}\dlls\mingw-gcc-3.4\*.dll; DestDir: {app}; Flags: external skipifsourcedoesntexist ignoreversion
-Source: {src}\dlls\mingw-gcc-3.4\*.dbg; DestDir: {app}; Flags: external skipifsourcedoesntexist ignoreversion
+Source: {src}\dlls\mingw{#ArchSuffix}\*.dll; DestDir: {app}; Flags: external skipifsourcedoesntexist ignoreversion
+Source: {src}\dlls\mingw{#ArchSuffix}\*.dbg; DestDir: {app}; Flags: external skipifsourcedoesntexist ignoreversion
+#define MINGWDLLS(GccVer) \
+  "Source: {src}\dlls\mingw" + ArchSuffix + "-gcc-" + GccVer + "\*.dll; DestDir: {app}; Flags: external skipifsourcedoesntexist ignoreversion" + NL + \
+  "Source: {src}\dlls\mingw" + ArchSuffix + "-gcc-" + GccVer + "\*.dbg; DestDir: {app}; Flags: external skipifsourcedoesntexist ignoreversion"
+#emit MINGWDLLS("3.4")
+#emit MINGWDLLS("4.4")
+#emit MINGWDLLS("4.5")
+Source: {src}\openal\*.dll; DestDir: {app}; Flags: external skipifsourcedoesntexist ignoreversion
 [Registry]
 Root: HKLM; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstvalName}; ValueData: {uninstallexe}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: IsAdminLoggedOn
 Root: HKCU; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstvalName}; ValueData: {uninstallexe}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: not IsAdminLoggedOn
@@ -91,5 +98,7 @@ function ShouldSkipPage(PageID: Integer): Boolean;
 begin
   Result := FSupportPageSkip (PageID);
 end;
+
+
 
 
