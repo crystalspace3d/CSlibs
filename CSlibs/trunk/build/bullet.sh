@@ -24,4 +24,4 @@ fi
 CC="${CC}.exe" CXX="${CXX}.exe" cmake -G "MSYS Makefiles" $CMAKE_OPTS ../../../source/libbullet
 make install
 cd ../../..
-cp ${prefix}/lib/*.a libs/ReleaseGCCOnly/${platform}
+cp -p ${prefix}/lib/*.a libs/ReleaseGCCOnly/${platform}

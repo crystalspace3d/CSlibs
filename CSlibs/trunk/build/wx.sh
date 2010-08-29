@@ -20,7 +20,7 @@ cd ../../..
 
 OUTPREFIX=libs/prefix-wx/${platform}
 mkdir -p ${OUTPREFIX}/lib
-cp -r ${prefix}/lib ${OUTPREFIX}/
-cp -r ${prefix}/include ${OUTPREFIX}/
+cp -pr ${prefix}/lib ${OUTPREFIX}/
+cp -pr ${prefix}/include ${OUTPREFIX}/
 cat ${prefix}/bin/wx-config | sed -e "s!\${prefix}/include!%CSLIBSPATH_MSYS%/${platform_short}/include!g" | sed -e "s!${prefix}!%CSLIBSPATH_MSYS%/${platform}!g" > ${OUTPREFIX}/wx-config-${platform}
 ${TOP}/debug-extract.sh `ls -1 ${OUTPREFIX}/lib/*.dll`

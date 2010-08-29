@@ -13,4 +13,4 @@ cd temp/libcal3d/${platform}
 CPPFLAGS="-DNDEBUG" ../../../source/libcal3d/configure $CONFIGUREOPTS --prefix=${prefix} --disable-shared -C
 make install
 cd ../../..
-cp ${prefix}/lib/*.a libs/ReleaseGCCOnly/${platform}
+cp -p ${prefix}/lib/*.a libs/ReleaseGCCOnly/${platform}

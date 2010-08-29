@@ -13,4 +13,4 @@ cd temp/libode/${platform}
 ../../../source/libode/configure $CONFIGUREOPTS --prefix=${prefix} --disable-shared --cache-file=config.cache --enable-release --disable-demos
 make install
 cd ../../..
-cp ${prefix}/lib/*.a libs/ReleaseGCCOnly_static/${platform}
+cp -p ${prefix}/lib/*.a libs/ReleaseGCCOnly_static/${platform}
