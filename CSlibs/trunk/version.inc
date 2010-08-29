@@ -1,5 +1,5 @@
-#define CSLIBS_VERSION_STR				"1.9_006"
+#define CSLIBS_VERSION_STR				"1.9_007"
 #ifdef RC_INVOKED
-  #define CSLIBS_VERSION_NUM  1,9,0,6
+  #define CSLIBS_VERSION_NUM  1,9,0,7
 #endif
-//MSM_VER=1.9.006
+//MSM_VER=1.9.007
