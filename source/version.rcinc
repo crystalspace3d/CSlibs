@@ -6,9 +6,17 @@
 #include <windows.h>
 
 #include "../version.inc"
+#ifndef INHIBIT_WINLIBS_TAG
 #define VER_FILE_NUMERIC	CSLIBS_VERSION_NUM
 #define VER_FILE_STR		"cs-winlibs " CSLIBS_VERSION_STR "\0"
+#else
+#define VER_FILE_NUMERIC	VER_PRODUCT_NUMERIC
+#define VER_FILE_STR		VER_PRODUCT_STR
+#endif
 
+#ifndef VER_COPYRIGHT
+  #define VER_COPYRIGHT
+#endif
 #ifndef VER_TRADEMARKS
   #define VER_TRADEMARKS
 #endif
@@ -47,7 +55,9 @@ BEGIN
             VALUE "PrivateBuild", "\0"
             VALUE "ProductName", VER_PRODUCTNAME "\0"
             VALUE "ProductVersion", VER_PRODUCT_STR "\0"
+#ifndef INHIBIT_WINLIBS_TAG
             VALUE "SpecialBuild", "Built for CrystalSpace; may cause problems if used for other software."
+#endif
 #ifdef _DEBUG
                 "\nDEBUG build"
 #endif
