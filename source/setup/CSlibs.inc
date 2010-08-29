@@ -1,4 +1,9 @@
 #include "../../version.inc"
+
+#pragma parseroption -p-
+#define NL "\n"
+#pragma parseroption -p+
+
 #define CSLibsVersion				CSLIBS_VERSION_STR
 #ifdef X64
 #define CSLibsName					"CrystalSpace Windows libraries (x64)"
