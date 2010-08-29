@@ -4,7 +4,7 @@ BaseLib png :
   [ Wildcard png*.c png*.h ] : 
   libpng :
   $(SUBDIR)/scripts/pngwin.def :
-  $(SUBDIR)/../libz $(SUBDIR) :
+  $(SUBDIR)/../configs $(SUBDIR)/../libz $(SUBDIR) :
   :
   ReleaseNoCygwin ;
 LibDepends png : z ;
