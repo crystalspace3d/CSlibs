@@ -3,6 +3,7 @@ SubDir TOP source libz ;
 BaseLib z : 
   [ Filter [ Wildcard *.c *.h ] : example.c minigzip.c ] : 
   zlib :
-  $(SUBDIR)/win32/zlib.def ;
+  $(SUBDIR)/win32/zlib.def :
+  $(SUBDIR)/../configs ;
 MsvcDefine z : LIBZ_EXPORTS ;
 MsvcExtraFile z : source/zlib.rc ;
