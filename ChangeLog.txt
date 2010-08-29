@@ -1,3 +1,13 @@
+1.9_007 (2010-??-??):
+ - Updated libpng to 1.4.3.
+ - Updated libjpeg to 8b.
+ - Updated freetype to 2.4.2.
+ - Updated pcre to 8.10.
+ - Included x86 and x64 builds of OpenAL Soft 1.12.854.
+ - Build libraries for MinGW gcc 4.5 as well.
+ - Changed mingw64 gcc version to 4.5.1.
+ - Main/support installers now signed.
+
 1.9_006 (2010-05-04):
  - libjpeg struct size mismatch fix.
  - Fixes for static ODE, Freetype on MinGW.
