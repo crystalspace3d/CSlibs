@@ -68,7 +68,7 @@ if [ x$mode != xstaticonly ]; then
     # link a static lib for which not .la file exists.
     # So fake some up...
     mkdir -p ${prefix}/lib/
-    cp ${pcre}/lib/libpcre.a ${prefix}/lib/
+    cp -p ${pcre}/lib/libpcre.a ${prefix}/lib/
     build/fake-libtool-lib.sh ${prefix}/lib/libpcre.la
     
     FREETYPE="-L${basedir}/libs/release -lfreetype2"
@@ -76,9 +76,9 @@ if [ x$mode != xstaticonly ]; then
       #cp ${basedir}/libs/release-x64/freetype2.lib ${prefix}/lib/libfreetype2.a
       #build/fake-libtool-lib.sh ${prefix}/lib/libfreetype2.la
       # @@@ Apparently, mingw64 can't use MSVC import libs (like mingw32 can)
-      cp temp/${platform_short}/prefix/lib/libz.a ${prefix}/lib/
+      cp -p temp/${platform_short}/prefix/lib/libz.a ${prefix}/lib/
       build/fake-libtool-lib.sh ${prefix}/lib/libz.la
-      cp temp/${platform_short}/prefix/lib/libfreetype.a ${prefix}/lib/
+      cp -p temp/${platform_short}/prefix/lib/libfreetype.a ${prefix}/lib/
       build/fake-libtool-lib.sh ${prefix}/lib/libfreetype.la
       FREETYPE="-lfreetype -lz"
     fi
@@ -108,10 +108,10 @@ if [ x$mode != xstaticonly ]; then
     cp ${build}/cegui/src/WindowRendererSets/Falagard/.libs/*.a ${prefix}/lib/
     
     ${TOP}/debug-extract.sh `ls -1 ${prefix}/bin/*.dll`
-    cp ${prefix}/bin/*.dll libs/ReleaseGCCOnly/${platform_short}
-    cp ${prefix}/bin/*.dbg libs/ReleaseGCCOnly/${platform_short}
+    cp -p ${prefix}/bin/*.dll libs/ReleaseGCCOnly/${platform_short}
+    cp -p ${prefix}/bin/*.dbg libs/ReleaseGCCOnly/${platform_short}
     for lib in CEGUIBase CEGUIFalagardWRBase CEGUITinyXMLParser ; do
-      cp ${prefix}/lib/lib${lib}-cs${platform}.dll.a \
+      cp -p ${prefix}/lib/lib${lib}-cs${platform}.dll.a \
         libs/ReleaseGCCOnly/${platform}/lib${lib}.a
     done
   fi
@@ -119,11 +119,11 @@ fi
 
 # Later steps expect the headers there
 mkdir -p ${prefix}/include/CEGUI/
-cp ${source}/cegui/include/*.h ${prefix}/include/CEGUI
+cp -p ${source}/cegui/include/*.h ${prefix}/include/CEGUI
 mkdir -p ${prefix}/include/CEGUI/elements
-cp ${source}/cegui/include/elements/*.h ${prefix}/include/CEGUI/elements
+cp -p ${source}/cegui/include/elements/*.h ${prefix}/include/CEGUI/elements
 mkdir -p ${prefix}/include/CEGUI/falagard
-cp ${source}/cegui/include/falagard/*.h ${prefix}/include/CEGUI/falagard
+cp -p ${source}/cegui/include/falagard/*.h ${prefix}/include/CEGUI/falagard
 
 
 if [ x$mode != xnostatic ]; then
@@ -134,11 +134,11 @@ if [ x$mode != xnostatic ]; then
   # link a static lib for which not .la file exists.
   # So fake some up...
   mkdir -p ${prefix}/lib/
-  cp temp/${platform_short}/prefix/lib/libz.a ${prefix}/lib/
+  cp -p temp/${platform_short}/prefix/lib/libz.a ${prefix}/lib/
   build/fake-libtool-lib.sh ${prefix}/lib/libz.la
-  cp temp/${platform_short}/prefix/lib/libfreetype.a ${prefix}/lib/
+  cp -p temp/${platform_short}/prefix/lib/libfreetype.a ${prefix}/lib/
   build/fake-libtool-lib.sh ${prefix}/lib/libfreetype.la
-  cp ${pcre}/lib/libpcre.a ${prefix}/lib/
+  cp -p ${pcre}/lib/libpcre.a ${prefix}/lib/
   build/fake-libtool-lib.sh ${prefix}/lib/libpcre.la
 
   build=temp/${library}/${platform}-static
@@ -159,10 +159,10 @@ if [ x$mode != xnostatic ]; then
   cp ${build}/cegui/src/.libs/*.a ${prefix}/lib/
 
   ${TOP}/debug-extract.sh `ls -1 temp/${library}/prefix-${platform_short}-static/bin/*.dll`
-  cp ${prefix}/bin/*.dll libs/ReleaseGCCOnly_static/${platform_short}
-  cp ${prefix}/bin/*.dbg libs/ReleaseGCCOnly_static/${platform_short}
+  cp -p ${prefix}/bin/*.dll libs/ReleaseGCCOnly_static/${platform_short}
+  cp -p ${prefix}/bin/*.dbg libs/ReleaseGCCOnly_static/${platform_short}
   for lib in CEGUIBase ; do
-    cp ${prefix}/lib/lib${lib}-cs${platform}.dll.a \
+    cp -p ${prefix}/lib/lib${lib}-cs${platform}.dll.a \
       libs/ReleaseGCCOnly_static/${platform}/lib${lib}.a
   done
 fi

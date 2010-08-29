@@ -15,37 +15,38 @@ if test ! -e headers-wx ; then
 	mkdir headers-wx
 fi
 
-# caca, png, z, jpeg, mng
-cp temp/mingw/prefix/include/*.h headers/
+# png, z, jpeg, mng
+cp -p temp/mingw/prefix/include/*.h headers/
 mv headers/png* headers-nocygwin/
 # Take out an "#include <unistd.h>"
 cat headers/zconf.h | sed "s/#if 1/#if 0/" > headers/zconf.new
 mv headers/zconf.new headers/zconf.h
-cp -r temp/mingw/prefix/include/lib3ds headers/
+cp -pr temp/mingw/prefix/include/lib3ds headers/
 mkdir -p headers/ode
-cp -r source/libode/include/ode/*.h headers/ode/
-cp -r temp/mingw/prefix/include/ogg headers/
-cp -r temp/mingw/prefix/include/speex headers/
-cp -r temp/mingw/prefix/include/vorbis headers/
-cp -r temp/mingw/prefix/include/freetype2/freetype headers/
+cp -pr source/libode/include/ode/*.h headers/ode/
+cp -pr temp/mingw/prefix/include/ogg headers/
+cp -pr temp/mingw/prefix/include/speex headers/
+cp -pr temp/mingw/prefix/include/vorbis headers/
+cp -pr temp/mingw/prefix/include/freetype2/freetype headers/
 
-cp -r temp/libCEGUI/prefix-mingw/include/CEGUI/* headers/
+cp -pr temp/libCEGUI/prefix-mingw/include/CEGUI/* headers/
 
 mingw=mingw-gcc-3.4
-cp temp/libbullet/prefix-${mingw}/include/*.h headers/
-cp -r temp/libbullet/prefix-${mingw}/include/BulletCollision headers/
-cp -r temp/libbullet/prefix-${mingw}/include/BulletDynamics headers/
-cp -r temp/libbullet/prefix-${mingw}/include/BulletSoftBody headers/
-cp -r temp/libbullet/prefix-${mingw}/include/LinearMath headers/
+cp -p temp/libbullet/prefix-${mingw}/include/*.h headers/
+cp -pr temp/libbullet/prefix-${mingw}/include/BulletCollision headers/
+cp -pr temp/libbullet/prefix-${mingw}/include/BulletDynamics headers/
+cp -pr temp/libbullet/prefix-${mingw}/include/BulletSoftBody headers/
+cp -pr temp/libbullet/prefix-${mingw}/include/LinearMath headers/
 
-cp -r temp/libcal3d/prefix-${mingw}/include/cal3d headers/
+cp -pr temp/libcal3d/prefix-${mingw}/include/cal3d headers/
 
 mkdir -p headers/freetype/config/
-cp source/configs/freetype/config/*.h headers/freetype/config/
-cp source/configs/lib3ds/*.h headers/lib3ds/
-cp source/configs/ode/*.h headers/ode/
-cp source/configs/libjpeg/*.h headers/
+cp -p source/configs/freetype/config/*.h headers/freetype/config/
+cp -p source/configs/lib3ds/*.h headers/lib3ds/
+cp -p source/configs/ode/*.h headers/ode/
+cp -p source/configs/libjpeg/*.h headers/
+cp -p source/configs/*.h headers/
 
-cp -r source/libwx/include/wx headers-wx/
-cp source/libwx/include/wx/msw/setup.h headers-wx/wx/
+cp -pr source/libwx/include/wx headers-wx/
+cp -p source/libwx/include/wx/msw/setup.h headers-wx/wx/
 #cp -r temp/libwx/prefix-${mingw}/lib/wx/include/msw-unicode-release-2.8/wx headers-wx/

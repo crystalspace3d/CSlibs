@@ -18,4 +18,4 @@ for lib in libogg libspeex libvorbis ; do
 done
 
 rm temp/${platform}/prefix/lib/*.la
-cp temp/${platform}/prefix/lib/*.a libs/ReleaseGCCOnly_static/${platform}/
+cp -p temp/${platform}/prefix/lib/*.a libs/ReleaseGCCOnly_static/${platform}/
