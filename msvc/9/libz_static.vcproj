@@ -34,7 +34,7 @@
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions="/fp:fast "
-				AdditionalIncludeDirectories="."
+				AdditionalIncludeDirectories=".;..\..\source\libz\..\configs"
 				PrecompiledHeaderFile="..\..\out\release9\build\libz_static\libz_static.pch"
 				AssemblerListingLocation="..\..\out\release9\build\libz_static\"
 				ObjectFile="..\..\out\release9\build\libz_static\"
@@ -79,7 +79,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;PROJECTGEN_VERSION=9"
-				AdditionalIncludeDirectories=".;..\..\source\libz"
+				AdditionalIncludeDirectories=".;..\..\source\libz;..\..\source\libz\..\configs"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
@@ -109,7 +109,7 @@
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions="/fp:fast "
-				AdditionalIncludeDirectories="."
+				AdditionalIncludeDirectories=".;..\..\source\libz\..\configs"
 				PrecompiledHeaderFile="..\..\out\release9-x64\build\libz_static\libz_static.pch"
 				AssemblerListingLocation="..\..\out\release9-x64\build\libz_static\"
 				ObjectFile="..\..\out\release9-x64\build\libz_static\"
@@ -154,7 +154,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;PROJECTGEN_VERSION=9"
-				AdditionalIncludeDirectories=".;..\..\source\libz"
+				AdditionalIncludeDirectories=".;..\..\source\libz;..\..\source\libz\..\configs"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
@@ -238,9 +238,6 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libz\trees.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libz\zconf.h">
 			</File>
 			<File
 				RelativePath="..\..\source\libz\zlib.h">
