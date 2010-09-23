@@ -15,11 +15,8 @@
 #undef NEED_SHORT_EXTERNAL_NAMES
 #undef INCOMPLETE_TYPES_BROKEN
 
-/* [res] Let 'boolean' default to 'int'.
-   No problem in CS, relatively easily worked around elsewhere, and more
-   compatible across the board (eg mingw default build is also 'int'). */
-#if 0
-/* Define "boolean" as unsigned char, not int, per Windows custom */
+/* Define "boolean" as unsigned char, not int, on Windows systems. */
+#ifdef _WIN32
 #ifndef __RPCNDR_H__		/* don't conflict if rpcndr.h already read */
 typedef unsigned char boolean;
 #endif
