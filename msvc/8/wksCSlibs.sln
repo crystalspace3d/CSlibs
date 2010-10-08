@@ -181,6 +181,10 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libwxpng_static", "libwxpng_static.vcproj", "{92B650F3-C9BE-8C7E-CB66-8941D265C3DC}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libwxtiff_static", "libwxtiff_static.vcproj", "{A241AEB7-7B03-D9AD-9169-F39BA93DD5A5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CDE0F95C-C796-943C-1176-8603B97645DB} = {CDE0F95C-C796-943C-1176-8603B97645DB}
+		{5E039D86-8329-E980-D434-321B8B4A2D54} = {5E039D86-8329-E980-D434-321B8B4A2D54}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libwxzlib_static", "libwxzlib_static.vcproj", "{5E039D86-8329-E980-D434-321B8B4A2D54}"
 EndProject
