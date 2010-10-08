@@ -381,7 +381,7 @@ BaseLib wxtiff :
   :
   $(SUBDIR)/include : 
   staticonly norelease ;
-LibDepends wxtiff_static : jpeg_static z_static ;
+LibDepends wxtiff_static : wxjpeg_static wxzlib_static ;
 
 WXMSW_CORE_DEPS.AVAILABLE = yes ;
 WXMSW_CORE_DEPS.LIBS = comctl32.lib rpcrt4.lib ;
