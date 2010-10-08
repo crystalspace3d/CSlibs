@@ -34,7 +34,7 @@
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;MNG_SUPPORT_FULL;MNG_NO_CMS;MNG_ACCESS_CHUNKS;MNG_STORE_CHUNKS;MNG_SUPPORT_WRITE;MNG_SUPPORT_READ;MNG_SUPPORT_DISPLAY;MNG_ERROR_TELLTALE;MNG_ACCESS_ZLIB;MNG_ACCESS_JPEG;MNG_SKIPCANVAS_ABGR8;MNG_SKIPCANVAS_ARGB8;MNG_SKIPCANVAS_BGR8;MNG_SKIPCANVAS_BGRA8;MNG_SKIPCANVAS_BGRA8_PM;MNG_SKIPCANVAS_BGRX8;MNG_SKIPCHUNK_iCCP;MNG_SKIPCHUNK_tEXt;MNG_SKIPCHUNK_zTXt;MNG_SKIPCHUNK_iTXt;MNG_SKIPCHUNK_bKGD;MNG_SKIPCHUNK_pHYs;MNG_SKIPCHUNK_sBIT;MNG_SKIPCHUNK_sPLT;MNG_SKIPCHUNK_hIST;MNG_SKIPCHUNK_tIME;MNG_SKIPCHUNK_eXPI;MNG_SKIPCHUNK_fPRI;MNG_SKIPCHUNK_nEED;MNG_SKIPCHUNK_pHYg;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions="/fp:fast "
-				AdditionalIncludeDirectories=".;..\..\source\libmng\..\libz;..\..\source\libmng\..\libjpeg"
+				AdditionalIncludeDirectories=".;..\..\source\libmng\..\libz;..\..\source\libmng\..\configs;..\..\source\libmng\..\configs\libjpeg;..\..\source\libmng\..\libjpeg"
 				PrecompiledHeaderFile="..\..\out\release9\build\libmng_static\libmng_static.pch"
 				AssemblerListingLocation="..\..\out\release9\build\libmng_static\"
 				ObjectFile="..\..\out\release9\build\libmng_static\"
@@ -79,7 +79,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;MNG_SUPPORT_FULL;MNG_NO_CMS;MNG_ACCESS_CHUNKS;MNG_STORE_CHUNKS;MNG_SUPPORT_WRITE;MNG_SUPPORT_READ;MNG_SUPPORT_DISPLAY;MNG_ERROR_TELLTALE;MNG_ACCESS_ZLIB;MNG_ACCESS_JPEG;MNG_SKIPCANVAS_ABGR8;MNG_SKIPCANVAS_ARGB8;MNG_SKIPCANVAS_BGR8;MNG_SKIPCANVAS_BGRA8;MNG_SKIPCANVAS_BGRA8_PM;MNG_SKIPCANVAS_BGRX8;MNG_SKIPCHUNK_iCCP;MNG_SKIPCHUNK_tEXt;MNG_SKIPCHUNK_zTXt;MNG_SKIPCHUNK_iTXt;MNG_SKIPCHUNK_bKGD;MNG_SKIPCHUNK_pHYs;MNG_SKIPCHUNK_sBIT;MNG_SKIPCHUNK_sPLT;MNG_SKIPCHUNK_hIST;MNG_SKIPCHUNK_tIME;MNG_SKIPCHUNK_eXPI;MNG_SKIPCHUNK_fPRI;MNG_SKIPCHUNK_nEED;MNG_SKIPCHUNK_pHYg;PROJECTGEN_VERSION=9"
-				AdditionalIncludeDirectories=".;..\..\source\libmng;..\..\source\libmng\..\libz;..\..\source\libmng\..\libjpeg"
+				AdditionalIncludeDirectories=".;..\..\source\libmng;..\..\source\libmng\..\libz;..\..\source\libmng\..\configs;..\..\source\libmng\..\configs\libjpeg;..\..\source\libmng\..\libjpeg"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
@@ -109,7 +109,7 @@
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;MNG_SUPPORT_FULL;MNG_NO_CMS;MNG_ACCESS_CHUNKS;MNG_STORE_CHUNKS;MNG_SUPPORT_WRITE;MNG_SUPPORT_READ;MNG_SUPPORT_DISPLAY;MNG_ERROR_TELLTALE;MNG_ACCESS_ZLIB;MNG_ACCESS_JPEG;MNG_SKIPCANVAS_ABGR8;MNG_SKIPCANVAS_ARGB8;MNG_SKIPCANVAS_BGR8;MNG_SKIPCANVAS_BGRA8;MNG_SKIPCANVAS_BGRA8_PM;MNG_SKIPCANVAS_BGRX8;MNG_SKIPCHUNK_iCCP;MNG_SKIPCHUNK_tEXt;MNG_SKIPCHUNK_zTXt;MNG_SKIPCHUNK_iTXt;MNG_SKIPCHUNK_bKGD;MNG_SKIPCHUNK_pHYs;MNG_SKIPCHUNK_sBIT;MNG_SKIPCHUNK_sPLT;MNG_SKIPCHUNK_hIST;MNG_SKIPCHUNK_tIME;MNG_SKIPCHUNK_eXPI;MNG_SKIPCHUNK_fPRI;MNG_SKIPCHUNK_nEED;MNG_SKIPCHUNK_pHYg;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions="/fp:fast "
-				AdditionalIncludeDirectories=".;..\..\source\libmng\..\libz;..\..\source\libmng\..\libjpeg"
+				AdditionalIncludeDirectories=".;..\..\source\libmng\..\libz;..\..\source\libmng\..\configs;..\..\source\libmng\..\configs\libjpeg;..\..\source\libmng\..\libjpeg"
 				PrecompiledHeaderFile="..\..\out\release9-x64\build\libmng_static\libmng_static.pch"
 				AssemblerListingLocation="..\..\out\release9-x64\build\libmng_static\"
 				ObjectFile="..\..\out\release9-x64\build\libmng_static\"
@@ -154,7 +154,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;MNG_SUPPORT_FULL;MNG_NO_CMS;MNG_ACCESS_CHUNKS;MNG_STORE_CHUNKS;MNG_SUPPORT_WRITE;MNG_SUPPORT_READ;MNG_SUPPORT_DISPLAY;MNG_ERROR_TELLTALE;MNG_ACCESS_ZLIB;MNG_ACCESS_JPEG;MNG_SKIPCANVAS_ABGR8;MNG_SKIPCANVAS_ARGB8;MNG_SKIPCANVAS_BGR8;MNG_SKIPCANVAS_BGRA8;MNG_SKIPCANVAS_BGRA8_PM;MNG_SKIPCANVAS_BGRX8;MNG_SKIPCHUNK_iCCP;MNG_SKIPCHUNK_tEXt;MNG_SKIPCHUNK_zTXt;MNG_SKIPCHUNK_iTXt;MNG_SKIPCHUNK_bKGD;MNG_SKIPCHUNK_pHYs;MNG_SKIPCHUNK_sBIT;MNG_SKIPCHUNK_sPLT;MNG_SKIPCHUNK_hIST;MNG_SKIPCHUNK_tIME;MNG_SKIPCHUNK_eXPI;MNG_SKIPCHUNK_fPRI;MNG_SKIPCHUNK_nEED;MNG_SKIPCHUNK_pHYg;PROJECTGEN_VERSION=9"
-				AdditionalIncludeDirectories=".;..\..\source\libmng;..\..\source\libmng\..\libz;..\..\source\libmng\..\libjpeg"
+				AdditionalIncludeDirectories=".;..\..\source\libmng;..\..\source\libmng\..\libz;..\..\source\libmng\..\configs;..\..\source\libmng\..\configs\libjpeg;..\..\source\libmng\..\libjpeg"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
