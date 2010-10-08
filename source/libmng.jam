@@ -5,7 +5,7 @@ BaseLib mng :
   [ Wildcard *.c *.h ] : 
   libmng :
   $(SUBDIR)/../libmng.def :
-  $(SUBDIR)/../libz $(SUBDIR)/../libjpeg ;
+  $(SUBDIR)/../libz $(SUBDIR)/../configs $(SUBDIR)/../configs/libjpeg $(SUBDIR)/../libjpeg ;
 LibDepends mng : z jpeg ;
 MNG_DEFINES =
   MNG_SUPPORT_FULL  
