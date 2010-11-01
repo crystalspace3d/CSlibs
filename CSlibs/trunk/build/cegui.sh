@@ -73,14 +73,8 @@ if [ x$mode != xstaticonly ]; then
     
     FREETYPE="-L${basedir}/libs/release -lfreetype2"
     if [ "${platform_short}" = "mingw64" ] ; then
-      #cp ${basedir}/libs/release-x64/freetype2.lib ${prefix}/lib/libfreetype2.a
-      #build/fake-libtool-lib.sh ${prefix}/lib/libfreetype2.la
-      # @@@ Apparently, mingw64 can't use MSVC import libs (like mingw32 can)
-      cp -p temp/${platform_short}/prefix/lib/libz.a ${prefix}/lib/
-      build/fake-libtool-lib.sh ${prefix}/lib/libz.la
-      cp -p temp/${platform_short}/prefix/lib/libfreetype.a ${prefix}/lib/
-      build/fake-libtool-lib.sh ${prefix}/lib/libfreetype.la
-      FREETYPE="-lfreetype -lz"
+      # @@@ Use 'special' mingw64 import libs (MSVC ones crash)
+      FREETYPE="-L${basedir}/libs/releasegcconly/mingw64 -lfreetype"
     fi
 
     build=temp/${library}/${platform}
