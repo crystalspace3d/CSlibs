@@ -163,7 +163,25 @@
 			Name="Source Files"
 			Filter="">
 			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIAffector.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIAnimation.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIAnimation_xmlHandler.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIAnimationInstance.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIAnimationManager.cpp">
+			</File>
+			<File
 				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIBase.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIBasicInterpolators.cpp">
 			</File>
 			<File
 				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIBasicRenderedStringParser.cpp">
@@ -176,6 +194,9 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUICentredRenderedString.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIChainedXMLHandler.cpp">
 			</File>
 			<File
 				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIcolour.cpp">
@@ -247,6 +268,9 @@
 				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIFribidiVisualMapping.cpp">
 			</File>
 			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIGeometryBuffer.cpp">
+			</File>
+			<File
 				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIGlobalEventSet.cpp">
 			</File>
 			<File
@@ -272,6 +296,9 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIJustifiedRenderedStringWordWrapper.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIKeyFrame.cpp">
 			</File>
 			<File
 				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUILeftAlignedRenderedString.cpp">
@@ -320,6 +347,9 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIRenderedStringWidgetComponent.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIRenderEffectManager.cpp">
 			</File>
 			<File
 				RelativePath="..\..\source\libCEGUI\cegui\src\CEGUIRenderingRoot.cpp">
@@ -442,10 +472,19 @@
 				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIFrameWindowProperties.cpp">
 			</File>
 			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIGridLayoutContainer.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIGridLayoutContainerProperties.cpp">
+			</File>
+			<File
 				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIGroupBox.cpp">
 			</File>
 			<File
 				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIGUISheet.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIHorizontalLayoutContainer.cpp">
 			</File>
 			<File
 				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIItemEntry.cpp">
@@ -464,6 +503,9 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIItemListboxProperties.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUILayoutContainer.cpp">
 			</File>
 			<File
 				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIListbox.cpp">
@@ -559,6 +601,9 @@
 				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIScrolledItemListBaseProperties.cpp">
 			</File>
 			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUISequentialLayoutContainer.cpp">
+			</File>
+			<File
 				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUISlider.cpp">
 			</File>
 			<File
@@ -605,6 +650,9 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUITreeProperties.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIVerticalLayoutContainer.cpp">
 			</File>
 			<File
 				RelativePath="..\..\source\libCEGUI\cegui\src\falagard\CEGUIFalagard_xmlHandler.cpp">

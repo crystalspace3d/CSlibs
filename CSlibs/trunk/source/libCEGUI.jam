@@ -2,10 +2,14 @@ SubDir TOP source libCEGUI ;
 
 MSVCGEN_VERSION = [ Property build : projgen_version ] ;
 
-ExtraLib CEGUIBase :
-  [ Wildcard [ ConcatDirs cegui src ] : *.cpp *.h ] 
+CEGUIBASE_SOURCES =
+  [ Filter [ Wildcard [ ConcatDirs cegui src ] : *.cpp *.h ] : cegui/src/CEGUIMinizipResourceProvider.cpp ]
   [ Wildcard [ ConcatDirs cegui src elements ] : *.cpp *.h ] 
-  [ Wildcard [ ConcatDirs cegui src falagard ] : *.cpp *.h ] : 
+  [ Wildcard [ ConcatDirs cegui src falagard ] : *.cpp *.h ]
+  ;
+
+ExtraLib CEGUIBase :
+  $(CEGUIBASE_SOURCES) : 
   source/libceguibase.rc :
   $(SUBDIR)/cegui/include $(SUBDIR)/cegui/include/elements $(SUBDIR)/cegui/include/falagard 
     $(SUBDIR)/../libpcre $(SUBDIR)/../configs/freetype 
@@ -49,9 +53,7 @@ ExtraLib CEGUIFalagardWRBase :
 
 LIBNAME on CEGUIBase_static = CEGUIBase-vc$(MSVCGEN_VERSION) ;
 ExtraLib CEGUIBase_static :
-  [ Wildcard [ ConcatDirs cegui src ] : *.cpp *.h ] 
-  [ Wildcard [ ConcatDirs cegui src elements ] : *.cpp *.h ] 
-  [ Wildcard [ ConcatDirs cegui src falagard ] : *.cpp *.h ]
+  $(CEGUIBASE_SOURCES)
   [ Wildcard [ ConcatDirs cegui src ImageCodecModules TGAImageCodec ] : *.cpp *.h ]
   [ Wildcard [ ConcatDirs cegui src WindowRendererSets Falagard ] : *.cpp *.h ]
   [ Wildcard [ ConcatDirs cegui src XMLParserModules TinyXMLParser ] : *.cpp *.h ]
