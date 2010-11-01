@@ -81,9 +81,24 @@ Index: cegui/include/ImageCodecModules/TGAImageCodec/CEGUITGAImageCodec.h
  #   ifdef CEGUITGAIMAGECODEC_EXPORTS
  #       define CEGUITGAIMAGECODEC_API __declspec(dllexport)
  #   else
+Index: cegui/include/Makefile.am
+===================================================================
+--- cegui/include/Makefile.am	(Revision 2337)
++++ cegui/include/Makefile.am	(Arbeitskopie)
+@@ -1,4 +1,9 @@
+-SUBDIRS = . elements falagard ImageCodecModules RendererModules ScriptingModules WindowRendererSets XMLParserModules
++#SUBDIRS = . elements falagard ImageCodecModules RendererModules ScriptingModules WindowRendererSets XMLParserModules
++if CSWIN32LIBS_STATIC
++SUBDIRS = . 
++else
++SUBDIRS = . XMLParserModules WindowRendererSets
++endif
+ 
+ pkginclude_HEADERS = CEGUI.h \
+                  CEGUIBase.h \
 Index: cegui/src/Makefile.am
 ===================================================================
---- cegui/src/Makefile.am	(Revision 2337)
+--- cegui/src/Makefile.am	(Revision 2663)
 +++ cegui/src/Makefile.am	(Arbeitskopie)
 @@ -1,11 +1,18 @@
 -SUBDIRS = . ImageCodecModules RendererModules ScriptingModules WindowRendererSets XMLParserModules
@@ -95,20 +110,20 @@ Index: cegui/src/Makefile.am
 +endif
  
  INCLUDES = -I$(top_srcdir)/cegui/include $(freetype2_CFLAGS) $(pcre_CFLAGS) \
--           $(fribidi_CFLAGS)
-+           $(fribidi_CFLAGS) \
+-           $(fribidi_CFLAGS) $(ZLIB_CFLAGS)
++           $(fribidi_CFLAGS) $(ZLIB_CFLAGS) \
 +           -I$(top_srcdir)/cegui/include/XMLParserModules/TinyXMLParser
  
  libCEGUIBase@cegui_bsfx@_la_LDFLAGS = @CEGUI_LIB_LINK_FLAGS@ \
                                        $(freetype2_LIBS) $(pcre_LIBS) \
--                                      $(fribidi_LIBS)
-+                                      $(fribidi_LIBS) \
+-                                      $(fribidi_LIBS) $(ZLIB_LIBS)
++                                      $(fribidi_LIBS) $(ZLIB_LIBS) \
 +                                      -export-symbols-regex "^(_Z([KTISVN]*5CEGUI|Thn).*|[A-Za-z]*)$$"
  
  libCEGUIBase@cegui_bsfx@_la_LIBADD = $(cegui_pc_platform_libs)
  
-@@ -198,6 +205,76 @@
- libCEGUIBase@cegui_bsfx@_la_SOURCES += CEGUIMinibidiVisualMapping.cpp
+@@ -223,6 +230,76 @@
+ libCEGUIBase@cegui_bsfx@_la_SOURCES += CEGUIMinizipResourceProvider.cpp minizip/ioapi.cpp minizip/unzip.cpp
  endif
  
 +if CSWIN32LIBS_STATIC
@@ -184,18 +199,3 @@ Index: cegui/src/Makefile.am
  if MACOSX_BUILD
  INCLUDES += -I$(top_srcdir)/src/implementations/mac
  libCEGUIBase@cegui_bsfx@_la_SOURCES += implementations/mac/macPlugins.cpp
-Index: cegui/include/Makefile.am
-===================================================================
---- cegui/include/Makefile.am	(Revision 2337)
-+++ cegui/include/Makefile.am	(Arbeitskopie)
-@@ -1,4 +1,9 @@
--SUBDIRS = . elements falagard ImageCodecModules RendererModules ScriptingModules WindowRendererSets XMLParserModules
-+#SUBDIRS = . elements falagard ImageCodecModules RendererModules ScriptingModules WindowRendererSets XMLParserModules
-+if CSWIN32LIBS_STATIC
-+SUBDIRS = . 
-+else
-+SUBDIRS = . XMLParserModules WindowRendererSets
-+endif
- 
- pkginclude_HEADERS = CEGUI.h \
-                  CEGUIBase.h \

@@ -63,19 +63,6 @@ Index: cegui/src/CEGUILogger.cpp
  
  
      /*************************************************************************
-Index: cegui/src/CEGUIMouseCursor.cpp
-===================================================================
---- cegui/src/CEGUIMouseCursor.cpp	(Revision 2337)
-+++ cegui/src/CEGUIMouseCursor.cpp	(Arbeitskopie)
-@@ -46,7 +46,7 @@
- 	Static Data Definitions
- *************************************************************************/
- // singleton instance pointer
--template<> MouseCursor* Singleton<MouseCursor>::ms_Singleton	= 0;
-+template<> CEGUIEXPORT MouseCursor* Singleton<MouseCursor>::ms_Singleton	= 0;
- 
- 
- /*************************************************************************
 Index: cegui/src/CEGUIFontManager.cpp
 ===================================================================
 --- cegui/src/CEGUIFontManager.cpp	(Revision 2337)
@@ -127,4 +114,17 @@ Index: cegui/src/CEGUIWindowFactoryManager.cpp
 +template<> CEGUIEXPORT WindowFactoryManager* Singleton<WindowFactoryManager>::ms_Singleton	= 0;
  // list of owned WindowFactory object pointers
  WindowFactoryManager::OwnedWindowFactoryList WindowFactoryManager::d_ownedFactories;
+ 
+Index: cegui/src/CEGUIMouseCursor.cpp
+===================================================================
+--- cegui/src/CEGUIMouseCursor.cpp	(Revision 2663)
++++ cegui/src/CEGUIMouseCursor.cpp	(Arbeitskopie)
+@@ -46,7 +46,7 @@
+ 	Static Data Definitions
+ *************************************************************************/
+ // singleton instance pointer
+-template<> MouseCursor* Singleton<MouseCursor>::ms_Singleton	= 0;
++template<> CEGUIEXPORT MouseCursor* Singleton<MouseCursor>::ms_Singleton	= 0;
+ bool MouseCursor::s_initialPositionSet = false;
+ Point MouseCursor::s_initialPosition(0.0f, 0.0f);
  

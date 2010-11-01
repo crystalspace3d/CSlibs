@@ -3,6 +3,7 @@
  - Updated libjpeg to 8b.
  - Updated freetype to 2.4.2.
  - Updated pcre to 8.10.
+ - Updated cegui to 0.7.4.
  - Included x86 and x64 builds of OpenAL Soft 1.12.854.
  - Build libraries for MinGW gcc 4.5 as well.
  - Changed mingw64 gcc version to 4.5.1.
