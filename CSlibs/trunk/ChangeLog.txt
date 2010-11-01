@@ -1,5 +1,5 @@
 1.9_007 (2010-??-??):
- - Updated libpng to 1.4.3.
+ - Updated libpng to 1.4.4.
  - Updated libjpeg to 8b.
  - Updated freetype to 2.4.2.
  - Updated pcre to 8.10.
