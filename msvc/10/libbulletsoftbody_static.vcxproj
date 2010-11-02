@@ -136,6 +136,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\source\libbullet\src\BulletSoftBody\btDefaultSoftBodySolver.cpp" />
     <ClCompile Include="..\..\source\libbullet\src\BulletSoftBody\btSoftBody.cpp" />
     <ClCompile Include="..\..\source\libbullet\src\BulletSoftBody\btSoftBodyConcaveCollisionAlgorithm.cpp" />
     <ClCompile Include="..\..\source\libbullet\src\BulletSoftBody\btSoftBodyHelpers.cpp" />
@@ -145,11 +146,14 @@
     <ClCompile Include="..\..\source\libbullet\src\BulletSoftBody\btSoftSoftCollisionAlgorithm.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\source\libbullet\src\BulletSoftBody\btDefaultSoftBodySolver.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletSoftBody\btSoftBody.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletSoftBody\btSoftBodyConcaveCollisionAlgorithm.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletSoftBody\btSoftBodyHelpers.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletSoftBody\btSoftBodyInternals.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletSoftBody\btSoftBodyRigidBodyCollisionConfiguration.h" />
+    <ClInclude Include="..\..\source\libbullet\src\BulletSoftBody\btSoftBodySolvers.h" />
+    <ClInclude Include="..\..\source\libbullet\src\BulletSoftBody\btSoftBodySolverVertexBuffer.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletSoftBody\btSoftRigidCollisionAlgorithm.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletSoftBody\btSoftRigidDynamicsWorld.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletSoftBody\btSoftSoftCollisionAlgorithm.h" />
