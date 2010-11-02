@@ -10,12 +10,3 @@ diff -ru ../libbullet.org/src/LinearMath/btAlignedAllocator.cpp ./src/LinearMath
      ret = (void *)((real + sizeof(void *)) + offset);
      *((void **)(ret)-1) = (void *)(real);
    } else {
-@@ -169,7 +169,7 @@
- 
-   real = (char *)sAllocFunc(size + sizeof(void *) + (alignment-1));
-   if (real) {
--    offset = (alignment - (unsigned long)(real + sizeof(void *))) & (alignment-1);
-+    offset = (alignment - (uintptr_t)(real + sizeof(void *))) & (alignment-1);
-     ptr = (void *)((real + sizeof(void *)) + offset);
-     *((void **)(ptr)-1) = (void *)(real);
-   } else {

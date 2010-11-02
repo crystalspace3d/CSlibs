@@ -27,8 +27,8 @@ scripts/url-get libvorbis http://downloads.xiph.org/releases/vorbis/libvorbis-1.
   libvorbis-1.3.1 bz2
 scripts/url-get libfreetype http://download.savannah.gnu.org/releases/freetype/freetype-2.4.3.tar.bz2 \
   freetype-2.4.3 bz2
-scripts/url-get libbullet http://bullet.googlecode.com/files/bullet-2.76.tgz \
-  bullet-2.76 gz
+scripts/url-get libbullet http://bullet.googlecode.com/files/bullet-2.77.tgz \
+  bullet-2.77 gz
 scripts/url-get libpcre ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.10.tar.bz2 \
   pcre-8.10 bz2
 scripts/url-get lib3ds http://kent.dl.sourceforge.net/sourceforge/lib3ds/lib3ds-1.3.0.zip \

@@ -153,6 +153,9 @@
 			Name="Source Files"
 			Filter="">
 			<File
+				RelativePath="..\..\source\libbullet\src\BulletSoftBody\btDefaultSoftBodySolver.cpp">
+			</File>
+			<File
 				RelativePath="..\..\source\libbullet\src\BulletSoftBody\btSoftBody.cpp">
 			</File>
 			<File
@@ -178,6 +181,9 @@
 			Name="Header Files"
 			Filter="">
 			<File
+				RelativePath="..\..\source\libbullet\src\BulletSoftBody\btDefaultSoftBodySolver.h">
+			</File>
+			<File
 				RelativePath="..\..\source\libbullet\src\BulletSoftBody\btSoftBody.h">
 			</File>
 			<File
@@ -191,6 +197,12 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletSoftBody\btSoftBodyRigidBodyCollisionConfiguration.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libbullet\src\BulletSoftBody\btSoftBodySolvers.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libbullet\src\BulletSoftBody\btSoftBodySolverVertexBuffer.h">
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletSoftBody\btSoftRigidCollisionAlgorithm.h">
