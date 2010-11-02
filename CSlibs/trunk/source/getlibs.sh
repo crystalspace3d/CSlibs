@@ -46,7 +46,10 @@ mkdir -p libwx/lib/vc_dll/mswu/wx/
 mkdir -p libwx/lib/vc_dll/mswud/wx/
 mkdir -p libwx/lib/vc_lib/mswu/wx/
 mkdir -p libwx/lib/vc_lib/mswud/wx/
-cp libwx/include/wx/msw/setup.h libwx/lib/vc_dll/mswu/wx
-cp libwx/include/wx/msw/setup.h libwx/lib/vc_dll/mswud/wx
-cp libwx/include/wx/msw/setup.h libwx/lib/vc_lib/mswu/wx
-cp libwx/include/wx/msw/setup.h libwx/lib/vc_lib/mswud/wx
+copy_if_differerent() {
+  if ! diff "$1" "$2" > /dev/null ; then echo cp -v "$1" "$2" ; fi
+}
+copy_if_differerent libwx/include/wx/msw/setup.h libwx/lib/vc_dll/mswu/wx/setup.h
+copy_if_differerent libwx/include/wx/msw/setup.h libwx/lib/vc_dll/mswud/wx/setup.h
+copy_if_differerent libwx/include/wx/msw/setup.h libwx/lib/vc_lib/mswu/wx/setup.h
+copy_if_differerent libwx/include/wx/msw/setup.h libwx/lib/vc_lib/mswud/wx/setup.h
