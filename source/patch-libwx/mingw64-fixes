@@ -6,7 +6,7 @@ diff -ru ../libwx.org/configure.in ./configure.in
  	x86_64-*-mingw32* )
              dnl --- For mingw-w64 lctl3d32's name has changed
 -            LIBS="$LIBS -lwinspool -lwinmm -lshell32 -lcomctl32 -lcomdlg32 -lwctl3d32 -ladvapi32 -lwsock32 -lgdi32"
-+            LIBS="$LIBS -lwinspool -lwinmm -lshell32 -lcomctl32 -lcomdlg32 -lwctl3d32 -ladvapi32 -lws2_32 -lgdi32"
++            LIBS="$LIBS -lwinspool -lwinmm -lshell32 -lcomctl32 -lcomdlg32 -ladvapi32 -lws2_32 -lgdi32"
          ;;
          * )
              LIBS="$LIBS -lwinspool -lwinmm -lshell32 -lcomctl32 -lcomdlg32 -lctl3d32 -ladvapi32 -lwsock32 -lgdi32"
