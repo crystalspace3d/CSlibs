@@ -303,6 +303,7 @@ Source: ..\..\libs\soft_oal{#ArchSuffix}\soft_oal{#ArchSuffix}.pdb; DestDir: {ap
 
 ; Misc stuff
 Source: ..\..\source\tool\cslibs-config.template; DestDir: {tmp}; Components: Libs/Common; Flags: deleteafterinstall
+Source: ..\..\libs\bullet.pc; DestDir: {tmp}; Components: Libs/Common; Flags: deleteafterinstall
 #if Defined(STATIC) || Defined(X64)
 ; Defined(X64) -> As long as we ship static libs for mingw64
 Source: ..\..\tools\freetype-config-static; DestDir: {app}\bin; DestName: freetype-config; Components: Libs/Common
@@ -357,6 +358,7 @@ Filename: rundll32.exe; Parameters: "{code:GetShortenedAppDir}\setuptool.dll,Cre
 #else
 #emit MINGWWXCONFIGPREP("4.5")
 #endif
+Filename: rundll32.exe; Parameters: "{code:GetShortenedAppDir}\setuptool.dll,CreateFromTemplate ""srcpath={tmp}\bullet.pc"" ""libspath={code:GetShortenedAppDir}"" ""destpath={app}\mingw{#ArchSuffixMingw}\lib\pkgconfig\bullet.pc"""; StatusMsg: Generating bullet.pc; Components: Libs/MinGW
 Filename: {app}\openal\{#File_OpenALInstaller}; Parameters: /S; WorkingDir: {app}; Components: Extra/OpenAL; Check: RunOpenALInstaller; StatusMsg: Running OpenAL.org runtime installer
 Filename: {app}\CopyDLLs{#ArchSuffix}.exe; Description: Copy DLLs to CS directory; Flags: postinstall runascurrentuser; WorkingDir: {app}; Parameters: {code:GetSupportParamsSilent}; Check: not CrossPresets; Components: Libs/Common Libs/VC Libs/MinGW
 Filename: {app}\CopyDLLs{#ArchSuffix}.exe; Description: Copy DLLs to CS directory; Flags: postinstall runascurrentuser unchecked; WorkingDir: {app}; Parameters: {code:GetSupportParamsSilent}; Check: CrossPresets; Components: Libs/Common Libs/VC Libs/MinGW
@@ -758,6 +760,7 @@ begin
   StringChange (libPath, '\', '/');
   SaveStringToFile (pcFileName, 'Libs: ${prefix}/' + libPath + #13#10, true);
 end;
+
 
 
 
