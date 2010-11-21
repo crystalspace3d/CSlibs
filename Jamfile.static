@@ -83,6 +83,8 @@ CollectSymbols collectsymbols_collect :
   libs/releasewxvc8only-x64
   libs/releasewxvc9only-x64
   libs/releasewxvc10only-x64
+  libs/soft_oal
+  libs/soft_oal-x64
   : $(SYMDIR) ;
 Depends collectsymbols_compress : collectsymbols_collect ;
 CompressSymbols collectsymbols_compress : $(SYMDIR) ;
@@ -130,6 +132,7 @@ rule MinGWFileLists
 }
 MinGWFileLists 3.4 ;
 MinGWFileLists 4.4 ;
+MinGWFileLists 4.5 ;
 
 rule VCFileLists
 {
@@ -172,7 +175,7 @@ rule AllMSMs
     MSIMergeModuleFromList winlibs.$(m).link : libs-$(m)-link : $(MSM_VER) ;
   }
 }
-AllMSMs common common_cg common_vorbisenc mingw_3.4 mingw_4.4 vc8 vc8_d vc9 vc9_d vc10 vc10_d wxmingw_3.4 wxmingw_4.4 wxvc8 wxvc8_d wxvc9 wxvc9_d wxvc10 wxvc10_d ;
+AllMSMs common common_cg common_vorbisenc mingw_3.4 mingw_4.4 mingw_4.5 vc8 vc8_d vc9 vc9_d vc10 vc10_d wxmingw_3.4 wxmingw_4.4 wxmingw_4.5 wxvc8 wxvc8_d wxvc9 wxvc9_d wxvc10 wxvc10_d ;
 MakeLocate winlibs.common_openal.msm : $(LOCATE.MSI) ;
 MSIMergeModule winlibs.common_openal.msm : source/setup/OpenALRuntime.wxs : "TOP=$(TOP)" "MSM_VER=$(MSM_VER)" ;
 
