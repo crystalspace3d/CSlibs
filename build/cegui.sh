@@ -84,7 +84,7 @@ if [ x$mode != xstaticonly ]; then
     pcre_CFLAGS="-I${pcre}/include -DPCRE_STATIC" \
     pcre_LIBS="-L${prefix}/lib -lpcre" \
     CFLAGS="-O2" \
-    CXXFLAGS="-O2 -DCEGUI_FACTORYMODULE_PREFIX=\"\\\"${libprefix}\\\"\" -DCEGUI_FACTORYMODULE_SUFFIX=\"\\\"-cs${platform}.dll\\\"\"" \
+    CXXFLAGS="-O2 -DCEGUI_FACTORYMODULE_PREFIX=\"\\\"${libprefix}\\\"\"" \
     ${source}/configure $CONFIGUREOPTS --prefix=${prefix} --disable-static --disable-opengl-renderer "--with-build-suffix=-cs${platform}" --disable-version-suffix -C "$@"
     make
     cd ../../..
