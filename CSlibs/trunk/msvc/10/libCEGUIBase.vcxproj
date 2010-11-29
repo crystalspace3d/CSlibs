@@ -54,7 +54,7 @@
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <OmitFramePointers>true</OmitFramePointers>
       <ProgramDataBaseFileName>..\..\out\release10\build\libCEGUIBase\Win32\CEGUIBase.pdb</ProgramDataBaseFileName>
-      <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;PCRE_STATIC;CEGUIBASE_EXPORTS;CEGUI_HAS_FREETYPE;CEGUI_HAS_DEFAULT_LOGGER;CEGUI_DEFAULT_XMLPARSER=TinyXMLParser;CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG;CEGUI_LOAD_MODULE_DEBUG_SUFFIX="_d";CEGUI_FACTORYMODULE_PREFIX="lib";CEGUI_HAS_BUILD_SUFFIX;CEGUI_BUILD_SUFFIX="-csvc10";WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;PCRE_STATIC;CEGUIBASE_EXPORTS;CEGUI_HAS_FREETYPE;CEGUI_HAS_DEFAULT_LOGGER;CEGUI_DEFAULT_XMLPARSER=TinyXMLParser;CEGUI_FACTORYMODULE_PREFIX="lib";CEGUI_HAS_BUILD_SUFFIX;CEGUI_BUILD_SUFFIX="-csvc10";WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
       <AdditionalIncludeDirectories>.;..\..\source\libCEGUI\cegui\include;..\..\source\libCEGUI\cegui\include\elements;..\..\source\libCEGUI\cegui\include\falagard;..\..\source\libCEGUI\..\libpcre;..\..\source\libCEGUI\..\configs\freetype;..\..\source\libCEGUI\..\libfreetype\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderOutputFile>..\..\out\release10\build\libCEGUIBase\libCEGUIBase.pch</PrecompiledHeaderOutputFile>
@@ -88,7 +88,7 @@
     <PostBuildEvent>
     </PostBuildEvent>
     <ResourceCompile>
-      <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;PCRE_STATIC;CEGUIBASE_EXPORTS;CEGUI_HAS_FREETYPE;CEGUI_HAS_DEFAULT_LOGGER;CEGUI_DEFAULT_XMLPARSER=TinyXMLParser;CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG;CEGUI_LOAD_MODULE_DEBUG_SUFFIX="_d";CEGUI_FACTORYMODULE_PREFIX="lib";CEGUI_HAS_BUILD_SUFFIX;CEGUI_BUILD_SUFFIX="-csvc10";PROJECTGEN_VERSION=10;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;PCRE_STATIC;CEGUIBASE_EXPORTS;CEGUI_HAS_FREETYPE;CEGUI_HAS_DEFAULT_LOGGER;CEGUI_DEFAULT_XMLPARSER=TinyXMLParser;CEGUI_FACTORYMODULE_PREFIX="lib";CEGUI_HAS_BUILD_SUFFIX;CEGUI_BUILD_SUFFIX="-csvc10";PROJECTGEN_VERSION=10;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>.;..\..\source\libCEGUI;..\..\source\libCEGUI\cegui\include;..\..\source\libCEGUI\cegui\include\elements;..\..\source\libCEGUI\cegui\include\falagard;..\..\source\libCEGUI\..\libpcre;..\..\source\libCEGUI\..\configs\freetype;..\..\source\libCEGUI\..\libfreetype\include</AdditionalIncludeDirectories>
       <Culture>0x0409</Culture>
     </ResourceCompile>
@@ -105,7 +105,7 @@
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <OmitFramePointers>true</OmitFramePointers>
       <ProgramDataBaseFileName>..\..\out\release10-x64\build\libCEGUIBase\x64\CEGUIBase.pdb</ProgramDataBaseFileName>
-      <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;PCRE_STATIC;CEGUIBASE_EXPORTS;CEGUI_HAS_FREETYPE;CEGUI_HAS_DEFAULT_LOGGER;CEGUI_DEFAULT_XMLPARSER=TinyXMLParser;CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG;CEGUI_LOAD_MODULE_DEBUG_SUFFIX="_d";CEGUI_FACTORYMODULE_PREFIX="lib";CEGUI_HAS_BUILD_SUFFIX;CEGUI_BUILD_SUFFIX="-csvc10";WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;PCRE_STATIC;CEGUIBASE_EXPORTS;CEGUI_HAS_FREETYPE;CEGUI_HAS_DEFAULT_LOGGER;CEGUI_DEFAULT_XMLPARSER=TinyXMLParser;CEGUI_FACTORYMODULE_PREFIX="lib";CEGUI_HAS_BUILD_SUFFIX;CEGUI_BUILD_SUFFIX="-csvc10";WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
       <AdditionalIncludeDirectories>.;..\..\source\libCEGUI\cegui\include;..\..\source\libCEGUI\cegui\include\elements;..\..\source\libCEGUI\cegui\include\falagard;..\..\source\libCEGUI\..\libpcre;..\..\source\libCEGUI\..\configs\freetype;..\..\source\libCEGUI\..\libfreetype\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderOutputFile>..\..\out\release10-x64\build\libCEGUIBase\libCEGUIBase.pch</PrecompiledHeaderOutputFile>
@@ -139,7 +139,7 @@
     <PostBuildEvent>
     </PostBuildEvent>
     <ResourceCompile>
-      <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;PCRE_STATIC;CEGUIBASE_EXPORTS;CEGUI_HAS_FREETYPE;CEGUI_HAS_DEFAULT_LOGGER;CEGUI_DEFAULT_XMLPARSER=TinyXMLParser;CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG;CEGUI_LOAD_MODULE_DEBUG_SUFFIX="_d";CEGUI_FACTORYMODULE_PREFIX="lib";CEGUI_HAS_BUILD_SUFFIX;CEGUI_BUILD_SUFFIX="-csvc10";PROJECTGEN_VERSION=10;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;PCRE_STATIC;CEGUIBASE_EXPORTS;CEGUI_HAS_FREETYPE;CEGUI_HAS_DEFAULT_LOGGER;CEGUI_DEFAULT_XMLPARSER=TinyXMLParser;CEGUI_FACTORYMODULE_PREFIX="lib";CEGUI_HAS_BUILD_SUFFIX;CEGUI_BUILD_SUFFIX="-csvc10";PROJECTGEN_VERSION=10;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>.;..\..\source\libCEGUI;..\..\source\libCEGUI\cegui\include;..\..\source\libCEGUI\cegui\include\elements;..\..\source\libCEGUI\cegui\include\falagard;..\..\source\libCEGUI\..\libpcre;..\..\source\libCEGUI\..\configs\freetype;..\..\source\libCEGUI\..\libfreetype\include</AdditionalIncludeDirectories>
       <Culture>0x0409</Culture>
     </ResourceCompile>
