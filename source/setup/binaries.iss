@@ -77,7 +77,7 @@ Name: Libs/MinGW; Description: MinGW-only libraries; Types: custom full {#GccTyp
 Name: Libs/wxVC; Description: wxWidgets (MSVC); Types: custom full typVC; Flags: disablenouninstallwarning
 Name: Libs/wxMinGW; Description: wxWidgets (MinGW); Types: custom full {#GccTypes}; Flags: disablenouninstallwarning
 Name: Extra; Description: Additional components; Types: custom full; Flags: disablenouninstallwarning
-Name: Extra/Cg; Description: Cg headers & libraries; Types: custom full typVC {#GccTypes}; Flags: disablenouninstallwarning
+Name: Extra/Cg; Description: Cg headers & libraries; Types: custom compact full typVC {#GccTypes}; Flags: disablenouninstallwarning
 Name: Extra/DXHeaders; Description: Minimal DirectX 9 headers; Types: custom full typVC {#GccTypes}; Flags: disablenouninstallwarning
 Name: Extra/DXLibs; Description: Minimal DirectX 9 libraries; Types: custom full typVC {#GccTypes}; Flags: disablenouninstallwarning
 Name: Extra/Jam; Description: Jam build tool; Types: custom full {#GccTypes_noxcompile}; Flags: disablenouninstallwarning
@@ -87,7 +87,7 @@ Name: Extra/Python; Description: Python GCC import libs; Types: custom full typM
 #endif
 Name: Extra/DebugInfo; Description: Debug information; Types: custom full typVC {#GccTypes_noxcompile}; Flags: disablenouninstallwarning
 Name: Extra/Dbghelp; Description: DbgHelp.dll Debugging helper; Types: custom compact full typVC {#GccTypes_noxcompile}; Flags: disablenouninstallwarning
-Name: Extra/OpenAL; Description: OpenAL (runtime installer, OpenAL Soft); Types: custom full; Flags: disablenouninstallwarning
+Name: Extra/OpenAL; Description: OpenAL (runtime installer, OpenAL Soft); Types: custom full typVC {#GccTypes_noxcompile}; Flags: disablenouninstallwarning
 Name: DESupport; Description: Support for development environments; Types: custom full; Flags: disablenouninstallwarning
 Name: DESupport/VC; Description: Visual C++ 2005, 2008, 2010; Types: custom full typVC; Flags: disablenouninstallwarning
 Name: DESupport/MSYS; Description: MSYS; Types: custom full typMinGW; Flags: disablenouninstallwarning
@@ -760,6 +760,7 @@ begin
   StringChange (libPath, '\', '/');
   SaveStringToFile (pcFileName, 'Libs: ${prefix}/' + libPath + #13#10, true);
 end;
+
 
 
 
