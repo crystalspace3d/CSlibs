@@ -204,8 +204,10 @@ Source: ..\..\libs\ReleaseVC9Only_static{#ArchSuffix}\*.lib; DestDir: {app}\vc\l
 Source: ..\..\libs\ReleaseVC10Only_static{#ArchSuffix}\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseNoCygwin_static{#ArchSuffix}\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseGCCOnly_static\mingw{#ArchSuffixMingw}\*.a; DestDir: {app}\mingw{#ArchSuffixMingw}\lib; Components: Libs/MinGW
+#ifdef X64
 ; @@@ mingw64 crashes with the MSVC import libs, hence use these libs created using dlltool
 Source: ..\..\libs\ReleaseGCCOnly\mingw64\libcg*.a; DestDir: {app}\mingw64\lib; Components: Libs/MinGW
+#endif
 #define MINGWSTATIC(GccVer) \
   "Source: ..\..\libs\ReleaseGCCOnly_static\mingw" + ArchSuffixMingw + "-gcc-" + GccVer + "\lib*.a; DestDir: {app}\mingw" + ArchSuffixMingw +"-gcc-" + GccVer + "\lib; Components: Libs/MinGW" + NL + \
   "Source: ..\..\libs\ReleaseGCCOnly\mingw" + ArchSuffixMingw + "-gcc-" + GccVer + "\libbullet*.a; DestDir: {app}\mingw" + ArchSuffixMingw +"-gcc-" + GccVer + "\lib; Components: Libs/MinGW" + NL + \
