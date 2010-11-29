@@ -1,4 +1,4 @@
-1.9_007 (2010-??-??):
+1.9_007 (2010-11-29):
  - Updated libpng to 1.4.4.
  - Updated libjpeg to 8b.
  - Updated freetype to 2.4.3.
