@@ -18,15 +18,15 @@ ExtraLib CEGUIBase :
   PCRE_STATIC CEGUIBASE_EXPORTS 
     CEGUI_HAS_FREETYPE CEGUI_HAS_DEFAULT_LOGGER
     "CEGUI_DEFAULT_XMLPARSER=TinyXMLParser"
-    CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG
-    "CEGUI_LOAD_MODULE_DEBUG_SUFFIX=\"_d\""
     "CEGUI_FACTORYMODULE_PREFIX=\"lib\""
-    CEGUI_HAS_BUILD_SUFFIX "CEGUI_BUILD_SUFFIX=\"-csvc$(MSVCGEN_VERSION)\""
-    :
+    CEGUI_HAS_BUILD_SUFFIX 
+  :
   :
   z freetype2 pcre_static ;
 
+MsvcDefine CEGUIBase : "CEGUI_BUILD_SUFFIX=\"-csvc$(MSVCGEN_VERSION)\"" ;
 MsvcExternalLibrary CEGUIBase : WinMM.lib ;
+MsvcDefine CEGUIBase_debug : "CEGUI_BUILD_SUFFIX=\"-csvc$(MSVCGEN_VERSION)_d\"" ;
 MsvcExternalLibrary CEGUIBase_debug : WinMM.lib ;
 
 ExtraLib CEGUITinyXMLParser :
@@ -73,10 +73,8 @@ ExtraLib CEGUIBase_static :
     CEGUITGAIMAGECODEC_EXPORTS
     CEGUI_STATIC CEGUI_WITH_TINYXML CEGUI_FALAGARD_RENDERER CEGUI_CODEC_TGA
     "CEGUI_DEFAULT_XMLPARSER=TinyXMLParser"
-    CEGUI_LOAD_MODULE_APPEND_SUFFIX_FOR_DEBUG
-    "CEGUI_LOAD_MODULE_DEBUG_SUFFIX=\"_d\""
     "CEGUI_FACTORYMODULE_PREFIX=\"lib\""
-    CEGUI_HAS_BUILD_SUFFIX "CEGUI_BUILD_SUFFIX=\"-csvc$(MSVCGEN_VERSION)\"" 
+    CEGUI_HAS_BUILD_SUFFIX 
     "CEGUI_TINYXML_H=\"ceguitinyxml/tinyxml.h\""
     "CEGUI_TINYXML_NAMESPACE=CEGUITinyXML"
   :
@@ -84,5 +82,7 @@ ExtraLib CEGUIBase_static :
   z_static freetype2_static pcre_static :
   libCEGUIBase-csvc$(MSVCGEN_VERSION) ;
 
+MsvcDefine CEGUIBase_static : "CEGUI_BUILD_SUFFIX=\"-csvc$(MSVCGEN_VERSION)\"" ;
 MsvcExternalLibrary CEGUIBase_static : WinMM.lib ;
+MsvcDefine CEGUIBase_static_debug : "CEGUI_BUILD_SUFFIX=\"-csvc$(MSVCGEN_VERSION)_d\"" ;
 MsvcExternalLibrary CEGUIBase_static_debug : WinMM.lib ;
