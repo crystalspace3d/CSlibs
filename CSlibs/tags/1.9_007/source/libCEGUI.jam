@@ -1,0 +1,88 @@
+SubDir TOP source libCEGUI ;
+
+MSVCGEN_VERSION = [ Property build : projgen_version ] ;
+
+CEGUIBASE_SOURCES =
+  [ Filter [ Wildcard [ ConcatDirs cegui src ] : *.cpp *.h ] : cegui/src/CEGUIMinizipResourceProvider.cpp ]
+  [ Wildcard [ ConcatDirs cegui src elements ] : *.cpp *.h ] 
+  [ Wildcard [ ConcatDirs cegui src falagard ] : *.cpp *.h ]
+  ;
+
+ExtraLib CEGUIBase :
+  $(CEGUIBASE_SOURCES) : 
+  source/libceguibase.rc :
+  $(SUBDIR)/cegui/include $(SUBDIR)/cegui/include/elements $(SUBDIR)/cegui/include/falagard 
+    $(SUBDIR)/../libpcre $(SUBDIR)/../configs/freetype 
+    $(SUBDIR)/../libfreetype/include :
+  nostatic :
+  PCRE_STATIC CEGUIBASE_EXPORTS 
+    CEGUI_HAS_FREETYPE CEGUI_HAS_DEFAULT_LOGGER
+    "CEGUI_DEFAULT_XMLPARSER=TinyXMLParser"
+    "CEGUI_FACTORYMODULE_PREFIX=\"lib\""
+    CEGUI_HAS_BUILD_SUFFIX 
+  :
+  :
+  z freetype2 pcre_static ;
+
+MsvcDefine CEGUIBase : "CEGUI_BUILD_SUFFIX=\"-csvc$(MSVCGEN_VERSION)\"" ;
+MsvcExternalLibrary CEGUIBase : WinMM.lib ;
+MsvcDefine CEGUIBase_debug : "CEGUI_BUILD_SUFFIX=\"-csvc$(MSVCGEN_VERSION)_d\"" ;
+MsvcExternalLibrary CEGUIBase_debug : WinMM.lib ;
+
+ExtraLib CEGUITinyXMLParser :
+  [ Wildcard [ ConcatDirs cegui src XMLParserModules TinyXMLParser ] : *.cpp *.h ] 
+  [ Wildcard [ ConcatDirs cegui src XMLParserModules TinyXMLParser ceguitinyxml ] : *.cpp *.h ] : 
+  source/libceguitinyxmlparser.rc :
+  $(SUBDIR)/cegui/include $(SUBDIR)/cegui/include/XMLParserModules/TinyXMLParser :
+  nostatic :
+  CEGUITINYXMLPARSER_EXPORTS
+  "CEGUI_TINYXML_H=\"ceguitinyxml/tinyxml.h\""
+  "CEGUI_TINYXML_NAMESPACE=CEGUITinyXML"
+  :
+  :
+  CEGUIBase ;
+
+ExtraLib CEGUIFalagardWRBase :
+  [ Wildcard [ ConcatDirs cegui src WindowRendererSets Falagard ] : *.cpp *.h ] : 
+  source/libceguifalagardwrbase.rc :
+  $(SUBDIR)/cegui/include $(SUBDIR)/cegui/include/WindowRendererSets/Falagard :
+  nostatic :
+  FALAGARDWRBASE_EXPORTS CEGUIWRMODULE_EXPORTS :
+  :
+  CEGUIBase ;
+
+LIBNAME on CEGUIBase_static = CEGUIBase-vc$(MSVCGEN_VERSION) ;
+ExtraLib CEGUIBase_static :
+  $(CEGUIBASE_SOURCES)
+  [ Wildcard [ ConcatDirs cegui src ImageCodecModules TGAImageCodec ] : *.cpp *.h ]
+  [ Wildcard [ ConcatDirs cegui src WindowRendererSets Falagard ] : *.cpp *.h ]
+  [ Wildcard [ ConcatDirs cegui src XMLParserModules TinyXMLParser ] : *.cpp *.h ]
+  [ Wildcard [ ConcatDirs cegui src XMLParserModules TinyXMLParser ceguitinyxml ] : *.cpp *.h ] : 
+  source/libceguibase.rc :
+  $(SUBDIR)/cegui/include $(SUBDIR)/cegui/include/elements $(SUBDIR)/cegui/include/falagard
+    $(SUBDIR)/cegui/include/ImageCodecModules/TGAImageCodec
+    $(SUBDIR)/cegui/include/WindowRendererSets/Falagard
+    $(SUBDIR)/cegui/include/XMLParserModules/TinyXMLParser
+    $(SUBDIR)/../libpcre $(SUBDIR)/../configs/freetype 
+    $(SUBDIR)/../libfreetype/include :
+  fakestatic :
+  PCRE_STATIC CEGUIBASE_STATIC CEGUIBASE_EXPORTS
+    CEGUI_HAS_FREETYPE CEGUI_HAS_DEFAULT_LOGGER
+    FALAGARDWRBASE_EXPORTS CEGUIWRMODULE_EXPORTS
+    CEGUITINYXMLPARSER_EXPORTS
+    CEGUITGAIMAGECODEC_EXPORTS
+    CEGUI_STATIC CEGUI_WITH_TINYXML CEGUI_FALAGARD_RENDERER CEGUI_CODEC_TGA
+    "CEGUI_DEFAULT_XMLPARSER=TinyXMLParser"
+    "CEGUI_FACTORYMODULE_PREFIX=\"lib\""
+    CEGUI_HAS_BUILD_SUFFIX 
+    "CEGUI_TINYXML_H=\"ceguitinyxml/tinyxml.h\""
+    "CEGUI_TINYXML_NAMESPACE=CEGUITinyXML"
+  :
+  ReleaseVC$(MSVCGEN_VERSION)Only_static :
+  z_static freetype2_static pcre_static :
+  libCEGUIBase-csvc$(MSVCGEN_VERSION) ;
+
+MsvcDefine CEGUIBase_static : "CEGUI_BUILD_SUFFIX=\"-csvc$(MSVCGEN_VERSION)\"" ;
+MsvcExternalLibrary CEGUIBase_static : WinMM.lib ;
+MsvcDefine CEGUIBase_static_debug : "CEGUI_BUILD_SUFFIX=\"-csvc$(MSVCGEN_VERSION)_d\"" ;
+MsvcExternalLibrary CEGUIBase_static_debug : WinMM.lib ;

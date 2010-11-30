@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{095BEBF0-89F5-579F-A580-A866881822E9}</ProjectGuid>
+    <SccProjectName />
+    <SccLocalPath />
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)'=='Release'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Platform)'=='Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Platform)'=='x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\out\debug10\build\libcal3d_debug_static\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\libs\ReleaseVC10Only_static\</OutDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cal3d-vc10_d</TargetName>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\out\debug10-x64\build\libcal3d_debug_static\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\libs\ReleaseVC10Only_static-x64\</OutDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">cal3d-vc10_d</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <MinimalRebuild>true</MinimalRebuild>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>      <ProgramDataBaseFileName>..\..\libs\ReleaseVC10Only_static\cal3d-vc10_d.pdb</ProgramDataBaseFileName>
+      <PreprocessorDefinitions>_DEBUG;_CRT_SECURE_NO_DEPRECATE;CAL3D_API=;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>.;..\..\source\libcal3d\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeaderOutputFile>..\..\out\debug10\build\libcal3d_debug_static\libcal3d_debug_static.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>..\..\out\debug10\build\libcal3d_debug_static\</AssemblerListingLocation>
+      <ObjectFileName>..\..\out\debug10\build\libcal3d_debug_static\</ObjectFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>LIBC;LIBCD;LIBCMT;LIBCMTD;MSVCRT;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>;%(AdditionalDependencies)</AdditionalDependencies>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ProgramDatabaseFile>..\..\libs\ReleaseVC10Only_static\cal3d-vc10_d.pdb</ProgramDatabaseFile>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Lib>
+      <OutputFile>..\..\libs\ReleaseVC10Only_static\cal3d-vc10_d.lib</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;_CRT_SECURE_NO_DEPRECATE;CAL3D_API=;PROJECTGEN_VERSION=10;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;..\..\source\libcal3d;..\..\source\libcal3d\src</AdditionalIncludeDirectories>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <MinimalRebuild>true</MinimalRebuild>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>      <ProgramDataBaseFileName>..\..\libs\ReleaseVC10Only_static-x64\cal3d-vc10_d.pdb</ProgramDataBaseFileName>
+      <PreprocessorDefinitions>_DEBUG;_CRT_SECURE_NO_DEPRECATE;CAL3D_API=;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>.;..\..\source\libcal3d\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeaderOutputFile>..\..\out\debug10-x64\build\libcal3d_debug_static\libcal3d_debug_static.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>..\..\out\debug10-x64\build\libcal3d_debug_static\</AssemblerListingLocation>
+      <ObjectFileName>..\..\out\debug10-x64\build\libcal3d_debug_static\</ObjectFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>LIBC;LIBCD;LIBCMT;LIBCMTD;MSVCRT;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>;%(AdditionalDependencies)</AdditionalDependencies>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ProgramDatabaseFile>..\..\libs\ReleaseVC10Only_static-x64\cal3d-vc10_d-x64.pdb</ProgramDatabaseFile>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+    <Lib>
+      <OutputFile>..\..\libs\ReleaseVC10Only_static-x64\cal3d-vc10_d.lib</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;_CRT_SECURE_NO_DEPRECATE;CAL3D_API=;PROJECTGEN_VERSION=10;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;..\..\source\libcal3d;..\..\source\libcal3d\src</AdditionalIncludeDirectories>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\source\libcal3d\src\cal3d\animation.cpp" />
+    <ClCompile Include="..\..\source\libcal3d\src\cal3d\animation_action.cpp" />
+    <ClCompile Include="..\..\source\libcal3d\src\cal3d\animation_cycle.cpp" />
+    <ClCompile Include="..\..\source\libcal3d\src\cal3d\bone.cpp" />
+    <ClCompile Include="..\..\source\libcal3d\src\cal3d\buffersource.cpp" />
+    <ClCompile Include="..\..\source\libcal3d\src\cal3d\cal3d_wrapper.cpp" />
+    <ClCompile Include="..\..\source\libcal3d\src\cal3d\coreanimation.cpp" />
+    <ClCompile Include="..\..\source\libcal3d\src\cal3d\corebone.cpp" />
+    <ClCompile Include="..\..\source\libcal3d\src\cal3d\corekeyframe.cpp" />
+    <ClCompile Include="..\..\source\libcal3d\src\cal3d\corematerial.cpp" />
+    <ClCompile Include="..\..\source\libcal3d\src\cal3d\coremesh.cpp" />
+    <ClCompile Include="..\..\source\libcal3d\src\cal3d\coremodel.cpp" />
+    <ClCompile Include="..\..\source\libcal3d\src\cal3d\coremorphanimation.cpp" />
+    <ClCompile Include="..\..\source\libcal3d\src\cal3d\coreskeleton.cpp" />
+    <ClCompile Include="..\..\source\libcal3d\src\cal3d\coresubmesh.cpp" />
+    <ClCompile Include="..\..\source\libcal3d\src\cal3d\coresubmorphtarget.cpp" />
+    <ClCompile Include="..\..\source\libcal3d\src\cal3d\coretrack.cpp" />
+    <ClCompile Include="..\..\source\libcal3d\src\cal3d\error.cpp" />
+    <ClCompile Include="..\..\source\libcal3d\src\cal3d\global.cpp" />
+    <ClCompile Include="..\..\source\libcal3d\src\cal3d\hardwaremodel.cpp" />
+    <ClCompile Include="..\..\source\libcal3d\src\cal3d\loader.cpp" />
+    <ClCompile Include="..\..\source\libcal3d\src\cal3d\matrix.cpp" />
+    <ClCompile Include="..\..\source\libcal3d\src\cal3d\mesh.cpp" />
+    <ClCompile Include="..\..\source\libcal3d\src\cal3d\mixer.cpp" />
+    <ClCompile Include="..\..\source\libcal3d\src\cal3d\model.cpp" />
+    <ClCompile Include="..\..\source\libcal3d\src\cal3d\morphtargetmixer.cpp" />
+    <ClCompile Include="..\..\source\libcal3d\src\cal3d\physique.cpp" />
+    <ClCompile Include="..\..\source\libcal3d\src\cal3d\platform.cpp" />
+    <ClCompile Include="..\..\source\libcal3d\src\cal3d\quaternion.cpp" />
+    <ClCompile Include="..\..\source\libcal3d\src\cal3d\renderer.cpp" />
+    <ClCompile Include="..\..\source\libcal3d\src\cal3d\saver.cpp" />
+    <ClCompile Include="..\..\source\libcal3d\src\cal3d\skeleton.cpp" />
+    <ClCompile Include="..\..\source\libcal3d\src\cal3d\springsystem.cpp" />
+    <ClCompile Include="..\..\source\libcal3d\src\cal3d\streamsource.cpp" />
+    <ClCompile Include="..\..\source\libcal3d\src\cal3d\submesh.cpp" />
+    <ClCompile Include="..\..\source\libcal3d\src\cal3d\tinyxml.cpp" />
+    <ClCompile Include="..\..\source\libcal3d\src\cal3d\tinyxmlerror.cpp" />
+    <ClCompile Include="..\..\source\libcal3d\src\cal3d\tinyxmlparser.cpp" />
+    <ClCompile Include="..\..\source\libcal3d\src\cal3d\vector.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\animation.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\animation_action.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\animation_cycle.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\animcallback.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\bone.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\buffersource.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\cal3d.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\cal3d_wrapper.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\coreanimation.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\corebone.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\corekeyframe.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\corematerial.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\coremesh.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\coremodel.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\coremorphanimation.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\coreskeleton.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\coresubmesh.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\coresubmorphtarget.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\coretrack.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\datasource.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\error.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\global.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\hardwaremodel.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\loader.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\matrix.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\mesh.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\mixer.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\model.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\morphtargetmixer.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\physique.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\platform.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\quaternion.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\refcounted.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\refptr.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\renderer.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\resource.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\saver.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\skeleton.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\springsystem.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\streamsource.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\submesh.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\tinyxml.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\transform.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\vector.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

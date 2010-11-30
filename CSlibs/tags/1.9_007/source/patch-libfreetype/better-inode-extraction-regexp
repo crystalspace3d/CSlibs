@@ -1,0 +1,13 @@
+--- ../libfreetype.old/configure	Tue Nov  2 08:35:26 2010
++++ configure	Wed Nov  3 12:21:52 2010
+@@ -80,8 +80,8 @@
+ 
+ # build a dummy Makefile if we are not building in the source tree;
+ # we use inodes to avoid issues with symbolic links
+-inode_src=`ls -id $abs_ft2_dir | sed 's/ .*//'`
+-inode_dst=`ls -id $abs_curr_dir | sed 's/ .*//'`
++inode_src=`ls -id $abs_ft2_dir | sed 's/[^0-9]//g'`
++inode_dst=`ls -id $abs_curr_dir | sed 's/[^0-9]//g'`
+ 
+ if test $inode_src -ne $inode_dst; then
+   if test ! -d reference; then
