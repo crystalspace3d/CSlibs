@@ -54,7 +54,7 @@ SelectDirDesc=Where is CrystalSpace installed?
 SelectDirLabel3=The {#CSLibsName} have to be copied to the CrystalSpace source tree in order to use them with VC. Please locate your CrystalSpace directory.
 FinishedLabel=Setup has finished installing [name] on your computer. You can set up {#SupportName} support for more CS source trees by re-running this setup.
 [Dirs]
-Name: {app}\win32libs; Flags: uninsalwaysuninstall
+Name: {app}\winlibs; Flags: uninsalwaysuninstall
 Name: {src}\support; Flags: uninsalwaysuninstall
 [Code]
 #include "CodeCommon.inc"
