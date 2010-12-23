@@ -1,3 +1,5 @@
+1.9_008 (2010-12-??):
+
 1.9_007 (2010-11-29):
  - Updated libpng to 1.4.4.
  - Updated libjpeg to 8b.
