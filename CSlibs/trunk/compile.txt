@@ -56,7 +56,5 @@ gives a small performance advantage.
 
 To create the setup file:
 - Build projects\setuptool.sln
-- For Python <= 2.4: Run pyimportlib.cmd <python-dir> NN
-  where NN is the Python version you have installed (e.g. 24)
 - Compile the .iss files in source\setup with InnoSetup in the following order:
   VCsupport, Cygwinsupport, MSYSsupport, CopyDLLs, Crosssupport, binaries
