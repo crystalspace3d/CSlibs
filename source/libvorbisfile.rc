@@ -1,3 +1,4 @@
+#define NOVERRESOURCE
 #include "libvorbis.rc"
 #undef VER_DESCRIPTION
 #define	VER_DESCRIPTION		"libvorbisfile, a BSD-style license convenience library built on Vorbis designed to simplify common uses"

@@ -6,4 +6,6 @@
 #define VER_FILENAME		"libvorbis-cs.dll"
 #define VER_PRODUCTNAME		"OggVorbis"
 
+#ifndef NOVERRESOURCE
 #include "version.rcinc"
+#endif
