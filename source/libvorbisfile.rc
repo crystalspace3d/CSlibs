@@ -1,9 +1,9 @@
-#define VER_PRODUCT_NUMERIC	1,1,2,0
-#define	VER_PRODUCT_STR		"1.1.2"
+#include "libvorbis.rc"
+#undef VER_DESCRIPTION
 #define	VER_DESCRIPTION		"libvorbisfile, a BSD-style license convenience library built on Vorbis designed to simplify common uses"
+#undef VER_INTERNAL
 #define VER_INTERNAL		"libvorbisfile"
-#define	VER_COPYRIGHT		"(C) COPYRIGHT 1994-2006 by the Xiph.Org Foundation http://www.xiph.org/"
+#undef VER_FILENAME
 #define VER_FILENAME		"libvorbisfile-cs.dll"
-#define VER_PRODUCTNAME		"OggVorbis"
 
 #include "version.rcinc"
