@@ -1,0 +1,63 @@
+Index: src/cal3d/renderer.cpp
+===================================================================
+--- src/cal3d/renderer.cpp	(Revision 507)
++++ src/cal3d/renderer.cpp	(Arbeitskopie)
+@@ -12,6 +12,8 @@
+ #include "config.h"
+ #endif
+ 
++#include <string.h>
++
+ //****************************************************************************//
+ // Includes                                                                   //
+ //****************************************************************************//
+Index: src/cal3d/platform.cpp
+===================================================================
+--- src/cal3d/platform.cpp	(Revision 507)
++++ src/cal3d/platform.cpp	(Arbeitskopie)
+@@ -12,6 +12,8 @@
+ #include "config.h"
+ #endif
+ 
++#include <string.h>
++
+ //****************************************************************************//
+ // Includes                                                                   //
+ //****************************************************************************//
+Index: src/cal3d/submesh.cpp
+===================================================================
+--- src/cal3d/submesh.cpp	(Revision 507)
++++ src/cal3d/submesh.cpp	(Arbeitskopie)
+@@ -12,6 +12,8 @@
+ #include "config.h"
+ #endif
+ 
++#include <string.h>
++
+ #include "cal3d/submesh.h"
+ #include "cal3d/error.h"
+ #include "cal3d/coresubmesh.h"
+Index: src/cal3d/hardwaremodel.cpp
+===================================================================
+--- src/cal3d/hardwaremodel.cpp	(Revision 507)
++++ src/cal3d/hardwaremodel.cpp	(Arbeitskopie)
+@@ -12,6 +12,7 @@
+ #include "config.h"
+ #endif
+ 
++#include <string.h>
+ 
+ #include "cal3d/error.h"
+ #include "cal3d/hardwaremodel.h"
+Index: src/cal3d_converter.cpp
+===================================================================
+--- src/cal3d_converter.cpp	(Revision 507)
++++ src/cal3d_converter.cpp	(Arbeitskopie)
+@@ -9,6 +9,7 @@
+ // your option) any later version.                                            //
+ //****************************************************************************//
+ 
++#include <string.h>
+ #include "cal3d/cal3d.h"
+ #include <cstring>
+ #define SKELETON 0
