@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Libs fetched from source code repos
-scripts/svn-get libcal3d http://svn.gna.org/svn/cal3d/tags/release-0_11_0/cal3d/
+scripts/svn-get libcal3d http://svn.gna.org/svn/cal3d/trunk/cal3d/ -r 507
 scripts/svn-get libCEGUI https://crayzedsgui.svn.sourceforge.net/svnroot/crayzedsgui/cegui_mk2/tags/v0-7-4/
 
 # pkg-config & dependencies
