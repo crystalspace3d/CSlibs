@@ -153,6 +153,7 @@
     <ClCompile Include="..\..\source\libcal3d\src\cal3d\coresubmesh.cpp" />
     <ClCompile Include="..\..\source\libcal3d\src\cal3d\coresubmorphtarget.cpp" />
     <ClCompile Include="..\..\source\libcal3d\src\cal3d\coretrack.cpp" />
+    <ClCompile Include="..\..\source\libcal3d\src\cal3d\dualquaternion.cpp" />
     <ClCompile Include="..\..\source\libcal3d\src\cal3d\error.cpp" />
     <ClCompile Include="..\..\source\libcal3d\src\cal3d\global.cpp" />
     <ClCompile Include="..\..\source\libcal3d\src\cal3d\hardwaremodel.cpp" />
@@ -163,6 +164,7 @@
     <ClCompile Include="..\..\source\libcal3d\src\cal3d\model.cpp" />
     <ClCompile Include="..\..\source\libcal3d\src\cal3d\morphtargetmixer.cpp" />
     <ClCompile Include="..\..\source\libcal3d\src\cal3d\physique.cpp" />
+    <ClCompile Include="..\..\source\libcal3d\src\cal3d\physiquedualquaternion.cpp" />
     <ClCompile Include="..\..\source\libcal3d\src\cal3d\platform.cpp" />
     <ClCompile Include="..\..\source\libcal3d\src\cal3d\quaternion.cpp" />
     <ClCompile Include="..\..\source\libcal3d\src\cal3d\renderer.cpp" />
@@ -197,6 +199,7 @@
     <ClInclude Include="..\..\source\libcal3d\src\cal3d\coresubmorphtarget.h" />
     <ClInclude Include="..\..\source\libcal3d\src\cal3d\coretrack.h" />
     <ClInclude Include="..\..\source\libcal3d\src\cal3d\datasource.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\dualquaternion.h" />
     <ClInclude Include="..\..\source\libcal3d\src\cal3d\error.h" />
     <ClInclude Include="..\..\source\libcal3d\src\cal3d\global.h" />
     <ClInclude Include="..\..\source\libcal3d\src\cal3d\hardwaremodel.h" />
@@ -207,6 +210,7 @@
     <ClInclude Include="..\..\source\libcal3d\src\cal3d\model.h" />
     <ClInclude Include="..\..\source\libcal3d\src\cal3d\morphtargetmixer.h" />
     <ClInclude Include="..\..\source\libcal3d\src\cal3d\physique.h" />
+    <ClInclude Include="..\..\source\libcal3d\src\cal3d\physiquedualquaternion.h" />
     <ClInclude Include="..\..\source\libcal3d\src\cal3d\platform.h" />
     <ClInclude Include="..\..\source\libcal3d\src\cal3d\quaternion.h" />
     <ClInclude Include="..\..\source\libcal3d\src\cal3d\refcounted.h" />
