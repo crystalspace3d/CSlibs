@@ -25,8 +25,8 @@ scripts/url-get libspeex http://downloads.xiph.org/releases/speex/speex-1.2rc1.t
   speex-1.2rc1 gz
 scripts/url-get libvorbis http://downloads.xiph.org/releases/vorbis/libvorbis-1.3.1.tar.bz2 \
   libvorbis-1.3.1 bz2
-scripts/url-get libfreetype http://download.savannah.gnu.org/releases/freetype/freetype-2.4.3.tar.bz2 \
-  freetype-2.4.3 bz2
+scripts/url-get libfreetype http://download.savannah.gnu.org/releases/freetype/freetype-2.4.4.tar.bz2 \
+  freetype-2.4.4 bz2
 scripts/url-get libbullet http://bullet.googlecode.com/files/bullet-2.77.tgz \
   bullet-2.77 gz
 scripts/url-get libpcre ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.10.tar.bz2 \
