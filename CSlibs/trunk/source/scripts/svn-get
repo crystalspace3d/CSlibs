@@ -3,13 +3,14 @@
 LIBNAME=$1
 shift
 SVN_ROOT=$1
+shift
 
 apply_patches=1
 if [ -e ${LIBNAME} ] ; then
   apply_patches=0
-  svn switch ${SVN_ROOT} ${LIBNAME}
+  svn switch ${SVN_ROOT} ${LIBNAME} $*
 else
-  svn co ${SVN_ROOT} ${LIBNAME}
+  svn co ${SVN_ROOT} ${LIBNAME} $*
 fi
 
 if [ $apply_patches -eq 1 ] ; then
