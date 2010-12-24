@@ -218,6 +218,9 @@
 				RelativePath="..\..\source\libcal3d\src\cal3d\coretrack.cpp">
 			</File>
 			<File
+				RelativePath="..\..\source\libcal3d\src\cal3d\dualquaternion.cpp">
+			</File>
+			<File
 				RelativePath="..\..\source\libcal3d\src\cal3d\error.cpp">
 			</File>
 			<File
@@ -246,6 +249,9 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libcal3d\src\cal3d\physique.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libcal3d\src\cal3d\physiquedualquaternion.cpp">
 			</File>
 			<File
 				RelativePath="..\..\source\libcal3d\src\cal3d\platform.cpp">
@@ -348,6 +354,9 @@
 				RelativePath="..\..\source\libcal3d\src\cal3d\datasource.h">
 			</File>
 			<File
+				RelativePath="..\..\source\libcal3d\src\cal3d\dualquaternion.h">
+			</File>
+			<File
 				RelativePath="..\..\source\libcal3d\src\cal3d\error.h">
 			</File>
 			<File
@@ -376,6 +385,9 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libcal3d\src\cal3d\physique.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libcal3d\src\cal3d\physiquedualquaternion.h">
 			</File>
 			<File
 				RelativePath="..\..\source\libcal3d\src\cal3d\platform.h">
