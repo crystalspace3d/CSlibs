@@ -1,6 +1,7 @@
 1.9_008 (2010-12-??):
  - Updated cal3d to trunk r507 (aka "0.12").
  - Updated libpng to 1.4.5.
+ - Updated freetype to 2.4.4.
  - Remove Python <= 2.4 import libs for mingw.
 
 1.9_007 (2010-11-29):
