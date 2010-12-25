@@ -5,6 +5,7 @@
  - Updated libogg to 1.2.2.
  - Updated libvorbis to 1.3.2.
  - Updated pcre to 8.11.
+ - Updated cegui to 0.7.5.
  - Remove Python <= 2.4 import libs for mingw.
 
 1.9_007 (2010-11-29):
