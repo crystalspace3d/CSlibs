@@ -272,6 +272,7 @@
     <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIMenuBase.cpp" />
     <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIMenuBaseProperties.cpp" />
     <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIMenuItem.cpp" />
+    <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIMenuItemProperties.cpp" />
     <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIMultiColumnList.cpp" />
     <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIMultiColumnListProperties.cpp" />
     <ClCompile Include="..\..\source\libCEGUI\cegui\src\elements\CEGUIMultiLineEditbox.cpp" />
