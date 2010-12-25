@@ -29,8 +29,8 @@ scripts/url-get libfreetype http://download.savannah.gnu.org/releases/freetype/f
   freetype-2.4.4 bz2
 scripts/url-get libbullet http://bullet.googlecode.com/files/bullet-2.77.tgz \
   bullet-2.77 gz
-scripts/url-get libpcre ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.10.tar.bz2 \
-  pcre-8.10 bz2
+scripts/url-get libpcre ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.11.tar.bz2 \
+  pcre-8.11 bz2
 scripts/url-get lib3ds http://kent.dl.sourceforge.net/sourceforge/lib3ds/lib3ds-1.3.0.zip \
   lib3ds-1.3.0 zip
 scripts/url-get libode "http://downloads.sourceforge.net/project/opende/ODE/0.11.1/ode-0.11.1.zip?use_mirror=dfn" \
