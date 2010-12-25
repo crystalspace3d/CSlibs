@@ -43,6 +43,15 @@ Index: cegui/include/CEGUIRenderedStringWordWrapper.h
  
      for (size_t line = 0; line < rstring.getLineCount(); ++line)
      {
+@@ -116,7 +116,7 @@
+     }
+ 
+     // last line.
+-    frs = new T(*new RenderedString(rstring));
++    frs = new typename T::LastLineRenderedString (*new RenderedString(rstring));
+     frs->format(area_size);
+     d_lines.push_back(frs);
+ }
 Index: cegui/include/CEGUIJustifiedRenderedString.h
 ===================================================================
 --- cegui/include/CEGUIJustifiedRenderedString.h	(Revision 2338)
