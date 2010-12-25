@@ -544,6 +544,9 @@
 				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIMenuItem.cpp">
 			</File>
 			<File
+				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIMenuItemProperties.cpp">
+			</File>
+			<File
 				RelativePath="..\..\source\libCEGUI\cegui\src\elements\CEGUIMultiColumnList.cpp">
 			</File>
 			<File
