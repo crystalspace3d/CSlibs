@@ -1,0 +1,17 @@
+#!/bin/sh
+
+LIBNAME=$1
+shift
+CVS_ROOT=$1
+shift
+CVS_MODULE=$1
+shift
+
+if [ -e ${LIBNAME} ] ; then
+  cd ${LIBNAME}
+  cvs -z5 up -APd $@
+  cd ..
+else
+  cvs -z5 -d ${CVS_ROOT} co -d ${LIBNAME} $@ ${CVS_MODULE}
+  scripts/dopatch ${LIBNAME}
+fi
