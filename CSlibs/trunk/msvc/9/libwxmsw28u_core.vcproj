@@ -35,7 +35,7 @@
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_CORE;wxUSE_BASE=0;COMPILED_FROM_DSP;WXUSINGDLL;wxHACK_BOOLEAN=wxInt8;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
-				AdditionalIncludeDirectories=".;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\tiff;..\..\source\libwx\src\zlib;..\..\source\libwx\src\png;..\..\source\libwx\src\jpeg"
+				AdditionalIncludeDirectories=".;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\tiff;..\..\source\libwx\..\libz;..\..\source\libwx\..\libpng;..\..\source\libwx\..\libjpeg"
 				PrecompiledHeaderFile="..\..\out\release9\build\libwxmsw28u_core\libwxmsw28u_core.pch"
 				AssemblerListingLocation="..\..\out\release9\build\libwxmsw28u_core\"
 				ObjectFile="..\..\out\release9\build\libwxmsw28u_core\"
@@ -85,7 +85,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_CORE;wxUSE_BASE=0;COMPILED_FROM_DSP;WXUSINGDLL;wxHACK_BOOLEAN=wxInt8;PROJECTGEN_VERSION=9"
-				AdditionalIncludeDirectories=".;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\tiff;..\..\source\libwx\src\zlib;..\..\source\libwx\src\png;..\..\source\libwx\src\jpeg"
+				AdditionalIncludeDirectories=".;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\tiff;..\..\source\libwx\..\libz;..\..\source\libwx\..\libpng;..\..\source\libwx\..\libjpeg"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
@@ -116,7 +116,7 @@
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_CORE;wxUSE_BASE=0;COMPILED_FROM_DSP;WXUSINGDLL;wxHACK_BOOLEAN=wxInt8;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
-				AdditionalIncludeDirectories=".;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\tiff;..\..\source\libwx\src\zlib;..\..\source\libwx\src\png;..\..\source\libwx\src\jpeg"
+				AdditionalIncludeDirectories=".;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\tiff;..\..\source\libwx\..\libz;..\..\source\libwx\..\libpng;..\..\source\libwx\..\libjpeg"
 				PrecompiledHeaderFile="..\..\out\release9-x64\build\libwxmsw28u_core\libwxmsw28u_core.pch"
 				AssemblerListingLocation="..\..\out\release9-x64\build\libwxmsw28u_core\"
 				ObjectFile="..\..\out\release9-x64\build\libwxmsw28u_core\"
@@ -166,7 +166,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_CORE;wxUSE_BASE=0;COMPILED_FROM_DSP;WXUSINGDLL;wxHACK_BOOLEAN=wxInt8;PROJECTGEN_VERSION=9"
-				AdditionalIncludeDirectories=".;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\tiff;..\..\source\libwx\src\zlib;..\..\source\libwx\src\png;..\..\source\libwx\src\jpeg"
+				AdditionalIncludeDirectories=".;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\tiff;..\..\source\libwx\..\libz;..\..\source\libwx\..\libpng;..\..\source\libwx\..\libjpeg"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
