@@ -1,30 +1,3 @@
-SubDir TOP source libwx src zlib ;
-
-BaseLib wxzlib : 
-  [ Filter [ Wildcard *.c *.h ] : example.c minigzip.c ] : 
-  wxzlib :
-  :
-  : 
-  staticonly norelease ;
-
-SubDir TOP source libwx src png ;
-
-BaseLib wxpng : 
-  [ Wildcard png*.c png*.h ] : 
-  wxpng :
-  :
-  $(SUBDIR)/../zlib : 
-  staticonly norelease ;
-
-SubDir TOP source libwx src jpeg ;
-
-BaseLib wxjpeg : 
-  [ Filter [ Wildcard j*.c j*.h ] : jmemdos.c jmemansi.c jmemname.c jpegtran.c jmemmac.c ] : 
-  wxjpeg :
-  :
-  : 
-  staticonly norelease ;
-
 SubDir TOP source libwx ;
 
 MSVCGEN_VERSION = [ Property build : projgen_version ] ;
@@ -366,12 +339,12 @@ OUTDIRBASE on wxbase$(WX_MAJORMINOR)u = ReleaseWX ;
 ExtraLib wxbase$(WX_MAJORMINOR)u :
   $(BASE_COMMON) $(BASE_MSW) : 
   source/libwxbase.rc :
-  $(SUBDIR)/include $(SUBDIR)/include/msvc $(SUBDIR)/src/regex $(SUBDIR)/src/zlib $(SUBDIR)/src/expat/lib :
+  $(SUBDIR)/include $(SUBDIR)/include/msvc $(SUBDIR)/src/regex $(SUBDIR)/../libz $(SUBDIR)/src/expat/lib :
   nostatic :
   _UNICODE __WXMSW__ WXMAKINGDLL_BASE wxUSE_GUI=0 wxUSE_BASE=1 COMPILED_FROM_DSP
   :
   :
-  wxzlib_static ;
+  z_static ;
 
 TIF_PLAT = tif_win3.c tif_vms.c tif_unix.c tif_os2.c tif_atari.c tif_apple.c tif_acorn.c tif_msdos.c ;
 
@@ -381,7 +354,6 @@ BaseLib wxtiff :
   :
   $(SUBDIR)/include : 
   staticonly norelease ;
-LibDepends wxtiff_static : wxjpeg_static wxzlib_static ;
 
 WXMSW_CORE_DEPS.AVAILABLE = yes ;
 WXMSW_CORE_DEPS.LIBS = comctl32.lib rpcrt4.lib ;
@@ -391,12 +363,12 @@ ExtraLib wxmsw$(WX_MAJORMINOR)u_core :
   $(GUI_COMMON) $(GUI_MSW) : 
   source/libwxcore.rc :
   $(SUBDIR)/include $(SUBDIR)/include/msvc $(SUBDIR)/src/tiff
-  $(SUBDIR)/src/zlib $(SUBDIR)/src/png $(SUBDIR)/src/jpeg :
+  $(SUBDIR)/../libz $(SUBDIR)/../libpng $(SUBDIR)/../libjpeg :
   nostatic :
   _UNICODE __WXMSW__ WXMAKINGDLL_CORE wxUSE_BASE=0 COMPILED_FROM_DSP WXUSINGDLL wxHACK_BOOLEAN=wxInt8
   :
   :
-  wxtiff_static wxjpeg_static wxpng_static wxzlib_static ;
+  wxtiff_static jpeg_static png_static z_static ;
 LibDepends wxmsw$(WX_MAJORMINOR)u_core : wxbase$(WX_MAJORMINOR)u ;
 LibDepends wxmsw$(WX_MAJORMINOR)u_core_debug : wxbase$(WX_MAJORMINOR)u_debug ;
 ExternalLibs wxmsw$(WX_MAJORMINOR)u_core : WXMSW_CORE_DEPS ;
