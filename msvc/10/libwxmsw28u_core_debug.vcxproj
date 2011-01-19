@@ -49,7 +49,7 @@
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>      <ProgramDataBaseFileName>..\..\out\debug10\build\libwxmsw28u_core_debug\Win32\wxmsw28u_core_debug.pdb</ProgramDataBaseFileName>
       <PreprocessorDefinitions>_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_CORE;wxUSE_BASE=0;COMPILED_FROM_DSP;WXUSINGDLL;wxHACK_BOOLEAN=wxInt8;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>.;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\tiff;..\..\source\libwx\src\zlib;..\..\source\libwx\src\png;..\..\source\libwx\src\jpeg;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\tiff;..\..\source\libwx\..\libz;..\..\source\libwx\..\libpng;..\..\source\libwx\..\libjpeg;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderOutputFile>..\..\out\debug10\build\libwxmsw28u_core_debug\libwxmsw28u_core_debug.pch</PrecompiledHeaderOutputFile>
       <AssemblerListingLocation>..\..\out\debug10\build\libwxmsw28u_core_debug\</AssemblerListingLocation>
       <ObjectFileName>..\..\out\debug10\build\libwxmsw28u_core_debug\</ObjectFileName>
@@ -63,12 +63,12 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>LIBC;LIBCD;LIBCMT;LIBCMTD;MSVCRT;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <OutputFile>..\..\libs\ReleaseWXVC10Only\libwxmsw28u_core-csvc10_d.dll</OutputFile>
-      <AdditionalLibraryDirectories>;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\libs\Release_static;..\..\libs\ReleaseNoCygwin_static;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <MergeSections>.rdata=.text</MergeSections> 
       <DelayLoadDLLs>;%(DelayLoadDLLs)</DelayLoadDLLs>
       <ImportLibrary>..\..\libs\ReleaseWXVC10Only\wxmsw28u_core-vc10_d.lib</ImportLibrary>
       <AdditionalOptions>/INCREMENTAL:NO  %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>comctl32.lib;rpcrt4.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libjpeg.lib;libpng.lib;zlib.lib;comctl32.lib;rpcrt4.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ProgramDatabaseFile>..\..\libs\ReleaseWXVC10Only\libwxmsw28u_core-csvc10_d.pdb</ProgramDatabaseFile>
       <TargetMachine>MachineX86</TargetMachine>
@@ -80,7 +80,7 @@
     </PostBuildEvent>
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_CORE;wxUSE_BASE=0;COMPILED_FROM_DSP;WXUSINGDLL;wxHACK_BOOLEAN=wxInt8;PROJECTGEN_VERSION=10;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\tiff;..\..\source\libwx\src\zlib;..\..\source\libwx\src\png;..\..\source\libwx\src\jpeg</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\tiff;..\..\source\libwx\..\libz;..\..\source\libwx\..\libpng;..\..\source\libwx\..\libjpeg</AdditionalIncludeDirectories>
       <Culture>0x0409</Culture>
     </ResourceCompile>
   </ItemDefinitionGroup>
@@ -92,7 +92,7 @@
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>      <ProgramDataBaseFileName>..\..\out\debug10-x64\build\libwxmsw28u_core_debug\x64\wxmsw28u_core_debug.pdb</ProgramDataBaseFileName>
       <PreprocessorDefinitions>_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_CORE;wxUSE_BASE=0;COMPILED_FROM_DSP;WXUSINGDLL;wxHACK_BOOLEAN=wxInt8;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>.;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\tiff;..\..\source\libwx\src\zlib;..\..\source\libwx\src\png;..\..\source\libwx\src\jpeg;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\tiff;..\..\source\libwx\..\libz;..\..\source\libwx\..\libpng;..\..\source\libwx\..\libjpeg;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderOutputFile>..\..\out\debug10-x64\build\libwxmsw28u_core_debug\libwxmsw28u_core_debug.pch</PrecompiledHeaderOutputFile>
       <AssemblerListingLocation>..\..\out\debug10-x64\build\libwxmsw28u_core_debug\</AssemblerListingLocation>
       <ObjectFileName>..\..\out\debug10-x64\build\libwxmsw28u_core_debug\</ObjectFileName>
@@ -106,12 +106,12 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>LIBC;LIBCD;LIBCMT;LIBCMTD;MSVCRT;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <OutputFile>..\..\libs\ReleaseWXVC10Only-x64\libwxmsw28u_core-csvc10_d-x64.dll</OutputFile>
-      <AdditionalLibraryDirectories>;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\libs\Release_static-x64;..\..\libs\ReleaseNoCygwin_static-x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <MergeSections>.rdata=.text</MergeSections> 
       <DelayLoadDLLs>;%(DelayLoadDLLs)</DelayLoadDLLs>
       <ImportLibrary>..\..\libs\ReleaseWXVC10Only-x64\wxmsw28u_core-vc10_d.lib</ImportLibrary>
       <AdditionalOptions>/INCREMENTAL:NO  %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>comctl32.lib;rpcrt4.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libjpeg.lib;libpng.lib;zlib.lib;comctl32.lib;rpcrt4.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ProgramDatabaseFile>..\..\libs\ReleaseWXVC10Only-x64\libwxmsw28u_core-csvc10_d-x64.pdb</ProgramDatabaseFile>
       <TargetMachine>MachineX64</TargetMachine>
@@ -123,7 +123,7 @@
     </PostBuildEvent>
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_CORE;wxUSE_BASE=0;COMPILED_FROM_DSP;WXUSINGDLL;wxHACK_BOOLEAN=wxInt8;PROJECTGEN_VERSION=10;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\tiff;..\..\source\libwx\src\zlib;..\..\source\libwx\src\png;..\..\source\libwx\src\jpeg</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\tiff;..\..\source\libwx\..\libz;..\..\source\libwx\..\libpng;..\..\source\libwx\..\libjpeg</AdditionalIncludeDirectories>
       <Culture>0x0409</Culture>
     </ResourceCompile>
   </ItemDefinitionGroup>
@@ -361,15 +361,6 @@
   <ItemGroup>
     <ProjectReference Include="libwxtiff_static.vcxproj">
       <Project>{A241AEB7-7B03-D9AD-9169-F39BA93DD5A5}</Project>
-    </ProjectReference>
-    <ProjectReference Include="libwxjpeg_static.vcxproj">
-      <Project>{CDE0F95C-C796-943C-1176-8603B97645DB}</Project>
-    </ProjectReference>
-    <ProjectReference Include="libwxpng_static.vcxproj">
-      <Project>{92B650F3-C9BE-8C7E-CB66-8941D265C3DC}</Project>
-    </ProjectReference>
-    <ProjectReference Include="libwxzlib_static.vcxproj">
-      <Project>{5E039D86-8329-E980-D434-321B8B4A2D54}</Project>
     </ProjectReference>
     <ProjectReference Include="libwxbase28u_debug.vcxproj">
       <Project>{06ADFDCB-91BD-F6A5-8095-F0F747C51A86}</Project>

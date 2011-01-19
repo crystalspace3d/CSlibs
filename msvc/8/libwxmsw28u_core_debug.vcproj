@@ -29,7 +29,7 @@
 				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_CORE;wxUSE_BASE=0;COMPILED_FROM_DSP;WXUSINGDLL;wxHACK_BOOLEAN=wxInt8;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
-				AdditionalIncludeDirectories=".;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\tiff;..\..\source\libwx\src\zlib;..\..\source\libwx\src\png;..\..\source\libwx\src\jpeg"
+				AdditionalIncludeDirectories=".;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\tiff;..\..\source\libwx\..\libz;..\..\source\libwx\..\libpng;..\..\source\libwx\..\libjpeg"
 				PrecompiledHeaderFile="..\..\out\debug8\build\libwxmsw28u_core_debug\libwxmsw28u_core_debug.pch"
 				AssemblerListingLocation="..\..\out\debug8\build\libwxmsw28u_core_debug\"
 				ObjectFile="..\..\out\debug8\build\libwxmsw28u_core_debug\"
@@ -48,12 +48,12 @@
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD,MSVCRT"
 				LinkIncremental="1"
 				OutputFile="..\..\libs\ReleaseWXVC8Only\libwxmsw28u_core-csvc8_d.dll"
-				AdditionalLibraryDirectories=""
+				AdditionalLibraryDirectories="..\..\libs\Release_static;..\..\libs\ReleaseNoCygwin_static"
                                 MergeSections=".rdata=.text" 
 				DelayLoadDLLs=""
 				ImportLibrary="..\..\libs\ReleaseWXVC8Only\wxmsw28u_core-vc8_d.lib"
 				AdditionalOptions="/INCREMENTAL:NO "
-				AdditionalDependencies="comctl32.lib rpcrt4.lib"
+				AdditionalDependencies="libjpeg.lib libpng.lib zlib.lib comctl32.lib rpcrt4.lib"
 				SuppressStartupBanner="TRUE"
 				ProgramDatabaseFile="..\..\libs\ReleaseWXVC8Only\libwxmsw28u_core-csvc8_d.pdb"
 				TargetMachine="1"/>
@@ -77,7 +77,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_CORE;wxUSE_BASE=0;COMPILED_FROM_DSP;WXUSINGDLL;wxHACK_BOOLEAN=wxInt8;PROJECTGEN_VERSION=8"
-				AdditionalIncludeDirectories=".;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\tiff;..\..\source\libwx\src\zlib;..\..\source\libwx\src\png;..\..\source\libwx\src\jpeg"
+				AdditionalIncludeDirectories=".;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\tiff;..\..\source\libwx\..\libz;..\..\source\libwx\..\libpng;..\..\source\libwx\..\libjpeg"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
@@ -102,7 +102,7 @@
 				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_CORE;wxUSE_BASE=0;COMPILED_FROM_DSP;WXUSINGDLL;wxHACK_BOOLEAN=wxInt8;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
-				AdditionalIncludeDirectories=".;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\tiff;..\..\source\libwx\src\zlib;..\..\source\libwx\src\png;..\..\source\libwx\src\jpeg"
+				AdditionalIncludeDirectories=".;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\tiff;..\..\source\libwx\..\libz;..\..\source\libwx\..\libpng;..\..\source\libwx\..\libjpeg"
 				PrecompiledHeaderFile="..\..\out\debug8-x64\build\libwxmsw28u_core_debug\libwxmsw28u_core_debug.pch"
 				AssemblerListingLocation="..\..\out\debug8-x64\build\libwxmsw28u_core_debug\"
 				ObjectFile="..\..\out\debug8-x64\build\libwxmsw28u_core_debug\"
@@ -121,12 +121,12 @@
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD,MSVCRT"
 				LinkIncremental="1"
 				OutputFile="..\..\libs\ReleaseWXVC8Only-x64\libwxmsw28u_core-csvc8_d-x64.dll"
-				AdditionalLibraryDirectories=""
+				AdditionalLibraryDirectories="..\..\libs\Release_static-x64;..\..\libs\ReleaseNoCygwin_static-x64"
                                 MergeSections=".rdata=.text" 
 				DelayLoadDLLs=""
 				ImportLibrary="..\..\libs\ReleaseWXVC8Only-x64\wxmsw28u_core-vc8_d.lib"
 				AdditionalOptions="/INCREMENTAL:NO "
-				AdditionalDependencies="comctl32.lib rpcrt4.lib"
+				AdditionalDependencies="libjpeg.lib libpng.lib zlib.lib comctl32.lib rpcrt4.lib"
 				SuppressStartupBanner="TRUE"
 				ProgramDatabaseFile="..\..\libs\ReleaseWXVC8Only-x64\libwxmsw28u_core-csvc8_d-x64.pdb"
 				TargetMachine="17"/>
@@ -150,7 +150,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_CORE;wxUSE_BASE=0;COMPILED_FROM_DSP;WXUSINGDLL;wxHACK_BOOLEAN=wxInt8;PROJECTGEN_VERSION=8"
-				AdditionalIncludeDirectories=".;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\tiff;..\..\source\libwx\src\zlib;..\..\source\libwx\src\png;..\..\source\libwx\src\jpeg"
+				AdditionalIncludeDirectories=".;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\tiff;..\..\source\libwx\..\libz;..\..\source\libwx\..\libpng;..\..\source\libwx\..\libjpeg"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
