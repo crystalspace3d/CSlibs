@@ -8,8 +8,10 @@
 
 #ifdef STATIC
 #define SetupName					CSLibsOutputName + "-" + CSLibsVersion + "-static"
+#define ReadmeFile        "Readme-static.rtf"
 #else
 #define SetupName					CSLibsOutputName + "-" + CSLibsVersion
+#define ReadmeFile        "Readme-standard.rtf"
 #endif
 
 #ifdef X64
@@ -44,11 +46,12 @@ AppPublisher=CrystalSpace
 AppPublisherURL=http://crystalspace3d.org
 DefaultGroupName={#AppName} {#CSLibsVersion}
 UninstallDisplayIcon={app}\setuptool.dll
-InfoBeforeFile=..\..\Readme.rtf
+InfoBeforeFile=..\..\{#ReadmeFile}
 UseSetupLdr=true
 ;WizardImageFile=WizModernImage.bmp
-WizardImageFile=compiler:WizModernImage-IS.bmp
+;WizardImageFile=compiler:WizModernImage-IS.bmp
 WizardSmallImageFile=compiler:WizModernSmallImage-IS.bmp
+DisableWelcomePage=yes
 TimeStampsInUTC=true
 InternalCompressLevel=ultra
 AllowNoIcons=yes
@@ -94,7 +97,7 @@ Name: DESupport/MSYS; Description: MSYS; Types: custom full typMinGW; Flags: dis
 Name: DESupport/Cygwin; Description: Cygwin; Types: custom full typCygwin; Flags: disablenouninstallwarning
 #endif
 [Files]
-Source: ..\..\Readme.rtf; DestDir: {app}
+Source: ..\..\{#ReadmeFile}; DestName: Readme.rtf; DestDir: {app}
 Source: ..\..\Deploying Applications Built Against cs-winlibs.rtf; DestDir: {app}
 Source: ..\..\ChangeLog.txt; DestDir: {app}
 Source: ..\..\version.txt; DestDir: {app}; AfterInstall: WriteVersionTxt
@@ -404,6 +407,8 @@ Root: HKLM; Subkey: Software\CrystalSpaceLibs; ValueType: none; Flags: uninsdele
 Root: HKCU; Subkey: Software\CrystalSpaceLibs; ValueType: none; Flags: uninsdeletekey dontcreatekey noerror
 
 [Messages]
+SetupAppTitle={#AppName} {#CSLibsVersion} Setup
+SetupWindowTitle={#AppName} {#CSLibsVersion} Setup
 SelectDirLabel3=Setup will install [name] into the following folder. Please DO NOT choose you CrystalSpace directory here!
 FinishedLabel=Setup has finished installing [name] on your computer. You should be able to build CrystalSpace from source after setting up support for your development environment(s).
 WelcomeLabel2=This will install third party header files and binary libraries needed by CS (resp. some plugins) as well as some useful tools on your computer.
@@ -485,7 +490,7 @@ procedure InitializeWizard();
 var
   insertPageAfter: integer;
 begin
-  uninstallPage := CreateInputOptionPage (wpWelcome,
+  uninstallPage := CreateInputOptionPage (wpInfoBefore,
     'Uninstall already installed version',
     'Would you like to uninstall the already installed version?',
     'Another installed version of the {#CSLibsName} has been detected. ' +
@@ -769,19 +774,3 @@ begin
   StringChange (libPath, '\', '/');
   SaveStringToFile (pcFileName, 'Libs: ${prefix}/' + libPath + #13#10, true);
 end;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
