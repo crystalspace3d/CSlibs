@@ -37,6 +37,7 @@ WizardSmallImageFile=compiler:WizModernSmallImage-IS.bmp
 PrivilegesRequired=none
 SignTool=standard
 SignedUninstaller=yes
+DisableWelcomePage=yes
 [Files]
 ; Copy the DLLs to the CS dir.
 Source: {src}\dlls\*.dll; DestDir: {app}; Flags: external skipifsourcedoesntexist ignoreversion
@@ -59,6 +60,8 @@ Root: HKCU; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstv
 [Icons]
 Name: {group}\{code:MyGetIconTitle}; Filename: {uninstallexe}; WorkingDir: {app}; IconIndex: 0; Comment: {code:MyGetIconComment}; Check: InstallIcons
 [Messages]
+SetupAppTitle=Copy {#CSLibsName} {#CSLibsVersion} DLLs to CS directory
+SetupWindowTitle=Copy {#CSLibsName} {#CSLibsVersion} DLLs to CS directory
 SelectDirDesc=Where is CrystalSpace installed?
 SelectDirLabel3=Please locate a CrystalSpace directory to copy the DLLs into.
 FinishedLabel=Setup has finished copying the {#CSLibsName} DLLs to the CS directory. You can copy the DLLs to other CS locations by re-running this setup.

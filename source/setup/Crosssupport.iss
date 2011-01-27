@@ -4,9 +4,11 @@
 #define UninstIconGroup "{reg:HKCU\" + CSLibsRegKey + ",ProgramGroup|{reg:HKLM\" + CSLibsRegKey + ",ProgramGroup|{userprograms}}}"
 #define CSLibsPathKey   "{reg:HKCU\" + CSLibsRegKey + ",InstallPath|{reg:HKLM\" + CSLibsRegKey + ",InstallPath|{pf}\CrystalSpaceLibs}}"
 
+#define AppName         SupportName + " support for " + CSLibsName
+
 [Setup]
-AppName={#CSLibsName} {#SupportName} support
-AppVerName={#CSLibsName} {#SupportName} support {#CSLibsVersion}
+AppName={#AppName}
+AppVerName={#AppName} {#CSLibsVersion}
 Compression=lzma2
 UninstallLogMode=new
 CreateUninstallRegKey=false
@@ -27,6 +29,7 @@ WizardSmallImageFile=compiler:WizModernSmallImage-IS.bmp
 PrivilegesRequired=none
 SignTool=standard
 SignedUninstaller=yes
+DisableWelcomePage=yes
 [Registry]
 Root: HKLM; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstvalName}; ValueData: {uninstallexe}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: IsAdminLoggedOn
 Root: HKCU; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstvalName}; ValueData: {uninstallexe}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: not IsAdminLoggedOn
@@ -39,7 +42,9 @@ Filename: /bin/sh; WorkingDir: "{app}"; Parameters: "-c ""ln -s {code:GetCsLibsP
 [UninstallRun]
 Filename: /bin/sh; WorkingDir: "{app}"; Parameters: "-c ""rm {code:GetDestPath}""";
 [Messages]
-FinishedLabel=Setup has finished installing [name] on your computer. You need to re-run 'configure' to make use of the new libraries. You can set up support for more {#SupportName} installations by re-running this setup.
+SetupAppTitle={#AppName} {#CSLibsVersion}
+SetupWindowTitle={#AppName} {#CSLibsVersion}
+FinishedLabel=Setup has finished installing [name] on your computer. You need to re-run ‘configure’ to make use of the new libraries. You can set up support for more {#SupportName} installations by re-running this setup.
 [Files]
 Source: ..\..\tools\Release\setuptool.dll; Flags: dontcopy; DestDir: {app}
 [Code]
