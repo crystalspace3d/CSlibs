@@ -12,9 +12,11 @@
 #define ArchDir         "x86"
 #endif
 
+#define AppName         SupportName + " support for " + CSLibsName
+
 [Setup]
-AppName={#CSLibsName} {#SupportName} support
-AppVerName={#CSLibsName} {#SupportName} support {#CSLibsVersion}
+AppName={#AppName}
+AppVerName={#AppName} {#CSLibsVersion}
 Compression=none
 UninstallLogMode=new
 CreateUninstallRegKey=false
@@ -37,6 +39,7 @@ WizardSmallImageFile=compiler:WizModernSmallImage-IS.bmp
 PrivilegesRequired=none
 SignTool=standard
 SignedUninstaller=yes
+DisableWelcomePage=yes
 [Files]
 Source: {src}\common\include\*.*; DestDir: {app}\winlibs\{#ArchDir}\include; Flags: external skipifsourcedoesntexist recursesubdirs
 Source: {src}\vc\include\*.*; DestDir: {app}\winlibs\{#ArchDir}\include; Flags: external skipifsourcedoesntexist recursesubdirs
@@ -50,6 +53,8 @@ Root: HKCU; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstv
 [Icons]
 Name: {group}\{code:GetIconTitle}; Filename: {uninstallexe}; WorkingDir: {app}; IconIndex: 0; Comment: {code:GetIconComment}; Check: InstallIcons
 [Messages]
+SetupAppTitle={#AppName} {#CSLibsVersion}
+SetupWindowTitle={#AppName} {#CSLibsVersion}
 SelectDirDesc=Where is CrystalSpace installed?
 SelectDirLabel3=The {#CSLibsName} have to be copied to the CrystalSpace source tree in order to use them with VC. Please locate your CrystalSpace directory.
 FinishedLabel=Setup has finished installing [name] on your computer. You can set up {#SupportName} support for more CS source trees by re-running this setup.

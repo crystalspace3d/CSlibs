@@ -15,9 +15,11 @@
 #define ArchSuffix        ""
 #endif
 
+#define AppName         SupportName + " support for " + CSLibsName
+
 [Setup]
-AppName={#CSLibsName} {#PlatformName} support
-AppVerName={#CSLibsName} {#PlatformName} support {#CSLibsVersion}
+AppName={#AppName}
+AppVerName={#AppName} {#CSLibsVersion}
 Compression=none
 UninstallLogMode=new
 CreateUninstallRegKey=false
@@ -38,6 +40,7 @@ WizardSmallImageFile=compiler:WizModernSmallImage-IS.bmp
 PrivilegesRequired=none
 SignTool=standard
 SignedUninstaller=yes
+DisableWelcomePage=yes
 [Registry]
 Root: HKLM; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstvalName}; ValueData: {uninstallexe}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: IsAdminLoggedOn
 Root: HKCU; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstvalName}; ValueData: {uninstallexe}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: not IsAdminLoggedOn
@@ -53,7 +56,9 @@ Filename: rundll32.exe; Parameters: "{code:GetShortenedSrcDir}\setuptool.dll,Aug
 [UninstallRun]
 Filename: rundll32.exe; Parameters: {code:GetShortenedSrcDir}\setuptool.dll,CleanBashProfile {#MSYSProfilePathKey}
 [Messages]
-FinishedLabel=Setup has finished installing [name] on your computer. You need to re-run 'configure' to make use of the new libraries. You can set up support for more {#SupportName} installations by re-running this setup.
+SetupAppTitle={#AppName} {#CSLibsVersion}
+SetupWindowTitle={#AppName} {#CSLibsVersion}
+FinishedLabel=Setup has finished installing [name] on your computer. You need to re-run ‘configure’ to make use of the new libraries. You can set up support for more {#SupportName} installations by re-running this setup.
 [Code]
 #include "CodeCommon.inc"
 #define MSYSPathValue 	"Software\Microsoft\Windows\CurrentVersion\Uninstall\MSYS-1.0_is1"
@@ -99,12 +104,12 @@ begin
   SupportInitialize();
 
   profileFilePage := CreateInputFilePage (wpWelcome,
-    'Select ''profile'' file',
-    'A file needed for proper {#PlatformName} integration.',
-    'To properly integrate with {#PlatformName}, the ''profile'' file (used to initialize some shell ' +
+    '{#PlatformName} integration settings',
+    '',
+    'To properly integrate with {#PlatformName}, the ‘profile’ file (used to initialize some shell ' +
       'settings) needs to be updated. ' #13#10#13#10+
       'Please locate that file in your {#PlatformName} installation.');
-  profileFilePage.Add ('''&profile'' file:', 'profile|profile', '');
+  profileFilePage.Add ('‘profile’ file:', 'profile|profile', '');
   profileFilePage.Values[0] := GetPreviousData('ProfileFile', DetectProfileName());
 end;
 
@@ -123,7 +128,7 @@ begin
   if (CurPage = profileFilePage.ID) then begin
     if (not FileExists (profileFilePage.Values[0])) then
     begin
-      MsgBox ('The specified ''profile'' file does not exists; please check if the path is correct.', mbError, MB_OK);
+      MsgBox ('The specified ‘profile’ file does not exists; please check if the path is correct.', mbError, MB_OK);
       Result := false;
     end
     else
