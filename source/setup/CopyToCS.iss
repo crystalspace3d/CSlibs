@@ -32,7 +32,6 @@ DisableDirPage=false
 UsePreviousAppDir=false
 DisableProgramGroupPage=true
 DisableReadyPage=yes
-WizardImageFile=compiler:WizModernImage-IS.bmp
 WizardSmallImageFile=compiler:WizModernSmallImage-IS.bmp
 PrivilegesRequired=none
 SignTool=standard
