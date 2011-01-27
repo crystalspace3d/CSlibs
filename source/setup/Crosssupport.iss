@@ -79,7 +79,7 @@ begin
   csconfigLocationPage := CreateInputQueryPage (wpWelcome,
     'Select ''cslibs-config'' location',
     'Needed for proper detection of the Win32 libraries',
-    'To allow ''configure'' to detect the cs-win32libs when cross-compiling, a symlink zo cslibs-config ' +
+    'To allow ''configure'' to detect the cs-win32libs when cross-compiling, a symlink to cslibs-config ' +
  	    'must be placed in a directory in $PATH. ' #13#10#13#10+
       'Please specify the location of the symlink.');
   csconfigLocationPage.Add ('&Location: ', false);
