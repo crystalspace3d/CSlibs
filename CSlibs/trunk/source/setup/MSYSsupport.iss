@@ -35,7 +35,6 @@ UseSetupLdr=true
 SolidCompression=true
 CreateAppDir=false
 DisableProgramGroupPage=true
-WizardImageFile=compiler:WizModernImage-IS.bmp
 WizardSmallImageFile=compiler:WizModernSmallImage-IS.bmp
 PrivilegesRequired=none
 SignTool=standard
