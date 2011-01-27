@@ -13,16 +13,20 @@ case $(basename $0) in
 esac
 if test "`uname -o 2> /dev/null`" = "Cygwin" ; then
   if test -n "$no_cygwin" ; then
+    # Environment is for Cygwin, but with -mno-cygwin
     libsdir=`cygpath -u "%CSLIBSPATH%"`
     platform=$mingw_platform
   else
+    # Environment is for Cygwin
     libsdir=`cygpath -u "%CSLIBSPATH%"`
     platform=cygwin
   fi
 else
   if test "`uname -s | sed -e 's+\(.*\)_.*+\1+'`" = "MINGW32" ; then
+    # Environment is for MinGW on MSYS
     libsdir="%CSLIBSPATH_MSYS%"
   else
+    # Environment is for a MinGW cross compiler - so return native paths
     libsdir="%CSLIBSPATH_WINE%"
   fi
   platform=$mingw_platform
