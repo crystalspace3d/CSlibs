@@ -28,8 +28,10 @@
 
 [Setup]
 SolidCompression=true
+; Release setting
 Compression=lzma2/ultra64
-;Compression=none
+; Test setting for quicker results
+;Compression=zip/1
 ShowLanguageDialog=no
 AppName={#AppName}
 AppId={#AppId}
@@ -419,6 +421,7 @@ var
   CSdirPage: TInputDirWizardPage;
   UninstPrevProgress: TOutputProgressWizardPage;
   silentType: integer;
+  crossCompileInstallType: boolean;
   
 const
   UninstKey = 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{#AppId}_is1';
@@ -493,6 +496,7 @@ begin
   uninstallPage.Values[0] := true;
   insertPageAfter := uninstallPage.ID;
 
+  crossCompileInstallType := false;
   if IsWinePresent() then begin
     wineSettingsPage := CreateInputOptionPage (insertPageAfter,
       'Wine detected',
@@ -505,9 +509,7 @@ begin
     wineSettingsPage.Add ('&Use cross-compile presets');
     wineSettingsPage.Values[0] := StrToBool (GetPreviousData('WineEnvironment', '1'));
     insertPageAfter := wineSettingsPage.ID;
-    
-    WizardForm.TypesCombo.ItemIndex := 6;
-    WizardForm.TypesCombo.OnChange (WizardForm.TypesCombo);
+    crossCompileInstallType := true;
   end;
 
   openALinstallPage := CreateInputOptionPage (wpSelectComponents,
@@ -668,6 +670,17 @@ begin
     and (not FPrevVerInstalled));
 end;
 
+procedure CurPageChanged(CurPageID: Integer);
+begin
+  if (CurPageID = wpSelectComponents)
+      and crossCompileInstallType 
+      and CrossPresets then begin
+    WizardForm.TypesCombo.ItemIndex := 6;
+    WizardForm.TypesCombo.OnChange (WizardForm.TypesCombo);
+    crossCompileInstallType := false;
+  end;
+end;
+
 {
 function UpdateReadyMemo(Space, NewLine, MemoUserInfoInfo, MemoDirInfo, MemoTypeInfo, MemoComponentsInfo,
                          MemoGroupInfo, MemoTasksInfo: String): String;
@@ -756,6 +769,8 @@ begin
   StringChange (libPath, '\', '/');
   SaveStringToFile (pcFileName, 'Libs: ${prefix}/' + libPath + #13#10, true);
 end;
+
+
 
 
 
