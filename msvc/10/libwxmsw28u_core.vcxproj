@@ -56,7 +56,7 @@
       <ProgramDataBaseFileName>..\..\out\release10\build\libwxmsw28u_core\Win32\wxmsw28u_core.pdb</ProgramDataBaseFileName>
       <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_CORE;wxUSE_BASE=0;COMPILED_FROM_DSP;WXUSINGDLL;wxHACK_BOOLEAN=wxInt8;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>.;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\tiff;..\..\source\libwx\..\libz;..\..\source\libwx\..\libpng;..\..\source\libwx\..\libjpeg;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\tiff;..\..\source\libwx\..\configs;..\..\source\libwx\..\libz;..\..\source\libwx\..\libpng;..\..\source\libwx\..\configs\libjpeg;..\..\source\libwx\..\libjpeg;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderOutputFile>..\..\out\release10\build\libwxmsw28u_core\libwxmsw28u_core.pch</PrecompiledHeaderOutputFile>
       <AssemblerListingLocation>..\..\out\release10\build\libwxmsw28u_core\</AssemblerListingLocation>
       <ObjectFileName>..\..\out\release10\build\libwxmsw28u_core\</ObjectFileName>
@@ -89,7 +89,7 @@
     </PostBuildEvent>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_CORE;wxUSE_BASE=0;COMPILED_FROM_DSP;WXUSINGDLL;wxHACK_BOOLEAN=wxInt8;PROJECTGEN_VERSION=10;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\tiff;..\..\source\libwx\..\libz;..\..\source\libwx\..\libpng;..\..\source\libwx\..\libjpeg</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\tiff;..\..\source\libwx\..\configs;..\..\source\libwx\..\libz;..\..\source\libwx\..\libpng;..\..\source\libwx\..\configs\libjpeg;..\..\source\libwx\..\libjpeg</AdditionalIncludeDirectories>
       <Culture>0x0409</Culture>
     </ResourceCompile>
   </ItemDefinitionGroup>
@@ -107,7 +107,7 @@
       <ProgramDataBaseFileName>..\..\out\release10-x64\build\libwxmsw28u_core\x64\wxmsw28u_core.pdb</ProgramDataBaseFileName>
       <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_CORE;wxUSE_BASE=0;COMPILED_FROM_DSP;WXUSINGDLL;wxHACK_BOOLEAN=wxInt8;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>.;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\tiff;..\..\source\libwx\..\libz;..\..\source\libwx\..\libpng;..\..\source\libwx\..\libjpeg;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\tiff;..\..\source\libwx\..\configs;..\..\source\libwx\..\libz;..\..\source\libwx\..\libpng;..\..\source\libwx\..\configs\libjpeg;..\..\source\libwx\..\libjpeg;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderOutputFile>..\..\out\release10-x64\build\libwxmsw28u_core\libwxmsw28u_core.pch</PrecompiledHeaderOutputFile>
       <AssemblerListingLocation>..\..\out\release10-x64\build\libwxmsw28u_core\</AssemblerListingLocation>
       <ObjectFileName>..\..\out\release10-x64\build\libwxmsw28u_core\</ObjectFileName>
@@ -140,7 +140,7 @@
     </PostBuildEvent>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_CORE;wxUSE_BASE=0;COMPILED_FROM_DSP;WXUSINGDLL;wxHACK_BOOLEAN=wxInt8;PROJECTGEN_VERSION=10;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\tiff;..\..\source\libwx\..\libz;..\..\source\libwx\..\libpng;..\..\source\libwx\..\libjpeg</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\tiff;..\..\source\libwx\..\configs;..\..\source\libwx\..\libz;..\..\source\libwx\..\libpng;..\..\source\libwx\..\configs\libjpeg;..\..\source\libwx\..\libjpeg</AdditionalIncludeDirectories>
       <Culture>0x0409</Culture>
     </ResourceCompile>
   </ItemDefinitionGroup>
