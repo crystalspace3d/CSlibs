@@ -339,7 +339,7 @@ OUTDIRBASE on wxbase$(WX_MAJORMINOR)u = ReleaseWX ;
 ExtraLib wxbase$(WX_MAJORMINOR)u :
   $(BASE_COMMON) $(BASE_MSW) : 
   source/libwxbase.rc :
-  $(SUBDIR)/include $(SUBDIR)/include/msvc $(SUBDIR)/src/regex $(SUBDIR)/../libz $(SUBDIR)/src/expat/lib :
+  $(SUBDIR)/include $(SUBDIR)/include/msvc $(SUBDIR)/src/regex $(SUBDIR)/../libz $(SUBDIR)/../configs $(SUBDIR)/src/expat/lib :
   nostatic :
   _UNICODE __WXMSW__ WXMAKINGDLL_BASE wxUSE_GUI=0 wxUSE_BASE=1 COMPILED_FROM_DSP
   :
@@ -363,7 +363,9 @@ ExtraLib wxmsw$(WX_MAJORMINOR)u_core :
   $(GUI_COMMON) $(GUI_MSW) : 
   source/libwxcore.rc :
   $(SUBDIR)/include $(SUBDIR)/include/msvc $(SUBDIR)/src/tiff
-  $(SUBDIR)/../libz $(SUBDIR)/../libpng $(SUBDIR)/../libjpeg :
+  $(SUBDIR)/../configs $(SUBDIR)/../libz
+    $(SUBDIR)/../libpng
+    $(SUBDIR)/../configs/libjpeg $(SUBDIR)/../libjpeg :
   nostatic :
   _UNICODE __WXMSW__ WXMAKINGDLL_CORE wxUSE_BASE=0 COMPILED_FROM_DSP WXUSINGDLL wxHACK_BOOLEAN=wxInt8
   :
