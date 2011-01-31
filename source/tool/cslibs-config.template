@@ -1,5 +1,13 @@
 #!/bin/sh
 
+realpath()
+{
+  oldCWD=$(pwd)
+  cd "$1"
+  pwd -P
+  cd "$oldCWD"
+}
+
 determine_platform()
 {
 # If our filename starts with x86_64, this is a CSlibs for mingw64
@@ -27,7 +35,7 @@ else
     libsdir="%CSLIBSPATH_MSYS%"
   else
     # Environment is for a MinGW cross compiler - so return native paths
-    libsdir="%CSLIBSPATH_WINE%"
+    libsdir="$(realpath %CSLIBSPATH_WINE%)"
   fi
   platform=$mingw_platform
 fi
