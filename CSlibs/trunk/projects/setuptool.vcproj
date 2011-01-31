@@ -61,7 +61,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="libcsutil_d.lib"
 				OutputFile="$(OutDir)/setuptool.dll"
 				LinkIncremental="2"
 				IgnoreDefaultLibraryNames="MSVCRTD"
