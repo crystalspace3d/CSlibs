@@ -1,0 +1,11 @@
+--- include/wx/msw/setup.org	Fri Nov 28 17:56:47 2008
++++ include/wx/msw/setup.h	Sun Feb  1 23:27:42 2009
+@@ -157,7 +157,7 @@
+ //
+ // Recommended setting: 0 (unless you only plan to use Windows NT/2000/XP)
+ #ifndef wxUSE_UNICODE
+-    #define wxUSE_UNICODE 0
++    #define wxUSE_UNICODE 1
+ #endif
+ 
+ // Setting wxUSE_WCHAR_T to 1 gives you some degree of Unicode support without

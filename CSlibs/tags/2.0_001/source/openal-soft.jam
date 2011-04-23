@@ -1,0 +1,15 @@
+SubDir TOP source openal-soft ;
+
+BaseLib soft_oal : 
+  [ Filter [ Wildcard Alc : *.c *.h ] : Alc/alsa.c Alc/oss.c Alc/portaudio.c Alc/pulseaudio.c Alc/solaris.c ]
+  [ Wildcard OpenAL32 : *.c ]
+  [ Wildcard [ ConcatDirs OpenAL32 Include ] : *.h ] : 
+  soft_oal :
+  :
+  $(SUBDIR)/../configs/openal $(SUBDIR)/include $(SUBDIR)/OpenAL32/Include :
+  nostatic :
+  soft_oal :
+  soft_oal ;
+MsvcDefine soft_oal : _WIN32 AL_BUILD_LIBRARY AL_ALEXT_PROTOTYPES isnan=_isnan strcasecmp=_stricmp strncasecmp=_strnicmp snprintf=_snprintf ;
+MsvcExtraFile soft_oal : source/openal-soft.rc ;
+MsvcExternalLibrary soft_oal : WinMM.lib ;
