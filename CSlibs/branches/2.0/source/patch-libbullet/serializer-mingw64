@@ -1,0 +1,30 @@
+diff -ru ../libbullet.org/src/LinearMath/btSerializer.h ./src/LinearMath/btSerializer.h
+--- ../libbullet.org/src/LinearMath/btSerializer.h	Tue Mar  2 11:40:08 2010
++++ ./src/LinearMath/btSerializer.h	Sat May  1 19:03:36 2010
+@@ -208,7 +208,7 @@
+ 
+ 			int *intPtr=0;
+ 			short *shtPtr=0;
+-			char *cp = 0;int dataLen =0;long nr=0;
++			char *cp = 0;int dataLen =0;intptr_t nr=0;
+ 			intPtr = (int*)m_dna;
+ 
+ 			/*
+@@ -242,7 +242,7 @@
+ 				cp++;
+ 			}
+ 			{
+-				nr= (long)cp;
++				nr= (intptr_t)cp;
+ 			//	long mask=3;
+ 				nr= ((nr+3)&~3)-nr;
+ 				while (nr--)
+@@ -277,7 +277,7 @@
+ 			}
+ 
+ 		{
+-				nr= (long)cp;
++				nr= (intptr_t)cp;
+ 			//	long mask=3;
+ 				nr= ((nr+3)&~3)-nr;
+ 				while (nr--)
