@@ -1,3 +1,0 @@
-#define VER_FILENAME		"wxmsw" VERSION_MAJORMINOR "u_gl.dll"
-
-#include "libwxcommon.rcinc"
