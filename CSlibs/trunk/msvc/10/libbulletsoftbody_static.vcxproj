@@ -149,6 +149,7 @@
     <ClInclude Include="..\..\source\libbullet\src\BulletSoftBody\btDefaultSoftBodySolver.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletSoftBody\btSoftBody.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletSoftBody\btSoftBodyConcaveCollisionAlgorithm.h" />
+    <ClInclude Include="..\..\source\libbullet\src\BulletSoftBody\btSoftBodyData.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletSoftBody\btSoftBodyHelpers.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletSoftBody\btSoftBodyInternals.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletSoftBody\btSoftBodyRigidBodyCollisionConfiguration.h" />

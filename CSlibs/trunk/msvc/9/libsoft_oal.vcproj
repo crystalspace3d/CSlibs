@@ -188,6 +188,9 @@
 				RelativePath="..\..\source\openal-soft\Alc\alcEcho.c">
 			</File>
 			<File
+				RelativePath="..\..\source\openal-soft\Alc\alcModulator.c">
+			</File>
+			<File
 				RelativePath="..\..\source\openal-soft\Alc\alcReverb.c">
 			</File>
 			<File
@@ -204,6 +207,15 @@
 			</File>
 			<File
 				RelativePath="..\..\source\openal-soft\Alc\dsound.c">
+			</File>
+			<File
+				RelativePath="..\..\source\openal-soft\Alc\mixer.c">
+			</File>
+			<File
+				RelativePath="..\..\source\openal-soft\Alc\null.c">
+			</File>
+			<File
+				RelativePath="..\..\source\openal-soft\Alc\panning.c">
 			</File>
 			<File
 				RelativePath="..\..\source\openal-soft\Alc\wave.c">

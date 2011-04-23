@@ -32,7 +32,7 @@
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
 				ProgramDataBaseFileName="..\..\out\release9\build\libpng\png.pdb"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;PNG_USE_PNGVCRD;SPECIALBUILD=\&quot;Built for CrystalSpace, may cause problems if used for other software.\&quot;;WIN32"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;PNG_USE_PNGVCRD;PNG_IMPEXP=;SPECIALBUILD=\&quot;Built for CrystalSpace, may cause problems if used for other software.\&quot;;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions="/fp:fast "
 				AdditionalIncludeDirectories=".;..\..\source\libpng\..\configs;..\..\source\libpng\..\libz;..\..\source\libpng"
@@ -58,7 +58,7 @@
 				OutputFile="..\..\libs\ReleaseNoCygwin\libpng-cs.dll"
 				AdditionalLibraryDirectories=""
                                 MergeSections=".rdata=.text" 
-                                ModuleDefinitionFile="../../source/libpng/scripts/pngwin.def" 
+                                ModuleDefinitionFile="../../source/libpng/scripts/symbols.def" 
 				DelayLoadDLLs=""
 				ImportLibrary="..\..\libs\ReleaseNoCygwin\libpng.lib"
 				AdditionalOptions="/nodefaultlib:msvcrt ..\..\nosource\x86\link-msvcrt\msvcrt_win2000.obj ..\..\nosource\x86\link-msvcrt\msvcrt.lib "
@@ -71,7 +71,7 @@
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;PNG_USE_PNGVCRD;SPECIALBUILD=\&quot;Built for CrystalSpace, may cause problems if used for other software.\&quot;"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;PNG_USE_PNGVCRD;PNG_IMPEXP=;SPECIALBUILD=\&quot;Built for CrystalSpace, may cause problems if used for other software.\&quot;"
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
@@ -85,7 +85,7 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;PNG_USE_PNGVCRD;SPECIALBUILD=\&quot;Built for CrystalSpace, may cause problems if used for other software.\&quot;;PROJECTGEN_VERSION=9"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;PNG_USE_PNGVCRD;PNG_IMPEXP=;SPECIALBUILD=\&quot;Built for CrystalSpace, may cause problems if used for other software.\&quot;;PROJECTGEN_VERSION=9"
 				AdditionalIncludeDirectories=".;..\..\source\libpng;..\..\source\libpng\..\configs;..\..\source\libpng\..\libz;..\..\source\libpng"
 				Culture="1033"/>
 			<Tool
@@ -114,7 +114,7 @@
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
 				ProgramDataBaseFileName="..\..\out\release9-x64\build\libpng\png-x64.pdb"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;PNG_USE_PNGVCRD;SPECIALBUILD=\&quot;Built for CrystalSpace, may cause problems if used for other software.\&quot;;WIN32"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;PNG_USE_PNGVCRD;PNG_IMPEXP=;SPECIALBUILD=\&quot;Built for CrystalSpace, may cause problems if used for other software.\&quot;;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions="/fp:fast "
 				AdditionalIncludeDirectories=".;..\..\source\libpng\..\configs;..\..\source\libpng\..\libz;..\..\source\libpng"
@@ -140,7 +140,7 @@
 				OutputFile="..\..\libs\ReleaseNoCygwin-x64\libpng-cs-x64.dll"
 				AdditionalLibraryDirectories=""
                                 MergeSections=".rdata=.text" 
-                                ModuleDefinitionFile="../../source/libpng/scripts/pngwin.def" 
+                                ModuleDefinitionFile="../../source/libpng/scripts/symbols.def" 
 				DelayLoadDLLs=""
 				ImportLibrary="..\..\libs\ReleaseNoCygwin-x64\libpng.lib"
 				AdditionalOptions="/nodefaultlib:msvcrt ..\..\nosource\x64\link-msvcrt\msvcrt_win2003.obj ..\..\nosource\x64\link-msvcrt\msvcrt.lib "
@@ -153,7 +153,7 @@
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;PNG_USE_PNGVCRD;SPECIALBUILD=\&quot;Built for CrystalSpace, may cause problems if used for other software.\&quot;"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;PNG_USE_PNGVCRD;PNG_IMPEXP=;SPECIALBUILD=\&quot;Built for CrystalSpace, may cause problems if used for other software.\&quot;"
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
@@ -167,7 +167,7 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;PNG_USE_PNGVCRD;SPECIALBUILD=\&quot;Built for CrystalSpace, may cause problems if used for other software.\&quot;;PROJECTGEN_VERSION=9"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_CRT_NOFORCE_MANIFEST;_STL_NOFORCE_MANIFEST;PNG_USE_PNGVCRD;PNG_IMPEXP=;SPECIALBUILD=\&quot;Built for CrystalSpace, may cause problems if used for other software.\&quot;;PROJECTGEN_VERSION=9"
 				AdditionalIncludeDirectories=".;..\..\source\libpng;..\..\source\libpng\..\configs;..\..\source\libpng\..\libz;..\..\source\libpng"
 				Culture="1033"/>
 			<Tool
@@ -211,9 +211,6 @@
 				RelativePath="..\..\source\libpng\pngset.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libpng\pngtest.c">
-			</File>
-			<File
 				RelativePath="..\..\source\libpng\pngtrans.c">
 			</File>
 			<File
@@ -239,7 +236,16 @@
 				RelativePath="..\..\source\libpng\pngconf.h">
 			</File>
 			<File
+				RelativePath="..\..\source\libpng\pngdebug.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libpng\pnginfo.h">
+			</File>
+			<File
 				RelativePath="..\..\source\libpng\pngpriv.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libpng\pngstruct.h">
 			</File>
 		</Filter>
 		<Filter
@@ -253,7 +259,7 @@
 			Name="Other Files"
 			Filter="">
 			<File
-				RelativePath="..\..\source\libpng\scripts\pngwin.def">
+				RelativePath="..\..\source\libpng\scripts\symbols.def">
 			</File>
 		</Filter>
 	</Files>

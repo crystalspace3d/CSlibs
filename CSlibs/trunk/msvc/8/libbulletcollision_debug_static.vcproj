@@ -288,6 +288,9 @@
 				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btConvexPointCloudShape.cpp">
 			</File>
 			<File
+				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btConvexPolyhedron.cpp">
+			</File>
+			<File
 				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btConvexShape.cpp">
 			</File>
 			<File
@@ -412,6 +415,9 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletCollision\NarrowPhaseCollision\btPersistentManifold.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libbullet\src\BulletCollision\NarrowPhaseCollision\btPolyhedralContactClipping.cpp">
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletCollision\NarrowPhaseCollision\btRaycastCallback.cpp">
@@ -575,6 +581,9 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btConvexPointCloudShape.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btConvexPolyhedron.h">
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btConvexShape.h">
@@ -770,6 +779,9 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletCollision\NarrowPhaseCollision\btPointCollector.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libbullet\src\BulletCollision\NarrowPhaseCollision\btPolyhedralContactClipping.h">
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletCollision\NarrowPhaseCollision\btRaycastCallback.h">

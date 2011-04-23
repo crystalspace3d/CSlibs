@@ -138,6 +138,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\source\libbullet\src\LinearMath\btAlignedAllocator.cpp" />
     <ClCompile Include="..\..\source\libbullet\src\LinearMath\btConvexHull.cpp" />
+    <ClCompile Include="..\..\source\libbullet\src\LinearMath\btConvexHullComputer.cpp" />
     <ClCompile Include="..\..\source\libbullet\src\LinearMath\btGeometryUtil.cpp" />
     <ClCompile Include="..\..\source\libbullet\src\LinearMath\btQuickprof.cpp" />
     <ClCompile Include="..\..\source\libbullet\src\LinearMath\btSerializer.cpp" />
@@ -147,6 +148,7 @@
     <ClInclude Include="..\..\source\libbullet\src\LinearMath\btAlignedAllocator.h" />
     <ClInclude Include="..\..\source\libbullet\src\LinearMath\btAlignedObjectArray.h" />
     <ClInclude Include="..\..\source\libbullet\src\LinearMath\btConvexHull.h" />
+    <ClInclude Include="..\..\source\libbullet\src\LinearMath\btConvexHullComputer.h" />
     <ClInclude Include="..\..\source\libbullet\src\LinearMath\btDefaultMotionState.h" />
     <ClInclude Include="..\..\source\libbullet\src\LinearMath\btGeometryUtil.h" />
     <ClInclude Include="..\..\source\libbullet\src\LinearMath\btHashMap.h" />
