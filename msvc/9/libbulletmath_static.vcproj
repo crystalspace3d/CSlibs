@@ -173,6 +173,9 @@
 				RelativePath="..\..\source\libbullet\src\LinearMath\btConvexHull.cpp">
 			</File>
 			<File
+				RelativePath="..\..\source\libbullet\src\LinearMath\btConvexHullComputer.cpp">
+			</File>
+			<File
 				RelativePath="..\..\source\libbullet\src\LinearMath\btGeometryUtil.cpp">
 			</File>
 			<File
@@ -196,6 +199,9 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\LinearMath\btConvexHull.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libbullet\src\LinearMath\btConvexHullComputer.h">
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\LinearMath\btDefaultMotionState.h">

@@ -204,6 +204,9 @@
 				RelativePath="..\..\source\libbullet\src\BulletSoftBody\btSoftBodyConcaveCollisionAlgorithm.h">
 			</File>
 			<File
+				RelativePath="..\..\source\libbullet\src\BulletSoftBody\btSoftBodyData.h">
+			</File>
+			<File
 				RelativePath="..\..\source\libbullet\src\BulletSoftBody\btSoftBodyHelpers.h">
 			</File>
 			<File

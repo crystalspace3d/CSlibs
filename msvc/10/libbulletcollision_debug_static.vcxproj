@@ -165,6 +165,7 @@
     <ClCompile Include="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btConvexHullShape.cpp" />
     <ClCompile Include="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btConvexInternalShape.cpp" />
     <ClCompile Include="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btConvexPointCloudShape.cpp" />
+    <ClCompile Include="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btConvexPolyhedron.cpp" />
     <ClCompile Include="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btConvexShape.cpp" />
     <ClCompile Include="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btConvexTriangleMeshShape.cpp" />
     <ClCompile Include="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btCylinderShape.cpp" />
@@ -207,6 +208,7 @@
     <ClCompile Include="..\..\source\libbullet\src\BulletCollision\NarrowPhaseCollision\btGjkPairDetector.cpp" />
     <ClCompile Include="..\..\source\libbullet\src\BulletCollision\NarrowPhaseCollision\btMinkowskiPenetrationDepthSolver.cpp" />
     <ClCompile Include="..\..\source\libbullet\src\BulletCollision\NarrowPhaseCollision\btPersistentManifold.cpp" />
+    <ClCompile Include="..\..\source\libbullet\src\BulletCollision\NarrowPhaseCollision\btPolyhedralContactClipping.cpp" />
     <ClCompile Include="..\..\source\libbullet\src\BulletCollision\NarrowPhaseCollision\btRaycastCallback.cpp" />
     <ClCompile Include="..\..\source\libbullet\src\BulletCollision\NarrowPhaseCollision\btSubSimplexConvexCast.cpp" />
     <ClCompile Include="..\..\source\libbullet\src\BulletCollision\NarrowPhaseCollision\btVoronoiSimplexSolver.cpp" />
@@ -262,6 +264,7 @@
     <ClInclude Include="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btConvexHullShape.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btConvexInternalShape.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btConvexPointCloudShape.h" />
+    <ClInclude Include="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btConvexPolyhedron.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btConvexShape.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btConvexTriangleMeshShape.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletCollision\CollisionShapes\btCylinderShape.h" />
@@ -327,6 +330,7 @@
     <ClInclude Include="..\..\source\libbullet\src\BulletCollision\NarrowPhaseCollision\btMinkowskiPenetrationDepthSolver.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletCollision\NarrowPhaseCollision\btPersistentManifold.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletCollision\NarrowPhaseCollision\btPointCollector.h" />
+    <ClInclude Include="..\..\source\libbullet\src\BulletCollision\NarrowPhaseCollision\btPolyhedralContactClipping.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletCollision\NarrowPhaseCollision\btRaycastCallback.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletCollision\NarrowPhaseCollision\btSimplexSolverInterface.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletCollision\NarrowPhaseCollision\btSubSimplexConvexCast.h" />
