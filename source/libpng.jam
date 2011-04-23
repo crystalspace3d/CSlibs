@@ -1,15 +1,16 @@
 SubDir TOP source libpng ;
 
 BaseLib png : 
-  [ Wildcard png*.c png*.h ] : 
+  [ Filter [ Wildcard png*.c png*.h ] : pngvalid.c pngtest.c ] : 
   libpng :
-  $(SUBDIR)/scripts/pngwin.def :
+  $(SUBDIR)/scripts/symbols.def :
   $(SUBDIR)/../configs $(SUBDIR)/../libz $(SUBDIR) :
   :
   ReleaseNoCygwin ;
 LibDepends png : z ;
 # Apparently broken in 1.2.16
-MsvcDefine png : PNG_USE_PNGVCRD ;
+MsvcDefine png : PNG_USE_PNGVCRD PNG_IMPEXP= ;
+MsvcDefine png_static : PNG_USE_PNGVCRD PNG_IMPEXP= ;
 MsvcDefine png : 
   "SPECIALBUILD=\\&quot;Built for CrystalSpace, may cause problems if used for other software.\\&quot;" ;
 MsvcExtraFile png : source/libpng.rc ;
