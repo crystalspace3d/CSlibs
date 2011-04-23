@@ -1,3 +1,11 @@
+2.0_001 (2011-04-23):
+ - Updated libpng to 1.5.2.
+ - Updated libjpeg to 8c.
+ - Updated bullet to 2.78.
+ - Updated pcre to 8.12.
+ - Updated OpenAL Soft to 1.13.
+ - Updated wxWidgets to 2.8.12.
+
 1.9_008 (2010-12-28):
  - Updated cal3d to trunk r507 (aka "0.12").
  - Updated libpng to 1.4.5.
