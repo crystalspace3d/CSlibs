@@ -1,0 +1,26 @@
+--- src/LinearMath/btAlignedAllocator.cpp.org	Wed Aug 18 17:19:51 2010
++++ src/LinearMath/btAlignedAllocator.cpp	Wed Aug 18 17:20:03 2010
+@@ -15,6 +15,10 @@
+ 
+ #include "btAlignedAllocator.h"
+ 
++#ifndef _MSC_VER
++#include <stdint.h>
++#endif
++
+ int gNumAlignedAllocs = 0;
+ int gNumAlignedFree = 0;
+ int gTotalBytesAlignedAllocs = 0;//detect memory leaks
+--- src/LinearMath/btSerializer.h.org	Sat May  1 19:03:36 2010
++++ src/LinearMath/btSerializer.h	Wed Aug 18 16:35:04 2010
+@@ -24,7 +24,9 @@
+ #include <memory.h>
+ #endif
+ #include <string.h>
+-
++#ifndef _MSC_VER
++#include <stdint.h>
++#endif
+ 
+ 
+ ///only the 32bit versions for now

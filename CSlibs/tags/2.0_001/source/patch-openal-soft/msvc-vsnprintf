@@ -1,0 +1,13 @@
+diff -ru ../openal-soft.old/Alc/ALc.c ./Alc/ALc.c
+--- ../openal-soft.old/Alc/ALc.c	Tue Mar 30 05:00:12 2010
++++ ./Alc/ALc.c	Tue Aug 10 19:49:20 2010
+@@ -38,6 +38,9 @@
+ #include "bs2b.h"
+ #include "alu.h"
+ 
++#ifdef _MSC_VER
++#define vsnprintf _vsnprintf
++#endif
+ 
+ #define EmptyFuncs { NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL }
+ typedef struct BackendInfo {

@@ -1,0 +1,9 @@
+#define VER_PRODUCT_NUMERIC	1,2,0,0
+#define	VER_PRODUCT_STR		"1.2.0"
+#define	VER_DESCRIPTION		"libspeex, a BSD-licensed patent-free audio compression format designed for speech."
+#define VER_INTERNAL		"libspeex"
+#define	VER_COPYRIGHT		"Copyright (C) 2002-2006 Jean-Marc Valin"
+#define VER_FILENAME		"libspeex-cs.dll"
+#define VER_PRODUCTNAME		"Speex"
+
+#include "version.rcinc"
