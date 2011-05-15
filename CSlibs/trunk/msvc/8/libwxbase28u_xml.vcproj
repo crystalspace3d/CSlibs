@@ -2,8 +2,8 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="8.00"
-	Name="libwxmsw28u_gl"
-	ProjectGUID="{6C79D8DE-756F-4D2F-1EBD-A642CDF0606A}"
+	Name="libwxbase28u_xml"
+	ProjectGUID="{CA055F88-2720-572C-32E6-32173C1D1787}"
 	SccProjectName=""
 	SccLocalPath="">
 	<Platforms>
@@ -13,8 +13,8 @@
 	<Configurations>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="..\..\out\release8\build\libwxmsw28u_gl\"
-			IntermediateDirectory="..\..\out\release8\build\libwxmsw28u_gl\"
+			OutputDirectory="..\..\out\release8\build\libwxbase28u_xml\"
+			IntermediateDirectory="..\..\out\release8\build\libwxbase28u_xml\"
 			ConfigurationType="2"
 			WholeProgramOptimization="1"
 			UseOfMFC="0"
@@ -31,14 +31,14 @@
 				EnableIntrinsicFunctions="TRUE"
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
-				ProgramDataBaseFileName="..\..\out\release8\build\libwxmsw28u_gl\wxmsw28u_gl.pdb"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;COMPILED_FROM_DSP;WXUSINGDLL;WXMAKINGDLL_GL;WIN32"
+				ProgramDataBaseFileName="..\..\out\release8\build\libwxbase28u_xml\wxbase28u_xml.pdb"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_XML;wxUSE_GUI=0;WXUSINGDLL;COMPILED_FROM_DSP;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
-				AdditionalIncludeDirectories=".;..\..\source\libwx\include;..\..\source\libwx\include\msvc"
-				PrecompiledHeaderFile="..\..\out\release8\build\libwxmsw28u_gl\libwxmsw28u_gl.pch"
-				AssemblerListingLocation="..\..\out\release8\build\libwxmsw28u_gl\"
-				ObjectFile="..\..\out\release8\build\libwxmsw28u_gl\"
+				AdditionalIncludeDirectories=".;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\expat\lib"
+				PrecompiledHeaderFile="..\..\out\release8\build\libwxbase28u_xml\libwxbase28u_xml.pch"
+				AssemblerListingLocation="..\..\out\release8\build\libwxbase28u_xml\"
+				ObjectFile="..\..\out\release8\build\libwxbase28u_xml\"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
 				Detect64BitPortabilityProblems="false"
@@ -55,26 +55,26 @@
 				GenerateDebugInformation="TRUE"
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD"
 				LinkIncremental="1"
-				OutputFile="..\..\libs\ReleaseWXVC8Only\libwxmsw28u_gl-csvc8.dll"
+				OutputFile="..\..\libs\ReleaseWXVC8Only\libwxbase28u_xml-csvc8.dll"
 				AdditionalLibraryDirectories=""
                                 MergeSections=".rdata=.text" 
 				DelayLoadDLLs=""
-				ImportLibrary="..\..\libs\ReleaseWXVC8Only\wxmsw28u_gl-vc8.lib"
+				ImportLibrary="..\..\libs\ReleaseWXVC8Only\wxbase28u_xml-vc8.lib"
 				AdditionalOptions=" "
-				AdditionalDependencies="opengl32.lib glu32.lib"
+				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				ProgramDatabaseFile="..\..\libs\ReleaseWXVC8Only\libwxmsw28u_gl-csvc8.pdb"
+				ProgramDatabaseFile="..\..\libs\ReleaseWXVC8Only\libwxbase28u_xml-csvc8.pdb"
 				TargetMachine="1"/>
 			<Tool
 				Name="VCLibrarianTool"
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;COMPILED_FROM_DSP;WXUSINGDLL;WXMAKINGDLL_GL"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_XML;wxUSE_GUI=0;WXUSINGDLL;COMPILED_FROM_DSP"
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
-				TypeLibraryName="..\..\out\release8\build\libwxmsw28u_gl\libwxmsw28u_gl.tlb"/>
+				TypeLibraryName="..\..\out\release8\build\libwxbase28u_xml\libwxbase28u_xml.tlb"/>
 			<Tool
 				Name="VCPostBuildEventTool"
 				/>
@@ -84,8 +84,8 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;COMPILED_FROM_DSP;WXUSINGDLL;WXMAKINGDLL_GL;PROJECTGEN_VERSION=8"
-				AdditionalIncludeDirectories=".;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\include\msvc"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_XML;wxUSE_GUI=0;WXUSINGDLL;COMPILED_FROM_DSP;PROJECTGEN_VERSION=8"
+				AdditionalIncludeDirectories=".;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\expat\lib"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
@@ -94,8 +94,8 @@
 		</Configuration>
 		<Configuration
 			Name="Release|x64"
-			OutputDirectory="..\..\out\release8-x64\build\libwxmsw28u_gl\"
-			IntermediateDirectory="..\..\out\release8-x64\build\libwxmsw28u_gl\"
+			OutputDirectory="..\..\out\release8-x64\build\libwxbase28u_xml\"
+			IntermediateDirectory="..\..\out\release8-x64\build\libwxbase28u_xml\"
 			ConfigurationType="2"
 			WholeProgramOptimization="1"
 			UseOfMFC="0"
@@ -112,14 +112,14 @@
 				EnableIntrinsicFunctions="TRUE"
 				FavorSizeOrSpeed="1"
 				OmitFramePointers="TRUE"
-				ProgramDataBaseFileName="..\..\out\release8-x64\build\libwxmsw28u_gl\wxmsw28u_gl-x64.pdb"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;COMPILED_FROM_DSP;WXUSINGDLL;WXMAKINGDLL_GL;WIN32"
+				ProgramDataBaseFileName="..\..\out\release8-x64\build\libwxbase28u_xml\wxbase28u_xml-x64.pdb"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_XML;wxUSE_GUI=0;WXUSINGDLL;COMPILED_FROM_DSP;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
-				AdditionalIncludeDirectories=".;..\..\source\libwx\include;..\..\source\libwx\include\msvc"
-				PrecompiledHeaderFile="..\..\out\release8-x64\build\libwxmsw28u_gl\libwxmsw28u_gl.pch"
-				AssemblerListingLocation="..\..\out\release8-x64\build\libwxmsw28u_gl\"
-				ObjectFile="..\..\out\release8-x64\build\libwxmsw28u_gl\"
+				AdditionalIncludeDirectories=".;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\expat\lib"
+				PrecompiledHeaderFile="..\..\out\release8-x64\build\libwxbase28u_xml\libwxbase28u_xml.pch"
+				AssemblerListingLocation="..\..\out\release8-x64\build\libwxbase28u_xml\"
+				ObjectFile="..\..\out\release8-x64\build\libwxbase28u_xml\"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
 				Detect64BitPortabilityProblems="false"
@@ -136,26 +136,26 @@
 				GenerateDebugInformation="TRUE"
 				IgnoreDefaultLibraryNames="LIBC,LIBCD,LIBCMT,LIBCMTD"
 				LinkIncremental="1"
-				OutputFile="..\..\libs\ReleaseWXVC8Only-x64\libwxmsw28u_gl-csvc8-x64.dll"
+				OutputFile="..\..\libs\ReleaseWXVC8Only-x64\libwxbase28u_xml-csvc8-x64.dll"
 				AdditionalLibraryDirectories=""
                                 MergeSections=".rdata=.text" 
 				DelayLoadDLLs=""
-				ImportLibrary="..\..\libs\ReleaseWXVC8Only-x64\wxmsw28u_gl-vc8.lib"
+				ImportLibrary="..\..\libs\ReleaseWXVC8Only-x64\wxbase28u_xml-vc8.lib"
 				AdditionalOptions=" "
-				AdditionalDependencies="opengl32.lib glu32.lib"
+				AdditionalDependencies=""
 				SuppressStartupBanner="TRUE"
-				ProgramDatabaseFile="..\..\libs\ReleaseWXVC8Only-x64\libwxmsw28u_gl-csvc8-x64.pdb"
+				ProgramDatabaseFile="..\..\libs\ReleaseWXVC8Only-x64\libwxbase28u_xml-csvc8-x64.pdb"
 				TargetMachine="17"/>
 			<Tool
 				Name="VCLibrarianTool"
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;COMPILED_FROM_DSP;WXUSINGDLL;WXMAKINGDLL_GL"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_XML;wxUSE_GUI=0;WXUSINGDLL;COMPILED_FROM_DSP"
 				MkTypLibCompatible="TRUE"
 				SuppressStartupBanner="TRUE"
 				TargetEnvironment="1"
-				TypeLibraryName="..\..\out\release8-x64\build\libwxmsw28u_gl\libwxmsw28u_gl.tlb"/>
+				TypeLibraryName="..\..\out\release8-x64\build\libwxbase28u_xml\libwxbase28u_xml.tlb"/>
 			<Tool
 				Name="VCPostBuildEventTool"
 				/>
@@ -165,8 +165,8 @@
 				Name="VCPreLinkEventTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;COMPILED_FROM_DSP;WXUSINGDLL;WXMAKINGDLL_GL;PROJECTGEN_VERSION=8"
-				AdditionalIncludeDirectories=".;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\include\msvc"
+				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_XML;wxUSE_GUI=0;WXUSINGDLL;COMPILED_FROM_DSP;PROJECTGEN_VERSION=8"
+				AdditionalIncludeDirectories=".;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\expat\lib"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
@@ -179,14 +179,26 @@
 			Name="Source Files"
 			Filter="">
 			<File
-				RelativePath="..\..\source\libwx\src\msw\glcanvas.cpp">
+				RelativePath="..\..\source\libwx\src\common\xtixml.cpp">
+			</File>
+			<File
+				RelativePath="..\..\source\libwx\src\expat\lib\xmlparse.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libwx\src\expat\lib\xmlrole.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libwx\src\expat\lib\xmltok.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libwx\src\xml\xml.cpp">
 			</File>
 		</Filter>
 		<Filter
 			Name="Resource Files"
 			Filter="">
 			<File
-				RelativePath="..\..\source\libwxgl.rc">
+				RelativePath="..\..\source\libwxxml.rc">
 			</File>
 		</Filter>
 	</Files>
