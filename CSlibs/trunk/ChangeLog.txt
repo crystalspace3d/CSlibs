@@ -1,3 +1,8 @@
+2.1_001 (2011-05-16):
+ - Build more WX libs for MSVC (adv, aui, html, net, xml, xrc).
+ - Rebuilt mingw DLLs using newer binutils version.
+   Fixes trac issue #905.
+
 2.0_001 (2011-04-23):
  - Updated libpng to 1.5.2.
  - Updated libjpeg to 8c.
