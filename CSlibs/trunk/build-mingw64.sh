@@ -12,7 +12,7 @@ export CC=$BUILD_TARGET-gcc
 export CXX=$BUILD_TARGET-g++
 export RANLIB=$BUILD_TARGET-ranlib
 export CONFIGUREOPTS=--host=$BUILD_TARGET
-build/most-libs.sh mingw64
+build/most-libs.sh mingw64 $*
 
 # Build for a set of different GCC versions
 for gccver_full in 4.5.3 ; do
