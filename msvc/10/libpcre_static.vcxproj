@@ -145,6 +145,8 @@
     <ClCompile Include="..\..\source\libpcre\pcre_get.c" />
     <ClCompile Include="..\..\source\libpcre\pcre_globals.c" />
     <ClCompile Include="..\..\source\libpcre\pcre_info.c" />
+    <ClCompile Include="..\..\source\libpcre\pcre_jit_compile.c" />
+    <ClCompile Include="..\..\source\libpcre\pcre_jit_test.c" />
     <ClCompile Include="..\..\source\libpcre\pcre_maketables.c" />
     <ClCompile Include="..\..\source\libpcre\pcre_newline.c" />
     <ClCompile Include="..\..\source\libpcre\pcre_ord2utf8.c" />

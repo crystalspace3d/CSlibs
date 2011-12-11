@@ -194,6 +194,12 @@
 				RelativePath="..\..\source\libpcre\pcre_info.c">
 			</File>
 			<File
+				RelativePath="..\..\source\libpcre\pcre_jit_compile.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libpcre\pcre_jit_test.c">
+			</File>
+			<File
 				RelativePath="..\..\source\libpcre\pcre_maketables.c">
 			</File>
 			<File

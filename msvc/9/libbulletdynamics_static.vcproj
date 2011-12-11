@@ -206,9 +206,6 @@
 				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btUniversalConstraint.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\Dynamics\btContinuousDynamicsWorld.cpp">
-			</File>
-			<File
 				RelativePath="..\..\source\libbullet\src\BulletDynamics\Dynamics\btDiscreteDynamicsWorld.cpp">
 			</File>
 			<File
@@ -289,9 +286,6 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletDynamics\Dynamics\btActionInterface.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\Dynamics\btContinuousDynamicsWorld.h">
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletDynamics\Dynamics\btDiscreteDynamicsWorld.h">
