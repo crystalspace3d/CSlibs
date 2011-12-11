@@ -196,6 +196,9 @@
 				RelativePath="..\..\source\libbullet\src\LinearMath\btGeometryUtil.h">
 			</File>
 			<File
+				RelativePath="..\..\source\libbullet\src\LinearMath\btGrahamScan2dConvexHull.h">
+			</File>
+			<File
 				RelativePath="..\..\source\libbullet\src\LinearMath\btHashMap.h">
 			</File>
 			<File
