@@ -269,7 +269,13 @@ Source: ..\..\libs\ReleaseVC8Only_static{#ArchSuffix}\bullet*.pdb; DestDir: {app
 Source: ..\..\libs\ReleaseVC9Only_static{#ArchSuffix}\bullet*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC10Only_static{#ArchSuffix}\bullet*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseNoCygwin{#ArchSuffix}\*.pdb; DestDir: {app}\dlls; Components: Extra/DebugInfo and Libs/VC
+#ifndef X64
+; @@@ Non-Static doesn't work right yet
 Source: ..\..\libs\ReleaseGCCOnly\mingw{#ArchSuffixMingw}\*.dbg; DestDir: {app}\dlls\mingw{#ArchSuffixMingw}; Components: Extra/DebugInfo and Libs/MinGW
+#else
+; @@@ Non-Static doesn't work right yet
+Source: ..\..\libs\ReleaseGCCOnly_static\mingw{#ArchSuffixMingw}\*.dbg; DestDir: {app}\dlls\mingw{#ArchSuffixMingw}; Components: Extra/DebugInfo and Libs/MinGW
+#endif
 #else
 Source: ..\..\libs\ReleaseVC8Only_static{#ArchSuffix}\lib*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo and Libs/VC
 Source: ..\..\libs\ReleaseVC9Only_static{#ArchSuffix}\lib*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo and Libs/VC
@@ -318,7 +324,11 @@ Source: ..\..\tools\freetype-config; DestDir: {app}\bin; Components: Libs/Common
 #else
 #emit MINGWWXCONFIG("4.5")
 #endif
+#ifndef X64
 Source: ..\..\tools\wx-config; DestDir: {app}\tools; Components: Libs/wxMinGW
+#else
+Source: ..\..\tools\x86_64-w64-mingw32-wx-config; DestDir: {app}\tools; Components: Libs/wxMinGW
+#endif
 Source: ..\..\CrystalSpace home page.url; DestDir: {group}; Check: not WizardNoIcons
 ; stuff that's been compressed already
 Source: ..\..\nosource\all\OpenAL\installer\{#File_OpenALInstaller}; DestDir: {app}\openal; Components: Extra/OpenAL
@@ -349,7 +359,7 @@ Name: {app}; Flags: uninsalwaysuninstall
 [Run]
 Filename: rundll32.exe; Parameters: "{code:GetShortenedAppDir}\setuptool.dll,CreateFromTemplate ""srcpath={tmp}\cslibs-config.template"" ""libspath={code:GetShortenedAppDir}"" ""destpath={app}\tools\{#CSLibsConfigName}"""; StatusMsg: Generating cslibs-config;
 #define MINGWWXCONFIGPREP(GccVer) \
-  'Filename: rundll32.exe; Parameters: "{code:GetShortenedAppDir}\setuptool.dll,CreateFromTemplate ""destpath={app}\tools\wx-config-mingw-gcc-' + GccVer + '"" ""srcpath={tmp}\wx-config-mingw' + ArchSuffixMingw + '-gcc-' + GccVer + '"" ""libspath={app}\"""; StatusMsg: Generating wx-config; Components: Libs/wxMinGW'
+  'Filename: rundll32.exe; Parameters: "{code:GetShortenedAppDir}\setuptool.dll,CreateFromTemplate ""destpath={app}\tools\wx-config-mingw' + ArchSuffixMingw + '-gcc-' + GccVer + '"" ""srcpath={tmp}\wx-config-mingw' + ArchSuffixMingw + '-gcc-' + GccVer + '"" ""libspath={app}\"""; StatusMsg: Generating wx-config; Components: Libs/wxMinGW'
 #ifndef X64
 #emit MINGWWXCONFIGPREP("3.4")
 #emit MINGWWXCONFIGPREP("4.4")
@@ -375,7 +385,7 @@ Name: {app}\tools; Type: filesandordirs
 Name: {app}\version.txt; Type: files
 Name: {app}\common; Type: filesandordirs
 Name: {app}\common\lib\pkgconfig; Type: filesandordirs
-Name: {app}\mingw\lib\pkgconfig; Type: filesandordirs
+Name: {app}\mingw{#ArchSuffixMingw}\lib\pkgconfig; Type: filesandordirs
 Name: {app}\tools\wx-config*; Type: filesandordirs
 [Icons]
 Name: {group}\Read Me; Filename: {app}\Readme.rtf; WorkingDir: {app}; Comment: Important informations, known issues and solutions.
