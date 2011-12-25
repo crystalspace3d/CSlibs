@@ -398,3 +398,26 @@ diff -ru ../libwx.org/src/msw/window.cpp ./src/msw/window.cpp
          ;;
          * )
              LIBS="$LIBS -lwinspool -lwinmm -lshell32 -lcomctl32 -lcomdlg32 -lctl3d32 -ladvapi32 -lwsock32 -lgdi32"
+diff -ru ../libwx.org/src/msw/toplevel.cpp ./src/msw/toplevel.cpp
+--- ../libwx.org/src/msw/toplevel.cpp	Sat Apr 16 18:05:39 2011
++++ ./src/msw/toplevel.cpp	Sat Dec 24 16:01:35 2011
+@@ -1122,7 +1122,7 @@
+     {
+         // restore focus to the child which was last focused unless we already
+         // have it
+-        wxLogTrace(_T("focus"), _T("wxTLW %08x activated."), (int) m_hWnd);
++        wxLogTrace(_T("focus"), _T("wxTLW %08x activated."), (int)(intptr_t) m_hWnd);
+ 
+         wxWindow *winFocus = FindFocus();
+         if ( !winFocus || wxGetTopLevelParent(winFocus) != this )
+@@ -1158,8 +1158,8 @@
+ 
+         wxLogTrace(_T("focus"),
+                    _T("wxTLW %08x deactivated, last focused: %08x."),
+-                   (int) m_hWnd,
+-                   (int) (m_winLastFocused ? GetHwndOf(m_winLastFocused)
++                   (int)(intptr_t) m_hWnd,
++                   (int)(intptr_t) (m_winLastFocused ? GetHwndOf(m_winLastFocused)
+                                            : NULL));
+ 
+         event.Skip();
