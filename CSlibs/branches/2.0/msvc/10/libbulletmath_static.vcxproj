@@ -151,6 +151,7 @@
     <ClInclude Include="..\..\source\libbullet\src\LinearMath\btConvexHullComputer.h" />
     <ClInclude Include="..\..\source\libbullet\src\LinearMath\btDefaultMotionState.h" />
     <ClInclude Include="..\..\source\libbullet\src\LinearMath\btGeometryUtil.h" />
+    <ClInclude Include="..\..\source\libbullet\src\LinearMath\btGrahamScan2dConvexHull.h" />
     <ClInclude Include="..\..\source\libbullet\src\LinearMath\btHashMap.h" />
     <ClInclude Include="..\..\source\libbullet\src\LinearMath\btIDebugDraw.h" />
     <ClInclude Include="..\..\source\libbullet\src\LinearMath\btList.h" />

@@ -335,6 +335,155 @@ OPENGL_MSW =
         src/msw/glcanvas.cpp
         ;
 
+ADVANCED_COMMON =
+    src/common/animatecmn.cpp
+    src/common/datavcmn.cpp
+    src/generic/aboutdlgg.cpp
+    src/generic/animateg.cpp
+    src/generic/bmpcboxg.cpp
+    src/generic/calctrl.cpp
+    src/generic/datavgen.cpp
+    src/generic/datectlg.cpp
+    src/generic/grid.cpp
+    src/generic/gridctrl.cpp
+    src/generic/gridsel.cpp
+    src/generic/helpext.cpp
+    src/generic/hyperlink.cpp
+    src/generic/laywin.cpp
+    src/generic/odcombo.cpp
+    src/generic/propdlg.cpp
+    src/generic/sashwin.cpp
+    src/generic/splash.cpp
+    src/generic/tipdlg.cpp
+    src/generic/wizard.cpp
+    ;
+ADVANCED_MSW =
+    src/common/taskbarcmn.cpp
+    src/msw/aboutdlg.cpp
+    src/msw/sound.cpp
+    src/msw/taskbar.cpp
+    src/msw/datectrl.cpp
+    src/msw/joystick.cpp
+    ;
+
+HTML_SRC =
+    src/msw/helpbest.cpp
+    src/html/helpctrl.cpp
+    src/html/helpdata.cpp
+    src/html/helpdlg.cpp
+    src/html/helpfrm.cpp
+    src/html/helpwnd.cpp
+    src/html/htmlcell.cpp
+    src/html/htmlfilt.cpp
+    src/html/htmlpars.cpp
+    src/html/htmltag.cpp
+    src/html/htmlwin.cpp
+    src/html/htmprint.cpp
+    src/html/m_dflist.cpp
+    src/html/m_fonts.cpp
+    src/html/m_hline.cpp
+    src/html/m_image.cpp
+    src/html/m_layout.cpp
+    src/html/m_links.cpp
+    src/html/m_list.cpp
+    src/html/m_pre.cpp
+    src/html/m_style.cpp
+    src/html/m_tables.cpp
+    src/html/winpars.cpp
+    src/generic/htmllbox.cpp
+    ;
+
+XRC_SRC =
+    src/xrc/xh_animatctrl.cpp
+    src/xrc/xh_bmp.cpp
+    src/xrc/xh_bmpcbox.cpp
+    src/xrc/xh_bmpbt.cpp
+    src/xrc/xh_bttn.cpp
+    src/xrc/xh_cald.cpp
+    src/xrc/xh_chckb.cpp
+    src/xrc/xh_chckl.cpp
+    src/xrc/xh_choic.cpp
+    src/xrc/xh_choicbk.cpp
+    src/xrc/xh_clrpicker.cpp
+    src/xrc/xh_collpane.cpp
+    src/xrc/xh_combo.cpp
+    src/xrc/xh_datectrl.cpp
+    src/xrc/xh_dirpicker.cpp
+    src/xrc/xh_dlg.cpp
+    src/xrc/xh_frame.cpp
+    src/xrc/xh_mdi.cpp
+    src/xrc/xh_filepicker.cpp
+    src/xrc/xh_fontpicker.cpp
+    src/xrc/xh_gauge.cpp
+    src/xrc/xh_gdctl.cpp
+    src/xrc/xh_grid.cpp
+    src/xrc/xh_html.cpp
+    src/xrc/xh_hyperlink.cpp
+    src/xrc/xh_listb.cpp
+    src/xrc/xh_listbk.cpp
+    src/xrc/xh_listc.cpp
+    src/xrc/xh_menu.cpp
+    src/xrc/xh_notbk.cpp
+    src/xrc/xh_odcombo.cpp
+    src/xrc/xh_panel.cpp
+    src/xrc/xh_propdlg.cpp
+    src/xrc/xh_radbt.cpp
+    src/xrc/xh_radbx.cpp
+    src/xrc/xh_scrol.cpp
+    src/xrc/xh_scwin.cpp
+    src/xrc/xh_htmllbox.cpp
+    src/xrc/xh_sizer.cpp
+    src/xrc/xh_slidr.cpp
+    src/xrc/xh_spin.cpp
+    src/xrc/xh_split.cpp
+    src/xrc/xh_statbar.cpp
+    src/xrc/xh_stbmp.cpp
+    src/xrc/xh_stbox.cpp
+    src/xrc/xh_stlin.cpp
+    src/xrc/xh_sttxt.cpp
+    src/xrc/xh_text.cpp
+    src/xrc/xh_tglbtn.cpp
+    src/xrc/xh_toolb.cpp
+    src/xrc/xh_tree.cpp
+    src/xrc/xh_treebk.cpp
+    src/xrc/xh_unkwn.cpp
+    src/xrc/xh_wizrd.cpp
+    src/xrc/xmlres.cpp
+    src/xrc/xmlrsall.cpp
+    ;
+    
+XML_SRC =
+    src/xml/xml.cpp
+    src/common/xtixml.cpp
+    src/expat/lib/xmlparse.c
+    src/expat/lib/xmlrole.c
+    src/expat/lib/xmltok.c
+    ;
+
+AUI_SRC =
+    src/aui/framemanager.cpp
+    src/aui/dockart.cpp
+    src/aui/floatpane.cpp
+    src/aui/auibook.cpp
+    src/aui/tabmdi.cpp
+    src/aui/auibar.cpp
+    ;
+
+NET_SRC =
+    src/msw/gsocket.cpp
+    src/msw/urlmsw.cpp
+    src/common/fs_inet.cpp
+    src/common/ftp.cpp
+    src/common/http.cpp
+    src/common/protocol.cpp
+    src/common/sckaddr.cpp
+    src/common/sckfile.cpp
+    src/common/sckipc.cpp
+    src/common/sckstrm.cpp
+    src/common/socket.cpp
+    src/common/url.cpp
+    ;
+
 OUTDIRBASE on wxbase$(WX_MAJORMINOR)u = ReleaseWX ;
 ExtraLib wxbase$(WX_MAJORMINOR)u :
   $(BASE_COMMON) $(BASE_MSW) : 
@@ -346,6 +495,33 @@ ExtraLib wxbase$(WX_MAJORMINOR)u :
   :
   z_static ;
 
+OUTDIRBASE on wxbase$(WX_MAJORMINOR)u_xml = ReleaseWX ;
+ExtraLib wxbase$(WX_MAJORMINOR)u_xml :
+  $(XML_SRC) : 
+  source/libwxxml.rc :
+  $(SUBDIR)/include $(SUBDIR)/include/msvc $(SUBDIR)/src/expat/lib :
+  nostatic :
+  _UNICODE __WXMSW__ WXMAKINGDLL_XML wxUSE_GUI=0 WXUSINGDLL COMPILED_FROM_DSP
+  ;
+LibDepends wxbase$(WX_MAJORMINOR)u_xml : wxbase$(WX_MAJORMINOR)u ;
+LibDepends wxbase$(WX_MAJORMINOR)u_xml_debug : wxbase$(WX_MAJORMINOR)u_debug ;
+
+WXMSW_NET_DEPS.AVAILABLE = yes ;
+WXMSW_NET_DEPS.LIBS = ws2_32.lib ;
+  
+OUTDIRBASE on wxbase$(WX_MAJORMINOR)u_net = ReleaseWX ;
+ExtraLib wxbase$(WX_MAJORMINOR)u_net :
+  $(NET_SRC) : 
+  source/libwxnet.rc :
+  $(SUBDIR)/include $(SUBDIR)/include/msvc :
+  nostatic :
+  _UNICODE __WXMSW__ WXMAKINGDLL_NET wxUSE_GUI=0 WXUSINGDLL COMPILED_FROM_DSP
+  ;
+LibDepends wxbase$(WX_MAJORMINOR)u_net : wxbase$(WX_MAJORMINOR)u ;
+LibDepends wxbase$(WX_MAJORMINOR)u_net_debug : wxbase$(WX_MAJORMINOR)u_debug ;
+ExternalLibs wxbase$(WX_MAJORMINOR)u_net : WXMSW_NET_DEPS ;
+ExternalLibs wxbase$(WX_MAJORMINOR)u_net_debug : WXMSW_NET_DEPS ;
+  
 TIF_PLAT = tif_win3.c tif_vms.c tif_unix.c tif_os2.c tif_atari.c tif_apple.c tif_acorn.c tif_msdos.c ;
 
 BaseLib wxtiff : 
@@ -385,17 +561,53 @@ MsvcLFlags wxmsw$(WX_MAJORMINOR)u_core_debug : "/INCREMENTAL:NO" ;
 WXMSW_GL_DEPS.AVAILABLE = yes ;
 WXMSW_GL_DEPS.LIBS = opengl32.lib glu32.lib ;
 
-OUTDIRBASE on wxmsw$(WX_MAJORMINOR)u_gl = ReleaseWX ;
-ExtraLib wxmsw$(WX_MAJORMINOR)u_gl :
-  $(OPENGL_MSW) : 
-  source/libwxgl.rc :
-  $(SUBDIR)/include $(SUBDIR)/include/msvc :
-  nostatic :
-  _UNICODE __WXMSW__ WXMAKINGDLL_GL COMPILED_FROM_DSP WXUSINGDLL
-  :
-  :
-  ;
-LibDepends wxmsw$(WX_MAJORMINOR)u_gl : wxbase$(WX_MAJORMINOR)u wxmsw$(WX_MAJORMINOR)u_core ;
-LibDepends wxmsw$(WX_MAJORMINOR)u_gl_debug : wxbase$(WX_MAJORMINOR)u_debug wxmsw$(WX_MAJORMINOR)u_core_debug ;
-ExternalLibs wxmsw$(WX_MAJORMINOR)u_gl : WXMSW_GL_DEPS ;
-ExternalLibs wxmsw$(WX_MAJORMINOR)u_gl_debug : WXMSW_GL_DEPS ;
+rule WXLibrary
+{
+  local name = $(1) ;
+  local sources = $(2) ;
+  local extradef = $(3) ;
+  local deps = $(4) ;
+  local basedeps = $(5) ;
+  local extlibs = $(6) ;
+  
+  OUTDIRBASE on wxmsw$(WX_MAJORMINOR)u_$(name) = ReleaseWX ;
+  ExtraLib wxmsw$(WX_MAJORMINOR)u_$(name) :
+    $(sources) : 
+    source/libwx$(name).rc :
+    $(SUBDIR)/include $(SUBDIR)/include/msvc :
+    nostatic :
+    _UNICODE __WXMSW__ COMPILED_FROM_DSP WXUSINGDLL $(extradef)
+    :
+    :
+    ;
+    
+  local deplibs = ;
+  local deplibs_debug = ;
+  for dep in $(basedeps)
+  {
+    deplibs += wxbase$(WX_MAJORMINOR)u_$(dep) ;
+    deplibs_debug += wxbase$(WX_MAJORMINOR)u_$(dep)_debug ;
+  }
+  for dep in $(deps)
+  {
+    deplibs += wxmsw$(WX_MAJORMINOR)u_$(dep) ;
+    deplibs_debug += wxmsw$(WX_MAJORMINOR)u_$(dep)_debug ;
+  }
+    
+  LibDepends wxmsw$(WX_MAJORMINOR)u_$(name) : wxbase$(WX_MAJORMINOR)u wxmsw$(WX_MAJORMINOR)u_core $(deplibs) ;
+  LibDepends wxmsw$(WX_MAJORMINOR)u_$(name)_debug : wxbase$(WX_MAJORMINOR)u_debug wxmsw$(WX_MAJORMINOR)u_core_debug $(deplibs_debug) ;
+  ExternalLibs wxmsw$(WX_MAJORMINOR)u_$(name) : $(extlibs) ;
+  ExternalLibs wxmsw$(WX_MAJORMINOR)u_$(name)_debug : $(extlibs) ;
+}
+
+WXLibrary gl : $(OPENGL_MSW) : WXMAKINGDLL_GL : : : WXMSW_GL_DEPS ;
+
+WXMSW_ADV_DEPS.AVAILABLE = yes ;
+WXMSW_ADV_DEPS.LIBS = winmm.lib ;
+WXLibrary adv : $(ADVANCED_COMMON) $(ADVANCED_MSW) : WXMAKINGDLL_ADV : : : WXMSW_ADV_DEPS ; 
+
+WXLibrary html : $(HTML_SRC) : WXMAKINGDLL_HTML ; 
+
+WXLibrary xrc : $(XRC_SRC) : WXMAKINGDLL_XRC : adv html : xml ;
+
+WXLibrary aui : $(AUI_SRC) : WXMAKINGDLL_AUI ;

@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{97DE8CA7-FB95-F89C-5729-22E084432B09}</ProjectGuid>
+    <SccProjectName />
+    <SccLocalPath />
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)'=='Release'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Platform)'=='Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Platform)'=='x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\out\release10\build\libwxmsw28u_html\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\libs\ReleaseWXVC10Only\</OutDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">libwxmsw28u_html-csvc10</TargetName>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\out\release10-x64\build\libwxmsw28u_html\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\libs\ReleaseWXVC10Only-x64\</OutDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">libwxmsw28u_html-csvc10-x64</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OmitFramePointers>true</OmitFramePointers>
+      <ProgramDataBaseFileName>..\..\out\release10\build\libwxmsw28u_html\Win32\wxmsw28u_html.pdb</ProgramDataBaseFileName>
+      <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;COMPILED_FROM_DSP;WXUSINGDLL;WXMAKINGDLL_HTML;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>.;..\..\source\libwx\include;..\..\source\libwx\include\msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeaderOutputFile>..\..\out\release10\build\libwxmsw28u_html\libwxmsw28u_html.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>..\..\out\release10\build\libwxmsw28u_html\</AssemblerListingLocation>
+      <ObjectFileName>..\..\out\release10\build\libwxmsw28u_html\</ObjectFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <Link>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>LIBC;LIBCD;LIBCMT;LIBCMTD;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <OutputFile>..\..\libs\ReleaseWXVC10Only\libwxmsw28u_html-csvc10.dll</OutputFile>
+      <AdditionalLibraryDirectories>;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <MergeSections>.rdata=.text</MergeSections> 
+      <DelayLoadDLLs>;%(DelayLoadDLLs)</DelayLoadDLLs>
+      <ImportLibrary>..\..\libs\ReleaseWXVC10Only\wxmsw28u_html-vc10.lib</ImportLibrary>
+      <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>;%(AdditionalDependencies)</AdditionalDependencies>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ProgramDatabaseFile>..\..\libs\ReleaseWXVC10Only\libwxmsw28u_html-csvc10.pdb</ProgramDatabaseFile>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Lib>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;COMPILED_FROM_DSP;WXUSINGDLL;WXMAKINGDLL_HTML;PROJECTGEN_VERSION=10;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\include\msvc</AdditionalIncludeDirectories>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OmitFramePointers>true</OmitFramePointers>
+      <ProgramDataBaseFileName>..\..\out\release10-x64\build\libwxmsw28u_html\x64\wxmsw28u_html.pdb</ProgramDataBaseFileName>
+      <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;COMPILED_FROM_DSP;WXUSINGDLL;WXMAKINGDLL_HTML;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>.;..\..\source\libwx\include;..\..\source\libwx\include\msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeaderOutputFile>..\..\out\release10-x64\build\libwxmsw28u_html\libwxmsw28u_html.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>..\..\out\release10-x64\build\libwxmsw28u_html\</AssemblerListingLocation>
+      <ObjectFileName>..\..\out\release10-x64\build\libwxmsw28u_html\</ObjectFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <Link>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>LIBC;LIBCD;LIBCMT;LIBCMTD;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <OutputFile>..\..\libs\ReleaseWXVC10Only-x64\libwxmsw28u_html-csvc10-x64.dll</OutputFile>
+      <AdditionalLibraryDirectories>;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <MergeSections>.rdata=.text</MergeSections> 
+      <DelayLoadDLLs>;%(DelayLoadDLLs)</DelayLoadDLLs>
+      <ImportLibrary>..\..\libs\ReleaseWXVC10Only-x64\wxmsw28u_html-vc10.lib</ImportLibrary>
+      <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>;%(AdditionalDependencies)</AdditionalDependencies>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ProgramDatabaseFile>..\..\libs\ReleaseWXVC10Only-x64\libwxmsw28u_html-csvc10-x64.pdb</ProgramDatabaseFile>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+    <Lib>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;COMPILED_FROM_DSP;WXUSINGDLL;WXMAKINGDLL_HTML;PROJECTGEN_VERSION=10;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\include\msvc</AdditionalIncludeDirectories>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\source\libwx\src\generic\htmllbox.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\html\helpctrl.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\html\helpdata.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\html\helpdlg.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\html\helpfrm.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\html\helpwnd.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\html\htmlcell.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\html\htmlfilt.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\html\htmlpars.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\html\htmltag.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\html\htmlwin.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\html\htmprint.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\html\m_dflist.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\html\m_fonts.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\html\m_hline.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\html\m_image.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\html\m_layout.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\html\m_links.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\html\m_list.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\html\m_pre.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\html\m_style.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\html\m_tables.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\html\winpars.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\msw\helpbest.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\..\source\libwxhtml.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="libwxbase28u.vcxproj">
+      <Project>{F3FF1F76-680E-3C54-F29B-C2A323578332}</Project>
+    </ProjectReference>
+    <ProjectReference Include="libwxmsw28u_core.vcxproj">
+      <Project>{19DD0FFC-BB3E-01E0-472A-5CCB4992D0E8}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

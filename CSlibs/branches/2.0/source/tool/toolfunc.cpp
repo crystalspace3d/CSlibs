@@ -376,12 +376,29 @@ static void WriteReplacing (const char* tmpl, size_t tmplSize,
 }
 
 static const char profileStartMarker[] = 
-  "### Don't remove this comment, it's needed to locate the changes inserted below.";
+  "### Don't remove this comment, it's needed to locate the changes inserted below";
 static const char profileEndMarker[] = 
-  "### Don't remove this comment, it's needed to locate the changes inserted above.";
+  "### Don't remove this comment, it's needed to locate the changes inserted above";
 
-static void RemoveProfileChanges (char* profile)
+static std::string MakeMarkerString (const char* base, const char* tag)
 {
+  std::string s;
+  s.append (base);
+  if (tag && *tag)
+  {
+    s.append (" (");
+    s.append (tag);
+    s.append (")");
+  }
+  s.append (".");
+  return s;
+}
+
+static void RemoveProfileChanges (char* profile, const char* tag)
+{
+  std::string startMarkerStr (MakeMarkerString (profileStartMarker, tag));
+  std::string endMarkerStr (MakeMarkerString (profileEndMarker, tag));
+
   char* curLine = profile;
   char* startMarker = 0;
 
@@ -398,16 +415,16 @@ static void RemoveProfileChanges (char* profile)
       nextLine = lineEnd + 1;
     if (*(lineEnd-1) == '\r') lineEnd--;
 
-    if (((lineEnd - curLine) == sizeof (profileStartMarker) - 1) &&
-      (strncmp (curLine, profileStartMarker, sizeof (profileStartMarker) - 1) == 0))
+    if (((lineEnd - curLine) == startMarkerStr.size()) &&
+      (strncmp (curLine, startMarkerStr.c_str(), startMarkerStr.size()) == 0))
     {
       if (startMarker == 0)
       {
 	startMarker = curLine;
       }
     }
-    else if (((lineEnd - curLine) == sizeof (profileEndMarker) - 1) &&
-      (strncmp (curLine, profileEndMarker, sizeof (profileEndMarker) - 1) == 0))
+    else if (((lineEnd - curLine) == endMarkerStr.size()) &&
+      (strncmp (curLine, endMarkerStr.c_str(), endMarkerStr.size()) == 0))
     {
       if (startMarker != 0)
       {
@@ -448,6 +465,8 @@ TOOLENTRY(AugmentBashProfile)
   char* profilePath = 0;
   char* libsPath = 0;
   char* pathAugment = 0;
+  std::string mingw;
+  std::string tag;
 
   const char* currentParm = lpCmdLine;
   while (currentParm && (*currentParm != 0))
@@ -499,6 +518,14 @@ TOOLENTRY(AugmentBashProfile)
 	else
 	  pathAugment[parEnd - delim - 1] = 0;
       }
+      else if (_strnicmp (currentParm, "mingw", delim - currentParm) == 0)
+      {
+	mingw.assign (delim + 1, parEnd - delim - 1);
+      }
+      else if (_strnicmp (currentParm, "tag", delim - currentParm) == 0)
+      {
+	tag.assign (delim + 1, parEnd - delim - 1);
+      }
     }
     currentParm = parEnd + 1;
     while (*currentParm == ' ') currentParm++;
@@ -541,7 +568,7 @@ TOOLENTRY(AugmentBashProfile)
     {
       if (oldProfile != 0)
       {
-	RemoveProfileChanges (oldProfile);
+	RemoveProfileChanges (oldProfile, tag.c_str());
 	fwrite (oldProfile, sizeof (char), strlen (oldProfile),
 	  profile);
       }
@@ -553,10 +580,13 @@ TOOLENTRY(AugmentBashProfile)
       vars["CSLIBSPATH_MSYS"] = libsPathMinGW;
       vars["PATHAUGMENT"] = pathAugment;
       vars["PATHAUGMENT_MSYS"] = pathAugmentMinGW;
+      vars["MINGW"] = mingw;
 
+      std::string startMarkerStr (MakeMarkerString (profileStartMarker, tag.c_str()));
+      std::string endMarkerStr (MakeMarkerString (profileEndMarker, tag.c_str()));
       static const char nl = '\n';
-      fwrite (profileStartMarker, sizeof (char), 
-	sizeof (profileStartMarker) - 1, profile);
+      fwrite (startMarkerStr.c_str(), sizeof (char), 
+	startMarkerStr.size(), profile);
 
       if (lineTerminator)
         fwrite (lineTerminator, sizeof (char), strlen (lineTerminator), 
@@ -566,8 +596,8 @@ TOOLENTRY(AugmentBashProfile)
 
       WriteReplacing (profileAugmentTemplate, profileAugmentTemplateSize,
 	profile, vars, lineTerminator);
-      fwrite (profileEndMarker, sizeof (char), 
-	sizeof (profileEndMarker) - 1, profile);
+      fwrite (endMarkerStr.c_str(), sizeof (char), 
+	endMarkerStr.size(), profile);
 
       if (lineTerminator)
         fwrite (lineTerminator, sizeof (char), strlen (lineTerminator), 
@@ -590,7 +620,47 @@ TOOLENTRY(AugmentBashProfile)
 TOOLENTRY(CleanBashProfile)
 {
   char* oldProfile = 0;
-  FILE* profile = fopen (lpCmdLine, "rb");
+
+  std::string profilePath;
+  std::string tag;
+
+  const char* currentParm = lpCmdLine;
+  while (currentParm && (*currentParm != 0))
+  {
+    const char* parEnd;
+    if (*currentParm == '"')
+    {
+      currentParm++;
+      const char* p = currentParm;
+      while (p && (*p != '"'))
+      {
+	p++;
+      }
+      parEnd = p;
+    }
+    else
+    {
+      parEnd = strchr (currentParm, ' ');
+    }
+    if (parEnd == 0) parEnd = currentParm + strlen (currentParm);
+
+    const char* delim = strchr (currentParm, '=');
+    if (delim && (delim < parEnd))
+    {
+      if (_strnicmp (currentParm, "profilepath", delim - currentParm) == 0)
+      {
+	profilePath.assign (delim + 1, parEnd - delim - 1);
+      }
+      else if (_strnicmp (currentParm, "tag", delim - currentParm) == 0)
+      {
+	tag.assign (delim + 1, parEnd - delim - 1);
+      }
+    }
+    currentParm = parEnd + 1;
+    while (*currentParm == ' ') currentParm++;
+  }
+
+  FILE* profile = fopen (profilePath.c_str(), "rb");
   if (profile != 0)
   {
     fseek (profile, 0, SEEK_END);
@@ -609,7 +679,7 @@ TOOLENTRY(CleanBashProfile)
     profile = fopen (lpCmdLine, "wb");
     if (profile != 0)
     {
-      RemoveProfileChanges (oldProfile);
+      RemoveProfileChanges (oldProfile, tag.c_str());
       fwrite (oldProfile, sizeof (char), strlen (oldProfile),
 	profile);
       fclose (profile);

@@ -11,8 +11,12 @@
 
 #ifdef X64
 #define ArchSuffix        "-x64"
+#define ProfileMingw      "mingw64"
+#define ProfileTag        "tag=mingw64"
 #else
 #define ArchSuffix        ""
+#define ProfileMingw      "mingw"
+#define ProfileTag        ""
 #endif
 
 #define AppName         SupportName + " support for " + CSLibsName
@@ -50,18 +54,22 @@ Name: {group}\{code:GetIconTitle}; Filename: {uninstallexe}; WorkingDir: {app}; 
 [Tasks]
 Name: pathaugment; Description: "Augment PATH environment variable to include DLLs dir";
 [Run]
-Filename: rundll32.exe; Parameters: "{code:GetShortenedSrcDir}\setuptool.dll,AugmentBashProfile ""libspath={#CSLibsPathKey}\"" ""profilepath={code:GetProfileName}"""; Check: not CheckPathAugment
-Filename: rundll32.exe; Parameters: "{code:GetShortenedSrcDir}\setuptool.dll,AugmentBashProfile ""libspath={#CSLibsPathKey}\"" ""profilepath={code:GetProfileName}"" ""pathaugment={code:GetShortenedSrcDir}\dlls"""; Check: CheckPathAugment
+Filename: rundll32.exe; Parameters: "{code:GetShortenedSrcDir}\setuptool.dll,AugmentBashProfile ""libspath={#CSLibsPathKey}\"" ""profilepath={code:GetProfileName}"" ""mingw={#ProfileMingw}"" {#ProfileTag}"; Check: not CheckPathAugment
+Filename: rundll32.exe; Parameters: "{code:GetShortenedSrcDir}\setuptool.dll,AugmentBashProfile ""libspath={#CSLibsPathKey}\"" ""profilepath={code:GetProfileName}"" ""pathaugment={code:GetShortenedSrcDir}\dlls"" ""mingw={#ProfileMingw}"" {#ProfileTag}"; Check: CheckPathAugment
 [UninstallRun]
-Filename: rundll32.exe; Parameters: {code:GetShortenedSrcDir}\setuptool.dll,CleanBashProfile {#MSYSProfilePathKey}
+Filename: rundll32.exe; Parameters: "{code:GetShortenedSrcDir}\setuptool.dll,CleanBashProfile ""profilepath={#MSYSProfilePathKey}"" {#ProfileTag}"
 [Messages]
 SetupAppTitle={#AppName} {#CSLibsVersion}
 SetupWindowTitle={#AppName} {#CSLibsVersion}
 FinishedLabel=Setup has finished installing [name] on your computer. You need to re-run ‘configure’ to make use of the new libraries. You can set up support for more {#SupportName} installations by re-running this setup.
 [Code]
 #include "CodeCommon.inc"
-#define MSYSPathValue 	"Software\Microsoft\Windows\CurrentVersion\Uninstall\MSYS-1.0_is1"
-#define MSYSPathKey 	"{reg:HKCU\" + MSYSPathValue + ",Inno Setup: App Path|{reg:HKLM\" + MSYSPathValue + ",Inno Setup: App Path|{pf}\MSYS}}"
+{ Registry paths for 'old' MSYS installer }
+#define MSYSPathValue_old 	"Software\Microsoft\Windows\CurrentVersion\Uninstall\MSYS-1.0_is1"
+#define MSYSPathKey_old 	"{reg:HKCU\" + MSYSPathValue_old + ",Inno Setup: App Path|{reg:HKLM\" + MSYSPathValue_old + ",Inno Setup: App Path|{pf}\MSYS}}"
+{ Registry paths for 'new' mingw-get }
+#define MSYSPathValue 	"Software\Microsoft\Windows\CurrentVersion\Uninstall\{{AC2C1BDB-1E91-4F94-B99C-E716FE2E9C75%7d_is1"
+#define MSYSPathKey 	"{reg:HKCU\" + MSYSPathValue + ",Inno Setup: App Path|{reg:HKLM\" + MSYSPathValue + ",Inno Setup: App Path|" + MSYSPathKey_old +"}\msys\1.0}"
 
 var
   profileFilePage: TInputFileWizardPage;

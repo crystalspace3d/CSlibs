@@ -3,12 +3,12 @@
 #LIBGCC=3.4.4
 #CC="mingw32-gcc-${LIBGCC}" 
 #CXX="mingw32-g++-${LIBGCC}" 
-build/most-libs.sh mingw
+CC=gcc CXX=g++ build/most-libs.sh mingw $*
 
 # Build for a set of different GCC versions
-for gccver_full in 3.4.5 4.4.0 4.5.2 ; do
+for gccver_full in 3.4.5 4.4.0 4.5.2 4.6.1 ; do
   gccver=`echo $gccver_full | sed "s/\([0-9]\?\)\.\([0-9]\?\)\.[0-9]\?/\1.\2/"`
-  CC="mingw32-gcc-${gccver_full}" CXX="mingw32-g++-${gccver_full}" build/for-gcc.sh "mingw-gcc-${gccver}" ;
+  CC="mingw32-gcc-${gccver_full}" CXX="mingw32-g++-${gccver_full}" build/for-gcc.sh "mingw-gcc-${gccver}" $*
 done
 
 # Build with version encoded in path
