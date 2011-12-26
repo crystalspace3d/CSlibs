@@ -47,7 +47,7 @@
       <MinimalRebuild>true</MinimalRebuild>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>      <ProgramDataBaseFileName>..\..\out\debug10\build\libwxmsw28u_gl_debug\Win32\wxmsw28u_gl_debug.pdb</ProgramDataBaseFileName>
-      <PreprocessorDefinitions>_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_GL;COMPILED_FROM_DSP;WXUSINGDLL;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;COMPILED_FROM_DSP;WXUSINGDLL;WXMAKINGDLL_GL;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
       <AdditionalIncludeDirectories>.;..\..\source\libwx\include;..\..\source\libwx\include\msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderOutputFile>..\..\out\debug10\build\libwxmsw28u_gl_debug\libwxmsw28u_gl_debug.pch</PrecompiledHeaderOutputFile>
@@ -79,7 +79,7 @@
     <PostBuildEvent>
     </PostBuildEvent>
     <ResourceCompile>
-      <PreprocessorDefinitions>_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_GL;COMPILED_FROM_DSP;WXUSINGDLL;PROJECTGEN_VERSION=10;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;COMPILED_FROM_DSP;WXUSINGDLL;WXMAKINGDLL_GL;PROJECTGEN_VERSION=10;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>.;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\include\msvc</AdditionalIncludeDirectories>
       <Culture>0x0409</Culture>
     </ResourceCompile>
@@ -90,7 +90,7 @@
       <MinimalRebuild>true</MinimalRebuild>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>      <ProgramDataBaseFileName>..\..\out\debug10-x64\build\libwxmsw28u_gl_debug\x64\wxmsw28u_gl_debug.pdb</ProgramDataBaseFileName>
-      <PreprocessorDefinitions>_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_GL;COMPILED_FROM_DSP;WXUSINGDLL;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;COMPILED_FROM_DSP;WXUSINGDLL;WXMAKINGDLL_GL;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
       <AdditionalIncludeDirectories>.;..\..\source\libwx\include;..\..\source\libwx\include\msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderOutputFile>..\..\out\debug10-x64\build\libwxmsw28u_gl_debug\libwxmsw28u_gl_debug.pch</PrecompiledHeaderOutputFile>
@@ -122,7 +122,7 @@
     <PostBuildEvent>
     </PostBuildEvent>
     <ResourceCompile>
-      <PreprocessorDefinitions>_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;WXMAKINGDLL_GL;COMPILED_FROM_DSP;WXUSINGDLL;PROJECTGEN_VERSION=10;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;COMPILED_FROM_DSP;WXUSINGDLL;WXMAKINGDLL_GL;PROJECTGEN_VERSION=10;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>.;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\include\msvc</AdditionalIncludeDirectories>
       <Culture>0x0409</Culture>
     </ResourceCompile>

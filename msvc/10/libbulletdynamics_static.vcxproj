@@ -149,7 +149,6 @@
     <ClCompile Include="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btSolve2LinearConstraint.cpp" />
     <ClCompile Include="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btTypedConstraint.cpp" />
     <ClCompile Include="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btUniversalConstraint.cpp" />
-    <ClCompile Include="..\..\source\libbullet\src\BulletDynamics\Dynamics\btContinuousDynamicsWorld.cpp" />
     <ClCompile Include="..\..\source\libbullet\src\BulletDynamics\Dynamics\btDiscreteDynamicsWorld.cpp" />
     <ClCompile Include="..\..\source\libbullet\src\BulletDynamics\Dynamics\btRigidBody.cpp" />
     <ClCompile Include="..\..\source\libbullet\src\BulletDynamics\Dynamics\btSimpleDynamicsWorld.cpp" />
@@ -178,7 +177,6 @@
     <ClInclude Include="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btTypedConstraint.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btUniversalConstraint.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletDynamics\Dynamics\btActionInterface.h" />
-    <ClInclude Include="..\..\source\libbullet\src\BulletDynamics\Dynamics\btContinuousDynamicsWorld.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletDynamics\Dynamics\btDiscreteDynamicsWorld.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletDynamics\Dynamics\btDynamicsWorld.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletDynamics\Dynamics\btRigidBody.h" />

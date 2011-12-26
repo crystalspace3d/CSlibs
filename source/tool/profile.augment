@@ -12,7 +12,7 @@ if test "$OSTYPE" = "cygwin" ; then
 else
   win32libs_libsdir="%CSLIBSPATH_MSYS%"
   win32libs_PATHaugment=%PATHAUGMENT_MSYS%
-  win32libs_PATHplatform=mingw
+  win32libs_PATHplatform=%MINGW%
 fi
 export PATH="${win32libs_libsdir}/tools:$PATH"
 
