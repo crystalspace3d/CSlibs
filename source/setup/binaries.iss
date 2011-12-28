@@ -125,6 +125,7 @@ Source: ..\..\libs\ReleaseGCCOnly\mingw{#ArchSuffixMingw}\*.dll; DestDir: {app}\
 #emit MINGWDLLS("3.4")
 #emit MINGWDLLS("4.4")
 #emit MINGWDLLS("4.5")
+#emit MINGWDLLS("4.6")
 #else
 ; @@@ Non-Static doesn't work right yet
 ;MINGWDLLS(4.5)
@@ -143,6 +144,7 @@ Source: ..\..\libs\ReleaseGCCOnly_static\mingw{#ArchSuffixMingw}\*.dll; DestDir:
 #emit MINGWSTATICDLLS("3.4")
 #emit MINGWSTATICDLLS("4.4")
 #emit MINGWSTATICDLLS("4.5")
+#emit MINGWSTATICDLLS("4.6")
 #else
 #emit MINGWSTATICDLLS("4.5")
 #endif
@@ -158,6 +160,7 @@ Source: ..\..\libs\ReleaseWXVC10Only{#ArchSuffix}\*.dll; DestDir: {app}\dlls\vc;
 #emit MINGWWX("3.4")
 #emit MINGWWX("4.4")
 #emit MINGWWX("4.5")
+#emit MINGWWX("4.6")
 #else
 #emit MINGWWX("4.5")
 #endif
@@ -188,6 +191,7 @@ Source: ..\..\libs\ReleaseVC10Only_static{#ArchSuffix}\bullet*.lib; DestDir: {ap
 #emit MINGWLINK("3.4")
 #emit MINGWLINK("4.4")
 #emit MINGWLINK("4.5")
+#emit MINGWLINK("4.6")
 #else
 #emit MINGWLINK("4.5")
 ; @@@ mingw64 crashes with the MSVC import libs, hence use these libs created using dlltool
@@ -214,6 +218,7 @@ Source: ..\..\libs\ReleaseGCCOnly\mingw64\libcg*.a; DestDir: {app}\mingw64\lib; 
 #emit MINGWSTATIC("3.4")
 #emit MINGWSTATIC("4.4")
 #emit MINGWSTATIC("4.5")
+#emit MINGWSTATIC("4.6")
 #else
 #emit MINGWSTATIC("4.5")
 #endif
@@ -229,6 +234,7 @@ Source: ..\..\libs\ReleaseWXVC10Only{#ArchSuffix}\*.lib; DestDir: {app}\vc\lib; 
 #emit MINGWWXLINK("3.4")
 #emit MINGWWXLINK("4.4")
 #emit MINGWWXLINK("4.5")
+#emit MINGWWXLINK("4.6")
 #else
 #emit MINGWWXLINK("4.5")
 #endif
@@ -255,6 +261,7 @@ Source: ..\..\libs\prefix-wx\mingw{#ArchSuffixMingw}-gcc-4.5\include\*; DestDir:
 #emit MINGWWXHEADER("3.4")
 #emit MINGWWXHEADER("4.4")
 #emit MINGWWXHEADER("4.5")
+#emit MINGWWXHEADER("4.6")
 #else
 #emit MINGWWXHEADER("4.5")
 #endif
@@ -301,6 +308,7 @@ Source: ..\..\libs\ReleaseWXVC10Only{#ArchSuffix}\*.pdb; DestDir: {app}\dlls\vc;
 #emit MINGWWXDBG("3.4")
 #emit MINGWWXDBG("4.4")
 #emit MINGWWXDBG("4.5")
+#emit MINGWWXDBG("4.6")
 #else
 #emit MINGWWXDBG("4.5")
 #endif
@@ -321,6 +329,7 @@ Source: ..\..\tools\freetype-config; DestDir: {app}\bin; Components: Libs/Common
 #emit MINGWWXCONFIG("3.4")
 #emit MINGWWXCONFIG("4.4")
 #emit MINGWWXCONFIG("4.5")
+#emit MINGWWXCONFIG("4.6")
 #else
 #emit MINGWWXCONFIG("4.5")
 #endif
@@ -364,6 +373,7 @@ Filename: rundll32.exe; Parameters: "{code:GetShortenedAppDir}\setuptool.dll,Cre
 #emit MINGWWXCONFIGPREP("3.4")
 #emit MINGWWXCONFIGPREP("4.4")
 #emit MINGWWXCONFIGPREP("4.5")
+#emit MINGWWXCONFIGPREP("4.6")
 #else
 #emit MINGWWXCONFIGPREP("4.5")
 #endif
