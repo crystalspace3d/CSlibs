@@ -1,0 +1,10 @@
+#include "openal-soft-version.h"
+#define VER_PRODUCT_NUMERIC	_ALSOFT_VERSION_MAJOR,_ALSOFT_VERSION_MINOR,_ALSOFT_VERSION_BUILD,0
+#define	VER_PRODUCT_STR		_ALSOFT_VERSION_STR
+#define	VER_DESCRIPTION		"OpenAL Soft"
+#define VER_INTERNAL		"soft_oal"
+#define VER_FILENAME		"soft_oal.dll"
+#define VER_PRODUCTNAME		"OpenAL Soft"
+
+#define INHIBIT_WINLIBS_TAG
+#include "version.rcinc"
