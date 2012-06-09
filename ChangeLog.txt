@@ -4,7 +4,7 @@
  - Updated libogg to 1.3.0.
  - Updated libvorbis to 1.3.3.
  - Updated freetype to 2.4.7.
- - Updated bullet to 2.79.
+ - Updated bullet to 2.80.
  - Updated pcre to 8.20.
  - Updated zlib to 1.2.7.
  - Build libs for MinGW gcc 4.6 as well.
