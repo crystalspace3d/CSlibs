@@ -1,5 +1,5 @@
---- modules.cfg.orig	Thu Jan 22 09:46:29 2009
-+++ modules.cfg	Sun Apr 26 14:59:53 2009
+--- modules.cfg.orig	2012-06-09 20:32:01 +0200
++++ modules.cfg	2012-06-09 20:35:40 +0200
 @@ -37,29 +37,29 @@
  # PostScript Type 1 font driver.
  #
@@ -25,7 +25,7 @@
  
  # PostScript Type 42 font driver.
  #
- # This driver needs the `truetype' module.
+ # This driver needs the `truetype' and `psaux' modules.
 -FONT_MODULES += type42
 +#FONT_MODULES += type42
  
@@ -54,7 +54,7 @@
  
  # TrueType GX/AAT table validation.  Needs ftgxval.c below.
  # AUX_MODULES += gxvalid
-@@ -129,7 +129,7 @@
+@@ -134,7 +134,7 @@
  # Auxiliary PostScript driver component to share common code.
  #
  # This module depends on `psnames'.
@@ -63,7 +63,7 @@
  
  # Support for PostScript glyph names.
  #
-@@ -181,7 +181,7 @@
+@@ -186,7 +186,7 @@
  # Interface for gxvalid module.
  #
  # See include/freetype/ftgxval.h for the API.
@@ -72,7 +72,7 @@
  
  # Support for LCD color filtering of subpixel bitmaps.
  #
-@@ -196,7 +196,7 @@
+@@ -201,7 +201,7 @@
  # Interface for otvalid module.
  #
  # See include/freetype/ftotval.h for the API.
@@ -81,7 +81,7 @@
  
  # Support for FT_Face_CheckTrueTypePatents.
  #
-@@ -206,7 +206,7 @@
+@@ -211,7 +211,7 @@
  # Interface for accessing PFR-specific data.  Needs PFR font driver.
  #
  # See include/freetype/ftpfr.h for the API.
@@ -90,7 +90,7 @@
  
  # Path stroker.  Needs ftglyph.c.
  #
-@@ -228,12 +228,12 @@
+@@ -233,12 +233,12 @@
  # driver.
  #
  # See include/freetype/ftwinfnt.h for the API.
