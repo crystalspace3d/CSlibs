@@ -11,8 +11,8 @@ scripts/url-get pkg-config http://ftp.gnome.org/pub/gnome/binaries/win32/depende
   pkg-config-0.23 gz
 
 # Base libs
-scripts/url-get libpng ftp://ftp.simplesystems.org/pub/libpng/png/src/libpng-1.5.6.tar.xz \
-  libpng-1.5.6 xz
+scripts/url-get libpng ftp://ftp.simplesystems.org/pub/libpng/png/src/libpng-1.5.10.tar.xz \
+  libpng-1.5.10 xz
 scripts/url-get libz http://zlib.net/zlib-1.2.5.tar.bz2 \
   zlib-1.2.5 bz2
 scripts/url-get libjpeg http://ijg.org/files/jpegsrc.v8c.tar.gz \
