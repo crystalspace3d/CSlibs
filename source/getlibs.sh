@@ -2,7 +2,7 @@
 
 # Libs fetched from source code repos
 scripts/svn-get libcal3d http://svn.gna.org/svn/cal3d/trunk/cal3d/ -r 507
-scripts/svn-get libCEGUI https://crayzedsgui.svn.sourceforge.net/svnroot/crayzedsgui/cegui_mk2/tags/v0-7-5/
+scripts/hg-get libCEGUI http://crayzedsgui.hg.sourceforge.net:8000/hgroot/crayzedsgui/cegui_mk2 v0-7-7
 
 # pkg-config & dependencies
 scripts/url-get glib http://ftp.gnome.org/pub/gnome/sources/glib/2.18/glib-2.18.3.tar.bz2 \
