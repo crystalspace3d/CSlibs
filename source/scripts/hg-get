@@ -1,0 +1,37 @@
+#!/bin/sh
+
+LIBNAME=$1
+shift
+HG_REPO=$1
+shift
+HG_TAG=$1
+shift
+
+apply_patches=1
+if [ -e ${LIBNAME} ] ; then
+  apply_patches=0
+else
+  hg clone ${HG_REPO} ${LIBNAME} $*
+fi
+cd ${LIBNAME}
+# FIXME: Is that right?...
+hg update ${HG_TAG} $*
+hg merge tip
+hg commit -m "Updated from repo"
+cd ..
+
+if [ $apply_patches -eq 1 ] ; then
+  #scripts/dopatch ${LIBNAME}
+  PATCHDIR=patch-${LIBNAME}
+
+  if [ -e ${PATCHDIR} ] ; then
+    PATCHES=`ls -1 ${PATCHDIR}/`
+
+    cd ${LIBNAME}
+    for p in ${PATCHES} ; do
+      hg import -p 0 ../${PATCHDIR}/$p
+    done
+    cd ..
+  fi
+  
+fi
