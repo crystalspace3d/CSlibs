@@ -1,10 +1,17 @@
-Index: bootstrap
-===================================================================
---- bootstrap	(Revision 2337)
-+++ bootstrap	(Arbeitskopie)
+# HG changeset patch
+# User Frank Richter <res@crystalspace3d.org>
+# Date 1347471234 -7200
+# Branch v0-7
+# Node ID 4b2887fd6675fe7043777637c1a5df78a1ca713b
+# Parent  def8ca508a95104a66b6e4b35ec64d81f69a5c49
+CEGUI bootstrap: pass 'copy files' flag to autotools
+
+diff -r def8ca508a95 -r 4b2887fd6675 bootstrap
+--- a/bootstrap	Tue Aug 21 17:37:00 2012 +0200
++++ b/bootstrap	Wed Sep 12 19:33:54 2012 +0200
 @@ -3,4 +3,4 @@
- export WANT_AUTOMAKE='1.9'
+ export WANT_AUTOMAKE='1.10'
  export WANT_AUTOCONF_2_5=1
  
--libtoolize --force && aclocal $ACLOCAL_FLAGS && autoheader && automake --include-deps --add-missing --foreign && autoconf 
-+libtoolize --force -c && aclocal $ACLOCAL_FLAGS && autoheader && automake --include-deps --add-missing --foreign -c && autoconf 
+-libtoolize --force --no-warn && aclocal $ACLOCAL_FLAGS && autoheader && automake --include-deps --add-missing --foreign && autoconf 
++libtoolize --force --no-warn -c && aclocal $ACLOCAL_FLAGS && autoheader && automake --include-deps --add-missing --foreign -c && autoconf 
