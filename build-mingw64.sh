@@ -1,6 +1,7 @@
 #!/bin/sh
 
-MINGW64_PREFIX=/c/mingw64
+source build-environment
+
 MINGW64_DEFAULT=$MINGW64_PREFIX-4.5
 
 OLDPATH="$PATH"
