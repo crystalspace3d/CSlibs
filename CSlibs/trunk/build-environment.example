@@ -1,0 +1,2 @@
+# Prefix for Mingw64 directory. The actual directory name will be <prefix>-<gcc major ver>.<gcc minor ver> 
+MINGW64_PREFIX=/d/mingw64
