@@ -16,3 +16,4 @@ if [ -n "$BUILD_TARGET" ] ; then
 fi
 CC="${CC}.exe" CXX="${CXX}.exe" cmake -G "MSYS Makefiles" $CMAKE_OPTS $SOURCES
 make install
+rm $(pwd)/../prefix/lib/libz.dll.a
