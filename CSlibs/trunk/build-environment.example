@@ -1,2 +1,6 @@
 # Prefix for Mingw64 directory. The actual directory name will be <prefix>-<gcc major ver>.<gcc minor ver> 
 MINGW64_PREFIX=/d/mingw64
+# Prefix for MingW ("plain") directory. The actual directory name will be <prefix>-<gcc major ver>.<gcc minor ver> 
+MINGW_PREFIX=/d/MinGW
+# Options passed to make
+MAKEOPTS=-j4

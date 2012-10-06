@@ -1,6 +1,7 @@
 #!/bin/sh
 
 source build-environment
+export MAKEOPTS
 
 MINGW64_DEFAULT=$MINGW64_PREFIX-4.5
 
