@@ -4,6 +4,7 @@ Compiling Stuff
 Required tools:
 - MSVC 8,9,10
 - Recent MSYS/MinGW, with binutils >= 2.16.91, msys make* >= 3.81
+- pkg-config for MingW (see http://www.rioki.org/2011/02/16/pkg-config-minimal-fuss.html)
 - InnoSetup >= 5.3.9
 - Python
 - CMake
