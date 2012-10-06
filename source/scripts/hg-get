@@ -29,7 +29,10 @@ if [ $apply_patches -eq 1 ] ; then
 
     cd ${LIBNAME}
     for p in ${PATCHES} ; do
-      hg import -p 0 ../${PATCHDIR}/$p
+      if ! hg import ../${PATCHDIR}/$p ; then
+	# Try -p 0, as patch might be generated w/o hg
+	hg import -p 0 ../${PATCHDIR}/$p
+      fi
     done
     cd ..
   fi
