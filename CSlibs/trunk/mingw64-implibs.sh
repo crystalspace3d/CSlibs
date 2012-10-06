@@ -7,6 +7,10 @@ fi
 
 export "PATH=$VCTOOLS/../../Common7/IDE:$PATH"
 
+source build-environment
+MINGW64_DEFAULT=$MINGW64_PREFIX-4.5
+export PATH="$MINGW64_DEFAULT/bin:$PATH"
+
 createimportlib()
 {
   DLL=$1
