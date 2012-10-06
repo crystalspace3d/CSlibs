@@ -9,7 +9,7 @@ ignorantcopy() {
   
   # Generate ignored file list
   local IGNORED=`svn pg svn:ignore ${SRC}`
-  local LSOPT="-I CVS -I .svn"
+  local LSOPT="-I CVS -I .svn -I .hg"
   for i in ${IGNORED} ; do
     local LSOPT="${LSOPT} -I \"${i}\""
   done
