@@ -86,7 +86,7 @@ if [ x$mode != xstaticonly ]; then
     CFLAGS="-O2" \
     CXXFLAGS="-O2 -DCEGUI_FACTORYMODULE_PREFIX=\"\\\"${libprefix}\\\"\"" \
     ${source}/configure $CONFIGUREOPTS --prefix=${prefix} --disable-static --disable-opengl-renderer "--with-build-suffix=-cs${platform}" --disable-version-suffix -C "$@"
-    make
+    make ${MAKEOPTS}
     cd ../../..
     
     # libtool: on the link in 'make' it produces the .dll we want; on relinking
@@ -144,7 +144,7 @@ if [ x$mode != xnostatic ]; then
   CFLAGS="-O2" \
   CXXFLAGS="-O2 -DCEGUI_FACTORYMODULE_PREFIX=\"\\\"${libprefix}\\\"\" -DCEGUI_FALAGARD_RENDERER -DCEGUI_WITH_TINYXML" \
   ${source}/configure $CONFIGUREOPTS --prefix=${prefix} --disable-static --disable-opengl-renderer "--with-build-suffix=-cs${platform}" --enable-specialstatic --disable-version-suffix -C "$@"
-  make
+  make ${MAKEOPTS}
   cd ../../..
 
   mkdir -p ${prefix}/bin/

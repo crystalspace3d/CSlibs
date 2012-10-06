@@ -122,9 +122,9 @@ Source: ..\..\libs\ReleaseGCCOnly\mingw{#ArchSuffixMingw}\*.dll; DestDir: {app}\
 #define MINGWDLLS(GccVer) \
   "Source: ..\..\libs\ReleaseGCCOnly\mingw" + ArchSuffixMingw + "-gcc-" + GccVer + "\*.dll; DestDir: {app}\dlls\mingw" + ArchSuffixMingw +"; Flags: skipifsourcedoesntexist; Components: Libs/MinGW"
 #ifndef X64
-#emit MINGWDLLS("3.4")
-#emit MINGWDLLS("4.4")
 #emit MINGWDLLS("4.5")
+#emit MINGWDLLS("4.6")
+#emit MINGWDLLS("4.7")
 #else
 ; @@@ Non-Static doesn't work right yet
 ;MINGWDLLS(4.5)
@@ -140,9 +140,9 @@ Source: ..\..\libs\ReleaseGCCOnly_static\mingw{#ArchSuffixMingw}\*.dll; DestDir:
 #define MINGWSTATICDLLS(GccVer) \
   "Source: ..\..\libs\ReleaseGCCOnly_static\mingw" + ArchSuffixMingw + "-gcc-" + GccVer + "\*.dll; DestDir: {app}\dlls\mingw" + ArchSuffixMingw +"; Flags: skipifsourcedoesntexist; Components: Libs/MinGW"
 #ifndef X64
-#emit MINGWSTATICDLLS("3.4")
-#emit MINGWSTATICDLLS("4.4")
 #emit MINGWSTATICDLLS("4.5")
+#emit MINGWSTATICDLLS("4.6")
+#emit MINGWSTATICDLLS("4.7")
 #else
 #emit MINGWSTATICDLLS("4.5")
 #endif
@@ -155,9 +155,9 @@ Source: ..\..\libs\ReleaseWXVC10Only{#ArchSuffix}\*.dll; DestDir: {app}\dlls\vc;
 #define MINGWWX(GccVer) \
   "Source: ..\..\libs\prefix-wx\mingw" + ArchSuffixMingw + "-gcc-" + GccVer + "\lib\*.dll; DestDir: {app}\dlls\mingw" + ArchSuffixMingw +"; Components: Libs/wxMinGW"
 #ifndef X64
-#emit MINGWWX("3.4")
-#emit MINGWWX("4.4")
 #emit MINGWWX("4.5")
+#emit MINGWWX("4.6")
+#emit MINGWWX("4.7")
 #else
 #emit MINGWWX("4.5")
 #endif
@@ -185,9 +185,9 @@ Source: ..\..\libs\ReleaseVC10Only_static{#ArchSuffix}\bullet*.lib; DestDir: {ap
 #define MINGWLINK(GccVer) \
   "Source: ..\..\libs\ReleaseGCCOnly\mingw" + ArchSuffixMingw + "-gcc-" + GccVer + "\lib*.a; DestDir: {app}\mingw" + ArchSuffixMingw +"-gcc-" + GccVer + "\lib; Components: Libs/MinGW"
 #ifndef X64
-#emit MINGWLINK("3.4")
-#emit MINGWLINK("4.4")
 #emit MINGWLINK("4.5")
+#emit MINGWLINK("4.6")
+#emit MINGWLINK("4.7")
 #else
 #emit MINGWLINK("4.5")
 ; @@@ mingw64 crashes with the MSVC import libs, hence use these libs created using dlltool
@@ -211,9 +211,9 @@ Source: ..\..\libs\ReleaseGCCOnly\mingw64\libcg*.a; DestDir: {app}\mingw64\lib; 
   "Source: ..\..\libs\ReleaseGCCOnly\mingw" + ArchSuffixMingw + "-gcc-" + GccVer + "\liblinearmath.a; DestDir: {app}\mingw" + ArchSuffixMingw +"-gcc-" + GccVer + "\lib; Components: Libs/MinGW" + NL + \
   "Source: ..\..\libs\ReleaseGCCOnly\mingw" + ArchSuffixMingw + "-gcc-" + GccVer + "\libcal3d.a; DestDir: {app}\mingw" + ArchSuffixMingw +"-gcc-" + GccVer + "\lib; Components: Libs/MinGW"
 #ifndef X64
-#emit MINGWSTATIC("3.4")
-#emit MINGWSTATIC("4.4")
 #emit MINGWSTATIC("4.5")
+#emit MINGWSTATIC("4.6")
+#emit MINGWSTATIC("4.7")
 #else
 #emit MINGWSTATIC("4.5")
 #endif
@@ -226,9 +226,9 @@ Source: ..\..\libs\ReleaseWXVC10Only{#ArchSuffix}\*.lib; DestDir: {app}\vc\lib; 
 #define MINGWWXLINK(GccVer) \
   "Source: ..\..\libs\prefix-wx\mingw" + ArchSuffixMingw + "-gcc-" + GccVer + "\lib\*.a; DestDir: {app}\mingw" + ArchSuffixMingw +"-gcc-"+ GccVer +"\lib; Components: Libs/wxMinGW"
 #ifndef X64
-#emit MINGWWXLINK("3.4")
-#emit MINGWWXLINK("4.4")
 #emit MINGWWXLINK("4.5")
+#emit MINGWWXLINK("4.6")
+#emit MINGWWXLINK("4.7")
 #else
 #emit MINGWWXLINK("4.5")
 #endif
@@ -252,9 +252,9 @@ Source: ..\..\libs\prefix-wx\mingw{#ArchSuffixMingw}-gcc-4.5\include\*; DestDir:
 #define MINGWWXHEADER(GccVer) \
   "Source: ..\..\libs\prefix-wx\mingw" + ArchSuffixMingw + "-gcc-" + GccVer + "\lib\wx\*; DestDir: {app}\mingw" + ArchSuffixMingw +"-gcc-"+ GccVer +"\lib\wx; Flags: recursesubdirs; Components: Libs/wxMinGW"
 #ifndef X64
-#emit MINGWWXHEADER("3.4")
-#emit MINGWWXHEADER("4.4")
 #emit MINGWWXHEADER("4.5")
+#emit MINGWWXHEADER("4.6")
+#emit MINGWWXHEADER("4.7")
 #else
 #emit MINGWWXHEADER("4.5")
 #endif
@@ -298,9 +298,9 @@ Source: ..\..\libs\ReleaseWXVC10Only{#ArchSuffix}\*.pdb; DestDir: {app}\dlls\vc;
 #define MINGWWXDBG(GccVer) \
   "Source: ..\..\libs\prefix-wx\mingw" + ArchSuffixMingw + "-gcc-" + GccVer + "\lib\*.dbg; DestDir: {app}\dlls\mingw" + ArchSuffixMingw + "; Components: Libs/wxMinGW and Extra/DebugInfo"
 #ifndef X64
-#emit MINGWWXDBG("3.4")
-#emit MINGWWXDBG("4.4")
 #emit MINGWWXDBG("4.5")
+#emit MINGWWXDBG("4.6")
+#emit MINGWWXDBG("4.7")
 #else
 #emit MINGWWXDBG("4.5")
 #endif
@@ -318,9 +318,9 @@ Source: ..\..\tools\freetype-config; DestDir: {app}\bin; Components: Libs/Common
 #define MINGWWXCONFIG(GccVer) \
   "Source: ..\..\libs\prefix-wx\mingw" + ArchSuffixMingw + "-gcc-" + GccVer + "\wx-config*; DestDir: {tmp}; Components: Libs/wxMinGW; Flags: deleteafterinstall"
 #ifndef X64
-#emit MINGWWXCONFIG("3.4")
-#emit MINGWWXCONFIG("4.4")
 #emit MINGWWXCONFIG("4.5")
+#emit MINGWWXCONFIG("4.6")
+#emit MINGWWXCONFIG("4.7")
 #else
 #emit MINGWWXCONFIG("4.5")
 #endif
@@ -361,9 +361,9 @@ Filename: rundll32.exe; Parameters: "{code:GetShortenedAppDir}\setuptool.dll,Cre
 #define MINGWWXCONFIGPREP(GccVer) \
   'Filename: rundll32.exe; Parameters: "{code:GetShortenedAppDir}\setuptool.dll,CreateFromTemplate ""destpath={app}\tools\wx-config-mingw' + ArchSuffixMingw + '-gcc-' + GccVer + '"" ""srcpath={tmp}\wx-config-mingw' + ArchSuffixMingw + '-gcc-' + GccVer + '"" ""libspath={app}\"""; StatusMsg: Generating wx-config; Components: Libs/wxMinGW'
 #ifndef X64
-#emit MINGWWXCONFIGPREP("3.4")
-#emit MINGWWXCONFIGPREP("4.4")
 #emit MINGWWXCONFIGPREP("4.5")
+#emit MINGWWXCONFIGPREP("4.6")
+#emit MINGWWXCONFIGPREP("4.7")
 #else
 #emit MINGWWXCONFIGPREP("4.5")
 #endif
