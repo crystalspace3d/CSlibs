@@ -39,7 +39,7 @@ ignorantcopy2() {
   IFS=$'\n\r'
   
   # Generate ignored file list
-  local LSOPT="-I CVS -I .svn"
+  local LSOPT="-I CVS -I .svn -I .hg"
   
   # Generate list of files to copy
   local FILELIST=`sh -c "ls -A -1 ${LSOPT} ${SRC}/"`
