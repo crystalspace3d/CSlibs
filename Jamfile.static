@@ -58,31 +58,22 @@ SubDir TOP ;
 
 SYMDIR = "$(BUILDTOP)/out/symbols" ;
 
+VC_VER = 8 9 10 ;
+MINGW_VER = 4.5 4.6 4.7 ;
+
 CleanDir collectsymbols_clean : $(SYMDIR) ;
 Depends collectsymbols_collect : collectsymbols_clean ;
 CollectSymbols collectsymbols_collect : 
   libs/release 
   libs/releasenocygwin
-  libs/releasevc8only
-  libs/releasevc8only_static 
-  libs/releasevc9only
-  libs/releasevc9only_static 
-  libs/releasevc10only
-  libs/releasevc10only_static 
-  libs/releasewxvc8only
-  libs/releasewxvc9only
-  libs/releasewxvc10only
+  libs/releasevc$(VC_VER)only
+  libs/releasevc$(VC_VER)only_static 
+  libs/releasewxvc$(VC_VER)only
   libs/release-x64
   libs/releasenocygwin-x64
-  libs/releasevc8only-x64
-  libs/releasevc8only_static-x64
-  libs/releasevc9only-x64
-  libs/releasevc9only_static-x64
-  libs/releasevc10only-x64
-  libs/releasevc10only_static-x64
-  libs/releasewxvc8only-x64
-  libs/releasewxvc9only-x64
-  libs/releasewxvc10only-x64
+  libs/releasevc$(VC_VER)only-x64
+  libs/releasevc$(VC_VER)only_static-x64
+  libs/releasewxvc$(VC_VER)only-x64
   libs/soft_oal
   libs/soft_oal-x64
   : $(SYMDIR) ;
@@ -130,9 +121,11 @@ rule MinGWFileLists
   FileListEntriesData [ Wildcard *.a ] : : libs-wxmingw_$(ver)-link ;
   FileListEntriesData [ Wildcard *.dbg ] : : libs-wxmingw_$(ver)-debug ;
 }
-MinGWFileLists 4.5 ;
-MinGWFileLists 4.6 ;
-MinGWFileLists 4.7 ;
+local v ;
+for v in $(MINGW_VER)
+{
+  MinGWFileLists $(v) ;
+}
 
 rule VCFileLists
 {
@@ -154,10 +147,10 @@ rule VCFileLists
   FileListEntriesData [ Wildcard *vc$(N).lib ] : : libs-wxvc$(N)-link ;
   FileListEntriesData [ Wildcard *vc$(N)_d.lib ] : : libs-wxvc$(N)_d-link ;
 }
-
-VCFileLists 8 ;
-VCFileLists 9 ;
-VCFileLists 10 ;
+for v in $(VC_VER)
+{
+  VCFileLists $(v) ;
+}
 
 SubDir TOP ;
 
@@ -175,7 +168,7 @@ rule AllMSMs
     MSIMergeModuleFromList winlibs.$(m).link : libs-$(m)-link : $(MSM_VER) ;
   }
 }
-AllMSMs common common_cg common_vorbisenc mingw_4.5 mingw_4.6 mingw_4.7 vc8 vc8_d vc9 vc9_d vc10 vc10_d wxmingw_4.5 wxmingw_4.6 wxmingw_4.7 wxvc8 wxvc8_d wxvc9 wxvc9_d wxvc10 wxvc10_d ;
+AllMSMs common common_cg common_vorbisenc mingw_$(MINGW_VER) vc$(VC_VER) vc$(VC_VER)_d wxmingw_$(MINGW_VER) wxvc$(VC_VER) wxvc$(VC_VER)_d ;
 MakeLocate winlibs.common_openal.msm : $(LOCATE.MSI) ;
 MSIMergeModule winlibs.common_openal.msm : source/setup/OpenALRuntime.wxs : "TOP=$(TOP)" "MSM_VER=$(MSM_VER)" ;
 
