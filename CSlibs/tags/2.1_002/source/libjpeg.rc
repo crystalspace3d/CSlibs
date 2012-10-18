@@ -1,0 +1,10 @@
+#define VER_PRODUCT_NUMERIC	8,4,0,0
+#include "libjpeg/jversion.h"
+#define	VER_PRODUCT_STR		JVERSION
+#define	VER_DESCRIPTION		"libjpeg"
+#define VER_INTERNAL		"libjpeg"
+#define	VER_COPYRIGHT		JCOPYRIGHT
+#define VER_FILENAME		"libjpeg-cs.dll"
+#define VER_PRODUCTNAME		"libjpeg"
+
+#include "version.rcinc"
