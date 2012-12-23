@@ -15,5 +15,5 @@ if [ -n "$BUILD_TARGET" ] ; then
   CMAKE_OPTS="$CMAKE_OPTS -DCMAKE_SYSTEM_NAME=Windows"
 fi
 CC="${CC}.exe" CXX="${CXX}.exe" cmake -G "MSYS Makefiles" $CMAKE_OPTS $SOURCES
-make install
+make ${MAKEOPTS} install
 rm $(pwd)/../prefix/lib/libz.dll.a

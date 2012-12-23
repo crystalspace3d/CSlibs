@@ -17,5 +17,5 @@ if [ -n "$BUILD_TARGET" ] ; then
   CMAKE_OPTS="$CMAKE_OPTS -DCMAKE_SYSTEM_NAME=Windows"
 fi
 CC="${CC-gcc}.exe" CXX="${CXX-g++}.exe" cmake -G "MSYS Makefiles" $CMAKE_OPTS $SOURCES
-make install
+make ${MAKEOPTS} install
 mv $(pwd)/../prefix/lib/libpng15.a $(pwd)/../prefix/lib/libpng.a
