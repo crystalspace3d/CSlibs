@@ -28,7 +28,7 @@ if [ -n "$BUILD_TARGET" ] ; then
   CMAKE_OPTS="$CMAKE_OPTS -DCMAKE_SYSTEM_NAME=Windows"
 fi
 CC="${CC}.exe" CXX="${CXX}.exe" cmake -G "MSYS Makefiles" $CMAKE_OPTS ../../../source/libbullet
-make install
+make ${MAKEOPTS} install
 cd ../../..
 # Copy libs, but strip _RelWithDebugInfo from name
 for lib in ${prefix}/lib/*.a; do

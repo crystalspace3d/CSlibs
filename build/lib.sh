@@ -20,5 +20,5 @@ CPPFLAGS="$CPPFLAGS -I$(pwd)/../prefix/include" LDFLAGS="$LDFLAGS -L$(pwd)/../pr
 if [ -z ${targets} ] ; then targets="install" ; fi
 
 for t in ${targets} ; do
-  make ${t}
+  make ${MAKEOPTS} ${t}
 done
