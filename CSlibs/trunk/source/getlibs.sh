@@ -11,14 +11,14 @@ scripts/url-get pkg-config http://ftp.gnome.org/pub/gnome/binaries/win32/depende
   pkg-config-0.23 gz
 
 # Base libs
-scripts/url-get libpng ftp://ftp.simplesystems.org/pub/libpng/png/src/libpng-1.5.10.tar.xz \
+scripts/url-get libpng "http://downloads.sourceforge.net/project/libpng/libpng15/older-releases/1.5.10/libpng-1.5.10.tar.xz?r=&ts=1356288013&use_mirror=heanet" \
   libpng-1.5.10 xz
 scripts/url-get libz http://zlib.net/zlib-1.2.7.tar.bz2 \
   zlib-1.2.7 bz2
 scripts/url-get libjpeg http://ijg.org/files/jpegsrc.v8d.tar.gz \
   jpeg-8d gz
-scripts/url-get libmng http://mesh.dl.sourceforge.net/sourceforge/libmng/libmng-1.0.10.tar.gz \
-  libmng-1.0.10 gz
+scripts/url-get libmng "http://downloads.sourceforge.net/project/libmng/libmng-devel/1.0.10/libmng-1.0.10.tar.bz2?r=&ts=1356288132&use_mirror=netcologne" \
+  libmng-1.0.10 bz2
 scripts/url-get libogg http://downloads.xiph.org/releases/ogg/libogg-1.3.0.tar.gz \
   libogg-1.3.0 gz
 scripts/url-get libspeex http://downloads.xiph.org/releases/speex/speex-1.2rc1.tar.gz \
@@ -31,7 +31,7 @@ scripts/url-get libbullet http://bullet.googlecode.com/files/bullet-2.80-rev2531
   bullet-2.80-rev2531 gz
 scripts/url-get libpcre ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.20.tar.bz2 \
   pcre-8.20 bz2
-scripts/url-get lib3ds http://kent.dl.sourceforge.net/sourceforge/lib3ds/lib3ds-1.3.0.zip \
+scripts/url-get lib3ds http://lib3ds.googlecode.com/files/lib3ds-1.3.0.zip \
   lib3ds-1.3.0 zip
 scripts/url-get libode "http://downloads.sourceforge.net/project/opende/ODE/0.11.1/ode-0.11.1.zip?use_mirror=dfn" \
   ode-0.11.1 zip
