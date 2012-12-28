@@ -39,7 +39,7 @@ scripts/url-get openal-soft http://kcat.strangesoft.net/openal-releases/openal-s
   openal-soft-1.13 bz2
   
 # Extra libs
-scripts/url-get libwx ftp://ftp.wxwidgets.org/pub/2.8.12/wxMSW-2.8.12.tar.bz2 wxMSW-2.8.12 bz2
+scripts/url-get libwx ftp://ftp.wxwidgets.org/pub/2.9.4/wxWidgets-2.9.4.tar.bz2 wxWidgets-2.9.4 bz2
 
 # A bit of manual setup
 mkdir -p libwx/lib/vc_dll/mswu/wx/

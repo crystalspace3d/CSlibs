@@ -1,3 +1,6 @@
+2.1_003 (2013-??-??):
+ - Updated wxWidgets to 2.9.4.
+
 2.1_002 (2012-10-14):
  - Updated libjpeg to 8d.
  - Updated libpng to 1.5.10.
