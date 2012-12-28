@@ -1,25 +1,30 @@
 SubDir TOP source libwx ;
 
 MSVCGEN_VERSION = [ Property build : projgen_version ] ;
-WX_MAJORMINOR = 28 ;
+WX_MAJORMINOR = 29 ;
 
 # Assembled from bakefiles
 BASE_COMMON =
+        src/common/any.cpp
         src/common/appbase.cpp
         src/common/arcall.cpp
         src/common/arcfind.cpp
         src/common/archive.cpp
+        src/common/arrstr.cpp
+        src/common/base64.cpp
         src/common/clntdata.cpp
         src/common/cmdline.cpp
         src/common/config.cpp
         src/common/convauto.cpp
         src/common/datetime.cpp
+        src/common/datetimefmt.cpp
         src/common/datstrm.cpp
         src/common/dircmn.cpp
         src/common/dynarray.cpp
         src/common/dynlib.cpp
         src/common/dynload.cpp
         src/common/encconv.cpp
+        src/common/evtloopcmn.cpp
         src/common/extended.c
         src/common/ffile.cpp
         src/common/file.cpp
@@ -38,6 +43,7 @@ BASE_COMMON =
         src/common/init.cpp
         src/common/intl.cpp
         src/common/ipcbase.cpp
+        src/common/languageinfo.cpp
         src/common/list.cpp
         src/common/log.cpp
         src/common/longlong.cpp
@@ -45,6 +51,7 @@ BASE_COMMON =
         src/common/mimecmn.cpp
         src/common/module.cpp
         src/common/mstream.cpp
+        src/common/numformatter.cpp
         src/common/object.cpp
         src/common/platinfo.cpp
         src/common/powercmn.cpp
@@ -52,24 +59,38 @@ BASE_COMMON =
         src/common/regex.cpp
         src/common/stdpbase.cpp
         src/common/sstream.cpp
+        src/common/stdstream.cpp
         src/common/stopwatch.cpp
         src/common/strconv.cpp
         src/common/stream.cpp
         src/common/string.cpp
+        src/common/stringimpl.cpp
+        src/common/stringops.cpp
+        src/common/strvararg.cpp
         src/common/sysopt.cpp
         src/common/tarstrm.cpp
         src/common/textbuf.cpp
         src/common/textfile.cpp
+        src/common/time.cpp
+        src/common/timercmn.cpp
+        src/common/timerimpl.cpp
         src/common/tokenzr.cpp
+        src/common/translation.cpp
         src/common/txtstrm.cpp
+        src/common/unichar.cpp
         src/common/uri.cpp
+        src/common/ustring.cpp
         src/common/variant.cpp
         src/common/wfstream.cpp
-        src/common/wxchar.cpp
+        src/common/wxcrt.cpp
+        src/common/wxprintf.cpp
+        src/common/xlocale.cpp
         src/common/xti.cpp
         src/common/xtistrm.cpp
         src/common/zipstrm.cpp
         src/common/zstream.cpp
+        src/common/fswatchercmn.cpp
+        src/generic/fswatcherg.cpp
         src/common/event.cpp
         src/common/fs_mem.cpp
         src/common/msgout.cpp
@@ -94,8 +115,11 @@ BASE_MSW =
         src/msw/stackwalk.cpp
         src/msw/stdpaths.cpp
         src/msw/thread.cpp
+        src/msw/timer.cpp
         src/msw/utils.cpp
         src/msw/utilsexc.cpp
+        src/msw/fswatcher.cpp
+        src/msw/evtloop.cpp
         src/msw/main.cpp
         src/msw/mslu.cpp
         src/msw/volume.cpp
@@ -106,17 +130,26 @@ GUI_COMMON =
         src/common/fs_mem.cpp
         src/common/msgout.cpp
         src/common/utilscmn.cpp
+        src/common/accelcmn.cpp
         src/common/accesscmn.cpp
         src/common/anidecod.cpp
+        src/common/affinematrix2d.cpp
         src/common/appcmn.cpp
         src/common/artprov.cpp
         src/common/artstd.cpp
+        src/common/arttango.cpp
         src/common/bmpbase.cpp
+        src/common/bmpbtncmn.cpp
         src/common/bookctrl.cpp
+        src/common/btncmn.cpp
+        src/common/cairo.cpp
+        src/common/checkboxcmn.cpp
+        src/common/checklstcmn.cpp
         src/common/choiccmn.cpp
         src/common/clipcmn.cpp
         src/common/clrpickercmn.cpp
         src/common/colourcmn.cpp
+        src/common/colourdata.cpp
         src/common/combocmn.cpp
         src/common/cmdproc.cpp
         src/common/cmndata.cpp
@@ -124,10 +157,11 @@ GUI_COMMON =
         src/common/cshelp.cpp
         src/common/ctrlcmn.cpp
         src/common/ctrlsub.cpp
-        src/common/datacmn.cpp
         src/common/dcbase.cpp
         src/common/dcbufcmn.cpp
         src/common/dcgraph.cpp
+        src/common/dcsvg.cpp
+        src/common/dirctrlcmn.cpp
         src/common/dlgcmn.cpp
         src/common/dndcmn.cpp
         src/common/dobjcmn.cpp
@@ -136,14 +170,18 @@ GUI_COMMON =
         src/common/dpycmn.cpp
         src/common/dseldlg.cpp
         src/common/effects.cpp
-        src/common/evtloopcmn.cpp
         src/common/fddlgcmn.cpp
+        src/common/filectrlcmn.cpp
+        src/common/filehistorycmn.cpp
         src/common/filepickercmn.cpp
         src/common/fontpickercmn.cpp
         src/common/fldlgcmn.cpp
         src/common/fontcmn.cpp
+        src/common/fontdata.cpp
+        src/generic/graphicc.cpp
         src/common/fontenumcmn.cpp
         src/common/fontmap.cpp
+        src/common/fontutilcmn.cpp
         src/common/framecmn.cpp
         src/common/gaugecmn.cpp
         src/common/gbsizer.cpp
@@ -151,6 +189,8 @@ GUI_COMMON =
         src/common/geometry.cpp
         src/common/gifdecod.cpp
         src/common/graphcmn.cpp
+        src/common/headercolcmn.cpp
+        src/common/headerctrlcmn.cpp
         src/common/helpbase.cpp
         src/common/iconbndl.cpp
         src/common/imagall.cpp
@@ -169,57 +209,79 @@ GUI_COMMON =
         src/common/layout.cpp
         src/common/lboxcmn.cpp
         src/common/listctrlcmn.cpp
+        src/common/markupparser.cpp
         src/common/matrix.cpp
         src/common/menucmn.cpp
+        src/common/mousemanager.cpp
         src/common/nbkbase.cpp
         src/common/overlaycmn.cpp
+        src/common/ownerdrwcmn.cpp
         src/common/paper.cpp
+        src/common/panelcmn.cpp
+        src/common/persist.cpp
         src/common/pickerbase.cpp
         src/common/popupcmn.cpp
         src/common/prntbase.cpp
         src/common/quantize.cpp
+        src/common/radiobtncmn.cpp
         src/common/radiocmn.cpp
+        src/common/rearrangectrl.cpp
         src/common/rendcmn.cpp
         src/common/rgncmn.cpp
+        src/common/scrolbarcmn.cpp
         src/common/settcmn.cpp
         src/common/sizer.cpp
+        src/common/slidercmn.cpp
+        src/common/spinbtncmn.cpp
+        src/common/spinctrlcmn.cpp
         src/common/srchcmn.cpp
         src/common/statbar.cpp
+        src/common/statbmpcmn.cpp
+        src/common/statboxcmn.cpp
+        src/common/statlinecmn.cpp
+        src/common/stattextcmn.cpp
         src/common/stockitem.cpp
         src/common/tbarbase.cpp
         src/common/textcmn.cpp
-        src/common/timercmn.cpp
+        src/common/textentrycmn.cpp
         src/common/toplvcmn.cpp
         src/common/treebase.cpp
+        src/common/uiactioncmn.cpp
         src/common/valgen.cpp
         src/common/validate.cpp
         src/common/valtext.cpp
+        src/common/valnum.cpp
         src/common/wincmn.cpp
+        src/common/windowid.cpp
+        src/common/wrapsizer.cpp
         src/common/xpmdecod.cpp
         src/generic/busyinfo.cpp
         src/generic/buttonbar.cpp
         src/generic/choicdgg.cpp
         src/generic/choicbkg.cpp
-        src/generic/clrpickerg.cpp
-        src/generic/collpaneg.cpp
         src/generic/combog.cpp
         src/generic/dcpsg.cpp
         src/generic/dirctrlg.cpp
         src/generic/dragimgg.cpp
-        src/generic/filepickerg.cpp
-        src/generic/fontpickerg.cpp
+        src/generic/filectrlg.cpp
+        src/generic/headerctrlg.cpp
+        src/generic/infobar.cpp
         src/generic/listbkg.cpp
         src/generic/logg.cpp
+        src/generic/markuptext.cpp
+        src/generic/msgdlgg.cpp
         src/generic/numdlgg.cpp
-        src/generic/panelg.cpp
         src/generic/progdlgg.cpp
         src/generic/printps.cpp
         src/generic/renderg.cpp
+        src/generic/richmsgdlgg.cpp
         src/generic/scrlwing.cpp
         src/generic/selstore.cpp
         src/generic/spinctlg.cpp
         src/generic/splitter.cpp
         src/generic/srchctlg.cpp
+        src/generic/statbmpg.cpp
+        src/generic/stattextg.cpp
         src/generic/textdlgg.cpp
         src/generic/tipwin.cpp
         src/generic/toolbkg.cpp
@@ -229,9 +291,7 @@ GUI_COMMON =
         src/generic/vscroll.cpp
         ;
 GUI_MSW =
-        src/msw/main.cpp
-        src/msw/mslu.cpp
-        src/msw/volume.cpp
+        src/msw/ole/activex.cpp
         src/msw/app.cpp
         src/msw/bitmap.cpp
         src/msw/brush.cpp
@@ -249,17 +309,17 @@ GUI_MSW =
         src/msw/dib.cpp
         src/msw/display.cpp
         src/msw/enhmeta.cpp
-        src/msw/evtloop.cpp
         src/msw/font.cpp
         src/msw/fontenum.cpp
         src/msw/fontutil.cpp
         src/msw/gdiimage.cpp
         src/msw/gdiobj.cpp
+        src/msw/gdiplus.cpp
         src/msw/graphics.cpp
-        src/msw/gsockmsw.cpp
         src/msw/icon.cpp
         src/msw/imaglist.cpp
         src/msw/minifram.cpp
+        src/msw/nonownedwnd.cpp
         src/msw/ole/dataobj.cpp
         src/msw/ole/dropsrc.cpp
         src/msw/ole/droptgt.cpp
@@ -272,9 +332,9 @@ GUI_MSW =
         src/msw/region.cpp
         src/msw/renderer.cpp
         src/msw/settings.cpp
-        src/msw/timer.cpp
         src/msw/tooltip.cpp
         src/msw/toplevel.cpp
+        src/msw/uiaction.cpp
         src/msw/utilsgui.cpp
         src/msw/uxtheme.cpp
         src/msw/window.cpp
@@ -282,9 +342,15 @@ GUI_MSW =
         src/msw/helpwin.cpp
         src/msw/ole/automtn.cpp
         src/msw/ole/uuid.cpp
+        src/generic/clrpickerg.cpp
+        src/generic/collpaneg.cpp
+        src/generic/filepickerg.cpp
+        src/generic/fontpickerg.cpp
         src/generic/statusbr.cpp
         src/generic/prntdlgg.cpp
         src/msw/accel.cpp
+        src/msw/anybutton.cpp
+        src/msw/artmsw.cpp
         src/msw/bmpbuttn.cpp
         src/msw/button.cpp
         src/msw/checkbox.cpp
@@ -298,7 +364,8 @@ GUI_MSW =
         src/msw/dragimag.cpp
         src/msw/filedlg.cpp
         src/msw/frame.cpp
-        src/msw/gauge95.cpp
+        src/msw/gauge.cpp
+        src/msw/headerctrl.cpp
         src/msw/iniconf.cpp
         src/msw/listbox.cpp
         src/msw/listctrl.cpp
@@ -308,28 +375,40 @@ GUI_MSW =
         src/msw/metafile.cpp
         src/msw/msgdlg.cpp
         src/msw/nativdlg.cpp
+        src/msw/nativewin.cpp
         src/msw/notebook.cpp
         src/msw/ole/access.cpp
         src/msw/ownerdrw.cpp
+        src/msw/panel.cpp
+        src/msw/progdlg.cpp
         src/msw/radiobox.cpp
         src/msw/radiobut.cpp
+        src/msw/richmsgdlg.cpp
         src/msw/scrolbar.cpp
-        src/msw/slider95.cpp
+        src/msw/slider.cpp
         src/msw/spinbutt.cpp
         src/msw/spinctrl.cpp
         src/msw/statbmp.cpp
         src/msw/statbox.cpp
-        src/msw/statbr95.cpp
+        src/msw/statusbar.cpp
         src/msw/statline.cpp
         src/msw/stattext.cpp
-        src/msw/tabctrl.cpp
-        src/msw/tbar95.cpp
+        src/msw/toolbar.cpp
         src/msw/textctrl.cpp
+        src/msw/textentry.cpp
         src/msw/tglbtn.cpp
         src/msw/treectrl.cpp
         src/msw/checklst.cpp
         src/msw/fdrepdlg.cpp
         src/msw/fontdlg.cpp
+        src/msw/evtloop.cpp
+        src/msw/main.cpp
+        src/msw/mslu.cpp
+        src/msw/volume.cpp
+        ;
+        
+OPENGL_COMMON =
+        src/common/glcmn.cpp
         ;
 OPENGL_MSW =
         src/msw/glcanvas.cpp
@@ -337,37 +416,67 @@ OPENGL_MSW =
 
 ADVANCED_COMMON =
     src/common/animatecmn.cpp
+    src/common/bmpcboxcmn.cpp
+    src/common/calctrlcmn.cpp
     src/common/datavcmn.cpp
+    src/common/gridcmn.cpp
+    src/common/hyperlnkcmn.cpp
+    src/common/odcombocmn.cpp
+    src/common/richtooltipcmn.cpp
     src/generic/aboutdlgg.cpp
-    src/generic/animateg.cpp
+    src/generic/bannerwindow.cpp
     src/generic/bmpcboxg.cpp
-    src/generic/calctrl.cpp
+    src/generic/calctrlg.cpp
+    src/generic/commandlinkbuttong.cpp
     src/generic/datavgen.cpp
     src/generic/datectlg.cpp
+    src/generic/editlbox.cpp
     src/generic/grid.cpp
     src/generic/gridctrl.cpp
+    src/generic/grideditors.cpp
     src/generic/gridsel.cpp
     src/generic/helpext.cpp
-    src/generic/hyperlink.cpp
+    src/generic/hyperlinkg.cpp
     src/generic/laywin.cpp
+    src/generic/notifmsgg.cpp
     src/generic/odcombo.cpp
     src/generic/propdlg.cpp
+    src/generic/richtooltipg.cpp
     src/generic/sashwin.cpp
     src/generic/splash.cpp
+    src/generic/timectrlg.cpp
     src/generic/tipdlg.cpp
+    src/generic/treelist.cpp
     src/generic/wizard.cpp
     ;
 ADVANCED_MSW =
     src/common/taskbarcmn.cpp
     src/msw/aboutdlg.cpp
+    src/msw/notifmsg.cpp
+    src/msw/richtooltip.cpp
     src/msw/sound.cpp
     src/msw/taskbar.cpp
+    src/generic/animateg.cpp
+    src/msw/bmpcbox.cpp
+    src/msw/calctrl.cpp
+    src/msw/commandlinkbutton.cpp
+    src/msw/datecontrols.cpp
     src/msw/datectrl.cpp
-    src/msw/joystick.cpp
+    src/msw/datetimectrl.cpp
+    src/msw/hyperlink.cpp
+    src/msw/timectrl.cpp
+    ;
+    
+MEDIA_COMMON =
+    src/common/mediactrlcmn.cpp
+    ;
+MEDIA_MSW =
+    src/msw/mediactrl_am.cpp
+    src/msw/mediactrl_wmp10.cpp
+    src/msw/mediactrl_qt.cpp
     ;
 
 HTML_SRC =
-    src/msw/helpbest.cpp
     src/html/helpctrl.cpp
     src/html/helpdata.cpp
     src/html/helpdlg.cpp
@@ -387,14 +496,23 @@ HTML_SRC =
     src/html/m_links.cpp
     src/html/m_list.cpp
     src/html/m_pre.cpp
+    src/html/m_span.cpp
     src/html/m_style.cpp
     src/html/m_tables.cpp
+    src/html/styleparams.cpp
     src/html/winpars.cpp
     src/generic/htmllbox.cpp
+    ;
+    
+WEBVIEW_SRC =
+    src/msw/webview_ie.cpp
+    src/common/webview.cpp
+    src/common/webviewarchivehandler.cpp
     ;
 
 XRC_SRC =
     src/xrc/xh_animatctrl.cpp
+    src/xrc/xh_bannerwindow.cpp
     src/xrc/xh_bmp.cpp
     src/xrc/xh_bmpcbox.cpp
     src/xrc/xh_bmpbt.cpp
@@ -405,15 +523,18 @@ XRC_SRC =
     src/xrc/xh_choic.cpp
     src/xrc/xh_choicbk.cpp
     src/xrc/xh_clrpicker.cpp
+    src/xrc/xh_cmdlinkbn.cpp
     src/xrc/xh_collpane.cpp
     src/xrc/xh_combo.cpp
+    src/xrc/xh_comboctrl.cpp
     src/xrc/xh_datectrl.cpp
     src/xrc/xh_dirpicker.cpp
     src/xrc/xh_dlg.cpp
-    src/xrc/xh_frame.cpp
-    src/xrc/xh_mdi.cpp
+    src/xrc/xh_editlbox.cpp
+    src/xrc/xh_filectrl.cpp
     src/xrc/xh_filepicker.cpp
     src/xrc/xh_fontpicker.cpp
+    src/xrc/xh_frame.cpp
     src/xrc/xh_gauge.cpp
     src/xrc/xh_gdctl.cpp
     src/xrc/xh_grid.cpp
@@ -422,6 +543,7 @@ XRC_SRC =
     src/xrc/xh_listb.cpp
     src/xrc/xh_listbk.cpp
     src/xrc/xh_listc.cpp
+    src/xrc/xh_mdi.cpp
     src/xrc/xh_menu.cpp
     src/xrc/xh_notbk.cpp
     src/xrc/xh_odcombo.cpp
@@ -436,6 +558,7 @@ XRC_SRC =
     src/xrc/xh_slidr.cpp
     src/xrc/xh_spin.cpp
     src/xrc/xh_split.cpp
+    src/xrc/xh_srchctrl.cpp
     src/xrc/xh_statbar.cpp
     src/xrc/xh_stbmp.cpp
     src/xrc/xh_stbox.cpp
@@ -443,12 +566,15 @@ XRC_SRC =
     src/xrc/xh_sttxt.cpp
     src/xrc/xh_text.cpp
     src/xrc/xh_tglbtn.cpp
+    src/xrc/xh_timectrl.cpp
     src/xrc/xh_toolb.cpp
+    src/xrc/xh_toolbk.cpp
     src/xrc/xh_tree.cpp
     src/xrc/xh_treebk.cpp
     src/xrc/xh_unkwn.cpp
     src/xrc/xh_wizrd.cpp
     src/xrc/xmlres.cpp
+    src/xrc/xmladv.cpp
     src/xrc/xmlrsall.cpp
     ;
     
@@ -465,12 +591,161 @@ AUI_SRC =
     src/aui/dockart.cpp
     src/aui/floatpane.cpp
     src/aui/auibook.cpp
-    src/aui/tabmdi.cpp
     src/aui/auibar.cpp
+    src/aui/tabmdi.cpp
+    src/aui/tabart.cpp
+    ;
+    
+RIBBON_SRC =
+    src/ribbon/art_internal.cpp
+    src/ribbon/art_msw.cpp
+    src/ribbon/art_aui.cpp
+    src/ribbon/bar.cpp
+    src/ribbon/buttonbar.cpp
+    src/ribbon/control.cpp
+    src/ribbon/gallery.cpp
+    src/ribbon/page.cpp
+    src/ribbon/panel.cpp
+    src/ribbon/toolbar.cpp
+    ;
+    
+PROPGRID_SRC =
+    src/propgrid/advprops.cpp
+    src/propgrid/editors.cpp
+    src/propgrid/manager.cpp
+    src/propgrid/property.cpp
+    src/propgrid/propgrid.cpp
+    src/propgrid/propgridiface.cpp
+    src/propgrid/propgridpagestate.cpp
+    src/propgrid/props.cpp
+    ;
+    
+RICHTEXT_SRC =
+    src/richtext/richtextbuffer.cpp
+    src/richtext/richtextctrl.cpp
+    src/richtext/richtextformatdlg.cpp
+    src/richtext/richtexthtml.cpp
+    src/richtext/richtextimagedlg.cpp
+    src/richtext/richtextprint.cpp
+    src/richtext/richtextstyledlg.cpp
+    src/richtext/richtextstyles.cpp
+    src/richtext/richtextsymboldlg.cpp
+    src/richtext/richtextxml.cpp
+    ;
+
+STC_SRC =
+    src/stc/stc.cpp
+    src/stc/PlatWX.cpp
+    src/stc/ScintillaWX.cpp
+    src/stc/scintilla/src/AutoComplete.cxx
+    src/stc/scintilla/src/CallTip.cxx
+    src/stc/scintilla/src/CellBuffer.cxx
+    src/stc/scintilla/src/CharClassify.cxx
+    src/stc/scintilla/src/ContractionState.cxx
+    src/stc/scintilla/src/Decoration.cxx
+    src/stc/scintilla/src/Document.cxx
+    src/stc/scintilla/src/DocumentAccessor.cxx
+    src/stc/scintilla/src/Editor.cxx
+    src/stc/scintilla/src/ExternalLexer.cxx
+    src/stc/scintilla/src/Indicator.cxx
+    src/stc/scintilla/src/KeyMap.cxx
+    src/stc/scintilla/src/KeyWords.cxx
+    src/stc/scintilla/src/LexAPDL.cxx
+    src/stc/scintilla/src/LexASY.cxx
+    src/stc/scintilla/src/LexAU3.cxx
+    src/stc/scintilla/src/LexAVE.cxx
+    src/stc/scintilla/src/LexAbaqus.cxx
+    src/stc/scintilla/src/LexAda.cxx
+    src/stc/scintilla/src/LexAsm.cxx
+    src/stc/scintilla/src/LexAsn1.cxx
+    src/stc/scintilla/src/LexBaan.cxx
+    src/stc/scintilla/src/LexBash.cxx
+    src/stc/scintilla/src/LexBasic.cxx
+    src/stc/scintilla/src/LexBullant.cxx
+    src/stc/scintilla/src/LexCLW.cxx
+    src/stc/scintilla/src/LexCOBOL.cxx
+    src/stc/scintilla/src/LexCPP.cxx
+    src/stc/scintilla/src/LexCSS.cxx
+    src/stc/scintilla/src/LexCaml.cxx
+    src/stc/scintilla/src/LexCmake.cxx
+    src/stc/scintilla/src/LexConf.cxx
+    src/stc/scintilla/src/LexCrontab.cxx
+    src/stc/scintilla/src/LexCsound.cxx
+    src/stc/scintilla/src/LexD.cxx
+    src/stc/scintilla/src/LexEScript.cxx
+    src/stc/scintilla/src/LexEiffel.cxx
+    src/stc/scintilla/src/LexErlang.cxx
+    src/stc/scintilla/src/LexFlagship.cxx
+    src/stc/scintilla/src/LexForth.cxx
+    src/stc/scintilla/src/LexFortran.cxx
+    src/stc/scintilla/src/LexGAP.cxx
+    src/stc/scintilla/src/LexGui4Cli.cxx
+    src/stc/scintilla/src/LexHTML.cxx
+    src/stc/scintilla/src/LexHaskell.cxx
+    src/stc/scintilla/src/LexInno.cxx
+    src/stc/scintilla/src/LexKix.cxx
+    src/stc/scintilla/src/LexLisp.cxx
+    src/stc/scintilla/src/LexLout.cxx
+    src/stc/scintilla/src/LexLua.cxx
+    src/stc/scintilla/src/LexMMIXAL.cxx
+    src/stc/scintilla/src/LexMPT.cxx
+    src/stc/scintilla/src/LexMSSQL.cxx
+    src/stc/scintilla/src/LexMagik.cxx
+    src/stc/scintilla/src/LexMarkdown.cxx
+    src/stc/scintilla/src/LexMatlab.cxx
+    src/stc/scintilla/src/LexMetapost.cxx
+    src/stc/scintilla/src/LexMySQL.cxx
+    src/stc/scintilla/src/LexNimrod.cxx
+    src/stc/scintilla/src/LexNsis.cxx
+    src/stc/scintilla/src/LexOpal.cxx
+    src/stc/scintilla/src/LexOthers.cxx
+    src/stc/scintilla/src/LexPB.cxx
+    src/stc/scintilla/src/LexPLM.cxx
+    src/stc/scintilla/src/LexPOV.cxx
+    src/stc/scintilla/src/LexPS.cxx
+    src/stc/scintilla/src/LexPascal.cxx
+    src/stc/scintilla/src/LexPerl.cxx
+    src/stc/scintilla/src/LexPowerPro.cxx
+    src/stc/scintilla/src/LexPowerShell.cxx
+    src/stc/scintilla/src/LexProgress.cxx
+    src/stc/scintilla/src/LexPython.cxx
+    src/stc/scintilla/src/LexR.cxx
+    src/stc/scintilla/src/LexRebol.cxx
+    src/stc/scintilla/src/LexRuby.cxx
+    src/stc/scintilla/src/LexSML.cxx
+    src/stc/scintilla/src/LexSQL.cxx
+    src/stc/scintilla/src/LexScriptol.cxx
+    src/stc/scintilla/src/LexSmalltalk.cxx
+    src/stc/scintilla/src/LexSorcus.cxx
+    src/stc/scintilla/src/LexSpecman.cxx
+    src/stc/scintilla/src/LexSpice.cxx
+    src/stc/scintilla/src/LexTACL.cxx
+    src/stc/scintilla/src/LexTADS3.cxx
+    src/stc/scintilla/src/LexTAL.cxx
+    src/stc/scintilla/src/LexTCL.cxx
+    src/stc/scintilla/src/LexTeX.cxx
+    src/stc/scintilla/src/LexVB.cxx
+    src/stc/scintilla/src/LexVHDL.cxx
+    src/stc/scintilla/src/LexVerilog.cxx
+    src/stc/scintilla/src/LexYAML.cxx
+    src/stc/scintilla/src/LineMarker.cxx
+    src/stc/scintilla/src/PerLine.cxx
+    src/stc/scintilla/src/PositionCache.cxx
+    src/stc/scintilla/src/PropSet.cxx
+    src/stc/scintilla/src/RESearch.cxx
+    src/stc/scintilla/src/RunStyles.cxx
+    src/stc/scintilla/src/ScintillaBase.cxx
+    src/stc/scintilla/src/Selection.cxx
+    src/stc/scintilla/src/Style.cxx
+    src/stc/scintilla/src/StyleContext.cxx
+    src/stc/scintilla/src/UniConversion.cxx
+    src/stc/scintilla/src/ViewStyle.cxx
+    src/stc/scintilla/src/WindowAccessor.cxx
+    src/stc/scintilla/src/XPM.cxx
     ;
 
 NET_SRC =
-    src/msw/gsocket.cpp
+    src/msw/sockmsw.cpp
     src/msw/urlmsw.cpp
     src/common/fs_inet.cpp
     src/common/ftp.cpp
@@ -525,10 +800,15 @@ ExternalLibs wxbase$(WX_MAJORMINOR)u_net_debug : WXMSW_NET_DEPS ;
 TIF_PLAT = tif_win3.c tif_vms.c tif_unix.c tif_os2.c tif_atari.c tif_apple.c tif_acorn.c tif_msdos.c ;
 
 BaseLib wxtiff : 
-  [ Filter [ Wildcard [ ConcatDirs src tiff ] : tif_*.c tif_*.h ] : src/tiff/$(TIF_PLAT) ] :
+  [ Filter [ Wildcard [ ConcatDirs src tiff libtiff ] : tif_*.c tif_*.h ] : src/tiff/libtiff/$(TIF_PLAT) ] :
   wxtiff :
   :
-  $(SUBDIR)/include : 
+  $(SUBDIR)/include
+  $(SUBDIR)/src/tiff/libtiff
+  $(SUBDIR)/../configs
+  $(SUBDIR)/../libz
+  $(SUBDIR)/../configs/libjpeg
+  $(SUBDIR)/../libjpeg : 
   staticonly norelease ;
 
 WXMSW_CORE_DEPS.AVAILABLE = yes ;
@@ -538,7 +818,7 @@ OUTDIRBASE on wxmsw$(WX_MAJORMINOR)u_core = ReleaseWX ;
 ExtraLib wxmsw$(WX_MAJORMINOR)u_core :
   $(GUI_COMMON) $(GUI_MSW) : 
   source/libwxcore.rc :
-  $(SUBDIR)/include $(SUBDIR)/include/msvc $(SUBDIR)/src/tiff
+  $(SUBDIR)/include $(SUBDIR)/include/msvc $(SUBDIR)/src/tiff/libtiff
   $(SUBDIR)/../configs $(SUBDIR)/../libz
     $(SUBDIR)/../libpng
     $(SUBDIR)/../configs/libjpeg $(SUBDIR)/../libjpeg :
@@ -569,12 +849,13 @@ rule WXLibrary
   local deps = $(4) ;
   local basedeps = $(5) ;
   local extlibs = $(6) ;
+  local incpath = $(7) ;
   
   OUTDIRBASE on wxmsw$(WX_MAJORMINOR)u_$(name) = ReleaseWX ;
   ExtraLib wxmsw$(WX_MAJORMINOR)u_$(name) :
     $(sources) : 
     source/libwx$(name).rc :
-    $(SUBDIR)/include $(SUBDIR)/include/msvc :
+    $(SUBDIR)/include $(SUBDIR)/include/msvc $(incpath) :
     nostatic :
     _UNICODE __WXMSW__ COMPILED_FROM_DSP WXUSINGDLL $(extradef)
     :
@@ -600,13 +881,27 @@ rule WXLibrary
   ExternalLibs wxmsw$(WX_MAJORMINOR)u_$(name)_debug : $(extlibs) ;
 }
 
-WXLibrary gl : $(OPENGL_MSW) : WXMAKINGDLL_GL : : : WXMSW_GL_DEPS ;
+WXLibrary gl :  $(OPENGL_COMMON) $(OPENGL_MSW) : WXMAKINGDLL_GL : : : WXMSW_GL_DEPS ;
+
+WXLibrary media :  $(MEDIA_COMMON) $(MEDIA_MSW) : WXMAKINGDLL_MEDIA ;
 
 WXMSW_ADV_DEPS.AVAILABLE = yes ;
 WXMSW_ADV_DEPS.LIBS = winmm.lib ;
 WXLibrary adv : $(ADVANCED_COMMON) $(ADVANCED_MSW) : WXMAKINGDLL_ADV : : : WXMSW_ADV_DEPS ; 
 
-WXLibrary html : $(HTML_SRC) : WXMAKINGDLL_HTML ; 
+WXLibrary html : $(HTML_SRC) : WXMAKINGDLL_HTML ;
+
+WXLibrary webview : $(WEBVIEW_SRC) : WXMAKINGDLL_WEBVIEW ;
+
+WXLibrary ribbon : $(RIBBON_SRC) : WXMAKINGDLL_RIBBON ;
+
+WXLibrary propgrid : $(PROPGRID_SRC) : WXMAKINGDLL_PROPGRID : adv ;
+
+WXLibrary richtext : $(RICHTEXT_SRC) : WXMAKINGDLL_RICHTEXT : adv html : xml ;
+
+RegisterFileType C++Rule : .cxx ;
+WXLibrary stc : $(STC_SRC) : WXMAKINGDLL_STC SCI_LEXER LINK_LEXERS __WX__ : : : :
+    $(SUBDIR)/src/stc/scintilla/include $(SUBDIR)/src/stc/scintilla/src ;
 
 WXLibrary xrc : $(XRC_SRC) : WXMAKINGDLL_XRC : adv html : xml ;
 

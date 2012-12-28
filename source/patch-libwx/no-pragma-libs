@@ -1,143 +1,17 @@
-diff -ru ../wxMSW-2.8.7/include/msvc/wx/setup.h ./include/msvc/wx/setup.h
---- ../wxMSW-2.8.7/include/msvc/wx/setup.h	Wed Nov 21 10:39:32 2007
-+++ ./include/msvc/wx/setup.h	Wed Sep 24 18:45:11 2008
-@@ -30,101 +30,101 @@
-         #endif
+diff -ur ../libwx.org/include/msvc/wx/setup.h include/msvc/wx/setup.h
+--- ../libwx.org/include/msvc/wx/setup.h	2012-12-18 14:40:41 +0100
++++ include/msvc/wx/setup.h	2012-12-26 21:16:26 +0100
+@@ -131,6 +131,7 @@
+ // special version for regex as it does have a Unicode version
+ #define wx3RD_PARTY_LIB_NAME_U(name) "wx" name wxSUFFIX_STR
  
-         #ifdef _DEBUG
--            #pragma comment(lib,"wxbase28ud")
--            #pragma comment(lib,"wxbase28ud_net")
--            #pragma comment(lib,"wxbase28ud_xml")
-+            //#pragma comment(lib,"wxbase28ud")
-+            //#pragma comment(lib,"wxbase28ud_net")
-+            //#pragma comment(lib,"wxbase28ud_xml")
-             #if wxUSE_REGEX
--                #pragma comment(lib,"wxregexud")
-+                //#pragma comment(lib,"wxregexud")
-             #endif
++#if 0
+ #pragma comment(lib, wxWX_LIB_NAME("base", ""))
  
-             #if wxUSE_GUI
-                 #if wxUSE_XML
--                    #pragma comment(lib,"wxexpatd")
-+                    //#pragma comment(lib,"wxexpatd")
-                 #endif
-                 #if wxUSE_LIBJPEG
--                    #pragma comment(lib,"wxjpegd")
-+                    //#pragma comment(lib,"wxjpegd")
-                 #endif
-                 #if wxUSE_LIBPNG
--                    #pragma comment(lib,"wxpngd")
-+                    //#pragma comment(lib,"wxpngd")
-                 #endif
-                 #if wxUSE_LIBTIFF
--                    #pragma comment(lib,"wxtiffd")
-+                    //#pragma comment(lib,"wxtiffd")
-                 #endif
-                 #if wxUSE_ZLIB
--                    #pragma comment(lib,"wxzlibd")
-+                    //#pragma comment(lib,"wxzlibd")
-                 #endif
--                #pragma comment(lib,"wxmsw28ud_adv")
--                #pragma comment(lib,"wxmsw28ud_core")
--                #pragma comment(lib,"wxmsw28ud_html")
-+                //#pragma comment(lib,"wxmsw28ud_adv")
-+                //#pragma comment(lib,"wxmsw28ud_core")
-+                //#pragma comment(lib,"wxmsw28ud_html")
-                 #if wxUSE_GLCANVAS
--                    #pragma comment(lib,"wxmsw28ud_gl")
-+                    //#pragma comment(lib,"wxmsw28ud_gl")
-                 #endif
-                 #if wxUSE_DEBUGREPORT
--                    #pragma comment(lib,"wxmsw28ud_qa")
-+                    //#pragma comment(lib,"wxmsw28ud_qa")
-                 #endif
-                 #if wxUSE_XRC
--                    #pragma comment(lib,"wxmsw28ud_xrc")
-+                    //#pragma comment(lib,"wxmsw28ud_xrc")
-                 #endif
-                 #if wxUSE_AUI
--                    #pragma comment(lib,"wxmsw28ud_aui")
-+                    //#pragma comment(lib,"wxmsw28ud_aui")
-                 #endif
-                 #if wxUSE_RICHTEXT
--                    #pragma comment(lib,"wxmsw28ud_richtext")
-+                    //#pragma comment(lib,"wxmsw28ud_richtext")
-                 #endif
-                 #if wxUSE_MEDIACTRL
--                    #pragma comment(lib,"wxmsw28ud_media")
-+                    //#pragma comment(lib,"wxmsw28ud_media")
-                 #endif
-                 #if wxUSE_ODBC
--                    #pragma comment(lib,"wxbase28ud_odbc")
-+                    //#pragma comment(lib,"wxbase28ud_odbc")
-                 #endif
-             #endif // wxUSE_GUI
-         #else // release
--            #pragma comment(lib,"wxbase28u")
--            #pragma comment(lib,"wxbase28u_net")
--            #pragma comment(lib,"wxbase28u_xml")
-+            //#pragma comment(lib,"wxbase28u")
-+            //#pragma comment(lib,"wxbase28u_net")
-+            //#pragma comment(lib,"wxbase28u_xml")
-             #if wxUSE_REGEX
--                #pragma comment(lib,"wxregexu")
-+                //#pragma comment(lib,"wxregexu")
-             #endif
- 
-             #if wxUSE_GUI
-                 #if wxUSE_XML
--                    #pragma comment(lib,"wxexpat")
-+                    //#pragma comment(lib,"wxexpat")
-                 #endif
-                 #if wxUSE_LIBJPEG
--                    #pragma comment(lib,"wxjpeg")
-+                    //#pragma comment(lib,"wxjpeg")
-                 #endif
-                 #if wxUSE_LIBPNG
--                    #pragma comment(lib,"wxpng")
-+                    //#pragma comment(lib,"wxpng")
-                 #endif
-                 #if wxUSE_LIBTIFF
--                    #pragma comment(lib,"wxtiff")
-+                    //#pragma comment(lib,"wxtiff")
-                 #endif
-                 #if wxUSE_ZLIB
--                    #pragma comment(lib,"wxzlib")
-+                    //#pragma comment(lib,"wxzlib")
-                 #endif
--                #pragma comment(lib,"wxmsw28u_adv")
--                #pragma comment(lib,"wxmsw28u_core")
--                #pragma comment(lib,"wxmsw28u_html")
-+                //#pragma comment(lib,"wxmsw28u_adv")
-+                //#pragma comment(lib,"wxmsw28u_core")
-+                //#pragma comment(lib,"wxmsw28u_html")
-                 #if wxUSE_GLCANVAS
--                    #pragma comment(lib,"wxmsw28u_gl")
-+                    //#pragma comment(lib,"wxmsw28u_gl")
-                 #endif
-                 #if wxUSE_DEBUGREPORT
--                    #pragma comment(lib,"wxmsw28u_qa")
-+                    //#pragma comment(lib,"wxmsw28u_qa")
-                 #endif
-                 #if wxUSE_XRC
--                    #pragma comment(lib,"wxmsw28u_xrc")
-+                    //#pragma comment(lib,"wxmsw28u_xrc")
-                 #endif
-                 #if wxUSE_AUI
--                    #pragma comment(lib,"wxmsw28u_aui")
-+                    //#pragma comment(lib,"wxmsw28u_aui")
-                 #endif
-                 #if wxUSE_RICHTEXT
--                    #pragma comment(lib,"wxmsw28u_richtext")
-+                    //#pragma comment(lib,"wxmsw28u_richtext")
-                 #endif
-                 #if wxUSE_MEDIACTRL
--                    #pragma comment(lib,"wxmsw28u_media")
-+                    //#pragma comment(lib,"wxmsw28u_media")
-                 #endif
-                 #if wxUSE_ODBC
--                    #pragma comment(lib,"wxbase28u_odbc")
-+                    //#pragma comment(lib,"wxbase28u_odbc")
-                 #endif
-             #endif // wxUSE_GUI
-         #endif // debug/release
+ #ifndef wxNO_NET_LIB
+@@ -223,3 +224,5 @@
+         #pragma comment(lib, "wininet")
+     #endif
+ #endif // !WXUSINGDLL
++
++#endif

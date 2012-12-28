@@ -1,0 +1,3 @@
+#define VER_FILENAME		"wxmsw" VERSION_MAJORMINOR "u_media.dll"
+
+#include "libwxcommon.rcinc"
