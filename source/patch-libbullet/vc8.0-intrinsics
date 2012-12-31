@@ -1,0 +1,93 @@
+diff -ru ../bullet-2.81-rev2613/src/LinearMath/btScalar.h ./src/LinearMath/btScalar.h
+--- ../bullet-2.81-rev2613/src/LinearMath/btScalar.h	2012-09-11 05:49:50 +0200
++++ ./src/LinearMath/btScalar.h	2012-12-29 05:44:35 +0100
+@@ -293,10 +293,54 @@
+     return _mm_mul_ps(A, B);
+ }
+ 
++// Some instrinsics are only available on VC >= 9, emulate them
++#if defined(_MSC_VER) && (_MSC_VER < 1500)
++static SIMD_FORCE_INLINE const __m128i btCastfTo128i (__m128 x)
++{
++  union
++  {
++    __m128i i;
++    __m128 f;
++  } u;
++  u.f = x;
++  return u.i;
++}
++static SIMD_FORCE_INLINE const __m128d btCastfTo128d (__m128 x)
++{
++  union
++  {
++    __m128d d;
++    __m128 f;
++  } u;
++  u.f = x;
++  return u.d;
++}
++static SIMD_FORCE_INLINE const __m128 btCastiTo128f (__m128i x)
++{
++  union
++  {
++    __m128i i;
++    __m128 f;
++  } u;
++  u.i = x;
++  return u.f;
++}
++static SIMD_FORCE_INLINE const __m128 btCastdTo128f (__m128d x)
++{
++  union
++  {
++    __m128d d;
++    __m128 f;
++  } u;
++  u.d = x;
++  return u.f;
++}
++#else
+ #define btCastfTo128i(a) (_mm_castps_si128(a))
+ #define btCastfTo128d(a) (_mm_castps_pd(a))
+ #define btCastiTo128f(a) (_mm_castsi128_ps(a))
+ #define btCastdTo128f(a) (_mm_castpd_ps(a))
++#endif
+ #define btCastdTo128i(a) (_mm_castpd_si128(a))
+ #define btAssign128(r0,r1,r2,r3) _mm_setr_ps(r0,r1,r2,r3)
+ 
+diff -ru ../bullet-2.81-rev2613/src/LinearMath/btVector3.h ./src/LinearMath/btVector3.h
+--- ../bullet-2.81-rev2613/src/LinearMath/btVector3.h	2012-09-17 18:03:47 +0200
++++ ./src/LinearMath/btVector3.h	2012-12-29 05:37:13 +0100
+@@ -60,6 +60,13 @@
+ const __m128 ATTRIBUTE_ALIGNED16(vHalf) = {0.5f, 0.5f, 0.5f, 0.5f};
+ const __m128 ATTRIBUTE_ALIGNED16(v1_5)  = {1.5f, 1.5f, 1.5f, 1.5f};
+ 
++// Some instrinsics are only available on VC >= 9, emulate them
++#if _MSC_VER < 1500
++#define BT__mm_cvtss_f32(x)     (x.m128_f32[0])
++#else
++#define BT__mm_cvtss_f32(x)     _mm_cvtss_f32(x)
++#endif
++
+ #endif
+ 
+ #ifdef BT_USE_NEON
+@@ -235,7 +242,7 @@
+ 		__m128 y = _mm_shuffle_ps(vd, vd, 0x55);
+ 		vd = _mm_add_ss(vd, y);
+ 		vd = _mm_add_ss(vd, z);
+-		return _mm_cvtss_f32(vd);
++		return BT__mm_cvtss_f32(vd);
+ #elif defined(BT_USE_NEON)
+ 		float32x4_t vd = vmulq_f32(mVec128, v.mVec128);
+ 		float32x2_t x = vpadd_f32(vget_low_f32(vd), vget_low_f32(vd));  
+@@ -417,7 +424,7 @@
+ 		__m128 y = _mm_shuffle_ps(V, V, 0x55);
+ 		V = _mm_add_ss(V, y);
+ 		V = _mm_add_ss(V, z);
+-		return _mm_cvtss_f32(V);
++		return BT__mm_cvtss_f32(V);
+ 
+ #elif defined(BT_USE_NEON)
+ 		// cross:
