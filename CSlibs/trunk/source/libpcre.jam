@@ -1,8 +1,8 @@
 SubDir TOP source libpcre ;
 
 BaseLib pcre : 
-  [ Filter [ Wildcard *.c *.h ] : 
-    dftables.c pcredemo.c pcregrep.c pcreposix.c pcretest.c ucptable.c pcre_jit_test.c ] 
+  [ Filter [ Wildcard pcre_*.c pcre_*.h ] : 
+    pcre_jit_test.c ] 
     ../configs/pcre/config.h : 
   pcre :
   :
