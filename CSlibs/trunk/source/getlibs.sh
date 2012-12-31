@@ -53,3 +53,7 @@ copy_if_differerent libwx/include/wx/msw/setup.h libwx/lib/vc_dll/mswu/wx/setup.
 copy_if_differerent libwx/include/wx/msw/setup.h libwx/lib/vc_dll/mswud/wx/setup.h
 copy_if_differerent libwx/include/wx/msw/setup.h libwx/lib/vc_lib/mswu/wx/setup.h
 copy_if_differerent libwx/include/wx/msw/setup.h libwx/lib/vc_lib/mswud/wx/setup.h
+copy_if_differerent libwx/include/wx/msw/setup.h libwx/lib/vc_x64_dll/mswu/wx/setup.h
+copy_if_differerent libwx/include/wx/msw/setup.h libwx/lib/vc_x64_dll/mswud/wx/setup.h
+copy_if_differerent libwx/include/wx/msw/setup.h libwx/lib/vc_x64_lib/mswu/wx/setup.h
+copy_if_differerent libwx/include/wx/msw/setup.h libwx/lib/vc_x64_lib/mswud/wx/setup.h
