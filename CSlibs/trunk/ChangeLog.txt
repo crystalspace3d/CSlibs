@@ -4,6 +4,7 @@
  - Updated libpng to 1.5.13.
  - Updated freetype to 2.4.11.
  - Updated bullet to 2.81.
+ - Updated Cg to 3.1 (April 2012).
 
 2.1_002 (2012-10-14):
  - Updated libjpeg to 8d.
