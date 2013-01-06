@@ -46,3 +46,5 @@ cp -p source/configs/*.h headers/
 cp -pr source/libwx/include/wx headers-wx/
 cp -p source/libwx/include/wx/msw/setup.h headers-wx/wx/
 #cp -r temp/libwx/prefix-${mingw}/lib/wx/include/msw-unicode-release-2.8/wx headers-wx/
+
+cp -pr temp/libassimp/prefix-${mingw}/include/assimp/ headers/

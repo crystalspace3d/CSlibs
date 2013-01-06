@@ -178,10 +178,13 @@ Source: ..\..\libs\ReleaseNoCygwin{#ArchSuffix}\*.lib; DestDir: {app}\vc\lib; Co
 #ifndef X64
 Source: ..\..\libs\ReleaseNoCygwin{#ArchSuffix}\*.lib; DestDir: {app}\mingw{#ArchSuffixMingw}\lib; Components: Libs/MinGW; AfterInstall: LibPostInstall
 #endif
-; Bullet is always static
+; Bullet, Assimp are always static
 Source: ..\..\libs\ReleaseVC8Only_static{#ArchSuffix}\bullet*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC9Only_static{#ArchSuffix}\bullet*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
 Source: ..\..\libs\ReleaseVC10Only_static{#ArchSuffix}\bullet*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC8Only_static{#ArchSuffix}\assimp*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC9Only_static{#ArchSuffix}\assimp*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
+Source: ..\..\libs\ReleaseVC10Only_static{#ArchSuffix}\assimp*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
 #define MINGWLINK(GccVer) \
   "Source: ..\..\libs\ReleaseGCCOnly\mingw" + ArchSuffixMingw + "-gcc-" + GccVer + "\lib*.a; DestDir: {app}\mingw" + ArchSuffixMingw +"-gcc-" + GccVer + "\lib; Components: Libs/MinGW"
 #ifndef X64
@@ -209,7 +212,8 @@ Source: ..\..\libs\ReleaseGCCOnly\mingw64\libcg*.a; DestDir: {app}\mingw64\lib; 
   "Source: ..\..\libs\ReleaseGCCOnly_static\mingw" + ArchSuffixMingw + "-gcc-" + GccVer + "\lib*.a; DestDir: {app}\mingw" + ArchSuffixMingw +"-gcc-" + GccVer + "\lib; Components: Libs/MinGW" + NL + \
   "Source: ..\..\libs\ReleaseGCCOnly\mingw" + ArchSuffixMingw + "-gcc-" + GccVer + "\libbullet*.a; DestDir: {app}\mingw" + ArchSuffixMingw +"-gcc-" + GccVer + "\lib; Components: Libs/MinGW" + NL + \
   "Source: ..\..\libs\ReleaseGCCOnly\mingw" + ArchSuffixMingw + "-gcc-" + GccVer + "\liblinearmath.a; DestDir: {app}\mingw" + ArchSuffixMingw +"-gcc-" + GccVer + "\lib; Components: Libs/MinGW" + NL + \
-  "Source: ..\..\libs\ReleaseGCCOnly\mingw" + ArchSuffixMingw + "-gcc-" + GccVer + "\libcal3d.a; DestDir: {app}\mingw" + ArchSuffixMingw +"-gcc-" + GccVer + "\lib; Components: Libs/MinGW"
+  "Source: ..\..\libs\ReleaseGCCOnly\mingw" + ArchSuffixMingw + "-gcc-" + GccVer + "\libcal3d.a; DestDir: {app}\mingw" + ArchSuffixMingw +"-gcc-" + GccVer + "\lib; Components: Libs/MinGW" + NL + \
+  "Source: ..\..\libs\ReleaseGCCOnly\mingw" + ArchSuffixMingw + "-gcc-" + GccVer + "\libassimp.a; DestDir: {app}\mingw" + ArchSuffixMingw +"-gcc-" + GccVer + "\lib; Components: Libs/MinGW"
 #ifndef X64
 #emit MINGWSTATIC("4.5")
 #emit MINGWSTATIC("4.6")

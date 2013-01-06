@@ -6,7 +6,7 @@ shift
 
 build_libs=$*
 if [ -z "$build_libs" ]; then
-  build_libs="cal3d cegui bullet wx ode"
+  build_libs="cal3d cegui bullet wx ode assimp"
 fi
 
 for lib in $build_libs ; do
@@ -20,5 +20,7 @@ for lib in $build_libs ; do
     build/wx.sh ${platform} ${platform_short} $BUILD_SCRIPT_ARGS
   elif [ "$lib" = "ode" ] ; then
     build/ode.sh ${platform} ${platform_short} $BUILD_SCRIPT_ARGS
+  elif [ "$lib" = "assimp" ] ; then
+    build/assimp.sh ${platform} ${platform_short} $BUILD_SCRIPT_ARGS
   fi
 done

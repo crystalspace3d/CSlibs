@@ -264,5 +264,6 @@ include $(TOP)/source/libpcre.jam ;
 include $(TOP)/source/libCEGUI.jam ;
 include $(TOP)/source/libbullet.jam ;
 include $(TOP)/source/openal-soft.jam ;
+include $(TOP)/source/libassimp.jam ;
 
 include $(TOP)/source/libwx.jam ;
