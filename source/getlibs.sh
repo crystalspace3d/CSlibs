@@ -37,6 +37,8 @@ scripts/url-get libode "http://downloads.sourceforge.net/project/opende/ODE/0.11
   ode-0.11.1 zip
 scripts/url-get openal-soft http://kcat.strangesoft.net/openal-releases/openal-soft-1.13.tar.bz2 \
   openal-soft-1.13 bz2
+scripts/url-get libassimp "http://downloads.sourceforge.net/project/assimp/assimp-3.0/assimp--3.0.1270-source-only.zip?r=&ts=1356967846&use_mirror=garr" \
+  assimp--3.0.1270-source-only zip
   
 # Extra libs
 scripts/url-get libwx ftp://ftp.wxwidgets.org/pub/2.9.4/wxWidgets-2.9.4.tar.bz2 wxWidgets-2.9.4 bz2
