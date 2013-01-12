@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{148E9AB3-93FF-4D03-68AC-658A7DF2AEFE}</ProjectGuid>
+    <SccProjectName />
+    <SccLocalPath />
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)'=='Release'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Platform)'=='Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Platform)'=='x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\out\release10\build\libwxmsw29u_xrc\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\libs\ReleaseWXVC10Only\</OutDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">libwxmsw29u_xrc-csvc10</TargetName>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\out\release10-x64\build\libwxmsw29u_xrc\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\libs\ReleaseWXVC10Only-x64\</OutDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">libwxmsw29u_xrc-csvc10-x64</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OmitFramePointers>true</OmitFramePointers>
+      <ProgramDataBaseFileName>..\..\out\release10\build\libwxmsw29u_xrc\Win32\wxmsw29u_xrc.pdb</ProgramDataBaseFileName>
+      <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;COMPILED_FROM_DSP;WXUSINGDLL;WXMAKINGDLL_XRC;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>.;..\..\source\libwx\include;..\..\source\libwx\include\msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeaderOutputFile>..\..\out\release10\build\libwxmsw29u_xrc\libwxmsw29u_xrc.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>..\..\out\release10\build\libwxmsw29u_xrc\</AssemblerListingLocation>
+      <ObjectFileName>..\..\out\release10\build\libwxmsw29u_xrc\</ObjectFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <Link>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>LIBC;LIBCD;LIBCMT;LIBCMTD;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <OutputFile>..\..\libs\ReleaseWXVC10Only\libwxmsw29u_xrc-csvc10.dll</OutputFile>
+      <AdditionalLibraryDirectories>;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <MergeSections>.rdata=.text</MergeSections> 
+      <DelayLoadDLLs>;%(DelayLoadDLLs)</DelayLoadDLLs>
+      <ImportLibrary>..\..\libs\ReleaseWXVC10Only\wxmsw29u_xrc-vc10.lib</ImportLibrary>
+      <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>comctl32.lib;rpcrt4.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ProgramDatabaseFile>..\..\libs\ReleaseWXVC10Only\libwxmsw29u_xrc-csvc10.pdb</ProgramDatabaseFile>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Lib>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;COMPILED_FROM_DSP;WXUSINGDLL;WXMAKINGDLL_XRC;PROJECTGEN_VERSION=10;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\include\msvc</AdditionalIncludeDirectories>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OmitFramePointers>true</OmitFramePointers>
+      <ProgramDataBaseFileName>..\..\out\release10-x64\build\libwxmsw29u_xrc\x64\wxmsw29u_xrc.pdb</ProgramDataBaseFileName>
+      <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;COMPILED_FROM_DSP;WXUSINGDLL;WXMAKINGDLL_XRC;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>.;..\..\source\libwx\include;..\..\source\libwx\include\msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeaderOutputFile>..\..\out\release10-x64\build\libwxmsw29u_xrc\libwxmsw29u_xrc.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>..\..\out\release10-x64\build\libwxmsw29u_xrc\</AssemblerListingLocation>
+      <ObjectFileName>..\..\out\release10-x64\build\libwxmsw29u_xrc\</ObjectFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <Link>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>LIBC;LIBCD;LIBCMT;LIBCMTD;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <OutputFile>..\..\libs\ReleaseWXVC10Only-x64\libwxmsw29u_xrc-csvc10-x64.dll</OutputFile>
+      <AdditionalLibraryDirectories>;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <MergeSections>.rdata=.text</MergeSections> 
+      <DelayLoadDLLs>;%(DelayLoadDLLs)</DelayLoadDLLs>
+      <ImportLibrary>..\..\libs\ReleaseWXVC10Only-x64\wxmsw29u_xrc-vc10.lib</ImportLibrary>
+      <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>comctl32.lib;rpcrt4.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ProgramDatabaseFile>..\..\libs\ReleaseWXVC10Only-x64\libwxmsw29u_xrc-csvc10-x64.pdb</ProgramDatabaseFile>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+    <Lib>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;COMPILED_FROM_DSP;WXUSINGDLL;WXMAKINGDLL_XRC;PROJECTGEN_VERSION=10;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\include\msvc</AdditionalIncludeDirectories>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_animatctrl.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_bannerwindow.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_bmp.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_bmpbt.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_bmpcbox.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_bttn.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_cald.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_chckb.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_chckl.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_choic.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_choicbk.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_clrpicker.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_cmdlinkbn.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_collpane.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_combo.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_comboctrl.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_datectrl.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_dirpicker.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_dlg.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_editlbox.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_filectrl.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_filepicker.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_fontpicker.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_frame.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_gauge.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_gdctl.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_grid.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_html.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_htmllbox.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_hyperlink.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_listb.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_listbk.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_listc.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_mdi.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_menu.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_notbk.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_odcombo.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_panel.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_propdlg.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_radbt.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_radbx.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_scrol.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_scwin.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_sizer.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_slidr.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_spin.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_split.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_srchctrl.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_statbar.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_stbmp.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_stbox.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_stlin.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_sttxt.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_text.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_tglbtn.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_timectrl.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_toolb.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_toolbk.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_tree.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_treebk.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_unkwn.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xh_wizrd.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xmladv.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xmlres.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\xrc\xmlrsall.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\..\source\libwxxrc.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="libwxbase29u.vcxproj">
+      <Project>{54A93D09-6867-18BC-542A-E6EDB1CF5E06}</Project>
+    </ProjectReference>
+    <ProjectReference Include="libwxmsw29u_core.vcxproj">
+      <Project>{4192E6A4-5502-B6FB-779A-B0390C0D6613}</Project>
+    </ProjectReference>
+    <ProjectReference Include="libwxbase29u_xml.vcxproj">
+      <Project>{03B3BCB7-FD7B-EBA4-0E35-A8488B665617}</Project>
+    </ProjectReference>
+    <ProjectReference Include="libwxmsw29u_adv.vcxproj">
+      <Project>{E8135F9D-8103-B1F9-3E86-9EEF23B8C9F6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="libwxmsw29u_html.vcxproj">
+      <Project>{B0569B94-BE98-1EB9-77B4-61ADBCDEB281}</Project>
+    </ProjectReference>
+    <ProjectReference Include="libwxtiff_static.vcxproj">
+      <Project>{A241AEB7-7B03-D9AD-9169-F39BA93DD5A5}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Release|Win32">
@@ -234,6 +234,7 @@
     <ClInclude Include="..\..\source\libbullet\src\BulletCollision\CollisionDispatch\btCollisionCreateFunc.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletCollision\CollisionDispatch\btCollisionDispatcher.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletCollision\CollisionDispatch\btCollisionObject.h" />
+    <ClInclude Include="..\..\source\libbullet\src\BulletCollision\CollisionDispatch\btCollisionObjectWrapper.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletCollision\CollisionDispatch\btCollisionWorld.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletCollision\CollisionDispatch\btCompoundCollisionAlgorithm.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletCollision\CollisionDispatch\btConvex2dConvex2dAlgorithm.h" />

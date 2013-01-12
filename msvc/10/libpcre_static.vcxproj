@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Release|Win32">
@@ -136,6 +136,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\source\libpcre\pcre_byte_order.c" />
     <ClCompile Include="..\..\source\libpcre\pcre_chartables.c" />
     <ClCompile Include="..\..\source\libpcre\pcre_compile.c" />
     <ClCompile Include="..\..\source\libpcre\pcre_config.c" />
@@ -144,16 +145,15 @@
     <ClCompile Include="..\..\source\libpcre\pcre_fullinfo.c" />
     <ClCompile Include="..\..\source\libpcre\pcre_get.c" />
     <ClCompile Include="..\..\source\libpcre\pcre_globals.c" />
-    <ClCompile Include="..\..\source\libpcre\pcre_info.c" />
     <ClCompile Include="..\..\source\libpcre\pcre_jit_compile.c" />
-    <ClCompile Include="..\..\source\libpcre\pcre_jit_test.c" />
     <ClCompile Include="..\..\source\libpcre\pcre_maketables.c" />
     <ClCompile Include="..\..\source\libpcre\pcre_newline.c" />
     <ClCompile Include="..\..\source\libpcre\pcre_ord2utf8.c" />
+    <ClCompile Include="..\..\source\libpcre\pcre_printint.c" />
     <ClCompile Include="..\..\source\libpcre\pcre_refcount.c" />
+    <ClCompile Include="..\..\source\libpcre\pcre_string_utils.c" />
     <ClCompile Include="..\..\source\libpcre\pcre_study.c" />
     <ClCompile Include="..\..\source\libpcre\pcre_tables.c" />
-    <ClCompile Include="..\..\source\libpcre\pcre_try_flipped.c" />
     <ClCompile Include="..\..\source\libpcre\pcre_ucd.c" />
     <ClCompile Include="..\..\source\libpcre\pcre_valid_utf8.c" />
     <ClCompile Include="..\..\source\libpcre\pcre_version.c" />
@@ -161,13 +161,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\source\libpcre\..\configs\pcre\config.h" />
-    <ClInclude Include="..\..\source\libpcre\pcre.h" />
     <ClInclude Include="..\..\source\libpcre\pcre_internal.h" />
     <ClInclude Include="..\..\source\libpcre\pcre_scanner.h" />
-    <ClInclude Include="..\..\source\libpcre\pcrecpp.h" />
-    <ClInclude Include="..\..\source\libpcre\pcrecpp_internal.h" />
-    <ClInclude Include="..\..\source\libpcre\pcreposix.h" />
-    <ClInclude Include="..\..\source\libpcre\ucp.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

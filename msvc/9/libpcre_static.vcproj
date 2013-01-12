@@ -167,6 +167,9 @@
 			Name="Source Files"
 			Filter="">
 			<File
+				RelativePath="..\..\source\libpcre\pcre_byte_order.c">
+			</File>
+			<File
 				RelativePath="..\..\source\libpcre\pcre_chartables.c">
 			</File>
 			<File
@@ -191,13 +194,7 @@
 				RelativePath="..\..\source\libpcre\pcre_globals.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libpcre\pcre_info.c">
-			</File>
-			<File
 				RelativePath="..\..\source\libpcre\pcre_jit_compile.c">
-			</File>
-			<File
-				RelativePath="..\..\source\libpcre\pcre_jit_test.c">
 			</File>
 			<File
 				RelativePath="..\..\source\libpcre\pcre_maketables.c">
@@ -209,16 +206,19 @@
 				RelativePath="..\..\source\libpcre\pcre_ord2utf8.c">
 			</File>
 			<File
+				RelativePath="..\..\source\libpcre\pcre_printint.c">
+			</File>
+			<File
 				RelativePath="..\..\source\libpcre\pcre_refcount.c">
+			</File>
+			<File
+				RelativePath="..\..\source\libpcre\pcre_string_utils.c">
 			</File>
 			<File
 				RelativePath="..\..\source\libpcre\pcre_study.c">
 			</File>
 			<File
 				RelativePath="..\..\source\libpcre\pcre_tables.c">
-			</File>
-			<File
-				RelativePath="..\..\source\libpcre\pcre_try_flipped.c">
 			</File>
 			<File
 				RelativePath="..\..\source\libpcre\pcre_ucd.c">
@@ -240,25 +240,10 @@
 				RelativePath="..\..\source\libpcre\..\configs\pcre\config.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libpcre\pcre.h">
-			</File>
-			<File
 				RelativePath="..\..\source\libpcre\pcre_internal.h">
 			</File>
 			<File
 				RelativePath="..\..\source\libpcre\pcre_scanner.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libpcre\pcrecpp.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libpcre\pcrecpp_internal.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libpcre\pcreposix.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libpcre\ucp.h">
 			</File>
 		</Filter>
 	</Files>

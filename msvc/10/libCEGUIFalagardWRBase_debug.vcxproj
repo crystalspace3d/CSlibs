@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Release|Win32">
@@ -174,6 +174,9 @@
   <ItemGroup>
     <ProjectReference Include="libCEGUIBase_debug.vcxproj">
       <Project>{F234FBAB-A137-F72F-9584-AA50206D91C7}</Project>
+    </ProjectReference>
+    <ProjectReference Include="libpcre_static.vcxproj">
+      <Project>{40D00D4F-9093-83F0-3E72-8C393E57EF9D}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Release|Win32">
@@ -123,6 +123,7 @@
     <ClCompile Include="..\..\source\libbullet\src\BulletDynamics\Character\btKinematicCharacterController.cpp" />
     <ClCompile Include="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btConeTwistConstraint.cpp" />
     <ClCompile Include="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btContactConstraint.cpp" />
+    <ClCompile Include="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btGearConstraint.cpp" />
     <ClCompile Include="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btGeneric6DofConstraint.cpp" />
     <ClCompile Include="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btGeneric6DofSpringConstraint.cpp" />
     <ClCompile Include="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btHinge2Constraint.cpp" />
@@ -147,6 +148,7 @@
     <ClInclude Include="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btConstraintSolver.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btContactConstraint.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btContactSolverInfo.h" />
+    <ClInclude Include="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btGearConstraint.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btGeneric6DofConstraint.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btGeneric6DofSpringConstraint.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btHinge2Constraint.h" />
