@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Release|Win32">
@@ -55,7 +55,7 @@
       <ProgramDataBaseFileName>..\..\libs\TempVC10Only_static\wxtiff.pdb</ProgramDataBaseFileName>
       <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_DEPRECATE;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>.;..\..\source\libwx\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\..\source\libwx\include;..\..\source\libwx\src\tiff\libtiff;..\..\source\libwx\..\configs;..\..\source\libwx\..\libz;..\..\source\libwx\..\configs\libjpeg;..\..\source\libwx\..\libjpeg;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderOutputFile>..\..\out\release10\build\libwxtiff_static\libwxtiff_static.pch</PrecompiledHeaderOutputFile>
       <AssemblerListingLocation>..\..\out\release10\build\libwxtiff_static\</AssemblerListingLocation>
       <ObjectFileName>..\..\out\release10\build\libwxtiff_static\</ObjectFileName>
@@ -84,7 +84,7 @@
     </PostBuildEvent>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_DEPRECATE;PROJECTGEN_VERSION=10;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.;..\..\source\libwx;..\..\source\libwx\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\src\tiff\libtiff;..\..\source\libwx\..\configs;..\..\source\libwx\..\libz;..\..\source\libwx\..\configs\libjpeg;..\..\source\libwx\..\libjpeg</AdditionalIncludeDirectories>
       <Culture>0x0409</Culture>
     </ResourceCompile>
   </ItemDefinitionGroup>
@@ -102,7 +102,7 @@
       <ProgramDataBaseFileName>..\..\libs\TempVC10Only_static-x64\wxtiff.pdb</ProgramDataBaseFileName>
       <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_DEPRECATE;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>.;..\..\source\libwx\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\..\source\libwx\include;..\..\source\libwx\src\tiff\libtiff;..\..\source\libwx\..\configs;..\..\source\libwx\..\libz;..\..\source\libwx\..\configs\libjpeg;..\..\source\libwx\..\libjpeg;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderOutputFile>..\..\out\release10-x64\build\libwxtiff_static\libwxtiff_static.pch</PrecompiledHeaderOutputFile>
       <AssemblerListingLocation>..\..\out\release10-x64\build\libwxtiff_static\</AssemblerListingLocation>
       <ObjectFileName>..\..\out\release10-x64\build\libwxtiff_static\</ObjectFileName>
@@ -131,52 +131,53 @@
     </PostBuildEvent>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_DEPRECATE;PROJECTGEN_VERSION=10;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.;..\..\source\libwx;..\..\source\libwx\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\src\tiff\libtiff;..\..\source\libwx\..\configs;..\..\source\libwx\..\libz;..\..\source\libwx\..\configs\libjpeg;..\..\source\libwx\..\libjpeg</AdditionalIncludeDirectories>
       <Culture>0x0409</Culture>
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\source\libwx\src\tiff\tif_aux.c" />
-    <ClCompile Include="..\..\source\libwx\src\tiff\tif_close.c" />
-    <ClCompile Include="..\..\source\libwx\src\tiff\tif_codec.c" />
-    <ClCompile Include="..\..\source\libwx\src\tiff\tif_color.c" />
-    <ClCompile Include="..\..\source\libwx\src\tiff\tif_compress.c" />
-    <ClCompile Include="..\..\source\libwx\src\tiff\tif_dir.c" />
-    <ClCompile Include="..\..\source\libwx\src\tiff\tif_dirinfo.c" />
-    <ClCompile Include="..\..\source\libwx\src\tiff\tif_dirread.c" />
-    <ClCompile Include="..\..\source\libwx\src\tiff\tif_dirwrite.c" />
-    <ClCompile Include="..\..\source\libwx\src\tiff\tif_dumpmode.c" />
-    <ClCompile Include="..\..\source\libwx\src\tiff\tif_error.c" />
-    <ClCompile Include="..\..\source\libwx\src\tiff\tif_extension.c" />
-    <ClCompile Include="..\..\source\libwx\src\tiff\tif_fax3.c" />
-    <ClCompile Include="..\..\source\libwx\src\tiff\tif_fax3sm.c" />
-    <ClCompile Include="..\..\source\libwx\src\tiff\tif_flush.c" />
-    <ClCompile Include="..\..\source\libwx\src\tiff\tif_getimage.c" />
-    <ClCompile Include="..\..\source\libwx\src\tiff\tif_jpeg.c" />
-    <ClCompile Include="..\..\source\libwx\src\tiff\tif_luv.c" />
-    <ClCompile Include="..\..\source\libwx\src\tiff\tif_lzw.c" />
-    <ClCompile Include="..\..\source\libwx\src\tiff\tif_next.c" />
-    <ClCompile Include="..\..\source\libwx\src\tiff\tif_ojpeg.c" />
-    <ClCompile Include="..\..\source\libwx\src\tiff\tif_open.c" />
-    <ClCompile Include="..\..\source\libwx\src\tiff\tif_packbits.c" />
-    <ClCompile Include="..\..\source\libwx\src\tiff\tif_pixarlog.c" />
-    <ClCompile Include="..\..\source\libwx\src\tiff\tif_predict.c" />
-    <ClCompile Include="..\..\source\libwx\src\tiff\tif_print.c" />
-    <ClCompile Include="..\..\source\libwx\src\tiff\tif_read.c" />
-    <ClCompile Include="..\..\source\libwx\src\tiff\tif_strip.c" />
-    <ClCompile Include="..\..\source\libwx\src\tiff\tif_swab.c" />
-    <ClCompile Include="..\..\source\libwx\src\tiff\tif_thunder.c" />
-    <ClCompile Include="..\..\source\libwx\src\tiff\tif_tile.c" />
-    <ClCompile Include="..\..\source\libwx\src\tiff\tif_version.c" />
-    <ClCompile Include="..\..\source\libwx\src\tiff\tif_warning.c" />
-    <ClCompile Include="..\..\source\libwx\src\tiff\tif_win32.c" />
-    <ClCompile Include="..\..\source\libwx\src\tiff\tif_write.c" />
-    <ClCompile Include="..\..\source\libwx\src\tiff\tif_zip.c" />
+    <ClCompile Include="..\..\source\libwx\src\tiff\libtiff\tif_aux.c" />
+    <ClCompile Include="..\..\source\libwx\src\tiff\libtiff\tif_close.c" />
+    <ClCompile Include="..\..\source\libwx\src\tiff\libtiff\tif_codec.c" />
+    <ClCompile Include="..\..\source\libwx\src\tiff\libtiff\tif_color.c" />
+    <ClCompile Include="..\..\source\libwx\src\tiff\libtiff\tif_compress.c" />
+    <ClCompile Include="..\..\source\libwx\src\tiff\libtiff\tif_dir.c" />
+    <ClCompile Include="..\..\source\libwx\src\tiff\libtiff\tif_dirinfo.c" />
+    <ClCompile Include="..\..\source\libwx\src\tiff\libtiff\tif_dirread.c" />
+    <ClCompile Include="..\..\source\libwx\src\tiff\libtiff\tif_dirwrite.c" />
+    <ClCompile Include="..\..\source\libwx\src\tiff\libtiff\tif_dumpmode.c" />
+    <ClCompile Include="..\..\source\libwx\src\tiff\libtiff\tif_error.c" />
+    <ClCompile Include="..\..\source\libwx\src\tiff\libtiff\tif_extension.c" />
+    <ClCompile Include="..\..\source\libwx\src\tiff\libtiff\tif_fax3.c" />
+    <ClCompile Include="..\..\source\libwx\src\tiff\libtiff\tif_fax3sm.c" />
+    <ClCompile Include="..\..\source\libwx\src\tiff\libtiff\tif_flush.c" />
+    <ClCompile Include="..\..\source\libwx\src\tiff\libtiff\tif_getimage.c" />
+    <ClCompile Include="..\..\source\libwx\src\tiff\libtiff\tif_jpeg.c" />
+    <ClCompile Include="..\..\source\libwx\src\tiff\libtiff\tif_luv.c" />
+    <ClCompile Include="..\..\source\libwx\src\tiff\libtiff\tif_lzw.c" />
+    <ClCompile Include="..\..\source\libwx\src\tiff\libtiff\tif_next.c" />
+    <ClCompile Include="..\..\source\libwx\src\tiff\libtiff\tif_ojpeg.c" />
+    <ClCompile Include="..\..\source\libwx\src\tiff\libtiff\tif_open.c" />
+    <ClCompile Include="..\..\source\libwx\src\tiff\libtiff\tif_packbits.c" />
+    <ClCompile Include="..\..\source\libwx\src\tiff\libtiff\tif_pixarlog.c" />
+    <ClCompile Include="..\..\source\libwx\src\tiff\libtiff\tif_predict.c" />
+    <ClCompile Include="..\..\source\libwx\src\tiff\libtiff\tif_print.c" />
+    <ClCompile Include="..\..\source\libwx\src\tiff\libtiff\tif_read.c" />
+    <ClCompile Include="..\..\source\libwx\src\tiff\libtiff\tif_strip.c" />
+    <ClCompile Include="..\..\source\libwx\src\tiff\libtiff\tif_swab.c" />
+    <ClCompile Include="..\..\source\libwx\src\tiff\libtiff\tif_thunder.c" />
+    <ClCompile Include="..\..\source\libwx\src\tiff\libtiff\tif_tile.c" />
+    <ClCompile Include="..\..\source\libwx\src\tiff\libtiff\tif_version.c" />
+    <ClCompile Include="..\..\source\libwx\src\tiff\libtiff\tif_warning.c" />
+    <ClCompile Include="..\..\source\libwx\src\tiff\libtiff\tif_win32.c" />
+    <ClCompile Include="..\..\source\libwx\src\tiff\libtiff\tif_write.c" />
+    <ClCompile Include="..\..\source\libwx\src\tiff\libtiff\tif_zip.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\source\libwx\src\tiff\tif_dir.h" />
-    <ClInclude Include="..\..\source\libwx\src\tiff\tif_fax3.h" />
-    <ClInclude Include="..\..\source\libwx\src\tiff\tif_predict.h" />
+    <ClInclude Include="..\..\source\libwx\src\tiff\libtiff\tif_config.h" />
+    <ClInclude Include="..\..\source\libwx\src\tiff\libtiff\tif_dir.h" />
+    <ClInclude Include="..\..\source\libwx\src\tiff\libtiff\tif_fax3.h" />
+    <ClInclude Include="..\..\source\libwx\src\tiff\libtiff\tif_predict.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

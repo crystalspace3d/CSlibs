@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D8796529-615F-D571-EA8D-7A4DD2BEAFC7}</ProjectGuid>
+    <SccProjectName />
+    <SccLocalPath />
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)'=='Release'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Platform)'=='Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Platform)'=='x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\out\release10\build\libwxmsw29u_stc\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\libs\ReleaseWXVC10Only\</OutDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">libwxmsw29u_stc-csvc10</TargetName>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\out\release10-x64\build\libwxmsw29u_stc\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\libs\ReleaseWXVC10Only-x64\</OutDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">libwxmsw29u_stc-csvc10-x64</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OmitFramePointers>true</OmitFramePointers>
+      <ProgramDataBaseFileName>..\..\out\release10\build\libwxmsw29u_stc\Win32\wxmsw29u_stc.pdb</ProgramDataBaseFileName>
+      <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;COMPILED_FROM_DSP;WXUSINGDLL;WXMAKINGDLL_STC;SCI_LEXER;LINK_LEXERS;__WX__;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>.;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\stc\scintilla\include;..\..\source\libwx\src\stc\scintilla\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeaderOutputFile>..\..\out\release10\build\libwxmsw29u_stc\libwxmsw29u_stc.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>..\..\out\release10\build\libwxmsw29u_stc\</AssemblerListingLocation>
+      <ObjectFileName>..\..\out\release10\build\libwxmsw29u_stc\</ObjectFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <Link>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>LIBC;LIBCD;LIBCMT;LIBCMTD;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <OutputFile>..\..\libs\ReleaseWXVC10Only\libwxmsw29u_stc-csvc10.dll</OutputFile>
+      <AdditionalLibraryDirectories>;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <MergeSections>.rdata=.text</MergeSections> 
+      <DelayLoadDLLs>;%(DelayLoadDLLs)</DelayLoadDLLs>
+      <ImportLibrary>..\..\libs\ReleaseWXVC10Only\wxmsw29u_stc-vc10.lib</ImportLibrary>
+      <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>comctl32.lib;rpcrt4.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ProgramDatabaseFile>..\..\libs\ReleaseWXVC10Only\libwxmsw29u_stc-csvc10.pdb</ProgramDatabaseFile>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Lib>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;COMPILED_FROM_DSP;WXUSINGDLL;WXMAKINGDLL_STC;SCI_LEXER;LINK_LEXERS;__WX__;PROJECTGEN_VERSION=10;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\stc\scintilla\include;..\..\source\libwx\src\stc\scintilla\src</AdditionalIncludeDirectories>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OmitFramePointers>true</OmitFramePointers>
+      <ProgramDataBaseFileName>..\..\out\release10-x64\build\libwxmsw29u_stc\x64\wxmsw29u_stc.pdb</ProgramDataBaseFileName>
+      <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;COMPILED_FROM_DSP;WXUSINGDLL;WXMAKINGDLL_STC;SCI_LEXER;LINK_LEXERS;__WX__;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>.;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\stc\scintilla\include;..\..\source\libwx\src\stc\scintilla\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeaderOutputFile>..\..\out\release10-x64\build\libwxmsw29u_stc\libwxmsw29u_stc.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>..\..\out\release10-x64\build\libwxmsw29u_stc\</AssemblerListingLocation>
+      <ObjectFileName>..\..\out\release10-x64\build\libwxmsw29u_stc\</ObjectFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <Link>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>LIBC;LIBCD;LIBCMT;LIBCMTD;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <OutputFile>..\..\libs\ReleaseWXVC10Only-x64\libwxmsw29u_stc-csvc10-x64.dll</OutputFile>
+      <AdditionalLibraryDirectories>;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <MergeSections>.rdata=.text</MergeSections> 
+      <DelayLoadDLLs>;%(DelayLoadDLLs)</DelayLoadDLLs>
+      <ImportLibrary>..\..\libs\ReleaseWXVC10Only-x64\wxmsw29u_stc-vc10.lib</ImportLibrary>
+      <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>comctl32.lib;rpcrt4.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ProgramDatabaseFile>..\..\libs\ReleaseWXVC10Only-x64\libwxmsw29u_stc-csvc10-x64.pdb</ProgramDatabaseFile>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+    <Lib>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_DEPRECATE;_WINDOWS;_UNICODE;__WXMSW__;COMPILED_FROM_DSP;WXUSINGDLL;WXMAKINGDLL_STC;SCI_LEXER;LINK_LEXERS;__WX__;PROJECTGEN_VERSION=10;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\include\msvc;..\..\source\libwx\src\stc\scintilla\include;..\..\source\libwx\src\stc\scintilla\src</AdditionalIncludeDirectories>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\source\libwx\src\stc\PlatWX.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\AutoComplete.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\CallTip.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\CellBuffer.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\CharClassify.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\ContractionState.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\Decoration.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\Document.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\DocumentAccessor.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\Editor.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\ExternalLexer.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\Indicator.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\KeyMap.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\KeyWords.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexAbaqus.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexAda.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexAPDL.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexAsm.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexAsn1.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexASY.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexAU3.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexAVE.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexBaan.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexBash.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexBasic.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexBullant.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexCaml.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexCLW.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexCmake.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexCOBOL.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexConf.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexCPP.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexCrontab.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexCsound.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexCSS.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexD.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexEiffel.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexErlang.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexEScript.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexFlagship.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexForth.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexFortran.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexGAP.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexGui4Cli.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexHaskell.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexHTML.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexInno.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexKix.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexLisp.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexLout.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexLua.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexMagik.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexMarkdown.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexMatlab.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexMetapost.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexMMIXAL.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexMPT.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexMSSQL.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexMySQL.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexNimrod.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexNsis.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexOpal.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexOthers.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexPascal.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexPB.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexPerl.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexPLM.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexPOV.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexPowerPro.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexPowerShell.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexProgress.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexPS.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexPython.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexR.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexRebol.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexRuby.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexScriptol.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexSmalltalk.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexSML.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexSorcus.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexSpecman.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexSpice.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexSQL.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexTACL.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexTADS3.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexTAL.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexTCL.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexTeX.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexVB.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexVerilog.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexVHDL.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LexYAML.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\LineMarker.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\PerLine.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\PositionCache.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\PropSet.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\RESearch.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\RunStyles.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\ScintillaBase.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\Selection.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\Style.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\StyleContext.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\UniConversion.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\ViewStyle.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\WindowAccessor.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\scintilla\src\XPM.cxx" />
+    <ClCompile Include="..\..\source\libwx\src\stc\ScintillaWX.cpp" />
+    <ClCompile Include="..\..\source\libwx\src\stc\stc.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\..\source\libwxstc.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="libwxbase29u.vcxproj">
+      <Project>{54A93D09-6867-18BC-542A-E6EDB1CF5E06}</Project>
+    </ProjectReference>
+    <ProjectReference Include="libwxmsw29u_core.vcxproj">
+      <Project>{4192E6A4-5502-B6FB-779A-B0390C0D6613}</Project>
+    </ProjectReference>
+    <ProjectReference Include="libwxtiff_static.vcxproj">
+      <Project>{A241AEB7-7B03-D9AD-9169-F39BA93DD5A5}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

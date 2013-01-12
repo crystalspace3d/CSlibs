@@ -34,7 +34,7 @@
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
-				AdditionalIncludeDirectories=".;..\..\source\libwx\include"
+				AdditionalIncludeDirectories=".;..\..\source\libwx\include;..\..\source\libwx\src\tiff\libtiff;..\..\source\libwx\..\configs;..\..\source\libwx\..\libz;..\..\source\libwx\..\configs\libjpeg;..\..\source\libwx\..\libjpeg"
 				PrecompiledHeaderFile="..\..\out\release8\build\libwxtiff_static\libwxtiff_static.pch"
 				AssemblerListingLocation="..\..\out\release8\build\libwxtiff_static\"
 				ObjectFile="..\..\out\release8\build\libwxtiff_static\"
@@ -79,7 +79,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;PROJECTGEN_VERSION=8"
-				AdditionalIncludeDirectories=".;..\..\source\libwx;..\..\source\libwx\include"
+				AdditionalIncludeDirectories=".;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\src\tiff\libtiff;..\..\source\libwx\..\configs;..\..\source\libwx\..\libz;..\..\source\libwx\..\configs\libjpeg;..\..\source\libwx\..\libjpeg"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
@@ -109,7 +109,7 @@
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;WIN32"
 				OptimizeForProcessor="2"
 				AdditionalOptions=" "
-				AdditionalIncludeDirectories=".;..\..\source\libwx\include"
+				AdditionalIncludeDirectories=".;..\..\source\libwx\include;..\..\source\libwx\src\tiff\libtiff;..\..\source\libwx\..\configs;..\..\source\libwx\..\libz;..\..\source\libwx\..\configs\libjpeg;..\..\source\libwx\..\libjpeg"
 				PrecompiledHeaderFile="..\..\out\release8-x64\build\libwxtiff_static\libwxtiff_static.pch"
 				AssemblerListingLocation="..\..\out\release8-x64\build\libwxtiff_static\"
 				ObjectFile="..\..\out\release8-x64\build\libwxtiff_static\"
@@ -154,7 +154,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG;_CRT_SECURE_NO_DEPRECATE;PROJECTGEN_VERSION=8"
-				AdditionalIncludeDirectories=".;..\..\source\libwx;..\..\source\libwx\include"
+				AdditionalIncludeDirectories=".;..\..\source\libwx;..\..\source\libwx\include;..\..\source\libwx\src\tiff\libtiff;..\..\source\libwx\..\configs;..\..\source\libwx\..\libz;..\..\source\libwx\..\configs\libjpeg;..\..\source\libwx\..\libjpeg"
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
@@ -167,125 +167,128 @@
 			Name="Source Files"
 			Filter="">
 			<File
-				RelativePath="..\..\source\libwx\src\tiff\tif_aux.c">
+				RelativePath="..\..\source\libwx\src\tiff\libtiff\tif_aux.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\tiff\tif_close.c">
+				RelativePath="..\..\source\libwx\src\tiff\libtiff\tif_close.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\tiff\tif_codec.c">
+				RelativePath="..\..\source\libwx\src\tiff\libtiff\tif_codec.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\tiff\tif_color.c">
+				RelativePath="..\..\source\libwx\src\tiff\libtiff\tif_color.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\tiff\tif_compress.c">
+				RelativePath="..\..\source\libwx\src\tiff\libtiff\tif_compress.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\tiff\tif_dir.c">
+				RelativePath="..\..\source\libwx\src\tiff\libtiff\tif_dir.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\tiff\tif_dirinfo.c">
+				RelativePath="..\..\source\libwx\src\tiff\libtiff\tif_dirinfo.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\tiff\tif_dirread.c">
+				RelativePath="..\..\source\libwx\src\tiff\libtiff\tif_dirread.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\tiff\tif_dirwrite.c">
+				RelativePath="..\..\source\libwx\src\tiff\libtiff\tif_dirwrite.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\tiff\tif_dumpmode.c">
+				RelativePath="..\..\source\libwx\src\tiff\libtiff\tif_dumpmode.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\tiff\tif_error.c">
+				RelativePath="..\..\source\libwx\src\tiff\libtiff\tif_error.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\tiff\tif_extension.c">
+				RelativePath="..\..\source\libwx\src\tiff\libtiff\tif_extension.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\tiff\tif_fax3.c">
+				RelativePath="..\..\source\libwx\src\tiff\libtiff\tif_fax3.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\tiff\tif_fax3sm.c">
+				RelativePath="..\..\source\libwx\src\tiff\libtiff\tif_fax3sm.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\tiff\tif_flush.c">
+				RelativePath="..\..\source\libwx\src\tiff\libtiff\tif_flush.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\tiff\tif_getimage.c">
+				RelativePath="..\..\source\libwx\src\tiff\libtiff\tif_getimage.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\tiff\tif_jpeg.c">
+				RelativePath="..\..\source\libwx\src\tiff\libtiff\tif_jpeg.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\tiff\tif_luv.c">
+				RelativePath="..\..\source\libwx\src\tiff\libtiff\tif_luv.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\tiff\tif_lzw.c">
+				RelativePath="..\..\source\libwx\src\tiff\libtiff\tif_lzw.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\tiff\tif_next.c">
+				RelativePath="..\..\source\libwx\src\tiff\libtiff\tif_next.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\tiff\tif_ojpeg.c">
+				RelativePath="..\..\source\libwx\src\tiff\libtiff\tif_ojpeg.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\tiff\tif_open.c">
+				RelativePath="..\..\source\libwx\src\tiff\libtiff\tif_open.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\tiff\tif_packbits.c">
+				RelativePath="..\..\source\libwx\src\tiff\libtiff\tif_packbits.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\tiff\tif_pixarlog.c">
+				RelativePath="..\..\source\libwx\src\tiff\libtiff\tif_pixarlog.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\tiff\tif_predict.c">
+				RelativePath="..\..\source\libwx\src\tiff\libtiff\tif_predict.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\tiff\tif_print.c">
+				RelativePath="..\..\source\libwx\src\tiff\libtiff\tif_print.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\tiff\tif_read.c">
+				RelativePath="..\..\source\libwx\src\tiff\libtiff\tif_read.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\tiff\tif_strip.c">
+				RelativePath="..\..\source\libwx\src\tiff\libtiff\tif_strip.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\tiff\tif_swab.c">
+				RelativePath="..\..\source\libwx\src\tiff\libtiff\tif_swab.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\tiff\tif_thunder.c">
+				RelativePath="..\..\source\libwx\src\tiff\libtiff\tif_thunder.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\tiff\tif_tile.c">
+				RelativePath="..\..\source\libwx\src\tiff\libtiff\tif_tile.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\tiff\tif_version.c">
+				RelativePath="..\..\source\libwx\src\tiff\libtiff\tif_version.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\tiff\tif_warning.c">
+				RelativePath="..\..\source\libwx\src\tiff\libtiff\tif_warning.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\tiff\tif_win32.c">
+				RelativePath="..\..\source\libwx\src\tiff\libtiff\tif_win32.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\tiff\tif_write.c">
+				RelativePath="..\..\source\libwx\src\tiff\libtiff\tif_write.c">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\tiff\tif_zip.c">
+				RelativePath="..\..\source\libwx\src\tiff\libtiff\tif_zip.c">
 			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
 			Filter="">
 			<File
-				RelativePath="..\..\source\libwx\src\tiff\tif_dir.h">
+				RelativePath="..\..\source\libwx\src\tiff\libtiff\tif_config.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\tiff\tif_fax3.h">
+				RelativePath="..\..\source\libwx\src\tiff\libtiff\tif_dir.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libwx\src\tiff\tif_predict.h">
+				RelativePath="..\..\source\libwx\src\tiff\libtiff\tif_fax3.h">
+			</File>
+			<File
+				RelativePath="..\..\source\libwx\src\tiff\libtiff\tif_predict.h">
 			</File>
 		</Filter>
 	</Files>
