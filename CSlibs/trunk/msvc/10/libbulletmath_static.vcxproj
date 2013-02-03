@@ -140,10 +140,8 @@
     <ClCompile Include="..\..\source\libbullet\src\LinearMath\btConvexHull.cpp" />
     <ClCompile Include="..\..\source\libbullet\src\LinearMath\btConvexHullComputer.cpp" />
     <ClCompile Include="..\..\source\libbullet\src\LinearMath\btGeometryUtil.cpp" />
-    <ClCompile Include="..\..\source\libbullet\src\LinearMath\btPolarDecomposition.cpp" />
     <ClCompile Include="..\..\source\libbullet\src\LinearMath\btQuickprof.cpp" />
     <ClCompile Include="..\..\source\libbullet\src\LinearMath\btSerializer.cpp" />
-    <ClCompile Include="..\..\source\libbullet\src\LinearMath\btVector3.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\source\libbullet\src\LinearMath\btAabbUtil2.h" />
@@ -160,7 +158,6 @@
     <ClInclude Include="..\..\source\libbullet\src\LinearMath\btMatrix3x3.h" />
     <ClInclude Include="..\..\source\libbullet\src\LinearMath\btMinMax.h" />
     <ClInclude Include="..\..\source\libbullet\src\LinearMath\btMotionState.h" />
-    <ClInclude Include="..\..\source\libbullet\src\LinearMath\btPolarDecomposition.h" />
     <ClInclude Include="..\..\source\libbullet\src\LinearMath\btPoolAllocator.h" />
     <ClInclude Include="..\..\source\libbullet\src\LinearMath\btQuadWord.h" />
     <ClInclude Include="..\..\source\libbullet\src\LinearMath\btQuaternion.h" />

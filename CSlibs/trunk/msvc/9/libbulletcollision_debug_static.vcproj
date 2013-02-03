@@ -493,9 +493,6 @@
 				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionDispatch\btCollisionObject.h">
 			</File>
 			<File
-				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionDispatch\btCollisionObjectWrapper.h">
-			</File>
-			<File
 				RelativePath="..\..\source\libbullet\src\BulletCollision\CollisionDispatch\btCollisionWorld.h">
 			</File>
 			<File
