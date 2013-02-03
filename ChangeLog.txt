@@ -4,6 +4,7 @@
  - Updated libpng to 1.5.13.
  - Updated freetype to 2.4.11.
  - Updated Cg to 3.1 (April 2012).
+ - Updated cegui to 0.7.9.
  - Added Open Asset Import Library (aka assimp) 3.0.
 
 2.1_002 (2012-10-14):
