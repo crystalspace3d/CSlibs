@@ -18,6 +18,7 @@ CMAKE_OPTS="$CMAKE_OPTS -DCMAKE_INSTALL_PREFIX=${prefix}"
 CMAKE_OPTS="$CMAKE_OPTS -DZLIB_LIBRARY=../../${platform_short}/prefix/lib/libz.a"
 CMAKE_OPTS="$CMAKE_OPTS -DZLIB_INCLUDE_DIR=../../${platform_short}/prefix/include"
 CMAKE_OPTS="$CMAKE_OPTS -DENABLE_BOOST_WORKAROUND=ON"
+CMAKE_OPTS="$CMAKE_OPTS -DNO_EXPORT=ON"
 CMAKE_OPTS="$CMAKE_OPTS -DBUILD_STATIC_LIB=ON"
 CMAKE_OPTS="$CMAKE_OPTS -DBUILD_ASSIMP_TOOLS=OFF"
 CMAKE_OPTS="$CMAKE_OPTS -DASSIMP_BUILD_COMPILER=${platform}"
@@ -30,7 +31,7 @@ fi
 if [ -n "$BUILD_TARGET" ] ; then
   CMAKE_OPTS="$CMAKE_OPTS -DCMAKE_SYSTEM_NAME=Windows"
 fi
-CC="${CC}.exe" CXX="${CXX}.exe" cmake -G "MSYS Makefiles" $CMAKE_OPTS ../../../source/libassimp
+#CC="${CC}.exe" CXX="${CXX}.exe" cmake -G "MSYS Makefiles" $CMAKE_OPTS ../../../source/libassimp
 make ${MAKEOPTS} install
 cd ../../..
 cp -p -v ${prefix}/lib/*.a libs/ReleaseGCCOnly/${platform}/
