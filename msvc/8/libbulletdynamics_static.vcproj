@@ -176,9 +176,6 @@
 				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btContactConstraint.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btGearConstraint.cpp">
-			</File>
-			<File
 				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btGeneric6DofConstraint.cpp">
 			</File>
 			<File
@@ -247,9 +244,6 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btContactSolverInfo.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btGearConstraint.h">
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btGeneric6DofConstraint.h">

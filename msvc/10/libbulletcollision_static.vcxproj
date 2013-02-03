@@ -250,7 +250,6 @@
     <ClInclude Include="..\..\source\libbullet\src\BulletCollision\CollisionDispatch\btCollisionCreateFunc.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletCollision\CollisionDispatch\btCollisionDispatcher.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletCollision\CollisionDispatch\btCollisionObject.h" />
-    <ClInclude Include="..\..\source\libbullet\src\BulletCollision\CollisionDispatch\btCollisionObjectWrapper.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletCollision\CollisionDispatch\btCollisionWorld.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletCollision\CollisionDispatch\btCompoundCollisionAlgorithm.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletCollision\CollisionDispatch\btConvex2dConvex2dAlgorithm.h" />

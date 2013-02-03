@@ -165,16 +165,10 @@
 				RelativePath="..\..\source\libbullet\src\LinearMath\btGeometryUtil.cpp">
 			</File>
 			<File
-				RelativePath="..\..\source\libbullet\src\LinearMath\btPolarDecomposition.cpp">
-			</File>
-			<File
 				RelativePath="..\..\source\libbullet\src\LinearMath\btQuickprof.cpp">
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\LinearMath\btSerializer.cpp">
-			</File>
-			<File
-				RelativePath="..\..\source\libbullet\src\LinearMath\btVector3.cpp">
 			</File>
 		</Filter>
 		<Filter
@@ -221,9 +215,6 @@
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\LinearMath\btMotionState.h">
-			</File>
-			<File
-				RelativePath="..\..\source\libbullet\src\LinearMath\btPolarDecomposition.h">
 			</File>
 			<File
 				RelativePath="..\..\source\libbullet\src\LinearMath\btPoolAllocator.h">

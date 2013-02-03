@@ -123,7 +123,6 @@
     <ClCompile Include="..\..\source\libbullet\src\BulletDynamics\Character\btKinematicCharacterController.cpp" />
     <ClCompile Include="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btConeTwistConstraint.cpp" />
     <ClCompile Include="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btContactConstraint.cpp" />
-    <ClCompile Include="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btGearConstraint.cpp" />
     <ClCompile Include="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btGeneric6DofConstraint.cpp" />
     <ClCompile Include="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btGeneric6DofSpringConstraint.cpp" />
     <ClCompile Include="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btHinge2Constraint.cpp" />
@@ -148,7 +147,6 @@
     <ClInclude Include="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btConstraintSolver.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btContactConstraint.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btContactSolverInfo.h" />
-    <ClInclude Include="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btGearConstraint.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btGeneric6DofConstraint.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btGeneric6DofSpringConstraint.h" />
     <ClInclude Include="..\..\source\libbullet\src\BulletDynamics\ConstraintSolver\btHinge2Constraint.h" />
