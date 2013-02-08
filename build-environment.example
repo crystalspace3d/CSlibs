@@ -4,3 +4,7 @@ MINGW64_PREFIX=/d/mingw64
 MINGW_PREFIX=/d/MinGW
 # Options passed to make
 MAKEOPTS=-j4
+# InnoSetup installation directory (native format!)
+INNOSETUP="c:\Program Files (x86)\Inno Setup 5"
+# InnoSetup additional options, e.g. SignTool (native paths!)
+INNOSETUP_OPTS='"/Sstandard=$qC:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\Bin\signtool.exe$q sign /f <path-to-cert> /t http://<timestamp-server> $f"'
