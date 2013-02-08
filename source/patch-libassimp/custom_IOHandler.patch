@@ -1,0 +1,108 @@
+diff -rupN assimp--3.0.1270-source-only/code/Importer.cpp assimp--3.0.1270-source-only_patched/code/Importer.cpp
+--- ../assimp--3.0.1270-source-only/code/Importer.cpp	2012-05-23 11:25:42.000000000 +0200
++++ ./code/Importer.cpp	2012-10-23 16:41:42.000000000 +0200
+@@ -493,7 +493,7 @@ const aiScene* Importer::ReadFileFromMem
+ 	IOSystem* io = pimpl->mIOHandler;
+ 	pimpl->mIOHandler = NULL;
+ 
+-	SetIOHandler(new MemoryIOSystem((const uint8_t*)pBuffer,pLength));
++	SetIOHandler(new MemoryIOSystem((const uint8_t*)pBuffer,pLength,io));
+ 
+ 	// read the file and recover the previous IOSystem
+ 	char fbuff[128];
+diff -rupN assimp--3.0.1270-source-only/code/MemoryIOWrapper.h assimp--3.0.1270-source-only_patched/code/MemoryIOWrapper.h
+--- ../assimp--3.0.1270-source-only/code/MemoryIOWrapper.h	2012-02-03 05:38:32.000000000 +0100
++++ ./code/MemoryIOWrapper.h	2012-10-23 16:56:18.000000000 +0200
+@@ -53,12 +53,20 @@ class MemoryIOStream : public IOStream
+ {
+ 	//friend class MemoryIOSystem;
+ public:
+-	MemoryIOStream (const uint8_t* buff, size_t len) 
+-		: buffer (buff), length(len), pos((size_t)0) {
++	MemoryIOStream (const uint8_t* buff, size_t len, bool own = false) 
++		: buffer (buff)
++		, length(len)
++		, pos((size_t)0)
++		, own(own) 
++	{
+ 	}
+ 
+ public:
++
+ 	~MemoryIOStream ()	{
++		if(own) {
++			delete[] buffer;
++		}
+ 	}
+ 
+ 	// -------------------------------------------------------------------
+@@ -124,6 +132,7 @@ public:
+ private:
+ 	const uint8_t* buffer;
+ 	size_t length,pos;
++	bool own;
+ };
+ 
+ // ---------------------------------------------------------------------------
+@@ -132,8 +141,8 @@ class MemoryIOSystem : public IOSystem
+ {
+ public:
+ 	/** Constructor. */
+-    MemoryIOSystem (const uint8_t* buff, size_t len) 
+-		: buffer (buff), length(len) {
++        MemoryIOSystem (const uint8_t* buff, size_t len, IOSystem* other) 
++		: buffer (buff), length (len), other (other) {
+ 	}
+ 
+ 	/** Destructor. */
+@@ -143,19 +152,24 @@ public:
+ 	// -------------------------------------------------------------------
+ 	/** Tests for the existence of a file at the given path. */
+ 	bool Exists( const char* pFile) const {
+-		return !strncmp(pFile,AI_MEMORYIO_MAGIC_FILENAME,AI_MEMORYIO_MAGIC_FILENAME_LENGTH);
++	        if (!strncmp(pFile,AI_MEMORYIO_MAGIC_FILENAME,AI_MEMORYIO_MAGIC_FILENAME_LENGTH))
++		        return true;
++		if (other) return other->Exists(pFile);
++		return false;
+ 	}
+ 
+ 	// -------------------------------------------------------------------
+ 	/** Returns the directory separator. */
+ 	char getOsSeparator() const {
++	        if (other) return other->getOsSeparator();
+ 		return '/'; // why not? it doesn't care
+ 	}
+ 
+ 	// -------------------------------------------------------------------
+ 	/** Open a new file with a given path. */
+-	IOStream* Open( const char* pFile, const char* /*pMode*/ = "rb") {
++	IOStream* Open( const char* pFile, const char* pMode = "rb") {
+ 		if (strncmp(pFile,AI_MEMORYIO_MAGIC_FILENAME,AI_MEMORYIO_MAGIC_FILENAME_LENGTH)) {
++		        if (other) return other->Open(pFile,pMode);
+ 			return NULL;
+ 		}
+ 		return new MemoryIOStream(buffer,length);
+@@ -163,18 +177,21 @@ public:
+ 
+ 	// -------------------------------------------------------------------
+ 	/** Closes the given file and releases all resources associated with it. */
+-	void Close( IOStream* /*pFile*/) {
++	void Close( IOStream* pFile) {
++	        if (other) other->Close(pFile);
+ 	}
+ 
+ 	// -------------------------------------------------------------------
+ 	/** Compare two paths */
+-	bool ComparePaths (const char* /*one*/, const char* /*second*/) const {
++	bool ComparePaths (const char* one, const char* second) const {
++	        if (other) return other->ComparePaths(one,second);
+ 		return false;
+ 	}
+ 
+ private:
+ 	const uint8_t* buffer;
+ 	size_t length;
++	IOSystem* other;
+ };
+ } // end namespace Assimp
+ 
