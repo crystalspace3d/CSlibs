@@ -32,6 +32,8 @@
 SolidCompression=true
 ; Release setting
 Compression=lzma2/ultra64
+LZMAUseSeparateProcess=yes
+InternalCompressLevel=ultra64
 ; Test setting for quicker results
 ;Compression=zip/1
 ShowLanguageDialog=no
@@ -51,7 +53,6 @@ UseSetupLdr=true
 WizardSmallImageFile=compiler:WizModernSmallImage-IS.bmp
 DisableWelcomePage=yes
 TimeStampsInUTC=true
-InternalCompressLevel=ultra
 AllowNoIcons=yes
 UsePreviousGroup=no
 PrivilegesRequired=none
