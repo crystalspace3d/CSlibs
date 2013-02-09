@@ -33,7 +33,7 @@ DisableWelcomePage=yes
 Root: HKLM; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstvalName}; ValueData: {uninstallexe}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: IsAdminLoggedOn
 Root: HKCU; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstvalName}; ValueData: {uninstallexe}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: not IsAdminLoggedOn
 [Icons]
-Name: {group}\{code:GetIconTitle}; Filename: {uninstallexe}; WorkingDir: {app}; IconIndex: 0; Comment: {code:GetIconComment}; Check: InstallIcons
+Name: {group}\{code:GetIconTitle}; Filename: {uninstallexe}; WorkingDir: {app}; IconIndex: 0; Comment: {code:GetIconComment}; Check: InstallIcons; Flags: excludefromshowinnewinstall
 [Run]
 Filename: /bin/chmod; WorkingDir: "{app}"; Parameters: a+x {code:GetCsLibsPath}/tools/cslibs-config;
 Filename: /bin/chmod; WorkingDir: "{app}"; Parameters: a+x {code:GetCsLibsPath}/bin/freetype-config;
