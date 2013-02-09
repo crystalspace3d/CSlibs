@@ -50,7 +50,7 @@ Root: HKCU; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstv
 Root: HKLM; Subkey: {#CSLibsRegKey}; ValueType: string; ValueName: {#PlatformName}Profile; ValueData: {code:GetProfileName}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: IsAdminLoggedOn
 Root: HKCU; Subkey: {#CSLibsRegKey}; ValueType: string; ValueName: {#PlatformName}Profile; ValueData: {code:GetProfileName}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: not IsAdminLoggedOn
 [Icons]
-Name: {group}\{code:GetIconTitle}; Filename: {uninstallexe}; WorkingDir: {app}; IconIndex: 0; Comment: {code:GetIconComment}; Check: InstallIcons
+Name: {group}\{code:GetIconTitle}; Filename: {uninstallexe}; WorkingDir: {app}; IconIndex: 0; Comment: {code:GetIconComment}; Check: InstallIcons; Flags: excludefromshowinnewinstall
 [Tasks]
 Name: pathaugment; Description: "Augment PATH environment variable to include DLLs dir";
 [Run]

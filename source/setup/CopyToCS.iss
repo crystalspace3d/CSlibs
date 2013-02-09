@@ -53,7 +53,7 @@ Source: {src}\openal\*.dll; DestDir: {app}; Flags: external skipifsourcedoesntex
 Root: HKLM; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstvalName}; ValueData: {uninstallexe}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: IsAdminLoggedOn
 Root: HKCU; Subkey: {#UninstKey}; ValueType: string; ValueName: {code:GetUninstvalName}; ValueData: {uninstallexe}; Flags: uninsdeletekeyifempty uninsdeletevalue; Check: not IsAdminLoggedOn
 [Icons]
-Name: {group}\{code:MyGetIconTitle}; Filename: {uninstallexe}; WorkingDir: {app}; IconIndex: 0; Comment: {code:MyGetIconComment}; Check: InstallIcons
+Name: {group}\{code:MyGetIconTitle}; Filename: {uninstallexe}; WorkingDir: {app}; IconIndex: 0; Comment: {code:MyGetIconComment}; Check: InstallIcons; Flags: excludefromshowinnewinstall
 [Messages]
 SetupAppTitle=Copy {#CSLibsName} {#CSLibsVersion} DLLs to CS directory
 SetupWindowTitle=Copy {#CSLibsName} {#CSLibsVersion} DLLs to CS directory
