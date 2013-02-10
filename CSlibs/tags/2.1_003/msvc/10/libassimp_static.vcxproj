@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C1949C7D-C6E9-52B0-DDCD-DF77C4DF83A5}</ProjectGuid>
+    <SccProjectName />
+    <SccLocalPath />
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)'=='Release'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Platform)'=='Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Platform)'=='x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\out\release10\build\libassimp_static\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\libs\ReleaseVC10Only_static\</OutDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">assimp-vc10</TargetName>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\out\release10-x64\build\libassimp_static\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\libs\ReleaseVC10Only_static-x64\</OutDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">assimp-vc10</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OmitFramePointers>true</OmitFramePointers>
+      <ProgramDataBaseFileName>..\..\libs\ReleaseVC10Only_static\assimp-vc10.pdb</ProgramDataBaseFileName>
+      <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_DEPRECATE;ASSIMP_BUILD_NO_OWN_ZLIB;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>.;..\..\source\libassimp\code\BoostWorkaround;..\..\source\libassimp\..\configs;..\..\source\libassimp\..\libz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeaderOutputFile>..\..\out\release10\build\libassimp_static\libassimp_static.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>..\..\out\release10\build\libassimp_static\</AssemblerListingLocation>
+      <ObjectFileName>..\..\out\release10\build\libassimp_static\</ObjectFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <Link>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>LIBC;LIBCD;LIBCMT;LIBCMTD;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>;%(AdditionalDependencies)</AdditionalDependencies>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ProgramDatabaseFile>..\..\libs\ReleaseVC10Only_static\assimp-vc10.pdb</ProgramDatabaseFile>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Lib>
+      <OutputFile>..\..\libs\ReleaseVC10Only_static\assimp-vc10.lib</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_DEPRECATE;ASSIMP_BUILD_NO_OWN_ZLIB;PROJECTGEN_VERSION=10;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;..\..\source\libassimp;..\..\source\libassimp\code\BoostWorkaround;..\..\source\libassimp\..\configs;..\..\source\libassimp\..\libz</AdditionalIncludeDirectories>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OmitFramePointers>true</OmitFramePointers>
+      <ProgramDataBaseFileName>..\..\libs\ReleaseVC10Only_static-x64\assimp-vc10.pdb</ProgramDataBaseFileName>
+      <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_DEPRECATE;ASSIMP_BUILD_NO_OWN_ZLIB;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>.;..\..\source\libassimp\code\BoostWorkaround;..\..\source\libassimp\..\configs;..\..\source\libassimp\..\libz;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeaderOutputFile>..\..\out\release10-x64\build\libassimp_static\libassimp_static.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>..\..\out\release10-x64\build\libassimp_static\</AssemblerListingLocation>
+      <ObjectFileName>..\..\out\release10-x64\build\libassimp_static\</ObjectFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <Link>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>LIBC;LIBCD;LIBCMT;LIBCMTD;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>;%(AdditionalDependencies)</AdditionalDependencies>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ProgramDatabaseFile>..\..\libs\ReleaseVC10Only_static-x64\assimp-vc10-x64.pdb</ProgramDatabaseFile>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+    <Lib>
+      <OutputFile>..\..\libs\ReleaseVC10Only_static-x64\assimp-vc10.lib</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_DEPRECATE;ASSIMP_BUILD_NO_OWN_ZLIB;PROJECTGEN_VERSION=10;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;..\..\source\libassimp;..\..\source\libassimp\code\BoostWorkaround;..\..\source\libassimp\..\configs;..\..\source\libassimp\..\libz</AdditionalIncludeDirectories>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\source\libassimp\code\3DSConverter.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\3DSLoader.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\ACLoader.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\ASELoader.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\ASEParser.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\Assimp.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\AssimpCExport.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\AssimpPCH.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\B3DImporter.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\BaseImporter.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\BaseProcess.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\BlenderDNA.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\BlenderLoader.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\BlenderModifier.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\BlenderScene.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\BVHLoader.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\CalcTangentsProcess.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\COBLoader.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\ColladaExporter.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\ColladaLoader.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\ColladaParser.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\ComputeUVMappingProcess.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\ConvertToLHProcess.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\CSMLoader.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\DeboneProcess.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\DefaultIOStream.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\DefaultIOSystem.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\DefaultLogger.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\DXFLoader.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\Exporter.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\FindDegenerates.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\FindInstancesProcess.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\FindInvalidDataProcess.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\FixNormalsStep.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\GenFaceNormalsProcess.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\GenVertexNormalsProcess.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\HMPLoader.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\IFCCurve.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\IFCGeometry.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\IFCLoader.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\IFCMaterial.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\IFCProfile.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\IFCReaderGen.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\IFCUtil.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\Importer.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\ImporterRegistry.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\ImproveCacheLocality.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\IRRLoader.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\IRRMeshLoader.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\IRRShared.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\JoinVerticesProcess.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\LimitBoneWeightsProcess.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\LWOAnimation.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\LWOBLoader.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\LWOLoader.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\LWOMaterial.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\LWSLoader.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\M3Importer.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\MakeVerboseFormat.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\MaterialSystem.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\MD2Loader.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\MD3Loader.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\MD5Loader.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\MD5Parser.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\MDCLoader.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\MDLLoader.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\MDLMaterialLoader.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\MS3DLoader.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\NDOLoader.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\NFFLoader.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\ObjExporter.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\ObjFileImporter.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\ObjFileMtlImporter.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\ObjFileParser.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\OFFLoader.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\OgreImporter.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\OgreMaterial.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\OgreMesh.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\OgreSkeleton.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\OptimizeGraph.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\OptimizeMeshes.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\PlyExporter.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\PlyLoader.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\PlyParser.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\PostStepRegistry.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\PretransformVertices.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\ProcessHelper.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\Q3BSPFileImporter.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\Q3BSPFileParser.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\Q3BSPZipArchive.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\Q3DLoader.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\RawLoader.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\RemoveComments.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\RemoveRedundantMaterials.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\RemoveVCProcess.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\SceneCombiner.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\ScenePreprocessor.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\SGSpatialSort.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\SkeletonMeshBuilder.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\SMDLoader.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\SortByPTypeProcess.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\SpatialSort.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\SplitByBoneCountProcess.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\SplitLargeMeshes.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\StandardShapes.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\STEPFileReader.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\STLExporter.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\STLLoader.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\Subdivision.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\TargetAnimation.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\TerragenLoader.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\TextureTransform.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\TriangulateProcess.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\UnrealLoader.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\ValidateDataStructure.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\VertexTriangleAdjacency.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\XFileImporter.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\XFileParser.cpp" />
+    <ClCompile Include="..\..\source\libassimp\code\XGLLoader.cpp" />
+    <ClCompile Include="..\..\source\libassimp\contrib\clipper\clipper.cpp" />
+    <ClCompile Include="..\..\source\libassimp\contrib\ConvertUTF\ConvertUTF.c" />
+    <ClCompile Include="..\..\source\libassimp\contrib\irrXML\irrXML.cpp" />
+    <ClCompile Include="..\..\source\libassimp\contrib\poly2tri\poly2tri\common\shapes.cc" />
+    <ClCompile Include="..\..\source\libassimp\contrib\poly2tri\poly2tri\sweep\advancing_front.cc" />
+    <ClCompile Include="..\..\source\libassimp\contrib\poly2tri\poly2tri\sweep\cdt.cc" />
+    <ClCompile Include="..\..\source\libassimp\contrib\poly2tri\poly2tri\sweep\sweep.cc" />
+    <ClCompile Include="..\..\source\libassimp\contrib\poly2tri\poly2tri\sweep\sweep_context.cc" />
+    <ClCompile Include="..\..\source\libassimp\contrib\unzip\ioapi.c" />
+    <ClCompile Include="..\..\source\libassimp\contrib\unzip\unzip.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\source\libassimp\code\3DSHelper.h" />
+    <ClInclude Include="..\..\source\libassimp\code\3DSLoader.h" />
+    <ClInclude Include="..\..\source\libassimp\code\ACLoader.h" />
+    <ClInclude Include="..\..\source\libassimp\code\ASELoader.h" />
+    <ClInclude Include="..\..\source\libassimp\code\ASEParser.h" />
+    <ClInclude Include="..\..\source\libassimp\code\assbin_chunks.h" />
+    <ClInclude Include="..\..\source\libassimp\code\AssimpPCH.h" />
+    <ClInclude Include="..\..\source\libassimp\code\B3DImporter.h" />
+    <ClInclude Include="..\..\source\libassimp\code\BaseImporter.h" />
+    <ClInclude Include="..\..\source\libassimp\code\BaseProcess.h" />
+    <ClInclude Include="..\..\source\libassimp\code\BlenderDNA.h" />
+    <ClInclude Include="..\..\source\libassimp\code\BlenderIntermediate.h" />
+    <ClInclude Include="..\..\source\libassimp\code\BlenderLoader.h" />
+    <ClInclude Include="..\..\source\libassimp\code\BlenderModifier.h" />
+    <ClInclude Include="..\..\source\libassimp\code\BlenderScene.h" />
+    <ClInclude Include="..\..\source\libassimp\code\BlenderSceneGen.h" />
+    <ClInclude Include="..\..\source\libassimp\code\BlobIOSystem.h" />
+    <ClInclude Include="..\..\source\libassimp\code\BVHLoader.h" />
+    <ClInclude Include="..\..\source\libassimp\code\ByteSwap.h" />
+    <ClInclude Include="..\..\source\libassimp\code\CalcTangentsProcess.h" />
+    <ClInclude Include="..\..\source\libassimp\code\CInterfaceIOWrapper.h" />
+    <ClInclude Include="..\..\source\libassimp\code\COBLoader.h" />
+    <ClInclude Include="..\..\source\libassimp\code\COBScene.h" />
+    <ClInclude Include="..\..\source\libassimp\code\ColladaExporter.h" />
+    <ClInclude Include="..\..\source\libassimp\code\ColladaHelper.h" />
+    <ClInclude Include="..\..\source\libassimp\code\ColladaLoader.h" />
+    <ClInclude Include="..\..\source\libassimp\code\ColladaParser.h" />
+    <ClInclude Include="..\..\source\libassimp\code\ComputeUVMappingProcess.h" />
+    <ClInclude Include="..\..\source\libassimp\code\ConvertToLHProcess.h" />
+    <ClInclude Include="..\..\source\libassimp\code\CSMLoader.h" />
+    <ClInclude Include="..\..\source\libassimp\code\DeboneProcess.h" />
+    <ClInclude Include="..\..\source\libassimp\code\DefaultIOStream.h" />
+    <ClInclude Include="..\..\source\libassimp\code\DefaultIOSystem.h" />
+    <ClInclude Include="..\..\source\libassimp\code\DefaultProgressHandler.h" />
+    <ClInclude Include="..\..\source\libassimp\code\DXFHelper.h" />
+    <ClInclude Include="..\..\source\libassimp\code\DXFLoader.h" />
+    <ClInclude Include="..\..\source\libassimp\code\Exceptional.h" />
+    <ClInclude Include="..\..\source\libassimp\code\fast_atof.h" />
+    <ClInclude Include="..\..\source\libassimp\code\FileLogStream.h" />
+    <ClInclude Include="..\..\source\libassimp\code\FileSystemFilter.h" />
+    <ClInclude Include="..\..\source\libassimp\code\FindDegenerates.h" />
+    <ClInclude Include="..\..\source\libassimp\code\FindInstancesProcess.h" />
+    <ClInclude Include="..\..\source\libassimp\code\FindInvalidDataProcess.h" />
+    <ClInclude Include="..\..\source\libassimp\code\FixNormalsStep.h" />
+    <ClInclude Include="..\..\source\libassimp\code\GenericProperty.h" />
+    <ClInclude Include="..\..\source\libassimp\code\GenFaceNormalsProcess.h" />
+    <ClInclude Include="..\..\source\libassimp\code\GenVertexNormalsProcess.h" />
+    <ClInclude Include="..\..\source\libassimp\code\HalfLifeFileData.h" />
+    <ClInclude Include="..\..\source\libassimp\code\Hash.h" />
+    <ClInclude Include="..\..\source\libassimp\code\HMPFileData.h" />
+    <ClInclude Include="..\..\source\libassimp\code\HMPLoader.h" />
+    <ClInclude Include="..\..\source\libassimp\code\IFCLoader.h" />
+    <ClInclude Include="..\..\source\libassimp\code\IFCReaderGen.h" />
+    <ClInclude Include="..\..\source\libassimp\code\IFCUtil.h" />
+    <ClInclude Include="..\..\source\libassimp\code\IFF.h" />
+    <ClInclude Include="..\..\source\libassimp\code\Importer.h" />
+    <ClInclude Include="..\..\source\libassimp\code\ImproveCacheLocality.h" />
+    <ClInclude Include="..\..\source\libassimp\code\IRRLoader.h" />
+    <ClInclude Include="..\..\source\libassimp\code\IRRMeshLoader.h" />
+    <ClInclude Include="..\..\source\libassimp\code\IRRShared.h" />
+    <ClInclude Include="..\..\source\libassimp\code\irrXMLWrapper.h" />
+    <ClInclude Include="..\..\source\libassimp\code\JoinVerticesProcess.h" />
+    <ClInclude Include="..\..\source\libassimp\code\LimitBoneWeightsProcess.h" />
+    <ClInclude Include="..\..\source\libassimp\code\LineSplitter.h" />
+    <ClInclude Include="..\..\source\libassimp\code\LogAux.h" />
+    <ClInclude Include="..\..\source\libassimp\code\LWOAnimation.h" />
+    <ClInclude Include="..\..\source\libassimp\code\LWOFileData.h" />
+    <ClInclude Include="..\..\source\libassimp\code\LWOLoader.h" />
+    <ClInclude Include="..\..\source\libassimp\code\LWSLoader.h" />
+    <ClInclude Include="..\..\source\libassimp\code\M3Importer.h" />
+    <ClInclude Include="..\..\source\libassimp\code\MakeVerboseFormat.h" />
+    <ClInclude Include="..\..\source\libassimp\code\MaterialSystem.h" />
+    <ClInclude Include="..\..\source\libassimp\code\MD2FileData.h" />
+    <ClInclude Include="..\..\source\libassimp\code\MD2Loader.h" />
+    <ClInclude Include="..\..\source\libassimp\code\MD2NormalTable.h" />
+    <ClInclude Include="..\..\source\libassimp\code\MD3FileData.h" />
+    <ClInclude Include="..\..\source\libassimp\code\MD3Loader.h" />
+    <ClInclude Include="..\..\source\libassimp\code\MD4FileData.h" />
+    <ClInclude Include="..\..\source\libassimp\code\MD5Loader.h" />
+    <ClInclude Include="..\..\source\libassimp\code\MD5Parser.h" />
+    <ClInclude Include="..\..\source\libassimp\code\MDCFileData.h" />
+    <ClInclude Include="..\..\source\libassimp\code\MDCLoader.h" />
+    <ClInclude Include="..\..\source\libassimp\code\MDCNormalTable.h" />
+    <ClInclude Include="..\..\source\libassimp\code\MDLDefaultColorMap.h" />
+    <ClInclude Include="..\..\source\libassimp\code\MDLFileData.h" />
+    <ClInclude Include="..\..\source\libassimp\code\MDLLoader.h" />
+    <ClInclude Include="..\..\source\libassimp\code\MemoryIOWrapper.h" />
+    <ClInclude Include="..\..\source\libassimp\code\MS3DLoader.h" />
+    <ClInclude Include="..\..\source\libassimp\code\NDOLoader.h" />
+    <ClInclude Include="..\..\source\libassimp\code\NFFLoader.h" />
+    <ClInclude Include="..\..\source\libassimp\code\ObjExporter.h" />
+    <ClInclude Include="..\..\source\libassimp\code\ObjFileData.h" />
+    <ClInclude Include="..\..\source\libassimp\code\ObjFileImporter.h" />
+    <ClInclude Include="..\..\source\libassimp\code\ObjFileMtlImporter.h" />
+    <ClInclude Include="..\..\source\libassimp\code\ObjFileParser.h" />
+    <ClInclude Include="..\..\source\libassimp\code\ObjTools.h" />
+    <ClInclude Include="..\..\source\libassimp\code\OFFLoader.h" />
+    <ClInclude Include="..\..\source\libassimp\code\OptimizeGraph.h" />
+    <ClInclude Include="..\..\source\libassimp\code\OptimizeMeshes.h" />
+    <ClInclude Include="..\..\source\libassimp\code\ParsingUtils.h" />
+    <ClInclude Include="..\..\source\libassimp\code\PlyExporter.h" />
+    <ClInclude Include="..\..\source\libassimp\code\PlyLoader.h" />
+    <ClInclude Include="..\..\source\libassimp\code\PlyParser.h" />
+    <ClInclude Include="..\..\source\libassimp\code\PolyTools.h" />
+    <ClInclude Include="..\..\source\libassimp\code\PretransformVertices.h" />
+    <ClInclude Include="..\..\source\libassimp\code\ProcessHelper.h" />
+    <ClInclude Include="..\..\source\libassimp\code\Profiler.h" />
+    <ClInclude Include="..\..\source\libassimp\code\pstdint.h" />
+    <ClInclude Include="..\..\source\libassimp\code\Q3BSPFileData.h" />
+    <ClInclude Include="..\..\source\libassimp\code\Q3BSPFileImporter.h" />
+    <ClInclude Include="..\..\source\libassimp\code\Q3BSPFileParser.h" />
+    <ClInclude Include="..\..\source\libassimp\code\Q3BSPZipArchive.h" />
+    <ClInclude Include="..\..\source\libassimp\code\Q3DLoader.h" />
+    <ClInclude Include="..\..\source\libassimp\code\qnan.h" />
+    <ClInclude Include="..\..\source\libassimp\code\RawLoader.h" />
+    <ClInclude Include="..\..\source\libassimp\code\RemoveComments.h" />
+    <ClInclude Include="..\..\source\libassimp\code\RemoveRedundantMaterials.h" />
+    <ClInclude Include="..\..\source\libassimp\code\RemoveVCProcess.h" />
+    <ClInclude Include="..\..\source\libassimp\code\SceneCombiner.h" />
+    <ClInclude Include="..\..\source\libassimp\code\ScenePreprocessor.h" />
+    <ClInclude Include="..\..\source\libassimp\code\ScenePrivate.h" />
+    <ClInclude Include="..\..\source\libassimp\code\SGSpatialSort.h" />
+    <ClInclude Include="..\..\source\libassimp\code\SkeletonMeshBuilder.h" />
+    <ClInclude Include="..\..\source\libassimp\code\SMDLoader.h" />
+    <ClInclude Include="..\..\source\libassimp\code\SmoothingGroups.h" />
+    <ClInclude Include="..\..\source\libassimp\code\SortByPTypeProcess.h" />
+    <ClInclude Include="..\..\source\libassimp\code\SpatialSort.h" />
+    <ClInclude Include="..\..\source\libassimp\code\SplitByBoneCountProcess.h" />
+    <ClInclude Include="..\..\source\libassimp\code\SplitLargeMeshes.h" />
+    <ClInclude Include="..\..\source\libassimp\code\StandardShapes.h" />
+    <ClInclude Include="..\..\source\libassimp\code\StdOStreamLogStream.h" />
+    <ClInclude Include="..\..\source\libassimp\code\STEPFile.h" />
+    <ClInclude Include="..\..\source\libassimp\code\STEPFileReader.h" />
+    <ClInclude Include="..\..\source\libassimp\code\STLExporter.h" />
+    <ClInclude Include="..\..\source\libassimp\code\STLLoader.h" />
+    <ClInclude Include="..\..\source\libassimp\code\StreamReader.h" />
+    <ClInclude Include="..\..\source\libassimp\code\StringComparison.h" />
+    <ClInclude Include="..\..\source\libassimp\code\Subdivision.h" />
+    <ClInclude Include="..\..\source\libassimp\code\TargetAnimation.h" />
+    <ClInclude Include="..\..\source\libassimp\code\TerragenLoader.h" />
+    <ClInclude Include="..\..\source\libassimp\code\TextureTransform.h" />
+    <ClInclude Include="..\..\source\libassimp\code\TinyFormatter.h" />
+    <ClInclude Include="..\..\source\libassimp\code\TriangulateProcess.h" />
+    <ClInclude Include="..\..\source\libassimp\code\UnrealLoader.h" />
+    <ClInclude Include="..\..\source\libassimp\code\ValidateDataStructure.h" />
+    <ClInclude Include="..\..\source\libassimp\code\Vertex.h" />
+    <ClInclude Include="..\..\source\libassimp\code\VertexTriangleAdjacency.h" />
+    <ClInclude Include="..\..\source\libassimp\code\Win32DebugLogStream.h" />
+    <ClInclude Include="..\..\source\libassimp\code\XFileHelper.h" />
+    <ClInclude Include="..\..\source\libassimp\code\XFileImporter.h" />
+    <ClInclude Include="..\..\source\libassimp\code\XFileParser.h" />
+    <ClInclude Include="..\..\source\libassimp\code\XGLLoader.h" />
+    <ClInclude Include="..\..\source\libassimp\contrib\ConvertUTF\ConvertUTF.h" />
+    <ClInclude Include="..\..\source\libassimp\contrib\irrXML\CXMLReaderImpl.h" />
+    <ClInclude Include="..\..\source\libassimp\contrib\irrXML\heapsort.h" />
+    <ClInclude Include="..\..\source\libassimp\contrib\irrXML\irrArray.h" />
+    <ClInclude Include="..\..\source\libassimp\contrib\irrXML\irrString.h" />
+    <ClInclude Include="..\..\source\libassimp\contrib\irrXML\irrTypes.h" />
+    <ClInclude Include="..\..\source\libassimp\contrib\irrXML\irrXML.h" />
+    <ClInclude Include="..\..\source\libassimp\contrib\poly2tri\poly2tri\common\shapes.h" />
+    <ClInclude Include="..\..\source\libassimp\contrib\poly2tri\poly2tri\common\utils.h" />
+    <ClInclude Include="..\..\source\libassimp\contrib\poly2tri\poly2tri\sweep\advancing_front.h" />
+    <ClInclude Include="..\..\source\libassimp\contrib\poly2tri\poly2tri\sweep\cdt.h" />
+    <ClInclude Include="..\..\source\libassimp\contrib\poly2tri\poly2tri\sweep\sweep.h" />
+    <ClInclude Include="..\..\source\libassimp\contrib\poly2tri\poly2tri\sweep\sweep_context.h" />
+    <ClInclude Include="..\..\source\libassimp\contrib\unzip\crypt.h" />
+    <ClInclude Include="..\..\source\libassimp\contrib\unzip\ioapi.h" />
+    <ClInclude Include="..\..\source\libassimp\contrib\unzip\unzip.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

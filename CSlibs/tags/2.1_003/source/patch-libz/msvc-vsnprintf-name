@@ -1,0 +1,11 @@
+--- ../libz.org/gzwrite.c	2012-06-09 16:58:52 +0200
++++ gzwrite.c	2012-06-09 17:04:00 +0200
+@@ -352,7 +352,7 @@
+     va_end(va);
+     len = strlen((char *)(state->in));
+ #  else
+-    len = vsnprintf((char *)(state->in), size, format, va);
++    len = _vsnprintf((char *)(state->in), size, format, va);
+     va_end(va);
+ #  endif
+ #endif

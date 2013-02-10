@@ -1,0 +1,13 @@
+Index: configure.in
+===================================================================
+--- configure.in	(Revision 507)
++++ configure.in	(Arbeitskopie)
+@@ -59,7 +59,7 @@
+ AC_PATH_PROG(VALGRIND, [valgrind])
+ 
+ # Check for unittest++
+-AM_USE_UNITTESTCPP
++#AM_USE_UNITTESTCPP
+ 
+ CPPFLAGS="$CPPFLAGS"' -I${top_srcdir}/src'
+ 

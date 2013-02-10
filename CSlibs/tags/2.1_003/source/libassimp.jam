@@ -1,0 +1,16 @@
+SubDir TOP source libassimp ;
+
+ExtraLib assimp :
+  [ Wildcard code : *.cpp *.h ] 
+  [ Wildcard [ ConcatDirs contrib clipper ] : *.cpp *.h ]
+  [ Wildcard [ ConcatDirs contrib ConvertUTF ] : *.c *.h ]
+  [ Wildcard [ ConcatDirs contrib irrXML ] : *.cpp *.h ]
+  [ Wildcard [ ConcatDirs contrib poly2tri poly2tri common ] : *.cc *.h ]
+  [ Wildcard [ ConcatDirs contrib poly2tri poly2tri sweep ] : *.cc *.h ]
+  [ Wildcard [ ConcatDirs contrib unzip ] : *.c *.h ]
+  : 
+  :
+  $(SUBDIR)/code/BoostWorkaround $(SUBDIR)/../configs $(SUBDIR)/../libz :
+  staticonly :
+  :
+  ASSIMP_BUILD_NO_OWN_ZLIB ;

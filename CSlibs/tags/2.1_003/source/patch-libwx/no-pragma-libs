@@ -1,0 +1,17 @@
+diff -ur ../libwx.org/include/msvc/wx/setup.h include/msvc/wx/setup.h
+--- ../libwx.org/include/msvc/wx/setup.h	2012-12-18 14:40:41 +0100
++++ include/msvc/wx/setup.h	2012-12-26 21:16:26 +0100
+@@ -131,6 +131,7 @@
+ // special version for regex as it does have a Unicode version
+ #define wx3RD_PARTY_LIB_NAME_U(name) "wx" name wxSUFFIX_STR
+ 
++#if 0
+ #pragma comment(lib, wxWX_LIB_NAME("base", ""))
+ 
+ #ifndef wxNO_NET_LIB
+@@ -223,3 +224,5 @@
+         #pragma comment(lib, "wininet")
+     #endif
+ #endif // !WXUSINGDLL
++
++#endif

@@ -1,0 +1,18 @@
+Index: cegui/src/CEGUIScheme.cpp
+===================================================================
+--- cegui/src/CEGUIScheme.cpp	(Revision 2337)
++++ cegui/src/CEGUIScheme.cpp	(Arbeitskopie)
+@@ -319,10 +319,9 @@
+             if (!(*cmod).dynamicModule)
+                 (*cmod).dynamicModule = new DynamicModule((*cmod).name);
+ 
+-            WindowRendererModule& (*getWRModuleFunc)() =
+-                reinterpret_cast<WindowRendererModule&(*)()>(
+-                    (*cmod).dynamicModule->
+-                        getSymbolAddress("getWindowRendererModule"));
++            void* moduleFuncPtr = (*cmod).dynamicModule->getSymbolAddress("getWindowRendererModule");
++            typedef WindowRendererModule& (*getWRModuleFuncType)(void);
++            getWRModuleFuncType getWRModuleFunc = (getWRModuleFuncType)moduleFuncPtr;
+ 
+             if (!getWRModuleFunc)
+                 throw InvalidRequestException(

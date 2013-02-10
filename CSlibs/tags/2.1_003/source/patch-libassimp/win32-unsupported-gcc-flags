@@ -1,0 +1,12 @@
+diff -ru ../libassimp.org//CMakeLists.txt ./CMakeLists.txt
+--- ../libassimp.org//CMakeLists.txt	2012-12-31 16:32:57 +0100
++++ ./CMakeLists.txt	2012-12-31 16:50:35 +0100
+@@ -18,7 +18,7 @@
+ set(LIBASSIMP-DEV_COMPONENT libassimp${ASSIMP_VERSION_MAJOR}.${ASSIMP_VERSION_MINOR}-r${ASSIMP_SV_REVISION}-dev)
+ set(CPACK_COMPONENTS_ALL assimp-bin ${LIBASSIMP_COMPONENT} ${LIBASSIMP-DEV_COMPONENT} assimp-dev)
+ 
+-if(CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUCXX)
++if((CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUCXX) AND NOT WIN32)
+   add_definitions(-fPIC) # this is a very important switch and some libraries seem now to have it....
+   ## hide all not-exported symbols
+   add_definitions( -fvisibility=hidden )

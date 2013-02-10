@@ -1,0 +1,1 @@
+Setup will replace contents with version number.
