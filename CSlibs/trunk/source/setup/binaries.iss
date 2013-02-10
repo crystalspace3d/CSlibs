@@ -395,7 +395,7 @@ Name: {app}\tools\wx-config*; Type: filesandordirs
 [Icons]
 Name: {group}\Read Me; Filename: {app}\Readme.rtf; WorkingDir: {app}; Comment: "Important informations, known issues and solutions."; Flags: excludefromshowinnewinstall
 Name: {group}\Deploying Applications Built Against {#CSLibsOutputName}; Filename: {app}\Deploying Applications Built Against cs-winlibs.rtf; WorkingDir: {app}; Comment: "Information on picking the right files from {#CSLibsOutputName} when packaging applications for distribution"; Flags: excludefromshowinnewinstall
-Name: {group}\Copy DLLs to a CS directory; Filename: {app}\CopyDLLs{#ArchSuffix}.exe; WorkingDir: {app}; Comment: "Copies the 3rd party DLLs to a CS source directory so compiled binaries can find them."; IconIndex: 0; Flags: excludefromshowinnewinstall
+Name: {group}\Copy DLLs to a CS directory; Filename: {app}\CopyDLLs{#ArchSuffix}.exe; WorkingDir: {app}; Comment: "Copies the 3rd party DLLs to a CS source directory so compiled binaries can find them."; IconIndex: 0; Flags: excludefromshowinnewinstall; Components: Libs/Common Libs/VC Libs/MinGW
 Name: {group}\Set up VC support; Filename: {app}\VCsupport{#ArchSuffix}.exe; WorkingDir: {app}; Comment: "Copies the headers and libraries to your CS source directory so you can use them from VC."; IconIndex: 0; Components: DESupport/VC; Flags: excludefromshowinnewinstall
 Name: {group}\Set up MSYS support; Filename: {app}\MSYSsupport{#ArchSuffix}.exe; WorkingDir: {app}; Comment: "Sets up MSYS so you can use the CrystalSpace libs from there."; IconIndex: 0; Components: DESupport/MSYS; Flags: excludefromshowinnewinstall
 #ifndef X64
