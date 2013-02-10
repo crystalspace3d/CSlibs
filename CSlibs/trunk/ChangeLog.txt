@@ -1,4 +1,4 @@
-2.1_003 (2013-??-??):
+2.1_003 (2013-02-10):
  - Updated wxWidgets to 2.9.4.
  - Updated pcre to 8.32.
  - Updated libpng to 1.5.13.
