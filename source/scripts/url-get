@@ -40,7 +40,9 @@ else
 fi
 
 wget -c -O ${ARCHIVE} $URL
+if [ $? -ne 0 ]; then exit; fi
 ${UNARC}
+if [ $? -ne 0 ]; then exit; fi
 rm ${ARCHIVE}
 mv ${DIRNAME} ${LIBNAME}
 
