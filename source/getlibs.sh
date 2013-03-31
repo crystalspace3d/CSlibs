@@ -11,7 +11,7 @@ scripts/url-get pkg-config http://ftp.gnome.org/pub/gnome/binaries/win32/depende
   pkg-config-0.23 gz
 
 # Base libs
-scripts/url-get libpng ftp://ftp.simplesystems.org/pub/libpng/png/src/libpng-1.5.13.tar.xz \
+scripts/url-get libpng "http://downloads.sourceforge.net/project/libpng/libpng15/older-releases/1.5.13/libpng-1.5.13.tar.xz?r=&ts=1364743129&use_mirror=switch" \
   libpng-1.5.13 xz
 scripts/url-get libz http://zlib.net/zlib-1.2.7.tar.bz2 \
   zlib-1.2.7 bz2
@@ -44,18 +44,24 @@ scripts/url-get libassimp "http://downloads.sourceforge.net/project/assimp/assim
 scripts/url-get libwx ftp://ftp.wxwidgets.org/pub/2.9.4/wxWidgets-2.9.4.tar.bz2 wxWidgets-2.9.4 bz2
 
 # A bit of manual setup
-mkdir -p libwx/lib/vc_dll/mswu/wx/
-mkdir -p libwx/lib/vc_dll/mswud/wx/
-mkdir -p libwx/lib/vc_lib/mswu/wx/
-mkdir -p libwx/lib/vc_lib/mswud/wx/
-copy_if_differerent() {
-  if ! diff "$1" "$2" > /dev/null ; then cp -v "$1" "$2" ; fi
-}
-copy_if_differerent libwx/include/wx/msw/setup.h libwx/lib/vc_dll/mswu/wx/setup.h
-copy_if_differerent libwx/include/wx/msw/setup.h libwx/lib/vc_dll/mswud/wx/setup.h
-copy_if_differerent libwx/include/wx/msw/setup.h libwx/lib/vc_lib/mswu/wx/setup.h
-copy_if_differerent libwx/include/wx/msw/setup.h libwx/lib/vc_lib/mswud/wx/setup.h
-copy_if_differerent libwx/include/wx/msw/setup.h libwx/lib/vc_x64_dll/mswu/wx/setup.h
-copy_if_differerent libwx/include/wx/msw/setup.h libwx/lib/vc_x64_dll/mswud/wx/setup.h
-copy_if_differerent libwx/include/wx/msw/setup.h libwx/lib/vc_x64_lib/mswu/wx/setup.h
-copy_if_differerent libwx/include/wx/msw/setup.h libwx/lib/vc_x64_lib/mswud/wx/setup.h
+if [ -d libwx ]; then
+  mkdir -p libwx/lib/vc_dll/mswu/wx/
+  mkdir -p libwx/lib/vc_dll/mswud/wx/
+  mkdir -p libwx/lib/vc_lib/mswu/wx/
+  mkdir -p libwx/lib/vc_lib/mswud/wx/
+  mkdir -p libwx/lib/vc_x64_dll/mswu/wx/
+  mkdir -p libwx/lib/vc_x64_dll/mswud/wx/
+  mkdir -p libwx/lib/vc_x64_lib/mswu/wx/
+  mkdir -p libwx/lib/vc_x64_lib/mswud/wx/
+  copy_if_differerent() {
+    if ! diff "$1" "$2" > /dev/null 2>&1 ; then cp -v "$1" "$2" ; fi
+  }
+  copy_if_differerent libwx/include/wx/msw/setup.h libwx/lib/vc_dll/mswu/wx/setup.h
+  copy_if_differerent libwx/include/wx/msw/setup.h libwx/lib/vc_dll/mswud/wx/setup.h
+  copy_if_differerent libwx/include/wx/msw/setup.h libwx/lib/vc_lib/mswu/wx/setup.h
+  copy_if_differerent libwx/include/wx/msw/setup.h libwx/lib/vc_lib/mswud/wx/setup.h
+  copy_if_differerent libwx/include/wx/msw/setup.h libwx/lib/vc_x64_dll/mswu/wx/setup.h
+  copy_if_differerent libwx/include/wx/msw/setup.h libwx/lib/vc_x64_dll/mswud/wx/setup.h
+  copy_if_differerent libwx/include/wx/msw/setup.h libwx/lib/vc_x64_lib/mswu/wx/setup.h
+  copy_if_differerent libwx/include/wx/msw/setup.h libwx/lib/vc_x64_lib/mswud/wx/setup.h
+fi
