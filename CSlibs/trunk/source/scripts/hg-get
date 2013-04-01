@@ -10,15 +10,16 @@ shift
 apply_patches=1
 if [ -e ${LIBNAME} ] ; then
   apply_patches=0
+
+  cd ${LIBNAME}
+  # FIXME: Is that right?...
+  hg update ${HG_TAG} $*
+  hg merge tip
+  hg commit -m "Updated from repo"
+  cd ..
 else
-  hg clone ${HG_REPO} ${LIBNAME} $*
+  hg clone "${HG_REPO}#${HG_TAG}" ${LIBNAME} $*
 fi
-cd ${LIBNAME}
-# FIXME: Is that right?...
-hg update ${HG_TAG} $*
-hg merge tip
-hg commit -m "Updated from repo"
-cd ..
 
 if [ $apply_patches -eq 1 ] ; then
   #scripts/dopatch ${LIBNAME}
