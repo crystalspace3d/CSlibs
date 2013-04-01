@@ -14,10 +14,10 @@ fi
 
 prefix=$(pwd)/temp/libwx/prefix-${platform}
 cd temp/libwx/${platform}
-export CFLAGS="-I$(pwd)/../../${platform_short}/prefix/include"
-export CXXFLAGS="-I$(pwd)/../../${platform_short}/prefix/include"
+export CFLAGS="-I$(pwd)/../../${platform_short}/prefix/include -fno-omit-frame-pointer"
+export CXXFLAGS="-I$(pwd)/../../${platform_short}/prefix/include -fno-omit-frame-pointer"
 export LDFLAGS="-L$(pwd)/../../${platform_short}/prefix/lib"
-../../../source/libwx/configure --prefix=${prefix} $CONFIGUREOPTS -C --with-opengl --without-subdirs --enable-unicode --enable-vendor=cs${platform}
+../../../source/libwx/configure --prefix=${prefix} $CONFIGUREOPTS -C --with-opengl --without-subdirs --enable-unicode --enable-vendor=cs${platform} --enable-debug_info --enable-debug_gdb
 make ${MAKEOPTS} install
 cd ../../..
 
