@@ -34,12 +34,11 @@ order:
 
 The MinGW-only libs can be built by running build_mingw.sh. Some libraries
 may need special preparations:
-- libmng: run unmaintained/autogen.sh, copy makefiles/configure.in to the
-	  source root
+- libmng: run unmaintained/autogen.sh
 - libode: run ./autogen.sh
 - libcal3d: 
-    Run "aclocal && autoconf && autoheader && libtoolize -c && automake".
-- libcegui: run ./bootstrap
+    Run "aclocal && autoconf && autoheader && libtoolize -c && automake --add-missing".
+- libcegui: run ACLOCAL_FLAGS="-I /share/aclocal" ./bootstrap
 
 If you use Cygwin to run above scripts, note that sometimes symlinks are
 generated; MinGW doesn't support those, so you should check the source 
