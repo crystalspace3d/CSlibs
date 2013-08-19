@@ -39,6 +39,7 @@ may need special preparations:
 - libcal3d: 
     Run "aclocal && autoconf && autoheader && libtoolize -c && automake --add-missing".
 - libcegui: run ACLOCAL_FLAGS="-I /share/aclocal" ./bootstrap
+- lib3ds: run "libtoolize" in source dir
 
 If you use Cygwin to run above scripts, note that sometimes symlinks are
 generated; MinGW doesn't support those, so you should check the source 
