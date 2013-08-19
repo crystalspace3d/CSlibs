@@ -13,6 +13,7 @@ if test ! -e libs/ReleaseGCCOnly/${platform} ; then
 fi
 
 prefix=$(pwd)/temp/libwx/prefix-${platform}
+longprefix=$(pwd)/temp/libwx/${platform}/../../${platform_short}/prefix
 cd temp/libwx/${platform}
 export CFLAGS="-I$(pwd)/../../${platform_short}/prefix/include -fno-omit-frame-pointer"
 export CXXFLAGS="-I$(pwd)/../../${platform_short}/prefix/include -fno-omit-frame-pointer"
@@ -25,5 +26,9 @@ OUTPREFIX=libs/prefix-wx/${platform}
 mkdir -p ${OUTPREFIX}/lib
 cp -pr ${prefix}/lib ${OUTPREFIX}/
 cp -pr ${prefix}/include ${OUTPREFIX}/
-cat ${prefix}/bin/wx-config | sed -e "s!\${prefix}/include!%CSLIBSPATH_MSYS%/${platform_short}/include!g" | sed -e "s!${prefix}!%CSLIBSPATH_MSYS%/${platform}!g" > ${OUTPREFIX}/wx-config-${platform}
+cat ${prefix}/bin/wx-config \
+  | sed -e "s!\${prefix}/include!%CSLIBSPATH_MSYS%/${platform_short}/include!g" \
+  | sed -e "s!${prefix}!%CSLIBSPATH_MSYS%/${platform}!g" \
+  | sed -e "s!${longprefix}!%CSLIBSPATH_MSYS%/${platform}!g" \
+  > ${OUTPREFIX}/wx-config-${platform}
 ${TOP}/debug-extract.sh `ls -1 ${OUTPREFIX}/lib/*.dll`
