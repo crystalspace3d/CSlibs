@@ -54,12 +54,15 @@ include $(SUBDIR)/source/Jamfile ;
 
 SubDir TOP ;
 
+#
 # Set up symbol collection targets.
+#
 
 SYMDIR = "$(BUILDTOP)/out/symbols" ;
 
 VC_VER = 8 9 10 ;
 MINGW_VER = 4.5 4.6 4.7 ;
+MINGW64_VER = 4.5 ; 
 
 CleanDir collectsymbols_clean : $(SYMDIR) ;
 Depends collectsymbols_collect : collectsymbols_clean ;
@@ -84,3 +87,199 @@ Depends collectsymbols : collectsymbols_compress ;
 UploadDir uploadsymbols : $(SYMDIR) : 
   crystal@crystalspace3d.org :
   www/crystalspace3d.org/htdocs/symbols ;
+  
+#
+# Collect things to distribute into file lists.
+#
+
+RECURSE_HELPER_REL_PATH = ;
+RECURSE_HELPER_FILE_LIST = ;
+rule GrabRecurseHelper
+{
+  local listdir = $(SUBDIR_TOKENS) $(2) ;
+  local file_gristed = $(1:G=$(listdir:J=!)) ;
+  FileListEntriesData $(file_gristed) : $(RECURSE_HELPER_REL_PATH) $(2) : $(RECURSE_HELPER_FILE_LIST) ;
+}
+# GrabRecursive suffixes : source_dir : file_list_rel_path : file_list
+rule GrabRecursive
+{
+  local save_SUBDIR_TOKENS = $(SUBDIR_TOKENS) ;
+  SubDir TOP $(2) ;
+  RECURSE_HELPER_REL_PATH = $(3) ;
+  RECURSE_HELPER_FILE_LIST = $(4) ;
+  Recurse GrabRecurseHelper : .$(1) ;
+  RECURSE_HELPER_REL_PATH = ;
+  RECURSE_HELPER_FILE_LIST = ;
+  SubDir TOP $(save_SUBDIR_TOKENS) ;
+}
+rule GrabHeaders
+{
+  GrabRecursive h hpp inl manifest cur ico bmp rc : $(1) : $(2) : $(3) ;
+}
+
+# Headers for 'common' compiler-independent libs
+SubDir TOP source configs ;
+BASE_CONFIGS = [ Wildcard *.h ] ;
+FileListEntriesData $(BASE_CONFIGS) : common include : base.all.any ;
+SubDir TOP source configs libjpeg ;
+JPEG_CONFIGS = [ Wildcard *.h ] ;
+FileListEntriesData $(JPEG_CONFIGS) : common include : base.all.any ;
+SubDir TOP temp mingw prefix include ;
+FileListEntriesData [ Filter [ Wildcard *.h ] : $(JPEG_CONFIGS) $(BASE_CONFIGS) ] : common include : base.all.any ;
+SubDir TOP ;
+GrabHeaders temp mingw prefix include lib3ds : common include lib3ds : base.all.any ;
+GrabHeaders source configs lib3ds : common include lib3ds : base.all.any ;
+GrabHeaders source libode include ode : common include ode : base.all.any ;
+GrabHeaders source configs ode : common include ode : base.all.any ;
+GrabHeaders temp mingw prefix include ogg : common include ogg : base.all.any ;
+GrabHeaders temp mingw prefix include speex : common include speex : base.all.any ;
+GrabHeaders temp mingw prefix include vorbis : common include vorbis : base.all.any ;
+SubDir TOP source configs freetype config ;
+FREETYPE_CONFIGS = [ Wildcard *.h ] ;
+FileListEntriesData $(FREETYPE_CONFIGS) : common include freetype config : base.all.any ;
+SubDir TOP temp mingw prefix include freetype2 freetype ;
+FileListEntriesData [ Wildcard *.h ] : common include freetype : base.all.any ;
+SubDir TOP temp mingw prefix include freetype2 freetype config ;
+FileListEntriesData [ Filter [ Wildcard *.h ] : $(FREETYPE_CONFIGS) ] : common include freetype : base.all.any ;
+SubDir TOP ;
+
+# Headers for compiler-dependent libs
+# ...but since the *headers* are mostly the same, grab them from only one 'target'
+BASELINE_HEADERS_PREFIX = prefix-mingw-gcc-4.5 ;
+GrabHeaders temp libwx $(BASELINE_HEADERS_PREFIX) include wx-2.9 : common include wx : wx.all.any ;
+SubDir TOP source libwx include wx msw ;
+FileListEntriesData setup.h : vc include wx : wx.vc.any ;
+SubDir TOP ;
+GrabHeaders temp libassimp $(BASELINE_HEADERS_PREFIX) include assimp : common include assimp : base.all.any ;
+GrabHeaders temp libbullet $(BASELINE_HEADERS_PREFIX) include bullet : common include bullet : base.all.any ;
+GrabHeaders temp libcal3d $(BASELINE_HEADERS_PREFIX) include cal3d : common include cal3d : base.all.any ;
+GrabHeaders temp libCEGUI prefix-mingw include : common include : base.all.any ;
+# Headers for libs w/o source code
+GrabHeaders nosource all Cg include : common include : cg.all.any ;
+GrabHeaders nosource all OpenAL include : common include AL : openal.all.any ;
+GrabHeaders nosource all directx include : common include : dxheaders.all.any ;
+
+#
+# Library binaries
+#
+local ARCH ;
+for ARCH in x86 x64
+{
+  local ARCH_SUFFIX = "" ;
+  if $(ARCH) = x64 { ARCH_SUFFIX = "-x64" ; }
+  # Common libs
+  SubDir TOP libs Release$(ARCH_SUFFIX) ;
+  FileListEntriesData [ Wildcard *.dll ] : dlls : base-dll.all.$(ARCH) ;
+  FileListEntriesData [ Wildcard *.lib ] : common lib : base-dll.all.$(ARCH) ;
+  FileListEntriesData [ Wildcard *.pdb ] : dlls : base-dll-pdb.all.$(ARCH) ;
+  SubDir TOP libs Release_static$(ARCH_SUFFIX) ;
+  FileListEntriesData [ Wildcard *.lib ] : vc lib : base-static.vc.$(ARCH) ;
+  FileListEntriesData [ Wildcard *.pdb ] : vc lib : base-static.all.$(ARCH) ;
+  SubDir TOP libs ReleaseNoCygwin$(ARCH_SUFFIX) ;
+  FileListEntriesData [ Wildcard *.dll ] : dlls : base-dll.all.$(ARCH) ;
+  FileListEntriesData [ Wildcard *.lib ] : common lib : base-dll.all.$(ARCH) ;
+  FileListEntriesData [ Wildcard *.pdb ] : dlls : base-dll-pdb.all.$(ARCH) ;
+  SubDir TOP libs ReleaseNoCygwin_static$(ARCH_SUFFIX) ;
+  FileListEntriesData [ Wildcard *.lib ] : vc lib : base-static.vc.$(ARCH) ;
+  FileListEntriesData [ Wildcard *.pdb ] : vc lib : base-static.all.$(ARCH) ;
+  SubDir TOP ;
+  # Cg libs
+  SubDir TOP nosource $(ARCH) Cg dlls ;
+  FileListEntriesData [ Wildcard *.dll ] : dlls : cg.all.$(ARCH) ;
+  SubDir TOP nosource $(ARCH) Cg lib ;
+  FileListEntriesData [ Wildcard *.lib ] : common lib : cg.all.$(ARCH) ;
+  SubDir TOP ;
+  # dbghelp
+  SubDir TOP nosource $(ARCH) dbghelp ;
+  FileListEntriesData [ Wildcard *.dlls ] : dlls : dbghelp.all.$(ARCH) ;
+  SubDir TOP ;
+  # DirectX
+  SubDir TOP nosource $(ARCH) directx lib ;
+  FileListEntriesData [ Wildcard *.lib ] : common lib : dx.all.$(ARCH) ;
+  SubDir TOP ;
+  # OpenAL
+  SubDir TOP libs soft_oal$(ARCH_SUFFIX) ;
+  FileListEntriesData [ Wildcard *.dll ] : openal : openal.all.$(ARCH) ;
+  FileListEntriesData [ Wildcard *.pdb ] : openal : openal-pdb.all.$(ARCH) ;
+  SubDir TOP nosource $(ARCH) OpenAL bin ;
+  FileListEntriesData [ Wildcard *.dll ] : openal : openal.all.$(ARCH) ;
+  SubDir TOP nosource $(ARCH) OpenAL libs ;
+  FileListEntriesData [ Wildcard *.lib ] : common lib : openal.all.$(ARCH) ;
+  SubDir TOP ;
+  
+  # VC libraries
+  local vc ;
+  for vc in $(VC_VER)
+  {
+    SubDir TOP libs ReleaseVC$(vc)Only$(ARCH_SUFFIX) ;
+    FileListEntriesData [ Wildcard *.dll ] : dlls vc : base-dll.vc$(vc).$(ARCH) ;
+    FileListEntriesData [ Wildcard *.lib ] : vc lib : base-dll.vc$(vc).$(ARCH) ;
+    FileListEntriesData [ Wildcard *.pdb ] : dlls vc : base-dll-pdb.vc$(vc).$(ARCH) ;
+    SubDir TOP ;
+    # Bullet, assimp: static libs are used for both DLL and static libs package
+    SubDir TOP libs ReleaseVC$(vc)Only_static$(ARCH_SUFFIX) ;
+    FileListEntriesData [ Wildcard bullet*.lib ] : vc lib : base.vc$(vc).$(ARCH) ;
+    FileListEntriesData [ Wildcard bullet*.pdb ] : vc lib : base.vc$(vc).$(ARCH) ;
+    FileListEntriesData [ Wildcard assimp*.lib ] : vc lib : base.vc$(vc).$(ARCH) ;
+    FileListEntriesData [ Wildcard assimp*.pdb ] : vc lib : base.vc$(vc).$(ARCH) ;
+    # Static versions of cal3d, cegui
+    FileListEntriesData [ Wildcard cal3d*.lib ] : vc lib : base-static.vc$(vc).$(ARCH) ;
+    FileListEntriesData [ Wildcard cal3d*.pdb ] : vc lib : base-static.vc$(vc).$(ARCH) ;
+    FileListEntriesData [ Wildcard cegui*.lib ] : vc lib : base-static.vc$(vc).$(ARCH) ;
+    FileListEntriesData [ Wildcard libcegui*.dll ] : dlls vc : base-static.vc$(vc).$(ARCH) ;
+    FileListEntriesData [ Wildcard libcegui*.pdb ] : dlls vc : base-static-pdb.vc$(vc).$(ARCH) ;
+    SubDir TOP ;
+    
+    SubDir TOP libs ReleaseWXVC$(vc)Only$(ARCH_SUFFIX) ;
+    FileListEntriesData [ Wildcard *.dll ] : dlls vc : wx.vc$(vc).$(ARCH) ;
+    FileListEntriesData [ Wildcard *.lib ] : vc lib : wx.vc$(vc).$(ARCH) ;
+    FileListEntriesData [ Wildcard *.pdb ] : dlls vc : wx-pdb.vc$(vc).$(ARCH) ;
+    SubDir TOP ;
+  }
+  
+  # MinGW libraries
+  local ARCH_SUFFIX_MGW = "" ;
+  if $(ARCH) = x64 { ARCH_SUFFIX_MGW = "64" ; }
+  SubDir TOP libs ReleaseGCCOnly mingw$(ARCH_SUFFIX_MGW) ;
+  FileListEntriesData [ Wildcard *.a ] : mingw$(ARCH_SUFFIX_MGW) lib : base-dll.gcc.$(ARCH) ;
+  SubDir TOP ;
+  SubDir TOP libs ReleaseGCCOnly_static mingw$(ARCH_SUFFIX_MGW) ;
+  FileListEntriesData [ Wildcard *.a ] : mingw$(ARCH_SUFFIX_MGW) lib : base-static.gcc.$(ARCH) ;
+  SubDir TOP ;
+
+  local mingw ;
+  for mingw in $(MINGW$(ARCH_SUFFIX_MGW)_VER)
+  {
+    if $(ARCH) = x64
+    {
+      # @@@ Only have 'static' libCEGUI on mingw64
+      SubDir TOP libs ReleaseGCCOnly_static mingw$(ARCH_SUFFIX_MGW)-gcc-$(mingw) ;
+      FileListEntriesData libCEGUIBase.a : mingw$(ARCH_SUFFIX_MGW)-gcc-$(mingw) lib : base-dll.gcc$(mingw).$(ARCH) ;
+      SubDir TOP libs ReleaseGCCOnly_static mingw$(ARCH_SUFFIX_MGW) ;
+    }
+    else
+    {
+      SubDir TOP libs ReleaseGCCOnly mingw$(ARCH_SUFFIX_MGW) ;
+    }
+    FileListEntriesData [ Wildcard *-$(mingw).dll ] : dlls mingw$(ARCH_SUFFIX_MGW) : base-dll.gcc$(mingw).$(ARCH) ;
+    FileListEntriesData [ Wildcard *-$(mingw).dbg ] : dlls mingw$(ARCH_SUFFIX_MGW) : base-dll-pdb.gcc$(mingw).$(ARCH) ;
+    SubDir TOP libs ReleaseGCCOnly mingw$(ARCH_SUFFIX_MGW)-gcc-$(mingw) ;
+    FileListEntriesData [ Wildcard *.a ] : mingw$(ARCH_SUFFIX_MGW)-gcc-$(mingw) lib : base-dll.gcc$(mingw).$(ARCH) ;
+    SubDir TOP libs ReleaseGCCOnly_static mingw$(ARCH_SUFFIX_MGW)-gcc-$(mingw) ;
+    FileListEntriesData [ Wildcard *.a ] : mingw$(ARCH_SUFFIX_MGW)-gcc-$(mingw) lib : base-static.gcc$(mingw).$(ARCH) ;
+    SubDir TOP libs ReleaseGCCOnly_static mingw$(ARCH_SUFFIX_MGW) ;
+    FileListEntriesData [ Wildcard *-$(mingw).dll ] : dlls mingw$(ARCH_SUFFIX_MGW) : base-static.gcc$(mingw).$(ARCH) ;
+    FileListEntriesData [ Wildcard *-$(mingw).dbg ] : dlls mingw$(ARCH_SUFFIX_MGW) : base-static-pdb.gcc$(mingw).$(ARCH) ;
+    
+    SubDir TOP libs prefix-wx mingw$(ARCH_SUFFIX_MGW)-gcc-$(mingw) lib ;
+    FileListEntriesData [ Wildcard *.a ] : mingw$(ARCH_SUFFIX_MGW)-gcc-$(mingw) lib : wx.gcc$(mingw).$(ARCH) ;
+    FileListEntriesData [ Wildcard *.dll ] : dlls mingw$(ARCH_SUFFIX_MGW) : wx.gcc$(mingw).$(ARCH) ;
+    FileListEntriesData [ Wildcard *.dbg ] : dlls mingw$(ARCH_SUFFIX_MGW) : wx-pdb.gcc$(mingw).$(ARCH) ;
+    SubDir TOP libs prefix-wx mingw$(ARCH_SUFFIX_MGW)-gcc-$(mingw) lib wx config ;
+    FileListEntriesData [ Filter [ Wildcard * ] : . .. ] : mingw$(ARCH_SUFFIX_MGW)-gcc-$(mingw) lib wx config : wx.gcc$(mingw).$(ARCH) ;
+    SubDir TOP libs prefix-wx mingw$(ARCH_SUFFIX_MGW)-gcc-$(mingw) ;
+    FileListEntriesData [ Wildcard wx-config-* ] : : wxconfig.gcc$(mingw).$(ARCH) ;
+    SubDir TOP ;
+    GrabHeaders libs prefix-wx mingw$(ARCH_SUFFIX_MGW)-gcc-$(mingw) lib wx include : mingw$(ARCH_SUFFIX_MGW)-gcc-$(mingw) lib wx include : wx.gcc$(mingw).$(ARCH) ;
+  }
+}
