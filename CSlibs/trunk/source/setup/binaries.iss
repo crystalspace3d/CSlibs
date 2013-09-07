@@ -65,9 +65,8 @@ Name: custom; Description: Custom installation; Flags: iscustom
 Name: typVC; Description: VC Typical
 Name: typMinGW; Description: MSYS/MinGW Typical
 #ifndef X64
-Name: typCygwin; Description: Cygwin Typical
 Name: xcompile; Description: Cross-compile Typical
-#define GccTypes_noxcompile     "typMinGW typCygwin"
+#define GccTypes_noxcompile     "typMinGW"
 #define GccTypes                GccTypes_noxcompile + " xcompile"
 #else
 #define GccTypes_noxcompile     "typMinGW"
@@ -92,224 +91,17 @@ Name: Extra/OpenAL; Description: OpenAL (runtime installer, OpenAL Soft); Types:
 Name: DESupport; Description: Support for development environments; Types: custom full; Flags: disablenouninstallwarning
 Name: DESupport/VC; Description: Visual C++ 2005, 2008, 2010; Types: custom full typVC; Flags: disablenouninstallwarning
 Name: DESupport/MSYS; Description: MSYS; Types: custom full typMinGW; Flags: disablenouninstallwarning
-#ifndef X64
-Name: DESupport/Cygwin; Description: Cygwin; Types: custom full typCygwin; Flags: disablenouninstallwarning
-#endif
 [Files]
 Source: ..\..\{#ReadmeFile}; DestName: Readme.rtf; DestDir: {app}
 Source: ..\..\Deploying Applications Built Against cs-winlibs.rtf; DestDir: {app}
 Source: ..\..\ChangeLog.txt; DestDir: {app}
 Source: ..\..\version.txt; DestDir: {app}; AfterInstall: WriteVersionTxt
 
-; DLLs, exes
 Source: ..\..\tools\Release\setuptool.dll; DestDir: {app}
 Source: ..\..\tools\Release\jam.exe; DestDir: {app}\tools; Components: Extra/Jam
 Source: ..\..\tools\Release\pkg-config.exe; DestDir: {app}\tools; Components: Extra/pkgconfig
-#ifdef X64
-Source: ..\..\nosource\x64\dbghelp\dbghelp.dll; DestDir: {app}\dlls; DestName: dbghelp-x64.dll; Components: Extra/Dbghelp
-#else
-Source: ..\..\nosource\x86\dbghelp\dbghelp.dll; DestDir: {app}\dlls; Components: Extra/Dbghelp
-#endif
-Source: ..\..\nosource\{#ArchName}\Cg\dlls\*.*; DestDir: {app}\dlls; Flags: recursesubdirs; Components: Extra/Cg
-#ifndef STATIC
-Source: ..\..\libs\Release{#ArchSuffix}\*.dll; DestDir: {app}\dlls; Components: Libs/Common
-Source: ..\..\libs\ReleaseVC8Only{#ArchSuffix}\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC9Only{#ArchSuffix}\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC10Only{#ArchSuffix}\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
-#ifndef X64
-; @@@ Non-Static doesn't work right yet
-Source: ..\..\libs\ReleaseGCCOnly\mingw{#ArchSuffixMingw}\*.dll; DestDir: {app}\dlls\mingw{#ArchSuffixMingw}; Flags: skipifsourcedoesntexist; Components: Libs/MinGW
-#endif
-#define MINGWDLLS(GccVer) \
-  "Source: ..\..\libs\ReleaseGCCOnly\mingw" + ArchSuffixMingw + "-gcc-" + GccVer + "\*.dll; DestDir: {app}\dlls\mingw" + ArchSuffixMingw +"; Flags: skipifsourcedoesntexist; Components: Libs/MinGW"
-#ifndef X64
-#emit MINGWDLLS("4.5")
-#emit MINGWDLLS("4.6")
-#emit MINGWDLLS("4.7")
-#else
-; @@@ Non-Static doesn't work right yet
-;MINGWDLLS(4.5)
-Source: ..\..\libs\ReleaseGCCOnly_static\mingw64\*.dll; DestDir: {app}\dlls\mingw64; Flags: skipifsourcedoesntexist; Components: Libs/MinGW
-Source: ..\..\libs\ReleaseGCCOnly_static\mingw64-gcc-4.5\*.dll; DestDir: {app}\dlls\mingw64; Flags: skipifsourcedoesntexist; Components: Libs/MinGW
-#endif
-Source: ..\..\libs\ReleaseNoCygwin{#ArchSuffix}\*.dll; DestDir: {app}\dlls; Components: Libs/VC Libs/MinGW
-#else /* STATIC */
-Source: ..\..\libs\ReleaseVC8Only_static{#ArchSuffix}\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC9Only_static{#ArchSuffix}\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC10Only_static{#ArchSuffix}\*.dll; DestDir: {app}\dlls\vc; Components: Libs/VC
-Source: ..\..\libs\ReleaseGCCOnly_static\mingw{#ArchSuffixMingw}\*.dll; DestDir: {app}\dlls\mingw{#ArchSuffixMingw}; Flags: skipifsourcedoesntexist; Components: Libs/MinGW
-#define MINGWSTATICDLLS(GccVer) \
-  "Source: ..\..\libs\ReleaseGCCOnly_static\mingw" + ArchSuffixMingw + "-gcc-" + GccVer + "\*.dll; DestDir: {app}\dlls\mingw" + ArchSuffixMingw +"; Flags: skipifsourcedoesntexist; Components: Libs/MinGW"
-#ifndef X64
-#emit MINGWSTATICDLLS("4.5")
-#emit MINGWSTATICDLLS("4.6")
-#emit MINGWSTATICDLLS("4.7")
-#else
-#emit MINGWSTATICDLLS("4.5")
-#endif
-#endif /* STATIC */
-; wxWidgets
-Source: ..\..\libs\ReleaseWXVC8Only{#ArchSuffix}\*.dll; DestDir: {app}\dlls\vc; Components: Libs/wxVC
-Source: ..\..\libs\ReleaseWXVC9Only{#ArchSuffix}\*.dll; DestDir: {app}\dlls\vc; Components: Libs/wxVC
-Source: ..\..\libs\ReleaseWXVC10Only{#ArchSuffix}\*.dll; DestDir: {app}\dlls\vc; Components: Libs/wxVC
-; wxWidgets/MinGW
-#define MINGWWX(GccVer) \
-  "Source: ..\..\libs\prefix-wx\mingw" + ArchSuffixMingw + "-gcc-" + GccVer + "\lib\*.dll; DestDir: {app}\dlls\mingw" + ArchSuffixMingw +"; Components: Libs/wxMinGW"
-#ifndef X64
-#emit MINGWWX("4.5")
-#emit MINGWWX("4.6")
-#emit MINGWWX("4.7")
-#else
-#emit MINGWWX("4.5")
-#endif
-Source: ..\..\libs\soft_oal{#ArchSuffix}\soft_oal{#ArchSuffix}.dll; DestDir: {app}\openal; DestName: soft{#ArchSuffix}_oal.dll; Components: Extra/OpenAL
 
-; .libs: common for both static/dynamic
-Source: ..\..\nosource\{#ArchName}\OpenAL\libs\*.lib; DestDir: {app}\common\lib; Components: Libs/Common; AfterInstall: LibPostInstall
-Source: ..\..\nosource\{#ArchName}\directx\lib\*.*; DestDir: {app}\common\lib; Flags: recursesubdirs; Components: Extra/DXLibs; AfterInstall: LibPostInstall
-Source: ..\..\nosource\{#ArchName}\Cg\lib\*.*; DestDir: {app}\common\lib; Flags: recursesubdirs; Components: Extra/Cg; AfterInstall: LibPostInstall
-
-#ifndef STATIC
-; Dynamic .libs
-Source: ..\..\libs\Release{#ArchSuffix}\*.lib; DestDir: {app}\common\lib; Components: Libs/Common; AfterInstall: LibPostInstall
-Source: ..\..\libs\ReleaseVC8Only{#ArchSuffix}\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC9Only{#ArchSuffix}\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC10Only{#ArchSuffix}\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseNoCygwin{#ArchSuffix}\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC;
-#ifndef X64
-Source: ..\..\libs\ReleaseNoCygwin{#ArchSuffix}\*.lib; DestDir: {app}\mingw{#ArchSuffixMingw}\lib; Components: Libs/MinGW; AfterInstall: LibPostInstall
-#endif
-; Bullet, Assimp are always static
-Source: ..\..\libs\ReleaseVC8Only_static{#ArchSuffix}\bullet*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC9Only_static{#ArchSuffix}\bullet*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC10Only_static{#ArchSuffix}\bullet*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC8Only_static{#ArchSuffix}\assimp*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC9Only_static{#ArchSuffix}\assimp*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC10Only_static{#ArchSuffix}\assimp*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
-#define MINGWLINK(GccVer) \
-  "Source: ..\..\libs\ReleaseGCCOnly\mingw" + ArchSuffixMingw + "-gcc-" + GccVer + "\lib*.a; DestDir: {app}\mingw" + ArchSuffixMingw +"-gcc-" + GccVer + "\lib; Components: Libs/MinGW"
-#ifndef X64
-#emit MINGWLINK("4.5")
-#emit MINGWLINK("4.6")
-#emit MINGWLINK("4.7")
-#else
-#emit MINGWLINK("4.5")
-; @@@ mingw64 crashes with the MSVC import libs, hence use these libs created using dlltool
-Source: ..\..\libs\ReleaseGCCOnly\mingw64\*.a; DestDir: {app}\mingw64\lib; Components: Libs/MinGW
-#endif
-#else
-; Static .libs
-Source: ..\..\libs\Release_static{#ArchSuffix}\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC8Only_static{#ArchSuffix}\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC9Only_static{#ArchSuffix}\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC10Only_static{#ArchSuffix}\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseNoCygwin_static{#ArchSuffix}\*.lib; DestDir: {app}\vc\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseGCCOnly_static\mingw{#ArchSuffixMingw}\*.a; DestDir: {app}\mingw{#ArchSuffixMingw}\lib; Components: Libs/MinGW
-#ifdef X64
-; @@@ mingw64 crashes with the MSVC import libs, hence use these libs created using dlltool
-Source: ..\..\libs\ReleaseGCCOnly\mingw64\libcg*.a; DestDir: {app}\mingw64\lib; Components: Libs/MinGW
-#endif
-#define MINGWSTATIC(GccVer) \
-  "Source: ..\..\libs\ReleaseGCCOnly_static\mingw" + ArchSuffixMingw + "-gcc-" + GccVer + "\lib*.a; DestDir: {app}\mingw" + ArchSuffixMingw +"-gcc-" + GccVer + "\lib; Components: Libs/MinGW" + NL + \
-  "Source: ..\..\libs\ReleaseGCCOnly\mingw" + ArchSuffixMingw + "-gcc-" + GccVer + "\libbullet*.a; DestDir: {app}\mingw" + ArchSuffixMingw +"-gcc-" + GccVer + "\lib; Components: Libs/MinGW" + NL + \
-  "Source: ..\..\libs\ReleaseGCCOnly\mingw" + ArchSuffixMingw + "-gcc-" + GccVer + "\liblinearmath.a; DestDir: {app}\mingw" + ArchSuffixMingw +"-gcc-" + GccVer + "\lib; Components: Libs/MinGW" + NL + \
-  "Source: ..\..\libs\ReleaseGCCOnly\mingw" + ArchSuffixMingw + "-gcc-" + GccVer + "\libcal3d.a; DestDir: {app}\mingw" + ArchSuffixMingw +"-gcc-" + GccVer + "\lib; Components: Libs/MinGW" + NL + \
-  "Source: ..\..\libs\ReleaseGCCOnly\mingw" + ArchSuffixMingw + "-gcc-" + GccVer + "\libassimp.a; DestDir: {app}\mingw" + ArchSuffixMingw +"-gcc-" + GccVer + "\lib; Components: Libs/MinGW"
-#ifndef X64
-#emit MINGWSTATIC("4.5")
-#emit MINGWSTATIC("4.6")
-#emit MINGWSTATIC("4.7")
-#else
-#emit MINGWSTATIC("4.5")
-#endif
-#endif
-; wxWidgets
-Source: ..\..\libs\ReleaseWXVC8Only{#ArchSuffix}\*.lib; DestDir: {app}\vc\lib; Components: Libs/wxVC
-Source: ..\..\libs\ReleaseWXVC9Only{#ArchSuffix}\*.lib; DestDir: {app}\vc\lib; Components: Libs/wxVC
-Source: ..\..\libs\ReleaseWXVC10Only{#ArchSuffix}\*.lib; DestDir: {app}\vc\lib; Components: Libs/wxVC
-; wxWidgets/MinGW
-#define MINGWWXLINK(GccVer) \
-  "Source: ..\..\libs\prefix-wx\mingw" + ArchSuffixMingw + "-gcc-" + GccVer + "\lib\*.a; DestDir: {app}\mingw" + ArchSuffixMingw +"-gcc-"+ GccVer +"\lib; Components: Libs/wxMinGW"
-#ifndef X64
-#emit MINGWWXLINK("4.5")
-#emit MINGWWXLINK("4.6")
-#emit MINGWWXLINK("4.7")
-#else
-#emit MINGWWXLINK("4.5")
-#endif
-
-; headers
-Source: ..\..\headers\*.*; DestDir: {app}\common\include; Flags: recursesubdirs; Components: Libs/Common
-Source: ..\..\headers-nocygwin\*.*; DestDir: {app}\mingw{#ArchSuffixMingw}\include; Flags: recursesubdirs; Components: Libs/MinGW
-Source: ..\..\headers-nocygwin\*.*; DestDir: {app}\vc\include; Flags: recursesubdirs; Components: Libs/VC
-#ifdef STATIC
-;Source: ..\..\headers_static\*.*; DestDir: {app}\include; Flags: recursesubdirs; Components: Libs/Common
-#else
-;Source: ..\..\headers_dll\*.*; DestDir: {app}\include; Flags: recursesubdirs; Components: Libs/Common
-#endif
-Source: ..\..\nosource\all\OpenAL\include\*.*; DestDir: {app}\common\include\AL; Flags: recursesubdirs; Components: Libs/Common
-Source: ..\..\nosource\all\directx\include\*.*; DestDir: {app}\common\include; Flags: recursesubdirs; Components: Extra/DXHeaders
-Source: ..\..\nosource\all\Cg\include\Cg\*.*; DestDir: {app}\common\include\Cg; Flags: recursesubdirs; Components: Extra/Cg
-; wxWidgets/VC
-Source: ..\..\headers-wx\*.*; DestDir: {app}\vc\include; Flags: recursesubdirs; Components: Libs/wxVC
-; wxWidgets/MinGW
-Source: ..\..\libs\prefix-wx\mingw{#ArchSuffixMingw}-gcc-4.5\include\*; DestDir: {app}\mingw{#ArchSuffixMingw}\include; Flags: recursesubdirs; Components: Libs/wxMinGW
-#define MINGWWXHEADER(GccVer) \
-  "Source: ..\..\libs\prefix-wx\mingw" + ArchSuffixMingw + "-gcc-" + GccVer + "\lib\wx\*; DestDir: {app}\mingw" + ArchSuffixMingw +"-gcc-"+ GccVer +"\lib\wx; Flags: recursesubdirs; Components: Libs/wxMinGW"
-#ifndef X64
-#emit MINGWWXHEADER("4.5")
-#emit MINGWWXHEADER("4.6")
-#emit MINGWWXHEADER("4.7")
-#else
-#emit MINGWWXHEADER("4.5")
-#endif
-
-#ifndef STATIC
-; Debug info
-Source: ..\..\libs\Release{#ArchSuffix}\*.pdb; DestDir: {app}\dlls; Components: Extra/DebugInfo and Libs/Common
-Source: ..\..\libs\ReleaseVC8Only{#ArchSuffix}\*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo and Libs/VC
-Source: ..\..\libs\ReleaseVC9Only{#ArchSuffix}\*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo and Libs/VC
-Source: ..\..\libs\ReleaseVC10Only{#ArchSuffix}\*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo and Libs/VC
-Source: ..\..\libs\ReleaseVC8Only_static{#ArchSuffix}\bullet*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC9Only_static{#ArchSuffix}\bullet*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC10Only_static{#ArchSuffix}\bullet*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseNoCygwin{#ArchSuffix}\*.pdb; DestDir: {app}\dlls; Components: Extra/DebugInfo and Libs/VC
-#ifndef X64
-; @@@ Non-Static doesn't work right yet
-Source: ..\..\libs\ReleaseGCCOnly\mingw{#ArchSuffixMingw}\*.dbg; DestDir: {app}\dlls\mingw{#ArchSuffixMingw}; Components: Extra/DebugInfo and Libs/MinGW
-#else
-; @@@ Non-Static doesn't work right yet
-Source: ..\..\libs\ReleaseGCCOnly_static\mingw{#ArchSuffixMingw}\*.dbg; DestDir: {app}\dlls\mingw{#ArchSuffixMingw}; Components: Extra/DebugInfo and Libs/MinGW
-#endif
-#else
-Source: ..\..\libs\ReleaseVC8Only_static{#ArchSuffix}\lib*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo and Libs/VC
-Source: ..\..\libs\ReleaseVC9Only_static{#ArchSuffix}\lib*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo and Libs/VC
-Source: ..\..\libs\ReleaseVC10Only_static{#ArchSuffix}\lib*.pdb; DestDir: {app}\dlls\vc; Components: Extra/DebugInfo and Libs/VC
-Source: ..\..\libs\ReleaseGCCOnly_static\mingw{#ArchSuffixMingw}\*.dbg; DestDir: {app}\dlls\mingw{#ArchSuffixMingw}; Components: Extra/DebugInfo and Libs/MinGW
-; Always install pdbs for static libs (to avoid compiler complaints)
-Source: ..\..\libs\Release_static{#ArchSuffix}\*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC8Only_static{#ArchSuffix}\bullet*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC8Only_static{#ArchSuffix}\cal3d*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC9Only_static{#ArchSuffix}\bullet*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC9Only_static{#ArchSuffix}\cal3d*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC10Only_static{#ArchSuffix}\bullet*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseVC10Only_static{#ArchSuffix}\cal3d*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
-Source: ..\..\libs\ReleaseNoCygwin_static{#ArchSuffix}\*.pdb; DestDir: {app}\vc\lib; Components: Libs/VC
-#endif
-; wxWidgets
-Source: ..\..\libs\ReleaseWXVC8Only{#ArchSuffix}\*.pdb; DestDir: {app}\dlls\vc; Components: Libs/wxVC and Extra/DebugInfo
-Source: ..\..\libs\ReleaseWXVC9Only{#ArchSuffix}\*.pdb; DestDir: {app}\dlls\vc; Components: Libs/wxVC and Extra/DebugInfo
-Source: ..\..\libs\ReleaseWXVC10Only{#ArchSuffix}\*.pdb; DestDir: {app}\dlls\vc; Components: Libs/wxVC and Extra/DebugInfo
-#define MINGWWXDBG(GccVer) \
-  "Source: ..\..\libs\prefix-wx\mingw" + ArchSuffixMingw + "-gcc-" + GccVer + "\lib\*.dbg; DestDir: {app}\dlls\mingw" + ArchSuffixMingw + "; Components: Libs/wxMinGW and Extra/DebugInfo"
-#ifndef X64
-#emit MINGWWXDBG("4.5")
-#emit MINGWWXDBG("4.6")
-#emit MINGWWXDBG("4.7")
-#else
-#emit MINGWWXDBG("4.5")
-#endif
-Source: ..\..\libs\soft_oal{#ArchSuffix}\soft_oal{#ArchSuffix}.pdb; DestDir: {app}\openal; Components: Extra/OpenAL and Extra/DebugInfo
+#include "..\..\out\install_files.inc"
 
 ; Misc stuff
 Source: ..\..\source\tool\cslibs-config.template; DestDir: {tmp}; Components: Libs/Common; Flags: deleteafterinstall
@@ -320,27 +112,12 @@ Source: ..\..\tools\freetype-config-static; DestDir: {app}\bin; DestName: freety
 #else
 Source: ..\..\tools\freetype-config; DestDir: {app}\bin; Components: Libs/Common
 #endif
-#define MINGWWXCONFIG(GccVer) \
-  "Source: ..\..\libs\prefix-wx\mingw" + ArchSuffixMingw + "-gcc-" + GccVer + "\wx-config*; DestDir: {tmp}; Components: Libs/wxMinGW; Flags: deleteafterinstall"
-#ifndef X64
-#emit MINGWWXCONFIG("4.5")
-#emit MINGWWXCONFIG("4.6")
-#emit MINGWWXCONFIG("4.7")
-#else
-#emit MINGWWXCONFIG("4.5")
-#endif
-#ifndef X64
-Source: ..\..\tools\wx-config; DestDir: {app}\tools; Components: Libs/wxMinGW
-#else
-Source: ..\..\tools\x86_64-w64-mingw32-wx-config; DestDir: {app}\tools; Components: Libs/wxMinGW
-#endif
 Source: ..\..\CrystalSpace home page.url; DestDir: {group}; Check: not WizardNoIcons
 ; stuff that's been compressed already
 Source: ..\..\nosource\all\OpenAL\installer\{#File_OpenALInstaller}; DestDir: {app}\openal; Components: Extra/OpenAL
 Source: ..\..\out\support\VCsupport{#ArchSuffix}.exe; DestDir: {app}; Components: DESupport/VC
 Source: ..\..\out\support\MSYSsupport{#ArchSuffix}.exe; DestDir: {app}; Components: DESupport/MSYS
 #ifndef X64
-Source: ..\..\out\support\Cygwinsupport.exe; DestDir: {app}; Components: DESupport/Cygwin
 Source: ..\..\out\support\Crosssupport.exe; DestDir: {app}; Check: IsWinePresent
 #endif
 Source: ..\..\out\support\CopyDLLs{#ArchSuffix}.exe; DestDir: {app}; Components: Libs/Common Libs/VC Libs/MinGW
@@ -379,7 +156,6 @@ Filename: {app}\CopyDLLs{#ArchSuffix}.exe; Description: Copy DLLs to CS director
 Filename: {app}\VCsupport{#ArchSuffix}.exe; Description: Set up Visual C++ support; Flags: postinstall runascurrentuser; Components: DESupport/VC; WorkingDir: {app}; Parameters: {code:GetSupportParamsSilent}
 Filename: {app}\MSYSsupport{#ArchSuffix}.exe; Description: Set up MSYS support; Flags: postinstall runascurrentuser; Components: DESupport/MSYS; WorkingDir: {app}; Parameters: {code:GetSupportParams}
 #ifndef X64
-Filename: {app}\Cygwinsupport.exe; Description: Set up Cygwin support; Flags: postinstall runascurrentuser; Components: DESupport/Cygwin; WorkingDir: {app}; Parameters: {code:GetSupportParams}
 Filename: {app}\Crosssupport.exe; Description: Set up Cross compiling support; Flags: postinstall; WorkingDir: {app}; Parameters: {code:GetSupportParams}; Check: IsWinePresent
 #endif
 [UninstallRun]
@@ -398,9 +174,6 @@ Name: {group}\Deploying Applications Built Against {#CSLibsOutputName}; Filename
 Name: {group}\Copy DLLs to a CS directory; Filename: {app}\CopyDLLs{#ArchSuffix}.exe; WorkingDir: {app}; Comment: "Copies the 3rd party DLLs to a CS source directory so compiled binaries can find them."; IconIndex: 0; Flags: excludefromshowinnewinstall; Components: Libs/Common Libs/VC Libs/MinGW
 Name: {group}\Set up VC support; Filename: {app}\VCsupport{#ArchSuffix}.exe; WorkingDir: {app}; Comment: "Copies the headers and libraries to your CS source directory so you can use them from VC."; IconIndex: 0; Components: DESupport/VC; Flags: excludefromshowinnewinstall
 Name: {group}\Set up MSYS support; Filename: {app}\MSYSsupport{#ArchSuffix}.exe; WorkingDir: {app}; Comment: "Sets up MSYS so you can use the CrystalSpace libs from there."; IconIndex: 0; Components: DESupport/MSYS; Flags: excludefromshowinnewinstall
-#ifndef X64
-Name: {group}\Set up Cygwin support; Filename: {app}\Cygwinsupport.exe; WorkingDir: {app}; Comment: "Sets up Cygwin so you can use the CrystalSpace libs from there."; IconIndex: 0; Components: DESupport/Cygwin; Flags: excludefromshowinnewinstall
-#endif
 ;Name: "{group}\CrystalSpace home page"; Filename: "{app}\CrystalSpace home page.url"
 Name: {group}\Uninstall {#AppName}; Filename: {uninstallexe}; WorkingDir: {app}; Comment: "Remove the {#AppName} from your system."; Flags: excludefromshowinnewinstall
 [Registry]
@@ -754,36 +527,4 @@ begin
   if CurUninstallStep = usUninstall then begin
     UninstallPreviousDESupport;
   end;
-end;
-
-function ToCygwin (path: String): PAnsiChar;
-external 'ToCygwin@{#SetupToolDll} stdcall';
-
-procedure LibPostInstall();
-var
-  srcFileName: string;
-  pcPath: string;
-  pcFileName: string;
-  currentLib, libname: string;
-  appPath: string;
-  libPath: string;
-begin
-  srcFileName := ExpandConstant (CurrentFileName);;
-  currentLib := ExtractFileName (srcFileName);
-  currentLib := copy(currentLib, 1, Length (currentLib) - 4);
-  if (CompareText (currentlib, 'zlib') = 0) then
-    libname := 'libz'
-  else
-    libname := currentlib;
-  appPath := ExpandConstant ('{app}');
-  pcPath { := appPath + '\mingw\lib\pkgconfig\';}
-    := ExtractFilePath (srcFileName) + 'pkgconfig\';
-  pcFileName := pcPath + currentLib + '.pc';
-  SaveStringToFile (pcFileName, 'prefix=' + ToCygwin (appPath) + #13#10, false);
-  SaveStringToFile (pcFileName, 'Name: ' + libname + #13#10, true);
-  SaveStringToFile (pcFileName, 'Version: 1' + #13#10, true);
-  SaveStringToFile (pcFileName, 'Description: Autogenerated from ' + currentlib + '.lib' + #13#10, true);
-  libPath := copy (srcFileName, Length (appPath)+2, Length (srcFileName));
-  StringChange (libPath, '\', '/');
-  SaveStringToFile (pcFileName, 'Libs: ${prefix}/' + libPath + #13#10, true);
 end;
