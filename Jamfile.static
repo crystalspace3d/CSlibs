@@ -289,3 +289,107 @@ for ARCH in x86 x64
     GrabHeaders libs prefix-wx mingw$(ARCH_SUFFIX_MGW)-gcc-$(mingw) lib wx include : mingw$(ARCH_SUFFIX_MGW)-gcc-$(mingw) lib wx include : wx.gcc$(mingw).$(ARCH) ;
   }
 }
+
+# Installer building
+rule GenerateSetupFiles
+{
+  local out_file = $(1) ;
+  Depends $(out_file) : filelists ;
+  GenerateFilesInc $(out_file) ;
+  return $(out_file) ;
+}
+
+actions GenerateFilesInc
+{
+  python "$(TOP)/bin/generate_iss_files.py" out/lists/*.txt > $(<)
+}
+
+INSTALLER_FILES = install_files.inc ;
+MakeLocate $(INSTALLER_FILES) : out ;
+GenerateSetupFiles $(INSTALLER_FILES) ;
+
+actions RunISCC
+{
+  $(TOP)/bin/wrap-iscc.sh "$(>)"
+}
+rule CompileSetupSupport
+{
+  local outname = $(1) ;
+  local source = $(2) ;
+  
+  local setup_out = $(outname).exe ;
+  local setup_src = $(TOP)/source/setup/$(source).iss ;
+  MakeLocate $(setup_out) : out/support ;
+  RunISCC $(setup_out) : $(setup_src) ;
+  Depends $(setup_out) : $(setup_src) $(TOP)/version.inc ;
+  return $(setup_out) ;
+}
+
+rule CompileMainSetup2
+{
+  local target = $(1) ;
+  local source = $(2) ;
+  local out_prefix = $(3) ;
+  local out_suffix = $(4) ;
+  
+  local setup_out = $(out_prefix)-$(LIBS_VERSION)$(out_suffix).exe ;
+  local setup_src = $(TOP)/source/setup/$(source).iss ;
+  MakeLocate $(setup_out) : out ;
+  RunISCC $(setup_out) : $(setup_src) ;
+  Depends $(setup_out) : $(setup_src) $(TOP)/version.inc $(INSTALLER_FILES)  ;
+  Depends $(target) : $(setup_out) ;
+}
+actions InvokeCompileMainSetup
+{
+  VERSION=`cat $(TOP)/version.inc | grep \".*\" | sed -e 's/#.*\"\(.*\)\"/\\1/'`
+  jam -sLIBS_VERSION=$VERSION -sMAINSETUP_INVOKE=yes $(<)
+}
+rule CompileMainSetup
+{
+  local target = $(1) ;
+  local source = $(2) ;
+  local out_prefix = $(3) ;
+  local out_suffix = $(4) ;
+  if "$(MAINSETUP_INVOKE)" = "yes"
+  {
+    CompileMainSetup2 real_$(target) : $(source) : $(out_prefix) : $(out_suffix) ;
+  }
+  else
+  {
+    InvokeCompileMainSetup real_$(target) ;
+  }
+  Depends $(target) : real_$(target) ;
+}
+
+local ARCH ;
+local MODE ;
+for ARCH in x86 x64
+{
+  local ARCH_SUFFIX = "" ;
+  if $(ARCH) = x64 { ARCH_SUFFIX = "-x64" ; }
+  Depends setup_support_$(ARCH) : [ CompileSetupSupport CopyDLLs$(ARCH_SUFFIX) : CopyToCS$(ARCH_SUFFIX) ] ;
+  for s in MSYSsupport VCsupport 
+  {
+    Depends setup_support_$(ARCH) : [ CompileSetupSupport $(s)$(ARCH_SUFFIX) : $(s)$(ARCH_SUFFIX) ] ;
+  }
+  if $(ARCH) != x64
+  {
+    Depends setup_support_$(ARCH) : [ CompileSetupSupport Crosssupport : Crosssupport ] ;
+  }
+  for MODE in shared static
+  {
+    local MODE_SUFFIX = "" ;
+    if $(MODE) = static { MODE_SUFFIX = "_static" ; }
+    local out_prefix_x86 = "cs-win32libs" ;
+    local out_prefix_x64 = "cs-winlibs-x64" ;
+    local out_suffix_shared = "" ;
+    local out_suffix_static = "-static" ;
+    CompileMainSetup setup_$(ARCH)_$(MODE) : binaries$(MODE_SUFFIX)$(ARCH_SUFFIX) : $(out_prefix_$(ARCH)) : $(out_suffix_$(MODE)) ;
+    Depends setup_$(ARCH)_$(MODE) : setup_support_$(ARCH) ;
+    Depends setup_$(ARCH) : setup_$(ARCH)_$(MODE) ;
+    Depends setup_$(MODE) : setup_$(ARCH)_$(MODE) ;
+    Depends setup : setup_$(ARCH)_$(MODE) ;
+  }
+  
+  Depends setup_support : setup_support_$(ARCH) ;
+}

@@ -1,4 +1,5 @@
 #!env python
+import argparse
 import os
 
 class FilesList(object):
@@ -60,10 +61,14 @@ def GetPackageComponent(list):
     comp = "({0}) and Extra/DebugInfo".format (comp)
   return comp
 
-LISTS_PATH = "out/lists"
+parser = argparse.ArgumentParser(description='Generate InnoSetup [Files] section from list files.')
+parser.add_argument('listfiles', metavar='listfile', nargs='+',
+                    help='list files to process')
+args = parser.parse_args()
+
 all_lists = []
-for listfile in os.listdir(LISTS_PATH):
-  all_lists.append (FilesList(os.path.join(LISTS_PATH, listfile)))
+for listfile in args.listfiles:
+  all_lists.append (FilesList(listfile))
 blocks = {}
 for list in all_lists:
   components = GetPackageComponent(list)
