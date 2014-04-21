@@ -183,14 +183,14 @@ for ARCH in x86 x64
   FileListEntriesData [ Wildcard *.pdb ] : dlls : base-dll-pdb.all.$(ARCH) ;
   SubDir TOP libs Release_static$(ARCH_SUFFIX) ;
   FileListEntriesData [ Wildcard *.lib ] : vc lib : base-static.vc.$(ARCH) ;
-  FileListEntriesData [ Wildcard *.pdb ] : vc lib : base-static.all.$(ARCH) ;
+  FileListEntriesData [ Wildcard *.pdb ] : vc lib : base-static.vc.$(ARCH) ;
   SubDir TOP libs ReleaseNoCygwin$(ARCH_SUFFIX) ;
   FileListEntriesData [ Wildcard *.dll ] : dlls : base-dll.all.$(ARCH) ;
   FileListEntriesData [ Wildcard *.lib ] : common lib : base-dll.all.$(ARCH) ;
   FileListEntriesData [ Wildcard *.pdb ] : dlls : base-dll-pdb.all.$(ARCH) ;
   SubDir TOP libs ReleaseNoCygwin_static$(ARCH_SUFFIX) ;
   FileListEntriesData [ Wildcard *.lib ] : vc lib : base-static.vc.$(ARCH) ;
-  FileListEntriesData [ Wildcard *.pdb ] : vc lib : base-static.all.$(ARCH) ;
+  FileListEntriesData [ Wildcard *.pdb ] : vc lib : base-static.vc.$(ARCH) ;
   SubDir TOP ;
   # Cg libs
   SubDir TOP nosource $(ARCH) Cg dlls ;
@@ -301,12 +301,65 @@ rule GenerateSetupFiles
 
 actions GenerateFilesInc
 {
-  python "$(TOP)/bin/generate_iss_files.py" out/lists/*.txt > $(<)
+  python "$(TOP)/bin/generate_iss_files.py" out/lists/*all.*.txt out/lists/*gcc.*.txt out/lists/*vc.*.txt out/lists/wxconfig.* > $(<)
 }
 
 INSTALLER_FILES = install_files.inc ;
 MakeLocate $(INSTALLER_FILES) : out ;
 GenerateSetupFiles $(INSTALLER_FILES) ;
+
+actions CompressFromLists
+{
+  python "$(TOP)/bin/list_pack_7z.py" -o $(<) $(>)
+}
+
+rule PackLists
+{
+  local target = $(1) ;
+  local lists = $(2) ;
+  local archives ;
+  for l in $(lists)
+  {
+    local archive = $(l).7z ;
+    if "$(HAVE_ARCHIVE_$(archive))" = ""
+    {
+      local listfile = [ ListFile $(l) ] ;
+      MakeLocate $(archive) : out/package ;
+      CompressFromLists $(archive) : $(listfile) ;
+      Depends $(archive) : $(listfile) ;
+      HAVE_ARCHIVE_$(archive) = "yes" ;
+    }
+    Depends $(target) : $(archive) ;
+    archives = $(archives) $(archive) ;
+  }
+  NotFile $(target) ;
+  return $(archives) ;
+}
+
+for ARCH in x86 x64
+{
+  local ARCH_SUFFIX_MGW = "" ;
+  if $(ARCH) = x64 { ARCH_SUFFIX_MGW = "64" ; }
+  local compilers = vc$(VC_VER) gcc$(MINGW$(ARCH_SUFFIX_MGW)_VER) ;
+  PACK_LISTS_$(ARCH)_COMMON =
+    base.$(compilers).$(ARCH)
+    wx.$(compilers).$(ARCH)
+    wx-pdb.$(compilers).$(ARCH)
+    ;
+  PACK_LISTS_$(ARCH)_SHARED =
+    base-dll.$(compilers).$(ARCH)
+    base-dll-pdb.$(compilers).$(ARCH)
+    ;
+  PACK_LISTS_$(ARCH)_STATIC =
+    base-static.$(compilers).$(ARCH)
+    base-static-pdb.$(compilers).$(ARCH)
+    ;
+  PackLists setup_packages_$(ARCH)_common : $(PACK_LISTS_$(ARCH)_COMMON) ;
+  PackLists setup_packages_$(ARCH)_shared : $(PACK_LISTS_$(ARCH)_SHARED) ;
+  PackLists setup_packages_$(ARCH)_static : $(PACK_LISTS_$(ARCH)_STATIC) ;
+  Depends setup_packages_$(ARCH) : setup_packages_$(ARCH)_common setup_packages_$(ARCH)_shared setup_packages_$(ARCH)_static ;
+  Depends setup_packages : setup_packages_$(ARCH) ;
+}
 
 actions RunISCC
 {
@@ -325,24 +378,37 @@ rule CompileSetupSupport
   return $(setup_out) ;
 }
 
+actions GeneratePackagesCode
+{
+  python "$(TOP)/bin/generate_iss_download.py" -c $(<) -r $(<:DB)_run.iss $(>)
+}
+rule BuildPackagesCode
+{
+  local outname = $(1) ;
+  local packages = $(2) ;
+  GeneratePackagesCode $(outname) : $(packages) ;
+}
+
 rule CompileMainSetup2
 {
   local target = $(1) ;
   local source = $(2) ;
   local out_prefix = $(3) ;
   local out_suffix = $(4) ;
+  local extra_deps = $(5) ;
   
   local setup_out = $(out_prefix)-$(LIBS_VERSION)$(out_suffix).exe ;
   local setup_src = $(TOP)/source/setup/$(source).iss ;
   MakeLocate $(setup_out) : out ;
   RunISCC $(setup_out) : $(setup_src) ;
-  Depends $(setup_out) : $(setup_src) $(TOP)/version.inc $(INSTALLER_FILES)  ;
+  Depends $(setup_out) : $(setup_src) $(TOP)/version.inc $(INSTALLER_FILES) $(extra_deps) ;
   Depends $(target) : $(setup_out) ;
 }
 actions InvokeCompileMainSetup
 {
+  source $(TOP)/build-environment
   VERSION=`cat $(TOP)/version.inc | grep \".*\" | sed -e 's/#.*\"\(.*\)\"/\\1/'`
-  jam -sLIBS_VERSION=$VERSION -sMAINSETUP_INVOKE=yes $(<)
+  jam -sLIBS_VERSION=$VERSION -sMAINSETUP_INVOKE=yes $PACKOPTS $(<)
 }
 rule CompileMainSetup
 {
@@ -350,9 +416,17 @@ rule CompileMainSetup
   local source = $(2) ;
   local out_prefix = $(3) ;
   local out_suffix = $(4) ;
+  local packages_file = $(5) ;
+  local pack_lists = $(6) ;
+
+  local package_archives = [ PackLists setup_packages_$(target) : $(pack_lists) ] ;
+  local packages_code = $(packages_file).pas ;
+  MakeLocate $(packages_code) : out ;
+  BuildPackagesCode $(packages_code) : $(package_archives) ;
+  Depends $(packages_code) : setup_packages_$(target) ;
   if "$(MAINSETUP_INVOKE)" = "yes"
   {
-    CompileMainSetup2 real_$(target) : $(source) : $(out_prefix) : $(out_suffix) ;
+    CompileMainSetup2 real_$(target) : $(source) : $(out_prefix) : $(out_suffix) : $(packages_code) ;
   }
   else
   {
@@ -384,7 +458,14 @@ for ARCH in x86 x64
     local out_prefix_x64 = "cs-winlibs-x64" ;
     local out_suffix_shared = "" ;
     local out_suffix_static = "-static" ;
-    CompileMainSetup setup_$(ARCH)_$(MODE) : binaries$(MODE_SUFFIX)$(ARCH_SUFFIX) : $(out_prefix_$(ARCH)) : $(out_suffix_$(MODE)) ;
+    local pack_list ;
+    if $(MODE) = static { pack_list = "STATIC" ; } else { pack_list = "SHARED" ; }
+    CompileMainSetup setup_$(ARCH)_$(MODE)
+      : binaries$(MODE_SUFFIX)$(ARCH_SUFFIX)
+      : $(out_prefix_$(ARCH))
+      : $(out_suffix_$(MODE))
+      : packages_$(ARCH)_$(MODE)
+      : $(PACK_LISTS_$(ARCH)_COMMON) $(PACK_LISTS_$(ARCH)_$(pack_list)) ;
     Depends setup_$(ARCH)_$(MODE) : setup_support_$(ARCH) ;
     Depends setup_$(ARCH) : setup_$(ARCH)_$(MODE) ;
     Depends setup_$(MODE) : setup_$(ARCH)_$(MODE) ;
