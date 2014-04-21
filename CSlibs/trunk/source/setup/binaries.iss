@@ -6,14 +6,6 @@
 #define AppName						CSLibsName
 #endif
 
-#ifdef STATIC
-#define SetupName					CSLibsOutputName + "-" + CSLibsVersion + "-static"
-#define ReadmeFile        "Readme-static.rtf"
-#else
-#define SetupName					CSLibsOutputName + "-" + CSLibsVersion
-#define ReadmeFile        "Readme-standard.rtf"
-#endif
-
 #ifdef X64
 #define ArchName          "x64"
 #define ArchSuffix        "-x64"
@@ -26,16 +18,27 @@
 #define CSLibsConfigName  "cslibs-config"
 #endif
 
+#ifdef STATIC
+#define SetupName					CSLibsOutputName + "-" + CSLibsVersion + "-static"
+#define ReadmeFile        "Readme-static.rtf"
+#define GeneratedFilesSuffix                            ArchName + "_static"
+#else
+#define SetupName					CSLibsOutputName + "-" + CSLibsVersion
+#define ReadmeFile        "Readme-standard.rtf"
+#define GeneratedFilesSuffix                            ArchName + "_shared"
+#endif
+#define PackageDir                                      CSLibsOutputName + "-" + CSLibsVersion
+
 #define AppId						"CrystalSpaceWin32Libs" + ArchSuffix
 
 [Setup]
 SolidCompression=true
 ; Release setting
-Compression=lzma2/ultra64
+;Compression=lzma2/ultra64
 LZMAUseSeparateProcess=yes
 InternalCompressLevel=ultra64
 ; Test setting for quicker results
-;Compression=zip/1
+Compression=zip/1
 ShowLanguageDialog=no
 AppName={#AppName}
 AppId={#AppId}
@@ -75,10 +78,26 @@ Name: xcompile; Description: Cross-compile Typical
 [Components]
 Name: Libs; Description: Win32 libraries; Flags: disablenouninstallwarning
 Name: Libs/Common; Description: Libraries shared by all platforms; Types: custom compact full typVC {#GccTypes}; Flags: disablenouninstallwarning
-Name: Libs/VC; Description: MSVC-only libraries; Types: custom full typVC; Flags: disablenouninstallwarning
-Name: Libs/MinGW; Description: MinGW-only libraries; Types: custom full {#GccTypes}; Flags: disablenouninstallwarning
-Name: Libs/wxVC; Description: wxWidgets (MSVC); Types: custom full typVC; Flags: disablenouninstallwarning
-Name: Libs/wxMinGW; Description: wxWidgets (MinGW); Types: custom full {#GccTypes}; Flags: disablenouninstallwarning
+Name: Libs/WX; Description: wxWidgets; Types: custom full typVC {#GccTypes}; Flags: disablenouninstallwarning
+
+Name: VC; Description: MSVC libraries; Types: custom full typVC; Flags: disablenouninstallwarning checkablealone
+#define VCCOMP(VCVer, OfficialName) \
+  'Name: VC/' + VCVer + '; Description: Libraries for Visual C++ ' + OfficialName + '; Types: custom full typVC; Flags: disablenouninstallwarning'
+#emit VCCOMP("8", "2005")
+#emit VCCOMP("9", "2008")
+#emit VCCOMP("10", "2010")
+
+Name: GCC; Description: MinGW (GCC) libraries; Types: custom full {#GccTypes}; Flags: disablenouninstallwarning checkablealone
+#define MINGWCOMP(GccVer, CompName) \
+  'Name: GCC/' + CompName + '; Description: Libraries for GCC ' + GccVer + '; Types: custom full ' + GccTypes + '; Flags: disablenouninstallwarning'
+#ifndef X64
+#emit MINGWCOMP("4.5", "4_5")
+#emit MINGWCOMP("4.6", "4_6")
+#emit MINGWCOMP("4.7", "4_7")
+#else
+#emit MINGWCOMP("4.5", "4_5")
+#endif
+
 Name: Extra; Description: Additional components; Types: custom full; Flags: disablenouninstallwarning
 Name: Extra/Cg; Description: Cg headers & libraries; Types: custom compact full typVC {#GccTypes}; Flags: disablenouninstallwarning
 Name: Extra/DXHeaders; Description: Minimal DirectX 9 headers; Types: custom full typVC {#GccTypes}; Flags: disablenouninstallwarning
@@ -88,9 +107,10 @@ Name: Extra/pkgconfig; Description: pkg-config build helper; Types: custom full 
 Name: Extra/DebugInfo; Description: Debug information; Types: custom full typVC {#GccTypes_noxcompile}; Flags: disablenouninstallwarning
 Name: Extra/Dbghelp; Description: DbgHelp.dll Debugging helper; Types: custom compact full typVC {#GccTypes_noxcompile}; Flags: disablenouninstallwarning
 Name: Extra/OpenAL; Description: OpenAL (runtime installer, OpenAL Soft); Types: custom full typVC {#GccTypes_noxcompile}; Flags: disablenouninstallwarning
-Name: DESupport; Description: Support for development environments; Types: custom full; Flags: disablenouninstallwarning
-Name: DESupport/VC; Description: Visual C++ 2005, 2008, 2010; Types: custom full typVC; Flags: disablenouninstallwarning
-Name: DESupport/MSYS; Description: MSYS; Types: custom full typMinGW; Flags: disablenouninstallwarning
+
+#pragma include __INCLUDE__ + ";" + SourcePath + "\..\..\source\idp"
+#include <idp.iss>
+
 [Files]
 Source: ..\..\{#ReadmeFile}; DestName: Readme.rtf; DestDir: {app}
 Source: ..\..\Deploying Applications Built Against cs-winlibs.rtf; DestDir: {app}
@@ -98,6 +118,7 @@ Source: ..\..\ChangeLog.txt; DestDir: {app}
 Source: ..\..\version.txt; DestDir: {app}; AfterInstall: WriteVersionTxt
 
 Source: ..\..\tools\Release\setuptool.dll; DestDir: {app}
+Source: ..\..\nosource\seveninstall\SevenInstall.exe; DestDir: {app}
 Source: ..\..\tools\Release\jam.exe; DestDir: {app}\tools; Components: Extra/Jam
 Source: ..\..\tools\Release\pkg-config.exe; DestDir: {app}\tools; Components: Extra/pkgconfig
 
@@ -115,12 +136,12 @@ Source: ..\..\tools\freetype-config; DestDir: {app}\bin; Components: Libs/Common
 Source: ..\..\CrystalSpace home page.url; DestDir: {group}; Check: not WizardNoIcons
 ; stuff that's been compressed already
 Source: ..\..\nosource\all\OpenAL\installer\{#File_OpenALInstaller}; DestDir: {app}\openal; Components: Extra/OpenAL
-Source: ..\..\out\support\VCsupport{#ArchSuffix}.exe; DestDir: {app}; Components: DESupport/VC
-Source: ..\..\out\support\MSYSsupport{#ArchSuffix}.exe; DestDir: {app}; Components: DESupport/MSYS
+Source: ..\..\out\support\VCsupport{#ArchSuffix}.exe; DestDir: {app}; Components: VC
+Source: ..\..\out\support\MSYSsupport{#ArchSuffix}.exe; DestDir: {app}; Components: GCC
 #ifndef X64
 Source: ..\..\out\support\Crosssupport.exe; DestDir: {app}; Check: IsWinePresent
 #endif
-Source: ..\..\out\support\CopyDLLs{#ArchSuffix}.exe; DestDir: {app}; Components: Libs/Common Libs/VC Libs/MinGW
+Source: ..\..\out\support\CopyDLLs{#ArchSuffix}.exe; DestDir: {app}; Components: Libs/Common VC GCC
 [Dirs]
 Name: {app}\tools; Flags: uninsalwaysuninstall
 Name: {app}\support; Flags: uninsalwaysuninstall
@@ -138,23 +159,26 @@ Name: {app}\vc; Flags: uninsalwaysuninstall
 Name: {app}\bin; Flags: uninsalwaysuninstall
 Name: {app}\dlls; Flags: uninsalwaysuninstall
 Name: {app}; Flags: uninsalwaysuninstall
+
+#include "..\..\out\packages_" + GeneratedFilesSuffix + "_run.iss"
+
 [Run]
 Filename: rundll32.exe; Parameters: "{code:GetShortenedAppDir}\setuptool.dll,CreateFromTemplate ""srcpath={tmp}\cslibs-config.template"" ""libspath={code:GetShortenedAppDir}"" ""destpath={app}\tools\{#CSLibsConfigName}"""; StatusMsg: Generating cslibs-config;
-#define MINGWWXCONFIGPREP(GccVer) \
-  'Filename: rundll32.exe; Parameters: "{code:GetShortenedAppDir}\setuptool.dll,CreateFromTemplate ""destpath={app}\tools\wx-config-mingw' + ArchSuffixMingw + '-gcc-' + GccVer + '"" ""srcpath={tmp}\wx-config-mingw' + ArchSuffixMingw + '-gcc-' + GccVer + '"" ""libspath={app}\"""; StatusMsg: Generating wx-config; Components: Libs/wxMinGW'
+#define MINGWWXCONFIGPREP(GccVer, CompName) \
+  'Filename: rundll32.exe; Parameters: "{code:GetShortenedAppDir}\setuptool.dll,CreateFromTemplate ""destpath={app}\tools\wx-config-mingw' + ArchSuffixMingw + '-gcc-' + GccVer + '"" ""srcpath={tmp}\wx-config-mingw' + ArchSuffixMingw + '-gcc-' + GccVer + '"" ""libspath={app}\"""; StatusMsg: Generating wx-config; Components: Libs/WX and GCC/' + CompName
 #ifndef X64
-#emit MINGWWXCONFIGPREP("4.5")
-#emit MINGWWXCONFIGPREP("4.6")
-#emit MINGWWXCONFIGPREP("4.7")
+#emit MINGWWXCONFIGPREP("4.5", "4_5")
+#emit MINGWWXCONFIGPREP("4.6", "4_6")
+#emit MINGWWXCONFIGPREP("4.7", "4_7")
 #else
-#emit MINGWWXCONFIGPREP("4.5")
+#emit MINGWWXCONFIGPREP("4.5", "4_5")
 #endif
-Filename: rundll32.exe; Parameters: "{code:GetShortenedAppDir}\setuptool.dll,CreateFromTemplate ""srcpath={tmp}\bullet.pc"" ""libspath={code:GetShortenedAppDir}"" ""destpath={app}\mingw{#ArchSuffixMingw}\lib\pkgconfig\bullet.pc"""; StatusMsg: Generating bullet.pc; Components: Libs/MinGW
+Filename: rundll32.exe; Parameters: "{code:GetShortenedAppDir}\setuptool.dll,CreateFromTemplate ""srcpath={tmp}\bullet.pc"" ""libspath={code:GetShortenedAppDir}"" ""destpath={app}\mingw{#ArchSuffixMingw}\lib\pkgconfig\bullet.pc"""; StatusMsg: Generating bullet.pc; Components: GCC
 Filename: {app}\openal\{#File_OpenALInstaller}; Parameters: /S; WorkingDir: {app}; Components: Extra/OpenAL; Check: RunOpenALInstaller; StatusMsg: Running OpenAL.org runtime installer
-Filename: {app}\CopyDLLs{#ArchSuffix}.exe; Description: Copy DLLs to CS directory; Flags: postinstall runascurrentuser; WorkingDir: {app}; Parameters: {code:GetSupportParamsSilent}; Check: not CrossPresets; Components: Libs/Common Libs/VC Libs/MinGW
-Filename: {app}\CopyDLLs{#ArchSuffix}.exe; Description: Copy DLLs to CS directory; Flags: postinstall runascurrentuser unchecked; WorkingDir: {app}; Parameters: {code:GetSupportParamsSilent}; Check: CrossPresets; Components: Libs/Common Libs/VC Libs/MinGW
-Filename: {app}\VCsupport{#ArchSuffix}.exe; Description: Set up Visual C++ support; Flags: postinstall runascurrentuser; Components: DESupport/VC; WorkingDir: {app}; Parameters: {code:GetSupportParamsSilent}
-Filename: {app}\MSYSsupport{#ArchSuffix}.exe; Description: Set up MSYS support; Flags: postinstall runascurrentuser; Components: DESupport/MSYS; WorkingDir: {app}; Parameters: {code:GetSupportParams}
+Filename: {app}\CopyDLLs{#ArchSuffix}.exe; Description: Copy DLLs to CS directory; Flags: postinstall runascurrentuser; WorkingDir: {app}; Parameters: {code:GetSupportParamsSilent}; Check: not CrossPresets; Components: Libs/Common VC GCC
+Filename: {app}\CopyDLLs{#ArchSuffix}.exe; Description: Copy DLLs to CS directory; Flags: postinstall runascurrentuser unchecked; WorkingDir: {app}; Parameters: {code:GetSupportParamsSilent}; Check: CrossPresets; Components: Libs/Common VC GCC
+Filename: {app}\VCsupport{#ArchSuffix}.exe; Description: Set up Visual C++ support; Flags: postinstall runascurrentuser; Components: VC; WorkingDir: {app}; Parameters: {code:GetSupportParamsSilent}
+Filename: {app}\MSYSsupport{#ArchSuffix}.exe; Description: Set up MSYS support; Flags: postinstall runascurrentuser; Components: GCC; WorkingDir: {app}; Parameters: {code:GetSupportParams}
 #ifndef X64
 Filename: {app}\Crosssupport.exe; Description: Set up Cross compiling support; Flags: postinstall; WorkingDir: {app}; Parameters: {code:GetSupportParams}; Check: IsWinePresent
 #endif
@@ -171,9 +195,9 @@ Name: {app}\tools\wx-config*; Type: filesandordirs
 [Icons]
 Name: {group}\Read Me; Filename: {app}\Readme.rtf; WorkingDir: {app}; Comment: "Important informations, known issues and solutions."; Flags: excludefromshowinnewinstall
 Name: {group}\Deploying Applications Built Against {#CSLibsOutputName}; Filename: {app}\Deploying Applications Built Against cs-winlibs.rtf; WorkingDir: {app}; Comment: "Information on picking the right files from {#CSLibsOutputName} when packaging applications for distribution"; Flags: excludefromshowinnewinstall
-Name: {group}\Copy DLLs to a CS directory; Filename: {app}\CopyDLLs{#ArchSuffix}.exe; WorkingDir: {app}; Comment: "Copies the 3rd party DLLs to a CS source directory so compiled binaries can find them."; IconIndex: 0; Flags: excludefromshowinnewinstall; Components: Libs/Common Libs/VC Libs/MinGW
-Name: {group}\Set up VC support; Filename: {app}\VCsupport{#ArchSuffix}.exe; WorkingDir: {app}; Comment: "Copies the headers and libraries to your CS source directory so you can use them from VC."; IconIndex: 0; Components: DESupport/VC; Flags: excludefromshowinnewinstall
-Name: {group}\Set up MSYS support; Filename: {app}\MSYSsupport{#ArchSuffix}.exe; WorkingDir: {app}; Comment: "Sets up MSYS so you can use the CrystalSpace libs from there."; IconIndex: 0; Components: DESupport/MSYS; Flags: excludefromshowinnewinstall
+Name: {group}\Copy DLLs to a CS directory; Filename: {app}\CopyDLLs{#ArchSuffix}.exe; WorkingDir: {app}; Comment: "Copies the 3rd party DLLs to a CS source directory so compiled binaries can find them."; IconIndex: 0; Flags: excludefromshowinnewinstall; Components: Libs/Common VC GCC
+Name: {group}\Set up VC support; Filename: {app}\VCsupport{#ArchSuffix}.exe; WorkingDir: {app}; Comment: "Copies the headers and libraries to your CS source directory so you can use them from VC."; IconIndex: 0; Components: VC; Flags: excludefromshowinnewinstall
+Name: {group}\Set up MSYS support; Filename: {app}\MSYSsupport{#ArchSuffix}.exe; WorkingDir: {app}; Comment: "Sets up MSYS so you can use the CrystalSpace libs from there."; IconIndex: 0; Components: GCC; Flags: excludefromshowinnewinstall
 ;Name: "{group}\CrystalSpace home page"; Filename: "{app}\CrystalSpace home page.url"
 Name: {group}\Uninstall {#AppName}; Filename: {uninstallexe}; WorkingDir: {app}; Comment: "Remove the {#AppName} from your system."; Flags: excludefromshowinnewinstall
 [Registry]
@@ -206,16 +230,26 @@ NoProgramGroupCheck2=&Don't create a Start Menu folder (not recommended)
 #include "wine.inc"
 
 var
+  packagesGUID: String;
+
+#include "download\defs.pas"
+#include "..\..\out\packages_" + GeneratedFilesSuffix + ".pas"
+#include "download\download.pas"
+
+var
   uninstallPage: TInputOptionWizardPage;
   wineSettingsPage: TInputOptionWizardPage;
   openALinstallPage: TInputOptionWizardPage;
   CSdirPage: TInputDirWizardPage;
   UninstPrevProgress: TOutputProgressWizardPage;
+  SelectPackagesProgress: TOutputProgressWizardPage;
+  VerifyPackagesProgress: TOutputProgressWizardPage;
   silentType: integer;
   crossCompileInstallType: boolean;
   
 const
   UninstKey = 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{#AppId}_is1';
+  DownloadBaseURL = 'http://192.168.1.33/~res/packages/';
 
 function GetDefaultCSdir(): string;
 var
@@ -260,15 +294,33 @@ begin
   end;
 end;
 
+function CoCreateGuid(var Guid:TGuid):integer;
+  external 'CoCreateGuid@ole32.dll stdcall';
+
+function GUIDToString (guid: TGUID): String;
+begin
+  Result := Format ('%08x-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x', [
+                    guid.d1, guid.d2, guid.d3,
+                    guid.d4[0], guid.d4[1], guid.d4[2], guid.d4[3], 
+                    guid.d4[4], guid.d4[5], guid.d4[6], guid.d4[7]]);
+end;
+
 function InitializeSetup(): boolean;
+var
+  guid: TGUID;
 begin
   CheckSilentType();
+  InitPackages ();
   Result := true;
+  CoCreateGuid (guid);
+  packagesGUID := GUIDToString (guid);
 end;
 
 function InitializeUninstall(): boolean;
 begin
+  packagesGUID := GetPreviousData ('PackagesGUID', '');
   CheckSilentType();
+  InitPackages ();
   Result := true;
 end;
 
@@ -325,14 +377,26 @@ begin
   
   UninstPrevProgress := CreateOutputProgressPage ('Uninstall already installed version',
     'Uninstalling the already installed version.');
+  
+  SelectPackagesProgress := CreateOutputProgressPage ('Downloading additional data',
+    'Determining additional data to download.');
+  SelectPackagesProgress.Msg1Label.Caption := 'Verifying previously downloaded packages...';
+  VerifyPackagesProgress := CreateOutputProgressPage ('Verifying downloaded packages',
+    'Checking the downloaded data for correctness.');
+  VerifyPackagesProgress .Msg1Label.Caption := 'Verifying downloaded packages...';
+  
+  idpDownloadAfter(wpReady);
 end;
 
 procedure RegisterPreviousData(PreviousDataKey: Integer);
 begin
+  Log (Format ('RegisterPreviousData(%d)', [PreviousDataKey]));
   SetPreviousData(PreviousDataKey, 'InstallOpenALRT', BoolToStr (openALinstallPage.Values[0]));
   SetPreviousData(PreviousDataKey, 'CSDirectory', CSdirPage.Values[0]);
   if (wineSettingsPage<> nil) then
     SetPreviousData(PreviousDataKey, 'WineEnvironment', BoolToStr (wineSettingsPage.Values[0]));
+  SetPreviousData (PreviousDataKey, 'PackagesGUID', packagesGUID);
+  SavePackagesToPreviousData(PreviousDataKey);
 end;
 
 function GetCSdir(Default: String): string;
@@ -442,14 +506,46 @@ begin
   UninstPrevProgress.Hide ();
 end;
 
+function FDoCheckPackages(): boolean;
+begin
+  SelectPackagesProgress.Show ();
+  CheckPackagesExists (SelectPackagesProgress);
+  SelectPackagesProgress.Hide ();
+  Result := True;
+end;
+
+function FDoVerifyDownloadedPackages(): boolean;
+begin
+  VerifyPackagesProgress.Show ();
+  VerifyDownloadedPackages (VerifyPackagesProgress);
+  VerifyPackagesProgress.Hide ();
+  Result := True;
+end;
+
 function NextButtonClick(CurPage: Integer): Boolean;
 begin
   Result := true;
   if (CurPage = wpSelectDir) then begin
     if (not IsDestinationOk()) then
      Result := SpaceInDestMsg();
-  end else if (CurPage = wpReady) and (uninstallPage.Values[0]) then begin
-    Result := FDoUninstPrev;
+  end else if (CurPage = wpReady) then begin
+    if (uninstallPage.Values[0]) then
+    begin
+      Result := FDoUninstPrev;
+    end;
+    { Select packages to download }
+    if (Result) then
+    begin
+      SelectPackages;
+      Result := FDoCheckPackages;
+      if Result then
+      begin
+        EmitPackagesForDownload(DownloadBaseURL);
+      end
+    end;
+  end else if (CurPage = IDPForm.Page.ID) then begin
+    { Verify packages }
+    FDoVerifyDownloadedPackages;
   end;
 end;
 
