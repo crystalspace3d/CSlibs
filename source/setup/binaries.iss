@@ -80,22 +80,27 @@ Name: Libs; Description: Win32 libraries; Flags: disablenouninstallwarning
 Name: Libs/Common; Description: Libraries shared by all platforms; Types: custom compact full typVC {#GccTypes}; Flags: disablenouninstallwarning
 Name: Libs/WX; Description: wxWidgets; Types: custom full typVC {#GccTypes}; Flags: disablenouninstallwarning
 
+; Space required for each (full) set of packages for a compiler
+; (Actual size may vary, as it depends on WX and Debug Info selections,
+; but that can't be expressed - so to be conservative the total is used.)
+#include "..\..\out\packages_" + GeneratedFilesSuffix + "_extraspace.inc"
+
 Name: VC; Description: MSVC libraries; Types: custom full typVC; Flags: disablenouninstallwarning checkablealone
-#define VCCOMP(VCVer, OfficialName) \
-  'Name: VC/' + VCVer + '; Description: Libraries for Visual C++ ' + OfficialName + '; Types: custom full typVC; Flags: disablenouninstallwarning'
-#emit VCCOMP("8", "2005")
-#emit VCCOMP("9", "2008")
-#emit VCCOMP("10", "2010")
+#define VCCOMP(VCVer, OfficialName, ExtraSize) \
+  'Name: VC/' + VCVer + '; Description: Libraries for Visual C++ ' + OfficialName + '; Types: custom full typVC; Flags: disablenouninstallwarning; ExtraDiskSpaceRequired: ' + Str(ExtraSize)
+#emit VCCOMP("8", "2005", ExtraSize_VC8)
+#emit VCCOMP("9", "2008", ExtraSize_VC9)
+#emit VCCOMP("10", "2010", ExtraSize_VC10)
 
 Name: GCC; Description: MinGW (GCC) libraries; Types: custom full {#GccTypes}; Flags: disablenouninstallwarning checkablealone
-#define MINGWCOMP(GccVer, CompName) \
-  'Name: GCC/' + CompName + '; Description: Libraries for GCC ' + GccVer + '; Types: custom full ' + GccTypes + '; Flags: disablenouninstallwarning'
+#define MINGWCOMP(GccVer, CompName, ExtraSize) \
+  'Name: GCC/' + CompName + '; Description: Libraries for GCC ' + GccVer + '; Types: custom full ' + GccTypes + '; Flags: disablenouninstallwarning; ExtraDiskSpaceRequired: ' + Str(ExtraSize)
 #ifndef X64
-#emit MINGWCOMP("4.5", "4_5")
-#emit MINGWCOMP("4.6", "4_6")
-#emit MINGWCOMP("4.7", "4_7")
+#emit MINGWCOMP("4.5", "4_5", ExtraSize_GCC4_5)
+#emit MINGWCOMP("4.6", "4_6", ExtraSize_GCC4_6)
+#emit MINGWCOMP("4.7", "4_7", ExtraSize_GCC4_7)
 #else
-#emit MINGWCOMP("4.5", "4_5")
+#emit MINGWCOMP("4.5", "4_5", ExtraSize_GCC4_5)
 #endif
 
 Name: Extra; Description: Additional components; Types: custom full; Flags: disablenouninstallwarning

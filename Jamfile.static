@@ -380,7 +380,7 @@ rule CompileSetupSupport
 
 actions GeneratePackagesCode
 {
-  python "$(TOP)/bin/generate_iss_download.py" -c $(<) -r $(<:DB)_run.iss $(>)
+  python "$(TOP)/bin/generate_iss_download.py" -c $(<) -r $(<:DB)_run.iss -x $(<:DB)_extraspace.inc $(>)
 }
 rule BuildPackagesCode
 {
