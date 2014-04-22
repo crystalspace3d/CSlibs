@@ -30,19 +30,30 @@ parser.add_argument('-c', '--code', dest='code_file', metavar='script', required
                     help='file to write [Code] to')
 parser.add_argument('-r', '--run', dest='run_file', metavar='script', required=True,
                     help='file to write [Run] sections to')
+parser.add_argument('-x', '--extrainc', dest='extra_inc', metavar='script', required=True,
+                    help='file to write extra component size definitions to')
 args = parser.parse_args()
 
 templates_path = os.path.dirname(__file__) + "/downloadcode_templates/"
 code_template = pyratemp.Template (filename=templates_path + "code.pas")
 run_template = pyratemp.Template (filename=templates_path + "run.iss")
+extrasize_template = pyratemp.Template (filename=templates_path + "extrasize.inc")
 
 packages = {}
+totalsizes = {}
 for package in args.packages:
   with open(package, 'rb') as f:
     sha1hash = hashlib.sha1(f.read()).hexdigest()
   package_fn = os.path.basename(package)
   list_name = os.path.splitext(package_fn)[0]
-  packages[list_name] = Package (list_name, package, sha1hash)
+  package_obj = Package (list_name, package, sha1hash)
+  packages[list_name] = package_obj
+  with open(package + ".total", 'r') as f:
+    totalsize = int(f.read())
+  compiler = package_obj.listname.compiler.replace('.', '_').upper()
+  if not compiler in totalsizes:
+    totalsizes[compiler] = 0
+  totalsizes[compiler] += totalsize
 
 code = code_template(packages=packages)
 with open(args.code_file, "wb") as f:
@@ -51,3 +62,7 @@ with open(args.code_file, "wb") as f:
 run = run_template(packages=packages)
 with open(args.run_file, "wb") as f:
   f.write(run)
+
+extrasize = extrasize_template(totalsizes=totalsizes)
+with open(args.extra_inc, "wb") as f:
+  f.write(extrasize)
