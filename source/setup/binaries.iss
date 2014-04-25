@@ -390,7 +390,8 @@ begin
     'Checking the downloaded data for correctness.');
   VerifyPackagesProgress .Msg1Label.Caption := 'Verifying downloaded packages...';
   
-  idpDownloadAfter(wpReady);
+  { Silent mode: no automatic download UI }
+  if silentType = 0 then idpDownloadAfter(wpReady);
 end;
 
 procedure RegisterPreviousData(PreviousDataKey: Integer);
@@ -546,9 +547,15 @@ begin
       if Result then
       begin
         EmitPackagesForDownload(DownloadBaseURL);
+        if silentType <> 0 then
+        begin
+          { Silent mode doesn't trigger download on page activation }
+          idpDownloadFiles;
+          FDoVerifyDownloadedPackages;
+        end;
       end
     end;
-  end else if (CurPage = IDPForm.Page.ID) then begin
+  end else if (IDPForm.Page <> nil) and (CurPage = IDPForm.Page.ID) then begin
     { Verify packages }
     FDoVerifyDownloadedPackages;
   end;
