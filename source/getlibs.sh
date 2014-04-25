@@ -13,8 +13,8 @@ scripts/url-get pkg-config http://ftp.gnome.org/pub/gnome/binaries/win32/depende
 # Base libs
 scripts/url-get libpng "http://downloads.sourceforge.net/project/libpng/libpng15/older-releases/1.5.13/libpng-1.5.13.tar.xz?r=&ts=1364743129&use_mirror=switch" \
   libpng-1.5.13 xz
-scripts/url-get libz http://zlib.net/zlib-1.2.7.tar.bz2 \
-  zlib-1.2.7 bz2
+scripts/url-get libz http://zlib.net/zlib-1.2.8.tar.xz \
+  zlib-1.2.8 xz
 scripts/url-get libjpeg http://ijg.org/files/jpegsrc.v8d.tar.gz \
   jpeg-8d gz
 scripts/url-get libmng "http://downloads.sourceforge.net/project/libmng/libmng-devel/1.0.10/libmng-1.0.10.tar.bz2?r=&ts=1356288132&use_mirror=netcologne" \
