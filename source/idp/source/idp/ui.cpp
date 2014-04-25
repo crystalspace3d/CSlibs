@@ -189,10 +189,7 @@ void UI::lockButtons()
 { 
 	if(controls["BackButton"])
 	{
-		if(hasRetryButton)
-			ShowWindow(controls["BackButton"], SW_HIDE);
-		else
-			EnableWindow(controls["BackButton"], FALSE);
+		EnableWindow(controls["BackButton"], FALSE);
 	}
 
 	if(controls["NextButton"])
@@ -203,10 +200,7 @@ void UI::unlockButtons()
 { 
 	if(controls["BackButton"])
 	{
-		if(hasRetryButton)
-			ShowWindow(controls["BackButton"], SW_SHOW);
-		else
-			EnableWindow(controls["BackButton"], TRUE);
+		EnableWindow(controls["BackButton"], TRUE);
 	}
 
 	if(controls["NextButton"])
