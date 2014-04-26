@@ -4,6 +4,7 @@
  - Updated libjpeg to 9a.
  - Updated libmng to 2.0.2.
  - Updated libogg to 1.3.1.
+ - Updated libvorbis to 1.3.4.
 
 2.1_003 (2013-02-10):
  - Updated wxWidgets to 2.9.4.
