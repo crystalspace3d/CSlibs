@@ -1,0 +1,10 @@
+--- libmng_types.h.org	2014-04-26 22:10:44 +0200
++++ libmng_types.h	2014-04-26 23:21:54 +0200
+@@ -204,6 +204,7 @@
+ #define HAVE_BOOLEAN
+ typedef int boolean;
+ #endif
++#include <stdio.h>
+ #include <jpeglib.h>
+ #endif /* MNG_INCLUDE_IJG6B */
+ 

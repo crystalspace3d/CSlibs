@@ -17,8 +17,8 @@ scripts/url-get libz http://zlib.net/zlib-1.2.8.tar.xz \
   zlib-1.2.8 xz
 scripts/url-get libjpeg http://ijg.org/files/jpegsrc.v9a.tar.gz \
   jpeg-9a gz
-scripts/url-get libmng "http://downloads.sourceforge.net/project/libmng/libmng-devel/1.0.10/libmng-1.0.10.tar.bz2?r=&ts=1356288132&use_mirror=netcologne" \
-  libmng-1.0.10 bz2
+scripts/url-get libmng "http://downloads.sourceforge.net/project/libmng/libmng-devel/2.0.2/libmng-2.0.2.tar.xz?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Flibmng%2Ffiles%2Flibmng-devel%2F2.0.2%2F&ts=1398542963&use_mirror=heanet" \
+  libmng-2.0.2 xz
 scripts/url-get libogg http://downloads.xiph.org/releases/ogg/libogg-1.3.0.tar.gz \
   libogg-1.3.0 gz
 scripts/url-get libspeex http://downloads.xiph.org/releases/speex/speex-1.2rc1.tar.gz \

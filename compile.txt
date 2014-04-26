@@ -23,6 +23,7 @@ e.g. "./copy-winddk-files.sh /c/WinDDK/7600.16385.0". Libraries will fail to
 link if this isn't done.
 
 Before starting the building you need to do the following:
+- libmng: remove: config.h, config.status
 - libpcre: copy pcre_chartables.c.dist to pcre_chartables.c;
     copy pcre.h.generic to pcre.h
 
@@ -34,7 +35,7 @@ order:
 
 The MinGW-only libs can be built by running build_mingw.sh. Some libraries
 may need special preparations:
-- libmng: run unmaintained/autogen.sh
+- libmng: run ./bootstrap.sh
 - libode: run ./autogen.sh
 - libcal3d: 
     Run "aclocal && autoconf && autoheader && libtoolize -c && automake --add-missing".

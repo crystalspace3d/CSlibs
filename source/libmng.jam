@@ -5,17 +5,9 @@ BaseLib mng :
   [ Wildcard *.c *.h ] : 
   libmng :
   $(SUBDIR)/../libmng.def :
-  $(SUBDIR)/../libz $(SUBDIR)/../configs $(SUBDIR)/../configs/libjpeg $(SUBDIR)/../libjpeg ;
+  $(SUBDIR)/../libz $(SUBDIR)/../configs $(SUBDIR)/../configs/libjpeg $(SUBDIR)/../libjpeg $(SUBDIR)/../configs/libmng ;
 LibDepends mng : z jpeg ;
 MNG_DEFINES =
-  MNG_SUPPORT_FULL  
-  MNG_NO_CMS  
-  MNG_ACCESS_CHUNKS  
-  MNG_STORE_CHUNKS  
-  MNG_SUPPORT_WRITE  
-  MNG_SUPPORT_READ  
-  MNG_SUPPORT_DISPLAY  
-  MNG_ERROR_TELLTALE  
   MNG_ACCESS_ZLIB  
   MNG_ACCESS_JPEG  
   MNG_SKIPCANVAS_ABGR8  
