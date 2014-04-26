@@ -8,11 +8,13 @@ ignorantcopy() {
   IFS=$'\n\r'
   
   # Generate ignored file list
-  local IGNORED=`svn pg svn:ignore ${SRC}`
+  local IGNORED=`svn pg svn:ignore ${SRC} 2> /dev/null`
   local LSOPT="-I CVS -I .svn -I .hg"
+  set -f
   for i in ${IGNORED} ; do
     local LSOPT="${LSOPT} -I \"${i}\""
   done
+  set +f
   
   # Generate list of files to copy
   local FILELIST=`sh -c "ls -A -1 ${LSOPT} ${SRC}/"`
@@ -47,7 +49,8 @@ ignorantcopy2() {
   # Construct sources list/recursively copy dirs
   for f in ${FILELIST} ; do
     if [ -d ${SRC}/${f} ] ; then
-      ignorantcopy2 ${SRC}/${f} ${DST}/${f}
+      # Subdirectories: Respect ignored files again
+      ignorantcopy ${SRC}/${f} ${DST}/${f}
     else
       local SRCLIST="${SRCLIST} \"${SRC}/${f}\""
     fi
@@ -67,7 +70,7 @@ fi
 
 VERSION=`cat version.inc | grep \".*\" | sed -e 's/#.*\"\(.*\)\"/\\1/'`
 PACKAGE="cs-winlibs-${VERSION}-src"
-TARNAME="${PACKAGE}.tar.bz2"
+TARNAME="${PACKAGE}.tar.xz"
 TOP="`pwd`"
 
 ignorantcopy . ${WORKDIR}/${PACKAGE}
@@ -76,4 +79,4 @@ cd ${WORKDIR}
 # Copy actual lib sources.
 ignorantcopy2 ${TOP}/source ${PACKAGE}/source/
 
-tar -cvjf ${TOP}/out/${TARNAME} ${PACKAGE}
+tar -cvJf ${TOP}/out/${TARNAME} ${PACKAGE}
