@@ -1,5 +1,5 @@
-#define VER_PRODUCT_NUMERIC	1,0,10,0
-#define	VER_PRODUCT_STR		"1.0.10"
+#define VER_PRODUCT_NUMERIC	2,0,2,0
+#define	VER_PRODUCT_STR		"2.0.2"
 #define	VER_DESCRIPTION		"LibMNG"
 #define VER_INTERNAL		"libmng"
 #define	VER_COPYRIGHT		"Copyright (c) 2000-2007 Gerard Juyn (gerard@libmng.com)."
