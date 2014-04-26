@@ -15,8 +15,8 @@ scripts/url-get libpng "http://downloads.sourceforge.net/project/libpng/libpng15
   libpng-1.5.13 xz
 scripts/url-get libz http://zlib.net/zlib-1.2.8.tar.xz \
   zlib-1.2.8 xz
-scripts/url-get libjpeg http://ijg.org/files/jpegsrc.v8d.tar.gz \
-  jpeg-8d gz
+scripts/url-get libjpeg http://ijg.org/files/jpegsrc.v9a.tar.gz \
+  jpeg-9a gz
 scripts/url-get libmng "http://downloads.sourceforge.net/project/libmng/libmng-devel/1.0.10/libmng-1.0.10.tar.bz2?r=&ts=1356288132&use_mirror=netcologne" \
   libmng-1.0.10 bz2
 scripts/url-get libogg http://downloads.xiph.org/releases/ogg/libogg-1.3.0.tar.gz \

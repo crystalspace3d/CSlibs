@@ -1,6 +1,7 @@
 2.1_004 (2014-??-??):
  - Changed installer to download the compiler-dependent libs.
  - Updated libz to 1.2.8.
+ - Updated libjpeg to 9a.
 
 2.1_003 (2013-02-10):
  - Updated wxWidgets to 2.9.4.
