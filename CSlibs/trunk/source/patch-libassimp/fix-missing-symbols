@@ -1,0 +1,20 @@
+--- include/assimp/material.inl.org	2013-03-31 17:09:51 +0200
++++ include/assimp/material.inl	2014-05-02 22:52:17 +0200
+@@ -176,7 +176,7 @@
+ }
+ 
+ 
+-#ifndef ASSIMP_BUILD_NO_EXPORT
++//#ifndef ASSIMP_BUILD_NO_EXPORT
+ 
+ // ---------------------------------------------------------------------------
+ template<class TYPE>
+@@ -269,7 +269,7 @@
+ 		pKey,type,index,aiPTI_Integer);
+ }
+ 
+-#endif
++//#endif
+ 
+ //! @endcond
+ 
