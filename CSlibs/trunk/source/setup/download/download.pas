@@ -11,12 +11,34 @@ begin
   end;
 end;
 
-procedure CheckPackageExists (download_dir: String; var package: TDownloadPackage);
+function CheckPackageExistsDev (dev_package_dir: String; var package: TDownloadPackage): boolean;
+var
+  filename: String;
+  hash: String;
+begin
+  Result := false;
+  { Check 'developer' location }
+  filename := Format ('%s\%s.%s', [dev_package_dir, package.name, packageExt]);
+  if FileExists (filename) then
+  begin
+    hash := GetSHA1OfFile (filename);
+    if CompareText (hash, package.hash) = 0 then
+    begin
+      Log(Format('Using package file: %s', [filename]));
+      package.state := psVerified;
+      package.download_file := filename;
+      Result := true;
+    end;
+  end;
+end;
+
+procedure CheckPackageExistsDL (download_dir: String; var package: TDownloadPackage);
 var
   filename: String;
   n: integer;
   hash: String;
 begin
+  { Check location for automatic download }
   filename := Format ('%s\%s.%s', [download_dir, package.name, packageExt]);
   n := 0;
   while true do
@@ -51,11 +73,19 @@ begin
   end;
 end;
 
+procedure CheckPackageExists (dev_package_dir, download_dir: String; var package: TDownloadPackage);
+begin
+  if not CheckPackageExistsDev (dev_package_dir, package) then
+    CheckPackageExistsDL (download_dir, package);
+end;
+
 procedure CheckPackagesExists (progress: TOutputProgressWizardPage);
 var
   p: integer;
+  dev_package_dir: String;
   download_dir: String;
 begin
+  dev_package_dir := ExpandConstant('{src}\package\');
   download_dir := ExpandConstant('{src}\{#PackageDir}\');
   if progress <> nil then
   begin
@@ -70,7 +100,7 @@ begin
     end;
     if allPackages[p].state = psUnverified then
     begin
-      CheckPackageExists (download_dir, allPackages[p]);
+      CheckPackageExists (dev_package_dir, download_dir, allPackages[p]);
     end;
   end;
   if progress <> nil then
