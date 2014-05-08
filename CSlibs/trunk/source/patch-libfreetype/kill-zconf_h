@@ -286,3 +286,14 @@ diff -uNr ../libfreetype.old/src/gzip/zconf.h ./src/gzip/zconf.h
 -#endif
 -
 -#endif /* _ZCONF_H */
+diff -ru ../libfreetype.org//src/gzip/rules.mk ./src/gzip/rules.mk
+--- ../libfreetype.org//src/gzip/rules.mk	2014-04-27 00:30:24 +0200
++++ ./src/gzip/rules.mk	2014-04-27 13:54:36 +0200
+@@ -45,7 +45,6 @@
+                  $(GZIP_DIR)/inftrees.h \
+                  $(GZIP_DIR)/infutil.c  \
+                  $(GZIP_DIR)/infutil.h  \
+-                 $(GZIP_DIR)/zconf.h    \
+                  $(GZIP_DIR)/zlib.h     \
+                  $(GZIP_DIR)/zutil.c    \
+                  $(GZIP_DIR)/zutil.h

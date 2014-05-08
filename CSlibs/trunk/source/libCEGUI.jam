@@ -79,7 +79,7 @@ ExtraLib CEGUIBase_static :
     "CEGUI_TINYXML_NAMESPACE=CEGUITinyXML"
   :
   ReleaseVC$(MSVCGEN_VERSION)Only_static :
-  z_static freetype2_static pcre_static :
+  z_static png_static freetype2_static pcre_static :
   libCEGUIBase-csvc$(MSVCGEN_VERSION) ;
 
 MsvcDefine CEGUIBase_static : "CEGUI_BUILD_SUFFIX=\"-csvc$(MSVCGEN_VERSION)\"" ;

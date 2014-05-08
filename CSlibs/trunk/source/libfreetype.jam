@@ -1,6 +1,6 @@
 SubDir TOP source libfreetype ;
 
-MsvcSetTargetProp freetype2 : delayload : libz-cs libz-cs-x64 ;
+MsvcSetTargetProp freetype2 : delayload : libz-cs libz-cs-x64 libpng-cs libpng-cs-x64 ;
 BaseLib freetype2 :
   src/base/ftsystem.c src/base/ftinit.c src/base/ftdebug.c src/base/ftbase.c
   src/base/ftglyph.c src/base/ftbitmap.c src/base/fttype1.c
@@ -15,8 +15,8 @@ BaseLib freetype2 :
   src/lzw/ftlzw.c : 
   freetype2 :
   :
-  $(SUBDIR)/../libz $(SUBDIR)/../configs $(SUBDIR)/include ;
-LibDepends freetype2 : z ;
+  $(SUBDIR)/../configs/freetype $(SUBDIR)/../libz $(SUBDIR)/../configs $(SUBDIR)/../libpng $(SUBDIR)/include ;
+LibDepends freetype2 : png z ;
 MsvcDefine freetype2 : LIBFREETYPE2_EXPORTS ;
 MsvcDefine freetype2 : FT2_BUILD_LIBRARY ;
 MsvcDefine freetype2_static : FT2_BUILD_LIBRARY ;

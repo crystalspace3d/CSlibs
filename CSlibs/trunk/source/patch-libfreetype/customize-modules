@@ -1,5 +1,5 @@
---- modules.cfg.orig	2012-06-09 20:32:01 +0200
-+++ modules.cfg	2012-06-09 20:35:40 +0200
+--- modules.cfg.orig	2014-04-27 00:30:10 +0200
++++ modules.cfg	2014-04-27 00:35:51 +0200
 @@ -37,29 +37,29 @@
  # PostScript Type 1 font driver.
  #
@@ -44,11 +44,11 @@
 +#HINTING_MODULES += pshinter
  
  # The TrueType hinting engine doesn't have a module of its own but is
- # controlled in file include/freetype/config/ftoption.h
+ # controlled in file include/config/ftoption.h
 @@ -107,7 +107,7 @@
  # FreeType's cache sub-system (quite stable but still in beta -- this means
  # that its public API is subject to change if necessary).  See
- # include/freetype/ftcache.h.  Needs ftglyph.c.
+ # include/ftcache.h.  Needs ftglyph.c.
 -AUX_MODULES += cache
 +#AUX_MODULES += cache
  
@@ -66,7 +66,7 @@
 @@ -186,7 +186,7 @@
  # Interface for gxvalid module.
  #
- # See include/freetype/ftgxval.h for the API.
+ # See include/ftgxval.h for the API.
 -BASE_EXTENSIONS += ftgxval.c
 +#BASE_EXTENSIONS += ftgxval.c
  
@@ -75,7 +75,7 @@
 @@ -201,7 +201,7 @@
  # Interface for otvalid module.
  #
- # See include/freetype/ftotval.h for the API.
+ # See include/ftotval.h for the API.
 -BASE_EXTENSIONS += ftotval.c
 +#BASE_EXTENSIONS += ftotval.c
  
@@ -84,7 +84,7 @@
 @@ -211,7 +211,7 @@
  # Interface for accessing PFR-specific data.  Needs PFR font driver.
  #
- # See include/freetype/ftpfr.h for the API.
+ # See include/ftpfr.h for the API.
 -BASE_EXTENSIONS += ftpfr.c
 +#BASE_EXTENSIONS += ftpfr.c
  
@@ -93,13 +93,13 @@
 @@ -233,12 +233,12 @@
  # driver.
  #
- # See include/freetype/ftwinfnt.h for the API.
+ # See include/ftwinfnt.h for the API.
 -BASE_EXTENSIONS += ftwinfnt.c
 +#BASE_EXTENSIONS += ftwinfnt.c
  
  # Support functions for X11.
  #
- # See include/freetype/ftxf86.h for the API.
+ # See include/ftxf86.h for the API.
 -BASE_EXTENSIONS += ftxf86.c
 +#BASE_EXTENSIONS += ftxf86.c
  

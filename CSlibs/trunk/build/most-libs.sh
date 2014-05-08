@@ -24,7 +24,7 @@ for lib in $build_libs ; do
   elif [ "$lib" = "mng" ] ; then
     build/lib.sh ${platform} libmng 
   elif [ "$lib" = "freetype" ] ; then
-    build/lib.sh ${platform} libfreetype 
+    build/freetype.sh ${platform}
   elif [ "$lib" = "ogg" ] ; then
     build/lib.sh ${platform} libogg "install"
   elif [ "$lib" = "speex" ] ; then
