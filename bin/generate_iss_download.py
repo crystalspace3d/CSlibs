@@ -37,7 +37,7 @@ args = parser.parse_args()
 templates_path = os.path.dirname(__file__) + "/downloadcode_templates/"
 code_template = pyratemp.Template (filename=templates_path + "code.pas")
 run_template = pyratemp.Template (filename=templates_path + "run.iss")
-extrasize_template = pyratemp.Template (filename=templates_path + "extrasize.inc")
+extrasize_template = pyratemp.Template (filename=templates_path + "extrasize.ini")
 
 packages = {}
 totalsizes = {}

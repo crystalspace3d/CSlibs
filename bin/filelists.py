@@ -36,16 +36,16 @@ def _PackageComponentCompiler(compiler):
       return None
 
 def GetPackageComponent(list):
-  comp = "Libs/Common"
+  comp = "Libs_Common"
   comp_compiler = _PackageComponentCompiler(list.compiler)
   if list.package_tuple[0] == 'base':
     if comp_compiler:
       comp = comp_compiler
   elif list.package_tuple[0].startswith('wx'):
     if comp_compiler:
-      comp = "Libs/WX and " + comp_compiler
+      comp = "Libs_WX and " + comp_compiler
     else:
-      comp = "Libs/WX"
+      comp = "Libs_WX"
   elif list.package_tuple[0] == 'cg':
     comp = "Extra/Cg"
   elif list.package_tuple[0] == 'dx':
@@ -57,7 +57,7 @@ def GetPackageComponent(list):
   elif list.package_tuple[0] == 'dbghelp':
     comp = "Extra/Dbghelp"
   if 'pdb' in list.package_tuple:
-    comp = "({0}) and Extra/DebugInfo".format (comp)
+    comp = "({0}) and DebugInfo".format (comp)
   return comp
   
 def _PackageDescriptionCompiler(compiler):
