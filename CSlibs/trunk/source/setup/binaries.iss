@@ -76,31 +76,39 @@ Name: xcompile; Description: Cross-compile Typical
 #define GccTypes                "typMinGW"
 #endif
 [Components]
-Name: Libs; Description: Win32 libraries; Flags: disablenouninstallwarning
-Name: Libs/Common; Description: Libraries shared by all platforms; Types: custom compact full typVC {#GccTypes}; Flags: disablenouninstallwarning
-Name: Libs/WX; Description: wxWidgets; Types: custom full typVC {#GccTypes}; Flags: disablenouninstallwarning
+Name: Libs_Common; Description: Libraries shared by all platforms; Types: custom compact full typVC {#GccTypes}; Flags: disablenouninstallwarning
+Name: Libs_WX; Description: wxWidgets (for selected compilers); Types: custom full typVC {#GccTypes}; Flags: disablenouninstallwarning
+Name: DebugInfo; Description: Debug information (for installed libraries); Types: custom full typVC {#GccTypes_noxcompile}; Flags: disablenouninstallwarning
 
 ; Space required for each (full) set of packages for a compiler
 ; (Actual size may vary, as it depends on WX and Debug Info selections,
 ; but that can't be expressed - so to be conservative the total is used.)
-#include "..\..\out\packages_" + GeneratedFilesSuffix + "_extraspace.inc"
+#define ExtraSizeOf(compiler)   ReadIni("..\..\out\packages_" + GeneratedFilesSuffix + "_extraspace.ini", "ExtraSize", compiler)
 
-Name: VC; Description: MSVC libraries; Types: custom full typVC; Flags: disablenouninstallwarning checkablealone
-#define VCCOMP(VCVer, OfficialName, ExtraSize) \
-  'Name: VC/' + VCVer + '; Description: Libraries for Visual C++ ' + OfficialName + '; Types: custom full typVC; Flags: disablenouninstallwarning; ExtraDiskSpaceRequired: ' + Str(ExtraSize)
-#emit VCCOMP("8", "2005", ExtraSize_VC8)
-#emit VCCOMP("9", "2008", ExtraSize_VC9)
-#emit VCCOMP("10", "2010", ExtraSize_VC10)
+Name: VC; Description: MSVC libraries; Types: custom full typVC; Flags: disablenouninstallwarning
+#define VCCOMP(VCVer, OfficialName) \
+  'Name: VC/' + VCVer + '; '+ \
+  'Description: Libraries for Visual C++ ' + OfficialName + '; '+ \
+  'Types: custom full typVC; ' + \
+  'Flags: disablenouninstallwarning; ' + \
+  'ExtraDiskSpaceRequired: ' + ExtraSizeOf("VC" + VCVer)
+#emit VCCOMP("8", "2005")
+#emit VCCOMP("9", "2008")
+#emit VCCOMP("10", "2010")
 
-Name: GCC; Description: MinGW (GCC) libraries; Types: custom full {#GccTypes}; Flags: disablenouninstallwarning checkablealone
-#define MINGWCOMP(GccVer, CompName, ExtraSize) \
-  'Name: GCC/' + CompName + '; Description: Libraries for GCC ' + GccVer + '; Types: custom full ' + GccTypes + '; Flags: disablenouninstallwarning; ExtraDiskSpaceRequired: ' + Str(ExtraSize)
+Name: GCC; Description: MinGW (GCC) libraries; Types: custom full {#GccTypes}; Flags: disablenouninstallwarning
+#define MINGWCOMP(Major, Minor) \
+  'Name: GCC/' + Major + "_" + Minor + '; ' + \
+  'Description: Libraries for GCC ' + Major + "." + Minor + '; ' + \
+  'Types: custom full ' + GccTypes + '; ' + \
+  'Flags: disablenouninstallwarning; ' + \
+  'ExtraDiskSpaceRequired: ' + ExtraSizeOf("GCC" + Major + "_" + Minor)
 #ifndef X64
-#emit MINGWCOMP("4.5", "4_5", ExtraSize_GCC4_5)
-#emit MINGWCOMP("4.6", "4_6", ExtraSize_GCC4_6)
-#emit MINGWCOMP("4.7", "4_7", ExtraSize_GCC4_7)
+#emit MINGWCOMP("4", "5")
+#emit MINGWCOMP("4", "6")
+#emit MINGWCOMP("4", "7")
 #else
-#emit MINGWCOMP("4.5", "4_5", ExtraSize_GCC4_5)
+#emit MINGWCOMP("4", "5")
 #endif
 
 Name: Extra; Description: Additional components; Types: custom full; Flags: disablenouninstallwarning
@@ -109,7 +117,6 @@ Name: Extra/DXHeaders; Description: Minimal DirectX 9 headers; Types: custom ful
 Name: Extra/DXLibs; Description: Minimal DirectX 9 libraries; Types: custom full typVC {#GccTypes}; Flags: disablenouninstallwarning
 Name: Extra/Jam; Description: Jam build tool; Types: custom full {#GccTypes_noxcompile}; Flags: disablenouninstallwarning
 Name: Extra/pkgconfig; Description: pkg-config build helper; Types: custom full {#GccTypes_noxcompile}; Flags: disablenouninstallwarning
-Name: Extra/DebugInfo; Description: Debug information; Types: custom full typVC {#GccTypes_noxcompile}; Flags: disablenouninstallwarning
 Name: Extra/Dbghelp; Description: DbgHelp.dll Debugging helper; Types: custom compact full typVC {#GccTypes_noxcompile}; Flags: disablenouninstallwarning
 Name: Extra/OpenAL; Description: OpenAL (runtime installer, OpenAL Soft); Types: custom full typVC {#GccTypes_noxcompile}; Flags: disablenouninstallwarning
 
@@ -130,13 +137,13 @@ Source: ..\..\tools\Release\pkg-config.exe; DestDir: {app}\tools; Components: Ex
 #include "..\..\out\install_files.inc"
 
 ; Misc stuff
-Source: ..\..\source\tool\cslibs-config.template; DestDir: {tmp}; Components: Libs/Common; Flags: deleteafterinstall
-Source: ..\..\libs\bullet.pc; DestDir: {tmp}; Components: Libs/Common; Flags: deleteafterinstall
+Source: ..\..\source\tool\cslibs-config.template; DestDir: {tmp}; Components: Libs_Common; Flags: deleteafterinstall
+Source: ..\..\libs\bullet.pc; DestDir: {tmp}; Components: Libs_Common; Flags: deleteafterinstall
 #if Defined(STATIC) || Defined(X64)
-; Defined(X64) -> As long as we ship static libs for mingw64
-Source: ..\..\tools\freetype-config-static; DestDir: {app}\bin; DestName: freetype-config; Components: Libs/Common
+; Defined(X64) -> The lib names differ on mingw64, but happen to match the static lib names
+Source: ..\..\tools\freetype-config-static; DestDir: {app}\bin; DestName: freetype-config; Components: Libs_Common
 #else
-Source: ..\..\tools\freetype-config; DestDir: {app}\bin; Components: Libs/Common
+Source: ..\..\tools\freetype-config; DestDir: {app}\bin; Components: Libs_Common
 #endif
 Source: ..\..\CrystalSpace home page.url; DestDir: {group}; Check: not WizardNoIcons
 ; stuff that's been compressed already
@@ -146,7 +153,7 @@ Source: ..\..\out\support\MSYSsupport{#ArchSuffix}.exe; DestDir: {app}; Componen
 #ifndef X64
 Source: ..\..\out\support\Crosssupport.exe; DestDir: {app}; Check: IsWinePresent
 #endif
-Source: ..\..\out\support\CopyDLLs{#ArchSuffix}.exe; DestDir: {app}; Components: Libs/Common VC GCC
+Source: ..\..\out\support\CopyDLLs{#ArchSuffix}.exe; DestDir: {app}; Components: Libs_Common VC GCC
 [Dirs]
 Name: {app}\tools; Flags: uninsalwaysuninstall
 Name: {app}\support; Flags: uninsalwaysuninstall
@@ -169,19 +176,21 @@ Name: {app}; Flags: uninsalwaysuninstall
 
 [Run]
 Filename: rundll32.exe; Parameters: "{code:GetShortenedAppDir}\setuptool.dll,CreateFromTemplate ""srcpath={tmp}\cslibs-config.template"" ""libspath={code:GetShortenedAppDir}"" ""destpath={app}\tools\{#CSLibsConfigName}"""; StatusMsg: Generating cslibs-config;
-#define MINGWWXCONFIGPREP(GccVer, CompName) \
-  'Filename: rundll32.exe; Parameters: "{code:GetShortenedAppDir}\setuptool.dll,CreateFromTemplate ""destpath={app}\tools\wx-config-mingw' + ArchSuffixMingw + '-gcc-' + GccVer + '"" ""srcpath={tmp}\wx-config-mingw' + ArchSuffixMingw + '-gcc-' + GccVer + '"" ""libspath={app}\"""; StatusMsg: Generating wx-config; Components: Libs/WX and GCC/' + CompName
+#define MINGWWXCONFIGPREP(Major, Minor) \
+  'Filename: rundll32.exe; ' + \
+  'Parameters: "{code:GetShortenedAppDir}\setuptool.dll,CreateFromTemplate ""destpath={app}\tools\wx-config-mingw' + ArchSuffixMingw + '-gcc-' + Major + '.' + Minor + '"" ""srcpath={tmp}\wx-config-mingw' + ArchSuffixMingw + '-gcc-' + Major + '.' + Minor + '"" ""libspath={app}\"""; ' + \
+  'StatusMsg: Generating wx-config; Components: Libs_WX and GCC/' + Major + '_' + Minor
 #ifndef X64
-#emit MINGWWXCONFIGPREP("4.5", "4_5")
-#emit MINGWWXCONFIGPREP("4.6", "4_6")
-#emit MINGWWXCONFIGPREP("4.7", "4_7")
+#emit MINGWWXCONFIGPREP("4", "5")
+#emit MINGWWXCONFIGPREP("4", "6")
+#emit MINGWWXCONFIGPREP("4", "7")
 #else
-#emit MINGWWXCONFIGPREP("4.5", "4_5")
+#emit MINGWWXCONFIGPREP("4", "5")
 #endif
 Filename: rundll32.exe; Parameters: "{code:GetShortenedAppDir}\setuptool.dll,CreateFromTemplate ""srcpath={tmp}\bullet.pc"" ""libspath={code:GetShortenedAppDir}"" ""destpath={app}\mingw{#ArchSuffixMingw}\lib\pkgconfig\bullet.pc"""; StatusMsg: Generating bullet.pc; Components: GCC
 Filename: {app}\openal\{#File_OpenALInstaller}; Parameters: /S; WorkingDir: {app}; Components: Extra/OpenAL; Check: RunOpenALInstaller; StatusMsg: Running OpenAL.org runtime installer
-Filename: {app}\CopyDLLs{#ArchSuffix}.exe; Description: Copy DLLs to CS directory; Flags: postinstall runascurrentuser; WorkingDir: {app}; Parameters: {code:GetSupportParamsSilent}; Check: not CrossPresets; Components: Libs/Common VC GCC
-Filename: {app}\CopyDLLs{#ArchSuffix}.exe; Description: Copy DLLs to CS directory; Flags: postinstall runascurrentuser unchecked; WorkingDir: {app}; Parameters: {code:GetSupportParamsSilent}; Check: CrossPresets; Components: Libs/Common VC GCC
+Filename: {app}\CopyDLLs{#ArchSuffix}.exe; Description: Copy DLLs to CS directory; Flags: postinstall runascurrentuser; WorkingDir: {app}; Parameters: {code:GetSupportParamsSilent}; Check: not CrossPresets; Components: Libs_Common VC GCC
+Filename: {app}\CopyDLLs{#ArchSuffix}.exe; Description: Copy DLLs to CS directory; Flags: postinstall runascurrentuser unchecked; WorkingDir: {app}; Parameters: {code:GetSupportParamsSilent}; Check: CrossPresets; Components: Libs_Common VC GCC
 Filename: {app}\VCsupport{#ArchSuffix}.exe; Description: Set up Visual C++ support; Flags: postinstall runascurrentuser; Components: VC; WorkingDir: {app}; Parameters: {code:GetSupportParamsSilent}
 Filename: {app}\MSYSsupport{#ArchSuffix}.exe; Description: Set up MSYS support; Flags: postinstall runascurrentuser; Components: GCC; WorkingDir: {app}; Parameters: {code:GetSupportParams}
 #ifndef X64
@@ -200,7 +209,7 @@ Name: {app}\tools\wx-config*; Type: filesandordirs
 [Icons]
 Name: {group}\Read Me; Filename: {app}\Readme.rtf; WorkingDir: {app}; Comment: "Important informations, known issues and solutions."; Flags: excludefromshowinnewinstall
 Name: {group}\Deploying Applications Built Against {#CSLibsOutputName}; Filename: {app}\Deploying Applications Built Against cs-winlibs.rtf; WorkingDir: {app}; Comment: "Information on picking the right files from {#CSLibsOutputName} when packaging applications for distribution"; Flags: excludefromshowinnewinstall
-Name: {group}\Copy DLLs to a CS directory; Filename: {app}\CopyDLLs{#ArchSuffix}.exe; WorkingDir: {app}; Comment: "Copies the 3rd party DLLs to a CS source directory so compiled binaries can find them."; IconIndex: 0; Flags: excludefromshowinnewinstall; Components: Libs/Common VC GCC
+Name: {group}\Copy DLLs to a CS directory; Filename: {app}\CopyDLLs{#ArchSuffix}.exe; WorkingDir: {app}; Comment: "Copies the 3rd party DLLs to a CS source directory so compiled binaries can find them."; IconIndex: 0; Flags: excludefromshowinnewinstall; Components: Libs_Common VC GCC
 Name: {group}\Set up VC support; Filename: {app}\VCsupport{#ArchSuffix}.exe; WorkingDir: {app}; Comment: "Copies the headers and libraries to your CS source directory so you can use them from VC."; IconIndex: 0; Components: VC; Flags: excludefromshowinnewinstall
 Name: {group}\Set up MSYS support; Filename: {app}\MSYSsupport{#ArchSuffix}.exe; WorkingDir: {app}; Comment: "Sets up MSYS so you can use the CrystalSpace libs from there."; IconIndex: 0; Components: GCC; Flags: excludefromshowinnewinstall
 ;Name: "{group}\CrystalSpace home page"; Filename: "{app}\CrystalSpace home page.url"
