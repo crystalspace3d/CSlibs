@@ -165,7 +165,7 @@ GrabHeaders nosource all directx include : common include : dxheaders.all.any ;
 # Support stuff
 SubDir TOP tools ;
 FileListEntriesData wx-config : tools : wx.all.x86 ;
-FileListEntriesData wx-config : tools : wx.all.x64 : x86_64-w64-mingw32-wx-config ;
+FileListEntriesData x86_64-w64-mingw32-wx-config : tools : wx.all.x64 ;
 SubDir TOP ;
 
 #
