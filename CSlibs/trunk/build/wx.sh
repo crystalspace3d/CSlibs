@@ -18,6 +18,11 @@ cd temp/libwx/${platform}
 export CFLAGS="-I$(pwd)/../../${platform_short}/prefix/include -fno-omit-frame-pointer"
 export CXXFLAGS="-I$(pwd)/../../${platform_short}/prefix/include -fno-omit-frame-pointer"
 export LDFLAGS="-L$(pwd)/../../${platform_short}/prefix/lib"
+if [ -n "$BUILD_TARGET" ]; then
+  # --host: When building for mingw64, makes configure think we're cross-compiling.
+  # This is needed to later get a wx-config that produces sensible results.
+  CONFIGUREOPTS="--build=i686-pc-mingw32 $CONFIGUREOPTS"
+fi
 ../../../source/libwx/configure --prefix=${prefix} $CONFIGUREOPTS -C --with-opengl --without-subdirs --enable-unicode --enable-vendor=cs${platform} --enable-debug_info --enable-debug_gdb
 make ${MAKEOPTS} install
 cd ../../..
