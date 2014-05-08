@@ -1,6 +1,8 @@
 #!env python
+from __future__ import print_function
 import argparse
 import os
+import sys
 from filelists import *
 
 class FilesList(FilesListName):
@@ -27,6 +29,7 @@ for listfile in args.listfiles:
   all_lists.append (FilesList(listfile))
 blocks = {}
 for list in all_lists:
+  print("Processing" , list, file=sys.stderr)
   components = GetPackageComponent(list)
   condition = PreprocCondition(list)
   source_lines = []
@@ -53,14 +56,14 @@ for tuple_key, block_tuples in sorted(blocks.iteritems(), None, lambda x: x[1][0
   last_condition = None
   for block_tuple in block_tuples:
     list, condition, source_lines = block_tuple
-    print "; {0}".format(list)
+    print("; {0}".format(list))
     if condition:
-      print "#if {0}".format (condition)
+      print("#if {0}".format (condition))
     for source_line in source_lines:
       if (last_condition and (last_condition != condition)) or first_comp:
         if condition or first_comp: source_line = source_line + " Flags: solidbreak"
         last_condition = condition
         first_comp = False
-      print source_line
+      print(source_line)
     if condition:
-      print "#endif"
+      print("#endif")
