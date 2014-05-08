@@ -1,4 +1,7 @@
 #!/bin/sh
-gccver=`gcc -dumpversion | sed "s/\([0-9]\?\)\.\([0-9]\?\)\.[0-9]\?/\1.\2/"`
+if [ -z "$CC" ]; then
+  CC=gcc
+fi
+gccver=`$CC -dumpversion | sed "s/\([0-9]\?\)\.\([0-9]\?\)\.[0-9]\?/\1.\2/"`
 TOP=`dirname $0`
 ${TOP}/wx-config-mingw-gcc-${gccver} $@
