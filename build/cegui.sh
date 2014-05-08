@@ -128,17 +128,17 @@ if [ x$mode != xnostatic ]; then
   # link a static lib for which not .la file exists.
   # So fake some up...
   mkdir -p ${prefix}/lib/
-  cp -p temp/${platform_short}/prefix/lib/libz.a ${prefix}/lib/
-  build/fake-libtool-lib.sh ${prefix}/lib/libz.la
-  cp -p temp/${platform_short}/prefix/lib/libfreetype.a ${prefix}/lib/
-  build/fake-libtool-lib.sh ${prefix}/lib/libfreetype.la
   cp -p ${pcre}/lib/libpcre.a ${prefix}/lib/
   build/fake-libtool-lib.sh ${prefix}/lib/libpcre.la
-
+  for l in z freetype png; do
+    cp -p temp/${platform_short}/prefix/lib/lib$l.a ${prefix}/lib/
+    build/fake-libtool-lib.sh ${prefix}/lib/lib$l.la
+  done
+  
   build=temp/${library}/${platform}-static
   cd ${build}
   freetype2_CFLAGS="-I${basedir}/temp/mingw/prefix/include/ -I${basedir}/temp/mingw/prefix/include/freetype2/" \
-  freetype2_LIBS="-L${prefix}/lib -lfreetype -lz" \
+  freetype2_LIBS="-L${prefix}/lib -lfreetype -lpng -lz" \
   pcre_CFLAGS="-I${pcre}/include -DPCRE_STATIC" \
   pcre_LIBS="-L${prefix}/lib -lpcre" \
   CFLAGS="-O2" \

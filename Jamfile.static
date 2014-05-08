@@ -137,11 +137,11 @@ GrabHeaders temp mingw prefix include speex : common include speex : base.all.an
 GrabHeaders temp mingw prefix include vorbis : common include vorbis : base.all.any ;
 SubDir TOP source configs freetype config ;
 FREETYPE_CONFIGS = [ Wildcard *.h ] ;
-FileListEntriesData $(FREETYPE_CONFIGS) : common include freetype config : base.all.any ;
-SubDir TOP temp mingw prefix include freetype2 freetype ;
-FileListEntriesData [ Wildcard *.h ] : common include freetype : base.all.any ;
-SubDir TOP temp mingw prefix include freetype2 freetype config ;
-FileListEntriesData [ Filter [ Wildcard *.h ] : $(FREETYPE_CONFIGS) ] : common include freetype config : base.all.any ;
+FileListEntriesData $(FREETYPE_CONFIGS) : common include freetype2 config : base.all.any ;
+SubDir TOP temp mingw prefix include freetype2 ;
+FileListEntriesData [ Wildcard *.h ] : common include freetype2 : base.all.any ;
+SubDir TOP temp mingw prefix include freetype2 config ;
+FileListEntriesData [ Filter [ Wildcard *.h ] : $(FREETYPE_CONFIGS) ] : common include freetype2 config : base.all.any ;
 SubDir TOP ;
 
 # Headers for compiler-dependent libs
