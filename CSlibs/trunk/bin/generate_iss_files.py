@@ -44,7 +44,7 @@ for list in all_lists:
     # Keep dest_subdir empty
     if dest_subdir:
       dest_subdir = "\\" + os.path.normpath (dest_subdir)
-    source_line = "Source: \"..\..\{0}\"; DestDir: {1}{2}; DestName: {3}; Components: {4};".format(source_path, dest_dir, dest_subdir, dest_name, components)
+    source_line = "Source: \"{{#TOP}}\{0}\"; DestDir: {1}{2}; DestName: {3}; Components: {4};".format(source_path, dest_dir, dest_subdir, dest_name, components)
     source_lines.append (source_line)
   block_tuple = [list, condition, source_lines]
   if components in blocks.keys():

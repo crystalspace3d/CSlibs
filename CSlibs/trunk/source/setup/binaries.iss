@@ -1,3 +1,6 @@
+#define TOP             "..\.."
+#define OUT_DIR         TOP + "\out"
+
 #include "CSlibs.inc"
 #define File_OpenALInstaller 		"oalinst.exe"
 #ifdef STATIC
@@ -45,13 +48,13 @@ AppId={#AppId}
 AppVerName={#AppName} {#CSLibsVersion}
 AppVersion={#CSLibsVersion}
 DefaultDirName={code:GetDefaultDir|{pf}\CrystalSpaceLibs{#ArchSuffix}}
-OutputDir=..\..\out
+OutputDir={#OUT_DIR}
 OutputBaseFilename={#SetupName}
 AppPublisher=CrystalSpace
 AppPublisherURL=http://crystalspace3d.org
 DefaultGroupName={#AppName} {#CSLibsVersion}
 UninstallDisplayIcon={app}\setuptool.dll
-InfoBeforeFile=..\..\{#ReadmeFile}
+InfoBeforeFile={#TOP}\{#ReadmeFile}
 UseSetupLdr=true
 WizardSmallImageFile=compiler:WizModernSmallImage-IS.bmp
 DisableWelcomePage=yes
@@ -83,7 +86,7 @@ Name: DebugInfo; Description: Debug information (for installed libraries); Types
 ; Space required for each (full) set of packages for a compiler
 ; (Actual size may vary, as it depends on WX and Debug Info selections,
 ; but that can't be expressed - so to be conservative the total is used.)
-#define ExtraSizeOf(compiler)   ReadIni("..\..\out\packages_" + GeneratedFilesSuffix + "_extraspace.ini", "ExtraSize", compiler)
+#define ExtraSizeOf(compiler)   ReadIni(OUT_DIR + "\packages_" + GeneratedFilesSuffix + "_extraspace.ini", "ExtraSize", compiler)
 
 Name: VC; Description: MSVC libraries; Types: custom full typVC; Flags: disablenouninstallwarning
 #define VCCOMP(VCVer, OfficialName) \
@@ -120,40 +123,40 @@ Name: Extra/pkgconfig; Description: pkg-config build helper; Types: custom full 
 Name: Extra/Dbghelp; Description: DbgHelp.dll Debugging helper; Types: custom compact full typVC {#GccTypes_noxcompile}; Flags: disablenouninstallwarning
 Name: Extra/OpenAL; Description: OpenAL (runtime installer, OpenAL Soft); Types: custom full typVC {#GccTypes_noxcompile}; Flags: disablenouninstallwarning
 
-#pragma include __INCLUDE__ + ";" + SourcePath + "\..\..\source\idp"
+#pragma include __INCLUDE__ + ";" + SourcePath + "\" + TOP + "\source\idp"
 #include <idp.iss>
 
 [Files]
-Source: ..\..\{#ReadmeFile}; DestName: Readme.rtf; DestDir: {app}
-Source: ..\..\Deploying Applications Built Against cs-winlibs.rtf; DestDir: {app}
-Source: ..\..\ChangeLog.txt; DestDir: {app}
-Source: ..\..\version.txt; DestDir: {app}; AfterInstall: WriteVersionTxt
+Source: {#TOP}\{#ReadmeFile}; DestName: Readme.rtf; DestDir: {app}
+Source: {#TOP}\Deploying Applications Built Against cs-winlibs.rtf; DestDir: {app}
+Source: {#TOP}\ChangeLog.txt; DestDir: {app}
+Source: {#TOP}\version.txt; DestDir: {app}; AfterInstall: WriteVersionTxt
 
-Source: ..\..\tools\Release\setuptool.dll; DestDir: {app}
-Source: ..\..\nosource\seveninstall\SevenInstall.exe; DestDir: {app}
-Source: ..\..\tools\Release\jam.exe; DestDir: {app}\tools; Components: Extra/Jam
-Source: ..\..\tools\Release\pkg-config.exe; DestDir: {app}\tools; Components: Extra/pkgconfig
+Source: {#TOP}\tools\Release\setuptool.dll; DestDir: {app}
+Source: {#TOP}\nosource\seveninstall\SevenInstall.exe; DestDir: {app}
+Source: {#TOP}\tools\Release\jam.exe; DestDir: {app}\tools; Components: Extra/Jam
+Source: {#TOP}\tools\Release\pkg-config.exe; DestDir: {app}\tools; Components: Extra/pkgconfig
 
-#include "..\..\out\install_files.inc"
+#include OUT_DIR + "\install_files.inc"
 
 ; Misc stuff
-Source: ..\..\source\tool\cslibs-config.template; DestDir: {tmp}; Components: Libs_Common; Flags: deleteafterinstall
-Source: ..\..\libs\bullet.pc; DestDir: {tmp}; Components: Libs_Common; Flags: deleteafterinstall
+Source: {#TOP}\source\tool\cslibs-config.template; DestDir: {tmp}; Components: Libs_Common; Flags: deleteafterinstall
+Source: {#TOP}\libs\bullet.pc; DestDir: {tmp}; Components: Libs_Common; Flags: deleteafterinstall
 #if Defined(STATIC) || Defined(X64)
 ; Defined(X64) -> The lib names differ on mingw64, but happen to match the static lib names
-Source: ..\..\tools\freetype-config-static; DestDir: {app}\bin; DestName: freetype-config; Components: Libs_Common
+Source: {#TOP}\tools\freetype-config-static; DestDir: {app}\bin; DestName: freetype-config; Components: Libs_Common
 #else
-Source: ..\..\tools\freetype-config; DestDir: {app}\bin; Components: Libs_Common
+Source: {#TOP}\tools\freetype-config; DestDir: {app}\bin; Components: Libs_Common
 #endif
-Source: ..\..\CrystalSpace home page.url; DestDir: {group}; Check: not WizardNoIcons
+Source: {#TOP}\CrystalSpace home page.url; DestDir: {group}; Check: not WizardNoIcons
 ; stuff that's been compressed already
-Source: ..\..\nosource\all\OpenAL\installer\{#File_OpenALInstaller}; DestDir: {app}\openal; Components: Extra/OpenAL
-Source: ..\..\out\support\VCsupport{#ArchSuffix}.exe; DestDir: {app}; Components: VC
-Source: ..\..\out\support\MSYSsupport{#ArchSuffix}.exe; DestDir: {app}; Components: GCC
+Source: {#TOP}\nosource\all\OpenAL\installer\{#File_OpenALInstaller}; DestDir: {app}\openal; Components: Extra/OpenAL
+Source: {#OUT_DIR}\support\VCsupport{#ArchSuffix}.exe; DestDir: {app}; Components: VC
+Source: {#OUT_DIR}\support\MSYSsupport{#ArchSuffix}.exe; DestDir: {app}; Components: GCC
 #ifndef X64
-Source: ..\..\out\support\Crosssupport.exe; DestDir: {app}; Check: IsWinePresent
+Source: {#OUT_DIR}\support\Crosssupport.exe; DestDir: {app}; Check: IsWinePresent
 #endif
-Source: ..\..\out\support\CopyDLLs{#ArchSuffix}.exe; DestDir: {app}; Components: Libs_Common VC GCC
+Source: {#OUT_DIR}\support\CopyDLLs{#ArchSuffix}.exe; DestDir: {app}; Components: Libs_Common VC GCC
 [Dirs]
 Name: {app}\tools; Flags: uninsalwaysuninstall
 Name: {app}\support; Flags: uninsalwaysuninstall
@@ -172,7 +175,7 @@ Name: {app}\bin; Flags: uninsalwaysuninstall
 Name: {app}\dlls; Flags: uninsalwaysuninstall
 Name: {app}; Flags: uninsalwaysuninstall
 
-#include "..\..\out\packages_" + GeneratedFilesSuffix + "_run.iss"
+#include OUT_DIR + "\packages_" + GeneratedFilesSuffix + "_run.iss"
 
 [Run]
 Filename: rundll32.exe; Parameters: "{code:GetShortenedAppDir}\setuptool.dll,CreateFromTemplate ""srcpath={tmp}\cslibs-config.template"" ""libspath={code:GetShortenedAppDir}"" ""destpath={app}\tools\{#CSLibsConfigName}"""; StatusMsg: Generating cslibs-config;
@@ -247,7 +250,7 @@ var
   packagesGUID: String;
 
 #include "download\defs.pas"
-#include "..\..\out\packages_" + GeneratedFilesSuffix + ".pas"
+#include OUT_DIR + "\packages_" + GeneratedFilesSuffix + ".pas"
 #include "download\download.pas"
 
 var
