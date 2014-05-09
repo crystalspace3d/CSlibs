@@ -1,7 +1,6 @@
 #!/bin/sh
 
-#rebase_bin="/d/Programme/Microsoft SDKs/Windows/v1.0/Bin/ReBase"
-rebase_bin="/c/Programme/Microsoft Visual Studio 8/Common7/Tools/Bin/ReBase"
+rebase_bin="$VS80COMNTOOLS/Bin/ReBase"
 
 rebase()
 {
@@ -13,27 +12,23 @@ rebase()
 startbase=0x70000000
 # Rebase common DLLs
 base=`rebase $startbase libs/release/*.dll libs/releasenocygwin/*.dll`
-# Rebase per-version DLLs, ignore debug versions
-rebase $base libs/ReleaseVC8Only/*-csvc8.dll libs/ReleaseWXVC8Only/*-csvc8.dll > /dev/null
-rebase $base libs/ReleaseVC9Only/*-csvc9.dll libs/ReleaseWXVC9Only/*-csvc9.dll > /dev/null
-rebase $base libs/ReleaseVC10Only/*-csvc10.dll libs/ReleaseWXVC10Only/*-csvc10.dll > /dev/null
-# Rebase static DLLs; use startbase here as well, since the common libs are
-# (almost) not used anyway
-rebase $startbase libs/ReleaseVC8Only_static/*-csvc8.dll > /dev/null
-rebase $startbase libs/ReleaseVC9Only_static/*-csvc9.dll > /dev/null
-rebase $startbase libs/ReleaseVC10Only_static/*-csvc10.dll > /dev/null
+for vc in 8 9 10; do
+  # Rebase per-version DLLs, ignore debug versions
+  rebase $base libs/ReleaseVC${vc}Only/*-csvc${vc}.dll libs/ReleaseWXVC${vc}Only/*-csvc${vc}.dll > /dev/null
+  # Rebase static DLLs; use startbase here as well, since the common libs are
+  # (almost) not used anyway
+  rebase $startbase libs/ReleaseVC${vc}Only_static/*-csvc${vc}.dll > /dev/null
+done
 
 startbase64=0x170000000
 # Rebase common DLLs
 base=`rebase $startbase64 libs/release-x64/*.dll libs/releasenocygwin-x64/*.dll`
-# Rebase per-version DLLs, ignore debug versions
-rebase $base libs/ReleaseVC8Only-x64/*-csvc8-x64.dll libs/ReleaseWXVC8Only-x64/*-csvc8-x64.dll > /dev/null
-rebase $base libs/ReleaseVC9Only-x64/*-csvc9-x64.dll libs/ReleaseWXVC9Only-x64/*-csvc9-x64.dll > /dev/null
-rebase $base libs/ReleaseVC10Only-x64/*-csvc10-x64.dll libs/ReleaseWXVC10Only-x64/*-csvc10-x64.dll > /dev/null
-# Rebase static DLLs; use startbase here as well, since the common libs are
-# (almost) not used anyway
-rebase $startbase64 libs/ReleaseVC8Only_static-x64/*-csvc8-x64.dll > /dev/null
-rebase $startbase64 libs/ReleaseVC9Only_static-x64/*-csvc9-x64.dll > /dev/null
-rebase $startbase64 libs/ReleaseVC10Only_static-x64/*-csvc10-x64.dll > /dev/null
+for vc in 8 9 10; do
+  # Rebase per-version DLLs, ignore debug versions
+  rebase $base libs/ReleaseVC${vc}Only-x64/*-csvc${vc}-x64.dll libs/ReleaseWXVC${vc}Only-x64/*-csvc${vc}-x64.dll > /dev/null
+  # Rebase static DLLs; use startbase here as well, since the common libs are
+  # (almost) not used anyway
+  rebase $startbase64 libs/ReleaseVC${vc}Only_static-x64/*-csvc${vc}-x64.dll > /dev/null
+done
 
 # MinGW DLLs don't need it since their linker automatically sets a base address
