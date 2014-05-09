@@ -400,7 +400,7 @@ rule CompileMainSetup2
   local setup_out = $(out_prefix)-$(LIBS_VERSION)$(out_suffix).exe ;
   local setup_src = $(TOP)/source/setup/$(source).iss ;
   MakeLocate $(setup_out) : out ;
-  RunISCC $(setup_out) : $(setup_src) ;
+  RunISCC $(setup_out) : $(setup_src[1]) ;
   Depends $(setup_out) : $(setup_src) $(TOP)/version.inc $(INSTALLER_FILES) $(extra_deps) ;
   Depends $(target) : $(setup_out) ;
 }
@@ -461,7 +461,7 @@ for ARCH in x86 x64
     local pack_list ;
     if $(MODE) = static { pack_list = "STATIC" ; } else { pack_list = "SHARED" ; }
     CompileMainSetup setup_$(ARCH)_$(MODE)
-      : binaries$(MODE_SUFFIX)$(ARCH_SUFFIX)
+      : binaries$(MODE_SUFFIX)$(ARCH_SUFFIX) binaries
       : $(out_prefix_$(ARCH))
       : $(out_suffix_$(MODE))
       : packages_$(ARCH)_$(MODE)
