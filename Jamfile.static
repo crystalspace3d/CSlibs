@@ -389,6 +389,29 @@ rule BuildPackagesCode
   GeneratePackagesCode $(outname) : $(packages) ;
 }
 
+actions SplitReadme
+{
+  "$(TOP)/bin/split-readme.sh" $(>) $(<:D)
+}
+rule DoSplitReadme
+{
+  local readme_source = Readme.rtf ;
+  SEARCH on $(readme_source) = $(TOP) ;
+  local readme_files ;
+  for MODE in shared static
+  {
+    local mode_file = Readme-$(MODE).rtf ;
+    MakeLocate $(mode_file) : out ;
+    readme_files = $(readme_files) $(mode_file) ;
+  }
+  SplitReadme $(readme_files[1]) : $(readme_source) ;
+  Depends $(readme_files[1]) : $(readme_source) ;
+  Depends $(readme_files[2]) : $(readme_files[1]) ;
+  Depends $(1) : $(readme_files) ;
+  NotFile $(1) ;
+}
+DoSplitReadme readme ;
+
 rule CompileMainSetup2
 {
   local target = $(1) ;
@@ -426,7 +449,7 @@ rule CompileMainSetup
   Depends $(packages_code) : setup_packages_$(target) ;
   if "$(MAINSETUP_INVOKE)" = "yes"
   {
-    CompileMainSetup2 real_$(target) : $(source) : $(out_prefix) : $(out_suffix) : $(packages_code) ;
+    CompileMainSetup2 real_$(target) : $(source) : $(out_prefix) : $(out_suffix) : $(packages_code) readme ;
   }
   else
   {
