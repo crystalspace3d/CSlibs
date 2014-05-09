@@ -1,0 +1,20 @@
+--- CMakeLists.txt.orig	2014-05-09 00:38:28 +0200
++++ CMakeLists.txt	2014-05-09 01:48:20 +0200
+@@ -17,7 +17,7 @@
+ set(PNGLIB_MAJOR 1)
+ set(PNGLIB_MINOR 6)
+ set(PNGLIB_RELEASE 10)
+-set(PNGLIB_NAME libpng${PNGLIB_MAJOR}${PNGLIB_MINOR})
++set(PNGLIB_NAME libpng)
+ set(PNGLIB_VERSION ${PNGLIB_MAJOR}.${PNGLIB_MINOR}.${PNGLIB_RELEASE})
+ 
+ # needed packages
+@@ -57,7 +57,7 @@
+ option(PNGARG            "Disable ANSI-C prototypes" NO)
+ 
+ # SET LIBNAME
+-set(PNG_LIB_NAME png${PNGLIB_MAJOR}${PNGLIB_MINOR})
++set(PNG_LIB_NAME png)
+ 
+ # to distinguish between debug and release lib
+ set(CMAKE_DEBUG_POSTFIX "d")
