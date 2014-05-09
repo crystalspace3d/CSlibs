@@ -27,7 +27,7 @@
 #define GeneratedFilesSuffix                            ArchName + "_static"
 #else
 #define SetupName					CSLibsOutputName + "-" + CSLibsVersion
-#define ReadmeFile        "Readme-standard.rtf"
+#define ReadmeFile        "Readme-shared.rtf"
 #define GeneratedFilesSuffix                            ArchName + "_shared"
 #endif
 #define PackageDir                                      CSLibsOutputName + "-" + CSLibsVersion
@@ -54,7 +54,7 @@ AppPublisher=CrystalSpace
 AppPublisherURL=http://crystalspace3d.org
 DefaultGroupName={#AppName} {#CSLibsVersion}
 UninstallDisplayIcon={app}\setuptool.dll
-InfoBeforeFile={#TOP}\{#ReadmeFile}
+InfoBeforeFile={#OUT_DIR}\{#ReadmeFile}
 UseSetupLdr=true
 WizardSmallImageFile=compiler:WizModernSmallImage-IS.bmp
 DisableWelcomePage=yes
@@ -127,7 +127,7 @@ Name: Extra/OpenAL; Description: OpenAL (runtime installer, OpenAL Soft); Types:
 #include <idp.iss>
 
 [Files]
-Source: {#TOP}\{#ReadmeFile}; DestName: Readme.rtf; DestDir: {app}
+Source: {#OUT_DIR}\{#ReadmeFile}; DestName: Readme.rtf; DestDir: {app}
 Source: {#TOP}\Deploying Applications Built Against cs-winlibs.rtf; DestDir: {app}
 Source: {#TOP}\ChangeLog.txt; DestDir: {app}
 Source: {#TOP}\version.txt; DestDir: {app}; AfterInstall: WriteVersionTxt
