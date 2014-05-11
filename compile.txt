@@ -25,7 +25,8 @@ link if this isn't done.
 Before starting the building you need to do the following:
 - libmng: remove: config.h, config.status
 - libpcre: copy pcre_chartables.c.dist to pcre_chartables.c;
-    copy pcre.h.generic to pcre.h
+    copy pcre.h.generic to pcre.h; copy config.h.generic to config.h;
+    run 'autoreconf'
 
 The solutions in the projects directory should be built in the following
 order:
