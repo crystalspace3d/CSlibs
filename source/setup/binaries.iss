@@ -327,6 +327,7 @@ var
   guid: TGUID;
 begin
   CheckSilentType();
+  CheckDownloadCommandLine();
   InitPackages ();
   Result := true;
   CoCreateGuid (guid);
@@ -415,6 +416,41 @@ begin
     SetPreviousData(PreviousDataKey, 'WineEnvironment', BoolToStr (wineSettingsPage.Values[0]));
   SetPreviousData (PreviousDataKey, 'PackagesGUID', packagesGUID);
   SavePackagesToPreviousData(PreviousDataKey);
+end;
+
+function FDoVerifyDownloadedPackages(): boolean;
+begin
+  VerifyPackagesProgress.Show ();
+  Result := VerifyDownloadedPackages (VerifyPackagesProgress);
+  VerifyPackagesProgress.Hide ();
+end;
+
+function PrepareToInstall(var NeedsRestart: Boolean): String;
+var
+  msg: String;
+  mb: integer;
+begin
+  if silentType <> 0 then
+  begin
+    { Silent mode doesn't trigger download on page activation }
+    idpDownloadFiles;
+  end;
+  { Verify packages }
+  if not FDoVerifyDownloadedPackages then
+  begin
+    if dlOfflineMode then
+      msg := 'Additional files are required but could not be downloaded due to offline mode being requested.'
+    else
+      msg := 'Additional files are required but the download failed.';
+    mb := SuppressibleMsgBox (msg + #13#10 +
+                              'You can continue the installation but not all features you requested can be installed.' + #13#10 +
+                              'Do you wish to continue?',
+                              mbError,
+                              MB_YESNO,
+                              IDNO);
+    if (mb <> IDYES) then
+      Result := 'Required additional files not downloaded.';
+  end;
 end;
 
 function GetCSdir(Default: String): string;
@@ -532,14 +568,6 @@ begin
   Result := True;
 end;
 
-function FDoVerifyDownloadedPackages(): boolean;
-begin
-  VerifyPackagesProgress.Show ();
-  VerifyDownloadedPackages (VerifyPackagesProgress);
-  VerifyPackagesProgress.Hide ();
-  Result := True;
-end;
-
 function NextButtonClick(CurPage: Integer): Boolean;
 begin
   Result := true;
@@ -559,17 +587,8 @@ begin
       if Result then
       begin
         EmitPackagesForDownload(DownloadBaseURL);
-        if silentType <> 0 then
-        begin
-          { Silent mode doesn't trigger download on page activation }
-          idpDownloadFiles;
-          FDoVerifyDownloadedPackages;
-        end;
       end
     end;
-  end else if (IDPForm.Page <> nil) and (CurPage = IDPForm.Page.ID) then begin
-    { Verify packages }
-    FDoVerifyDownloadedPackages;
   end;
 end;
 

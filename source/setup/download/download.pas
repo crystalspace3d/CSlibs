@@ -1,3 +1,19 @@
+var
+  dlOfflineMode: boolean;
+
+procedure CheckDownloadCommandLine;
+var
+  i: integer;
+begin
+  dlOfflineMode := false;
+  for i:=1 to ParamCount do begin
+    if (CompareText (ParamStr (i), '/offline') = 0) then begin
+      dlOfflineMode := true;
+      break;
+    end;
+  end;
+end;
+
 procedure SelectPackages;
 var
   p: integer;
@@ -114,23 +130,27 @@ var
   p: integer;
   url: string;
 begin
-  for p := 0 to numPackages-1 do
+  if not dlOfflineMode then
   begin
-    if allPackages[p].state = psNeedDownload then
+    for p := 0 to numPackages-1 do
     begin
-      ForceDirectories (ExtractFileDir (allPackages[p].download_file));
-      url := Format ('%s/%s.%s', [base_url, allPackages[p].name, packageExt]);
-      Log (Format ('Downloading: %s', [url]));
-      idpAddFileSize (url, allPackages[p].download_file, allPackages[p].size);
+      if allPackages[p].state = psNeedDownload then
+      begin
+        ForceDirectories (ExtractFileDir (allPackages[p].download_file));
+        url := Format ('%s/%s.%s', [base_url, allPackages[p].name, packageExt]);
+        Log (Format ('Downloading: %s', [url]));
+        idpAddFileSize (url, allPackages[p].download_file, allPackages[p].size);
+      end;
     end;
   end;
 end;
 
-procedure VerifyDownloadedPackage (var package: TDownloadPackage);
+function VerifyDownloadedPackage (var package: TDownloadPackage): boolean;
 var
   hash: String;
 begin
   Log(Format('Verifying downloaded file: %s', [package.download_file]));
+  Result := false;
   package.state := psVerifyFailed;
   { First, check if it downloaded at all. }
   if not FileExists (package.download_file) then
@@ -143,14 +163,17 @@ begin
     begin
       Log('Hash matches.');
       package.state := psVerified;
+      Result := true;
     end;
   end;
 end;
 
-procedure VerifyDownloadedPackages (progress: TOutputProgressWizardPage);
+function VerifyDownloadedPackages (progress: TOutputProgressWizardPage): boolean;
 var
   p: integer;
+  allVerified: boolean;
 begin
+  allVerified := true;
   if progress <> nil then
   begin
     progress.SetProgress (0, numPackages);
@@ -164,13 +187,15 @@ begin
     end;
     if allPackages[p].state = psNeedDownload then
     begin
-      VerifyDownloadedPackage (allPackages[p]);
+      allVerified := VerifyDownloadedPackage (allPackages[p]) { first so it's always executed }
+        and allVerified;
     end;
   end;
   if progress <> nil then
   begin
     progress.SetProgress (numPackages, numPackages);
   end;
+  Result := allVerified;
 end;
 
 function PackageInstallArguments (param: String): string;
