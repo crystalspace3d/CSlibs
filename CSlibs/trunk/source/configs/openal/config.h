@@ -1,10 +1,35 @@
-#ifndef CONFIG_H
-#define CONFIG_H
+/* API declaration export attribute */
+#define AL_API  __declspec(dllexport)
+#define ALC_API __declspec(dllexport)
 
 #include "../../openal-soft-version.h"
 
 /* Define to the library version */
 #define ALSOFT_VERSION _ALSOFT_VERSION_STR
+
+/* Define any available alignment declaration */
+#define ALIGN(x) __declspec(align(x))
+#ifdef __MINGW32__
+#define align(x) aligned(x)
+#endif
+
+/* Define to the appropriate 'restrict' keyword */
+#define RESTRICT __restrict
+
+/* Define if we have the C11 aligned_alloc function */
+#undef HAVE_ALIGNED_ALLOC
+
+/* Define if we have the posix_memalign function */
+#undef HAVE_POSIX_MEMALIGN
+
+/* Define if we have the _aligned_malloc function */
+#define HAVE__ALIGNED_MALLOC
+
+/* Define if we have SSE CPU extensions */
+#define HAVE_SSE
+
+/* Define if we have ARM Neon CPU extensions */
+#undef HAVE_NEON
 
 /* Define if we have the ALSA backend */
 #undef HAVE_ALSA
@@ -14,6 +39,12 @@
 
 /* Define if we have the Solaris backend */
 #undef HAVE_SOLARIS
+
+/* Define if we have the SndIO backend */
+#undef HAVE_SNDIO
+
+/* Define if we have the MMDevApi backend */
+#define HAVE_MMDEVAPI
 
 /* Define if we have the DSound backend */
 #define HAVE_DSOUND
@@ -27,32 +58,23 @@
 /* Define if we have the PulseAudio backend */
 #undef HAVE_PULSEAUDIO
 
-/* Define if we have dlfcn.h */
-#undef HAVE_DLFCN_H
+/* Define if we have the CoreAudio backend */
+#undef HAVE_COREAUDIO
+
+/* Define if we have the OpenSL backend */
+#undef HAVE_OPENSL
+
+/* Define if we have the Wave Writer backend */
+#undef HAVE_WAVE
 
 /* Define if we have the stat function */
-#undef HAVE_STAT
+#define HAVE_STAT
 
-/* Define if we have the powf function */
-#define HAVE_POWF
-
-/* Define if we have the sqrtf function */
-#define HAVE_SQRTF
-
-/* Define if we have the acosf function */
-#define HAVE_ACOSF
-
-/* Define if we have the atanf function */
-#define HAVE_ATANF
-
-/* Define if we have the fabsf function */
-#define HAVE_FABSF
+/* Define if we have the lrintf function */
+#undef HAVE_LRINTF
 
 /* Define if we have the strtof function */
 #undef HAVE_STRTOF
-
-/* Define if we have stdint.h */
-#undef HAVE_STDINT_H
 
 /* Define if we have the __int64 type */
 #define HAVE___INT64
@@ -63,24 +85,44 @@
 /* Define to the size of a long long int type */
 #define SIZEOF_LONG_LONG 8
 
-/* Define to the size of an unsigned int type */
-#define SIZEOF_UINT 4
-
-/* Define to the size of a void pointer type */
-#ifdef _WIN64
-#define SIZEOF_VOIDP 8
-#else
-#define SIZEOF_VOIDP 4
-#endif
-
 /* Define if we have GCC's destructor attribute */
 #undef HAVE_GCC_DESTRUCTOR
 
 /* Define if we have GCC's format attribute */
 #undef HAVE_GCC_FORMAT
 
+/* Define if we have stdint.h */
+#undef HAVE_STDINT_H
+
+/* Define if we have windows.h */
+#define HAVE_WINDOWS_H
+
+/* Define if we have dlfcn.h */
+#undef HAVE_DLFCN_H
+
 /* Define if we have pthread_np.h */
 #undef HAVE_PTHREAD_NP_H
+
+/* Define if we have xmmintrin.h */
+#define HAVE_XMMINTRIN_H
+
+/* Define if we have arm_neon.h */
+#undef HAVE_ARM_NEON_H
+
+/* Define if we have malloc.h */
+#define HAVE_MALLOC_H
+
+/* Define if we have cpuid.h */
+#undef HAVE_CPUID_H
+
+/* Define if we have guiddef.h */
+#define HAVE_GUIDDEF_H
+
+/* Define if we have initguid.h */
+#define HAVE_INITGUID_H
+
+/* Define if we have ieeefp.h */
+#undef HAVE_IEEEFP_H
 
 /* Define if we have float.h */
 #define HAVE_FLOAT_H
@@ -94,7 +136,8 @@
 /* Define if we have _controlfp() */
 #define HAVE__CONTROLFP
 
+/* Define if we have __control87_2() */
+#undef HAVE___CONTROL87_2
+
 /* Define if we have pthread_setschedparam() */
 #undef HAVE_PTHREAD_SETSCHEDPARAM
-
-#endif

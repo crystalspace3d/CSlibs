@@ -35,8 +35,8 @@ scripts/url-get lib3ds http://lib3ds.googlecode.com/files/lib3ds-1.3.0.zip \
   lib3ds-1.3.0 zip
 scripts/url-get libode "http://downloads.sourceforge.net/project/opende/ODE/0.11.1/ode-0.11.1.zip?use_mirror=dfn" \
   ode-0.11.1 zip
-scripts/url-get openal-soft http://kcat.strangesoft.net/openal-releases/openal-soft-1.13.tar.bz2 \
-  openal-soft-1.13 bz2
+scripts/url-get openal-soft http://kcat.strangesoft.net/openal-releases/openal-soft-1.15.1.tar.bz2 \
+  openal-soft-1.15.1 bz2
 scripts/url-get libassimp "http://downloads.sourceforge.net/project/assimp/assimp-3.0/assimp--3.0.1270-source-only.zip?r=&ts=1356967846&use_mirror=garr" \
   assimp--3.0.1270-source-only zip
   

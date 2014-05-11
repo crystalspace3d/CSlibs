@@ -8,6 +8,7 @@
  - Updated freetype to 2.5.3.
  - Updated libpng to 1.6.10.
  - Updated pcre to 8.35.
+ - Updated OpenAL Soft to 1.15.1.
 
 2.1_003 (2013-02-10):
  - Updated wxWidgets to 2.9.4.
