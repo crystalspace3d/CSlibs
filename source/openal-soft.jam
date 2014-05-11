@@ -1,7 +1,12 @@
 SubDir TOP source openal-soft ;
 
 BaseLib soft_oal : 
-  [ Filter [ Wildcard Alc : *.c *.h ] : Alc/alsa.c Alc/oss.c Alc/portaudio.c Alc/pulseaudio.c Alc/solaris.c ]
+  [ Filter [ Wildcard Alc : *.c *.h ] : Alc/mixer_inc.c Alc/mixer_neon.c ]
+  Alc/backends/dsound.c
+  Alc/backends/loopback.c
+  Alc/backends/mmdevapi.c
+  Alc/backends/null.c
+  Alc/backends/winmm.c
   [ Wildcard OpenAL32 : *.c ]
   [ Wildcard [ ConcatDirs OpenAL32 Include ] : *.h ] : 
   soft_oal :
@@ -10,6 +15,13 @@ BaseLib soft_oal :
   nostatic :
   soft_oal :
   soft_oal ;
-MsvcDefine soft_oal : _WIN32 AL_BUILD_LIBRARY AL_ALEXT_PROTOTYPES isnan=_isnan strcasecmp=_stricmp strncasecmp=_strnicmp snprintf=_snprintf ;
+MsvcDefine soft_oal :
+  _WIN32 AL_BUILD_LIBRARY AL_ALEXT_PROTOTYPES
+  isnan=_isnan
+  strcasecmp=_stricmp
+  strncasecmp=_strnicmp
+  snprintf=_snprintf
+  isfinite=_finite
+  ;
 MsvcExtraFile soft_oal : source/openal-soft.rc ;
 MsvcExternalLibrary soft_oal : WinMM.lib ;

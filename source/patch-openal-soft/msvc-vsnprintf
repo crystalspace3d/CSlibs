@@ -1,13 +1,14 @@
-diff -ru ../openal-soft.old/Alc/ALc.c ./Alc/ALc.c
---- ../openal-soft.old/Alc/ALc.c	Tue Mar 30 05:00:12 2010
-+++ ./Alc/ALc.c	Tue Aug 10 19:49:20 2010
-@@ -38,6 +38,9 @@
- #include "bs2b.h"
- #include "alu.h"
+diff -urN ../openal-soft.org//Alc/helpers.c ./Alc/helpers.c
+--- ../openal-soft.org//Alc/helpers.c	2014-05-11 16:21:35 +0200
++++ ./Alc/helpers.c	2014-05-11 17:36:35 +0200
+@@ -67,6 +67,10 @@
+ 
+ #include "alMain.h"
  
 +#ifdef _MSC_VER
 +#define vsnprintf _vsnprintf
 +#endif
++
+ ALuint CPUCapFlags = 0;
  
- #define EmptyFuncs { NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL }
- typedef struct BackendInfo {
+ 
