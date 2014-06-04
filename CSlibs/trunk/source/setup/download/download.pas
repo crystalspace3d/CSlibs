@@ -1,5 +1,6 @@
 var
   dlOfflineMode: boolean;
+  dlDestDir: string;
 
 procedure CheckDownloadCommandLine;
 var
@@ -24,6 +25,16 @@ begin
     begin
       allPackages[p].state := psUnverified;
     end;
+  end;
+end;
+
+procedure SelectAllPackages;
+var
+  p: integer;
+begin
+  for p := 0 to numPackages-1 do
+  begin
+    allPackages[p].state := psUnverified;
   end;
 end;
 
@@ -95,14 +106,23 @@ begin
     CheckPackageExistsDL (download_dir, package);
 end;
 
+function DownloadDestDir: String;
+begin
+  if (dlDestDir <> '') then begin
+    Result := AddBackslash (dlDestDir);
+  end else begin
+    Result := ExpandConstant('{src}\{#PackageDir}\');
+  end;
+end;
+
 procedure CheckPackagesExists (progress: TOutputProgressWizardPage);
 var
   p: integer;
   dev_package_dir: String;
   download_dir: String;
 begin
-  dev_package_dir := ExpandConstant('{src}\package\');
-  download_dir := ExpandConstant('{src}\{#PackageDir}\');
+  dev_package_dir := ExpandFileName (DownloadDestDir + '..\package\');
+  download_dir := DownloadDestDir();
   if progress <> nil then
   begin
     progress.SetProgress (0, numPackages);
@@ -125,6 +145,21 @@ begin
   end;
 end;
 
+function DownloadPackagesSize: Int64;
+var
+  p: integer;
+begin
+  Result := 0;
+  for p := 0 to numPackages-1 do
+  begin
+    if allPackages[p].state = psNeedDownload then
+    begin
+      Result := Result + allPackages[p].size;
+    end;
+  end;
+end;
+
+
 procedure EmitPackagesForDownload(base_url: String);
 var
   p: integer;
@@ -137,7 +172,7 @@ begin
       if allPackages[p].state = psNeedDownload then
       begin
         ForceDirectories (ExtractFileDir (allPackages[p].download_file));
-        url := Format ('%s/%s.%s', [base_url, allPackages[p].name, packageExt]);
+        url := Format ('%s%s.%s', [base_url, allPackages[p].name, packageExt]);
         Log (Format ('Downloading: %s', [url]));
         idpAddFileSize (url, allPackages[p].download_file, allPackages[p].size);
       end;
