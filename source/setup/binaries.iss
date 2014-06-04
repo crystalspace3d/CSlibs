@@ -3,35 +3,22 @@
 
 #include "CSlibs.inc"
 #define File_OpenALInstaller 		"oalinst.exe"
-#ifdef STATIC
-#define AppName						CSLibsName + " (Static version)"
-#else
-#define AppName						CSLibsName
-#endif
 
 #ifdef X64
-#define ArchName          "x64"
-#define ArchSuffix        "-x64"
 #define ArchSuffixMingw   "64"
 #define CSLibsConfigName  "x86_64-w64-mingw32-cslibs-config"
 #else
-#define ArchName          "x86"
-#define ArchSuffix        ""
 #define ArchSuffixMingw   ""
 #define CSLibsConfigName  "cslibs-config"
 #endif
 
 #ifdef STATIC
-#define SetupName					CSLibsOutputName + "-" + CSLibsVersion + "-static"
 #define ReadmeFile        "Readme-static.rtf"
-#define GeneratedFilesSuffix                            ArchName + "_static"
 #else
-#define SetupName					CSLibsOutputName + "-" + CSLibsVersion
 #define ReadmeFile        "Readme-shared.rtf"
-#define GeneratedFilesSuffix                            ArchName + "_shared"
 #endif
-#define PackageDir                                      CSLibsOutputName + "-" + CSLibsVersion
 
+#define AppName                                         CSLibsAppName
 #define AppId						"CrystalSpaceWin32Libs" + ArchSuffix
 
 [Setup]
@@ -127,6 +114,8 @@ Name: Extra/OpenAL; Description: OpenAL (runtime installer, OpenAL Soft); Types:
 #include <idp.iss>
 
 [Files]
+#define DownloaderFN    "downloader-" + SetupName + ".exe"
+Source: {#OUT_DIR}\{#DownloaderFN}; DestDir: {tmp}; Flags: dontcopy
 Source: {#OUT_DIR}\{#ReadmeFile}; DestName: Readme.rtf; DestDir: {app}
 Source: {#TOP}\Deploying Applications Built Against cs-winlibs.rtf; DestDir: {app}
 Source: {#TOP}\ChangeLog.txt; DestDir: {app}
@@ -266,7 +255,7 @@ var
   
 const
   UninstKey = 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{#AppId}_is1';
-  DownloadBaseURL = 'http://192.168.1.33/~res/packages/';
+  DownloadBaseURL = '{#DownloadBaseURL}';
 
 function GetDefaultCSdir(): string;
 var
@@ -311,6 +300,19 @@ begin
   end;
 end;
 
+function CheckDownload: boolean;
+var
+  i: integer;
+begin
+  Result := false;
+  for i:=1 to ParamCount do begin
+    if (CompareText (ParamStr (i), '/download') = 0) then begin
+      Result := true;
+      break;
+    end;
+  end;
+end;
+
 function CoCreateGuid(var Guid:TGuid):integer;
   external 'CoCreateGuid@ole32.dll stdcall';
 
@@ -325,13 +327,23 @@ end;
 function InitializeSetup(): boolean;
 var
   guid: TGUID;
+  code: integer;
 begin
   CheckSilentType();
-  CheckDownloadCommandLine();
-  InitPackages ();
-  Result := true;
-  CoCreateGuid (guid);
-  packagesGUID := GUIDToString (guid);
+  if CheckDownload then
+  begin
+    Result := false;
+    ExtractTemporaryFile('{#DownloaderFN}');
+    Exec (ExpandConstant ('{tmp}\{#DownloaderFN}'),
+                          GetSupportParams ('') + ExpandConstant (' "/dldir:{src}\{#PackageDir}"'),
+                          '', SW_SHOW, ewWaitUntilTerminated, code);
+  end else begin
+    CheckDownloadCommandLine();
+    InitPackages ();
+    Result := true;
+    CoCreateGuid (guid);
+    packagesGUID := GUIDToString (guid);
+  end;
 end;
 
 function InitializeUninstall(): boolean;
@@ -401,7 +413,7 @@ begin
   SelectPackagesProgress.Msg1Label.Caption := 'Verifying previously downloaded packages...';
   VerifyPackagesProgress := CreateOutputProgressPage ('Verifying downloaded packages',
     'Checking the downloaded data for correctness.');
-  VerifyPackagesProgress .Msg1Label.Caption := 'Verifying downloaded packages...';
+  VerifyPackagesProgress.Msg1Label.Caption := 'Verifying downloaded packages...';
   
   { Silent mode: no automatic download UI }
   if silentType = 0 then idpDownloadAfter(wpReady);
