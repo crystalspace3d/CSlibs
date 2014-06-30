@@ -586,20 +586,19 @@ begin
   if (CurPage = wpSelectDir) then begin
     if (not IsDestinationOk()) then
      Result := SpaceInDestMsg();
+  end else if (CurPage = wpSelectProgramGroup) then begin
+    { Select packages to download }
+    SelectPackages;
+    Result := FDoCheckPackages;
   end else if (CurPage = wpReady) then begin
     if (uninstallPage.Values[0]) then
     begin
       Result := FDoUninstPrev;
-    end;
-    { Select packages to download }
-    if (Result) then
-    begin
-      SelectPackages;
-      Result := FDoCheckPackages;
+      { Schedule packages for download }
       if Result then
       begin
         EmitPackagesForDownload(DownloadBaseURL);
-      end
+      end;
     end;
   end;
 end;
@@ -623,14 +622,37 @@ begin
   end;
 end;
 
-{
+procedure StrFormatByteSizeW (qdw: Int64; pszBuf: String; cchBuf: Cardinal);
+external 'StrFormatByteSizeW@shlwapi.dll stdcall';
+
 function UpdateReadyMemo(Space, NewLine, MemoUserInfoInfo, MemoDirInfo, MemoTypeInfo, MemoComponentsInfo,
                          MemoGroupInfo, MemoTasksInfo: String): String;
+var
+  dlsize: Int64;
+  sizestr: String;
+  downloadinfo: String;
 begin
-  Result := MemoDirInfo + NewLine + NewLine + MemoTypeInfo + NewLine + NewLine + MemoComponentsInfo
-     + NewLine + NewLine + MemoGroupInfo + NewLine + NewLine + MemoTasksInfo + NewLine + NewLine;
+  dlsize := DownloadPackagesSize();
+  if (dlsize > 0) then begin
+    SetLength (sizestr, 32);
+    StrFormatByteSizeW (dlsize, sizestr, 32);
+    SetLength (sizestr, Pos (#0, sizestr)-1);
+    downloadinfo := Format ('Additional files:%s%s%s will be downloaded to%s%s%s.', 
+                         {} [NewLine, Space, sizestr, NewLine, Space, RemoveBackslashUnlessRoot(DownloadDestDir)]);
+  end;
+  if (length (MemoDirInfo) > 0) then
+    Result := Result + MemoDirInfo + NewLine + NewLine;
+  if (length (downloadinfo) > 0) then
+    Result := Result + downloadinfo + NewLine + NewLine;
+  if (length (MemoTypeInfo) > 0) then
+    Result := Result + MemoTypeInfo + NewLine + NewLine;
+  if (length (MemoComponentsInfo) > 0) then
+    Result := Result + MemoComponentsInfo + NewLine + NewLine;
+  if (length (MemoGroupInfo) > 0) then
+    Result := Result + MemoGroupInfo + NewLine + NewLine;
+  if (length (MemoTasksInfo) > 0) then
+    Result := Result + MemoTasksInfo + NewLine + NewLine;
 end;
-}
 
 procedure WriteVersionTxt();
 begin
