@@ -1,9 +1,0 @@
---- src/CMakeLists.txt.orig	Tue Sep  7 23:40:17 2010
-+++ src/CMakeLists.txt	Tue Nov  2 08:16:53 2010
-@@ -1,4 +1,5 @@
--SUBDIRS( MiniCL BulletMultiThreaded BulletSoftBody BulletCollision BulletDynamics LinearMath )
-+#SUBDIRS( MiniCL BulletMultiThreaded BulletSoftBody BulletCollision BulletDynamics LinearMath )
-+SUBDIRS(BulletSoftBody BulletCollision BulletDynamics LinearMath )
- 
- IF(INSTALL_LIBS)
- 	#INSTALL of other files requires CMake 2.6

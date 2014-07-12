@@ -1,0 +1,19 @@
+--- ../bullet-2.82-r2704/src/BulletCollision/CollisionShapes/btConvexShape.cpp	2013-09-13 18:34:39 +0200
++++ src/BulletCollision/CollisionShapes/btConvexShape.cpp	2014-07-12 21:30:22 +0200
+@@ -302,6 +302,7 @@
+ 
+ btVector3 btConvexShape::localGetSupportVertexNonVirtual (const btVector3& localDir) const
+ {
++	btScalar s = getMarginNonVirtual();
+ 	btVector3 localDirNorm = localDir;
+ 	if (localDirNorm .length2() < (SIMD_EPSILON*SIMD_EPSILON))
+ 	{
+@@ -309,7 +310,7 @@
+ 	}
+ 	localDirNorm.normalize ();
+ 
+-	return localGetSupportVertexWithoutMarginNonVirtual(localDirNorm)+ getMarginNonVirtual() * localDirNorm;
++	return localGetSupportVertexWithoutMarginNonVirtual(localDirNorm)+ s * localDirNorm;
+ }
+ 
+ /* TODO: This should be bumped up to btCollisionShape () */
