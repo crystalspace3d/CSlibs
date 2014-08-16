@@ -41,7 +41,8 @@ scripts/url-get libassimp "http://downloads.sourceforge.net/project/assimp/assim
   assimp--3.0.1270-source-only zip
   
 # Extra libs
-scripts/url-get libwx ftp://ftp.wxwidgets.org/pub/2.9.4/wxWidgets-2.9.4.tar.bz2 wxWidgets-2.9.4 bz2
+scripts/url-get libwx ftp://ftp.wxwidgets.org/pub/3.0.1/wxWidgets-3.0.1.tar.bz2 wxWidgets-3.0.1 bz2
+
 
 # A bit of manual setup
 if [ -d libwx ]; then
